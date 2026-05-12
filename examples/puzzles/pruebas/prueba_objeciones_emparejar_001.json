@@ -1,0 +1,83 @@
+{
+  "id": "prueba_objeciones_emparejar_001",
+  "nombre": "Objeciones de los Hermanos",
+  "descripcion": "Ana cuenta las objeciones y dudas de sus hermanos sobre alquilar la casa a Pepe. Para convencerlos, debes ayudar a Pepe a emparejar cada objecion con la respuesta o argumento adecuado que la desmonte. Cada emparejamiento correcto acerca a Pepe a conseguir la casa.",
+  "skill_primario": "prueba-emparejamiento-texto",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "numero_pares": 5,
+    "tipo_emparejamiento": "objecion-respuesta",
+    "mostrar_feedback": true,
+    "permitir_reordenar": true,
+    "dificultad_logica": 4,
+    "contexto_narrativo": "Negociacion con los hermanos de Ana sobre el alquiler",
+    "url_siguiente": "https://devueltaalpueblo.com/negociando",
+    "mensaje_exito": "Has rebatido todas las objeciones. Los hermanos comienzan a ceder.",
+    "categoria": "investigacion_texto"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Identifica las objeciones principales de los hermanos"
+    },
+    {
+      "nivel": 2,
+      "texto": "Busca argumentos que aborden directamente sus preocupaciones"
+    },
+    {
+      "nivel": 3,
+      "texto": "Empareja cada objecion con una solucion que resuelva el problema"
+    },
+    {
+      "nivel": 4,
+      "texto": "Presenta como el proyecto de Pepe beneficia a todos"
+    },
+    {
+      "nivel": 5,
+      "texto": "Completa correctamente el emparejamiento para avanzar en la negociacion"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Emparejamiento logico de objeciones con respuestas",
+    "metodo": "Leer cada objecion, identificar la preocupacion subyacente, buscar la respuesta que la aborde directamente",
+    "resultado": "Acceso a https://devueltaalpueblo.com/negociando"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "14+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: Interfaz drag & drop en movil. Textos deben ser concisos para pantallas pequenas."
+  },
+  "assets": {
+    "objeciones": "TODO: lista de objeciones especificas",
+    "respuestas": "TODO: lista de respuestas especificas"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "emparejamiento",
+      "negociacion",
+      "objeciones",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 13
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: Interfaz drag & drop en movil. Textos deben ser concisos para pantallas pequenas.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

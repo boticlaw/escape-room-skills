@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-03-25_001",
+  "nombre": "Rompecabezas dividido entre jugadores",
+  "descripcion": "Las piezas de un puzzle están repartidas entre varios jugadores en sobres cerrados. Ninguno puede ver las piezas de los demás. Deben describir oralmente lo que tienen (colores, formas, texto parcial) para ensamblarlo juntos. Al completar el puzzle, la imagen revela un código de 4 dígitos impreso en el centro de la imagen ensamblada. Ejemplo: un póster de una escena del crimen dividido en 12 trozos; al unirlos, un número de expediente visible en el centro (ej: 'CASO 7291') es el código del candado.",
+  "skill_primario": "prueba-puzzle-ensamblaje",
+  "skills_secundarios": ["prueba-comunicacion-mensajes"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "cooperacion_equipo",
+    "materiales_estimados": "Puzzle recortado en piezas (impreso en cartulina y cortado), sobres separados para cada jugador",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 15
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada jugador debería describir los colores dominantes y si ve texto o números en sus piezas."
+    },
+    {
+      "nivel": 2,
+      "texto": "Prestad atención a los bordes: las piezas con borde recto suelen ser del marco exterior."
+    },
+    {
+      "nivel": 3,
+      "texto": "El código está en el centro del puzzle. Ensamblad las esquinas primero y trabajad hacia el medio."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Los jugadores describen sus piezas de puzzle sin mostrarlas, colaborando para ensamblarlo. La imagen completada revela un código impreso.",
+    "descripcion": "Cada jugador abre un sobre con piezas. Describen formas, colores y fragmentos de texto. Al unir todas las piezas correctamente, la imagen central muestra el código (ej: número de expediente, matrícula, fecha clave).",
+    "resultado": "Código de 4 dígitos visible en el centro del puzzle ensamblado"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal en sala. STREET ESCAPE: Usar versión portátil (piezas en bolsas zip)."
+  },
+  "assets": {
+    "nota": "Imprimir imagen con código integrado en cartulina A4, recortar en 12-16 piezas, distribuir en sobres."
+  },
+  "metadata": {
+    "creado": "2026-03-25",
+    "version": "3.0",
+    "autor": "Generador (mejorada)",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "cooperacion_equipo",
+      "prueba-puzzle-ensamblaje",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "mejorada"
+}

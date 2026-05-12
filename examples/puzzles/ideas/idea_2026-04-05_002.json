@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-05_002",
+  "nombre": "Matriz de colores dominó",
+  "descripcion": "Una cuadrícula 5x5 impresa donde cada celda tiene un color de fondo (rojo, azul, verde, amarillo, blanco). Los jugadores reciben 5 fichas de dominó (o tarjetas rectangulares) con 2 colores cada una. Deben colocar las fichas sobre la cuadrícula de forma que cada mitad de la ficha coincida con el color de la celda que cubre. Las fichas solo caben en UNA posición válida. Las 5 celdas que quedan DESCUBIERTAS (sin ficha encima) contienen números pequeños impresos que, leídos en orden de lectura, forman el código. Ejemplo: celdas descubiertas = 4, 7, 2, 9, 1 → código 47291.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": ["prueba-exploracion-visual"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "logica_deducciones",
+    "materiales_estimados": "Cuadrícula 5x5 impresa en A4 (~0.50€), 5 fichas de cartulina con 2 colores cada una (~0.50€)",
+    "coste_estimado": "bajo (~1-2€)",
+    "tiempo_preparacion_minutos": 20
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada ficha tiene dos colores. Cada mitad debe coincidir con el color de la celda que cubre. Probad a colocarlas."
+    },
+    {
+      "nivel": 2,
+      "texto": "Solo hay una forma de colocar todas las fichas correctamente. Empezad por las fichas con colores más raros en la cuadrícula."
+    },
+    {
+      "nivel": 3,
+      "texto": "Las celdas que quedan sin cubrir tienen números. Leedlos en orden normal (izquierda a derecha, arriba a abajo)."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Colocar fichas bicolores en cuadrícula coincidiendo colores y leer celdas descubiertas",
+    "descripcion": "Los jugadores colocan 5 fichas de dominó de colores sobre una cuadrícula 5x5. Solo hay una colocación válida donde cada mitad coincide con el color de su celda. Las 5 celdas que quedan descubiertas contienen los dígitos del código.",
+    "resultado": "Código numérico de 5 dígitos de las celdas descubiertas tras la colocación correcta"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal en mesa. STREET ESCAPE: Versión portátil con tablero rígido. Para niños: cuadrícula 3x3, 2 fichas, colores primarios."
+  },
+  "assets": {
+    "nota": "Diseñar cuadrícula con solución única. Imprimir números pequeños en las celdas correctas. Cortar fichas de cartulina."
+  },
+  "metadata": {
+    "creado": "2026-04-05",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "logica_deducciones", "prueba-logica-posiciones", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}

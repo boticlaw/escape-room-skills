@@ -131,4 +131,4 @@ Entrada → [PRENSA] → Prensa → [PINCEL] → Ilustración → [BOTA] → Ran
 ---
 
 *Versión 3.0 - Marzo 2026*
-*Agente: Escapeitor*
+*Agente: Generador*

@@ -1,0 +1,150 @@
+{
+  "id": "prueba_pelos_microscopio_001",
+  "nombre": "Analisis de Pelos",
+  "descripcion": "Tres bolsas con pelos encontrados en la escena del crimen. Los jugadores deben usar el microscopio del kit para analizar color, textura y estructura, y comparar con las fichas de los sospechosos.",
+  "skill_primario": "prueba-observacion",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "numero_bolsas": 3,
+    "bolsas_evidencia": [
+      {
+        "id": "PELO-A",
+        "ubicacion": "Ropa de la victima",
+        "caracteristicas": {
+          "color": "Castano oscuro",
+          "textura": "Grueso",
+          "longitud_mm": 45,
+          "raiz": "Presente",
+          "puntas": "Bifurcadas"
+        }
+      },
+      {
+        "id": "PELO-B",
+        "ubicacion": "Sillon junto al cuerpo",
+        "caracteristicas": {
+          "color": "Rubio",
+          "textura": "Fino",
+          "longitud_mm": 30,
+          "raiz": "Ausente",
+          "puntas": "Cortadas"
+        }
+      },
+      {
+        "id": "PELO-C",
+        "ubicacion": "Manija de la puerta",
+        "caracteristicas": {
+          "color": "Negro",
+          "textura": "Medio",
+          "longitud_mm": 25,
+          "raiz": "Presente",
+          "puntas": "Natural"
+        }
+      }
+    ],
+    "fichas_sospechosos": [
+      {
+        "nombre": "Edurne",
+        "cabello": "Rubio, fino, corto"
+      },
+      {
+        "nombre": "Samuel",
+        "cabello": "Castano oscuro, grueso, largo"
+      },
+      {
+        "nombre": "Francisco",
+        "cabello": "Negro, medio, corto"
+      },
+      {
+        "nombre": "Rodrigo",
+        "cabello": "Pelirrojo, fino, medio"
+      },
+      {
+        "nombre": "Marta",
+        "cabello": "Castano claro, grueso, largo"
+      },
+      {
+        "nombre": "Maria",
+        "cabello": "Negro, fino, largo"
+      },
+      {
+        "nombre": "Jaime",
+        "cabello": "Rubio oscuro, medio, corto"
+      },
+      {
+        "nombre": "Sara",
+        "cabello": "Castano oscuro, medio, largo"
+      }
+    ],
+    "material_necesario": "Microscopio del Kit de Laboratorio",
+    "categoria": "observacion_detalle"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Usa el microscopio para observar los pelos. Anota color y textura de cada bolsa."
+    },
+    {
+      "nivel": 2,
+      "texto": "Compara con las fichas de sospechosos. Busca coincidencias exactas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La bolsa PELO-A coincide con Samuel: castano oscuro, grueso, raiz presente."
+    }
+  ],
+  "solucion": {
+    "analisis_bolsas": [
+      {
+        "bolsa": "PELO-A",
+        "coincide_con": "Samuel",
+        "confianza": "Alta"
+      },
+      {
+        "bolsa": "PELO-B",
+        "coincide_con": "Edurne",
+        "confianza": "Media"
+      },
+      {
+        "bolsa": "PELO-C",
+        "coincide_con": "Francisco",
+        "confianza": "Alta"
+      }
+    ],
+    "evidencia_clave": "PELO-C de la manija de la puerta coincide exactamente con Francisco",
+    "resultado": "Los pelos de Francisco (Negro) estaban en la manija de la puerta. Francisco ESTUVO en la escena, pero ya fue eliminado por tiempo."
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Francisco",
+    "color": "Rojo",
+    "razon": "PELO-C de la manija coincide con su cabello negro. Estuvo en la escena ese dia, pero tiene coartada solida: estaba de viaje."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_bolsas": "pruebas/assets/crimen_juan_palomo/bolsas_pelos.png",
+    "imagen_microscopio": "pruebas/assets/crimen_juan_palomo/vista_microscopio.png",
+    "fichas_sospechosos": "pruebas/assets/crimen_juan_palomo/fichas_cabello.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

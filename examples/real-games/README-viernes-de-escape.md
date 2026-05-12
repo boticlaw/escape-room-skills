@@ -2,7 +2,7 @@
 
 **Proyecto:** Escape rooms para el ayuntamiento
 **Estado:** En desarrollo
-**Ubicación:** `~/.openclaw/workspace/projects/viernes-de-escape/`
+**Ubicación:** `~/.repositorio/workspace/projects/viernes-de-escape/`
 
 ---
 

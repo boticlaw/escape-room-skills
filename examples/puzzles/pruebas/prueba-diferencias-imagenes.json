@@ -1,0 +1,62 @@
+{
+  "id": "idea_2026-03-24_005",
+  "nombre": "Idea: Diferencias en imágenes (con tiempo límite) — Variante (2026-03-24)",
+  "descripcion": "Dos imágenes casi idénticas. Los jugadores deben encontrar 5-7 diferencias. Las diferencias revelan letras o números que forman un código. Variante con tiempo limitado: los jugadores tienen 3 minutos para resolverla. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 5,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "Dos versiones de una imagen impresa, marcador",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 47
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-exploracion-visual",
+    "descripcion": "Los jugadores deben dos imágenes casi idénticas. los jugadores deben encontrar 5-7 diferencias. las diferencias revelan letras o números que forman un código. variante con tiempo limitado: los jugadores tienen 3 minutos para resolverla.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-24",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "observacion_detalle",
+      "prueba-exploracion-visual",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": "Diferencias en imágenes"
+  },
+  "estado": "mejorada",
+  "notas": "En vez de 1 imagen con diferencias que revelan letras, usar 4-5 parejas de imagenes. Cada imagen tiene asociado un año u ordenador (pintura historica, foto antigua, etc). El NUMERO de diferencias de cada imagen es un digito del codigo. Ejemplo: imagen 1890 = 3 diferencias, imagen 1925 = 7 diferencias, etc. El orden lo da el año de cada imagen."
+}

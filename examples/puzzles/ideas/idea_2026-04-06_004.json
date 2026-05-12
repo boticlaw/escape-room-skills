@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-06_004",
+  "nombre": "Matriz de perforaciones (pincha y revela)",
+  "descripcion": "Los jugadores reciben una tarjeta de cartulina gruesa (tamaño A5) con una cuadrícula de 6x6 celdas. Cada celda contiene un número del 0 al 9 (muchos repetidos). Encima de la cuadrícula hay una capa de papel opaco pegada por los bordes que oculta los números. Junto a la tarjeta hay una hoja con 8 pistas narrativas, cada una indicando una coordenada de la cuadrícula: por ejemplo, 'El detective encontró la primera pista en el tercer cajón de la segunda fila' → columna 3, fila 2. Los jugadores usan un punzón (un clip enderezado funciona) para perforar las 8 celdas indicadas por las coordenadas. Al perforar y levantar la capa opaca en esas posiciones, ven los números ocultos. Los 8 números en orden de las pistas forman un código que se introduce en un teclado/pad numérico cercano. Ejemplo: las 8 perforaciones revelan 4-7-2-1-9-0-3-5, código 47219035.",
+  "skill_primario": "prueba-logica-secuencial",
+  "skills_secundarios": ["prueba-investigacion-texto"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "perforacion_coordenadas",
+    "materiales_estimados": "Cartulina gruesa A5 (~0.50€), papel opaco para capa superior (~0€), clip como punzón (~0€), hoja con pistas narrativas",
+    "coste_estimado": "bajo (~1€)",
+    "tiempo_preparacion_minutos": 20
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada pista narrativa oculta una coordenada de la cuadrícula. Prestad atención a los números mencionados en cada frase: indican columna y fila."
+    },
+    {
+      "nivel": 2,
+      "texto": "Traducid cada pista a coordenadas (columna, fila). Usad el clip para perforar las celdas correspondientes y levantad la capa opaca para ver los números debajo."
+    },
+    {
+      "nivel": 3,
+      "texto": "Las coordenadas son: (3,2), (1,4), (6,1), (2,5), (4,3), (5,6), (1,1), (6,4). Los números de esas posiciones en orden forman el código. Introducidlo en el teclado."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Decodificar pistas narrativas como coordenadas de cuadrícula, perforar las celdas correctas para revelar números ocultos que forman un código",
+    "descripcion": "Los jugadores interpretan 8 pistas narrativas como coordenadas de una cuadrícula 6x6. Al perforar las posiciones correctas, descubren 8 números que forman el código de acceso.",
+    "resultado": "Código numérico de 8 dígitos obtenido por perforación secuencial de coordenadas"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "HALL ESCAPE: Ideal, se trabaja en mesa. STREET ESCAPE: Usar tarjetas plastificadas con perforaciones pre-hechas tapadas con pegatinas. Para niños: cuadrícula 4x4 y solo 4 coordenadas, pistas más directas sin metáfora."
+  },
+  "assets": {
+    "nota": "Preparar la cuadrícula con números, pegar la capa opaca por los bordes (no demasiado fuerte para poder levantar). Asegurar que el clip es suficiente para perforar. Numerar las pistas para mantener el orden del código."
+  },
+  "metadata": {
+    "creado": "2026-04-06",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "perforacion_coordenadas", "prueba-logica-secuencial", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}

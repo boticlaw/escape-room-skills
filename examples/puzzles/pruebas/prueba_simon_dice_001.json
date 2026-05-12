@@ -1,0 +1,100 @@
+{
+  "id": "prueba_simon_dice_001",
+  "nombre": "Secuencia Alienígena",
+  "descripcion": "Una interfaz alienígena muestra secuencias de colores que los jugadores deben memorizar y repetir. Cada jugador controla un color (rojo, azul o verde). En hall escape usan una tablet compartida. En street escape cada uno usa su móvil y ve la misma secuencia sincronizada. La secuencia se alarga hasta 7 elementos. Al completarla, aparece un código numérico en pantalla.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [
+    "prueba-cifrado"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_juego": "simon_dice",
+    "modo_juego": "tablet_compartida",
+    "numero_jugadores": 3,
+    "secuencia_inicial": 3,
+    "secuencia_maxima": 7,
+    "colores_botones": [
+      "rojo",
+      "azul",
+      "verde"
+    ],
+    "tiempo_entre_secuencias": 1000,
+    "tiempo_respuesta": 5000,
+    "dispositivo_activacion": "pantalla_codigo",
+    "codigo_recompensa": "4284",
+    "mensaje_exito": "¡Secuencia completada! Protocolo de desbloqueo activado.",
+    "intentos_maximos": 3,
+    "tiempo_recuperacion": 8,
+    "musica_fondo": true,
+    "efectos_sonido": true,
+    "vibracion": true,
+    "mostrar_progreso": true,
+    "categoria": "cooperacion_equipo"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Repartid los colores: cada jugador se encarga de uno. Recordad quién es quién."
+    },
+    {
+      "nivel": 2,
+      "texto": "Repetid la secuencia en voz alta mientras se reproduce. La memoria auditiva ayuda."
+    },
+    {
+      "nivel": 3,
+      "texto": "Si falláis, la secuencia se reinicia desde el principio. Concentración total en cada ronda."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Simon Dice cooperativo con memoria grupal",
+    "asignacion_colores": "Jugador 1: Rojo | Jugador 2: Azul | Jugador 3: Verde",
+    "progresion": "Ronda 1: 3 colores → Ronda 2: 4 colores → ... → Ronda 5: 7 colores",
+    "estrategia": "1. Asignar colores claros. 2. Repetir en voz alta la secuencia mientras suena. 3. Mantener el orden de turnos para pulsar. 4. Si se olvida, usar mnemotecnia (ej: 'Rojo-Azul-Rojo' = 'Raúl Baila Rap').",
+    "resultado": "Código 4284 mostrado en pantalla de la tablet"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 3,
+    "notas_espacio": "HALL ESCAPE: Tablet compartida visible para todos en pedestal o mesa. Si hay 2 jugadores, uno controla dos colores. STREET ESCAPE: Cada jugador usa su móvil con la app/URL del juego, todos ven la misma secuencia sincronizada vía servidor. Requiere conexión a internet. El código aparece en pantalla al completar la prueba."
+  },
+  "assets": {
+    "imagen_tablet": "pruebas/assets/prueba_simon_dice_001/tablet_alien.png",
+    "icono_rojo": "pruebas/assets/prueba_simon_dice_001/boton_rojo.png",
+    "icono_azul": "pruebas/assets/prueba_simon_dice_001/boton_azul.png",
+    "icono_verde": "pruebas/assets/prueba_simon_dice_001/boton_verde.png",
+    "sonido_rojo": "pruebas/assets/prueba_simon_dice_001/beep_rojo.mp3",
+    "sonido_azul": "pruebas/assets/prueba_simon_dice_001/beep_azul.mp3",
+    "sonido_verde": "pruebas/assets/prueba_simon_dice_001/beep_verde.mp3",
+    "sonido_error": "pruebas/assets/prueba_simon_dice_001/error.mp3",
+    "sonido_exito": "pruebas/assets/prueba_simon_dice_001/success.mp3",
+    "musica_fondo": "pruebas/assets/prueba_simon_dice_001/alien_ambient.mp3"
+  },
+  "metadata": {
+    "creado": "2026-02-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "tablet",
+      "cooperativo",
+      "simon_dice",
+      "memoria",
+      "secuencia",
+      "pantalla_codigo",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "HALL ESCAPE: Tablet compartida visible para todos en pedestal o mesa. Si hay 2 jugadores, uno controla dos colores. STREET ESCAPE: Cada jugador usa su móvil con la app/URL del juego, todos ven la misma secuencia sincronizada vía servidor. Requiere conexión a internet. El código aparece en pantalla al completar la prueba.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial",
+      "pantalla_principal": true
+    }
+  }
+}

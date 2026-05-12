@@ -542,4 +542,4 @@ El juego "El Legado de la Familia" es un **producto sólido para el programa Vie
 
 ---
 
-*Playtest simulado por Escapeitor — 2 de mayo de 2026*
+*Playtest simulado por Generador — 2 de mayo de 2026*

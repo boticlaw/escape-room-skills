@@ -3,7 +3,7 @@
 **Tipo:** Street Escape (outdoor, geolocalizado)  
 **Ubicación:** Parque del Salón, Palencia, España  
 **Repo:** `https://github.com/danielgap/La-dama-del-salon` (privado, acceso boticlaw)  
-**Código fuente:** `/home/daniel/.openclaw/workspace/La-dama-del-salon/`  
+**Código fuente:** `SANITIZED_PATH`  
 **Fecha análisis:** 2026-04-27
 
 ---

@@ -1,0 +1,111 @@
+{
+  "id": "prueba_autoras_obras_001.json",
+  "nombre": "Autoras y Obras",
+  "descripcion": "En la Sala de Introducción hay una mesa con 6 tarjetas de autoras (retratos ficticios) y 6 tarjetas de obras (títulos). Los jugadores deben emparejar cada autora con su obra más famosa. Cuando aciertan todas las parejas, las tarjetas revelan un número escondido: 7.",
+  "skill_primario": "prueba-emparejamiento-memoria",
+  "skills_secundarios": [
+    "prueba-investigacion-texto"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "numero_pares": 6,
+    "tipo_elemento_a": "autoras",
+    "tipo_elemento_b": "obras",
+    "mostrar_feedback": true,
+    "permitir_errores": true,
+    "max_errores": 3,
+    "emparejamientos": [
+      {
+        "autora": "Elena de la Fuente",
+        "obra": "Cartas desde el Duero"
+      },
+      {
+        "autora": "Ana María Vega",
+        "obra": "El Secreto del Valle"
+      },
+      {
+        "autora": "Isabel del Campo",
+        "obra": "Canciones de Tierra y Cielo"
+      },
+      {
+        "autora": "Rosa Montero Palencia",
+        "obra": "Las Voces Olvidadas"
+      },
+      {
+        "autora": "Carmen de la Peña",
+        "obra": "Amanecer en Castilla"
+      },
+      {
+        "autora": "Teresa de Silva",
+        "obra": "Memorias de una Soñadora"
+      }
+    ],
+    "pista_contextual": "Cada obra tiene una pista sutil sobre su autora (lugar de nacimiento, tema favorito, año de publicación)",
+    "mensaje_exito": "¡Perfecto! Las tarjetas forman el número: 7",
+    "codigo_recompensa": 7,
+    "categoria": "investigacion_texto"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Leed las descripciones de las autoras y las sinopsis de las obras. Buscad conexiones."
+    },
+    {
+      "nivel": 2,
+      "texto": "El título de cada obra contiene pistas sobre quién la escribió: lugares, temas, estilo."
+    },
+    {
+      "nivel": 3,
+      "texto": "'Cartas desde el Duero' fue escrita por alguien que vivió junto al río. Elena de la Fuente nació en la ribera."
+    },
+    {
+      "nivel": 4,
+      "texto": "Las parejas correctas son: Elena-Cartas, Ana-El Secreto, Isabel-Canciones, Rosa-Voces, Carmen-Amanecer, Teresa-Memorias"
+    },
+    {
+      "nivel": 5,
+      "texto": "Cuando todas las parejas estén correctas, las tarjetas revelarán el número 7."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Emparejamiento con deducción por pistas textuales",
+    "parejas_correctas": {
+      "Elena de la Fuente": "Cartas desde el Duero",
+      "Ana María Vega": "El Secreto del Valle",
+      "Isabel del Campo": "Canciones de Tierra y Cielo",
+      "Rosa Montero Palencia": "Las Voces Olvidadas",
+      "Carmen de la Peña": "Amanecer en Castilla",
+      "Teresa de Silva": "Memorias de una Soñadora"
+    },
+    "respuesta": 7,
+    "resultado": "Segundo dígito del código final obtenido"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "Mesa amplia para las 12 tarjetas. Considerar versiones con imágenes para jugadores más jóvenes."
+  },
+  "assets": {
+    "tarjetas_autoras": "TODO: Diseñar 6 tarjetas con retratos ficticios estilo época",
+    "tarjetas_obras": "TODO: Diseñar 6 tarjetas con portadas de libros ficticios",
+    "numero_oculto": "El número 7 aparece al voltear las tarjetas correctamente emparejadas"
+  },
+  "metadata": {
+    "creado": "2026-03-16",
+    "version": "1.0",
+    "autor": "generador",
+    "testeado": false,
+    "tags": [
+      "hall_escape",
+      "emparejamiento",
+      "memoria",
+      "escritoras",
+      "literatura"
+    ],
+    "proyecto": "legado_tinta_violeta",
+    "juego": "legado_tinta_violeta"
+  }
+}

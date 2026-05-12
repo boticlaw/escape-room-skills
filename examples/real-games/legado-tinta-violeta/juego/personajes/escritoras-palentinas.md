@@ -270,4 +270,4 @@
 ---
 
 *Investigación realizada para el diseño del escape room "El Legado en Tinta Violeta"*
-*Agente: Escapeitor | Fecha: Marzo 2026*
+*Agente: Generador | Fecha: Marzo 2026*

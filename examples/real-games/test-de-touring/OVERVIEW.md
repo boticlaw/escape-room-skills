@@ -1,7 +1,7 @@
 # 🔐 Test de Touring v2 — Overview
 
 > **Escape Room Educativo sobre IA Real**
-> Versión 2.2 · 8 Abril 2026 · Escapeitor
+> Versión 2.2 · 8 Abril 2026 · Generador
 > **Físico > Digital · Tablets como apoyo · ~120€ presupuesto**
 
 ---

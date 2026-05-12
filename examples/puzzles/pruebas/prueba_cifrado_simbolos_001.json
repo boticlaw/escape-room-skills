@@ -1,0 +1,177 @@
+{
+  "id": "prueba_cifrado_simbolos_001",
+  "nombre": "El Mensaje Oculto - Cifrado de Símbolos",
+  "descripcion": "Los jugadores descubren un mensaje misterioso donde las letras han sido reemplazadas por símbolos geométricos. Para decodificarlo, deben encontrar la tabla de símbolos escondida en el póster de la habitación y aplicar la sustitución correcta. La palabra resultante abre el siguiente paso del escape.",
+  "skill_primario": "prueba-cifrado",
+  "skills_secundarios": [
+    "prueba-emparejamiento-texto",
+    "prueba-exploracion-visual"
+  ],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "completa",
+    "categoria": "puzzles_mentales",
+    "mecanica_principal": "sustitucion_letras_simbolos",
+    "palabras_objetivo": ["APERTURA", "LLAVE", "SALIDA", "ENTRADA", "CLAVE", "CODIGO", "PUERTA"],
+    "palabra_seleccionada": "APERTURA",
+    "longitud_palabra": 8,
+    "sistema_cifrado": "sustitucion_simple",
+    "formato_mensaje": "simbolos_geometricos",
+    "materiales_necesarios": [
+      "Hoja con mensaje cifrado (A4 impreso o escrito a mano)",
+      "Póster con tabla de símbolos (enmarcado o en la pared)",
+      "Bolígrafo o lápiz",
+      "Candado de 3-4 dígitos (opcional)"
+    ],
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 25,
+    "requiere_game_master": false
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Fíjate en el póster de la pared. Muestra qué símbolo corresponde a cada letra.",
+      "tipo": "exploracion_visual"
+    },
+    {
+      "nivel": 2,
+      "texto": "El mensaje está compuesto por símbolos geométricos. Cuenta cada símbolo cuidadosamente y busca su equivalente en la tabla.",
+      "tipo": "emparejamiento"
+    },
+    {
+      "nivel": 3,
+      "texto": "La palabra clave está relacionada con 'abrir' o 'comenzar'. Tiene 8 letras y empieza por A.",
+      "tipo": "contextual"
+    },
+    {
+      "nivel": 4,
+      "texto": "El primer símbolo ★ corresponde a la letra A. El segundo símbolo ● corresponde a la letra P. Continúa sustituyendo cada símbolo.",
+      "tipo": "directa"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Sustituir cada símbolo por su letra correspondiente según la tabla de símbolos",
+    "mensaje_cifrado": "★●■●★▲◆■●★",
+    "mensaje_original": "APERTURA",
+    "desglose_sustitucion": {
+      "★": "A",
+      "●": "P",
+      "■": "E",
+      "▲": "R",
+      "◆": "T",
+      "★": "A"
+    },
+    "metodo_resolucion": [
+      "1. Localizar la tabla de símbolos en el póster de la habitación",
+      "2. Identificar cada símbolo en el mensaje cifrado",
+      "3. Buscar el símbolo en la tabla y encontrar su letra equivalente",
+      "4. Escribir la letra debajo de cada símbolo",
+      "5. Leer la palabra resultante de izquierda a derecha"
+    ],
+    "resultado": "Palabra APERTURA → Candado numérico o siguiente prueba"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "hall_escape": {
+      "descripcion": "Espacio controlado con póster fijo en pared",
+      "materiales": "Póster enmarcado en pared, mensaje cifrado en mesa",
+      "duracion": "10-12 minutos",
+      "ubicacion_tabla": "Pared visible desde el área de trabajo"
+    },
+    "street_escape": {
+      "descripcion": "Espacio exterior con materiales portátiles",
+      "materiales": "Flyer o panel portátil con tabla de símbolos",
+      "duracion": "8-10 minutos",
+      "ubicacion_tabla": "Panel plegable o flyer entregado al inicio"
+    },
+    "investigacion": {
+      "descripcion": "Juego no presencial con materiales digitales",
+      "materiales": "PDF con mensaje cifrado + PDF con tabla de símbolos",
+      "duracion": "15-20 minutos",
+      "ubicacion_tabla": "Documento separado enviado por email"
+    },
+    "ajuste_dificultad": {
+      "facil": "Tabla de símbolos visible junto al mensaje cifrado",
+      "medio": "Tabla de símbolos en otra ubicación de la habitación",
+      "dificil": "Tabla de símbolos parcial o con símbolos extra"
+    }
+  },
+  "assets": {
+    "mensaje_cifrado": {
+      "tipo": "plantilla_A4",
+      "contenido": "★●■●★▲◆■●★",
+      "formato": "PDF/imagen",
+      "ubicacion": "escape-material/pruebas/assets/prueba_cifrado_simbolos_001_mensaje.pdf"
+    },
+    "tabla_simbolos": {
+      "tipo": "poster_A3",
+      "contenido": {
+        "★": "A",
+        "●": "P",
+        "■": "E",
+        "▲": "R",
+        "▼": "I",
+        "◆": "T",
+        "◇": "O",
+        "⬡": "U",
+        "⬢": "L",
+        "⌘": "S",
+        "⏹": "D",
+        "⏺": "N"
+      },
+      "formato": "PDF/imagen",
+      "ubicacion": "escape-material/pruebas/assets/prueba_cifrado_simbolos_001_tabla.pdf"
+    },
+    "plantilla_hoja_trabajo": {
+      "tipo": "A4",
+      "descripcion": "Hoja con espacios para escribir las letras debajo de cada símbolo",
+      "ubicacion": "escape-material/pruebas/assets/prueba_cifrado_simbolos_001_plantilla.pdf"
+    },
+    "notas_implementacion": "Generar PDFs con tipografía clara. Los símbolos deben ser distinguibles a simple vista. Para jugadores con dificultades visuales, considerar símbolos más grandes o alto contraste."
+  },
+  "metadata": {
+    "creado": "2026-03-16",
+    "version": "1.0",
+    "autor": "Generador (desde idea perfeccionada por Boti)",
+    "testeado": false,
+    "tags": [
+      "prueba_completa",
+      "puzzles_mentales",
+      "prueba-cifrado",
+      "prueba-emparejamiento-texto",
+      "prueba-exploracion-visual",
+      "bajo_coste",
+      "hall_escape",
+      "street_escape",
+      "investigacion"
+    ],
+    "proyecto": "sistema_pruebas",
+    "tipo": "prueba_completa",
+    "perfeccionado": "desde idea",
+    "idea_origen": "idea_2026-03-16_003",
+    "notas": "Primera prueba de cifrado en el sistema. Versión base con ejemplo APERTURA."
+  },
+  "metadata_contextual": {
+    "tipo_juego": "multi-tipo",
+    "participantes_tipo": "individual_o_equipos",
+    "espacio_requerido": "Cualquier espacio con superficie plana para escribir",
+    "adaptacion_hall": {
+      "materiales_fijos": true,
+      "requiere_instalacion": true,
+      "tiempo_montaje_minutos": 5
+    },
+    "adaptacion_street": {
+      "materiales_portatiles": true,
+      "requiere_instalacion": false,
+      "tiempo_montaje_minutos": 1
+    },
+    "adaptacion_investigacion": {
+      "materiales_digitales": true,
+      "requiere_instalacion": false,
+      "tiempo_montaje_minutos": 0
+    }
+  }
+}

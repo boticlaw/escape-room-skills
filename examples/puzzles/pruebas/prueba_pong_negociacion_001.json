@@ -1,0 +1,92 @@
+{
+  "id": "prueba_pong_negociacion_001",
+  "nombre": "Negociando con los Hermanos",
+  "descripcion": "La negociacion para alquilar la casa se ha intensificado. Los hermanos de Ana siguen con sus objeciones y dudas. Pepe debe demostrar su determinacion. Enfrentate a un clasico juego de Pong donde debes ganar 5 a 0 para ser victorioso. Si te meten algun punto, el juego comienza de nuevo.",
+  "skill_primario": "prueba-arcade-digital",
+  "skills_secundarios": [],
+  "dificultad": 7,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_juego": "pong",
+    "dificultad_base": 6,
+    "vidas": 1,
+    "condicion_victoria": "ganar 5-0",
+    "puntos_victoria": 5,
+    "puntos_derrota_max": 0,
+    "velocidad_pelota": 5,
+    "tamano_paleta": 100,
+    "permite_continuar": true,
+    "url_siguiente": "https://devueltaalpueblo.com/conseguido",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "Victoria absoluta! Los hermanos aceptan. La casa sera de Pepe.",
+    "categoria": "puzzles_mentales"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Tienes que ganar 5 a 0"
+    },
+    {
+      "nivel": 2,
+      "texto": "Paciencia, seguro lo consigues"
+    },
+    {
+      "nivel": 3,
+      "texto": "Observa bien los movimientos y aprovecha los angulos"
+    },
+    {
+      "nivel": 4,
+      "texto": "Animo y persiste, que tu puedes"
+    },
+    {
+      "nivel": 5,
+      "texto": "Paciencia y perseverancia terminaras consiguiendolo"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Pong con condicion estricta de victoria",
+    "objetivo": "Ganar 5 puntos sin recibir ninguno",
+    "controles": "Mover paleta hacia arriba/abajo para rebotar la pelota",
+    "estrategia": "Posicionamiento central, anticipar trayectoria, usar angulos para dificultar al oponente",
+    "penalizacion": "Cualquier punto recibido reinicia el contador a 0-0",
+    "resultado": "Acceso a https://devueltaalpueblo.com/conseguido"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: Controles tactiles en movil pueden ser menos precisos. Considerar ajustar dificultad para movil."
+  },
+  "assets": {
+    "sprite_paleta": "TODO: imagen de la paleta del jugador",
+    "sprite_paleta_ia": "TODO: imagen de la paleta del oponente",
+    "sprite_pelota": "TODO: imagen de la pelota",
+    "fondo_cancha": "TODO: fondo del campo de pong"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "arcade",
+      "pong",
+      "negociacion",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 14
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: Controles tactiles en movil pueden ser menos precisos. Considerar ajustar dificultad para movil.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

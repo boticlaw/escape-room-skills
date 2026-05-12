@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-04-02_005",
+  "nombre": "Tabla de verdadero/falso",
+  "descripcion": "Una tabla con 5-6 afirmaciones sobre elementos del escenario que los jugadores ya han encontrado. Marcando V o F en cada una, las letras V y F en orden forman un código binario (V=1, F=0) que traducido revela el número del candado. Ejemplo: 5 afirmaciones sobre fotos de la pared → V-F-V-V-F → 1-0-1-1-0 → código 22 en binario de 5 bits. Alternativa: las primeras letras de las afirmaciones verdaderas forman una palabra.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": ["prueba-cifrado"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "logica_deducciones",
+    "materiales_estimados": "Tabla impresa, bolígrafo",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 15
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisad los elementos del escenario que menciona la tabla. Las respuestas están en lo que ya habéis encontrado."
+    },
+    {
+      "nivel": 2,
+      "texto": "¿Os suena el código binario? V=1, F=0. El patrón de respuestas es un número."
+    },
+    {
+      "nivel": 3,
+      "texto": "Leed solo las primeras letras de las afirmaciones que son Verdaderas. ¿Forman una palabra?"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Evaluar afirmaciones sobre el escenario y convertir el patrón V/F en código",
+    "descripcion": "Los jugadores leen afirmaciones sobre elementos que ya han explorado (fotos, documentos, objetos). Al marcar V/F, el patrón se convierte en código (binario o primeras letras de las verdaderas).",
+    "resultado": "Patrón V/F convertido a código numérico (binario) o palabra clave (iniciales de verdaderas)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Versión portátil. Las afirmaciones deben referirse a elementos encontrados ANTES en el juego."
+  },
+  "assets": {
+    "nota": "Diseñar tabla con afirmaciones coherentes con la narrativa. Asegurar que solo hay una respuesta correcta por afirmación."
+  },
+  "metadata": {
+    "creado": "2026-04-02",
+    "version": "3.0",
+    "autor": "Generador (mejorada)",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "logica_deducciones",
+      "prueba-logica-posiciones",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": "Tabla de verdadero/falso"
+  },
+  "estado": "mejorada"
+}

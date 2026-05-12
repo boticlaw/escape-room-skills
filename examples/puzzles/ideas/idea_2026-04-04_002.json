@@ -1,0 +1,68 @@
+{
+  "id": "idea_2026-04-04_002",
+  "nombre": "Sombras Proyectadas (Pattern Shadows)",
+  "descripcion": "Varios objetos opacos están colocados sobre una mesa. Los jugadores deben descubrir que, al iluminarlos con una linterna desde un ángulo específico marcado en el suelo, las sombras proyectadas sobre la pared forman un símbolo, número o palabra. El reto está en encontrar el ángulo correcto y la distancia adecuada. Algunos objetos son distractores. Variante: los objetos deben reordenarse primero siguiendo otra pista para que la sombra tenga sentido.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [
+    "prueba-mecanismo"
+  ],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "visual_espacial",
+    "materiales_estimados": "5-8 objetos opacos de formas geométricas variadas, linterna/ foco direccional, marca en el suelo para posición",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 30,
+    "numero_objetos": 7,
+    "objetos_distractores": 2,
+    "requiere_orden_previo": true,
+    "superficie_proyeccion": "pared blanca o pantalla"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Hay una marca en el suelo. ¿Qué ocurre si colocas una fuente de luz ahí?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Los objetos proyectan sombras. No todos son necesarios — identifica cuáles son distractores."
+    },
+    {
+      "nivel": 3,
+      "texto": "El orden de los objetos importa. Usa la pista previa para ordenarlos de izquierda a derecha antes de proyectar."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Proyección de sombras con reordenamiento de objetos",
+    "descripcion": "Los jugadores colocan la linterna en la marca del suelo, ordenan los objetos correctos (eliminando distractores) según la pista previa, y las sombras proyectadas forman un número o símbolo que es el código de desbloqueo.",
+    "resultado": "Código visual formado por las sombras que abre un candado de combinación"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "HALL ESCAPE: Requiere una pared blanca y espacio de 2-3 metros para la proyección. Control total de luz ambiental (poder oscurecer la sala). STREET ESCAPE: Versión diurna usando sombras de sol con plantillas sobre el suelo; menos flexible pero viable. Para jugadores jóvenes: reducir distractores y dar el ángulo directamente."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-04-04",
+    "version": "1.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "visual_espacial",
+      "sombras",
+      "exploracion",
+      "mecanismo",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  },
+  "estado": "pendiente_revision"
+}

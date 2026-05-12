@@ -1,0 +1,93 @@
+{
+  "id": "prueba_adivinanza_palacio_001",
+  "nombre": "Adivina... Adivinanza - El Palacio Condal",
+  "descripcion": "Para comprender realmente la historia de Monzon de Campos, hay un lugar al que debes llegar. Este sitio fue el corazon de la vida medieval, donde el poder y la grandeza se entrelazaban. Debes resolver una adivinanza que te llevara a los restos del antiguo Palacio Condal.",
+  "skill_primario": "prueba-adivinanza-ubicacion",
+  "skills_secundarios": [
+    "prueba-ubicacion-qr"
+  ],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "formato_adivinanza": "poema",
+    "numero_lineas": 6,
+    "tipo_ubicacion": "monumento",
+    "dificultad_texto": 5,
+    "requiere_conocimiento_local": true,
+    "texto_adivinanza": "Fui hogar de condes, lugar de esplendor,\nmis muros guardaban historias de honor.\nHoy solo restos me quedan por mostrar,\npero en mi torre el pasado se puede vislumbrar.\nSi la vida medieval quieres encontrar,\na mi vieja plaza te debes acercar.",
+    "respuesta_correcta": "Plaza del pueblo - restos del Palacio Condal",
+    "url_siguiente": "https://devueltaalpueblo.com/v3sti6o",
+    "url_maps": "TODO: Google Maps de la plaza",
+    "mensaje_exito": "Has descubierto el Palacio Condal. Su historia te espera.",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Busca en un antiguo edificio historico relacionado con la nobleza"
+    },
+    {
+      "nivel": 2,
+      "texto": "Fue hogar de condes y centro de poder en la Edad Media"
+    },
+    {
+      "nivel": 3,
+      "texto": "Aunque en ruinas, sus columnas aun se alzan en la plaza principal"
+    },
+    {
+      "nivel": 4,
+      "texto": "Se trata del antiguo Palacio Condal de Monzon de Campos"
+    },
+    {
+      "nivel": 5,
+      "texto": "Ve a la Plaza del pueblo y busca los restos del Palacio Condal para escanear el codigo QR"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Descifrar adivinanza + ir a ubicacion fisica + escanear QR",
+    "interpretacion": {
+      "hogar_de_condes": "Referencia a los condes que vivian en el palacio",
+      "plaza": "La plaza principal del pueblo donde estan los restos",
+      "medieval": "Epoca del esplendor del palacio"
+    },
+    "ubicacion": "Plaza del pueblo de Monzon de Campos, restos del Palacio Condal",
+    "resultado": "Acceso a https://devueltaalpueblo.com/v3sti6o"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Requiere conocimiento basico del pueblo o uso de las pistas para quienes no conozcan el lugar."
+  },
+  "assets": {
+    "imagen_palacio": "TODO: foto de los restos del Palacio Condal",
+    "qr_code": "TODO: generar o fotografiar QR"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "adivinanza",
+      "ubicacion",
+      "palacio",
+      "historia",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 7
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Requiere conocimiento basico del pueblo o uso de las pistas para quienes no conozcan el lugar.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

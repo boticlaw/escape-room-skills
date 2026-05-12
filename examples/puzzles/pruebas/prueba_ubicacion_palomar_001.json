@@ -1,0 +1,84 @@
+{
+  "id": "prueba_ubicacion_palomar_001",
+  "nombre": "La Conversacion con Ana",
+  "descripcion": "Pepe habla con Ana sobre la posibilidad de alquilarle su casa. Ana expresa sus dudas y preocupaciones. Pepe decide invitar a Ana a visitar el palomar, un lugar especial en sus Free Tours, para mostrarle su proyecto y ganar su confianza. Debes acudir al palomar del pueblo para escanear el codigo QR y continuar con la historia.",
+  "skill_primario": "prueba-ubicacion-qr",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_ubicacion": "monumento",
+    "nombre_lugar": "Palomar de Monzon de Campos",
+    "requiere_gps": false,
+    "url_maps": "https://maps.app.goo.gl/RWChpU7WJr4fVf5E9",
+    "url_siguiente": "https://devueltaalpueblo.com/p4lom4r",
+    "mensaje_llegada": "Has llegado al palomar. Este lugar especial de los Free Tours de Pepe guarda secretos.",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "El palomar ha revelado nuevas pistas. Ana comienza a confiar en el proyecto de Pepe.",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Pepe quiere mostrarle a Ana un lugar importante en sus tours"
+    },
+    {
+      "nivel": 2,
+      "texto": "El lugar es un palomar historico en el pueblo"
+    },
+    {
+      "nivel": 3,
+      "texto": "Debes ir al palomar para continuar la mision"
+    },
+    {
+      "nivel": 4,
+      "texto": "Puedes preguntar a Google donde esta el palomar y buscar el codigo QR"
+    },
+    {
+      "nivel": 5,
+      "texto": "Ve al palomar de Monzon de Campos https://maps.app.goo.gl/RWChpU7WJr4fVf5E9 y escanea el codigo QR alli"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Desplazamiento fisico + escaneo de QR",
+    "ubicacion": "Palomar de Monzon de Campos",
+    "accion": "Escanear codigo QR en el palomar",
+    "resultado": "Acceso a https://devueltaalpueblo.com/p4lom4r"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Google Maps link disponible. Verificar que el palomar es accesible."
+  },
+  "assets": {
+    "imagen_palomar": "TODO: foto del palomar",
+    "qr_code": "TODO: generar o fotografiar QR"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "ubicacion",
+      "qr",
+      "palomar",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 12
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Google Maps link disponible. Verificar que el palomar es accesible.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "prueba_huellas_zapato_001",
+  "nombre": "Huellas de Zapatos",
+  "descripcion": "Huellas de zapatos encontradas en la escena del crimen. Los jugadores deben medir la talla y observar el patron de la suela para identificar al sospechoso.",
+  "skill_primario": "prueba-observacion",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 6,
+  "configuracion": {
+    "huella_escena": {
+      "talla_cm": 28.5,
+      "talla_eu": 44,
+      "tipo": "Deportiva",
+      "patron_suela": "Lineas diagonales entrecruzadas",
+      "profundidad": "Media",
+      "direccion": "Entrando a la escena"
+    },
+    "fichas_zapatos": [
+      {
+        "sospechoso": "Edurne",
+        "talla": 38,
+        "tipo_habitual": "Zapato de tacón"
+      },
+      {
+        "sospechoso": "Samuel",
+        "talla": 44,
+        "tipo_habitual": "Bota de trabajo, suela lisa"
+      },
+      {
+        "sospechoso": "Francisco",
+        "talla": 42,
+        "tipo_habitual": "Zapatilla casual"
+      },
+      {
+        "sospechoso": "Rodrigo",
+        "talla": 43,
+        "tipo_habitual": "Bota de seguridad"
+      },
+      {
+        "sospechoso": "Marta",
+        "talla": 37,
+        "tipo_habitual": "Sandalia"
+      },
+      {
+        "sospechoso": "Maria",
+        "talla": 39,
+        "tipo_habitual": "Zapato plano"
+      },
+      {
+        "sospechoso": "Jaime",
+        "talla": 45,
+        "tipo_habitual": "Deportiva, suela con dibujo"
+      },
+      {
+        "sospechoso": "Sara",
+        "talla": 40,
+        "tipo_habitual": "Bota informal"
+      }
+    ],
+    "material_necesario": "Regla del Kit de Laboratorio",
+    "categoria": "observacion_detalle"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Mide la huella con la regla. La talla EU es talla_cm + 15 aproximadamente."
+    },
+    {
+      "nivel": 2,
+      "texto": "La huella es talla 44, deportiva. Busca quien coincide en talla Y tipo de calzado."
+    },
+    {
+      "nivel": 3,
+      "texto": "Samuel usa talla 44 pero botas de trabajo con suela lisa. La huella tiene patron diagonal."
+    }
+  ],
+  "solucion": {
+    "analisis": "Talla 44 coincide con Samuel, pero el patron de suela no coincide",
+    "evidencia_clave": "La huella muestra suela con lineas diagonales. Samuel usa botas de suela lisa.",
+    "conclusion": "Samuel tiene la talla correcta pero NO son sus zapatos. Alguien intenta inculparlo.",
+    "resultado": "Samuel (Gris) es inocente. Las huellas no coinciden con su tipo de calzado."
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Samuel",
+    "color": "Gris",
+    "razon": "La talla coincide pero el patron de suela NO coincide. Samuel usa botas de suela lisa. Es inocente - alguien intenta inculparlo."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_huella": "pruebas/assets/crimen_juan_palomo/huella_zapato.png",
+    "imagen_medicion": "pruebas/assets/crimen_juan_palomo/medicion_huella.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

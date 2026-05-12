@@ -1,0 +1,70 @@
+{
+  "id": "idea_2026-04-04_005",
+  "nombre": "Ritmo de Cierre (Rhythm Lock)",
+  "descripcion": "Un candado digital o tablet muestra una interfaz con un único botón grande. Los jugadores deben pulsar el botón siguiendo un ritmo específico que se infiere de una partitura simplificada, un poema con sílabas marcadas, o un patrón de luces previo en la sala. El ritmo correcto (número de pulsos, pausas y acentos) desbloquea el candado. Ejemplo: largo-corto-corto-largo-pausa-largo-largo = ta-ti-ti-ta—ta-ta. Variante cooperativa: cada jugador tiene un botón y deben pulsar en secuencia rítmica coordinada.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [
+    "prueba-logica-secuencial"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "ritmo_secuencia",
+    "materiales_estimados": "Tablet con app de botón rítmico, o candado digital con sensor de pulsación; partitura o referencia rítmica en la sala",
+    "coste_estimado": "medio",
+    "tiempo_preparacion_minutos": 30,
+    "modo": "individual_o_cooperativo",
+    "patron_base": "largo-corto-corto-largo-pausa-largo-largo",
+    "fuente_ritmo": "partitura_simplificada_en_sala",
+    "tolerancia_timing_ms": 300,
+    "intentos_maximos": 5
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Busca en la sala algo que represente ritmo o música. Una partitura, un poema con marcas, un patrón de luces."
+    },
+    {
+      "nivel": 2,
+      "texto": "Traduce el patrón visual a pulsaciones: notas largas = pulsación larga, notas cortas = pulsación rápida, silencios = pausa."
+    },
+    {
+      "nivel": 3,
+      "texto": "Practica el ritmo dando palmadas primero. Cuando lo tengáis, pasadlo al botón. La precisión importa pero hay margen de error."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Decodificación de notación rítmica + ejecución motora coordinada",
+    "descripcion": "Los jugadores interpretan la notación rítmica de la sala (partitura, poema o patrón de luces) y la traducen a pulsaciones en el botón/candado digital. En modo cooperativo, cada jugador pulsa su botón en el momento correspondiente de la secuencia.",
+    "resultado": "Desbloqueo del candato digital o revelación de código en tablet"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Tablet o candato digital montado en la pared o mueble. STREET ESCAPE: App móvil con interfaz de botón, patrón rítmico en cartel o sobre físico. Para niños: usar colores en vez de notación musical (rojo = largo, azul = corto). Para personas con discapacidad auditiva: vibración como feedback en vez de sonido."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba. Posible reutilizar interfaz de prueba_simon_dice_001 adaptada a ritmo."
+  },
+  "metadata": {
+    "creado": "2026-04-04",
+    "version": "1.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "ritmo_secuencia",
+      "tablet",
+      "cooperativo",
+      "secuencia",
+      "musica",
+      "medio_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  },
+  "estado": "pendiente_revision"
+}

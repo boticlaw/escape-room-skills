@@ -1,0 +1,84 @@
+{
+  "id": "prueba_ubicacion_cdr_001",
+  "nombre": "Visita al CDR",
+  "descripcion": "Pepe busca recursos para instalarse en el pueblo. Tras hablar con vecinos, le recomiendan visitar el Centro de Desarrollo Rural Carrion y Ucieza (CDR), un lugar clave para la revitalizacion del medio rural. El jugador debe acudir fisicamente al CDR y escanear el codigo QR alli ubicado para acceder a la informacion que Pepe necesita.",
+  "skill_primario": "prueba-ubicacion-qr",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_ubicacion": "edificio",
+    "nombre_lugar": "Centro de Desarrollo Rural Carrion y Ucieza",
+    "requiere_gps": false,
+    "url_maps": "TODO: agregar Google Maps link",
+    "url_siguiente": "https://devueltaalpueblo.com/on6",
+    "mensaje_llegada": "Has encontrado el CDR. Escanea el codigo QR para continuar.",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "Has accedido a la informacion del CDR. Pepe esta un paso mas cerca de su objetivo.",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Piensa en un lugar en el pueblo donde ayuden a quienes quieren instalarse"
+    },
+    {
+      "nivel": 2,
+      "texto": "Busca un centro dedicado al desarrollo rural y al apoyo comunitario"
+    },
+    {
+      "nivel": 3,
+      "texto": "El Centro de Desarrollo Rural Carrion y Ucieza es clave en esta parte de la mision"
+    },
+    {
+      "nivel": 4,
+      "texto": "Debes ir al CDR y buscar un codigo QR que te proporcionara la informacion necesaria"
+    },
+    {
+      "nivel": 5,
+      "texto": "Acude al Centro de Desarrollo Rural Carrion y Ucieza y escanea el codigo QR alli para continuar la aventura"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Desplazamiento fisico + escaneo de QR",
+    "ubicacion": "Centro de Desarrollo Rural Carrion y Ucieza (CDR)",
+    "accion": "Escanear codigo QR en el edificio",
+    "resultado": "Acceso a https://devueltaalpueblo.com/on6"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Verificar que el CDR es accesible en horarios adecuados. Si no hay QR fisico, puede simularse con coordenadas GPS."
+  },
+  "assets": {
+    "imagen_referencia": "TODO: foto del CDR",
+    "qr_code": "TODO: generar o fotografiar QR"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "ubicacion",
+      "qr",
+      "cdr",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 2
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Verificar que el CDR es accesible en horarios adecuados. Si no hay QR fisico, puede simularse con coordenadas GPS.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

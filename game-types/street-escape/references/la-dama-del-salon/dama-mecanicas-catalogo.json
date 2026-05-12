@@ -54,7 +54,7 @@
         "feedback": "Muestra distancia al objetivo si no está dentro del radio",
         "debug_mode": "Coordenadas simuladas, indicadores visuales verdes"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 10,
         "notes": "Sistema completo y portátil. Ideal para street escapes. El threshold configurable permite adaptar a cualquier ubicación."
       }
@@ -99,7 +99,7 @@
         "touch": "Cooldown anti-doble-tap en dispositivos móviles",
         "feedback": "Visual + auditivo simultáneo"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 8,
         "notes": "Funcional pero la secuencia está hardcodeada. Requiere refactoring para parametrizar la secuencia objetivo. La generación de audio es reutilizable directamente."
       }
@@ -137,7 +137,7 @@
         "ux": "Arrastrar estrella por camino, checkpoints se iluminan al pasar",
         "visual_feedback": "Animación de completado con progreso 0-100%"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 7,
         "notes": "Funcional para puzzles simples de arrastre. Los checkpoints son configurables. Podría extenderse con paths más complejos."
       }
@@ -179,7 +179,7 @@
         "ux": "Grid responsive, colores numéricos clásicos, flag mode para móvil",
         "feedback": "Mensajes de victoria/derrota, timer visual"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 9,
         "notes": "Muy bien implementado con difficulty presets y mobile-first. Directamente reutilizable con parámetros."
       }
@@ -215,7 +215,7 @@
         "ux": "Cartas con animación de flip, símbolos alquímicos/astrológicos",
         "reward": "Revelación progresiva de la palabra secreta como recompensa"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 9,
         "notes": "Excelente dualidad: juego de memoria + revelación de palabra secreta. La palabra secreta es el hook narrativo. Directamente configurable."
       }
@@ -275,7 +275,7 @@
         "fallback": "Triple fallback garantiza que siempre hay respuesta",
         "end_detection": "Detecta fin por contenido de respuesta + contador de mensajes"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 10,
         "notes": "Sistema de chat con NPC completamente funcional con triple fallback. Solo requiere cambiar systemPrompt y triggers para nuevo NPC. La interfaz WhatsApp es muy familiar para usuarios."
       }
@@ -311,7 +311,7 @@
         "ux": "Tubos verticales, click/tap para seleccionar y colocar",
         "visual_theme": "Peces en vez de bolas genéricas — temática acuática coherente"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 8,
         "notes": "Mecánica probada y adictiva. Los difficulty presets permiten ajustar. Los SVGs de peces son específicos pero la mecánica es genérica."
       }
@@ -363,7 +363,7 @@
         "difficulty_scaling": "Perseguidores más inteligentes = más difícil",
         "feedback": "Contador de movimientos, visual de captura"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 8,
         "notes": "Mecánica arcade divertida y bien implementada. Los parámetros de dificultad son configurables. Bueno para romper la monotonía de puzzles de lógica."
       }
@@ -407,7 +407,7 @@
         "decorative": "Símbolos grabados añaden capa narrativa (el ♦ indica algo especial)",
         "debug": "Muestra cuántos dígitos son correctos en modo debug"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 9,
         "notes": "Componente visualmente atractivo y bien pulido. El correctCode es el único parámetro necesario. Los símbolos pueden personalizarse. Ideal como prueba final de un juego."
       }
@@ -429,7 +429,7 @@
           "description": "Función a ejecutar cuando se resuelve el puzzle"
         }
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 6,
         "notes": "Disponible como componente pero no se usa en niveles activos. Podría integrarse como barrera inicial o entre secciones."
       }
@@ -465,7 +465,7 @@
         "normalization_method": "toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '') para comparación sin acentos",
         "validation": "Comparación exacta tras normalización"
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 7,
         "notes": "Funcional pero está inline en DiaryLevel. Debería extraerse como componente reutilizable con normalización configurable."
       }
@@ -486,7 +486,7 @@
           "default": true
         }
       },
-      "escapeitor_reusability": {
+      "generador_reusability": {
         "score": 7,
         "notes": "Simple pero efectivo. Buenos para intro y finales."
       }

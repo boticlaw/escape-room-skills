@@ -1,0 +1,85 @@
+{
+  "id": "prueba_ubicacion_puente_001",
+  "nombre": "El Puente hacia el Futuro",
+  "descripcion": "Tras recopilar informacion en el CDR, Pepe continua su aventura. El siguiente desafio lo lleva a uno de los lugares mas emblematicos del pueblo: el antiguo puente sobre el rio Carrion. Este puente ha sido testigo de innumerables cambios en Monzon de Campos. El jugador debe acudir al puente y escanear el codigo QR alli ubicado.",
+  "skill_primario": "prueba-ubicacion-qr",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_ubicacion": "monumento",
+    "nombre_lugar": "Puente sobre el rio Carrion",
+    "requiere_gps": false,
+    "url_maps": "https://maps.app.goo.gl/C9hqUPtMLfRhdz89A",
+    "url_siguiente": "https://devueltaalpueblo.com/pu3nt3",
+    "mensaje_llegada": "Has llegado al antiguo puente. Escanea el codigo QR para continuar.",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "El puente te ha revelado el siguiente paso. Atraviesa el rio hacia nuevas aventuras.",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Piensa en un lugar que conecta diferentes partes del pueblo sobre un rio"
+    },
+    {
+      "nivel": 2,
+      "texto": "Es un puente antiguo y emblematico en Monzon de Campos"
+    },
+    {
+      "nivel": 3,
+      "texto": "El puente sobre el rio Carrion es tu proximo destino"
+    },
+    {
+      "nivel": 4,
+      "texto": "Dirigete al puente y busca un codigo QR. Puedes usar Google Maps para localizar el puente"
+    },
+    {
+      "nivel": 5,
+      "texto": "Ve al puente sobre el rio Carrion, localiza y escanea el codigo QR para continuar: https://maps.app.goo.gl/C9hqUPtMLfRhdz89A"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Desplazamiento fisico + escaneo de QR",
+    "ubicacion": "Puente sobre el rio Carrion, Monzon de Campos",
+    "accion": "Escanear codigo QR en el puente",
+    "resultado": "Acceso a https://devueltaalpueblo.com/pu3nt3"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Puente accesible 24/7. Google Maps link disponible para facilitar localizacion."
+  },
+  "assets": {
+    "imagen_puente": "TODO: foto del puente",
+    "qr_code": "TODO: generar o fotografiar QR"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "ubicacion",
+      "qr",
+      "puente",
+      "rio",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 5
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Puente accesible 24/7. Google Maps link disponible para facilitar localizacion.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

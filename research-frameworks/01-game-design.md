@@ -300,4 +300,4 @@ Continuar con **02-puzzle-design.md** para profundizar en la creación de puzzle
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

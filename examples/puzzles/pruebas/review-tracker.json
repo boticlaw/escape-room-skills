@@ -1,0 +1,185 @@
+{
+  "next_index": 25,
+  "ideas": [
+    {
+      "id": 1,
+      "archivo": "prueba-adivinanza-ubicacion.json",
+      "estado": "validada",
+      "nombre": "Adivinanza de ubicación",
+      "archivo_validado": "prueba_adivinanza_ubicacion_001.json",
+      "notas": "Quitar tiempo límite. Game master no puede cronometrar. Si se queda atascados no hay mecanismo de avance."
+    },
+    {
+      "id": 2,
+      "archivo": "prueba-cifrado-cesar.json",
+      "estado": "validada",
+      "nombre": "Cifrado de César con desplazamiento",
+      "notas": "Validada"
+    },
+    {
+      "id": 3,
+      "archivo": "prueba-codigo-sombras-reflejos.json",
+      "estado": "validada",
+      "nombre": "Código en sombras polarizadas",
+      "archivo_validado": "prueba_codigo_sombras_polarizados_001.json",
+      "notas": "Usar polarización (celofán + luz) en vez de acetato simple."
+    },
+    {
+      "id": 4,
+      "archivo": "prueba-crucigrama-tematico.json",
+      "estado": "validada",
+      "nombre": "Crucigrama temático integrado",
+      "archivo_validado": "prueba_crucigrama_tematico_001.json",
+      "notas": "Letras sobrantes del crucigrama forman el código. Integrado en narrativa."
+    },
+    {
+      "id": 5,
+      "archivo": "prueba-diferencias-imagenes.json",
+      "estado": "validada",
+      "nombre": "Diferencias en imágenes históricas",
+      "archivo_validado": "prueba_diferencias_historicas_001.json",
+      "notas": "4-5 parejas con año, número de diferencias = dígito, orden por año cronológico."
+    },
+    {
+      "id": 6,
+      "archivo": "prueba-emparejamiento-simultaneo.json",
+      "estado": "validada",
+      "nombre": "Emparejamiento de columnas",
+      "archivo_validado": "prueba_emparejamiento_columnas_001.json",
+      "notas": "Dos columnas, emparejamiento correcto revela dígitos. Papel y boli."
+    },
+    {
+      "id": 7,
+      "archivo": "prueba-laberinto-hilos.json",
+      "estado": "validada",
+      "nombre": "Laberinto de hilos",
+      "archivo_validado": "prueba_laberinto_hilos_001.json",
+      "notas": "5 hilos de colores, solo el correcto libera el código. Pistas narrativas indican el color."
+    },
+    {
+      "id": 8,
+      "archivo": "prueba-logica-eliminacion.json",
+      "estado": "validada",
+      "nombre": "Lógica de eliminación (sudoku de identidad)",
+      "archivo_validado": "prueba_logica_eliminacion_001.json",
+      "notas": "4 personajes x 3 atributos, pistas de eliminación, columna de colores = código."
+    },
+    {
+      "id": 9,
+      "archivo": "prueba-maze-tubos.json",
+      "estado": "validada",
+      "nombre": "Laberinto de tubos de cartón",
+      "archivo_validado": "prueba_maze_tubos_carton_001.json",
+      "notas": "Versión 2D con surcos de cartón + canica. Código en compartimento final."
+    },
+    {
+      "id": 10,
+      "archivo": "prueba_mensaje_oculto_parrafos_001.json",
+      "estado": "validada",
+      "nombre": "Mensaje oculto en primera letra de párrafos"
+    },
+    {
+      "id": 11,
+      "archivo": "prueba-rompecabezas-dividido.json",
+      "estado": "validada",
+      "nombre": "Rompecabezas dividido entre jugadores",
+      "archivo_validado": "prueba_rompecabezas_dividido_001.json",
+      "notas": "Puzzle en sobres separados, código en centro de imagen ensamblada."
+    },
+    {
+      "id": 12,
+      "archivo": "prueba-sudoku-palabras.json",
+      "estado": "validada",
+      "nombre": "Sudoku de palabras",
+      "archivo_validado": "prueba_sudoku_palabras_001.json",
+      "notas": "Sudoku 4x4 con letras, fila marcada = palabra clave → código numérico."
+    },
+    {
+      "id": 13,
+      "archivo": "prueba-tabla-verdadero-falso.json",
+      "estado": "validada",
+      "nombre": "Tabla de verdadero/falso",
+      "archivo_validado": "prueba_tabla_verdadero_falso_001.json",
+      "notas": "V/F como binario o iniciales de verdaderas forman palabra. Afirmaciones sobre elementos ya explorados."
+    },
+    {
+      "id": 14,
+      "archivo": "prueba_telefono_escalerilla_001.json",
+      "estado": "validada",
+      "nombre": "Teléfono escalerilla (mensajes en cadena)",
+      "notas": "VALIDADA: Concepto clásico y probado."
+    },
+    {
+      "id": 15,
+      "archivo": "prueba-texto-oculto-uv.json",
+      "estado": "validada",
+      "nombre": "Texto oculto con luz UV",
+      "archivo_validado": "prueba_texto_oculto_uv_001.json",
+      "notas": "Linterna UV + rotulador, ~5-8€. Fragmentos numerados. Solo interior."
+    },
+    {
+      "id": 16,
+      "archivo": "prueba-uno-ve-otro-actua.json",
+      "estado": "validada",
+      "nombre": "Uno ve, otro actúa (dibujar a ciegas)",
+      "archivo_validado": "prueba_uno_ve_otro_actua_001.json",
+      "notas": "Vidente describe imagen oculta con código, dibujante reproduce. Código numérico."
+    },
+    {
+      "id": 17,
+      "archivo": "prueba_wally_tem_tico_001.json",
+      "estado": "validada",
+      "nombre": "Donde está Wally temático",
+      "notas": "VALIDADA: Concepto claro y bien descrito."
+    },
+    {
+      "id": 18,
+      "archivo": "idea_2026-04-05_001.json",
+      "estado": "validada",
+      "nombre": "Espejo invertido",
+      "notas": "Revisada manualmente. Mecánica clara: texto invertido + espejo = ubicación + código. Funcional."
+    },
+    {
+      "id": 19,
+      "archivo": "idea_2026-04-05_002.json",
+      "estado": "validada",
+      "nombre": "Matriz de colores dominó",
+      "notas": "Revisada manualmente. Mecánica interesante pero compleja. Ajustar a 4 dígitos en vez de 5. Requiere diseño matemático para solución única."
+    },
+    {
+      "id": 20,
+      "archivo": "idea_2026-04-05_003.json",
+      "estado": "mejorada",
+      "nombre": "Transcripción de audio ambiental",
+      "notas": "Buena idea pero 'primer dígito de cada número' es arbitrario. Usar números de 1 dígito directamente. Añadir transcripción como backup si el audio falla."
+    },
+    {
+      "id": 21,
+      "archivo": "idea_2026-04-05_004.json",
+      "estado": "validada",
+      "nombre": "Código de papiroflexia (origami)",
+      "notas": "Sólida. Marcas de pliegue preimpresas, no requiere saber origami. Implementable."
+    },
+    {
+      "id": 22,
+      "archivo": "idea_2026-04-06_002.json",
+      "estado": "mejorada",
+      "nombre": "Brújula de libros (orientación por lomos)",
+      "notas": "Buena idea pero palabra objetivo (SECRETOS=8 letras) requiere demasiados libros. Reducir a 4-5 letras. Asegurar que títulos existentes encajan."
+    },
+    {
+      "id": 23,
+      "archivo": "idea_2026-04-06_004.json",
+      "estado": "mejorada",
+      "nombre": "Matriz de perforaciones (pincha y revela)",
+      "notas": "Reducir de 8 a 4 perforaciones (código 4 dígitos). Capa opaca pegada es frágil en la práctica — buscar alternativa (stickers, plastificado despegable)."
+    },
+    {
+      "id": 24,
+      "archivo": "idea_2026-04-06_005.json",
+      "estado": "mejorada",
+      "nombre": "Mensajes cruzados (intersección de tiras)",
+      "notas": "Concepto válido pero ejecución mal descrita. Las tiras no deberían ser legibles individualmente. 5 tiras pero código de solo 4 — confuso. Revisar."
+    }
+  ]
+}

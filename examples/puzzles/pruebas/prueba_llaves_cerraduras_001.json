@@ -1,0 +1,122 @@
+{
+  "id": "prueba_llaves_cerraduras_001",
+  "nombre": "Las Cinco Llaves y Cerraduras",
+  "descripcion": "Pepe ha conseguido 5 llaves y 5 cerraduras, cada una correspondiente a diferentes casas del pueblo. No todas las casas pueden ser el hogar que busca. El desafio es encontrar la combinacion correcta entre llaves y cerraduras, y recordar la secuencia para avanzar.",
+  "skill_primario": "prueba-emparejamiento-memoria",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "numero_pares": 5,
+    "tipo_elemento_a": "llaves",
+    "tipo_elemento_b": "cerraduras",
+    "mostrar_feedback": true,
+    "permitir_errores": true,
+    "requiere_secuencia": true,
+    "solucion_emparejamientos": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "url_siguiente": "https://devueltaalpueblo.com/ok",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "Has encontrado las combinaciones correctas. Las puertas se abren.",
+    "categoria": "fisicos_mecanismos"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Pincha en la llave y la cerradura con la que crees que funciona"
+    },
+    {
+      "nivel": 2,
+      "texto": "Acierta cada llave sin cometer errores"
+    },
+    {
+      "nivel": 3,
+      "texto": "Recuerda con que llave funciona cada cerradura"
+    },
+    {
+      "nivel": 4,
+      "texto": "Puedes probar cada llave, para saber con que cerradura funciona"
+    },
+    {
+      "nivel": 5,
+      "texto": "La secuencia correcta es: Llave 1 - Cerradura 4, Llave 2 - Cerradura 3, Llave 3 - Cerradura 1, Llave 4 - Cerradura 5, Llave 5 - Cerradura 2"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Emparejamiento con memoria de secuencia",
+    "pares_correctos": {
+      "llave_1": "cerradura_4",
+      "llave_2": "cerradura_3",
+      "llave_3": "cerradura_1",
+      "llave_4": "cerradura_5",
+      "llave_5": "cerradura_2"
+    },
+    "estrategia": "Probar cada llave con cada cerradura, recordar las combinaciones, luego pulsar en secuencia",
+    "resultado": "Acceso a https://devueltaalpueblo.com/ok"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: Interfaz tactil en movil. En hall escape podria hacerse con llaves y cerraduras fisicas."
+  },
+  "assets": {
+    "icono_llave_1": "TODO: imagen llave 1",
+    "icono_llave_2": "TODO: imagen llave 2",
+    "icono_llave_3": "TODO: imagen llave 3",
+    "icono_llave_4": "TODO: imagen llave 4",
+    "icono_llave_5": "TODO: imagen llave 5",
+    "icono_cerradura_1": "TODO: imagen cerradura 1",
+    "icono_cerradura_2": "TODO: imagen cerradura 2",
+    "icono_cerradura_3": "TODO: imagen cerradura 3",
+    "icono_cerradura_4": "TODO: imagen cerradura 4",
+    "icono_cerradura_5": "TODO: imagen cerradura 5"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "emparejamiento",
+      "memoria",
+      "llaves",
+      "vivienda",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 4
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: Interfaz tactil en movil. En hall escape podria hacerse con llaves y cerraduras fisicas.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

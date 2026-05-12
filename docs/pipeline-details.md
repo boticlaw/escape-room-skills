@@ -6,15 +6,15 @@ Si el tema requiere datos reales (históricos, científicos, geográficos, cultu
 
 ```
 Scout (investigación profunda, timeout 600s):
-  sessions_spawn(agentId=scout, task:
+  procesamiento(agentId=scout, task:
     "Investiga sobre [tema] para escape room.
     Datos históricos, curiosidades, anécdotas, elementos para pruebas.
     Guarda en: projects/{proyecto}/research-scout.json")
 
 Extractor (datos concretos + URLs, timeout 300s):
-  sessions_spawn(agentId=extractor, task:
+  procesamiento(agentId=extractor, task:
     "Busca datos concretos sobre [tema].
-    python3 ~/.openclaw/workspace/skills/searxng-search/searxng-search.py '[query]' 10
+    python3 ~/.repositorio/workspace/skills/searxng-search/searxng-search.py '[query]' 10
     URLs: curl -s 'https://r.jina.ai/URL'
     Guarda en: projects/{proyecto}/research-extractor.json")
 ```

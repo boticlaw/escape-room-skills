@@ -1,6 +1,6 @@
 # 🔐 JUDGMENT REPORT — Test de Touring v2.1
 
-> **Revisor:** Escapeitor (adversarial review)
+> **Revisor:** Generador (adversarial review)
 > **Fecha:** 7 Abril 2026
 > **Versión revisada:** 2.1
 > **Documentos revisados:** OVERVIEW.md, DISEÑO-JUEGO.md, NARRATIVA.md, 6 JSON de pruebas, PISTAS-GM.md, VALIDACION.md, lista-materiales.md, GUIA-JUGADORES.md, LOGISTICA.md
@@ -413,5 +413,5 @@ Pero tiene problemas de **ejecución** que necesitan corrección antes de implem
 
 ---
 
-*JUDGMENT REPORT — Escapeitor — 7 Abril 2026*
+*JUDGMENT REPORT — Generador — 7 Abril 2026*
 *Principio: Duro pero justo. Si algo es flojo, se dice.*

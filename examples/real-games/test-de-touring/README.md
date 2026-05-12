@@ -68,4 +68,4 @@ test-de-touring/
 
 ---
 
-*Test de Touring v2.0 — 7 Abril 2026 — Escapeitor*
+*Test de Touring v2.0 — 7 Abril 2026 — Generador*

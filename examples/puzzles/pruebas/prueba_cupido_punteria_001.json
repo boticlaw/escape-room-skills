@@ -1,0 +1,110 @@
+{
+  "id": "prueba_cupido_punteria_001",
+  "nombre": "Puntería de Cupido - Derribo de Objetivos",
+  "descripcion": "Los jugadores usan una tirachinas con proyectiles para derribar botellas/corasones dispuestos en una estantería o mesa. Al caer, cada objetivo revela un número oculto en su base. Deben derribar todos los objetivos para obtener los números y formar el código.",
+  "skill_primario": "prueba-punteria-derribo",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "punteria_derribo",
+    "numero_objetivos": 5,
+    "tipo_proyectil": "tirachinas",
+    "material_objetivos": "botellas_corazones",
+    "elemento_revelado": "numeros",
+    "formacion_codigo": "password_numerico",
+    "distancia_lanzamiento_metros": 3,
+    "intentos_maximos": 25,
+    "codigo_recompensa": "0248",
+    "proyectiles_ilimitados": false,
+    "feedback_acierto": "sonoro",
+    "categoria": "fisicos_mecanismos"
+  },
+  "objetivos": [
+    {
+      "id": 1,
+      "numero_revelado": "0",
+      "posicion": "superior_izquierda"
+    },
+    {
+      "id": 2,
+      "numero_revelado": "2",
+      "posicion": "superior_centro"
+    },
+    {
+      "id": 3,
+      "numero_revelado": "4",
+      "posicion": "superior_derecha"
+    },
+    {
+      "id": 4,
+      "numero_revelado": "8",
+      "posicion": "inferior_izquierda"
+    },
+    {
+      "id": 5,
+      "numero_revelado": "distractor",
+      "posicion": "inferior_derecha"
+    }
+  ],
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Usad la tirachinas para derribar las botellas. Prestad atención a qué número aparece al caer."
+    },
+    {
+      "nivel": 2,
+      "texto": "No todos los objetivos son necesarios. Algunos pueden ser distractores."
+    },
+    {
+      "nivel": 3,
+      "texto": "Los números forman el código 0248. El objetivo de la esquina inferior derecha no es necesario."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Derribar objetivos con tirachinas para revelar números",
+    "estrategia": "1. Recoger los proyectiles. 2. Apuntar con calma, no solo fuerza. 3. Memorizar o anotar cada número revelado.",
+    "numeros_utiles": [
+      "0",
+      "2",
+      "4",
+      "8"
+    ],
+    "resultado": "Código 0248 para abrir la caja con el siguiente elemento"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Zona de tiro delimitada con distancia mínima 3 metros. Proteger paredes con colchonetas. Proyectiles de goma seguros."
+  },
+  "assets": {
+    "tirachinas": "pruebas/assets/prueba_cupido_punteria_001/tirachinas.jpg",
+    "proyectiles": "pruebas/assets/prueba_cupido_punteria_001/bolas_goma.jpg",
+    "objetivos": "pruebas/assets/prueba_cupido_punteria_001/botellas_numeradas.png"
+  },
+  "metadata": {
+    "creado": "2026-02-16",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "punteria",
+      "derribo",
+      "tirachinas",
+      "destreza",
+      "cupido",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Zona de tiro delimitada con distancia mínima 3 metros. Proteger paredes con colchonetas. Proyectiles de goma seguros.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

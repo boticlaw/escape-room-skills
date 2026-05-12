@@ -1,0 +1,98 @@
+{
+  "id": "prueba_laberinto_vivienda_001",
+  "nombre": "El Laberinto de la Vivienda",
+  "descripcion": "Pepe enfrenta el mayor reto para comenzar su proyecto de Free Tours: encontrar vivienda adecuada en Monzon de Campos. El jugador debe resolver un laberinto digital que simboliza los complicados caminos que Pepe ha tenido que recorrer para encontrar casa. A medida que avanza, se enfrenta a decisiones similares a las que Pepe encontro en su busqueda.",
+  "skill_primario": "prueba-laberinto-digital",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tamano_laberinto": "mediano",
+    "tipo_vista": "superior",
+    "tiempo_limite": 0,
+    "mostrar_minimapa": false,
+    "punto_inicio": "esquina",
+    "punto_fin": "esquina_opuesta",
+    "solucion_path": "ADADAIAD",
+    "permitir_retroceso": true,
+    "feedback_visual": true,
+    "url_siguiente": "https://devueltaalpueblo.com/por-que",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "Has encontrado la salida del laberinto. El camino hacia la vivienda se despeja.",
+    "categoria": "puzzles_mentales"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Observa el laberinto con detenimiento antes de moverte"
+    },
+    {
+      "nivel": 2,
+      "texto": "A veces, el camino correcto no es el mas evidente"
+    },
+    {
+      "nivel": 3,
+      "texto": "Normalmente si empiezas a buscar desde el final resulta mas sencillo"
+    },
+    {
+      "nivel": 4,
+      "texto": "La zona centro del laberinto es la clave"
+    },
+    {
+      "nivel": 5,
+      "texto": "El camino a seguir es: Abajo, Derecha, Abajo, Derecha, Abajo, Izquierda, Abajo, Derecha"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Navegacion de laberinto digital con controles direccionales",
+    "secuencia_movimientos": [
+      "Abajo",
+      "Derecha",
+      "Abajo",
+      "Derecha",
+      "Abajo",
+      "Izquierda",
+      "Abajo",
+      "Derecha"
+    ],
+    "simbolismo": "El laberinto representa los obstaculos para encontrar vivienda en el pueblo",
+    "resultado": "Acceso a https://devueltaalpueblo.com/por-que"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: Funciona en movil con controles tactiles. Version tablet en hall escape posible."
+  },
+  "assets": {
+    "imagen_laberinto": "TODO: diseno del laberinto",
+    "sprite_personaje": "TODO: personaje que navega",
+    "sprite_meta": "TODO: imagen de la casa/meta"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "laberinto",
+      "digital",
+      "vivienda",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 3
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: Funciona en movil con controles tactiles. Version tablet en hall escape posible.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

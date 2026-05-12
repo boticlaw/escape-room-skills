@@ -1,0 +1,69 @@
+{
+  "id": "idea_2026-04-04_001",
+  "nombre": "Traducción de Jerigonza",
+  "descripcion": "Los jugadores reciben un mensaje codificado en jerigonza (jerga infantil donde se inserta 'p' + vocal repetida tras cada vocal). Deben traducirlo para obtener una instrucción oculta. Ejemplo: 'Bupenvenidopos a lapa supalupa' → 'Bienvenidos a la sala'. El mensaje traducido revela la ubicación de un objeto o un código. Variante con capas: el mensaje traducido contiene a su vez un acróstico que forma el código final.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": [
+    "prueba-investigacion-texto"
+  ],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "cifrado_lenguaje",
+    "materiales_estimados": "Tarjetas con mensajes en jerigonza, guía de referencia del código",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 15,
+    "numero_mensajes": 3,
+    "longitud_mensaje": "30-50 palabras",
+    "capas_codigo": 2,
+    "instrucciones_previas": "Se puede dar o no la regla de la jerigonza; descubrirla es parte del reto"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Lee el mensaje en voz alta, despacio. ¿Qué patrón escuchas en las sílabas?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada vocal se repite con una 'p' intercalada. Elimina las sílabas extra y lee lo que queda."
+    },
+    {
+      "nivel": 3,
+      "texto": "Traduce el mensaje completo. Ahora fíjate en la primera letra de cada línea traducida — forman un código."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Decodificación de jerigonza + acróstico de segundo nivel",
+    "descripcion": "Los jugadores identifican el patrón fonético de la jerigonza, traducen los mensajes eliminando las sílabas insertadas, y descubren que las primeras letras de cada línea traducida forman un código numérico o palabra clave.",
+    "resultado": "Código o palabra clave que abre el siguiente mecanismo"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Tarjetas físicas en sobres o dispuestas en una mesa. STREET ESCAPE: Mensajes accesibles vía QR o URL con texto interactivo. Para niños: dar la regla directamente y saltar el acróstico."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-04-04",
+    "version": "1.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "cifrado_lenguaje",
+      "comunicacion",
+      "texto",
+      "jerigonza",
+      "acrostico",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  },
+  "estado": "pendiente_revision"
+}

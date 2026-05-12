@@ -1,0 +1,105 @@
+{
+  "id": "prueba_ropa_roja_001",
+  "nombre": "Ropa Roja",
+  "descripcion": "Fibras de tela roja encontradas en las unas de la victima. Los jugadores deben identificar que sospechoso usaba ropa de ese color y material esa noche.",
+  "skill_primario": "prueba-observacion",
+  "skills_secundarios": [],
+  "dificultad": 2,
+  "duracion_estimada_minutos": 5,
+  "configuracion": {
+    "fibras_encontradas": {
+      "color": "Rojo intenso",
+      "material": "Algodon",
+      "tipo": "Camiseta manga corta",
+      "cantidad": "12 fibras",
+      "ubicacion": "Unas de la victima"
+    },
+    "declaraciones_sospechosos": [
+      {
+        "sospechoso": "Edurne",
+        "ropa_noche": "Vestido negro"
+      },
+      {
+        "sospechoso": "Samuel",
+        "ropa_noche": "Camisa azul"
+      },
+      {
+        "sospechoso": "Francisco",
+        "ropa_noche": "Polo gris"
+      },
+      {
+        "sospechoso": "Rodrigo",
+        "ropa_noche": "Chaqueta marron"
+      },
+      {
+        "sospechoso": "Marta",
+        "ropa_noche": "Blusa blanca"
+      },
+      {
+        "sospechoso": "Maria",
+        "ropa_noche": "Jersey verde"
+      },
+      {
+        "sospechoso": "Jaime",
+        "ropa_noche": "Camiseta roja de algodon"
+      },
+      {
+        "sospechoso": "Sara",
+        "ropa_noche": "Abrigo negro"
+      }
+    ],
+    "material_necesario": "Microscopio del Kit de Laboratorio",
+    "categoria": "observacion_detalle"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Las fibras son rojas, de algodon. La victima las tenia en sus unas. Significa que hubo lucha."
+    },
+    {
+      "nivel": 2,
+      "texto": "Revisa las declaraciones. Quien llevaba ropa roja de algodon esa noche?"
+    },
+    {
+      "nivel": 3,
+      "texto": "Jaime declaro que llevaba una camiseta roja de algodon. Las fibras coinciden."
+    }
+  ],
+  "solucion": {
+    "coincidencia": "Jaime",
+    "evidencia": "Fibras rojas de algodon = Camiseta roja de algodon de Jaime",
+    "explicacion": "La victima rasgo la ropa del atacante durante la lucha",
+    "resultado": "Jaime (Morado/Rosa) estuvo en contacto fisico con la victima. Pero es el asesino?"
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Jaime",
+    "color": "Morado/Rosa",
+    "razon": "Las fibras coinciden, pero Jaime tiene coartada solida: estaba en otro lugar a las 22:00. Alguien uso su ropa para inculparlo."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_fibras": "pruebas/assets/crimen_juan_palomo/fibras_rojas.png",
+    "imagen_microscopio": "pruebas/assets/crimen_juan_palomo/fibras_microscopio.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

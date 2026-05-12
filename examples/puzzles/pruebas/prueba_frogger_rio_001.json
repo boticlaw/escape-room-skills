@@ -1,0 +1,92 @@
+{
+  "id": "prueba_frogger_rio_001",
+  "nombre": "Cruzando el Rio - El Juego del Frogger",
+  "descripcion": "Despues de llegar al puente, debes ayudar a Pepe a cruzar el rio simbolizando los obstaculos que enfrenta. Te enfrentaras a un desafio similar al clasico juego Frogger: desplazar una rana a traves de una carretera evitando coches y cruzar el rio saltando sobre troncos.",
+  "skill_primario": "prueba-arcade-digital",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_juego": "frogger",
+    "dificultad_base": 5,
+    "vidas": 3,
+    "objetivo_puntos": 1,
+    "carriles_coche": 3,
+    "carriles_rio": 3,
+    "velocidad_coche": 3,
+    "velocidad_tronco": 2,
+    "permite_continuar": true,
+    "url_siguiente": "https://devueltaalpueblo.com/pu",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "Has cruzado el rio con exito. El camino continua.",
+    "categoria": "puzzles_mentales"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Debes ayudar a Pepe a cruzar al otro lado evitando obstaculos"
+    },
+    {
+      "nivel": 2,
+      "texto": "Controla el personaje con las flechas de direccion"
+    },
+    {
+      "nivel": 3,
+      "texto": "Espera el momento adecuado para cruzar la carretera sin chocar con los vehiculos"
+    },
+    {
+      "nivel": 4,
+      "texto": "Salta sobre los troncos en el rio para no caer al agua"
+    },
+    {
+      "nivel": 5,
+      "texto": "Llega al otro lado del rio sin perder la vida para avanzar. Paciencia y prueba."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Frogger - Navegacion con回避 de obstaculos",
+    "objetivo": "Cruzar carretera evitando coches, luego cruzar rio saltando sobre troncos",
+    "controles": "Flechas de direccion (arriba, abajo, izquierda, derecha)",
+    "estrategia": "Observar patrones de movimiento, esperar huecos, no precipitarse",
+    "resultado": "Acceso a https://devueltaalpueblo.com/pu"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: Controles tactiles en movil. Reducir dificultad si pantallas pequenas."
+  },
+  "assets": {
+    "sprite_rana": "TODO: imagen de la rana",
+    "sprite_coche": "TODO: imagen de coche",
+    "sprite_tronco": "TODO: imagen de tronco",
+    "fondo_carretera": "TODO: fondo carretera",
+    "fondo_rio": "TODO: fondo rio"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "arcade",
+      "frogger",
+      "rio",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 6
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: Controles tactiles en movil. Reducir dificultad si pantallas pequenas.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

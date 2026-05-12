@@ -1,0 +1,124 @@
+{
+  "id": "prueba_mapa_sospechosos_001",
+  "nombre": "Mapa de Localizaciones",
+  "descripcion": "Mapa de la zona con las ubicaciones de los 8 sospechosos. Las distancias estan marcadas en tinta invisible ultravioleta. Los jugadores deben calcular quien NO pudo llegar a tiempo a la escena del crimen.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "hora_crimen": "22:00",
+    "hora_salida_sospechosos": "21:00",
+    "tiempo_maximo_llegada": 60,
+    "velocidad_km_h": 60,
+    "nota_distancias": "Distancias en km. Tiempo = distancia / velocidad * 60",
+    "sospechosos": [
+      {
+        "color": "Rojo",
+        "nombre": "Francisco",
+        "distancia_km": 68,
+        "tiempo_min": 68
+      },
+      {
+        "color": "Naranja",
+        "nombre": "Edurne",
+        "distancia_km": 33,
+        "tiempo_min": 33
+      },
+      {
+        "color": "Morado/Rosa",
+        "nombre": "Jaime",
+        "distancia_km": 20,
+        "tiempo_min": 20
+      },
+      {
+        "color": "Gris",
+        "nombre": "Samuel",
+        "distancia_km": 36,
+        "tiempo_min": 36
+      },
+      {
+        "color": "Azul/Morado",
+        "nombre": "Maria",
+        "distancia_km": 54,
+        "tiempo_min": 54
+      },
+      {
+        "color": "Amarillo",
+        "nombre": "Rodrigo",
+        "distancia_km": 45,
+        "tiempo_min": 45
+      },
+      {
+        "color": "Verde",
+        "nombre": "Marta",
+        "distancia_km": 56,
+        "tiempo_min": 56
+      },
+      {
+        "color": "Negro",
+        "nombre": "Sara",
+        "distancia_km": 52,
+        "tiempo_min": 52
+      }
+    ],
+    "metodo_revelacion": "Luz ultravioleta del kit revela distancias marcadas en el mapa",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Usa la luz ultravioleta del kit sobre el mapa. Algo esta oculto."
+    },
+    {
+      "nivel": 2,
+      "texto": "El crimen ocurrio a las 22:00. Todos salieron a las 21:00. Calcula quien NO pudo llegar a tiempo."
+    },
+    {
+      "nivel": 3,
+      "texto": "Francisco necesitaba 68 minutos. Solo tenia 60. Es imposible que llegara."
+    }
+  ],
+  "solucion": {
+    "metodo": "Calcular tiempo = distancia / velocidad * 60. Si tiempo > 60 min, no pudo llegar.",
+    "sospechosos_fuera_tiempo": [
+      {
+        "nombre": "Francisco",
+        "tiempo": 68,
+        "razon": "Necesitaba 68 min, solo tenia 60"
+      }
+    ],
+    "resultado": "Francisco (Rojo) no pudo estar en la escena del crimen. QUEDA ELIMINADO."
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Marta",
+    "color": "Verde",
+    "razon": "Vivia mas lejos (56 min). Aunque llegaria, testigos confirman que estaba en otro lugar. Coartada verificada."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "mapa_principal": "pruebas/assets/crimen_juan_palomo/mapa_localizaciones.png",
+    "mapa_uv_revelado": "pruebas/assets/crimen_juan_palomo/mapa_uv_revelado.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "id": "prueba_cupido_001",
+  "nombre": "Cupido - Sincronía de Latidos",
+  "descripcion": "Juego de ritmo cooperativo donde 2-6 jugadores deben pulsar en sincronía perfecta siguiendo el latido visual y auditivo de un corazón. El sistema incluye anti-camping (obliga a levantar el dedo entre latidos), dificultad adaptativa (se ajusta por aciertos/fallos) y fail-safe (victoria automática tras 3 minutos). Al conseguir 5 aciertos consecutivos, muestra un código de victoria.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_juego": "sincronia_latidos",
+    "modo_juego": "tablet_compartida",
+    "numero_jugadores": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "aciertos_necesarios": 5,
+    "bpm_base": 60,
+    "bpm_maximo": 90,
+    "ventana_normal_ms": 400,
+    "ventana_facil_ms": 600,
+    "ventana_regalo_ms": 1000,
+    "fallos_para_facil": 5,
+    "fallos_para_regalo": 10,
+    "timeout_segundos": 180,
+    "tiempo_lobby_segundos": 2,
+    "codigo_recompensa": "1987",
+    "mensaje_exito": "¡Sincronización perfecta! Código desbloqueado.",
+    "fases": [
+      "REPOSO",
+      "INHALACION",
+      "GOLPE"
+    ],
+    "duracion_fases": {
+      "reposo_pct": 40,
+      "inhalacion_pct": 35,
+      "golpe_pct": 25
+    },
+    "anti_camping": true,
+    "feedback_individual": true,
+    "tutorial_previo": true,
+    "categoria": "cooperacion_equipo"
+  },
+  "distribucion_jugadores": {
+    "2_jugadores": "Borde superior centro + Borde inferior centro",
+    "3_jugadores": "2 esquinas superiores + 1 borde inferior centro",
+    "4_jugadores": "4 esquinas",
+    "5_jugadores": "3 borde superior + 2 esquinas inferiores",
+    "6_jugadores": "3 borde superior + 3 borde inferior"
+  },
+  "mecanicas_especiales": {
+    "anti_camping": {
+      "descripcion": "Obliga a levantar el dedo entre latidos",
+      "penalizacion": "Si un dedo nunca se levantó desde el golpe anterior → calambre + reinicio ciclo"
+    },
+    "dificultad_adaptativa": {
+      "descendente": "5 fallos → Fácil (600ms) | 10 fallos → Regalo (1000ms)",
+      "ascendente": "3 aciertos consecutivos → BPM +10% (máx 90 BPM)"
+    },
+    "fail_safe": {
+      "timeout_segundos": 180,
+      "evento": "Sobrecarga de Energía",
+      "mensaje": "SISTEMA DE SEGURIDAD VULNERADO — ACCESO CONCEDIDO"
+    },
+    "tutorial": {
+      "duración": "1 ciclo completo",
+      "velocidad": "50% BPM",
+      "cuenta_progreso": false
+    }
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Observad el corazón: Reposo (apagado) → Inhalación (se expande) → Golpe (cuando está rojo intenso)."
+    },
+    {
+      "nivel": 2,
+      "texto": "¡Levantad el dedo entre latidos! Si lo dejáis puesto, el sistema detecta 'camping' y penaliza."
+    },
+    {
+      "nivel": 3,
+      "texto": "Si falláis mucho, el juego se hace más fácil automáticamente. Si acertáis seguido, sube el ritmo."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Sincronización de toques al ritmo del corazón",
+    "regla_oro": "NADIE puede tocar durante REPOSO. Todos deben tocar durante GOLPE.",
+    "estrategia": "1. Designar un 'contador' que diga 'YA' cuando el corazón se ponga rojo. 2. Levantar el dedo completamente tras cada golpe. 3. Mirar el corazón, no a los compañeros.",
+    "validacion_exito": "nuevos_toques_en_ventana == num_jugadores",
+    "resultado": "Código 1987 mostrado en pantalla de victoria"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Tablet Android 10\"+ con mínimo 6 puntos multitouch. Modo kiosco recomendado. No requiere conexión a internet una vez instalado el APK."
+  },
+  "assets": {
+    "apk_debug": "build/android/cupido-debug.apk",
+    "apk_release": "build/android/cupido.apk",
+    "audio_heartbeat_low": "assets/audio/heartbeat_low.wav",
+    "audio_inhale": "assets/audio/inhale_charge.wav",
+    "audio_strike": "assets/audio/heartbeat_strike.wav",
+    "audio_success": "assets/audio/chord_success.wav",
+    "audio_fail": "assets/audio/glitch_fail.wav",
+    "audio_camping": "assets/audio/shock_camping.wav",
+    "audio_win": "assets/audio/win_fanfare.wav",
+    "audio_ambient": "assets/audio/ambient_attract.wav",
+    "sprite_heart": "assets/textures/heart_sprite_sheet.png",
+    "sprite_heart_crack": "assets/textures/heart_crack_overlay.png",
+    "sprite_zone": "assets/textures/finger_zone.png",
+    "sprite_zone_active": "assets/textures/finger_zone_active.png"
+  },
+  "implementacion": {
+    "github": "https://github.com/danielgap/cupido",
+    "tecnologia": "Godot Engine 4.6",
+    "plataforma_objetivo": "Android Tablet",
+    "resolucion": "1920x1200 landscape",
+    "renderer": "Vulkan Mobile",
+    "multitouch_minimo": 6,
+    "requisitos": [
+      "Godot Engine 4.6",
+      "Android SDK",
+      "JDK 17+",
+      "Tablet Android con mínimo 6 puntos multitouch"
+    ],
+    "comandos_build": {
+      "ejecutar": "godot4 --path .",
+      "validar": "godot4 --headless --path . --check-only --quit",
+      "export_debug": "powershell -ExecutionPolicy Bypass -File .\\tools\\build_android.ps1 -Mode debug",
+      "export_release": "powershell -ExecutionPolicy Bypass -File .\\tools\\build_android.ps1 -Mode release"
+    },
+    "tests": "godot4 --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests",
+    "estado": "en_desarrollo",
+    "documentacion": "Ver PRD.md para especificaciones completas del producto"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "tablet",
+      "cooperativo",
+      "ritmo",
+      "sincronizacion",
+      "latido",
+      "anti-camping",
+      "godot",
+      "android",
+      "cupido",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "HALL ESCAPE: Tablet Android 10\"+ con mínimo 6 puntos multitouch. Modo kiosco recomendado. No requiere conexión a internet una vez instalado el APK.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-03-23_002",
+  "nombre": "Sudoku de palabras",
+  "descripcion": "Un sudoku 4x4 o 6x6 donde las celdas contienen letras en lugar de números. Al resolverlo correctamente, una fila específica (marcada con un borde grueso o color distinto) forma la palabra clave que es el código del candado. Ejemplo: sudoku 4x4 con las letras R-O-T-L; la fila central resuelta lee 'ROLT', que es la contraseña del portátil o los 4 dígitos del candado (R=7, O=6, L=5, T=8 usando un teléfono antiguo como clave).",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": ["prueba-cifrado"],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "logica_deducciones",
+    "materiales_estimados": "Sudoku impreso, bolígrafo",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 15
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Es un sudoku normal pero con letras. Cada fila y columna no puede repetir letras."
+    },
+    {
+      "nivel": 2,
+      "texto": "La fila marcada con borde rojo es la importante. Resolved esa fila primero si podéis."
+    },
+    {
+      "nivel": 3,
+      "texto": "Si la fila resuelta dice letras, buscad algo en la sala que asocie letras a números (un teléfono, un teclado...)."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Resolver sudoku de letras y extraer palabra clave de una fila marcada",
+    "descripcion": "Los jugadores resuelven un sudoku con letras. La fila resuelta forma una palabra. Esa palabra se convierte en código usando una referencia de la sala (teclado telefónico, alfabeto numerado, etc.).",
+    "resultado": "Palabra clave de la fila marcada → convertida a código numérico usando referencia de la sala"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 3,
+    "notas_espacio": "HALL ESCAPE: Ideal en mesa. STREET ESCAPE: Versión impresa portátil. Para dificultad baja usar 4x4, para alta usar 6x6."
+  },
+  "assets": {
+    "nota": "Diseñar sudoku con solución controlada. Imprimir en A4 con la fila clave marcada."
+  },
+  "metadata": {
+    "creado": "2026-03-23",
+    "version": "3.0",
+    "autor": "Generador (mejorada)",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "logica_deducciones",
+      "prueba-logica-posiciones",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "mejorada"
+}

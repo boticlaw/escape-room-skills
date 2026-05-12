@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-03-22_005",
+  "nombre": "Idea: Secuencia de interruptores (versión inversa) — Variante (2026-03-22)",
+  "descripcion": "Tres interruptores deben activarse en un orden específico para encender una luz que revela el siguiente paso. En esta variante, el orden de resolución es inverso al habitual. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 13,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "fisicos_mecanismos",
+    "materiales_estimados": "Interruptores simples, luz LED, batería, cableado básico",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 31
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-mecanismo",
+    "descripcion": "Los jugadores deben tres interruptores deben activarse en un orden específico para encender una luz que revela el siguiente paso. en esta variante, el orden de resolución es inverso al habitual.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-22",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "fisicos_mecanismos",
+      "prueba-mecanismo",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": "Secuencia de interruptores"
+  },
+  "estado": "pendiente_revision"
+}

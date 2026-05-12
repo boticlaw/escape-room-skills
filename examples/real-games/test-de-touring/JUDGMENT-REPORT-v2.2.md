@@ -1,6 +1,6 @@
 # 🔐 JUDGMENT REPORT v2.2 — Test de Touring
 
-> **Revisor:** Escapeitor (adversarial review, segunda pasada)
+> **Revisor:** Generador (adversarial review, segunda pasada)
 > **Fecha:** 8 Abril 2026
 > **Versión revisada:** 2.2 (post-correcciones del JUDGMENT-REPORT v2.1)
 > **Documentos revisados:** OVERVIEW.md, DISEÑO-JUEGO.md, NARRATIVA.md, 6 JSON de pruebas, PISTAS-GM.md, VALIDACION.md, LOGISTICA.md, lista-materiales.md, GUIA-JUGADORES.md
@@ -359,5 +359,5 @@ Los nuevos problemas introducidos (NP1-NP4) son de severidad menor-media y no re
 
 ---
 
-*JUDGMENT REPORT v2.2 — Escapeitor — 8 Abril 2026*
+*JUDGMENT REPORT v2.2 — Generador — 8 Abril 2026*
 *Principio: Duro pero justo. Y esta vez, también justo con las mejoras.*

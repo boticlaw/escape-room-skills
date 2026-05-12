@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-03-24_001",
+  "nombre": "Texto oculto con luz UV",
+  "descripcion": "Mensajes escritos con rotulador invisible UV en varias superficies de la sala (paredes, bajo la mesa, en un libro). Los jugadores encuentran una linterna UV y deben escanear la sala para revelar los mensajes. Los mensajes parciales forman un código de 4 letras cuando se leen en orden. Ejemplo: bajo la mesa aparece 'CA', en la portada de un libro 'JA', detrás de un cuadro 'DA' → código 'CAJADA' o las iniciales forman 'CJD' más una pista direccional. NOTA: Linterna UV cuesta ~3-5€ en Amazon, rotulador UV ~2-3€. Total <8€.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": ["prueba-busqueda-objetos"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "Linterna UV (~3-5€), rotulador invisible UV (~2-3€), superficies donde escribir",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 15
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Hay algo en esta sala que no se ve a simple vista. ¿Qué herramienta habéis encontrado que podría ayudar?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Escanead las superficies con la luz UV: bajo los muebles, detrás de los cuadros, dentro de libros."
+    },
+    {
+      "nivel": 3,
+      "texto": "Los fragmentos UV están numerados (I, II, III...). Leedlos en orden para obtener el código completo."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Encontrar linterna UV y escanear la sala para revelar mensajes invisibles que forman un código",
+    "descripcion": "Los jugadores descubren una linterna UV. Al usarla, encuentran fragmentos de texto invisible escritos en distintas superficies. Cada fragmento está numerado. Leyéndolos en orden se obtiene el código o contraseña.",
+    "resultado": "Código o contraseña formado por fragmentos UV numerados encontrados en distintas superficies"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Solo HALL ESCAPE. Requiere oscuridad parcial o superficies donde la UV funcione bien. No viable en exterior con luz solar."
+  },
+  "assets": {
+    "nota": "Comprar: linterna UV + rotulador UV. Escribir mensajes en 3-5 superficies distintas, numerados. Probar visibilidad antes del evento."
+  },
+  "metadata": {
+    "creado": "2026-03-24",
+    "version": "3.0",
+    "autor": "Generador (mejorada)",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "observacion_detalle",
+      "prueba-exploracion-visual",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "mejorada"
+}

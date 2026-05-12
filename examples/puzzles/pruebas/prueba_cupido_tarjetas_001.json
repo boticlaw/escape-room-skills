@@ -1,0 +1,99 @@
+{
+  "id": "prueba_cupido_tarjetas_001",
+  "nombre": "Tarjetas Fragmentadas de Cupido",
+  "descripcion": "Los jugadores encuentran varios trozos de cartas rasgadas esparcidos por la sala. Deben encontrar todas las piezas, identificar qué fragmentos pertenecen a cada carta, y ensamblarlas correctamente. Al dar la vuelta a las cartas completadas, se revela un número en cada una que forma el código.",
+  "skill_primario": "prueba-puzzle-ensamblaje",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "ensamblaje_fragmentos",
+    "numero_cartas": 4,
+    "fragmentos_por_carta": 4,
+    "total_fragmentos": 16,
+    "codigo_recompensa": "3548",
+    "mecanica_codigo": "Cada carta completada muestra un dígito en el reverso. Orden: 3-5-4-8",
+    "distribucion_fragmentos": "Esparcidos por la sala: mesa, suelo, estantería, dentro de cajones",
+    "categoria": "investigacion_texto"
+  },
+  "cartas": [
+    {
+      "id": 1,
+      "digito_reverso": "3",
+      "tema": "Flecha del Vínculo",
+      "fragmentos": 4
+    },
+    {
+      "id": 2,
+      "digito_reverso": "5",
+      "tema": "Flecha del Compromiso",
+      "fragmentos": 4
+    },
+    {
+      "id": 3,
+      "digito_reverso": "4",
+      "tema": "Flecha de la Confianza",
+      "fragmentos": 4
+    },
+    {
+      "id": 4,
+      "digito_reverso": "8",
+      "tema": "El Fallo Misterioso",
+      "fragmentos": 4
+    }
+  ],
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Buscad todos los trozos de papel rasgado. Parecen cartas rotas."
+    },
+    {
+      "nivel": 2,
+      "texto": "Agrupad los fragmentos por el tipo de letra o el contenido del texto."
+    },
+    {
+      "nivel": 3,
+      "texto": "Una vez completadas las cartas, dadles la vuelta. Cada una tiene un número."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ensamblar 4 cartas de 4 fragmentos cada una",
+    "estrategia": "1. Recoger todos los fragmentos. 2. Agrupar por similitud de texto/bordes. 3. Ensamblar como puzzle. 4. Leer el número en el reverso.",
+    "orden_codigo": "Los números en el reverso son 3, 5, 4, 8. El código final es 3548.",
+    "resultado": "Código 3548 para obtener la llave de la segunda sala y las botellas"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Los fragmentos están escondidos en diferentes ubicaciones de la sala principal. Fomenta la búsqueda colaborativa."
+  },
+  "assets": {
+    "fragmentos_cartas": "pruebas/assets/prueba_cupido_tarjetas_001/fragmentos/",
+    "cartas_completas": "pruebas/assets/prueba_cupido_tarjetas_001/cartas_completas.pdf"
+  },
+  "metadata": {
+    "creado": "2026-02-16",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "ensamblaje",
+      "puzzle",
+      "busqueda",
+      "tarjetas",
+      "cupido",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Los fragmentos están escondidos en diferentes ubicaciones de la sala principal. Fomenta la búsqueda colaborativa.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

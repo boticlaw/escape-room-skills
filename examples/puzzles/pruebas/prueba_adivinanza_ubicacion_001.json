@@ -1,0 +1,55 @@
+{
+  "id": "prueba_adivinanza_ubicacion_001",
+  "nombre": "Adivinanza de ubicación",
+  "descripcion": "Un poema o adivinanza describe un lugar específico en la habitación o en el mapa del juego. Los jugadores deben deducir dónde buscar el siguiente elemento. SIN tiempo límite — los jugadores avanzan a su ritmo. Ejemplo: 'Donde el agua duerme y los libros descansan, busca debajo del tercer escalón' → bajo la tercera bald de la estantería hay un sobre sellado con la siguiente pista. La adivinanza siempre usa metáforas que apuntan a elementos físicos del espacio.",
+  "skill_primario": "prueba-adivinanza-ubicacion",
+  "skills_secundarios": ["prueba-gps-navegacion"],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_validada",
+    "categoria": "logica_deducciones",
+    "materiales_estimados": "Papel con adivinanza poética, mapa o referencia visual, sobre con siguiente pista escondido en el lugar correcto",
+    "coste_estimado": "bajo (<3€)",
+    "tiempo_preparacion_minutos": 19
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Lee el poema en voz alta. Las palabras clave describen objetos o zonas de la sala."
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada verso apunta a un elemento físico. 'Agua' puede ser un grifo, un vaso, una fuente... 'Libros' puede ser la estantería."
+    },
+    {
+      "nivel": 3,
+      "texto": "El número mencionado en la adivinanza indica la posición exacta. Buscad debajo o detrás del tercer [objeto]."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Decodificar una adivinanza poética que describe metafóricamente un lugar del espacio de juego",
+    "descripcion": "Los jugadores leen un poema/adivinanza que describe un lugar del espacio. Cada metáfora apunta a un objeto o zona física. Al identificar el lugar correcto, encuentran un sobre o compartimento oculto con la siguiente pista o un código.",
+    "resultado": "Sobre/pista encontrada en la ubicación deducida. Puede contener un código, llave o la siguiente prueba."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Adaptar adivinanzas a ubicaciones del exterior (monumentos, calles). Sin GM cronometrando."
+  },
+  "assets": {
+    "nota": "Escribir adivinanza coherente con la temática. Colocar sobre en la ubicación correcta ANTES del juego."
+  },
+  "metadata": {
+    "creado": "2026-03-23",
+    "validado": "2026-04-05",
+    "version": "3.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_validada", "logica_deducciones", "prueba-adivinanza-ubicacion", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba"
+  }
+}

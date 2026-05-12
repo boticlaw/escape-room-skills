@@ -1,0 +1,99 @@
+{
+  "id": "prueba_acreditaciones_001",
+  "nombre": "Acreditaciones de Acceso",
+  "descripcion": "Set de acreditaciones con codigos alfanumericos que deben combinarse para obtener la contrasena de apertura del Kit de Laboratorio Forense.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": [],
+  "dificultad": 2,
+  "duracion_estimada_minutos": 5,
+  "configuracion": {
+    "numero_acreditaciones": 4,
+    "acreditaciones": [
+      {
+        "id": "ACC-001",
+        "nombre": "Investigador Jefe",
+        "codigo_visible": "B-7-K",
+        "descripcion": "Tarjeta de identificacion con foto y codigo de barras"
+      },
+      {
+        "id": "ACC-002",
+        "nombre": "Tecnico Forense",
+        "codigo_visible": "R-3-M",
+        "descripcion": "Tarjeta de identificacion con foto y codigo de barras"
+      },
+      {
+        "id": "ACC-003",
+        "nombre": "Analista de Evidencias",
+        "codigo_visible": "A-9-P",
+        "descripcion": "Tarjeta de identificacion con foto y codigo de barras"
+      },
+      {
+        "id": "ACC-004",
+        "nombre": "Oficial de Escena",
+        "codigo_visible": "T-4-L",
+        "descripcion": "Tarjeta de identificacion con foto y codigo de barras"
+      }
+    ],
+    "metodo_descifrado": "Primera letra de cada cargo en orden jerarquico",
+    "orden_jerarquico": [
+      "Investigador Jefe",
+      "Tecnico Forense",
+      "Analista de Evidencias",
+      "Oficial de Escena"
+    ],
+    "pistas_orden": [
+      "El jefe siempre va primero",
+      "La tecnica precede al analisis",
+      "El oficial cierra el equipo"
+    ],
+    "categoria": "investigacion_texto"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Observa las tarjetas. Hay un orden logico en los cargos."
+    },
+    {
+      "nivel": 2,
+      "texto": "El orden es: Jefe -> Tecnico -> Analista -> Oficial. Toma la primera letra de cada cargo."
+    },
+    {
+      "nivel": 3,
+      "texto": "La contrasena es: I-T-A-O (Investigador, Tecnico, Analista, Oficial)"
+    }
+  ],
+  "solucion": {
+    "contrasena_kit": "ITAO",
+    "metodo": "Iniciales de los cargos en orden jerarquico",
+    "resultado": "Kit de Laboratorio Forense abierto. Acceso a microscopio, regla, cucharilla, guantes y luz ultravioleta."
+  },
+  "eliminacion": {
+    "aplica": false,
+    "nota": "Esta prueba no elimina sospechosos. Es la prueba de inicio que da acceso al kit de herramientas."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_acreditaciones": "pruebas/assets/crimen_juan_palomo/acreditaciones_set.png",
+    "imagen_tarjeta_ejemplo": "pruebas/assets/crimen_juan_palomo/tarjeta_ejemplo.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "prueba_huellas_dactilares_001",
+  "nombre": "Huellas Dactilares",
+  "descripcion": "Huellas dactilares encontradas en el arma del crimen. Los jugadores deben levantarlas con el material del kit y compararlas con la ficha del ultimo sospechoso restante.",
+  "skill_primario": "prueba-observacion",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "configuracion": {
+    "ubicacion_huellas": "Arma del crimen (cuchillo)",
+    "numero_huellas": 3,
+    "huellas_encontradas": [
+      {
+        "dedo": "Indice derecho",
+        "claridad": "Alta",
+        "tipo": "Arco"
+      },
+      {
+        "dedo": "Pulgar derecho",
+        "claridad": "Media",
+        "tipo": "Presilla"
+      },
+      {
+        "dedo": "Medio derecho",
+        "claridad": "Alta",
+        "tipo": "Verticilo"
+      }
+    ],
+    "material_necesario": [
+      "Cinta adhesiva transparente",
+      "Polvo revelador (o talco)",
+      "Pincel suave"
+    ],
+    "proceso_levantamiento": [
+      "Aplicar polvo sobre la superficie",
+      "Retirar exceso con pincel",
+      "Colocar cinta sobre huella",
+      "Levantar y transferir a papel"
+    ],
+    "ficha_sara": {
+      "nombre": "Sara",
+      "huellas_registradas": {
+        "indice_derecho": "Arco - patron simple",
+        "pulgar_derecho": "Presilla radial",
+        "medio_derecho": "Verticilo con centro ovalado"
+      },
+      "antecedentes": "Ninguno",
+      "relacion_victima": "Ex-compañera de trabajo"
+    },
+    "categoria": "observacion_detalle"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Usa la cinta y el polvo para levantar las huellas del arma. Compara el patron."
+    },
+    {
+      "nivel": 2,
+      "texto": "Hay tres tipos de patrones: Arco, Presilla, Verticilo. Compara con la ficha de Sara."
+    },
+    {
+      "nivel": 3,
+      "texto": "Indice (Arco), Pulgar (Presilla), Medio (Verticilo). Coinciden exactamente con la ficha de Sara."
+    }
+  ],
+  "solucion": {
+    "huellas_levantadas": [
+      {
+        "dedo": "Indice derecho",
+        "tipo": "Arco"
+      },
+      {
+        "dedo": "Pulgar derecho",
+        "tipo": "Presilla"
+      },
+      {
+        "dedo": "Medio derecho",
+        "tipo": "Verticilo"
+      }
+    ],
+    "coincidencia": "Sara",
+    "porcentaje_match": "100%",
+    "explicacion": "Las tres huellas del arma coinciden exactamente con los registros de Sara",
+    "resultado": "SARA (Negro) es la CULPABLE. Sus huellas dactilares estan en el arma del crimen."
+  },
+  "eliminacion": {
+    "aplica": false,
+    "nota": "Esta es la prueba FINAL. No elimina, sino que CONFIRMA al culpable.",
+    "culpable_confirmado": "Sara",
+    "color": "Negro"
+  },
+  "conclusion": {
+    "motivo": "Juan Palomo tenia pruebas de corrupcion que involucraban a Sara",
+    "resumen_caso": "Sara planifico el asesinato, intento inculpar a otros dejando pistas falsas (pelos, tierra, ropa), pero su error fue no limpiar sus huellas del arma.",
+    "mensaje_final": "Caso resuelto. La asesina es SARA. Detencion inmediata."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_huellas": "pruebas/assets/crimen_juan_palomo/huellas_dactilares.png",
+    "imagen_levantamiento": "pruebas/assets/crimen_juan_palomo/proceso_levantamiento.png",
+    "ficha_sara": "pruebas/assets/crimen_juan_palomo/ficha_huellas_sara.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "tipo_prueba": "final",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

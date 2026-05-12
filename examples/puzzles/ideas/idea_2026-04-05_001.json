@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-05_001",
+  "nombre": "Espejo invertido",
+  "descripcion": "Un texto impreso está colocado junto a un espejo pequeño que los jugadores encuentran en la sala. El texto parece incomprensible ('OLBICSE ED AEIRAM'), pero al acercarlo al espejo, se lee correctamente en el reflejo: 'MARCOS DEL ESCABIO'. Ese texto es una pista que apunta a un marco de cuadro específico ('Marcos') donde hay un compartimento oculto con un código de 4 dígitos grabado en el dorso. El espejo también tiene una inscripción en el reverso: 'Solo la reflexión revela la verdad', que es la pista para usarlo.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": ["prueba-cifrado"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 6,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "Espejo pequeño de mano (~2€), texto impreso invertido horizontalmente, marco de cuadro con compartimento secreto",
+    "coste_estimado": "bajo (~3-4€)",
+    "tiempo_preparacion_minutos": 15
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "El texto que habéis encontrado no se puede leer directamente. ¿Hay algo en la sala que pueda reflejarlo?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Usad el espejo con el texto. El reflejo muestra el mensaje correcto. Ese nombre apunta a algo de la sala."
+    },
+    {
+      "nivel": 3,
+      "texto": "El texto reflejado menciona un marco ('Marcos'). Buscad en el dorso del marco de cuadro que lleva ese nombre o está en esa posición."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Usar un espejo para leer texto invertido que revela una ubicación con código",
+    "descripcion": "Los jugadores encuentran un texto ilegible y un espejo. Al reflejar el texto, descubren el nombre de un objeto/ubicación de la sala. Esa ubicación tiene un compartimento oculto con el código.",
+    "resultado": "Código de 4 dígitos encontrado en el dorso del marco de cuadro señalado por el texto reflejado"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Usar espejo de bolsillo y texto en cartel. Para niños: texto más corto, una sola palabra."
+  },
+  "assets": {
+    "nota": "Imprimir texto invertido horizontalmente. Pegar código en dorso de marco. Asegurar que el reflejo es legible."
+  },
+  "metadata": {
+    "creado": "2026-04-05",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "observacion_detalle", "prueba-exploracion-visual", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}

@@ -356,4 +356,4 @@ Testing no es un paso, es un **proceso continuo**. Cada juego debe pasar por mú
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

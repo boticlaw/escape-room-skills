@@ -300,4 +300,4 @@ Continuar con **08-testing.md** para aprender a validar que toda la tecnología 
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

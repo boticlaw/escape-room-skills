@@ -11,7 +11,7 @@ Ver `PROJECTS-STRUCTURE.md` en workspace raíz. OBLIGATORIO al guardar archivos 
 
 ### Búsqueda Exacta
 ```bash
-~/.openclaw/workspace/agents/escapeitor/scripts/escape-search.sh [opciones] <término>
+~/.repositorio/workspace/agents/generador/scripts/escape-search.sh [opciones] <término>
 # Flags: --skill=NAME, --dificultad=N o N-M, --tipo=pruebas|ideas
 ```
 Usar para: filtros específicos, valores numéricos, términos exactos.
@@ -37,7 +37,7 @@ Re-indexar tras nuevas pruebas: `qmd update`
 ## 🎯 Protocolo Kanban
 
 **API:** `http://localhost:3000/api/kanban/agent/tasks`
-**Auth:** `X-Agent-Id: escapeitor` / `X-Agent-Key: sk-escapeitor-secret-2026`
+**Auth:** `X-Agent-Id: generador` / `X-Agent-Key: sk-generador-secret-2026`
 
 | Acción | Método | Path |
 |--------|--------|------|

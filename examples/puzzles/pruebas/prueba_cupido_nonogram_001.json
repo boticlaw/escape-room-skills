@@ -1,0 +1,142 @@
+{
+  "id": "prueba_cupido_nonogram_001",
+  "nombre": "Nonogram Mitológico de Cupido",
+  "descripcion": "Los jugadores deben resolver un nonogram (puzzle de lógica con cuadrícula) donde las pistas numéricas indican cuántas celdas consecutivas deben rellenar en cada fila y columna. Al completarlo correctamente, se revelan los nombres de figuras mitológicas relacionadas con Cupido: Cupido, Himeneo, Psique y Erotes.",
+  "skill_primario": "prueba-logica-nonogram",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "nonogram",
+    "dimensiones": {
+      "filas": 10,
+      "columnas": 10
+    },
+    "pistas_filas": [
+      [
+        2
+      ],
+      [
+        4
+      ],
+      [
+        6
+      ],
+      [
+        8
+      ],
+      [
+        10
+      ],
+      [
+        8
+      ],
+      [
+        6
+      ],
+      [
+        4
+      ],
+      [
+        2
+      ],
+      [
+        1
+      ]
+    ],
+    "pistas_columnas": [
+      [
+        2
+      ],
+      [
+        4
+      ],
+      [
+        6
+      ],
+      [
+        8
+      ],
+      [
+        10
+      ],
+      [
+        8
+      ],
+      [
+        6
+      ],
+      [
+        4
+      ],
+      [
+        2
+      ],
+      [
+        1
+      ]
+    ],
+    "codigo_recompensa": "2863",
+    "mecanica_codigo": "Al resolver el nonogram, se revelan 4 números ocultos en la cuadrícula",
+    "palabras_reveladas": [
+      "CUPIDO",
+      "HIMENEO",
+      "PSIQUE",
+      "EROTES"
+    ],
+    "categoria": "logica_deducciones"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Un nonogram se resuelve siguiendo las pistas numéricas. Cada número indica celdas consecutivas a rellenar."
+    },
+    {
+      "nivel": 2,
+      "texto": "Empezad por las filas o columnas con números grandes, son más fáciles de colocar."
+    },
+    {
+      "nivel": 3,
+      "texto": "Los nombres que aparecen son deidades mitológicas: Cupido, Himeneo, Psique y Erotes. Buscad el patrón."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Resolver nonogram 10x10 usando lógica deductiva",
+    "estrategia": "1. Identificar filas/columnas con pistas definitivas. 2. Marcar celdas seguras. 3. Usar X para descartar imposibles. 4. Completar por deducción.",
+    "resultado": "Código 2863 revelado al completar el puzzle"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "El nonogram puede estar impreso en papel grande en la pared o en una tablet con stylus."
+  },
+  "assets": {
+    "nonogram_impreso": "pruebas/assets/prueba_cupido_nonogram_001/nonogram_cupido.pdf",
+    "solucion_nonogram": "pruebas/assets/prueba_cupido_nonogram_001/solucion.png"
+  },
+  "metadata": {
+    "creado": "2026-02-16",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "logica",
+      "nonogram",
+      "puzzle",
+      "mitologia",
+      "cupido",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "El nonogram puede estar impreso en papel grande en la pared o en una tablet con stylus.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

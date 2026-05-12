@@ -189,7 +189,7 @@ User
 
 ---
 
-## 8. Lecciones para Escapeitor
+## 8. Lecciones para Generador
 
 ### 8.1 Lo que funciona bien
 1. **Narrativa como hilo conductor** — el diario mantiene engagement entre niveles
@@ -207,7 +207,7 @@ User
 5. **Sin multiidioma** — solo español
 6. **Sin ranking/social** — no hay leaderboard ni compartir
 
-### 8.3 Componentes Reutilizables para Escapeitor
+### 8.3 Componentes Reutilizables para Generador
 - ✅ `GeoLocationChecker` — sistema de geolocalización completo
 - ✅ `CodeLockBox` — caja de combinación
 - ✅ `MemoryCard` — juego de parejas
@@ -249,7 +249,7 @@ interface LevelData {
 
 ---
 
-## 10. Métricas de Interés para Escapeitor
+## 10. Métricas de Interés para Generador
 
 - **13 niveles** con ~7 tipos de mecánicas distintas
 - **9 niveles con geolocalización** (69%)

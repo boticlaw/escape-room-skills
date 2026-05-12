@@ -1,0 +1,64 @@
+{
+  "id": "idea_2026-03-22_003",
+  "nombre": "Idea: Maze de tubos transparentes (2026-03-22)",
+  "descripcion": "Un objeto (bola o moneda) debe navegar por un laberinto de tubos transparentes inclinándolos correctamente para que llegue a la salida. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": [
+    "prueba-emparejamiento-memoria"
+  ],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 13,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "fisicos_mecanismos",
+    "materiales_estimados": "Tubos de PVC transparentes, bola o moneda, soporte de cartón",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 45
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-mecanismo",
+    "descripcion": "Los jugadores deben un objeto (bola o moneda) debe navegar por un laberinto de tubos transparentes inclinándolos correctamente para que llegue a la salida.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-22",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "fisicos_mecanismos",
+      "prueba-mecanismo",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "mejorada",
+  "notas": "Falta explicar que se consigue al completarlo. Ejemplo: la bola llega a un compartimento con la siguiente pista, o al final del laberinto hay un codigo visible solo desde la salida. Tambien: montar tubos de PVC es costoso y complejo para bajo presupuesto. Considerar alternativa mas simple: tubos de carton, pajitas gruesas, o version 2D en papel con surcos."
+}

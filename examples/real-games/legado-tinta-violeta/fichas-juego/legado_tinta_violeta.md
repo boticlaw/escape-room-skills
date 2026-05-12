@@ -361,6 +361,6 @@ Para contextualizar el juego, estas son algunas escritoras reales de Palencia:
 
 ---
 
-*Documento creado por Escapeitor | Fecha: 2026-03-16*
+*Documento creado por Generador | Fecha: 2026-03-16*
 *Versión: 2.0 | Estado: Mejoras implementadas*
 *Cambios: Materiales reales, cooperación, misterio secundario, desenlace mejorado*

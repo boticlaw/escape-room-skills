@@ -592,4 +592,4 @@ Continuar con **05-ux.md** para entender cómo los jugadores viven la experienci
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

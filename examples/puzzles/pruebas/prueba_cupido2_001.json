@@ -1,0 +1,161 @@
+{
+  "id": "prueba_cupido2_001",
+  "nombre": "Cupido - Reliquia Cooperativa",
+  "descripcion": "Los jugadores guían una reliquia (corazón) que avanza automáticamente mientras esquivan obstáculos, abren puertas cooperativamente y llegan a la meta en menos de 5 minutos. Cada jugador controla zonas específicas según su posición. Las puertas de fuego/hielo requieren que un jugador específico mantenga pulsado mientras los demás guían. La puerta final exige 3 toques sincronizados de todos.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_juego": "cupido_navegacion",
+    "modo_juego": "tablet_compartida",
+    "numero_jugadores": [
+      2,
+      3,
+      4
+    ],
+    "objeto_controlar": "reliquia_corazon",
+    "tiempo_total_segundos": 300,
+    "penalizacion_colision_segundos": 15,
+    "velocidad_reliquia": "constante",
+    "checkpoints": 4,
+    "puertas": {
+      "fuego": {
+        "color": "naranja",
+        "tiempo_apertura_segundos": 2,
+        "controlador": {
+          "2_jugadores": "J1",
+          "3_jugadores": "J3",
+          "4_jugadores": "J3"
+        }
+      },
+      "hielo": {
+        "color": "azul_claro",
+        "tiempo_apertura_segundos": 2,
+        "controlador": {
+          "2_jugadores": "J2",
+          "3_jugadores": "J3",
+          "4_jugadores": "J4"
+        }
+      },
+      "final": {
+        "color": "dorado",
+        "mecanica": "3_toques_unisono_todos"
+      }
+    },
+    "dispositivo_activacion": "pantalla_codigo",
+    "codigo_recompensa": "CUPIDO",
+    "mensaje_exito": "¡Juntos todo es posible! Código de victoria desbloqueado.",
+    "intentos_maximos": -1,
+    "musica_fondo": true,
+    "efectos_sonido": true,
+    "vibracion": true,
+    "mostrar_progreso": true,
+    "categoria": "cooperacion_equipo"
+  },
+  "distribucion_jugadores": {
+    "2_jugadores": {
+      "J1": "Zona superior izquierda (empuja izquierda) + Puerta de fuego",
+      "J2": "Zona superior derecha (empuja derecha) + Puerta de hielo"
+    },
+    "3_jugadores": {
+      "J1": "Zona superior izquierda (empuja izquierda)",
+      "J2": "Zona superior derecha (empuja derecha)",
+      "J3": "Puerta de fuego + Puerta de hielo (guardián)"
+    },
+    "4_jugadores": {
+      "J1": "Zona superior izquierda (empuja izquierda)",
+      "J2": "Zona superior derecha (empuja derecha)",
+      "J3": "Puerta de fuego",
+      "J4": "Puerta de hielo"
+    }
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Comunicación constante: '¡izquierda!', '¡derecha!', '¡obstáculo arriba!'."
+    },
+    {
+      "nivel": 2,
+      "texto": "En las puertas, el controlador debe mantener pulsado mientras los demás guían la reliquia a través."
+    },
+    {
+      "nivel": 3,
+      "texto": "La puerta final requiere que TODOS pulsen al mismo tiempo siguiendo el patrón de 3 toques."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Navegación cooperativa con puertas de gate keeper",
+    "regla_oro": "Ningún jugador puede avanzar solo. La cooperación es obligatoria.",
+    "estrategia": "1. Designar roles claros según número de jugadores. 2. Verbalizar todas las acciones. 3. En puertas, el gate keeper anuncia '¡mantengo!' y los demás guían. 4. Checkpoints: la reliquia no retrocede más allá de ellos.",
+    "penalizaciones": "Colisión con obstáculo = -15 segundos de tiempo",
+    "resultado": "Código CUPIDO mostrado en pantalla de victoria"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Tablet Android con multitouch en pedestal central. Los jugadores se colocan alrededor según las zonas. No requiere conexión a internet una vez instalado el APK."
+  },
+  "assets": {
+    "apk_debug": "builds/cupido2-debug.apk",
+    "apk_release": "builds/cupido2-release.apk",
+    "sprite_reliquia": "assets/textures/corazon.png",
+    "sprite_obstaculo": "assets/textures/obstaculo.png",
+    "sprite_puerta_fuego": "assets/textures/puerta_fuego.png",
+    "sprite_puerta_hielo": "assets/textures/puerta_hielo.png",
+    "sprite_meta": "assets/textures/meta.png",
+    "sonido_latido": "assets/audio/heartbeat.mp3",
+    "sonido_colision": "assets/audio/collision.mp3",
+    "sonido_checkpoint": "assets/audio/checkpoint.mp3",
+    "sonido_victoria": "assets/audio/victory.mp3",
+    "musica_fondo": "assets/audio/ambient.mp3"
+  },
+  "implementacion": {
+    "github": "https://github.com/danielgap/cupido2",
+    "tecnologia": "Godot Engine 4.6",
+    "plataforma_objetivo": "Android Tablet",
+    "resolucion": "1920x1080 landscape",
+    "renderer": "Vulkan Mobile",
+    "requisitos": [
+      "Godot Engine 4.6",
+      "Tablet Android con multitouch",
+      "2-4 jugadores físicos"
+    ],
+    "comandos_build": {
+      "ejecutar": "godot --path . res://scenes/main.tscn",
+      "export_debug": "godot --path . --export-debug \"Android\" builds/cupido2-debug.apk",
+      "export_release": "godot --path . --export-release \"Android\" builds/cupido2-release.apk"
+    },
+    "estado": "completo",
+    "documentacion": "Ver JUEGO.md y LEEME.md en el repositorio"
+  },
+  "metadata": {
+    "creado": "2026-02-14",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": true,
+    "tags": [
+      "tablet",
+      "cooperativo",
+      "navegacion",
+      "puertas",
+      "gatekeeper",
+      "godot",
+      "android",
+      "cupido",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "HALL ESCAPE: Tablet Android con multitouch en pedestal central. Los jugadores se colocan alrededor según las zonas. No requiere conexión a internet una vez instalado el APK.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial",
+      "pantalla_principal": true
+    }
+  }
+}

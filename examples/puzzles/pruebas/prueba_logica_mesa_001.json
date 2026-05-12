@@ -1,0 +1,110 @@
+{
+  "id": "prueba_logica_mesa_001",
+  "nombre": "La Reunion con Ana",
+  "descripcion": "Has llegado a la iglesia de Monzon de Campos. Pepe reflexiona sobre los desafios para encontrar vivienda. Hablar con los vecinos le ha llevado a un grupo de personas, pero no todos estan dispuestos a alquilarle. Uno de ellos es la clave. Debes resolver un enigma logico basado en las posiciones de las personas sentadas en una mesa para descubrir quien puede ayudar a Pepe.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": [],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 15,
+  "configuracion": {
+    "numero_elementos": 7,
+    "tipo_disposicion": "circular",
+    "numero_restricciones": 5,
+    "formato_restricciones": "texto",
+    "dificultad_logica": 6,
+    "elementos": [
+      "Luis",
+      "Carlos",
+      "Carmen",
+      "Pedro",
+      "Maria",
+      "Sofia",
+      "Ana"
+    ],
+    "restricciones": [
+      "Luis esta junto a Carlos y no esta junto a Ana",
+      "Carlos esta entre Luis y Carmen y por eso no esta al lado de Ana",
+      "Pedro debe estar sentado a la derecha de Maria",
+      "Ana esta a la izquierda de Carlos y no junto a Carmen",
+      "Maria esta entre Pedro y Sofia"
+    ],
+    "solucion_orden": [
+      "Luis",
+      "Carlos",
+      "Carmen",
+      "Pedro",
+      "Maria",
+      "Sofia",
+      "Ana"
+    ],
+    "elemento_objetivo": "Ana",
+    "url_siguiente": "https://devueltaalpueblo.com/ana",
+    "mensaje_exito": "Has deducido que Ana es la persona clave. Ella puede ayudar a Pepe con la vivienda.",
+    "categoria": "logica_deducciones"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Haz un esquema de la mesa y situa a las personas segun las pistas y fijate en la imagen, para saber quien tienes que encontrar"
+    },
+    {
+      "nivel": 2,
+      "texto": "Identifica las relaciones directas entre las personas mencionadas"
+    },
+    {
+      "nivel": 3,
+      "texto": "Carlos esta entre Luis y Carmen, lo que define su posicion"
+    },
+    {
+      "nivel": 4,
+      "texto": "El orden correcto es: Luis, Carlos, Carmen, Pedro, Maria, Sofia, Ana"
+    },
+    {
+      "nivel": 5,
+      "texto": "La persona clave es Ana, que puede ayudar a Pepe con la vivienda"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Deduccion logica de posiciones",
+    "metodo": "1. Dibujar mesa circular. 2. Aplicar restriccion 'Carlos entre Luis y Carmen'. 3. Aplicar demas restricciones secuencialmente. 4. Verificar que todas se cumplen.",
+    "orden_correcto": "Luis - Carlos - Carmen - Pedro - Maria - Sofia - Ana (en sentido horario)",
+    "persona_clave": "Ana",
+    "resultado": "Acceso a https://devueltaalpueblo.com/ana"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "14+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: Idealmente proporcionar interfaz para dibujar. En movil, puede ser diffcil sin papel y lapiz fisicos."
+  },
+  "assets": {
+    "imagen_mesa": "TODO: imagen ilustrativa de la mesa con las posiciones",
+    "diagrama_solucion": "TODO: diagrama con la solucion correcta"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "logica",
+      "posiciones",
+      "deduccion",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 11
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: Idealmente proporcionar interfaz para dibujar. En movil, puede ser diffcil sin papel y lapiz fisicos.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

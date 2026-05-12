@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-06_005",
+  "nombre": "Mensajes cruzados (intersección de tiras)",
+  "descripcion": "Los jugadores encuentran 5 tiras de papel estrechas (tipo cinta, ~2cm x 30cm), cada una con una serie de letras escritas con espacios regulares. Las tiras están mezcladas y parecen contener texto sin sentido: por ejemplo, la tira A dice 'C-A-R-M-E-L-O-S-U-P', la tira B dice 'O-B-R-A-V-D-N-K-L-A-I-Z', etc. Sin embargo, en una mesa hay una plantilla con 5 ranuras horizontales paralelas numeradas (1-5). Si los jugadores colocan las tiras correctas en las ranuras correctas y las deslizan horizontalmente hasta que una columna vertical se alinea (marcada por una flecha en la plantilla), las letras de esa columna vertical leen un mensaje. Por ejemplo, la columna alineada lee de arriba a abajo: 'B-A-U-L', que indica que deben buscar en un baúl de la sala. Dentro del baúl hay un candado de combinación cuyo código viene dado por los números impresos en el reverso de cada tira en la posición alineada. Cada tira tiene un número pequeño en el reverso en la posición correcta: las 4 tiras que forman la palabra tienen los números 5, 2, 8, 1, dando el código 5281.",
+  "skill_primario": "prueba-puzzle-ensamblaje",
+  "skills_secundarios": ["prueba-cifrado"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "interseccion_tiras",
+    "materiales_estimados": "5 tiras de papel (~0€), plantilla con ranuras de cartulina (~0.50€), candato numérico de 4 dígitos (~4€)",
+    "coste_estimado": "bajo (~5€)",
+    "tiempo_preparacion_minutos": 30
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Las tiras tienen letras que parecen aleatorias. Fijaros en la plantilla con ranuras: ¿cuántas tiras hay y cuántas ranuras? Probad a colocarlas."
+    },
+    {
+      "nivel": 2,
+      "texto": "Colocad las tiras en las ranuras y deslizadlas horizontalmente. Buscad una alineación donde una columna vertical forme una palabra con sentido. La flecha de la plantilla marca dónde mirar."
+    },
+    {
+      "nivel": 3,
+      "texto": "La tira 1 en ranura 1, tira 3 en ranura 2, tira 5 en ranura 3, tira 2 en ranura 4. La columna marcada por la flecha lee 'BAUL'. Los números en el reverso de esas tiras dan el código: 5-2-8-1."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Colocar tiras de letras en ranuras paralelas y deslizarlas hasta que una columna vertical forme una palabra; los números en el reverso dan el código",
+    "descripcion": "Los jugadores experimentan colocando las 5 tiras en las ranuras y deslizándolas horizontalmente. Cuando la alineación es correcta, una columna vertical forma una palabra legible que indica una ubicación. El reverso de las tiras correctas tiene los dígitos del código.",
+    "resultado": "Código numérico de 4 dígitos (5281) del reverso de las tiras alineadas, más la ubicación del baúl donde usarlo"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal, requiere mesa amplia. STREET ESCAPE: Usar tiras plastificadas con ranuras en tabla ligera. Para niños: usar solo 3 tiras, palabra de 3 letras, y marcar más claramente la posición correcta con color."
+  },
+  "assets": {
+    "nota": "Diseñar las tiras para que SOLO exista una alineación que forme una palabra coherente. Los números en el reverso deben corresponder a la posición de alineación correcta. Probar exhaustivamente antes de la sesión — es la prueba que más preparación requiere de las 5."
+  },
+  "metadata": {
+    "creado": "2026-04-06",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "interseccion_tiras", "prueba-puzzle-ensamblaje", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}

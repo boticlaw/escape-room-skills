@@ -1,0 +1,69 @@
+{
+  "id": "idea_2026-04-04_003",
+  "nombre": "Tablero de Tangram con Piezas Repartidas",
+  "descripcion": "Un tablero muestra el contorno de una figura que debe completarse con piezas de tangram. El giro: las piezas están divididas entre los jugadores, que no pueden ver las piezas de los demás (están en cajas individuales o en habitaciones separadas con intercomunicador). Deben comunicar verbalmente las formas que tienen para deducir cómo encajan en el tablero. Al completar la figura correctamente, las piezas revelan un código grabado en sus reversos que solo es visible al ensamblarlas.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": [
+    "prueba-puzzle-ensamblaje"
+  ],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "comunicacion_ensamblaje",
+    "materiales_estimados": "Juego de tangram (7 piezas) con código parcial en reverso, tablero con silueta, cajas individuales o separadores",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 20,
+    "numero_piezas": 7,
+    "codigo_en_reverso": true,
+    "comunicacion": "verbal o intercomunicador",
+    "visibilidad_piezas": "separadas_sin_ver"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Describe exactamente las piezas que tienes al resto del equipo. Las formas geométricas importan."
+    },
+    {
+      "nivel": 2,
+      "texto": "El tablero muestra el contorno completo. Comparad las formas que describís con los huecos disponibles."
+    },
+    {
+      "nivel": 3,
+      "texto": "Ensamblad las piezas sobre el tablero. Cuando la figura esté completa, dadle la vuelta al conjunto — hay algo en los reversos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Comunicación verbal de formas geométricas + ensamblaje cooperativo",
+    "descripcion": "Cada jugador describe sus piezas sin ver las de los demás. Colectivamente deducen la disposición correcta sobre el tablero. Al ensamblar correctamente, las marcas en los reversos de las piezas forman un código.",
+    "resultado": "Código de 4-5 dígitos visible solo al unir los reversos de todas las piezas en la posición correcta"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Cajas individuales en la misma sala, jugadores sentados de espaldas o con mamparas. STREET ESCAPE: Cada jugador recibe un sobre sellado con sus piezas; se comunican por móvil o en persona pero sin mostrar las piezas. Para niños: permitir ver una pieza del compañero como ayuda extra. Para 2 jugadores: dividir en 2 grupos de piezas en vez de individuales."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-04-04",
+    "version": "1.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "comunicacion_ensamblaje",
+      "tangram",
+      "comunicacion",
+      "ensamblaje",
+      "cooperativo",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  },
+  "estado": "pendiente_revision"
+}

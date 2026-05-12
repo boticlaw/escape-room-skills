@@ -855,4 +855,4 @@ REGLA: Viajan llaves físicas 🔑, herramientas 🔦
 
 ---
 
-*Documento generado por Escapeitor Agent — Diseñador de juegos de escape*
+*Documento generado por Generador Agent — Diseñador de juegos de escape*

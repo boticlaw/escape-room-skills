@@ -45,4 +45,4 @@ El juego integra **datos reales de medio ambiente** de forma natural en los docu
 
 ### Autor
 
-Diseñado por **Escapeitor** — Marzo 2026
+Diseñado por **Generador** — Marzo 2026

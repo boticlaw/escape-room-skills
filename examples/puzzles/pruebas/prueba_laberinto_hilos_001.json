@@ -1,0 +1,55 @@
+{
+  "id": "prueba_laberinto_hilos_001",
+  "nombre": "Laberinto de hilos",
+  "descripcion": "5 hilos de colores atraviesan una caja de cartón por agujeros. Solo un hilo está conectado a la llave del siguiente compartimento (o a un sobre con el código). Los otros 4 hilos no hacen nada al tirar — simplemente se sueltan. Para saber cuál es el correcto, hay pistas en la sala que asocian colores a letras/dígitos. Ejemplo: la narrativa menciona 'el camino rojo es la sangre del traidor', y el hilo rojo es el que libera la llave. Al tirar del hilo correcto, cae un sobre con un código de 4 dígitos. Los hilos incorrectos simplemente salen sin nada. Coste: caja de cartón, 5 madejas de hilo de colores (~3€).",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": ["prueba-logica-secuencial"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_validada",
+    "categoria": "fisicos_mecanismos",
+    "materiales_estimados": "Caja de cartón con agujeros, 5 madejas de hilo de colores (~3€), sobre con código o llave pequeña",
+    "coste_estimado": "bajo (~3-4€)",
+    "tiempo_preparacion_minutos": 25
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "No tiréis al azar. Hay pistas en la sala que hablan de colores. Revisad los documentos que habéis encontrado."
+    },
+    {
+      "nivel": 2,
+      "texto": "La narrativa menciona un color asociado a la verdad o al camino correcto. ¿Qué color es?"
+    },
+    {
+      "nivel": 3,
+      "texto": "El hilo [COLOR] es el correcto. Tirad de él suavemente hasta que caiga el sobre."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Identificar el hilo correcto usando pistas narrativas y tirar para liberar el código",
+    "descripcion": "Los jugadores encuentran una caja con 5 hilos de colores. Las pistas de la narrativa y documentos encontrados indican qué color es el correcto. Al tirar del hilo adecuado, cae un sobre con el código. Los otros hilos simplemente se sueltan.",
+    "resultado": "Sobre con código numérico de 4 dígitos liberado al tirar del hilo correcto"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Versión portátil en caja transportable. Para niños: usar colores primarios y pistas más directas."
+  },
+  "assets": {
+    "nota": "Preparar caja de cartón perforada. Atar sobre al hilo correcto. Asegurar que los otros hilos salen limpiamente sin engancharse."
+  },
+  "metadata": {
+    "creado": "2026-03-22",
+    "validado": "2026-04-05",
+    "version": "3.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_validada", "fisicos_mecanismos", "prueba-mecanismo", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba"
+  }
+}

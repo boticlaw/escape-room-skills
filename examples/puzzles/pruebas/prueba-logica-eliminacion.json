@@ -1,0 +1,62 @@
+{
+  "id": "idea_2026-03-23_004",
+  "nombre": "Idea: Lógica de eliminación (sudokus de identidad) (2026-03-23)",
+  "descripcion": "Tabla con personajes y características (edad, profesión, color). Usando pistas de \"quién no es qué\", los jugadores deducen la combinación correcta que revela un código. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 5,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "logica_deducciones",
+    "materiales_estimados": "Tabla impresa con pistas, bolígrafo",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 28
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-logica-posiciones",
+    "descripcion": "Los jugadores deben tabla con personajes y características (edad, profesión, color). usando pistas de \"quién no es qué\", los jugadores deducen la combinación correcta que revela un código.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-23",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "logica_deducciones",
+      "prueba-logica-posiciones",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "mejorada",
+  "notas": "Reescribir explicando que revela y como. Ejemplo: hay 4 personajes, cada uno tiene una profesion, una ciudad y un color. Las pistas dicen cosas como Maria no es medico y vive en Madrid. Al resolver la tabla completa, la columna correcta (ej: el color de cada persona) forma el codigo HEX o un numero de 4 digitos. Necesita un ejemplo concreto resuelto."
+}

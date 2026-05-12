@@ -1,0 +1,96 @@
+{
+  "id": "prueba_gps_graffiti_001",
+  "nombre": "El Mensaje Final - GPS al Graffiti",
+  "descripcion": "Lo hemos conseguido! Despues de superar todos los obstaculos, Pepe ha logrado alquilar la casa. Ahora, te invita a un ultimo desafio: llegar a un lugar especial en el pueblo donde un graffiti representa todo lo que han vivido. Usa el GPS de tu movil para navegar hasta el punto.",
+  "skill_primario": "prueba-gps-navegacion",
+  "skills_secundarios": [
+    "prueba-ubicacion-qr"
+  ],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 15,
+  "configuracion": {
+    "latitud_objetivo": "TODO: coordenadas del graffiti",
+    "longitud_objetivo": "TODO: coordenadas del graffiti",
+    "radio_verificacion": 20,
+    "mostrar_distancia": true,
+    "mostrar_direccion": true,
+    "nombre_destino": "Graffiti de Monzon de Campos",
+    "descripcion_destino": "Un graffiti especial que representa la historia de la aventura",
+    "url_maps_backup": "TODO: Google Maps link",
+    "instrucciones_sin_gps": "Si el GPS no funciona, recuerda que tienes que permitir el acceso a la ubicacion. Si tienes iPhone o Android, ve a Configuracion > Privacidad > Ubicacion.",
+    "url_siguiente": "https://devueltaalpueblo.com/gr4f1tt1",
+    "mensaje_llegada": "Has llegado al graffiti! Este mural cuenta la historia de Pepe y Monzon de Campos.",
+    "mensaje_exito": "Has completado la aventura. Comparte tu foto con #DeVueltaAlPueblo y #NoMeQuieroIr!",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Observa hacia donde tienes que ir, fijandote que siempre tienes que restar metros. Autoriza a tu telefono para que le permitas acceder a la ubicacion"
+    },
+    {
+      "nivel": 2,
+      "texto": "Avanza un poco y fijate si suben o bajan los metros"
+    },
+    {
+      "nivel": 3,
+      "texto": "Ir en direccion al colegio suele ser una buena opcion"
+    },
+    {
+      "nivel": 4,
+      "texto": "Paciencia y observa"
+    },
+    {
+      "nivel": 5,
+      "texto": "Encuentra el graffiti y escanea el codigo QR"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Navegacion GPS + verificacion por proximidad",
+    "metodo": "Seguir la indicacion de distancia en pantalla hasta llegar a menos de 20 metros del punto",
+    "fallback": "Si no hay GPS, usar Google Maps o indicaciones manuales",
+    "resultado": "Acceso a https://devueltaalpueblo.com/gr4f1tt1"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Requiere permisos de ubicacion. Incluir instrucciones para habilitar GPS en iOS y Android. Radio amplio (20m) para compensar imprecision del GPS."
+  },
+  "assets": {
+    "imagen_graffiti": "TODO: foto del graffiti",
+    "qr_code": "TODO: generar o fotografiar QR",
+    "icono_gps": "TODO: icono de navegacion"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "gps",
+      "navegacion",
+      "graffiti",
+      "final",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 15,
+    "hashtags": [
+      "#DeVueltaAlPueblo",
+      "#NoMeQuieroIr"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Requiere permisos de ubicacion. Incluir instrucciones para habilitar GPS en iOS y Android. Radio amplio (20m) para compensar imprecision del GPS.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

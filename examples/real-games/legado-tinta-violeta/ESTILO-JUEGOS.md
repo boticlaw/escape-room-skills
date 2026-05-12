@@ -3,7 +3,7 @@
 > **Extraído de:** El Legado en Tinta Violeta (v4.1)
 > **Fecha:** Marzo 2026
 > **Contexto:** Sesión de refactor intensivo — 5 pruebas modificadas en un día
-> **Frameworks:** Para profundizar, consultar `research-frameworks/` del agente Escapeitor (8 guías profesionales: game-design, puzzle-design, storytelling, psicología, UX, escenografía, tecnología, testing)
+> **Frameworks:** Para profundizar, consultar `research-frameworks/` del agente Generador (8 guías profesionales: game-design, puzzle-design, storytelling, psicología, UX, escenografía, tecnología, testing)
 >
 > Este documento captura los patrones que nos gustan, las decisiones que tomamos, y los errores que corregimos. Es la referencia para diseñar futuros juegos.
 

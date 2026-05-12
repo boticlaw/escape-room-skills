@@ -1,0 +1,61 @@
+{
+  "id": "prueba_telefono_escalerilla_001",
+  "nombre": "Teléfono escalerilla (mensajes en cadena)",
+  "descripcion": "Un jugador recibe un mensaje escrito (ej: una contraseña de 4-5 caracteres o una frase clave) y debe transmitirlo oralmente al siguiente jugador, que lo escribe de memoria. Se repite en cadena 3-4 jugadores. El mensaje final escrito debe coincidir con el original para obtener el código. Ejemplo: el primer jugador lee 'CIRUELA 47' en una tarjeta oculta, lo susurra al segundo, este escribe lo que escuchó y se lo pasa al tercero... Al final, comparan el resultado con el original sellado en un sobre. Si coincide, el código es 47 (el número de la frase).",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 6,
+  "configuracion": {
+    "tipo_prueba": "implementada",
+    "categoria": "cooperacion_equipo",
+    "materiales_estimados": "Tarjeta con mensaje original, papel y bolis para cada jugador, sobre sellado con la respuesta",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 10
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada jugador debe escuchar con atención y repetir exactamente. No improviséis."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si el mensaje tiene números, deletreadlos uno a uno. Las consonantes se confunden más que las vocales."
+    },
+    {
+      "nivel": 3,
+      "texto": "Comparad vuestro resultado final con el sobre sellado. Si no coincide, el número del mensaje original es el código."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Transmisión oral en cadena de un mensaje que debe llegar intacto al final",
+    "descripcion": "Los jugadores se pasan un mensaje oralmente en cadena. Cada uno escribe lo que escuchó. Al final comparan con el original. El código se extrae del mensaje correcto.",
+    "resultado": "Código numérico o palabra extraído del mensaje transmitido correctamente en cadena"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 3,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal en sala. STREET ESCAPE: Funciona si los jugadores pueden separarse un poco. Mínimo 3 jugadores para que tenga gracia."
+  },
+  "assets": {
+    "nota": "Preparar: tarjeta con mensaje original (oculta hasta que le toque al primer jugador), hojas + bolis para cada jugador, sobre sellado con el mensaje correcto."
+  },
+  "metadata": {
+    "creado": "2026-03-25",
+    "version": "3.0",
+    "autor": "Generador (validada)",
+    "testeado": false,
+    "tags": [
+      "implementada",
+      "cooperacion_equipo",
+      "prueba-comunicacion-mensajes",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba",
+    "variante_de": null
+  },
+  "estado": "validada"
+}

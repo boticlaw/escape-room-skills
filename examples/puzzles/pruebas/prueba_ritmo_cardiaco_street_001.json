@@ -1,0 +1,89 @@
+{
+  "id": "prueba_ritmo_cardiaco_street_001",
+  "nombre": "Sincronía Cardíaca - Street Edition",
+  "descripcion": "Versión street escape del ritmo cardíaco. Cada jugador usa su propio móvil y ve un corazón virtual que late al mismo ritmo en todos los dispositivos. Deben pulsar sincronizados cuando el corazón se ilumina. Al conseguir 10 latidos perfectos, todos reciben el código en sus pantallas.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_juego": "ritmo_cardiaco",
+    "modo_juego": "moviles_individuales",
+    "numero_jugadores": 4,
+    "ritmo_bpm": 65,
+    "tolerancia_ms": 150,
+    "aciertos_necesarios": 10,
+    "feedback_visual": "corazon",
+    "duracion_juego_segundos": 90,
+    "dispositivo_activacion": "pantalla_codigo",
+    "codigo_recompensa": "8426",
+    "mensaje_exito": "¡Sincronización grupal completada! Código recibido en todos los dispositivos.",
+    "intentos_maximos": 3,
+    "tiempo_recuperacion": 10,
+    "musica_fondo": true,
+    "efectos_sonido": true,
+    "vibracion": true,
+    "mostrar_progreso": true,
+    "categoria": "cooperacion_equipo"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Todos deben ver el corazón en sus móviles. El ritmo es idéntico en todos los dispositivos."
+    },
+    {
+      "nivel": 2,
+      "texto": "Pulsad cuando el corazón esté completamente rojo. Tolerancia mayor que en tablet compartida (150ms)."
+    },
+    {
+      "nivel": 3,
+      "texto": "Comunicación por WhatsApp llamada o videollamada puede ayudar a sincronizar."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Sincronización de latidos vía servidor",
+    "ritmo_objetivo": "65 BPM (unos 923ms entre latidos)",
+    "ventana_exito": "±150ms del momento exacto (más permisivo que tablet por latencia de red)",
+    "aciertos_necesarios": 10,
+    "estrategia": "1. Entrar en llamada grupal para coordinar. 2. Todos miran el corazón en sus móviles. 3. Pulsar exactamente cuando se ilumina completamente. 4. El servidor verifica sincronización entre todos los dispositivos.",
+    "resultado": "Código 8426 mostrado simultáneamente en todos los móviles"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Cada jugador usa su propio móvil con conexión a internet. Todos acceden a la misma URL/app y se unen a la sala de juego. El código aparece en todos los dispositivos al completar. Recomendable estar en llamada/videollamada para coordinar."
+  },
+  "assets": {
+    "icono_app": "pruebas/assets/prueba_ritmo_cardiaco_street_001/icono_app.png",
+    "sonido_latido": "pruebas/assets/prueba_ritmo_cardiaco_street_001/heartbeat.mp3",
+    "sonido_acierto": "pruebas/assets/prueba_ritmo_cardiaco_street_001/success_beep.mp3",
+    "sonido_error": "pruebas/assets/prueba_ritmo_cardiaco_street_001/error_beep.mp3",
+    "musica_fondo": "pruebas/assets/prueba_ritmo_cardiaco_street_001/ambient_lab.mp3"
+  },
+  "metadata": {
+    "creado": "2026-02-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "cooperativo",
+      "sincronizacion",
+      "ritmo",
+      "moviles",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Cada jugador usa su propio móvil con conexión a internet. Todos acceden a la misma URL/app y se unen a la sala de juego. El código aparece en todos los dispositivos al completar. Recomendable estar en llamada/videollamada para coordinar.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

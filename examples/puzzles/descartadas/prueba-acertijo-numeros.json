@@ -1,0 +1,91 @@
+{
+  "id": "idea_2026-03-23_001",
+  "nombre": "Cálculos Temporales del Relojero",
+  "descripcion": "4 relojes analógicos marcando horas diferentes. Cada reloj tiene una pista visual que indica qué operación realizar con su hora y minutos. Los resultados forman un código de 6-9 dígitos. Narrativa: el relojero desaparecido dejó estos relojes como clave para abrir su caja fuerte.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": [
+    "prueba-exploracion-visual",
+    "prueba-comunicacion-mensajes"
+  ],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "idea_mejorada",
+    "categoria": "logica_deducciones",
+    "mecanica_principal": "observación_deducción_cálculo",
+    "materiales_estimados": "4 relojes analógicos (impresos o reales), 4 tarjetas con pistas de operaciones, caja fuerte/candado numérico",
+    "coste_estimado": "bajo-medio",
+    "tiempo_preparacion_minutos": 45,
+    "elementos_narrativos": "Taller de relojería, relojero desaparecido, caja fuerte personal",
+    "variante_original": "Uso de relojes analógicos como fuente de números en lugar de ecuaciones en papel. Integra observación visual + deducción de reglas + cálculo mental.",
+    "colaboracion": "Múltiples jugadores pueden explorar relojes simultáneamente y comparar deducciones"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Los relojes no marcan la hora actual. ¿Qué números podrían estar ocultando cada hora y sus minutos?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada reloj tiene una pista cerca que indica qué operación realizar. Busca tarjetas o símbolos junto a los relojes."
+    },
+    {
+      "nivel": 3,
+      "texto": "Uno de los relojes muestra 9:15 y su pista dice 'hora×100+minutos'. Eso da 915. Aplica la lógica similar a los demás relojes."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Observar relojes → encontrar pistas de operaciones → convertir horas a números → formar código",
+    "descripcion": "Los jugadores encuentran 4 relojes analógicos en la sala. Cada reloj tiene una tarjeta cerca con una regla de conversión (ej: 'hora×100+minutos', 'solo minutos', 'hora²'). Deben deducir qué número representa cada reloj y concatenarlos en orden.",
+    "ejemplo_concreto": "Reloj A (9:15, pista: hora×100+minutos) = 915. Reloj B (3:30, pista: hora+minutos/10) = 33. Reloj C (7:00, pista: hora²) = 49. Reloj D (12:45, pista: solo minutos) = 45. Código: 915334945",
+    "resultado": "Código de 6-9 dígitos para abrir caja fuerte o candado numérico"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+ (10+ con supervisión)",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal con relojes físicos en paredes o mesas. STREET ESCAPE: Usar relojes impresos en carpetas con tapa.",
+    "variantes_dificultad": {
+      "facil": "3 relojes, solo horas en punto, operaciones básicas (suma, resta)",
+      "normal": "4 relojes, horas con minutos, operaciones variadas",
+      "dificil": "5 relojes, operaciones encadenadas, módulo 12"
+    },
+    "accesibilidad": "Jugadores con dificultades visuales pueden recibir pistas de horas en formato digital alternativo"
+  },
+  "assets": {
+    "relojes_analogicos": "4 imágenes de relojes con manecillas en posiciones específicas",
+    "tarjetas_pistas": "4 tarjetas con operaciones (pueden ser símbolos matemáticos o texto)",
+    "contexto_narrativo": "Carta del relojero, foto del taller, objeto personal del relojero",
+    "nota_implementacion": "Para bajo presupuesto: imprimir relojes en cartulina. Para alta calidad: usar relojes reales de pared."
+  },
+  "metadata": {
+    "creado": "2026-03-23",
+    "mejorado": "2026-04-02",
+    "version": "3.0",
+    "autor": "Generador (mejorado desde idea original)",
+    "testeado": false,
+    "tags": [
+      "idea_mejorada",
+      "logica_deducciones",
+      "observación_visual",
+      "cálculo_mental",
+      "colaboración",
+      "integración_narrativa",
+      "bajo_coste",
+      "relojes"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": "idea_2026-03-23_001_original",
+    "mejoras_aplicadas": [
+      "Pistas específicas (no genéricas)",
+      "Dificultad aumentada de 3 a 6",
+      "Variante original con relojes analógicos",
+      "Integración narrativa (relojero desaparecido)",
+      "Mecánica mixta: observación + deducción + cálculo",
+      "Fomenta colaboración multi-jugador"
+    ]
+  },
+  "estado": "mejorada"
+}

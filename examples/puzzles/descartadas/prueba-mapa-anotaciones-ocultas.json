@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-03-24_003",
+  "nombre": "Idea: Mapa con anotaciones ocultas (2026-03-24)",
+  "descripcion": "Un mapa del espacio tiene marcas sutiles (flechas diminutas, puntos, números pequeños) que indican una ruta o ubicación específica. Requiere observación cuidadosa. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 6,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "Mapa impreso con marcas sutiles, lupa opcional",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 60
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-exploracion-visual",
+    "descripcion": "Los jugadores deben un mapa del espacio tiene marcas sutiles (flechas diminutas, puntos, números pequeños) que indican una ruta o ubicación específica. requiere observación cuidadosa.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-24",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "observacion_detalle",
+      "prueba-exploracion-visual",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "pendiente_revision"
+}

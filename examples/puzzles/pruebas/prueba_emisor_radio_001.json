@@ -1,0 +1,109 @@
+{
+  "id": "prueba_emisor_radio_001",
+  "nombre": "El Emisor de Radio",
+  "descripcion": "Panel electrico con 5 cables de colores que deben conectarse en orden especifico, 4 interruptores ON/OFF y 2 interruptores de 3 posiciones. Al completar la configuracion correcta, se activa un emisor FM en 104.5 MHz con un mensaje grabado.",
+  "skill_primario": "prueba-panel-electrico",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "numero_cables": 5,
+    "colores_cables": [
+      "rojo",
+      "azul",
+      "verde",
+      "amarillo",
+      "negro"
+    ],
+    "secuencia_cables": [
+      "rojo",
+      "verde",
+      "azul",
+      "amarillo",
+      "negro"
+    ],
+    "numero_interruptores_onoff": 4,
+    "configuracion_interruptores": [
+      true,
+      true,
+      false,
+      true
+    ],
+    "numero_interruptores_posicion": 2,
+    "posiciones_interruptores": [
+      1,
+      -1
+    ],
+    "dispositivo_activacion": "emisor_fm",
+    "_nota_dispositivo": "Estos valores son configurables por instancia:",
+    "frecuencia_fm": 104.5,
+    "_info_frecuencia": "Rango valido: 88.0-108.0 MHz. Cada instancia puede usar frecuencia diferente.",
+    "mensaje_fm": "La clave es 4821. Busca la caja fuerte detras del retrato.",
+    "_info_mensaje": "Audio personalizable. Puede ser pista, contrasena, o narrativa.",
+    "duracion_mensaje": 10,
+    "repetir_mensaje": true,
+    "feedback_progresivo": true,
+    "categoria": "fisicos_mecanismos"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "El orden de los cables sigue un patron cromatico que encontraste en el diagrama"
+    },
+    {
+      "nivel": 2,
+      "texto": "Los interruptores ON/OFF deben coincidir con el codigo binario del documento"
+    },
+    {
+      "nivel": 3,
+      "texto": "Configuracion interruptores: ON-ON-OFF-ON. Posicionales: Arriba-Abajo"
+    }
+  ],
+  "solucion": {
+    "cables_orden": [
+      "rojo",
+      "verde",
+      "azul",
+      "amarillo",
+      "negro"
+    ],
+    "interruptores_onoff": [
+      true,
+      true,
+      false,
+      true
+    ],
+    "interruptores_posicion": [
+      1,
+      -1
+    ],
+    "resultado": "Emisor FM activado en 104.5 MHz transmitiendo: 'La clave es 4821...'"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_panel_completo": "pruebas/assets/prueba_emisor_radio_001/panel_completo.png",
+    "descripcion_panel": "Foto del panel electrico montado con cables e interruptores",
+    "imagen_diagrama": "pruebas/assets/prueba_emisor_radio_001/diagrama_cables.png",
+    "descripcion_diagrama": "Diagrama de conexion de cables y configuracion de interruptores"
+  },
+  "metadata": {
+    "creado": "2026-02-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "imagenes_guardadas": true
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

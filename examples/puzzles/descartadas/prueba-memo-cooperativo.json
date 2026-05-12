@@ -1,0 +1,61 @@
+{
+  "id": "idea_2026-03-25_004",
+  "nombre": "Idea: Memo cooperativo de parejas (2026-03-25)",
+  "descripcion": "Cartas boca abajo que los jugadores van levantando por turnos. Cada jugador solo puede ver las suyas y debe comunicar al equipo lo que vio para encontrar las parejas. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-emparejamiento-memoria",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 6,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "cooperacion_equipo",
+    "materiales_estimados": "Baraja de cartas con parejas (temáticas), superficie para extenderlas",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 57
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-emparejamiento-memoria",
+    "descripcion": "Los jugadores deben cartas boca abajo que los jugadores van levantando por turnos. cada jugador solo puede ver las suyas y debe comunicar al equipo lo que vio para encontrar las parejas.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-25",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "cooperacion_equipo",
+      "prueba-emparejamiento-memoria",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "pendiente_revision"
+}

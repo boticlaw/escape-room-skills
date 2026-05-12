@@ -461,4 +461,4 @@ Continuar con **03-storytelling.md** para aprender a integrar narrativa con los 
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

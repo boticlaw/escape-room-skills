@@ -1,0 +1,113 @@
+{
+  "id": "prueba_tierra_escena_001",
+  "nombre": "Analisis de Tierra",
+  "descripcion": "Muestra de tierra encontrada junto al cuerpo de la victima. Los jugadores deben analizar la composicion (color, textura, particulas) y comparar con las zonas de residencia de los sospechosos.",
+  "skill_primario": "prueba-observacion",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "configuracion": {
+    "muestra_escena": {
+      "color": "Arcilla rojiza",
+      "textura": "Granular fina",
+      "particulas_especiales": "Fragmentos de caliza blanca",
+      "humedad": "Baja",
+      "ubicacion": "Zona de construccion"
+    },
+    "zonas_residencia": [
+      {
+        "sospechoso": "Edurne",
+        "zona": "Centro urbano",
+        "tipo_tierra": "Tierra negra, organica"
+      },
+      {
+        "sospechoso": "Samuel",
+        "zona": "Zona industrial",
+        "tipo_tierra": "Gris, con particulas metalicas"
+      },
+      {
+        "sospechoso": "Francisco",
+        "zona": "Barrio residencial",
+        "tipo_tierra": "Tierra marron, jardin"
+      },
+      {
+        "sospechoso": "Rodrigo",
+        "zona": "Extrarradio, obra",
+        "tipo_tierra": "Arcilla rojiza con caliza"
+      },
+      {
+        "sospechoso": "Marta",
+        "zona": "Zona verde, parque",
+        "tipo_tierra": "Tierra oscura, raices"
+      },
+      {
+        "sospechoso": "Maria",
+        "zona": "Centro historico",
+        "tipo_tierra": "Polvo urbano, grisis"
+      },
+      {
+        "sospechoso": "Jaime",
+        "zona": "Urbanizacion nueva",
+        "tipo_tierra": "Arena fina, Construccion"
+      },
+      {
+        "sospechoso": "Sara",
+        "zona": "Apartamento centro",
+        "tipo_tierra": "Sin tierra caracteristica"
+      }
+    ],
+    "material_necesario": "Cucharilla y regla del Kit de Laboratorio",
+    "categoria": "observacion_detalle"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Examina la tierra con la cucharilla. Observa color y si hay particulas especiales."
+    },
+    {
+      "nivel": 2,
+      "texto": "La tierra tiene arcilla rojiza y fragmentos blancos de caliza. Busca quien vive en zona de obra."
+    },
+    {
+      "nivel": 3,
+      "texto": "Rodrigo vive en extrarradio cerca de una obra. La tierra coincide exactamente."
+    }
+  ],
+  "solucion": {
+    "coincidencia": "Rodrigo",
+    "evidencia": "Arcilla rojiza con fragmentos de caliza blanca",
+    "explicacion": "Rodrigo vive en zona de construccion en extrarradio. La tierra de sus zapatos coincide con la de la escena.",
+    "resultado": "Rodrigo (Amarillo) estuvo en la escena del crimen, pero eso no significa que sea el asesino. Su tierra coincide con el lugar."
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Rodrigo",
+    "color": "Amarillo",
+    "razon": "La tierra de sus zapatos coincide con la escena, pero estaba trabajando en obra esa noche. Registrador de fichaje lo confirma."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_tierra": "pruebas/assets/crimen_juan_palomo/muestra_tierra.png",
+    "imagen_zonas": "pruebas/assets/crimen_juan_palomo/mapa_zonas_tierra.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

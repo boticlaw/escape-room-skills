@@ -1,0 +1,104 @@
+{
+  "id": "prueba_control_cooperativo_001",
+  "nombre": "Navegación Cooperativa",
+  "descripcion": "Una esfera energética debe atravesar un laberinto lleno de obstáculos. Cada jugador controla una dirección: arriba, abajo, izquierda, derecha. En hall escape usan una tablet compartida. En street escape cada uno usa su móvil y ve la misma esfera moverse en tiempo real. Deben comunicarse para guiar la esfera hasta la meta. Al completar el recorrido, reciben un código en pantalla.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 15,
+  "configuracion": {
+    "tipo_juego": "control_cooperativo",
+    "modo_juego": "tablet_compartida",
+    "numero_jugadores": 4,
+    "objeto_controlar": "esfera",
+    "funciones_jugadores": [
+      "arriba",
+      "abajo",
+      "izquierda",
+      "derecha"
+    ],
+    "objetivo": "llegar_punto",
+    "nivel_dificultad": 4,
+    "duracion_juego_segundos": 180,
+    "dispositivo_activacion": "pantalla_codigo",
+    "codigo_recompensa": "NAV-47",
+    "mensaje_exito": "¡Navegación completada! Ruta segura establecida.",
+    "intentos_maximos": 5,
+    "tiempo_recuperacion": 5,
+    "musica_fondo": true,
+    "efectos_sonido": true,
+    "vibracion": true,
+    "mostrar_progreso": true,
+    "categoria": "cooperacion_equipo"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Designad quién controla cada dirección antes de empezar. La comunicación es clave."
+    },
+    {
+      "nivel": 2,
+      "texto": "Un jugador puede actuar como 'navegador' que indica las direcciones mientras los demás ejecutan."
+    },
+    {
+      "nivel": 3,
+      "texto": "La esfera se mueve continuamente mientras mantengáis pulsado. Pulsad corto para movimientos precisos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Control direccional cooperativo",
+    "asignacion_roles": "Jugador 1: Arriba | Jugador 2: Abajo | Jugador 3: Izquierda | Jugador 4: Derecha",
+    "estrategia": "1. Establecer un coordinador que llame las direcciones. 2. Mirar el laberinto completo antes de moverse. 3. Movimientos cortos y controlados. 4. Si la esfera toca un obstáculo, vuelve al inicio pero mantened la calma.",
+    "objetivo": "Llevar la esfera desde la esquina inferior izquierda hasta la esquina superior derecha",
+    "resultado": "Código NAV-47 mostrado en pantalla"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "14+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 3,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Tablet compartida en pedestal central, todos alrededor tocando sus direcciones. Si hay menos de 4 jugadores, algunos pueden controlar dos direcciones. STREET ESCAPE: Cada jugador en su móvil, todos ven la misma esfera moverse sincronizada vía servidor. Requiere conexión a internet."
+  },
+  "assets": {
+    "imagen_tablet": "pruebas/assets/prueba_control_cooperativo_001/tablet_navegacion.png",
+    "sprite_esfera": "pruebas/assets/prueba_control_cooperativo_001/esfera.png",
+    "sprite_meta": "pruebas/assets/prueba_control_cooperativo_001/meta.png",
+    "sprite_obstaculo": "pruebas/assets/prueba_control_cooperativo_001/obstaculo.png",
+    "sonido_movimiento": "pruebas/assets/prueba_control_cooperativo_001/move.mp3",
+    "sonido_colision": "pruebas/assets/prueba_control_cooperativo_001/collision.mp3",
+    "sonido_exito": "pruebas/assets/prueba_control_cooperativo_001/success.mp3",
+    "musica_fondo": "pruebas/assets/prueba_control_cooperativo_001/tech_ambient.mp3"
+  },
+  "implementaciones_alternativas": [
+    {
+      "id": "prueba_cupido2_001",
+      "nombre": "Cupido - Reliquia Cooperativa",
+      "github": "https://github.com/danielgap/cupido2",
+      "descripcion": "Variante completa con puertas de gate keeper, checkpoints, penalizaciones de tiempo y adaptación dinámica para 2-4 jugadores. Implementación Godot 4.6 para Android Tablet."
+    }
+  ],
+  "metadata": {
+    "creado": "2026-02-12",
+    "version": "1.1",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "tablet",
+      "cooperativo",
+      "control",
+      "navegacion",
+      "laberinto",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "HALL ESCAPE: Tablet compartida en pedestal central, todos alrededor tocando sus direcciones. Si hay menos de 4 jugadores, algunos pueden controlar dos direcciones. STREET ESCAPE: Cada jugador en su móvil, todos ven la misma esfera moverse sincronizada vía servidor. Requiere conexión a internet.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial",
+      "pantalla_principal": true
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "prueba_grafologico_nota_001",
+  "nombre": "Analisis Grafologico",
+  "descripcion": "Nota manuscrita encontrada junto al cuerpo de la victima. Los jugadores deben comparar la caligrafia con muestras de escritura de los sospechosos para identificar al autor.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "nota_asesino": {
+      "texto": "Sabias que esto pasaria. Juan Palomo tenia que pagar por lo que hizo.",
+      "caracteristicas_grafologicas": {
+        "inclinacion": "Derecha pronunciada",
+        "presion": "Fuerte",
+        "tamano": "Grande",
+        "espaciado": "Amplio",
+        "particularidades": [
+          "Puntos de las 'i' hechos con circulo",
+          "Tildes muy marcadas hacia la derecha",
+          "Bucles de 'g' y 'y' muy abiertos"
+        ]
+      }
+    },
+    "muestras_sospechosos": [
+      {
+        "sospechoso": "Edurne",
+        "caracteristicas": {
+          "inclinacion": "Derecha pronunciada",
+          "presion": "Fuerte",
+          "tamano": "Grande",
+          "particularidades": "Puntos de 'i' con circulo, tildes marcadas"
+        }
+      },
+      {
+        "sospechoso": "Samuel",
+        "caracteristicas": {
+          "inclinacion": "Vertical",
+          "presion": "Media",
+          "tamano": "Mediano",
+          "particularidades": "Letra muy legible, puntos cuadrados"
+        }
+      },
+      {
+        "sospechoso": "Francisco",
+        "caracteristicas": {
+          "inclinacion": "Izquierda",
+          "presion": "Ligera",
+          "tamano": "Pequeno",
+          "particularidades": "Letra compacta, sin adornos"
+        }
+      },
+      {
+        "sospechoso": "Sara",
+        "caracteristicas": {
+          "inclinacion": "Derecha ligera",
+          "presion": "Media",
+          "tamano": "Mediano",
+          "particularidades": "Letra redondeada, puntos normales"
+        }
+      }
+    ],
+    "categoria": "investigacion_texto"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Compara la inclinacion y tamano de la letra de la nota con las muestras."
+    },
+    {
+      "nivel": 2,
+      "texto": "Busca particularidades unicas: los puntos de las 'i' y la forma de las tildes."
+    },
+    {
+      "nivel": 3,
+      "texto": "Edurne hace circulos en los puntos de las 'i' y tildes muy marcadas. Coincide exactamente."
+    }
+  ],
+  "solucion": {
+    "coincidencia": "Edurne",
+    "evidencia": "Inclinacion derecha pronunciada + puntos de 'i' con circulo + tildes marcadas",
+    "explicacion": "La caligrafia de la nota coincide con la muestra de Edurne en un 95%",
+    "resultado": "Edurne (Naranja) escribio la nota. Pero... es la asesina o fue obligada a escribirlo?"
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Edurne",
+    "color": "Naranja",
+    "razon": "Escribio la nota, pero el analisis revela que la escritura fue forzada. Variaciones en la presion indican coaccion. Es inocente, la usaron."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_nota": "pruebas/assets/crimen_juan_palomo/nota_asesino.png",
+    "imagen_muestras": "pruebas/assets/crimen_juan_palomo/muestras_caligrafia.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

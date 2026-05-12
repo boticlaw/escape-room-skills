@@ -1,0 +1,62 @@
+{
+  "id": "prueba_cifrado_cesar_001",
+  "nombre": "Cifrado de César con desplazamiento",
+  "descripcion": "Un mensaje está cifrado con un desplazamiento de letras (A→D, B→E..). Los jugadores deben encontrar el número de desplazamiento en una pista cercana y decodificar el mensaje.",
+  "skill_primario": "prueba-cifrado",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "implementada",
+    "categoria": "puzzles_mentales",
+    "materiales_estimados": "Papel con mensaje cifrado, pista con número de desplazamiento, bolígrafo",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 21
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Busca cerca del mensaje cifrado alguna pista que indique un número. Ese número es clave para descifrar."
+    },
+    {
+      "nivel": 2,
+      "texto": "Es un cifrado por desplazamiento de letras: cada letra se mueve un número fijo de posiciones en el alfabeto. Busca cuántas posiciones."
+    },
+    {
+      "nivel": 3,
+      "texto": "Si el desplazamiento es 3, la A se convierte en D, la B en E... y viceversa para descifrar. Aplica el desplazamiento inverso al mensaje."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-cifrado",
+    "descripcion": "Los jugadores deben un mensaje está cifrado con un desplazamiento de letras (a→d, b→e...). los jugadores deben encontrar el número de desplazamiento en una pista cercana y decodificar el mensaje.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-26",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": true,
+    "tags": [
+      "idea_generada",
+      "puzzles_mentales",
+      "prueba-cifrado",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null,
+    "estado_validacion": "validada"
+  },
+  "estado": "implementada"
+}

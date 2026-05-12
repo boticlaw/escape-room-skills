@@ -1,0 +1,68 @@
+{
+  "id": "idea_2026-04-04_004",
+  "nombre": "Código de Barras Humano (Human Barcode)",
+  "descripcion": "Varias tarjetas con patrones de barras verticales (tipo código de barras) están dispuestas en la sala. Los jugadores descubren que, al colocarlas una junto a otra en el orden correcto (determinado por otra pista), las barras forman letras cuando se leen a la distancia adecuada (efecto óptico). El mensaje revelado es una instrucción o código. La dificultad está en deducir el orden correcto y en que algunas tarjetas pueden rotarse 180° cambiando el resultado.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": [
+    "prueba-exploracion-visual"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "logica_visual",
+    "materiales_estimados": "6-8 tarjetas de cartón con patrones de barras impresas, soporte para colocarlas verticalmente",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 25,
+    "numero_tarjetas": 7,
+    "algunas_rotan_180": true,
+    "distancia_lectura": "2-3 metros",
+    "mensaje_resultante": "PALABRA_CLAVE"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Las tarjetas tienen marcas en las esquinas. Fíjate si alguna indica orientación o posición."
+    },
+    {
+      "nivel": 2,
+      "texto": "Coloca las tarjetas juntas en el soporte y aléjate 2 metros. ¿Qué ves? Prueba a cambiar el orden."
+    },
+    {
+      "nivel": 3,
+      "texto": "Algunas tarjetas están boca abajo. Rota las que tengan la marca en la esquina inferior en vez de la superior."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ordenamiento + rotación de tarjetas con efecto óptico de barras",
+    "descripcion": "Los jugadores ordenan las tarjetas según las marcas posicionales, rotan las necesarias 180°, y al verlas a la distancia correcta las barras forman letras que componen una palabra clave o código.",
+    "resultado": "Palabra clave que se usa como contraseña o código alfanumérico"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Soporte en pared o mesa con espacio para retroceder 2-3m. STREET ESCAPE: Tarjetas de mayor tamaño en poste o muro exterior; usar distancia mayor para el efecto. Para niños: reducir tarjetas a 4-5 y eliminar rotación, solo ordenar."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-04-04",
+    "version": "1.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "logica_visual",
+      "codigo_barras",
+      "posiciones",
+      "visual",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  },
+  "estado": "pendiente_revision"
+}

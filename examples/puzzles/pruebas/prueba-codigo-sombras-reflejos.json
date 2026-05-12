@@ -1,0 +1,64 @@
+{
+  "id": "idea_2026-03-24_002",
+  "nombre": "Idea: Código en sombras o reflejos (2026-03-24)",
+  "descripcion": "Colocando un objeto transparente (acetato, cristal) sobre un dibujo o pasando luz a través de él, se revela un código o símbolo oculto. [Bajo presupuesto: True]",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [
+    "prueba-logica-secuencial"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 9,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "Hoja de acetato con dibujo, luz (linterna o móvil), dibujo base",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 24
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Revisa el mecanismo principal de esta prueba. Busca patrones o conexiones obvias."
+    },
+    {
+      "nivel": 2,
+      "texto": "Si hay múltiples elementos, prueba a combinarlos de diferentes formas."
+    },
+    {
+      "nivel": 3,
+      "texto": "La solución suele estar relacionada con el orden o las relaciones entre los elementos."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Prueba basada en prueba-exploracion-visual",
+    "descripcion": "Los jugadores deben colocando un objeto transparente (acetato, cristal) sobre un dibujo o pasando luz a través de él, se revela un código o símbolo oculto.",
+    "resultado": "Código, llave o acceso al siguiente puzzle (según configuración específica)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Espacio controlado. STREET ESCAPE: Necesita versión portátil o digital."
+  },
+  "assets": {
+    "nota": "Assets por definir al implementar la prueba"
+  },
+  "metadata": {
+    "creado": "2026-03-24",
+    "version": "2.0",
+    "autor": "Generador automático",
+    "testeado": false,
+    "tags": [
+      "idea_generada",
+      "observacion_detalle",
+      "prueba-exploracion-visual",
+      "bajo_coste"
+    ],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea",
+    "variante_de": null
+  },
+  "estado": "mejorada",
+  "notas": "Usar polarización (celofán + luz) en vez de acetato simple. El código solo se ve al girar el acetato o con gafas polarizadas. Efecto wow, bajo coste, diferente a luz UV."
+}

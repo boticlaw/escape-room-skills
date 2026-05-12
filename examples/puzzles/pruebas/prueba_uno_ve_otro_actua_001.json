@@ -1,0 +1,55 @@
+{
+  "id": "prueba_uno_ve_otro_actua_001",
+  "nombre": "Uno ve, otro actúa (dibujar a ciegas)",
+  "descripcion": "Un jugador (el vidente) ve una imagen oculta con un símbolo que contiene un código numérico. Debe describir oralmente lo que ve SIN nombrar el objeto (como el Tabú). Otro jugador (el dibujante) dibuja lo que escucha. Ejemplo: la imagen muestra una estrella de 5 puntas con un número en cada punta (3-7-1-9-4). El vidente describe 'cinco triángulos unidos por un centro, con números...' y el dibujante reproduce la estrella con los números en orden. El código es 37194.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": ["prueba-exploracion-visual"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_validada",
+    "categoria": "cooperacion_equipo",
+    "materiales_estimados": "Imagen original en sobre cerrado, papel/boli o pizarra para dibujar",
+    "coste_estimado": "bajo (<2€)",
+    "tiempo_preparacion_minutos": 10
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "El vidente no puede decir el nombre del objeto. Debe describir formas geométricas y posiciones."
+    },
+    {
+      "nivel": 2,
+      "texto": "Empezad por la forma general y luego los detalles (números, letras, líneas internas)."
+    },
+    {
+      "nivel": 3,
+      "texto": "El dibujante debería numerar las secciones del dibujo según las instrucciones del vidente. El orden importa."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Comunicación verbal para reproducir una imagen oculta que contiene un código",
+    "descripcion": "El vidente describe una imagen oculta que contiene un símbolo con números/letras. El dibujante reproduce lo que escucha. Al comparar el dibujo con la revelación de la imagen original, los números/letras en orden forman el código.",
+    "resultado": "Código numérico extraído del dibujo reproduciendo la imagen oculta"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Funciona si hay superficie para dibujar. Para grupos grandes, rotar roles."
+  },
+  "assets": {
+    "nota": "Preparar imagen con símbolo simple que contenga código. Imprimir en cartulina, meter en sobre."
+  },
+  "metadata": {
+    "creado": "2026-03-25",
+    "validado": "2026-04-05",
+    "version": "3.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_validada", "cooperacion_equipo", "prueba-comunicacion-mensajes", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-05_003",
+  "nombre": "Transcripción de audio environmental",
+  "descripcion": "Los jugadores encuentran un reproductor de audio (altavoz Bluetooth barato + móvil del GM con playlist preparada, o un altavoz con grabación pre-cargada). Al reproducir el audio, oyen una escena sonora: voces, ruidos ambientales, y entre ellos, números que se dicen de forma natural en una conversación. Ejemplo: audio de 90 segundos donde dos personas discuten sobre un restaurante — 'Quedamos a las SIETE', 'Eran CINCO personas', 'La mesa era la TRES', 'Pagamos CUARENTA euros'. Los jugadores deben identificar los números mencionados en orden de aparición: 7-5-3-40 → pero el candado es de 4 dígitos, así que 7534 (primer dígito de cada número). El audio parece una conversación natural, no un código obvio.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": ["prueba-cifrado"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "Altavoz Bluetooth (~5-8€, reutilizable) + móvil con audio preparado, o altavoz con grabación interna",
+    "coste_estimado": "bajo (~5-8€ si hay que comprar altavoz)",
+    "tiempo_preparacion_minutos": 20
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Escuchad el audio con atención. Hay números mencionados en la conversación. Anotadlos en orden."
+    },
+    {
+      "nivel": 2,
+      "texto": "Los números se dicen de forma natural dentro de la charla. ¿Cuántos números distintos mencionan? Tomad el primer dígito de cada uno."
+    },
+    {
+      "nivel": 3,
+      "texto": "Hay 4 números en la conversación: el primero empieza por 7, el segundo por 5, el tercero por 3, el cuarto por 4. Código: 7534."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Escuchar una escena sonora y extraer números mencionados en una conversación",
+    "descripcion": "Los jugadores reproducen un audio con una conversación que menciona números de forma natural. Anotando los números en orden de aparición y extrayendo el primer dígito de cada uno, obtienen el código de 4 dígitos.",
+    "resultado": "Código de 4 dígitos formado por el primer dígito de cada número mencionado en el audio, en orden"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal con altavoz en sala. STREET ESCAPE: Usar auriculares o altavoz portátil. Para sordos: ofrecer transcripción escrita de la conversación SIN los números (guiones en su lugar)."
+  },
+  "assets": {
+    "nota": "Grabar audio de 90 segundos con 4 números naturales en la conversación. Cargar en móvil o altavoz. Proporcionar transcripción adaptada si hay jugadores sordos."
+  },
+  "metadata": {
+    "creado": "2026-04-05",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "observacion_detalle", "prueba-exploracion-visual", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}

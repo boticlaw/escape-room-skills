@@ -631,4 +631,4 @@ Continuar con **04-psicologia.md** para entender cómo piensan los jugadores y d
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-05_004",
+  "nombre": "Código de papiroflexia (origami)",
+  "descripcion": "Los jugadores encuentran una hoja cuadrada impresa con un patrón de pliegues numerado (pasos 1 a 6) y símbolos en ciertas zonas. Al doblar la hoja siguiendo las instrucciones de papiroflexia (un barco, grulla, o caja simple), las zonas impresas se alinean formando un código de 4 dígitos que solo es visible cuando la figura está terminada. Ejemplo: al doblar una caja de papel, las 4 esquinas exteriores muestran los números 6-1-8-3 que estaban dispersos en la hoja plana. La hoja tiene marcas de pliegue (líneas discontinuas) y números de paso, así que no requiere saber origami.",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": ["prueba-exploracion-visual"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "fisicos_mecanismos",
+    "materiales_estimados": "Hoja cuadrada impresa por las dos caras con patrón de pliegues y números (~0.20€), instrucciones de plegado impresas aparte",
+    "coste_estimado": "bajo (~0.50€)",
+    "tiempo_preparacion_minutos": 25
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "La hoja tiene marcas de pliegue y números de paso. Seguid las instrucciones de doblado paso a paso."
+    },
+    {
+      "nivel": 2,
+      "texto": "Al terminar la figura, mirad todas las caras. Los números impresos en la hoja se han alineado al doblar."
+    },
+    {
+      "nivel": 3,
+      "texto": "La cara superior de la figura terminada muestra 4 números. Leedlos de izquierda a derecha."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Doblar una hoja siguiendo instrucciones de papiroflexia para revelar un código",
+    "descripcion": "Los jugadores doblan una hoja cuadrada impresa siguiendo instrucciones numeradas. Al completar la figura, zonas impresas que estaban dispersas se alinean formando un código de 4 dígitos visible en la figura terminada.",
+    "resultado": "Código de 4 dígitos formado al alinearse zonas impresas tras el plegado completo"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 3,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Hoja en sobre, cualquier superficie sirve. Para niños: dobleces más simples (avión de papel en 3 pasos). Para mayores: figura más compleja."
+  },
+  "assets": {
+    "nota": "Diseñar patrón de papiroflexia simple (4-6 pliegues). Imprimir números en posiciones que se alineen al doblar. Probar el plegado antes del juego. Proporcionar hoja de repuesto."
+  },
+  "metadata": {
+    "creado": "2026-04-05",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "fisicos_mecanismos", "prueba-mecanismo", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}

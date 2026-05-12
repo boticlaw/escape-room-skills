@@ -1,0 +1,122 @@
+{
+  "id": "prueba_mural_escritoras_001",
+  "nombre": "El Mural de las Escritoras",
+  "descripcion": "En la recepción del edificio hay un mural decorativo con patrones florales y decorativos. Entre los adornos, hay 8 nombres de escritoras escondidos. Tres de ellos están escritos en tinta violeta. Los jugadores deben encontrar los nombres en violeta y sumar sus posiciones en el alfabeto de la primera letra de cada nombre para obtener el primer dígito del código final.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [
+    "prueba-logica-secuencial"
+  ],
+  "dificultad": 2,
+  "duracion_estimada_minutos": 7,
+  "configuracion": {
+    "tipo_busqueda": "visual",
+    "elementos_ocultos": 8,
+    "elementos_objetivo": 3,
+    "formato_respuesta": "numero",
+    "respuesta_correcta": 3,
+    "nombres_completos": [
+      {
+        "nombre": "Clara",
+        "color": "negro",
+        "posicion": 1
+      },
+      {
+        "nombre": "Elena",
+        "color": "violeta",
+        "posicion": 2
+      },
+      {
+        "nombre": "Rosa",
+        "color": "negro",
+        "posicion": 3
+      },
+      {
+        "nombre": "Ana",
+        "color": "violeta",
+        "posicion": 4
+      },
+      {
+        "nombre": "Luisa",
+        "color": "negro",
+        "posicion": 5
+      },
+      {
+        "nombre": "Isabel",
+        "color": "violeta",
+        "posicion": 6
+      },
+      {
+        "nombre": "Carmen",
+        "color": "negro",
+        "posicion": 7
+      },
+      {
+        "nombre": "Teresa",
+        "color": "negro",
+        "posicion": 8
+      }
+    ],
+    "nombres_violeta": [
+      "Elena",
+      "Ana",
+      "Isabel"
+    ],
+    "pista_visual": "Los nombres en violeta están ligeramente resaltados con un brillo sutil",
+    "mensaje_exito": "Has encontrado las tres escritoras elegidas. El primer número es: 3",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Mirad con atención el mural. No todo lo que parece decoración lo es."
+    },
+    {
+      "nivel": 2,
+      "texto": "Hay nombres escondidos entre las flores y patrones. Algunos tienen un color especial."
+    },
+    {
+      "nivel": 3,
+      "texto": "Buscad los nombres escritos en color violeta. ¿Cuántos hay?"
+    },
+    {
+      "nivel": 4,
+      "texto": "Hay exactamente 3 nombres en tinta violeta: Elena, Ana e Isabel."
+    },
+    {
+      "nivel": 5,
+      "texto": "La respuesta es 3, el número de escritoras en violeta."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Búsqueda visual + conteo",
+    "explicacion": "Los jugadores encuentran 3 nombres en tinta violeta entre los 8 del mural. El número de nombres violeta (3) es el primer dígito del código.",
+    "respuesta": 3,
+    "resultado": "Primer dígito del código final obtenido"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "El mural debe estar bien iluminado. Considerar lupa disponible para jugadores con dificultades visuales."
+  },
+  "assets": {
+    "mural_imagen": "TODO: Diseñar mural con nombres integrados en decoración art nouveau",
+    "guia_iluminacion": "Luz cálida, focalizada en el mural"
+  },
+  "metadata": {
+    "creado": "2026-03-16",
+    "version": "1.0",
+    "autor": "generador",
+    "testeado": false,
+    "tags": [
+      "hall_escape",
+      "visual",
+      "escritoras",
+      "palencia",
+      "introduccion"
+    ],
+    "proyecto": "legado_tinta_violeta",
+    "juego": "legado_tinta_violeta"
+  }
+}

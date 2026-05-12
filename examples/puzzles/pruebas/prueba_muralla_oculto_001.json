@@ -1,0 +1,85 @@
+{
+  "id": "prueba_muralla_oculto_001",
+  "nombre": "Los Secretos de la Muralla",
+  "descripcion": "Te encuentras en los antiguos muros que una vez protegieron al pueblo y sus habitantes. Las murallas del Palacio Condal se alzaban imponentes, resguardando la vida diaria. Tu proximo desafio sera descubrir un enigma oculto en esta pagina. Debes explorar todos los elementos para encontrarlo.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_ocultamiento": "interaccion",
+    "area_busqueda": "footer",
+    "tipo_interaccion": "clic",
+    "dificultad_visual": 4,
+    "coordenadas_elemento": "seccion negra al pie de pagina",
+    "mensaje_oculto": "TODO: codigo o mensaje que aparece al hacer clic",
+    "url_siguiente": "https://devueltaalpueblo.com/vamos",
+    "codigo_recompensa": "TODO",
+    "mensaje_exito": "Has descubierto el secreto de la muralla. El camino se revela.",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Explora cuidadosamente todos los elementos de la pagina web"
+    },
+    {
+      "nivel": 2,
+      "texto": "A veces, las respuestas estan ocultas en lugares poco habituales"
+    },
+    {
+      "nivel": 3,
+      "texto": "Desplazate hasta el final de la pagina"
+    },
+    {
+      "nivel": 4,
+      "texto": "Haz clic o interactua con la seccion negra al pie de la pagina"
+    },
+    {
+      "nivel": 5,
+      "texto": "Al hacer clic en la parte negra al final, aparecera un codigo o mensaje oculto que necesitas"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Exploracion visual + interaccion con elemento oculto",
+    "ubicacion": "Footer de la pagina, seccion negra",
+    "accion": "Hacer clic en la zona negra del pie de pagina",
+    "resultado": "Acceso a https://devueltaalpueblo.com/vamos"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 1,
+    "notas_espacio": "STREET ESCAPE: En movil, asegurar que el footer es visible tras scroll completo. Elemento debe ser lo suficientemente grande para tactil."
+  },
+  "assets": {
+    "captura_footer": "TODO: imagen del footer con zona interactiva"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "exploracion",
+      "visual",
+      "muralla",
+      "oculto",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 9
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "individual",
+    "espacio_requerido": "STREET ESCAPE: En movil, asegurar que el footer es visible tras scroll completo. Elemento debe ser lo suficientemente grande para tactil.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

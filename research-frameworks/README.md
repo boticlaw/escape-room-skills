@@ -3,7 +3,7 @@
 
 **Versión:** 1.0  
 **Fecha:** Marzo 2026  
-**Autor:** Escapeitor Agent  
+**Autor:** Generador Agent  
 **Propósito:** Sintetizar las 8 disciplinas clave para crear escape rooms excepcionales y mejorar templates estándar
 
 ---
@@ -369,5 +369,5 @@ Este sistema de guías es **vivo y mejorable**. Si encuentras:
 
 ---
 
-* Sistema creado por Escapeitor Agent - Especialista en diseño de escape rooms*  
+* Sistema creado por Generador Agent - Especialista en diseño de escape rooms*  
 * Basado en investigación de mejores prácticas de la industria*

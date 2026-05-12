@@ -1,0 +1,55 @@
+{
+  "id": "prueba_crucigrama_tematico_001",
+  "nombre": "Crucigrama temático integrado",
+  "descripcion": "Un crucigrama cuyas respuestas están relacionadas con la narrativa del juego. Al completarlo, las letras que SOBRAN (las que no forman parte de ninguna respuesta) leídas de izquierda a derecha y de arriba abajo forman la palabra clave o código. No se dice explícitamente cómo extraer el código — los jugadores deben notar que hay letras sueltas. Ejemplo: crucigrama 8x8 con 6 palabras temáticas (ARMAS, VENENO, SOSPECHOSO...). Las 5 letras que sobran, en orden de lectura, forman 'MUERTE' o un código de 5 letras como 'CLAVE'. Se integra en la narrativa: es el 'testamento' o 'diario' de un personaje.",
+  "skill_primario": "prueba-cifrado",
+  "skills_secundarios": ["prueba-tablet-cooperativo"],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "idea_validada",
+    "categoria": "puzzles_mentales",
+    "materiales_estimados": "Crucigrama impreso en papel envejecido o cartulina, bolígrafo",
+    "coste_estimado": "bajo (<2€)",
+    "tiempo_preparacion_minutos": 30
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Completad el crucigrama con las palabras temáticas. No os fijéis solo en las palabras, mirad toda la cuadrícula."
+    },
+    {
+      "nivel": 2,
+      "texto": "¿Hay letras en la cuadrícula que no pertenecen a ninguna palabra cruzada? Contadlas."
+    },
+    {
+      "nivel": 3,
+      "texto": "Las letras sueltas, leídas como si fuera un texto normal (izquierda a derecha, arriba a abajo), forman una palabra."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Completar crucigrama temático y extraer letras sobrantes que forman el código",
+    "descripcion": "Los jugadores resuelven un crucigrama con palabras temáticas del juego. Al completarlo, las letras que no pertenecen a ninguna respuesta cruzada, leídas en orden natural, forman una palabra clave que es el código del candado o contraseña.",
+    "resultado": "Palabra clave formada por las letras sobrantes del crucigrama completado"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal en mesa. STREET ESCAPE: Versión portátil impresa. Integrar en narrativa como documento encontrado por los personajes."
+  },
+  "assets": {
+    "nota": "Diseñar crucigrama con solución controlada donde las letras sobrantes formen exactamente la palabra deseada. Imprimir en papel temático."
+  },
+  "metadata": {
+    "creado": "2026-03-26",
+    "validado": "2026-04-05",
+    "version": "3.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_validada", "puzzles_mentales", "prueba-cifrado", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba"
+  }
+}

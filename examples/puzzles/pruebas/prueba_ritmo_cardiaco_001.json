@@ -1,0 +1,96 @@
+{
+  "id": "prueba_ritmo_cardiaco_001",
+  "nombre": "Sincronía Cardíaca",
+  "descripcion": "Los jugadores deben sincronizar sus latidos al ritmo de un corazón virtual. En hall escape usan una tablet compartida donde cada uno toca su zona. En street escape cada jugador usa su propio móvil sincronizado. Al conseguir 10 latidos perfectos sincronizados, se revela un código de acceso en pantalla.",
+  "skill_primario": "prueba-tablet-cooperativo",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_juego": "ritmo_cardiaco",
+    "modo_juego": "tablet_compartida",
+    "numero_jugadores": 3,
+    "ritmo_bpm": 65,
+    "tolerancia_ms": 120,
+    "aciertos_necesarios": 10,
+    "feedback_visual": "corazon",
+    "duracion_juego_segundos": 90,
+    "dispositivo_activacion": "pantalla_codigo",
+    "codigo_recompensa": "VITAL",
+    "mensaje_exito": "¡Ritmo cardíaco establecido! Sincronización perfecta alcanzada.",
+    "intentos_maximos": 3,
+    "tiempo_recuperacion": 10,
+    "musica_fondo": true,
+    "efectos_sonido": true,
+    "vibracion": true,
+    "mostrar_progreso": true,
+    "categoria": "cooperacion_equipo"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Escuchad el ritmo juntos durante unos segundos antes de intentar pulsar. El corazón marca el tempo."
+    },
+    {
+      "nivel": 2,
+      "texto": "Mirad el corazón: debe estar completamente iluminado de rojo intenso para que sea el momento exacto."
+    },
+    {
+      "nivel": 3,
+      "texto": "Los tres jugadores deben pulsar exactamente al mismo tiempo. Si uno falla el timing, no cuenta como acierto."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Sincronización de latidos",
+    "ritmo_objetivo": "65 BPM (unos 923ms entre latidos)",
+    "ventana_exito": "±120ms del momento exacto",
+    "aciertos_necesarios": 10,
+    "estrategia": "1. Designar un 'líder' que cuente '1, 2, 3, YA'. 2. Todos miran el corazón y pulsan cuando está rojo intenso. 3. Mantener calma y respirar junto al ritmo.",
+    "resultado": "Código VITAL mostrado en pantalla"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Tablet compartida en pedestal central donde todos pueden verla y tocarla (pantalla mínima 10\"). STREET ESCAPE: Cada jugador usa su propio móvil con la app/URL del juego. Todos deben tener conexión a internet para sincronización en tiempo real."
+  },
+  "assets": {
+    "imagen_tablet": "pruebas/assets/prueba_ritmo_cardiaco_001/tablet_corazon.png",
+    "sonido_latido": "pruebas/assets/prueba_ritmo_cardiaco_001/heartbeat.mp3",
+    "sonido_acierto": "pruebas/assets/prueba_ritmo_cardiaco_001/success_beep.mp3",
+    "sonido_error": "pruebas/assets/prueba_ritmo_cardiaco_001/error_beep.mp3",
+    "musica_fondo": "pruebas/assets/prueba_ritmo_cardiaco_001/ambient_lab.mp3"
+  },
+  "implementaciones_alternativas": [
+    {
+      "id": "prueba_cupido_001",
+      "nombre": "Cupido - Sincronía de Latidos",
+      "github": "https://github.com/danielgap/cupido",
+      "descripcion": "Variante completa con anti-camping, dificultad adaptativa, fail-safe (timeout 3min), soporte 2-6 jugadores y tutorial previo. Implementación Godot 4.6 para Android Tablet."
+    }
+  ],
+  "metadata": {
+    "creado": "2026-02-12",
+    "version": "1.1",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": [
+      "tablet",
+      "cooperativo",
+      "sincronizacion",
+      "ritmo",
+      "codigo"
+    ]
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "HALL ESCAPE: Tablet compartida en pedestal central donde todos pueden verla y tocarla (pantalla mínima 10\"). STREET ESCAPE: Cada jugador usa su propio móvil con la app/URL del juego. Todos deben tener conexión a internet para sincronización en tiempo real.",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial",
+      "pantalla_principal": true
+    }
+  }
+}

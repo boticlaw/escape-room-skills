@@ -245,4 +245,4 @@ Continuar con **07-tecnologia.md** para entender cómo la tecnología potencia l
 
 ---
 
-*Guía creada como parte del sistema de mejora de templates de escape rooms - Escapeitor Agent*
+*Guía creada como parte del sistema de mejora de templates de escape rooms - Generador Agent*

@@ -1,0 +1,93 @@
+{
+  "id": "prueba_mp3_deteriorado_001",
+  "nombre": "MP3 Deteriorado",
+  "descripcion": "Reproductor MP3 encontrado en la escena con el circuito danado. Los jugadores deben reconectar los cables correctamente para reproducir un mensaje de audio que contiene informacion crucial.",
+  "skill_primario": "prueba-panel-electrico",
+  "skills_secundarios": [],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "numero_cables": 4,
+    "colores_cables": [
+      "rojo",
+      "verde",
+      "azul",
+      "negro"
+    ],
+    "secuencia_correcta": [
+      "negro",
+      "rojo",
+      "azul",
+      "verde"
+    ],
+    "pistas_orden": [
+      "El negro es tierra, va primero",
+      "Rojo es alimentacion, segundo",
+      "Los colores frios al final"
+    ],
+    "dispositivo": "reproductor_mp3",
+    "audio_mensaje": {
+      "duracion_segundos": 15,
+      "transcripcion": "Maria, ya hable con Juan. Esta noche a las diez. Tu sabes que hacer. No fallen.",
+      "voz": "Masculina, distorsionada",
+      "idioma": "Espanol"
+    },
+    "categoria": "fisicos_mecanismos"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Examina los cables. El circuito tiene marcas de colores que indican el orden."
+    },
+    {
+      "nivel": 2,
+      "texto": "Tierra (negro) primero, alimentacion (rojo) segundo. Despues los de senal."
+    },
+    {
+      "nivel": 3,
+      "texto": "Orden: Negro - Rojo - Azul - Verde. Conecta en esa secuencia."
+    }
+  ],
+  "solucion": {
+    "orden_cables": [
+      "negro",
+      "rojo",
+      "azul",
+      "verde"
+    ],
+    "audio_reproducido": "Maria, ya hable con Juan. Esta noche a las diez. Tu sabes que hacer. No fallen.",
+    "evidencia": "El audio menciona a Maria como parte de la conspiracion",
+    "resultado": "Maria (Azul/Morado) es mencionada en el audio. Pero es la autora o solo un peon?"
+  },
+  "eliminacion": {
+    "aplica": true,
+    "sospechoso_eliminado": "Maria",
+    "color": "Azul/Morado",
+    "razon": "El audio la menciona como contacto, pero la voz es masculina. Alguien la involucro, pero ella no es la asesina principal."
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "interior_exterior",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6
+  },
+  "assets": {
+    "imagen_mp3": "pruebas/assets/crimen_juan_palomo/mp3_deteriorado.png",
+    "imagen_circuitos": "pruebas/assets/crimen_juan_palomo/mp3_circuito.png"
+  },
+  "metadata": {
+    "juego": "crimen_juan_palomo",
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial"
+    }
+  }
+}

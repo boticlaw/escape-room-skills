@@ -1,0 +1,55 @@
+{
+  "id": "prueba_diferencias_historicas_001",
+  "nombre": "Diferencias en imágenes históricas",
+  "descripcion": "4-5 parejas de imágenes (pinturas históricas, fotos antiguas, grabados). Cada imagen tiene asociado un año visible en un rótulo. Los jugadores buscan las diferencias en cada pareja. El NÚMERO de diferencias de cada imagen es un dígito del código final. El ORDEN de los dígitos lo da el año de cada imagen (de más antigua a más reciente). Ejemplo: imagen 1890 = 3 diferencias, imagen 1925 = 7 diferencias, imagen 1943 = 2 diferencias, imagen 1987 = 5 diferencias → código ordenado: 3725. SIN tiempo límite.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": ["prueba-logica-secuencial"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "idea_validada",
+    "categoria": "observacion_detalle",
+    "materiales_estimados": "4-5 parejas de imágenes impresas (A5 cada una), con año rotulado. Papel y boli para anotar.",
+    "coste_estimado": "bajo (~5€ en impresiones)",
+    "tiempo_preparacion_minutos": 40
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Comparad cada pareja de imágenes con calma. Contad las diferencias de cada una."
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada imagen tiene un año. El número de diferencias de cada imagen es un dígito. ¿Cómo los ordenáis?"
+    },
+    {
+      "nivel": 3,
+      "texto": "Ordenad los dígitos de más antiguo a más reciente según el año. Imagen 1890 → 1925 → 1943 → 1987."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Encontrar diferencias en parejas de imágenes y ordenar por año",
+    "descripcion": "Los jugadores comparan parejas de imágenes históricas. Cada pareja tiene un número concreto de diferencias (diseñado de antemano). El número de diferencias = un dígito. Ordenando los dígitos por año cronológico se obtiene el código.",
+    "resultado": "Código numérico de 4-5 dígitos (número de diferencias ordenado por año de las imágenes)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal en mesa o pared. STREET ESCAPE: Versión portátil impresa. Para niños: usar imágenes más coloridas y solo 3 diferencias por pareja."
+  },
+  "assets": {
+    "nota": "Preparar parejas de imágenes con número controlado de diferencias (3-8 por pareja). Añadir año visible. Imprimir en A5."
+  },
+  "metadata": {
+    "creado": "2026-03-24",
+    "validado": "2026-04-05",
+    "version": "3.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_validada", "observacion_detalle", "prueba-exploracion-visual", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "idea_2026-04-06_002",
+  "nombre": "Brújula de libros (orientación por lomos)",
+  "descripcion": "En una estantería hay 8 libros colocados de forma que sus lomos son visibles. Cada lomo tiene un número romano pequeño en la parte inferior (I, II, III... VIII) y un color predominante. En otra parte de la sala hay un papel con un diagrama circular con 8 posiciones numeradas como los puntos cardinales de una brújula (N, NE, E, SE, S, SO, O, NO), y cada posición tiene un color asociado (N=rojo, NE=azul, E=verde, SE=amarillo, S=naranja, SO=morado, O=blanco, NO=negro). Los jugadores deben colocar los libros en orden de brújula según su color. Una vez ordenados, las primeras letras del título de cada libro en orden N→NO forman una palabra: por ejemplo 'S', 'E', 'C', 'R', 'E', 'T', 'O', 'S' → SECRETOS. Esa palabra es la contraseña para abrir un candado de letras de 8 dígitos que guarda una caja con la siguiente pista.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": ["prueba-exploracion-visual"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "idea_generada",
+    "categoria": "orientacion_espacial",
+    "materiales_estimados": "8 libros de segunda mano (~4€ en tienda de ocasión), papel con diagrama brújula, candado de letras de 8 dígitos (~5€)",
+    "coste_estimado": "bajo (~9€)",
+    "tiempo_preparacion_minutos": 25
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "El diagrama circular tiene 8 posiciones como una brújula. Los libros también tienen 8 posiciones. ¿Pueden relacionarse los colores?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Emparejad cada libro con su posición en la brújula según el color del lomo. Ordenad los libros en sentido horario desde el Norte. ¿Qué forman las primeras letras de los títulos?"
+    },
+    {
+      "nivel": 3,
+      "texto": "Las iniciales de los títulos en orden de brújula (N→NO) forman la palabra SECRETOS. Esa es la combinación del candado de letras."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ordenar libros según un diagrama de brújula por colores, las iniciales de los títulos forman una palabra que abre un candado",
+    "descripcion": "Los jugadores asocian los colores de los lomos de los libros con las posiciones de la brújula, los ordenan en sentido horario desde el Norte, y las primeras letras de cada título forman la contraseña del candado de letras.",
+    "resultado": "Apertura de candato de letras con la palabra SECRETOS, que revela el contenido de la caja (siguiente pista o código)"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "HALL ESCAPE: Ideal, necesita estantería. STREET ESCAPE: Usar tarjetas plastificadas con 'lomos' simulados y una brújula de gran formato en el suelo. Para niños: reducir a 4 posiciones (N, E, S, O) y palabra de 4 letras."
+  },
+  "assets": {
+    "nota": "Elegir libros cuyos títulos empiecen por las letras correctas. Pegar colores en los lomos. Imprimir diagrama de brújula con colores. El candado de letras debe ser de 8 dígitos (o adaptar la palabra)."
+  },
+  "metadata": {
+    "creado": "2026-04-06",
+    "version": "1.0",
+    "autor": "Generador",
+    "testeado": false,
+    "tags": ["idea_generada", "orientacion_espacial", "prueba-logica-posiciones", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "idea"
+  }
+}
