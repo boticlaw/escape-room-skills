@@ -84,6 +84,50 @@ Solo re-ejecutar las fases afectadas por los cambios:
 | Cambió conexiones entre pruebas | Verify + Playtest |
 | Cambió todo | Pipeline completo |
 
+### 5. Cross-Game Regression ⚠️ NUEVO
+
+Comparar el diseño del juego nuevo contra los juegos reales completados que tienen playtest reports.
+
+```bash
+# Buscar juegos con perfil similar
+python3 scripts/search-games.py --similar "[tema]" --pretty
+python3 scripts/search-games.py --difficulty [min]-[max] --pretty
+```
+
+**Comparar contra juegos reales:**
+
+1. **Curva de dificultad**: ¿La curva del nuevo juego es similar a los juegos que funcionaron bien? Si los juegos exitosos tienen curva 3→4→5→4 y el nuevo tiene 2→7→3→8, hay un problema.
+
+2. **Variedad de mecánicas**: Contar mecánicas únicas en el nuevo juego vs. los juegos reales. Si los juegos reales usan 5-6 mecánicas distintas y el nuevo solo 3, falta variedad.
+
+3. **Tiempos estimados**: Comparar la duración total de puzzles del nuevo juego contra los juegos reales. Si los juegos reales de 50 min tienen ~35 min de puzzles y ~15 min de transiciones, el nuevo debería mantener esa proporción.
+
+4. **Playtest scores**: Si un juego real con temática similar tuvo problemas en ciertos tipos de puzzle (documentado en playtest-report.json), verificar que el nuevo juego no repite el mismo patrón.
+
+5. **Patrones de diseño**: Verificar que el nuevo juego cumple los patrones probados:
+   - Mínimo 1 puzzle cooperativo (como en Legado Tinta Violeta, Legado de la Familia)
+   - No más de 2 puzzles del mismo tipo (como en todos los juegos existentes)
+   - Hilo conductor acumulativo entre pruebas (como en todos los juegos del proyecto)
+
+**Output:** Añadir al REGRESSION-REPORT.json:
+
+```json
+{
+  "cross_game_regression": {
+    "games_compared": ["el-legado-de-la-familia", "protocolo-alerta-verde"],
+    "difficulty_curve_delta": "+1.2 (new game is harder than average)",
+    "mechanic_variety_score": "6 unique / 7 puzzles (within normal range)",
+    "time_distribution": "38min puzzles / 12min transitions (healthy ratio)",
+    "warnings": ["P4 difficulty 7 is 2 points above the highest difficulty in any reference game"],
+    "patterns_checked": {
+      "has_cooperative_puzzle": true,
+      "max_same_type": 2,
+      "has_hilo_conductor": true
+    }
+  }
+}
+```
+
 ## Output
 
 Escribir resultado en `REGRESSION-REPORT.json`:

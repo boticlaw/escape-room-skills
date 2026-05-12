@@ -96,35 +96,65 @@ Leer los 3 GAMETYPE.md existentes:
 
 Comparar temática, duración y objetivos del usuario con cada game type. Seleccionar el mejor ajuste e incluir justificación en `game_type_justificacion`.
 
-### 3. Buscar pruebas existentes ⚠️ OBLIGATORIO
+### 3. Buscar en juegos reales existentes ⚠️ OBLIGATORIO
 
-**ESTE PASO ES CRÍTICO. NO puedes dejar `pruebas_existentes_candidatas` vacío.**
+**ESTE PASO ES CRÍTICO. Los juegos reales son la principal fuente de inspiración y referencia.**
 
-Debes ejecutar MÚLTIPLES búsquedas con diferentes términos:
+Buscar en los 6 juegos reales de `examples/real-games/` usando `scripts/search-games.py`:
 
 ```bash
-# Búsqueda 1: Por temática general
-agents/escapeitor/scripts/escape-search.sh --dificultad=X-Y "temática"
+# Buscar por temática similar
+python3 scripts/search-games.py --theme "[tema del juego nuevo]" --pretty
 
-# Búsqueda 2: Por cada skill recomendado
-agents/escapeitor/scripts/escape-search.sh --skill=prueba-investigacion-texto
-agents/escapeitor/scripts/escape-search.sh --skill=prueba-logica-posiciones
-agents/escapeitor/scripts/escape-search.sh --skill=prueba-busqueda-objetos
-# ... (uno por cada skill recomendado)
+# Buscar por mecánicas que encajen con el game type
+python3 scripts/search-games.py --mechanic "prueba-XXX" --pretty
 
-# Búsqueda 3: Por tipo de juego
-agents/escapeitor/scripts/escape-search.sh "investigation"
+# Ver todas las mecánicas usadas (para variedad)
+python3 scripts/search-games.py --list-mechanics --pretty
 
-# Búsqueda 4: Semántica con qmd
-qmd search "concepto relacionado con la temática" -c pruebas-escape
+# Ver qué mecánicas se usaron recientemente (para evitar repetir)
+python3 scripts/search-games.py --recent-mechanics --pretty
 
-# Búsqueda 5: Lista TODAS las pruebas disponibles
-agents/escapeitor/scripts/escape-search.sh --tipo=pruebas
+# Buscar juegos similares para inspiración
+python3 scripts/search-games.py --similar "[tema]" --pretty
+
+# Listar todos los juegos con resumen
+python3 scripts/search-games.py --list-games --pretty
 ```
 
-**Regla:** Si ejecutas todas las búsquedas y no encuentras NINGUNA prueba candidata, lista las primeras 5 pruebas del catálogo por relevancia de skill. `pruebas_existentes_candidatas` NUNCA debe estar vacío.
+**Reglas:**
 
-Filtrar resultados: máx 10 pruebas candidatas, clasificar relevancia (alta/media/baja).
+1. **Inspiración**: Para cada juego encontrado con temática similar, extraer:
+   - Qué mecánicas usó y por qué funcionaron
+   - Curva de dificultad y cómo se sintieron los jugadores (ver playtest reports)
+   - Patrones narrativos que conectaron con el público
+   - Errores documentados en playtest reports que este juego nuevo debe evitar
+
+2. **No repetir**: Verificar qué mecánicas se usaron en los 2-3 juegos más recientes. Si `prueba-logica-nonogram` apareció en los últimos 2 juegos, priorizar otras mecánicas.
+
+3. **Calibración**: Comparar la dificultad objetivo del nuevo juego contra los juegos existentes. Si el nuevo juego quiere dificultad 5, buscar en los juegos reales cuáles tenían esa dificultad y qué tan bien funcionó.
+
+4. **`pruebas_existentes_candidatas`**: Para cada juego real encontrado, listar sus puzzles como candidatas de inspiración (no para reutilizar directamente, sino como referencia de diseño).
+
+5. **Regla de variedad**: Si >50% de los juegos existentes usan la misma mecánica como primaria, priorizar mecánicas menos usadas para el nuevo juego.
+
+**Output:** Incluir en el BRIEF.json:
+```json
+{
+  "juegos_referencia": [
+    {
+      "nombre": "Protocolo Alerta Verde",
+      "tematica_similar": true,
+      "mecanicas_usadas": ["prueba-xxx", "prueba-yyy"],
+      "dificultad": 4,
+      "leccion_clave": "El puzzle de radio marina fue el más disfrutado por los jugadores",
+      "playtest_score": 80
+    }
+  ],
+  "mecanicas_recientes_evitar": ["prueba-logica-nonogram"],
+  "mecanicas_subutilizadas": ["prueba-gps-navegacion", "prueba-emparejamiento-memoria"]
+}
+```
 
 ### 5. Investigación temática automática ⚠️ OBLIGATORIO si el tema lo requiere
 
@@ -217,6 +247,7 @@ Componer el JSON final y guardarlo en la ruta del pipeline.
 | `services/scripts/perplexica-search.py` | Búsqueda AI con citas | Requiere Perplexica (localhost:3100) |
 | `curl r.jina.ai/URL` | Extraer contenido de URLs | Sin instalación |
 | `webfetch` | Búsqueda web directa | Fallback si no hay search stack |
+| `scripts/search-games.py` | Buscar en juegos reales por temática, mecánica, dificultad | Siempre disponible |
 
 ## Files Referenciados
 

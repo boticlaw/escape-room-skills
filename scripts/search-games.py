@@ -253,7 +253,7 @@ def keyword_overlap_score(text, query):
     return len(overlap) / len(query_words)
 
 
-def text_content(game_meta):
+def text_content(game_meta, game=None):
     """All searchable text for a game joined together."""
     parts = [
         game_meta.get("nombre", ""),
@@ -263,6 +263,15 @@ def text_content(game_meta):
         game_meta.get("tipo", ""),
         " ".join(game_meta.get("mechanics", [])),
     ]
+    # Include puzzle descriptions for richer matching
+    if game:
+        for p in game.get("puzzles", []):
+            desc = p.get("descripcion", "")
+            if desc:
+                parts.append(desc)
+            nombre = p.get("nombre", "")
+            if nombre:
+                parts.append(nombre)
     return " ".join(p for p in parts if p)
 
 
@@ -293,7 +302,7 @@ def cmd_theme(games, theme_query, **_kw):
     results = []
     for g in games:
         meta = extract_game_metadata(g)
-        txt = text_content(meta)
+        txt = text_content(meta, g)
         score = keyword_overlap_score(txt, theme_query)
         if score > 0:
             results.append({"game": _summarize(meta, g), "score": round(score, 3)})
@@ -385,7 +394,7 @@ def cmd_similar(games, similar_query, **_kw):
     results = []
     for g in games:
         meta = extract_game_metadata(g)
-        txt = text_content(meta)
+        txt = text_content(meta, g)
         score = keyword_overlap_score(txt, similar_query)
         # Also try partial word matching
         query_words = normalize(similar_query).split()
