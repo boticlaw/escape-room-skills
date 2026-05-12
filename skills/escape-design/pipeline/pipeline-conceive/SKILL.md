@@ -45,6 +45,17 @@ Después de FASE 1 (Explore). El Orchestrator llama a este skill cuando el `BRIE
 
 **Ventaja dual-LLM**: Un modelo prioriza solidez estructural, el otro aporta frescura creativa. La síntesis captura lo mejor de ambos enfoques.
 
+### Si ambos jueces usan el mismo provider
+
+Si `scripts/verify-judges.py` reporta `same_provider: true`, los jueces deben MAXIMIZAR la divergencia de enfoque:
+
+| Aspecto | Juez A | Juez B |
+|---------|--------|--------|
+| Personalidad | Ingeniero QA — sistemático, frío, busca fallos | Jugador apasionado — emocional, busca magia |
+| Método | Checklist de criterios, scoring 1-10 por item | Narrativa experiencial + red flags específicas |
+| Bias | Pesimista (asumir problemas) | Optimista (asumir que funciona, demostrar que no) |
+| Output | JSON estructurado con scores | Narrativa libre + resumen de problemas |
+
 ## Research Frameworks (consultar ANTES de generar)
 
 | Framework | Ruta | Uso |

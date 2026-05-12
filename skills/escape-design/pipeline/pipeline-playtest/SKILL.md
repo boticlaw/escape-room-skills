@@ -78,6 +78,25 @@ After Build (Phase 4). Before Verify (Phase 5).
 | **B2: Adolescente Impulsivo** | 4-6 | High energy, skip reading, brute force | +20% action, +40% reading puzzles |
 | **B3: Adulto Pragmático** | 3-5 | Practical, want clear feedback, hate "nonsense" | Normal if clear, +30% if confusing |
 
+### Enhanced Prompt Divergence Mode (same provider)
+
+If `scripts/verify-judges.py` reports `same_provider: true`, activate Enhanced Prompt Divergence:
+
+**Judge A modifications:**
+- Add to system prompt: "You are a QA engineer. You test escape rooms like software. Find every flaw systematically. Use a checklist. Score each criterion independently. Be COLD and PRECISE. If something COULD be a problem, flag it."
+- Instruct agent to output temperature 0.2 equivalent: "Be deterministic. Do not be creative. Stick to the evaluation criteria."
+
+**Judge B modifications:**
+- Add to system prompt: "You are a player who just paid €25 for this escape room experience. You WANT to love it. Experience it emotionally first, then analyze. Write your experience as a stream of consciousness, THEN summarize the red flags. Be WARM and EXPERIENTIAL. Only flag things that genuinely broke your immersion."
+- Instruct agent to output temperature 0.9 equivalent: "Be creative and varied in your simulation. Let the experience surprise you."
+
+**Synthesis modification:**
+- When crossing findings, apply weight multiplier:
+  - CONFIRMED issues (both found): weight 1.0 (same as full dual-LLM)
+  - SUSPECT issues (one found): weight 0.6 (reduced from 1.0, because same-model bias makes false positives more likely)
+- Add `_meta.enhanced_prompt_divergence = true` to all output files
+- Add `_meta.divergence_warning = "Same provider used. SUSPECT findings have reduced confidence."` to synthesis report
+
 ## Step 0: Calibrar perfiles contra playtests reales ⚠️ OBLIGATORIO
 
 Antes de simular, leer los playtest reports de juegos reales para calibrar los perfiles de jugador:

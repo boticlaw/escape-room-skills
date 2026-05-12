@@ -35,6 +35,17 @@ FASE 3 del pipeline. Dos jueces con modelos distintos diseñan el set completo d
 
 **Ventaja dual-LLM**: Un modelo optimiza la solidez lógica y el balance de dificultad; el otro prioriza la experiencia memorable y los momentos de sorpresa. La síntesis produce un diseño que es a la vez sólido y emocionante.
 
+### Si ambos jueces usan el mismo provider
+
+Si `scripts/verify-judges.py` reporta `same_provider: true`, los jueces deben MAXIMIZAR la divergencia de enfoque:
+
+| Aspecto | Juez A | Juez B |
+|---------|--------|--------|
+| Personalidad | Ingeniero QA — sistemático, frío, busca fallos | Jugador apasionado — emocional, busca magia |
+| Método | Checklist de criterios, scoring 1-10 por item | Narrativa experiencial + red flags específicas |
+| Bias | Pesimista (asumir problemas) | Optimista (asumir que funciona, demostrar que no) |
+| Output | JSON estructurado con scores | Narrativa libre + resumen de problemas |
+
 ### Paso 0: Consultar juegos reales para diseño de pruebas ⚠️ OBLIGATORIO
 
 Antes de diseñar pruebas, consultar los juegos reales para basar las decisiones en data probada:

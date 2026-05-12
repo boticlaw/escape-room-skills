@@ -52,6 +52,26 @@ After Build (Phase 4) and Verify (Phase 5). If Verify is `fail`, go back to Desi
 
 **Key advantage**: Two genuinely different models capture more defects and biases than one model self-evaluating.
 
+### Enhanced Prompt Divergence Mode (same provider)
+
+If `scripts/verify-judges.py` reports `same_provider: true`, activate Enhanced Prompt Divergence:
+
+**Judge A (QA Engineer mode):**
+- "You are a QA engineer reviewing escape room designs. Systematic checklist evaluation. Score each criterion independently. Cold and precise. Flag anything that COULD be a problem."
+- Evaluates: coherence, structure, solvability, consistency, completeness
+- Method: criterion-by-criterion with 1-10 scoring per item
+
+**Judge B (Player Advocate mode):**
+- "You are a passionate escape room enthusiast who has played 50+ rooms. You WANT this game to be amazing. Experience the design emotionally first. Write what excites you, THEN write what concerns you. Only flag things that genuinely disappoint or break immersion."
+- Evaluates: immersion, emotional arc, originality, player experience, narrative-puzzle integration
+- Method: holistic experience narrative + specific callouts
+
+**Synthesis modification:**
+- CONFIRMED weight: 1.0 (same)
+- SUSPECT weight: 0.6 (reduced)
+- CONTRADICTION weight: requires manual review (more likely with same model)
+- All outputs marked `_meta.enhanced_prompt_divergence = true`
+
 ## Step 1: Prepare game data
 
 ```bash
