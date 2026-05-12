@@ -1,202 +1,197 @@
 ---
 name: pipeline-judgment-day
-description: "FASE 6 — Revisión adversarial dual-LLM con iteración. Lanza Razonator (GLM-5.1) y Visionator (GPT-5.5) como agentes independientes, cada uno evaluando narrativa + lógica. Sintetiza findings, auto-fixea issues confirmados y itera hasta convergencia."
+description: "FASE 6 — Dual-LLM adversarial review with iteration. Judge A (opencode agent) evaluates analytically, Judge B (external API) evaluates creatively. Synthesis crosses findings, auto-fixes confirmed issues, iterates."
 ---
 
-# Pipeline Judgment Day — Revisión Dual-LLM con Iteración
+# Pipeline Judgment Day — Dual-LLM Review (Portable)
 
-Orquesta la evaluación completa del escape room mediante **dos LLMs diferentes** (GLM-5.1 y GPT-5.5) que evalúan el juego de forma independiente. Cada juez evalúa TANTO narrativa como lógica, proporcionando dos perspectivas completas desde modelos distintos.
+Two DIFFERENT LLMs evaluate the complete escape room independently. Each evaluates BOTH narrative and logic from their perspective. Synthesis crosses findings, auto-fixes confirmed issues, iterates until convergence.
 
-## Cuándo se ejecuta
+## Architecture
 
-Después de FASE 4 (Build) y FASE 5 (Verify). Si Verify es `pass` o `pass_with_warnings`, ejecutar Judgment Day. Si Verify es `fail`, volver a Design primero.
+```
+┌─────────────────────┐     ┌──────────────────────────┐
+│  Judge A             │     │  Judge B                  │
+│  (opencode agent)    │     │  (Gemini/OpenAI API)      │
+│  DIFFERENT model     │     │  DIFFERENT model          │
+│                      │     │                           │
+│  ANALYTICAL focus:   │     │  CREATIVE focus:          │
+│  - Coherence         │     │  - Immersion quality      │
+│  - Structure         │     │  - Emotional arc          │
+│  - Solvability       │     │  - Originality            │
+│  - Consistency       │     │  - Player experience      │
+└────────┬─────────────┘     └──────────┬────────────────┘
+         │                              │
+         ▼                              ▼
+    JUDGE-A.json                  JUDGE-B.json
+         │                              │
+         └──────────┬───────────────────┘
+                    ▼
+         dual-llm-synthesis.py → CONFIRMED / SUSPECT / CONTRADICTION
+                    │
+                    ▼
+         Auto-fix CONFIRMED → Re-judge → Converge
+```
 
-El Orchestrator DEBE llamar a este skill en lugar de lanzar jueces por separado.
+## When to Run
+
+After Build (Phase 4) and Verify (Phase 5). If Verify is `fail`, go back to Design first.
 
 ## Input
 
-- `juegos/{juego-id}/` — Directorio completo del juego
-- `CONCEPT.json` — Concepto original
-- `DESIGN.json` — Diseño técnico
-- `VERIFY-REPORT.json` — Reporte de verificación previo
+- Complete game directory: `{game_dir}/`
+- `CONCEPT.json`, `DESIGN.json`, `VERIFY-REPORT.json`
 
-## Los Dos Jueces
+## The Two Judges
 
-| Agente | Modelo | Perfil |
-|--------|--------|--------|
-| `razonator` | `zai/glm-5.1` | Evaluador analítico — foco en coherencia, estructura, solucionabilidad |
-| `visionator` | `openai-codex/gpt-5.5` | Evaluador creativo — foco en inmersión, experiencia, originalidad |
+| Judge | Source | Perspective |
+|-------|--------|------------|
+| **A** | opencode agent (delegation) | Analytical — coherence, structure, solvability, consistency |
+| **B** | External API (Gemini/OpenAI) | Creative — immersion, emotion, originality, experience |
 
-**Ventaja dual-LLM**: Dos modelos independientes capturan más defects y sesgos que un solo modelo evaluándose a sí mismo. Los findings confirmados por ambos son altamente fiables.
+**Key advantage**: Two genuinely different models capture more defects and biases than one model self-evaluating.
 
-## Paso 1: Launch Paralelo
+## Step 1: Prepare game data
 
-Lanzar ambos jueces como **agentes independientes** con `sessions_spawn`:
-
-```
-sessions_spawn(agentId=razonator, task:
-  "Lee skills/pipeline-judge-story/SKILL.md Y skills/pipeline-judge-logic/SKILL.md.
-   Evalúa el juego en projects/{proyecto}/ como Juez A (GLM-5.1).
-   Evalúa TODOS los criterios de narrativa Y lógica.
-   Lee todos los archivos del juego: game.json, pruebas/*.json, narrativa, diseño.
-   Escribe resultado en JUDGE-A.json"
-)
-
-sessions_spawn(agentId=visionator, task:
-  "Lee skills/pipeline-judge-story/SKILL.md Y skills/pipeline-judge-logic/SKILL.md.
-   Evalúa el juego en projects/{proyecto}/ como Juez B (GPT-5.5).
-   Evalúa TODOS los criterios de narrativa Y lógica.
-   Lee todos los archivos del juego: game.json, pruebas/*.json, narrativa, diseño.
-   Escribe resultado en JUDGE-B.json"
-)
+```bash
+# Same as playtest — combine all game files
+# (see pipeline-playtest for the script)
 ```
 
-Ambos en paralelo. Esperar AMBOS antes de continuar a Paso 2.
+## Step 2: Launch Judge A (opencode agent)
 
-**REGLA CRÍTICA**: Cada juez NO ve el output del otro. Evaluación 100% independiente.
-
-**Los jueces son agentes con modelo fijo en config** — Escapeitor no necesita especificar modelo, cada agente ya tiene su LLM asignado.
-
-## Paso 2: Synthesis (Escapeitor orquesta)
-
-Escapeitor lee `JUDGE-A.json` y `JUDGE-B.json` y realiza la síntesis directamente (no delega a subagente).
-
-Comparar los dos veredictos completos. Clasificar cada finding:
-
-### Clasificación de Findings
-
-| Tipo | Definición | Acción |
-|------|-----------|--------|
-| **CONFIRMED** | Ambos jueces (GLM + GPT) detectaron el mismo issue | Alta confianza → Auto-fix obligatorio |
-| **SUSPECT** | Solo un LLM lo detectó | Baja confianza → Investigar, posible fix |
-| **CONTRADICTION** | Los LLMs discrepan sobre el mismo aspecto | Debate → Escapeitor decide con argumentos |
-
-### Prompt Template para Synthesis
+**System prompt for Judge A:**
 
 ```
-Eres un árbitro de evaluación de escape rooms. Tienes dos evaluaciones independientes de LLMs diferentes:
+You are Judge A — an ANALYTICAL evaluator for escape rooms.
 
-## JUEZ A (GLM-5.1)
-{JUDGE-A.json completo}
+Evaluate this escape room from an ANALYTICAL perspective:
+- Coherence: Does the story hold together? Are characters consistent?
+- Structure: Is the flow logical? Are transitions clear?
+- Solvability: Can every puzzle be solved with available information?
+- Consistency: Do codes match their lock types? Do materials match descriptions?
+- Completeness: Does every solution list all required values?
 
-## JUEZ B (GPT-5.5)
-{JUDGE-B.json completo}
+Score each criterion 1-10. List every issue found.
+Be RUTHLESS but constructive. Reference specific elements.
 
-## TAREA
-1. Identificar todos los findings (issues + suggestions) de cada juez
-2. Clasificar cada finding:
-   - CONFIRMED: ambos LLMs lo detectaron (mismo problema o equivalentes) → alta fiabilidad
-   - SUSPECT: solo un LLM lo detectó → puede ser falso positivo o perspectiva única
-   - CONTRADICTION: los LLMs discrepan (ej: GLM alaba X, GPT critica X)
-3. Para CONTRADICTION: decidir cuál tiene razón con argumentos
-4. Para CONFIRMED: generar un fix concreto y específico
-5. Calcular overall_score combinado (media ponderada)
-
-Output en JSON:
+Output JSON:
 {
-  "confirmed": [
-    {"finding": "...", "judge_a_ref": "...", "judge_b_ref": "...", "fix": "...", "severity": "critical|major|minor"}
+  "scores": {"coherence": N, "structure": N, "solvability": N, "consistency": N, "completeness": N},
+  "overall_score": N,
+  "findings": [
+    {"criterion": "...", "description": "...", "severity": "critical|major|minor", "suggestion": "..."}
   ],
-  "suspect": [
-    {"finding": "...", "source": "judge_a|judge_b", "investigation": "...", "recommendation": "fix|accept|monitor"}
-  ],
-  "contradiction": [
-    {"topic": "...", "judge_a_position": "...", "judge_b_position": "...", "resolution": "...", "reasoning": "..."}
-  ],
-  "overall_score": {
-    "judge_a": 7.5,
-    "judge_b": 7.4,
-    "combined": 7.45
-  },
   "verdict": "approved|approved_with_suggestions|rejected"
 }
 ```
 
-## Paso 3: Auto-fix
+## Step 3: Launch Judge B (external API, in parallel)
 
-Para cada issue CONFIRMED:
-1. Generar el fix concreto descrito en el synthesis
-2. Aplicar los cambios a los archivos del juego (`juegos/{juego-id}/`)
-3. Documentar qué se cambió y por qué
+```bash
+python3 scripts/dual-llm-evaluate.py \
+  --task judge \
+  --input {output_dir}/game-data.json \
+  --output {output_dir}/JUDGE-B.json \
+  --prompt "Evaluate this escape room from a creative and experiential perspective. Score immersion, emotional arc, originality, narrative-puzzle integration, and player experience 1-10. List all issues and suggestions."
+```
 
-**NO auto-fix** issues SUSPECT (requieren investigación) ni CONTRADICTION (ya resueltos en synthesis).
+Environment:
+```bash
+export DUAL_LLM_API_KEY="your-api-key"
+export DUAL_LLM_PROVIDER="gemini"     # or "openai"
+export DUAL_LLM_MODEL="gemini-2.0-flash"
+```
 
-## Paso 4: Re-judge
+## Step 4: Synthesize
 
-Volver a lanzar ambos jueces (`razonator` + `visionator`) en paralelo, pero **solo sobre las partes modificadas** (no todo el escape room).
+```bash
+python3 scripts/dual-llm-synthesis.py \
+  --judge-a {output_dir}/JUDGE-A.json \
+  --judge-b {output_dir}/JUDGE-B.json \
+  --output {output_dir}/JUDGMENT-REPORT.json \
+  --type judgment \
+  --game-ref {juego-id}
+```
 
-- Si se modificó narrativa + lógica → ambos re-evalúan
-- Si solo narrativa → ambos re-evalúan solo narrativa
-- Si solo lógica → ambos re-evalúan solo lógica
+### Finding Classification
 
-## Paso 5: Convergence
+| Type | Definition | Action |
+|------|-----------|--------|
+| **CONFIRMED** | Both judges found same issue | Auto-fix mandatory |
+| **SUSPECT** | Only one judge found it | Investigate, optional fix |
+| **CONTRADICTION** | Judges disagree (score delta ≥ 3) | Manual review needed |
 
-### Reglas de parada
+## Step 5: Auto-fix
 
-El ciclo se detiene cuando se cumple ALGUNA de estas condiciones:
+For each CONFIRMED issue:
+1. Apply the concrete fix described in synthesis
+2. Update game files in `{game_dir}/`
+3. Document what changed and why
 
-| Condición | Resultado |
-|-----------|-----------|
-| `combined ≥ 8.0` | ✅ APROBADO — no más iteraciones |
-| `0 CONFIRMED + 0 CONTRADICTION` | ✅ APROBADO — solo suspects aceptables |
-| Iteración ≥ 2 | ⚠️ ESCALAR — presentar a Daniel |
+**Do NOT auto-fix** SUSPECT or CONTRADICTION issues.
 
-### Si se escala a Daniel
+## Step 6: Re-judge
 
-Mostrar resumen con opciones:
-1. **Continuar iterando** — se resetea el contador (1 iteración más)
-2. **Aceptar con warnings** — se entrega con los suspects como notas
-3. **Descartar y regenerar** — volver a FASE 2 (Conceive) con todo el feedback acumulado
+Re-launch both judges on the **modified parts only**:
+- If narrative + logic changed → both re-evaluate
+- If only narrative → both evaluate narrative only
+- If only logic → both evaluate logic only
 
-## Output Final
+## Step 7: Convergence
 
-`agents/escapeitor/.pipeline/{juego-id}/JUDGMENT-REPORT.json`:
+| Condition | Result |
+|-----------|--------|
+| `combined ≥ 8.0` | ✅ APPROVED — no more iterations |
+| `0 CONFIRMED + 0 CONTRADICTION` | ✅ APPROVED — only suspects |
+| Iteration ≥ 2 | ⚠️ ESCALATE — present to user |
+
+### If escalated
+
+Present options:
+1. **Continue iterating** — reset counter (1 more iteration)
+2. **Accept with warnings** — deliver with suspect notes
+3. **Discard and regenerate** — back to Phase 2 (Conceive) with all feedback
+
+## Output: JUDGMENT-REPORT.json
 
 ```json
 {
-  "id": "judgment_2026-04-25_{juego-slug}",
+  "id": "judgment_YYYY-MM-DD_{juego-slug}",
   "game_ref": "{juego-slug}",
   "timestamp": "ISO-8601",
   "dual_llm": true,
   "iterations": 1,
+  "judge_a_model": "opencode-agent-model",
+  "judge_b_model": "gemini-2.0-flash",
   "synthesis": {
     "confirmed": [],
     "suspect": [],
     "contradiction": []
   },
-  "scores_by_iteration": [
-    {"iteration": 1, "judge_a": 7.5, "judge_b": 7.4, "combined": 7.45},
-    {"iteration": 2, "judge_a": 8.5, "judge_b": 8.2, "combined": 8.35}
-  ],
-  "overall_score": {
-    "judge_a": 8.5,
-    "judge_b": 8.2,
-    "combined": 8.35
+  "scores": {
+    "judge_a": 7.5,
+    "judge_b": 7.4,
+    "combined": 7.45
   },
   "verdict": "approved|approved_with_suggestions|rejected",
-  "fixes_applied": ["Descripción de cada fix aplicado"],
-  "remaining_suspects": ["Suspects no resueltos (si hay)"],
-  "judge_a": {"model": "GLM-5.1", "verdict": "..."},
-  "judge_b": {"model": "GPT-5.5", "verdict": "..."}
+  "fixes_applied": [],
+  "remaining_suspects": []
 }
 ```
 
-## Integración con Orchestrator
+## Scripts
 
-El Orchestrator debe:
-1. Reemplazar las llamadas individuales a JudgeStory/JudgeLogic por una única llamada a `pipeline-judgment-day`
-2. Recibir el `JUDGMENT-REPORT.json` con el verdict final
-3. Si verdict = `rejected` → decidir a qué fase volver según la tabla de consenso del Orchestrator
-4. Si verdict = `approved_with_suggestions` → entregar con notas
-5. Si verdict = `approved` → entregar
+| Script | Purpose |
+|--------|---------|
+| `scripts/dual-llm-evaluate.py` | Call external API as Judge B |
+| `scripts/dual-llm-synthesis.py` | Cross findings, classify, synthesize |
 
-## Agentes Utilizados
+## Fallback (single-LLM)
 
-- `razonator` (GLM-5.1) — Agente independiente con modelo fijo en config
-- `visionator` (GPT-5.5) — Agente independiente con modelo fijo en config
-- Ambos son subagentes permitidos de Escapeitor
+If no external API key available, run Judge A only. Mark `_meta.dual_llm = false`. Single-judge evaluation has lower confidence but is still valuable for catching basic issues.
 
-## Skills Referenciados
+## Skills Referenced
 
-- `pipeline-judge-story/SKILL.md` — Criterios de evaluación narrativa (leído por ambos jueces)
-- `pipeline-judge-logic/SKILL.md` — Criterios de evaluación lógica (leído por ambos jueces)
+- `pipeline-judge-story/SKILL.md` — Narrative evaluation criteria (used by both judges)
+- `pipeline-judge-logic/SKILL.md` — Logic evaluation criteria (used by both judges)
