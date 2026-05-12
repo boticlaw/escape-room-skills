@@ -1,0 +1,275 @@
+{
+  "_meta": {
+    "source": "La Dama del Salón - Street Escape",
+    "extracted_date": "2026-04-27",
+    "description": "Modelo de datos y patrones de progreso extraídos del sistema. Templates reutilizables para nuevos juegos."
+  },
+  "data_model": {
+    "entities": {
+      "User": {
+        "fields": {
+          "id": "string (auto)",
+          "email": "string",
+          "isAdmin": "boolean",
+          "lastUrl": "string (nullable) — URL del último nivel visitado, para restaurar sesión"
+        },
+        "purpose": "Autenticación y tracking de sesión. lastUrl permite que el jugador cierre el navegador y vuelva donde estaba."
+      },
+      "GameProgress": {
+        "fields": {
+          "id": "string (auto)",
+          "userId": "string (FK → User, unique)",
+          "currentLevel": "int — Nivel actual del jugador",
+          "maxLevelReached": "int — Nivel máximo desbloqueado",
+          "hintsUsed": "int — Total de pistas usadas en todo el juego",
+          "wrongAttempts": "int — Total de intentos fallidos en todo el juego",
+          "lastLevelCompletedAt": "datetime (nullable) — Timestamp del último nivel completado",
+          "createdAt": "datetime",
+          "updatedAt": "datetime"
+        },
+        "relationships": "1:1 con User",
+        "purpose": "Estado completo del progreso del jugador. Persistido en PostgreSQL."
+      },
+      "LevelData": {
+        "fields": {
+          "id": "string — Identificador del nivel ('1', '2', ...)",
+          "type": "'diary' | 'location' | 'puzzle'",
+          "title": "string — Título del nivel",
+          "description": "string — Subtítulo/fecha",
+          "imageUrl": "string (optional) — Path a imagen del nivel",
+          "hint": "string — Pista disponible bajo demanda",
+          "solution": "string — Respuesta correcta (para verificación)",
+          "diaryContent": "string (optional) — Texto narrativo del diario",
+          "location": "GeoCoordinates (optional) — Para geo-check",
+          "imagePositionAfterParagraph": "int (optional) — Después de qué párrafo insertar la imagen",
+          "highlightedKeywords": "string[] (optional) — Palabras a resaltar en el texto"
+        },
+        "storage": "Hardcoded en levels.ts — NO en base de datos",
+        "note": "En un juego futuro, esto debería ser configurable vía admin panel o JSON/YAML"
+      }
+    }
+  },
+  "progress_patterns": {
+    "level_unlock_flow": {
+      "description": "Cómo se desbloquean los niveles",
+      "sequence": [
+        "1. Jugador completa nivel N",
+        "2. markLevelComplete() calcula nextLevel = N+1",
+        "3. updateGameProgress({ currentLevel: N+1, levelCompleted: true })",
+        "4. maxLevelReached se actualiza si N+1 > maxLevelReached actual",
+        "5. Navegación a /game/level/N+1",
+        "6. LevelGuard verifica que currentLevelId <= maxLevelReached"
+      ],
+      "key_invariants": [
+        "maxLevelReached NUNCA decrementa",
+        "currentLevel apunta al nivel en progreso (puede ser < maxLevelReached si el jugador vuelve)",
+        "LevelGuard redirige a maxLevelReached si se intenta acceder a nivel futuro"
+      ]
+    },
+    "session_restoration": {
+      "description": "Cómo se restaura la sesión del jugador",
+      "mechanism": "lastUrl se actualiza cada vez que el jugador entra a un nivel",
+      "flow": [
+        "1. Jugador abre la app",
+        "2. Se verifica autenticación",
+        "3. Se obtiene lastUrl del usuario",
+        "4. Si existe, redirige a lastUrl",
+        "5. LevelGuard verifica que puede acceder a ese nivel"
+      ],
+      "reusable_for": "Cualquier juego web que deba persistir progreso entre sesiones"
+    },
+    "metrics_tracking": {
+      "hintsUsed": "Se incrementa con cada pista mostrada. Permite scoring al final.",
+      "wrongAttempts": "Se incrementa con cada respuesta incorrecta. Permite scoring al final.",
+      "lastLevelCompletedAt": "Timestamp del último nivel completado. Permite calcular tiempo total."
+    }
+  },
+  "level_data_schema": {
+    "description": "Schema JSON completo para definir niveles de un juego tipo La Dama",
+    "$schema_note": "Esto es un template, no un JSON Schema formal",
+    "template": {
+      "id": "string — ID único del nivel",
+      "type": "enum: diary | location | puzzle",
+      "title": "string — Título mostrado al jugador",
+      "description": "string — Subtítulo (fecha, contexto, etc.)",
+      "imageUrl": "string | null — Path a imagen (/images/foto.jpg)",
+      "hint": "string — Pista disponible bajo demanda",
+      "solution": "string — Respuesta correcta para verificación",
+      "diaryContent": "string | null — Texto narrativo (párrafos separados por \\n\\n)",
+      "location": {
+        "latitude": "number",
+        "longitude": "number",
+        "name": "string — Nombre del lugar"
+      },
+      "imagePositionAfterParagraph": "int | null — Índice del párrafo tras el cual insertar imagen",
+      "highlightedKeywords": ["string"] ,
+      "mechanic": "string — ID de la mecánica principal (geo-check, piano, memory-card, etc.)",
+      "mechanic_config": "object — Parámetros específicos de la mecánica",
+      "next_level_id": "string — ID del siguiente nivel",
+      "custom_logic": "string | null — Referencia a lógica especial si aplica"
+    }
+  },
+  "api_operations": {
+    "description": "Operaciones del servidor (backend) para gestión del juego",
+    "operations": [
+      {
+        "name": "getUserGameProgress",
+        "method": "GET/Query",
+        "auth": "required",
+        "input": "void",
+        "output": "GameProgress | null",
+        "purpose": "Obtener progreso del usuario autenticado"
+      },
+      {
+        "name": "initializeGameProgress",
+        "method": "POST/Mutation",
+        "auth": "required",
+        "input": "{ startLevel?: int }",
+        "output": "GameProgress",
+        "purpose": "Crear registro de progreso para nuevo jugador"
+      },
+      {
+        "name": "updateGameProgress",
+        "method": "PATCH/Mutation",
+        "auth": "required",
+        "input": "{ currentLevel?: int, hintsUsed?: int, wrongAttempts?: int, levelCompleted?: boolean }",
+        "output": "GameProgress",
+        "purpose": "Actualizar progreso del jugador. hintsUsed y wrongAttempts son incrementales (se suman al valor actual)."
+      },
+      {
+        "name": "generateGeminiResponse",
+        "method": "POST/Mutation",
+        "auth": "required",
+        "input": "{ messages: Message[], systemPrompt: string, model?: string }",
+        "output": "{ content: string, timestamp: number, provider: string, model: string }",
+        "purpose": "Generar respuesta de NPC via Gemini"
+      },
+      {
+        "name": "generateOpenAIResponse",
+        "method": "POST/Mutation",
+        "auth": "required",
+        "input": "{ messages: Message[], systemPrompt: string, model?: string }",
+        "output": "{ content: string, timestamp: number, provider: string, model: string }",
+        "purpose": "Generar respuesta de NPC via OpenAI (backup)"
+      }
+    ]
+  },
+  "frontend_state_management": {
+    "description": "Patrones de gestión de estado en el frontend",
+    "patterns": [
+      {
+        "name": "Server State (React Query)",
+        "purpose": "Progreso del juego obtenido del servidor",
+        "config": {
+          "staleTime": 300000,
+          "cacheTime": 600000,
+          "retry": false,
+          "refetchOnWindowFocus": true
+        },
+        "key": "GAME_PROGRESS_QUERY_KEY + userId"
+      },
+      {
+        "name": "Optimistic Updates",
+        "purpose": "Actualización inmediata del UI antes de la respuesta del servidor",
+        "use_case": "markLevelComplete() actualiza estado local antes de la llamada API",
+        "rollback": "Si la API falla, se revierte al estado del servidor"
+      },
+      {
+        "name": "Local Component State",
+        "purpose": "Estado específico del nivel actual (puzzle completado, geo verificado, etc.)",
+        "managed_by": "useState hooks en DiaryLevel.tsx",
+        "reset_on_level_change": "Todos los estados se resetean al cambiar de nivel"
+      },
+      {
+        "name": "Zustand Store (Legacy)",
+        "purpose": "Almacenamiento local de niveles desbloqueados",
+        "note": "Persistido en localStorage. En La Dama se usa principalmente LevelGuard con server state. Podría eliminarse."
+      }
+    ]
+  },
+  "complete_level_flow_template": {
+    "description": "Template del flujo completo de un nivel tipo 'diary' para crear nuevos niveles",
+    "steps": [
+      {
+        "step": 1,
+        "name": "Level Load",
+        "actions": [
+          "LevelGuard verifica acceso (currentLevelId <= maxLevelReached)",
+          "Actualiza lastUrl del usuario",
+          "Carga LevelData desde levels.ts por ID",
+          "Si nivel 1: abre VideoModal",
+          "Scroll al top"
+        ]
+      },
+      {
+        "step": 2,
+        "name": "Content Display",
+        "actions": [
+          "Renderiza título con decoración wavy",
+          "Renderiza fecha/descripción en caja estilo papel",
+          "Renderiza diaryContent párrafo por párrafo",
+          "Aplica highlightedKeywords a cada párrafo",
+          "Inserta imagen en la posición configurada"
+        ]
+      },
+      {
+        "step": 3,
+        "name": "Mechanic Interaction",
+        "actions": [
+          "Si tiene geo-check: muestra GeoLocationChecker",
+          "Si tiene puzzle: muestra el componente del minijuego",
+          "Si tiene chat: abre GeminiChatModal",
+          "Si tiene text-input: muestra formulario de respuesta",
+          "Si tiene arcade: muestra el juego arcade"
+        ]
+      },
+      {
+        "step": 4,
+        "name": "Verification",
+        "actions": [
+          "Texto: normaliza y compara con solution",
+          "Geo: Haversine distance < threshold",
+          "Puzzle: callback del minijuego",
+          "Chat: detección de contenido clave en respuesta del NPC"
+        ]
+      },
+      {
+        "step": 5,
+        "name": "Level Complete",
+        "actions": [
+          "Muestra mensaje de éxito (MessageDisplay)",
+          "Ejecuta markLevelComplete()",
+          "Actualiza optimísticamente el estado local",
+          "Persiste en servidor via updateGameProgress",
+          "Invalida caché de React Query",
+          "Navega al siguiente nivel o a /game/completed"
+        ]
+      }
+    ]
+  },
+  "lessons_for_new_games": {
+    "what_works": [
+      "Progresión estrictamente lineal — simple de entender",
+      "lastUrl para restaurar sesión — esencial para juegos mobile",
+      "Métricas acumulativas (hints, wrongAttempts) — permiten scoring final",
+      "LevelGuard centralizado — un solo punto de control de acceso",
+      "maxLevelReached nunca decrementa — anti-cheat natural"
+    ],
+    "what_to_improve": [
+      "levels.ts hardcodeado → debería ser JSON/YAML configurable o admin panel",
+      "DiaryLevel.tsx es un archivo gigante con lógica específica por nivel → cada mecánica debería ser un componente plug-and-play",
+      "Sin dificultad adaptativa → todos ven lo mismo",
+      "Métricas por nivel, no globales → saber dónde se atascan los jugadores",
+      "Sin analytics → no se sabe qué niveles son más difíciles en la práctica"
+    ],
+    "new_game_recommendations": [
+      "Crear LevelDefinition schema JSON/YAML editable sin código",
+      "Separar lógica de mecánicas en componentes con interfaz estándar: { config, onSuccess, onError }",
+      "Añadir analytics por nivel (tiempo medio, pistas usadas, abandonos)",
+      "Implementar difficulty tiers (fácil/normal/difícil) por nivel",
+      "Considerar branching paths para replayability",
+      "Añadir sistema de achievements/badges para engagement",
+      "Implementar leaderboard basado en tiempo + pistas + errores"
+    ]
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "pipeline_version": "escape-room-v1",
+  "game_id": "",
+  "started_at": "",
+  "last_updated": "",
+  "mode": "full",
+  "phases": {
+    "RESOLVE": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "RESOLVED_STANDARDS.json",
+      "error": null
+    },
+    "EXPLORE": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "BRIEF.json",
+      "error": null
+    },
+    "REGRESSION": {
+      "status": "pending",
+      "skipped_reason": null,
+      "started_at": null,
+      "completed_at": null,
+      "file": "REGRESSION-REPORT.json",
+      "error": null
+    },
+    "CONCEIVE": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "CONCEPT.json",
+      "dual_llm": {
+        "razonator": null,
+        "visionator": null,
+        "synthesis": null
+      },
+      "checks_passed": [],
+      "checks_failed": [],
+      "error": null
+    },
+    "DESIGN": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "DESIGN.json",
+      "dual_llm": {
+        "razonator": null,
+        "visionator": null,
+        "synthesis": null
+      },
+      "checks_passed": [],
+      "checks_failed": [],
+      "error": null
+    },
+    "NARRATIVE-CONSISTENCY": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "NARRATIVE-CONSISTENCY-REPORT.json",
+      "verdict": null,
+      "error": null
+    },
+    "DIFFICULTY-CALIBRATION": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "DIFFICULTY-REPORT.json",
+      "verdict": null,
+      "error": null
+    },
+    "BUILD": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "output_dir": null,
+      "error": null
+    },
+    "NARRATIVE-CONSISTENCY-RECHECK": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "NARRATIVE-CONSISTENCY-REPORT.json",
+      "verdict": null,
+      "error": null
+    },
+    "PLAYTEST": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "PLAYTEST-REPORT.json",
+      "dual_llm": {
+        "razonator": null,
+        "visionator": null,
+        "synthesis": null
+      },
+      "verdict": null,
+      "error": null
+    },
+    "VERIFY": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "VERIFY-REPORT.json",
+      "checks_passed": [],
+      "checks_failed": [],
+      "verdict": null,
+      "error": null
+    },
+    "JUDGMENT": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "file": "JUDGMENT-REPORT.json",
+      "dual_llm": {
+        "razonator": null,
+        "visionator": null,
+        "synthesis": null
+      },
+      "verdict": null,
+      "error": null
+    }
+  },
+  "gate_results": {
+    "post_explore": null,
+    "post_conceive": null,
+    "post_design": null
+  },
+  "iteration_counts": {
+    "conceive_attempts": 0,
+    "design_attempts": 0,
+    "build_playtest_cycles": 0,
+    "design_build_verify_cycles": 0,
+    "total_full_cycles": 0
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "id": "prueba_comunicacion_001",
+  "nombre": "SOS - Mensaje desde la Torre",
+  "skill": "prueba-comunicacion-mensajes",
+  "dificultad": 4,
+  "duracion_estimada": "12-15 minutos",
+  "descripcion": "Los jugadores deben descifrar un mensaje codificado en codigo morse transmitido desde una torre de señales. Un grupo tiene el mensaje en morse (visual o auditivo) y otro grupo tiene el diccionario para descifrarlo. La comunicacion entre ambos equipos es clave para obtener la solucion.",
+  
+  "narrativa": "Uno de los exploradores ha quedado atrapado en la torre de vigilancia. Esta enviando un mensaje de socorro usando un sistema de señales luminosas. Otro equipo ha encontrado el manual de codigos morse pero no puede ver la torre. Deben comunicarse para descifrar la ubicacion exacta donde necesitan ir a rescatarlo.",
+  
+  "configuracion": {
+    "tipo_codigo": "morse",
+    "longitud_mensaje": 8,
+    "separacion_equipos": true,
+    "modalidad_comunicacion": "visual",
+    "diccionario_proporcionado": true,
+    "requiere_transmision": false,
+    "pistas_diccionario": 26
+  },
+  
+  "mensaje_cifrado": "... --- ... / .--. ..- . .-. - ---",
+  "mensaje_descifrado": "SOS PUERTO",
+  "solucion": "PUERTO",
+  
+  "materiales": [
+    {
+      "nombre": "Diccionario Codigo Morse",
+      "descripcion": "Tabla completa A-Z y 0-9 en codigo morse",
+      "cantidad": 1,
+      "ubicacion": "Equipo B - Area de descifrado"
+    },
+    {
+      "nombre": "Linterna/Luz estroboscopica",
+      "descripcion": "Dispositivo para transmitir señales luminosas",
+      "cantidad": 1,
+      "ubicacion": "Equipo A - Torre de vigilancia"
+    },
+    {
+      "nombre": "Walkie-talkies o telefonos",
+      "descripcion": "Para comunicacion entre equipos separados",
+      "cantidad": 2,
+      "ubicacion": "Uno por equipo"
+    }
+  ],
+  
+  "distribucion_equipos": {
+    "equipo_a": {
+      "nombre": "Vigilantes de la Torre",
+      "ubicacion": "Torre superior o area elevada",
+      "objetos": ["Linterna", "Walkie-talkie"],
+      "instrucciones": "Estan en la torre y pueden ver una serie de destellos de luz que representan codigo morse. NO tienen el diccionario. Deben describir lo que ven al Equipo B por radio: patrones de puntos (destellos cortos) y rayas (destellos largos)."
+    },
+    "equipo_b": {
+      "nombre": "Equipo de Descifrado",
+      "ubicacion": "Sala principal o area baja",
+      "objetos": ["Diccionario Morse", "Walkie-talkie", "Papel y lapiz"],
+      "instrucciones": "Tienen el diccionario de codigo morse pero NO pueden ver la torre. Deben escuchar al Equipo A describir las señales, transcriibirlos y usar el diccionario para descifrar el mensaje."
+    }
+  },
+  
+  "flujo_juego": [
+    "Ambos equipos se separan en sus ubicaciones asignadas",
+    "El Game Master activa la secuencia de destellos luminosos desde la torre (o usa video/audio pregrabado)",
+    "Equipo A observa los destellos y los describe por radio al Equipo B",
+    "Equipo B recibe la descripcion y la transcribe en papel (ej: 'tres cortos, tres largos, tres cortos')",
+    "Equipo B usa el diccionario morse para mapear patrones a letras",
+    "Descifran 'SOS' (emergencia) seguido de 'PUERTO' (ubicacion)",
+    "La solucion 'PUERTO' es la contraseña para abrir el siguiente candado o revelar la siguiente pista"
+  ],
+  
+  "pistas_progresivas": [
+    {
+      "nivel": 1,
+      "para_quien": "Ambos equipos",
+      "texto": "El mensaje tiene dos palabras: una de emergencia muy conocida (tres letras) y una ubicacion (seis letras)"
+    },
+    {
+      "nivel": 2,
+      "para_quien": "Equipo B",
+      "texto": "En el diccionario, busquen el patron de tres destellos cortos seguidos (···) - esa letra aparece tres veces al inicio"
+    },
+    {
+      "nivel": 3,
+      "para_quien": "Equipo A",
+      "texto": "Diganle al Equipo B que la primera letra es 'S' (tres cortos), la segunda es 'O' (tres largos)"
+    }
+  ],
+  
+  "errores_comunes": [
+    "Equipo A describe mal los patrones (confunden corto/largo)",
+    "Equipo B transcribe incorrectamente lo que escuchan",
+    "No consultan el diccionario e intentan adivinar",
+    "Se atascan en 'SOS' y no siguen descifrando la segunda palabra",
+    "Comunicacion poco clara entre equipos (ruido, prisa)"
+  ],
+  
+  "soluciones_aceptables": [
+    "SOS PUERTO",
+    "PUERTO",
+    "Puerto",
+    "puerto"
+  ],
+  
+  "adaptaciones": {
+    "ninos_8_12": {
+      "cambios": [
+        "Mensaje mas corto: solo 'SOS' (3 letras)",
+        "Todos los jugadores juntos (sin separacion)",
+        "Repetir el mensaje luminoso 3 veces"
+      ]
+    },
+    "adultos_expertos": {
+      "cambios": [
+        "Mensaje mas largo: 'SOS-PUERTO-NORTE' (15 caracteres)",
+        "Agregar ruido de fondo que dificulte la comunicacion por radio",
+        "Diccionario parcial: faltan algunas letras poco comunes"
+      ]
+    },
+    "street_escape": {
+      "cambios": [
+        "Usar un faro o torre real visible desde distancia",
+        "Equipos en edificios separados a 100m de distancia",
+        "Mensaje transmitido con espejos reflejando luz solar o linterna real"
+      ]
+    },
+    "digital": {
+      "cambios": [
+        "Video de destellos luminosos reproducido en pantalla",
+        "Diccionario morse en PDF o app",
+        "Chat o llamada entre equipos en lugar de walkie-talkies"
+      ]
+    }
+  },
+  
+  "notas_gm": [
+    "Verificar que la luz/linterna sea visible claramente desde la ubicacion del Equipo B",
+    "Si hay problemas de comunicacion por radio, permitir que el Equipo A escriba y lleve el mensaje",
+    "Tener el mensaje morse escrito para poder repetirlo si es necesario",
+    "Estimar 12-15 minutos: si pasan 10 min sin progreso, dar Pista 1"
+  ]
+}

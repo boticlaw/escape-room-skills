@@ -1,0 +1,121 @@
+{
+  "id": "prueba_comunicacion_004",
+  "nombre": "Codigo de la Caja Fuerte",
+  "skill": "prueba-comunicacion-mensajes",
+  "dificultad": 5,
+  "duracion_estimada": "10-12 minutos",
+  "descripcion": "Los jugadores deben descifrar un codigo numerico de 4 digitos transmitido en codigo morse. El mensaje descifrado es directamente la combinacion para abrir una caja fuerte o candado.",
+  
+  "narrativa": "En la oficina del director encontraron una caja fuerte que contiene el siguiente objetivo. Un mensaje interceptado indica que la combinacion fue transmitida por radio a los agentes. Deben escuchar la transmision en morse y descifrar los 4 numeros para abrir la caja.",
+  
+  "configuracion": {
+    "tipo_codigo": "morse",
+    "tipo_mensaje": "numerico",
+    "longitud_mensaje": 4,
+    "separacion_equipos": false,
+    "modalidad_comunicacion": "auditiva",
+    "diccionario_proporcionado": true,
+    "requiere_transmision": false
+  },
+  
+  "mensaje_cifrado": "····· ····· -···· ····",
+  "mensaje_descifrado": "2564",
+  "solucion": "2564",
+  
+  "materiales": [
+    {
+      "nombre": "Diccionario Morse Numerico",
+      "descripcion": "Tabla con numeros 0-9 en codigo morse (0=-----, 1=.----, 2=..---, etc.)",
+      "cantidad": 1
+    },
+    {
+      "nombre": "Audio/Reproductor",
+      "descripcion": "Dispositivo para reproducir el mensaje en morse",
+      "cantidad": 1
+    },
+    {
+      "nombre": "Caja Fuerte/Candado",
+      "descripcion": "Mecanismo con combinacion 4 digitos",
+      "cantidad": 1,
+      "combinacion": "2564"
+    },
+    {
+      "nombre": "Papel y lapiz",
+      "descripcion": "Para transcribir el codigo",
+      "cantidad": 1
+    }
+  ],
+  
+  "flujo_juego": [
+    "Los jugadores encuentran una caja fuerte cerrada con cerrojo de 4 digitos",
+    "Encuentran una nota: 'La combinacion fue transmitida a las 14:00 horas'",
+    "Encuentran el diccionario morse numerico",
+    "Reproducen el audio con el mensaje en morse: '..--- ..... -.... ....-'",
+    "Usando el diccionario, identifican cada numero:",
+    "  ··--- = 2 (dos puntos, tres rayas)",
+    "  ····· = 5 (cinco puntos)",
+    "  -···· = 6 (una raya, cuatro puntos)",
+    "  ····- = 4 (cuatro puntos, una raya)",
+    "Descifran el codigo: 2-5-6-4",
+    "Introducen 2564 en el candado y se abre"
+  ],
+  
+  "transcripcion_morse": {
+    "2": "··--- (dos puntos, tres rayas)",
+    "5": "····· (cinco puntos)",
+    "6": "-···· (una raya, cuatro puntos)",
+    "4": "····- (cuatro puntos, una raya)"
+  },
+  
+  "pistas_progresivas": [
+    {
+      "nivel": 1,
+      "texto": "En morse, los numeros tienen patrones regulares. El 1 es .----, el 2 es ..---, el 3 es ...--"
+    },
+    {
+      "nivel": 2,
+      "texto": "El primer numero son dos pitidos cortos seguidos (··)"
+    },
+    {
+      "nivel": 3,
+      "texto": "El codigo completo es: 2 (··---), 5 (·····), 6 (-····), 4 (····-)"
+    }
+  ],
+  
+  "errores_comunes": [
+    "Confundir 5 (·····) con otros numeros",
+    "No saber que en morse numerico los numeros tienen 5 elementos siempre",
+    "Olvidar que despues de transcribir deben probar en el candado",
+    "Pensar que el mensaje es texto cuando es numerico"
+  ],
+  
+  "soluciones_aceptables": [
+    "2564",
+    "2-5-6-4",
+    "2 5 6 4"
+  ],
+  
+  "adaptaciones": {
+    "mas_dificil": {
+      "cambios": [
+        "Agregar un numero mas (5 digitos)",
+        "Usar audio con ruido de fondo estatico",
+        "El mensaje dice 'MAS-DOS' en lugar de '2564' y deben hacer la operacion"
+      ]
+    },
+    "mas_facil": {
+      "cambios": [
+        "Solo 3 numeros",
+        "El diccionario esta junto al audio",
+        "Los numeros se repiten lentamente 3 veces"
+      ]
+    }
+  },
+  
+  "notas_gm": [
+    "Los numeros en morse son mas faciles que las letras porque tienen patrones mas regulares",
+    "Asegurarse de que el audio sea claro y los pitidos distinguibles",
+    "Tener preparado el audio para repetirlo si los jugadores lo piden",
+    "El mensaje numerico tiene ventaja: la solucion es inmediata (abrir candado)"
+  ]
+}

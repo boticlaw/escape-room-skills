@@ -1,0 +1,76 @@
+{
+  "id": "prueba_comunicacion_002",
+  "nombre": "Banderas del Capitan",
+  "skill": "prueba-comunicacion-mensajes",
+  "dificultad": 3,
+  "duracion_estimada": "8-10 minutos",
+  "descripcion": "Una prueba individual o grupal donde los jugadores deben descifrar un mensaje usando banderas nauticas (codigo internacional de señales). Tienen el diccionario completo y un cartel con las banderas.",
+  
+  "narrativa": "En el cuarto del capitan encontraron su bitacora con un mensaje importante para la navegacion. El mensaje esta escrito usando el codigo de banderas nauticas. Con ayuda del diccionario encontrado en el mismo cuarto, deben descifrar las instrucciones para encontrar el siguiente objeto.",
+  
+  "configuracion": {
+    "tipo_codigo": "banderas_nauticas",
+    "longitud_mensaje": 6,
+    "separacion_equipos": false,
+    "modalidad_comunicacion": "visual",
+    "diccionario_proporcionado": true,
+    "requiere_transmision": false
+  },
+  
+  "mensaje_cifrado": "A-D-E-L-A-N-T-E (representado con imagenes de banderas)",
+  "mensaje_descifrado": "ADELANTE",
+  "solucion": "ADELANTE",
+  
+  "materiales": [
+    {
+      "nombre": "Poster de Banderas Nauticas",
+      "descripcion": "Cartel con las 26 banderas del alfabeto y sus significados",
+      "cantidad": 1
+    },
+    {
+      "nombre": "Mensaje Cifrado",
+      "descripcion": "Cartulina con 8 banderas dibujadas o impresas",
+      "cantidad": 1
+    },
+    {
+      "nombre": "Diccionario Bandera-Letra",
+      "descripcion": "Tabla de correspondencia bandera a letra",
+      "cantidad": 1
+    }
+  ],
+  
+  "flujo_juego": [
+    "Los jugadores encuentran el poster con el diccionario de banderas",
+    "Encuentran un papel o lienzo con dibujos de banderas",
+    "Usando el diccionario, identifican cada bandera y su letra correspondiente",
+    "Escriben las letras en orden para formar el mensaje",
+    "Descifran 'ADELANTE' como instruccion para continuar"
+  ],
+  
+  "pistas_progresivas": [
+    {
+      "nivel": 1,
+      "texto": "Cada bandera representa una letra. Usen el poster para identificarlas"
+    },
+    {
+      "nivel": 2,
+      "texto": "La primera bandera es la 'A' (bandera blanca y azul con forma de triangulo)"
+    },
+    {
+      "nivel": 3,
+      "texto": "El mensaje es una palabra comun que indica direccion: A-D-E-L-A-N-T-E"
+    }
+  ],
+  
+  "errores_comunes": [
+    "Confundir banderas similares (ej: A con V, O con Q)",
+    "Invertir el orden de lectura",
+    "Buscar significado complejo cuando es literal"
+  ],
+  
+  "soluciones_aceptables": [
+    "ADELANTE",
+    "adelante",
+    "Adelante"
+  ]
+}

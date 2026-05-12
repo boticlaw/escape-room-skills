@@ -1,0 +1,10 @@
+{
+  "skill": "prueba-comunicacion-mensajes",
+  "version": "1.0",
+  "variables": {
+    "variable_1": "valor_default",
+    "variable_2": 5,
+    "variable_3": false
+  },
+  "_comentario": "Plantilla de configuracion para pruebas de tipo comunicacion-mensajes"
+}

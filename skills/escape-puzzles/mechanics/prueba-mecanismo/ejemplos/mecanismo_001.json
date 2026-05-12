@@ -1,0 +1,92 @@
+{
+  "id": "mecanismo_001",
+  "nombre": "Secuencia de Interruptores de Control",
+  "descripcion": "Tres interruptores deben activarse en un orden específico para encender una luz que revela el siguiente paso.",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "fisicos_mecanismos",
+    "tipo_mecanismo": "secuencia",
+    "numero_elementos": 3,
+    "elementos_tipo": "interruptores",
+    "secuencia_correcta": [1, 3, 2],
+    "feedback_tipo": "luz",
+    "feedback_parcial": true,
+    "orden_importa": true,
+    "reset_error": true,
+    "reintentos": "infinito",
+    "materiales_estimados": "Interruptores simples, luz LED, batería, cableado básico, Arduino Nano",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 45
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Los interruptores tienen marcas de desgaste diferentes. ¿Cuál parece el más usado?"
+    },
+    {
+      "nivel": 2,
+      "texto": "El orden sigue una secuencia lógica: primero el más desgastado, luego el menos."
+    },
+    {
+      "nivel": 3,
+      "texto": "La secuencia es: Izquierda (más usado) → Derecha (menos usado) → Centro."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Secuencia de interruptores con feedback visual",
+    "descripcion": "Los jugadores deben activar los interruptores en orden: 1 (izquierda), 3 (derecha), 2 (centro). Cada interruptor correcto enciende un LED amarillo. Al completar la secuencia, se enciende una luz verde que ilumina un mensaje oculto.",
+    "resultado": "Luz verde que revela mensaje fluorescente con código para siguiente prueba",
+    "validacion": "Arduino detecta secuencia correcta y activa relé para luz verde"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "Funciona en cualquier sala con espacio para panel en pared. Para street escape, usar versión portátil con baterías."
+  },
+  "assets": {
+    "panel_interruptores": "Panel de madera 20x15cm con 3 interruptores",
+    "leds_feedback": "3 LEDs amarillos + 1 LED verde",
+    "mensaje_oculto": "Texto con tinta fluorescente revelado por luz verde"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "fisicos_mecanismos",
+      "prueba-mecanismo",
+      "bajo_coste",
+      "secuencia"
+    ],
+    "proyecto": "skills_mecanismo",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Panel en pared con acceso eléctrico",
+    "adaptacion_hall": {
+      "formato": "panel_pared",
+      "interaccion": "presencial",
+      "feedback": "luz_visible_distancia"
+    },
+    "adaptacion_street": {
+      "formato": "caja_portatil",
+      "interaccion": "bateria_9v",
+      "feedback": "leds_alta_intensidad"
+    },
+    "adaptacion_investigation": {
+      "formato": "maleta_evidencias",
+      "interaccion": "contexto_caso",
+      "feedback": "revela_pista_documental"
+    }
+  }
+}

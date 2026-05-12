@@ -1,0 +1,551 @@
+{
+  "_meta": {
+    "source": "La Dama del Salón - Street Escape",
+    "extracted_date": "2026-04-27",
+    "description": "Catálogo de mecánicas de juego extraídas del código fuente. Cada mecánica incluye parámetros configurables para reutilización en nuevos juegos."
+  },
+  "mechanics": [
+    {
+      "id": "geo-check",
+      "name": "Verificación Geolocalizada",
+      "component_source": "GeoLocationChecker.tsx",
+      "description": "Verifica que el jugador está físicamente en una ubicación específica usando GPS del dispositivo.",
+      "level_usage": [1, 3, 6, 8, 9, 10, 11, 13],
+      "configurable_params": {
+        "targetLocation": {
+          "type": "GeoCoordinates",
+          "required": true,
+          "description": "Coordenadas lat/lng del punto objetivo",
+          "fields": {
+            "latitude": "number (grados decimales)",
+            "longitude": "number (grados decimales)",
+            "name": "string (nombre legible, opcional)"
+          }
+        },
+        "distanceThreshold": {
+          "type": "number",
+          "default": 25,
+          "unit": "metros",
+          "description": "Radio de aceptación. El jugador debe estar dentro de este radio.",
+          "recommendations": "25m funciona bien en parques abiertos. 50m para zonas urbanas con GPS impreciso. 10m para puntos muy específicos."
+        },
+        "onLocationReached": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se verifica la ubicación"
+        },
+        "testUserLocation": {
+          "type": "GeoCoordinates | null",
+          "default": null,
+          "description": "Coordenadas simuladas para testing/debug sin estar in-situ"
+        }
+      },
+      "technical_details": {
+        "algorithm": "Fórmula de Haversine para calcular distancia entre dos puntos GPS",
+        "browser_api": "navigator.geolocation.getCurrentPosition",
+        "options": {
+          "enableHighAccuracy": true,
+          "timeout": 10000,
+          "maximumAge": 0
+        },
+        "permission_handling": "Detecta estados granted/denied/prompt con navigator.permissions API"
+      },
+      "design_patterns": {
+        "ux": "Botón 'Verificar mi ubicación' — no se auto-ejecuta, requiere acción del jugador",
+        "feedback": "Muestra distancia al objetivo si no está dentro del radio",
+        "debug_mode": "Coordenadas simuladas, indicadores visuales verdes"
+      },
+      "escapeitor_reusability": {
+        "score": 10,
+        "notes": "Sistema completo y portátil. Ideal para street escapes. El threshold configurable permite adaptar a cualquier ubicación."
+      }
+    },
+    {
+      "id": "piano",
+      "name": "Teclado Musical con Secuencia",
+      "component_source": "Piano.tsx",
+      "description": "Teclado interactivo de piano que detecta cuando el jugador toca una secuencia específica de notas.",
+      "level_usage": [2],
+      "configurable_params": {
+        "targetSequence": {
+          "type": "Note[]",
+          "required": true,
+          "description": "Array de notas que el jugador debe tocar en orden",
+          "example": "['Sol', 'Sol', 'Sol', 'Mib', 'Fa', 'Fa', 'Fa', 'Re']",
+          "notes_available": ["Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si", "Mib"]
+        },
+        "requiredConsecutiveNotes": {
+          "type": "number",
+          "default": 8,
+          "description": "Número de notas consecutivas correctas necesarias"
+        },
+        "onCorrectSequence": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se completa la secuencia"
+        },
+        "showPlayedSequence": {
+          "type": "boolean",
+          "default": false,
+          "description": "Mostrar las notas tocadas (modo pista)"
+        }
+      },
+      "technical_details": {
+        "audio": "Web Audio API — genera tonos reales con oscillator",
+        "frequency_mapping": "Cada nota se mapea a su frecuencia musical (C4=261.63Hz, D4=293.66Hz, etc.)",
+        "enharmonic_equivalents": "Mib = Re# (se consideran equivalentes)",
+        "sequence_matching": "Busca subsecuencia correcta en cualquier posición del historial de notas tocadas"
+      },
+      "design_patterns": {
+        "ux": "Teclado visual blanco/negro, responsive. Notas se iluminan al tocar.",
+        "touch": "Cooldown anti-doble-tap en dispositivos móviles",
+        "feedback": "Visual + auditivo simultáneo"
+      },
+      "escapeitor_reusability": {
+        "score": 8,
+        "notes": "Funcional pero la secuencia está hardcodeada. Requiere refactoring para parametrizar la secuencia objetivo. La generación de audio es reutilizable directamente."
+      }
+    },
+    {
+      "id": "star-puzzle",
+      "name": "Puzzle de Arrastre por Checkpoints",
+      "component_source": "StarPuzzle.tsx",
+      "description": "Drag & drop de una estrella por una serie de checkpoints en un contenedor SVG.",
+      "level_usage": [3],
+      "configurable_params": {
+        "pathPoints": {
+          "type": "Array<{x: number, y: number}>",
+          "required": true,
+          "description": "Coordenadas de los checkpoints en porcentaje (0-100) del contenedor",
+          "example": "[{x:10,y:50}, {x:30,y:20}, {x:50,y:70}, {x:70,y:30}, {x:90,y:50}]"
+        },
+        "checkpointThreshold": {
+          "type": "number",
+          "default": 8,
+          "unit": "porcentaje",
+          "description": "Distancia para considerar que se alcanzó un checkpoint"
+        },
+        "onComplete": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se completa el path"
+        }
+      },
+      "technical_details": {
+        "drag_mechanism": "Mouse events + Touch events paralelos",
+        "rendering": "CSS positioning con porcentajes, SVG para el path visual",
+        "progress_tracking": "Barra de progreso basada en checkpoints alcanzados"
+      },
+      "design_patterns": {
+        "ux": "Arrastrar estrella por camino, checkpoints se iluminan al pasar",
+        "visual_feedback": "Animación de completado con progreso 0-100%"
+      },
+      "escapeitor_reusability": {
+        "score": 7,
+        "notes": "Funcional para puzzles simples de arrastre. Los checkpoints son configurables. Podría extenderse con paths más complejos."
+      }
+    },
+    {
+      "id": "buscaminas",
+      "name": "Buscaminas (Minesweeper)",
+      "component_source": "Minesweeper.tsx + MinesweeperModal.tsx",
+      "description": "Buscaminas clásico con grid, timer y modo bandera.",
+      "level_usage": [3],
+      "configurable_params": {
+        "difficulty": {
+          "type": "'easy' | 'medium' | 'hard'",
+          "default": "easy",
+          "presets": {
+            "easy": {"rows": 6, "cols": 6, "mines": 5},
+            "medium": {"rows": 8, "cols": 8, "mines": 10},
+            "hard": {"rows": 10, "cols": 10, "mines": 20}
+          },
+          "description": "Nivel de dificultad que configura tamaño del grid y número de minas"
+        },
+        "maxTime": {
+          "type": "number",
+          "default": 120,
+          "unit": "segundos",
+          "description": "Tiempo máximo para completar el juego"
+        },
+        "onGameWon": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se desactivan todas las minas"
+        }
+      },
+      "technical_details": {
+        "grid_generation": "Minas colocadas aleatoriamente, cálculo de adyacentes automático",
+        "mobile_support": "Long-press para banderas, flag mode toggle button",
+        "timer": "Countdown con game over al expirar"
+      },
+      "design_patterns": {
+        "ux": "Grid responsive, colores numéricos clásicos, flag mode para móvil",
+        "feedback": "Mensajes de victoria/derrota, timer visual"
+      },
+      "escapeitor_reusability": {
+        "score": 9,
+        "notes": "Muy bien implementado con difficulty presets y mobile-first. Directamente reutilizable con parámetros."
+      }
+    },
+    {
+      "id": "memory-card",
+      "name": "Juego de Memoria (Emparejamiento)",
+      "component_source": "MemoryCard.tsx + MemoryCard.css",
+      "description": "Juego de parejas clásico con cartas boca abajo. Al completar, revela una palabra secreta.",
+      "level_usage": [5],
+      "configurable_params": {
+        "secretWord": {
+          "type": "string",
+          "default": "ABUELOS",
+          "description": "Palabra que se revela al completar el juego de memoria"
+        },
+        "symbols": {
+          "type": "string[]",
+          "default": ["☉", "☽", "♃", "♄", "♆", "♇", "⚳", "⚴", "♀", "♂", "☿", "♈", "♌", "♎"],
+          "description": "Símbolos usados en las cartas"
+        },
+        "onComplete": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se emparejan todas las cartas"
+        }
+      },
+      "technical_details": {
+        "card_count": "14 cartas (7 pares) para palabra de 7 letras",
+        "reveal_mechanism": "Al completar, las cartas se reorganizan para formar la palabra secreta",
+        "flip_animation": "CSS 3D transforms para efecto de volteo"
+      },
+      "design_patterns": {
+        "ux": "Cartas con animación de flip, símbolos alquímicos/astrológicos",
+        "reward": "Revelación progresiva de la palabra secreta como recompensa"
+      },
+      "escapeitor_reusability": {
+        "score": 9,
+        "notes": "Excelente dualidad: juego de memoria + revelación de palabra secreta. La palabra secreta es el hook narrativo. Directamente configurable."
+      }
+    },
+    {
+      "id": "chat-ia",
+      "name": "Chat con NPC mediante IA",
+      "component_source": "GeminiChatModal.tsx + operations.ts",
+      "description": "Conversación con personaje NPC usando Gemini (primario) y OpenAI (backup). El NPC guía al jugador hacia una pista sin revelarla directamente.",
+      "level_usage": [6],
+      "configurable_params": {
+        "systemPrompt": {
+          "type": "string",
+          "required": true,
+          "description": "Prompt del sistema que define la personalidad y comportamiento del NPC",
+          "example": "Actúa como un anciano sabio de 90 años de Palencia..."
+        },
+        "modelName": {
+          "type": "string",
+          "default_gemini": "gemini-2.0-flash-lite",
+          "default_openai": "gpt-4o-mini",
+          "description": "Modelo de IA a usar"
+        },
+        "maxExchanges": {
+          "type": "number",
+          "default": 6,
+          "description": "Número máximo de intercambios antes de forzar cierre"
+        },
+        "conversationEndTriggers": {
+          "type": "string[]",
+          "description": "Patrones de texto en la respuesta del NPC que indican fin de conversación",
+          "example": ["calle clavel", "detras de la calle clavel"]
+        },
+        "backupResponses": {
+          "type": "string[]",
+          "description": "Respuestas predefinidas si ambas APIs fallan",
+          "example": ["Ah, nos alegra veros por estos lares...", "¿Deseabais algo?"]
+        },
+        "avatarImage": {
+          "type": "string",
+          "description": "URL de la imagen del NPC para el chat"
+        },
+        "onComplete": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando la conversación llega a la pista clave"
+        }
+      },
+      "technical_details": {
+        "provider_fallback": "Gemini → OpenAI → Backup responses (3 niveles)",
+        "rate_limit_handling": "Detecta 429 errors y cambia permanentemente a OpenAI en la sesión",
+        "ui_style": "WhatsApp-like (burbujas, avatar, indicador de escritura)",
+        "message_format": "Historial completo enviado con cada petición (stateless API)"
+      },
+      "design_patterns": {
+        "ux": "Interfaz tipo WhatsApp con avatar, timestamps, animación de escritura",
+        "narrative": "NPC con personalidad definida que guía sin revelar — 'socratic method'",
+        "fallback": "Triple fallback garantiza que siempre hay respuesta",
+        "end_detection": "Detecta fin por contenido de respuesta + contador de mensajes"
+      },
+      "escapeitor_reusability": {
+        "score": 10,
+        "notes": "Sistema de chat con NPC completamente funcional con triple fallback. Solo requiere cambiar systemPrompt y triggers para nuevo NPC. La interfaz WhatsApp es muy familiar para usuarios."
+      }
+    },
+    {
+      "id": "fish-sort",
+      "name": "Ordenar Bolas de Colores (Bubble Sort Físico)",
+      "component_source": "FishSortGame/FishSortGame.tsx",
+      "description": "Juego tipo 'water sort puzzle' — ordenar bolas/peces de colores en tubos moviendo de uno a otro.",
+      "level_usage": [8],
+      "configurable_params": {
+        "difficulty": {
+          "type": "'easy' | 'medium' | 'hard'",
+          "default": "easy",
+          "presets": {
+            "easy": {"tubes": 4, "fishTypes": 4, "fishPerTube": 4},
+            "medium": {"tubes": 5, "fishTypes": 4, "fishPerTube": 4},
+            "hard": {"tubes": 6, "fishTypes": 4, "fishPerTube": 4}
+          }
+        },
+        "onGameWon": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando todas las bolas están ordenadas"
+        }
+      },
+      "technical_details": {
+        "mechanic": "Mover elemento superior de un tubo a otro. Solo si el color coincide o el tubo está vacío.",
+        "win_condition": "Cada tubo debe contener solo un color",
+        "visual": "SVGs de peces temáticos (standard, puffer, angel, seahorse) con colores diferenciables",
+        "randomization": "Estado inicial aleatorio que garantiza solubilidad"
+      },
+      "design_patterns": {
+        "ux": "Tubos verticales, click/tap para seleccionar y colocar",
+        "visual_theme": "Peces en vez de bolas genéricas — temática acuática coherente"
+      },
+      "escapeitor_reusability": {
+        "score": 8,
+        "notes": "Mecánica probada y adictiva. Los difficulty presets permiten ajustar. Los SVGs de peces son específicos pero la mecánica es genérica."
+      }
+    },
+    {
+      "id": "monster-escape",
+      "name": "Escape en Grid con Perseguidores",
+      "component_source": "MonsterEscapeGame.tsx + MonsterEscapeModal.tsx",
+      "description": "Juego arcade en grid donde el jugador debe escapar de perseguidores que se mueven hacia él cada turno.",
+      "level_usage": [10],
+      "configurable_params": {
+        "boardSize": {
+          "type": "number",
+          "default": 8,
+          "description": "Tamaño del tablero (boardSize x boardSize)"
+        },
+        "pursuerCount": {
+          "type": "number",
+          "default": 3,
+          "description": "Número de perseguidores"
+        },
+        "targetMoves": {
+          "type": "number",
+          "description": "Número de movimientos a sobrevivir para ganar"
+        },
+        "smartPursuerProbability": {
+          "type": "number",
+          "default": 0.7,
+          "description": "Probabilidad de que un perseguidor use movimiento inteligente (predice dirección del jugador)"
+        },
+        "initialSafeDistance": {
+          "type": "number",
+          "default": 2,
+          "description": "Distancia Manhattan mínima de los perseguidores al inicio"
+        },
+        "onComplete": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando el jugador sobrevive suficientes turnos"
+        }
+      },
+      "technical_details": {
+        "ai": "Perseguidores usan Manhattan distance + predicción de dirección del jugador (70% smart, 30% random)",
+        "movement": "Grid-based, 4 direcciones (arriba/abajo/izquierda/derecha)",
+        "state_management": "useReducer con GameContext para estado global",
+        "win_condition": "Sobrevivir N movimientos sin ser capturado"
+      },
+      "design_patterns": {
+        "ux": "Tablero visual con emojis, controles directionales on-screen para móvil",
+        "difficulty_scaling": "Perseguidores más inteligentes = más difícil",
+        "feedback": "Contador de movimientos, visual de captura"
+      },
+      "escapeitor_reusability": {
+        "score": 8,
+        "notes": "Mecánica arcade divertida y bien implementada. Los parámetros de dificultad son configurables. Bueno para romper la monotonía de puzzles de lógica."
+      }
+    },
+    {
+      "id": "code-lock-box",
+      "name": "Caja Fuerte con Código",
+      "component_source": "CodeLockBox.tsx + CodeLockBox.css",
+      "description": "Caja fuerte visual con 5 diales numéricos (0-9) que giran arriba/abajo. Incluye símbolos grabados decorativos.",
+      "level_usage": [12],
+      "configurable_params": {
+        "correctCode": {
+          "type": "string",
+          "required": true,
+          "length": 5,
+          "description": "Código correcto de 5 dígitos",
+          "example": "63239"
+        },
+        "maxAttempts": {
+          "type": "number",
+          "default": 0,
+          "description": "Máximo de intentos (0 = ilimitados)"
+        },
+        "onSuccess": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se introduce el código correcto"
+        },
+        "onIncorrect": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando el código es incorrecto"
+        }
+      },
+      "technical_details": {
+        "dial_count": "5 diales, cada uno 0-9",
+        "symbols": "Cada dial tiene un símbolo grabado: ['♠', '♥', '♦', '♣', '★']",
+        "anti_double_tap": "Cooldown de 300ms entre toques",
+        "visual": "CSS puro para la caja, diales con flechas up/down"
+      },
+      "design_patterns": {
+        "ux": "Diales giratorios con feedback de shake en error, animación de unlock en éxito",
+        "decorative": "Símbolos grabados añaden capa narrativa (el ♦ indica algo especial)",
+        "debug": "Muestra cuántos dígitos son correctos en modo debug"
+      },
+      "escapeitor_reusability": {
+        "score": 9,
+        "notes": "Componente visualmente atractivo y bien pulido. El correctCode es el único parámetro necesario. Los símbolos pueden personalizarse. Ideal como prueba final de un juego."
+      }
+    },
+    {
+      "id": "sliding-puzzle",
+      "name": "Puzzle Deslizante (Unlock Me)",
+      "component_source": "SlidingPuzzleLock.tsx",
+      "description": "Puzzle tipo 'unblock me' — deslizar bloques para liberar una pieza. Usado como cerradura del diario.",
+      "level_usage": [],
+      "configurable_params": {
+        "locked": {
+          "type": "boolean",
+          "default": true,
+          "description": "Estado inicial de la cerradura"
+        },
+        "onUnlock": {
+          "type": "callback",
+          "description": "Función a ejecutar cuando se resuelve el puzzle"
+        }
+      },
+      "escapeitor_reusability": {
+        "score": 6,
+        "notes": "Disponible como componente pero no se usa en niveles activos. Podría integrarse como barrera inicial o entre secciones."
+      }
+    },
+    {
+      "id": "text-input",
+      "name": "Entrada de Texto con Validación",
+      "component_source": "DiaryLevel.tsx (inline)",
+      "description": "Campo de texto para responder preguntas/enigmas. Normaliza la respuesta antes de comparar.",
+      "level_usage": [1, 4, 7, 8, 9],
+      "configurable_params": {
+        "solution": {
+          "type": "string",
+          "required": true,
+          "description": "Respuesta correcta"
+        },
+        "normalization": {
+          "type": "'lowercase' | 'lowercase_nfd' | 'exact'",
+          "default": "lowercase",
+          "description": "Cómo normalizar la entrada del usuario antes de comparar"
+        },
+        "inputType": {
+          "type": "'text' | 'number'",
+          "default": "text",
+          "description": "Tipo de input HTML"
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "Texto placeholder del input"
+        }
+      },
+      "technical_details": {
+        "normalization_method": "toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '') para comparación sin acentos",
+        "validation": "Comparación exacta tras normalización"
+      },
+      "escapeitor_reusability": {
+        "score": 7,
+        "notes": "Funcional pero está inline en DiaryLevel. Debería extraerse como componente reutilizable con normalización configurable."
+      }
+    },
+    {
+      "id": "video-content",
+      "name": "Video Integrado",
+      "component_source": "VideoModal.tsx",
+      "description": "Modal o embed de video (YouTube) como contenido del nivel.",
+      "level_usage": [1, 9, 13],
+      "configurable_params": {
+        "videoId": {
+          "type": "string",
+          "description": "ID del video de YouTube"
+        },
+        "autoplay": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "escapeitor_reusability": {
+        "score": 7,
+        "notes": "Simple pero efectivo. Buenos para intro y finales."
+      }
+    }
+  ],
+  "combination_patterns": [
+    {
+      "pattern": "diary + geo + puzzle",
+      "levels": [3],
+      "description": "Texto narrativo → Verificación geolocalizada → Minijuego → Avance",
+      "flow": "Leer diario → Ir al lugar → Verificar GPS → Resolver puzzle → Siguiente nivel"
+    },
+    {
+      "pattern": "diary + geo + chat-ia",
+      "levels": [6],
+      "description": "Texto narrativo → Verificación geolocalizada → Conversación con NPC IA → Pista",
+      "flow": "Leer diario → Ir al lugar → Verificar GPS → Hablar con NPC → Descubrir pista → Siguiente nivel"
+    },
+    {
+      "pattern": "diary + skill",
+      "levels": [2],
+      "description": "Texto narrativo → Minijuego de habilidad",
+      "flow": "Leer diario → Resolver puzzle de habilidad → Siguiente nivel"
+    },
+    {
+      "pattern": "diary + text-input",
+      "levels": [4, 7],
+      "description": "Texto narrativo → Enigma textual → Respuesta escrita",
+      "flow": "Leer diario → Resolver enigma → Escribir respuesta → Validar → Siguiente nivel"
+    },
+    {
+      "pattern": "pure-puzzle",
+      "levels": [5],
+      "description": "Solo minijuego, sin narrativa",
+      "flow": "Resolver puzzle → Revela información clave → Siguiente nivel"
+    },
+    {
+      "pattern": "diary + geo + video + text-input",
+      "levels": [9],
+      "description": "Texto → GPS → Video → Enigma basado en el video",
+      "flow": "Leer diario → Ir al lugar → Ver video → Responder enigma del video → Siguiente nivel"
+    },
+    {
+      "pattern": "diary + geo + arcade",
+      "levels": [10],
+      "description": "Texto narrativo → Verificación geolocalizada → Juego arcade",
+      "flow": "Leer diario → Ir al lugar → Verificar GPS → Jugar arcade → Siguiente nivel"
+    },
+    {
+      "pattern": "geo-only",
+      "levels": [11],
+      "description": "Solo verificación geolocalizada, sin puzzle adicional",
+      "flow": "Ir al lugar oculto → Verificar GPS → Siguiente nivel"
+    },
+    {
+      "pattern": "code-lock-finale",
+      "levels": [12],
+      "description": "Prueba final de combinación que integra conocimiento de niveles anteriores",
+      "flow": "Resolver código basado en pistas acumuladas → Abrir caja → Nivel final"
+    }
+  ]
+}

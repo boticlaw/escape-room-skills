@@ -1,0 +1,55 @@
+{
+  "id": "prueba_emparejamiento_columnas_001",
+  "nombre": "Emparejamiento de columnas",
+  "descripcion": "Dos columnas en una hoja que deben emparejarse. Cada emparejamiento correcto revela un dígito del código final. Ejemplo concreto: Columna A tiene 5 reyes (Carlos III, Felipe II, Alfonso X, Isabel I, Fernando V). Columna B tiene 5 años de reinado (1474, 1556, 1252, 1759, 1479). Al emparejar correctamente cada rey con su año, se usa el último dígito de cada año en orden alfabético de los reyes: Alfonso→1252→2, Carlos→1759→9, Fernando→1479→9, Felipe→1556→6, Isabel→1474→4 → código 29964. Papel y boli, sin GM.",
+  "skill_primario": "prueba-emparejamiento-texto",
+  "skills_secundarios": ["prueba-investigacion-texto"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 7,
+  "configuracion": {
+    "tipo_prueba": "idea_validada",
+    "categoria": "cooperacion_equipo",
+    "materiales_estimados": "Hoja impresa con dos columnas, bolígrafo",
+    "coste_estimado": "bajo (<1€)",
+    "tiempo_preparacion_minutos": 15
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Conectad cada elemento de la columna A con su par correcto en la columna B. Hay conocimiento general de por medio."
+    },
+    {
+      "nivel": 2,
+      "texto": "Una vez emparejados, mirad los números/valores asociados. ¿Qué dígito podríais extraer de cada par?"
+    },
+    {
+      "nivel": 3,
+      "texto": "Usad el último dígito de cada valor numérico. Ordenad por el nombre de la columna A en orden alfabético."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Emparejar dos columnas por conocimiento y extraer dígitos del resultado",
+    "descripcion": "Los jugadores conectan elementos de dos columnas (personajes-fechas, monumentos-ciudades, etc.). Cada emparejamiento correcto produce un dígito (último dígito de un número, inicial de un nombre, etc.). Ordenados alfabéticamente o por otro criterio, forman el código.",
+    "resultado": "Código numérico de 4-5 dígitos extraído de los emparejamientos correctos"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "HALL ESCAPE: Ideal. STREET ESCAPE: Versión portátil. Para dificultad baja: emparejamientos obvios (colores, animales). Para alta: conocimiento específico."
+  },
+  "assets": {
+    "nota": "Diseñar parejas con una y solo una solución correcta. El código resultante debe ser inequívoco."
+  },
+  "metadata": {
+    "creado": "2026-03-25",
+    "validado": "2026-04-05",
+    "version": "3.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": ["idea_validada", "cooperacion_equipo", "prueba-emparejamiento-texto", "bajo_coste"],
+    "proyecto": "ideas_diarias",
+    "tipo": "prueba"
+  }
+}

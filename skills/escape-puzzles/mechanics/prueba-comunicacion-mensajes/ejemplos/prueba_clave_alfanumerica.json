@@ -1,0 +1,104 @@
+{
+  "id": "prueba_comunicacion_005",
+  "nombre": "Clave del Almacen - Alfanumerica",
+  "skill": "prueba-comunicacion-mensajes",
+  "dificultad": 6,
+  "duracion_estimada": "12-15 minutos",
+  "descripcion": "Una prueba donde el mensaje descifrado combina letras y numeros en formato alfanumerico. Perfecta para codigos de productos, referencias de almacen o claves de acceso.",
+  
+  "narrativa": "En los documentos de la empresa encontraron una orden de compra en codigo. El mensaje indica la ubicacion exacta de un paquete importante en el almacen usando un sistema de codigo que combina letras (pasillos) y numeros (estantes).",
+  
+  "configuracion": {
+    "tipo_codigo": "banderas_nauticas",
+    "tipo_mensaje": "alfanumerico",
+    "longitud_mensaje": 6,
+    "separacion_equipos": false,
+    "modalidad_comunicacion": "visual",
+    "diccionario_proporcionado": true
+  },
+  
+  "mensaje_cifrado": "B-4-2-D-1-3 (representado con banderas)",
+  "mensaje_descifrado": "B-42-D13",
+  "solucion": "B-42-D13",
+  
+  "contexto_solucion": {
+    "descripcion": "Ubicacion en almacen:",
+    "pasillo": "B",
+    "estante": "42", 
+    "caja": "D13",
+    "significado": "Pasillo B, Estante 42, Caja D13"
+  },
+  
+  "materiales": [
+    {
+      "nombre": "Diccionario Banderas Nauticas",
+      "descripcion": "Incluye letras A-Z y numeros 0-9",
+      "cantidad": 1
+    },
+    {
+      "nombre": "Mensaje Cifrado",
+      "descripcion": "Cartulina con 6 banderas (B, 4, 2, D, 1, 3)",
+      "cantidad": 1
+    },
+    {
+      "nombre": "Plano del Almacen",
+      "descripcion": "Mapa donde deben buscar la ubicacion",
+      "cantidad": 1
+    }
+  ],
+  
+  "flujo_juego": [
+    "Encuentran el diccionario de banderas con letras y numeros",
+    "Encuentran un dibujo con 6 banderas",
+    "Descifran secuencialmente: B - 4 - 2 - D - 1 - 3",
+    "Agrupan logicamente: Pasillo B, Estante 42, Caja D13",
+    "Usan el plano del almacen para localizar esa posicion",
+    "Encuentran el objeto escondido en esa ubicacion"
+  ],
+  
+  "variantes_mensaje": [
+    {
+      "nombre": "Referencia Producto",
+      "ejemplo": "XJ-902-KL",
+      "uso": "Codigo de inventario"
+    },
+    {
+      "nombre": "Coordenada Simplificada",
+      "ejemplo": "A-12-B-34",
+      "uso": "Sistema de grid de busqueda"
+    },
+    {
+      "nombre": "Clave Acceso",
+      "ejemplo": "NIVEL-5",
+      "uso": "Indicar nivel o seccion"
+    }
+  ],
+  
+  "pistas_progresivas": [
+    {
+      "nivel": 1,
+      "texto": "El mensaje tiene letras y numeros. Las letras probablemente sean categorias y los numeros cantidades o ubicaciones"
+    },
+    {
+      "nivel": 2,
+      "texto": "Agrupen: Primera letra + dos numeros, Segunda letra + dos numeros"
+    },
+    {
+      "nivel": 3,
+      "texto": "La ubicacion es: Pasillo B, Estante 42, Caja D13"
+    }
+  ],
+  
+  "errores_comunes": [
+    "Leer todo como texto sin separar letras y numeros",
+    "Ignorar que los numeros pueden formar valores de 2 digitos (42, no 4 y 2)",
+    "Buscar solo el primer elemento (B) sin considerar el resto"
+  ],
+  
+  "notas_gm": [
+    "Los mensajes alfanumericos son muy utiles para codigos de inventario, ubicaciones y referencias",
+    "Siempre proporcionar contexto de como usar el resultado (plano, mapa, sistema)",
+    "Considerar si los numeros son individuales o forman valores mayores",
+    "Puede usarse como paso intermedio: el mensaje da otra pista, no el objeto final"
+  ]
+}

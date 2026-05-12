@@ -1,0 +1,75 @@
+{
+  "id": "verify_2026-04-06_biblioteca-maldita-v3",
+  "game_ref": "biblioteca-maldita-v3",
+  "timestamp": "2026-04-06T16:40:00+02:00",
+  "validate_game_output": "Script validate_game.py espera estructura legacy (GAME.json, narrativa/, flujo/). El juego usa estructura v2 (juego.json, juego/narrativa/, juego/diseño/, juego/pruebas/). Se realizó verificación manual.",
+  "verdict": "pass_with_warnings",
+  "checks": {
+    "schema_compliance": {
+      "status": "warning",
+      "details": "validate_game.py no compatible con estructura v2 del init-juego.py. El juego tiene 6 pruebas JSON, juego.json, NARRATIVA.md, DISEÑO-JUEGO.md y lista-materiales.md. PDF generado correctamente. Verificación manual: estructura completa."
+    },
+    "solucionabilidad": {
+      "status": "pass",
+      "details": "Cadena completa: P1→mensaje oculto→ROJO→P2→UV→1847→P3→emparejamiento→CRIPTA→P4→timeline→1972→P5→cifrado→AURELIO→P6→búsqueda→salida. No hay gaps de información. Cada prueba proporciona lo necesario para la siguiente."
+    },
+    "dead_ends": {
+      "status": "pass",
+      "details": "Flujo semilineal sin dependencias circulares. Todas las pruebas conectadas al flujo principal. Cada prueba tiene pistas de 3 niveles."
+    },
+    "curva_dificultad": {
+      "status": "pass",
+      "details": "Curva 3→4→5→5→6→4. Patrón recomendado por 09-estilo-juegos.md: entrada suave, progresión, pico en P5, recompensa rápida en P6. No termina en pico máximo. ✅"
+    },
+    "tiempos": {
+      "status": "pass",
+      "details": "Suma pruebas: 8+10+10+12+10+8 = 58 min. Duración total: 60 min. Margen: 2 min (algo justo pero viable con GM activo). Ninguna prueba >20 min (máx 12 min en P4)."
+    },
+    "variedad_mecanicas": {
+      "status": "pass",
+      "details": "6 skills distintos: investigación-texto, exploración-visual, emparejamiento-texto, lógica-secuencial, cifrado, búsqueda-objetos. 0 skills repetidos. ✅ Mínimo 3 mecánicas distintas."
+    },
+    "coherencia_narrativa": {
+      "status": "pass",
+      "details": "NARRATIVA.md consistente con CONCEPT.json. Tono misterioso mantenido. Personajes coherentes (Aurelio, Elías, Fundación). Cada prueba conectada a la historia."
+    },
+    "pistas_suficientes": {
+      "status": "pass",
+      "details": "Todas las pruebas tienen 3 niveles de pistas (P6 tiene 3, las existentes del catálogo tienen sus propias pistas). Pistas globales del GM cubren los 6 puntos críticos. Progresivas: nivel 1 sutil, nivel 2 casi la respuesta."
+    },
+    "materiales_viables": {
+      "status": "pass",
+      "details": "18 materiales listados, todos obtenibles. Coste estimado ~125€. Libros de segunda mano, candados, linterna UV, cryptex. Todo viable."
+    },
+    "estilo_equipo_activo": {
+      "status": "pass",
+      "details": "Cada prueba tiene 4 jugadores activos simultáneamente con roles diferenciados. ✅"
+    },
+    "estilo_doble_descubrimiento": {
+      "status": "pass",
+      "details": "Las 6 pruebas tienen doble descubrimiento (2 capas de 'aha'). ✅"
+    },
+    "estilo_variedad_cierres": {
+      "status": "pass",
+      "details": "4 tipos de cierre: candado letras (2), candado 4 dígitos (2), cryptex (1), llave física (1). Máx 2 del mismo tipo. ✅"
+    },
+    "estilo_misterio_secundario": {
+      "status": "pass",
+      "details": "ELÍAS MONTEJO: 5 fragmentos repartidos en las 5 primeras pruebas. Se resuelve al final. ✅"
+    },
+    "estilo_momentos_energia": {
+      "status": "pass",
+      "details": "2 momentos de energía: inicio (GM dramático + reloj) y final (luz cálida + música + foto Aurelio). ✅"
+    }
+  },
+  "warnings": [
+    "Margen de tiempo ajustado (2 min para 60 min de juego). Recomendable tener GM experimentado.",
+    "validate_game.py no compatible con estructura v2 generada por init-juego.py."
+  ],
+  "issues": [],
+  "suggestions": [
+    "Considerar añadir 3-5 min más de buffer reduciendo alguna prueba o aumentando duración a 65 min.",
+    "La Prueba 4 (12 min) es la más larga. Podría dividirse si se detecta bloqueo frecuente.",
+    "Añadir cartas de navegación físicas (tarjetas impresas) además de las notas en los materiales."
+  ]
+}

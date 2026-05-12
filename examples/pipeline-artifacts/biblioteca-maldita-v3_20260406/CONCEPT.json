@@ -1,0 +1,26 @@
+{
+  "id": "concept_2026-04-06_biblioteca-maldita",
+  "brief_ref": "brief_2026-04-06_biblioteca-maldita-v3",
+  "titulo": "La Biblioteca Maldita",
+  "tagline": "El bibliotecario dejó un libro abierto. Nadie debía leerlo.",
+  "premisa": "Hace tres noches, el bibliotecario Aurelio Vidal desapareció de la Biblioteca de la Casa del Reloj dejando solo un libro sin título abierto sobre su escritorio. Los jugadores son investigadores enviados por la Fundación de Patrimonio Histórico que tienen 60 minutos para descubrir qué le pasó antes de que la biblioteca sea clausurada al amanecer.",
+  "gancho": "Al entrar, los jugadores ven una biblioteca oscura iluminada solo por la luz ámbar de una lámpara de escritorio. Sobre el escritorio, el libro sin título está abierto con una nota manuscrita: 'Si leéis esto, ya es tarde para mí. Pero no para la Biblioteca.' Las estanterías tienen huecos donde faltan libros — y marcas rojas en los lomos de los que quedan.",
+  "actos": [
+    {"numero": 1, "nombre": "El Escritorio de Aurelio", "duracion_minutos": 12, "emocion_objetivo": "curiosidad inquietante"},
+    {"numero": 2, "nombre": "Las Estanterías Malditas", "duracion_minutos": 18, "emocion_objetivo": "tensión creciente"},
+    {"numero": 3, "nombre": "La Cámara Secreta", "duracion_minutos": 18, "emocion_objetivo": "asombro escalofriante"},
+    {"numero": 4, "nombre": "El Último Capítulo", "duracion_minutos": 12, "emocion_objetivo": "alivio triunfal"}
+  ],
+  "personajes": [
+    {"nombre": "Aurelio Vidal", "rol": "bibliotecario desaparecido", "descripcion_breve": "Guardián de la biblioteca durante 40 años. Dejó notas crípticas y pistas escondidas entre los libros antes de desaparecer."},
+    {"nombre": "Elías Montejo", "rol": "misterio secundario / antagonista oculto", "descripcion_breve": "Antiguo bibliotecario que fue destituido en los años 70. Buscaba un grimorio prohibido escondido en la biblioteca. Fragmentos de su historia aparecen por toda la sala."},
+    {"nombre": "La Fundación", "rol": "dador de misión", "descripcion_breve": "Entidad que envía a los investigadores. Su carta de instrucciones abre el juego."}
+  ],
+  "flujo_recomendado": "acumulacion",
+  "atmosfera": {
+    "iluminacion": "Luz cálida de escritorio, velas LED en las estanterías, zonas de penumbra. Lámpara UV disponible para puzzles específicos.",
+    "sonido": "Sonidos de páginas, crujidos de madera antigua, reloj de péndulo lento. Música ambiental de cuerdas suaves con momentos de silencio tenso.",
+    "elementos_sensoriales": "Olor a papel antiguo y madera vieja. Texturas de cuero, pergamino y lomo de libros. Libros reales de segunda mano como decoración."
+  },
+  "tono": "misterioso"
+}

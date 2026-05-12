@@ -1,0 +1,82 @@
+{
+  "id": "concept_2026-05-01_legado-familia-v2",
+  "brief_ref": "brief_2026-05-01_legado-familia-v2",
+  "regression_ref": "regression_2026-05-01_legado-familia-v2",
+  "titulo": "El Legado de la Familia",
+  "tagline": "El secreto mejor guardado no es el que se oculta, sino el que se protege por amor.",
+  "premisa": "La Abuela Elena ha fallecido dejando un testamento que nadie esperaba: un legado oculto que solo los nietos pueden descubrir. A través de su casa —despacho, salón y desván— los jugadores reconstruyen la historia de tres generaciones y descubren que Elena protegió durante décadas un secreto que cambiará todo lo que creían saber sobre su familia: la existencia de un cuarto hijo, entregado en adopción para protegerlo de un padre que no lo aceptaría.",
+  "gancho": "El GM, como abogado, lee un fragmento del testamento: 'A mis queridos nietos: os dejo algo más valioso que dinero o propiedades. Os dejo la verdad. Pero la verdad tiene que ganársela quien la busca. Seguid mis pistas y descubriréis quién soy realmente.' Entrega una llave antigua que abre la puerta del despacho.",
+  "actos": [
+    {
+      "numero": 1,
+      "nombre": "El Testamento y el Despacho",
+      "duracion_minutos": 15,
+      "emocion_objetivo": "curiosidad e intriga",
+      "pruebas": [1, 2]
+    },
+    {
+      "numero": 2,
+      "nombre": "Las Fotos del Salón",
+      "duracion_minutos": 17,
+      "emocion_objetivo": "sorpresa y revelación progresiva",
+      "pruebas": [3, 4]
+    },
+    {
+      "numero": 3,
+      "nombre": "La Verdad del Desván",
+      "duracion_minutos": 15,
+      "emocion_objetivo": "tensión emocional y catarsis",
+      "pruebas": [5, 6]
+    },
+    {
+      "numero": 4,
+      "nombre": "El Descubrimiento",
+      "duracion_minutos": 3,
+      "emocion_objetivo": "emoción y cierre"
+    }
+  ],
+  "personajes": [
+    {
+      "nombre": "Abuela Elena",
+      "rol": "Matriarca fallecida, creadora de las pistas",
+      "descripcion_breve": "Mujer que protegió un secreto durante 60 años por amor a su familia. Su testamento desencadena la investigación."
+    },
+    {
+      "nombre": "Tío Marcos",
+      "rol": "Hijo mayor, cómplice silencioso",
+      "descripcion_breve": "Médico en Madrid. Siempre supo que había un secreto pero respetó el silencio de su madre."
+    },
+    {
+      "nombre": "Tía Carmen",
+      "rol": "Hija mediana, buscadora de la verdad",
+      "descripcion_breve": "Profesora en Sevilla. Siempre quiso descubrir qué ocultaba su madre."
+    },
+    {
+      "nombre": "Padre Luis",
+      "rol": "Hijo menor, el que se marchó",
+      "descripcion_breve": "Arquitecto en Barcelona. Se alejó de la familia joven. Arrepentido."
+    },
+    {
+      "nombre": "Miguel",
+      "rol": "El cuarto hijo, el secreto",
+      "descripcion_breve": "Dado en adopción en 1963. El legado es su existencia y la carta de Elena pidiendo que la familia se reúna."
+    },
+    {
+      "nombre": "Abogado (GM)",
+      "rol": "Guía del juego, ejecutor del testamento",
+      "descripcion_breve": "Representa la voluntad de Elena. Da pistas cuando el grupo se atasca."
+    }
+  ],
+  "mejoras_sobre_v1": {
+    "participacion": "Cada prueba tendrá roles explícitos distribuidos entre al menos 3 jugadores. Se añadirán elementos de información distribuida que obliguen a compartir.",
+    "claridad_mecanica": "Instrucciones más explícitas en documentos in-game. Cada prueba incluirá un ejemplo visual o pista de cómo empezar.",
+    "pistas_N1": "Las pistas de nivel 1 serán más direccionales, guiando hacia la acción concreta sin revelar la solución."
+  },
+  "flujo_recomendado": "lineal",
+  "atmosfera": {
+    "iluminacion": "Luz cálida y tenue, lámparas de mesa, velas eléctricas.",
+    "sonido": "Música ambiente suave con piano. Reloj de pared en el salón marcando las 3:15.",
+    "elementos_sensoriales": "Papel envejecido, texturas de madera antigua, fotos sepia."
+  },
+  "tono": "emotivo"
+}

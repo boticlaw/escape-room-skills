@@ -1,0 +1,88 @@
+{
+  "id": "prueba_comunicacion_003",
+  "nombre": "El Codigo de los Espias - Semaforo Cooperativo",
+  "skill": "prueba-comunicacion-mensajes",
+  "dificultad": 7,
+  "duracion_estimada": "18-22 minutos",
+  "descripcion": "Prueba cooperativa avanzada donde 3 equipos deben comunicarse para descifrar un mensaje. Cada equipo tiene informacion parcial: uno ve las señales, otro tiene parte del diccionario, y el tercero tiene las instrucciones de como usarlo.",
+  
+  "narrativa": "Una red de espias ha dejado un mensaje urgente usando el sistema de semaforo (banderas). Como medida de seguridad, la informacion esta dividida: los observadores ven las señales, los analistas tienen parte del codigo, y los comandantes saben como interpretarlo. Solo trabajando juntos podran descifrar la ubicacion del encuentro.",
+  
+  "configuracion": {
+    "tipo_codigo": "semaforo",
+    "longitud_mensaje": 10,
+    "separacion_equipos": true,
+    "modalidad_comunicacion": "visual",
+    "diccionario_proporcionado": true,
+    "requiere_transmision": false,
+    "pistas_diccionario": 10
+  },
+  
+  "mensaje_cifrado": "E-N-C-U-E-N-T-R-O (representado con posiciones de banderas de semaforo)",
+  "mensaje_descifrado": "ENCUENTRO",
+  "solucion": "ENCUENTRO",
+  
+  "distribucion_equipos": {
+    "equipo_observadores": {
+      "nombre": "Observadores",
+      "ubicacion": "Ventana o balcon con vista",
+      "objetos": ["Binoculares", "Walkie-talkie", "Cuaderno"],
+      "instrucciones": "Vean la persona en la torre que hace señales con dos banderas. Describan LAS POSICIONES de las banderas (ej: 'izquierda arriba, derecha abajo') al Equipo Analistas. NO intenten adivinar las letras."
+    },
+    "equipo_analistas": {
+      "nombre": "Analistas de Codigo",
+      "ubicacion": "Sala de operaciones",
+      "objetos": ["Diccionario parcial (solo vocales y algunas consonantes)", "Walkie-talkie", "Papel cuadriculado"],
+      "instrucciones": "Tienen parte del diccionario de semaforo. Escuchen a los Observadores describir posiciones, busquen en su diccionario. Si no encuentran una letra, consulten con los Comandantes."
+    },
+    "equipo_comandantes": {
+      "nombre": "Comandantes",
+      "ubicacion": "Otra sala",
+      "objetos": ["Instrucciones de uso del codigo", "Walkie-talkie", "Resto del diccionario"],
+      "instrucciones": "Tienen las instrucciones de COMO funciona el codigo semaforo y el resto del diccionario. Deben ayudar a los Analistas cuando estos no encuentren una letra. Tambien validan el mensaje final."
+    }
+  },
+  
+  "flujo_juego": [
+    "Los 3 equipos se separan en sus ubicaciones",
+    "Un actor o video muestra una persona haciendo señales con banderas (semaforo)",
+    "Equipo Observadores describe las posiciones al Equipo Analistas",
+    "Equipo Analistas busca en su diccionario parcial",
+    "Cuando encuentran una letra que no tienen, consultan a Comandantes",
+    "Comandantes proporcionan las letras faltantes del diccionario",
+    "Juntos descifran 'ENCUENTRO' (9 letras)",
+    "Comandantes validan que es la palabra correcta"
+  ],
+  
+  "pistas_progresivas": [
+    {
+      "nivel": 1,
+      "para_quien": "Todos",
+      "texto": "El mensaje es una palabra de 9 letras que indica una reunion"
+    },
+    {
+      "nivel": 2,
+      "para_quien": "Analistas",
+      "texto": "Las primeras dos letras que descifren son vocales: E y N"
+    },
+    {
+      "nivel": 3,
+      "para_quien": "Comandantes",
+      "texto": "El mensaje es E-N-C-U-E-N-T-R-O. Ayuden a los analistas con las letras que les faltan"
+    }
+  ],
+  
+  "errores_comunes": [
+    "Observadores intentan interpretar en lugar de describir",
+    "Analistas no consultan a Comandantes cuando atascados",
+    "Comandantes revelan todo el diccionario de inmediato en lugar de ayudar selectivamente",
+    "Mala coordinacion de la secuencia (quien habla cuando)"
+  ],
+  
+  "notas_gm": [
+    "Esta prueba requiere coordinacion de 3 equipos - asegurar que todos entienden su rol",
+    "El semaforo usa posiciones angulares de las banderas (no es intuitivo como morse)",
+    "Tener una hoja de referencia rapida para el GM con todas las posiciones",
+    "Si hay mucha confusion, permitir que los equipos se reúnan brevemente"
+  ]
+}

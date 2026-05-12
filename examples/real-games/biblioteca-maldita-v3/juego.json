@@ -1,0 +1,21 @@
+{
+  "nombre": "La Biblioteca Maldita",
+  "subtitulo": "El bibliotecario dejó un libro abierto. Nadie debía leerlo.",
+  "autor": "Escapeitor",
+  "fecha_creacion": "2026-04-06T16:38:59.244768",
+  "version": "1.0",
+  "color_principal": "#5C4033",
+  "color_secundario": "#D4AF37",
+  "tipo": "investigacion",
+  "jugadores_min": 4,
+  "jugadores_max": 4,
+  "duracion_minutos": 60,
+  "dificultad": 5,
+  "descripcion": "Hace tres noches, el bibliotecario Aurelio Vidal desapareció de la Biblioteca de la Casa del Reloj dejando solo un libro sin título abierto sobre su escritorio. Los jugadores son investigadores enviados por la Fundación de Patrimonio Histórico que tienen 60 minutos para descubrir qué le pasó antes de que la biblioteca sea clausurada al amanecer.",
+  "tags": [
+    "investigacion",
+    "biblioteca",
+    "misterio",
+    "libros"
+  ]
+}

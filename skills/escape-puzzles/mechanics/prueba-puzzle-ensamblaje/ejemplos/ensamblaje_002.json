@@ -1,0 +1,107 @@
+{
+  "id": "ensamblaje_002",
+  "nombre": "Mapa Rasgado del Tesoro",
+  "descripcion": "Los jugadores encuentran 12 fragmentos de un mapa antiguo rasgado. Deben ensamblar las piezas correctamente para reconstruir el mapa completo. El mapa revela la ubicación de un cofre escondido con un código de acceso.",
+  "skill_primario": "prueba-puzzle-ensamblaje",
+  "skills_secundarios": ["prueba-busqueda-objetos"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "ensamblaje",
+    "tipo_ensamblaje": "documento",
+    "numero_documentos": 1,
+    "fragmentos_por_documento": 12,
+    "total_fragmentos": 12,
+    "tipo_rotura": "irregular",
+    "informacion_reverso": false,
+    "dificultad_ajuste": "medio",
+    "borde_guia": true,
+    "distribucion_fragmentos": "escondidos",
+    "pistas_agrupacion": false,
+    "materiales_estimados": "12 fragmentos de mapa, mesa de trabajo",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 40
+  },
+  "fragmentos": [
+    {"id": 1, "tipo": "esquina_superior_izquierda", "contenido": "Título del mapa y brújula parcial"},
+    {"id": 2, "tipo": "borde_superior", "contenido": "Costa norte"},
+    {"id": 3, "tipo": "esquina_superior_derecha", "contenido": "Montañas y brújula parcial"},
+    {"id": 4, "tipo": "borde_izquierdo", "contenido": "Bosque occidental"},
+    {"id": 5, "tipo": "centro", "contenido": "Lago central"},
+    {"id": 6, "tipo": "borde_derecho", "contenido": "Río oriental"},
+    {"id": 7, "tipo": "borde_izquierdo", "contenido": "Pueblo occidental"},
+    {"id": 8, "tipo": "centro", "contenido": "Sendero principal"},
+    {"id": 9, "tipo": "borde_derecho", "contenido": "Cueva marcada"},
+    {"id": 10, "tipo": "esquina_inferior_izquierda", "contenido": "Leyenda parcial"},
+    {"id": 11, "tipo": "borde_inferior", "contenido": "Escala"},
+    {"id": 12, "tipo": "esquina_inferior_derecha", "contenido": "Ubicación del tesoro (X) y leyenda"}
+  ],
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Los fragmentos forman un mapa. Empezad por los bordes y esquinas."
+    },
+    {
+      "nivel": 2,
+      "texto": "La brújula y el título están en las esquinas superiores. La X marca el tesoro en la esquina inferior derecha."
+    },
+    {
+      "nivel": 3,
+      "texto": "Ensamblad primero las 4 esquinas, luego los bordes, finalmente el centro. La ubicación del tesoro tiene un código."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ensamblar mapa de 12 fragmentos irregulares",
+    "descripcion": "Los jugadores encuentran 12 fragmentos de mapa escondidos. Deben ensamblarlos empezando por esquinas y bordes. El mapa completo muestra una X con coordenadas.",
+    "resultado": "Coordenadas del tesoro: 41.6523° N, 4.7246° W (o código simplificado: 4165)",
+    "validacion": "Verificar que el mapa está completo y las piezas encajan correctamente"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Fragmentos escondidos en diferentes ubicaciones. Mesa central para ensamblaje."
+  },
+  "assets": {
+    "fragmentos_mapa": "12 fragmentos de papel envejecido con diseño de mapa",
+    "mapa_completo": "Referencia para GM del mapa ensamblado",
+    "coordenadas_tesoro": "Código revelado al completar el mapa"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "ensamblaje",
+      "prueba-puzzle-ensamblaje",
+      "bajo_coste",
+      "mapa"
+    ],
+    "proyecto": "skills_ensamblaje",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Sala con mesa para ensamblaje y ubicaciones para esconder fragmentos",
+    "adaptacion_hall": {
+      "formato": "fragmentos_fisicos",
+      "interaccion": "presencial",
+      "feedback": "coordenadas_reveladas"
+    },
+    "adaptacion_street": {
+      "formato": "gps_fragmentos",
+      "interaccion": "busqueda_exterior",
+      "feedback": "app_movil"
+    },
+    "adaptacion_investigation": {
+      "formato": "evidencia_caso",
+      "interaccion": "reconstruccion",
+      "feedback": "ubicacion_evidencia"
+    }
+  }
+}

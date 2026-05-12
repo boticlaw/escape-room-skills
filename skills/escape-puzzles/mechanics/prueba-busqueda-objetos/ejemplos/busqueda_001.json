@@ -1,0 +1,97 @@
+{
+  "id": "busqueda_001",
+  "nombre": "Búsqueda de Llaves Ocultas",
+  "descripcion": "Los jugadores deben encontrar 4 llaves escondidas en diferentes ubicaciones de la sala. Cada llave tiene un número grabado que forma parte del código final.",
+  "skill_primario": "prueba-busqueda-objetos",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "busqueda",
+    "tipo_busqueda": "fisica",
+    "numero_objetos": 4,
+    "distribucion": "escondidos",
+    "tipo_objetos": "diferentes",
+    "requisito_completo": true,
+    "nivel_ocultacion": 2,
+    "permite_toque": true,
+    "ubicaciones": [
+      {"objeto": "Llave #3", "ubicacion": "Debajo del cojín del sofá", "numero": 3},
+      {"objeto": "Llave #7", "ubicacion": "Dentro del libro rojo en la estantería", "numero": 7},
+      {"objeto": "Llave #1", "ubicacion": "En el cajón izquierdo del escritorio", "numero": 1},
+      {"objeto": "Llave #9", "ubicacion": "Detrás del cuadro grande de la pared", "numero": 9}
+    ],
+    "materiales_estimados": "4 llaves con números grabados, decoración de sala",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 20
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Hay 4 llaves escondidas en la sala. Buscad en lugares donde alguien podría guardar algo pequeño."
+    },
+    {
+      "nivel": 2,
+      "texto": "Las llaves están en: el sofá, los libros, el escritorio, y la pared. No todas están a la vista."
+    },
+    {
+      "nivel": 3,
+      "texto": "Ubicaciones exactas: bajo el cojín del sofá, dentro del libro rojo, cajón izquierdo del escritorio, detrás del cuadro grande."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Búsqueda física de 4 llaves",
+    "descripcion": "Los jugadores encuentran 4 llaves en diferentes ubicaciones. Cada llave tiene un número grabado: 3, 7, 1, 9.",
+    "resultado": "Código 3719 formado con los números de las llaves en orden de hallazgo",
+    "validacion": "Verificar que tienen las 4 llaves físicamente"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Sala principal con sofá, estantería, escritorio, y pared con cuadros. Para street escape, usar ubicaciones exteriores."
+  },
+  "assets": {
+    "llave_1": "Llave pequeña con número 3 grabado",
+    "llave_2": "Llave mediana con número 7 grabado",
+    "llave_3": "Llave grande con número 1 grabado",
+    "llave_4": "Llave antigua con número 9 grabado"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "busqueda",
+      "prueba-busqueda-objetos",
+      "bajo_coste",
+      "fisica"
+    ],
+    "proyecto": "skills_busqueda",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Sala con múltiples ubicaciones para esconder objetos",
+    "adaptacion_hall": {
+      "formato": "sala_fisica",
+      "interaccion": "presencial",
+      "feedback": "checklist_fisico"
+    },
+    "adaptacion_street": {
+      "formato": "ubicaciones_gps",
+      "interaccion": "exterior",
+      "feedback": "app_movil"
+    },
+    "adaptacion_investigation": {
+      "formato": "escena_crimen",
+      "interaccion": "busqueda_evidencias",
+      "feedback": "maleta_investigador"
+    }
+  }
+}

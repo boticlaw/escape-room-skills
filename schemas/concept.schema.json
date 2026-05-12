@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "concept.schema.json",
+  "title": "CONCEPT Schema",
+  "description": "Schema para el artefacto CONCEPT de un juego de escape room. Expande el BRIEF con mecánicas, flujo y narrativa detallada.",
+  "type": "object",
+  "required": ["id", "nombre", "brief_id"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único del concept",
+      "minLength": 1
+    },
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del juego",
+      "minLength": 2
+    },
+    "brief_id": {
+      "type": "string",
+      "description": "ID del BRIEF del que proviene"
+    },
+    "version": {
+      "type": ["string", "number"]
+    },
+    "estado": { "type": "string" },
+    "fecha_creacion": { "type": "string" },
+    "fecha_actualizacion": { "type": "string" },
+    "descripcion": { "type": "string" },
+    "mecanicas_principales": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Mecánicas principales del juego"
+    },
+    "flujo_juego": {
+      "type": "object",
+      "description": "Flujo y estructura del juego",
+      "properties": {
+        "tipo": { "type": "string" },
+        "fases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "nombre": { "type": "string" },
+              "descripcion": { "type": "string" },
+              "duracion_minutos": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "narrativa": {
+      "type": "object",
+      "description": "Narrativa expandida"
+    },
+    "pruebas_planificadas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "nombre"],
+        "properties": {
+          "id": { "type": "string" },
+          "nombre": { "type": "string" },
+          "descripcion": { "type": "string" },
+          "dificultad": { "type": "number", "minimum": 1, "maximum": 10 },
+          "duracion_minutos": { "type": "number" },
+          "skill_primario": { "type": "string" },
+          "espacio": { "type": ["string", "integer"] }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notas": { "type": "string" }
+  },
+  "additionalProperties": true
+}

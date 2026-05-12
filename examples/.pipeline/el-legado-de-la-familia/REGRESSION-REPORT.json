@@ -1,0 +1,30 @@
+{
+  "id": "regression_2026-05-01_legado-familia-v2",
+  "baseline_ref": "projects/viernes-de-escape/el-legado-de-la-familia/ (v1.0)",
+  "timestamp": "2026-05-01T20:01:00+02:00",
+  "verdict": "pass_with_concerns",
+  "concerns": [
+    {
+      "area": "participacion_desequilibrada",
+      "pruebas_afectadas": ["P2", "P3", "P4", "P6"],
+      "descripcion": "En v1, Cristina (líder) monopolizó la participación en 4 de 6 pruebas. Las mecánicas no distribuyen suficiente agencia entre jugadores.",
+      "accion_requerida": "Reforzar distribución de roles y mecánicas cooperativas en DESIGN. Cada prueba debe tener al menos 2 roles activos diferenciados."
+    },
+    {
+      "area": "confusion_mecanica",
+      "pruebas_afectadas": ["P2", "P3", "P5", "P6"],
+      "descripcion": "Jugadores necesitaron pistas N2+ en 4 pruebas. Las instrucciones y mecánicas no son auto-explicativas.",
+      "accion_requerida": "Mejorar onboarding en cada prueba. Instrucciones más claras en documentos in-game. Pistas N1 más efectivas."
+    }
+  ],
+  "elementos_conservar": [
+    "Narrativa de la Abuela Elena y el cuarto hijo Miguel — funciona bien",
+    "Hilo conductor LEGADO (6 letras, 6 valores) — elegante y emocional",
+    "Flujo 3 espacios (Despacho → Salón → Desván) — buena progresión",
+    "Variedad de mecánicas (6 skills distintos) — sin repetición",
+    "Curva de dificultad progresiva (3,3,4,4,5,5) — bien calibrada",
+    "Personajes y cartas familiares — ricos en narrativa"
+  ],
+  "re_verification_needed": ["participacion_equilibrada", "pistas_N1_efectivas"],
+  "recommendation": "Continuar pipeline con énfasis en: (1) roles distribuidos en cada prueba, (2) instrucciones más claras, (3) pistas N1 más direccionales."
+}

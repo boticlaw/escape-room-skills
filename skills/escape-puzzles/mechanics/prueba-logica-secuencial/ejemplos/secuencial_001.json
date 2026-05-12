@@ -1,0 +1,134 @@
+{
+  "id": "secuencial_001",
+  "nombre": "Diario de Cupido - Orden Cronológico",
+  "descripcion": "Los jugadores encuentran un diario desordenado con 7 páginas del entrenamiento de Cupido. Cada página representa un momento del día con un símbolo. Deben ordenarlas cronológicamente (Amanecer→Mañana→Mediodía→Tarde→Atardecer→Noche→Después) y asociar cada símbolo con el número de página correspondiente para formar el código.",
+  "skill_primario": "prueba-logica-secuencial",
+  "skills_secundarios": [],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "logica",
+    "tipo_secuencia": "cronologica",
+    "numero_elementos": 7,
+    "tipo_elementos": "paginas",
+    "tipo_tiempo": "momentos_dia",
+    "marcas_temporales": true,
+    "pista_orden": "implicita",
+    "codigo_orden": true,
+    "permitir_reordenar": true,
+    "materiales_estimados": "7 páginas de diario con marcas temporales",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 20
+  },
+  "elementos": [
+    {
+      "pagina": 1,
+      "momento": "Amanecer",
+      "simbolo": "❤️",
+      "contenido": "Probé la Flecha del Vínculo. Ha funcionado perfectamente."
+    },
+    {
+      "pagina": 2,
+      "momento": "Mañana",
+      "simbolo": "estrellas",
+      "contenido": "Probé la Flecha del Compromiso. El resultado fue el esperado."
+    },
+    {
+      "pagina": 3,
+      "momento": "Mediodía",
+      "simbolo": "🏹",
+      "contenido": "Entrené con la Flecha de la Confianza. Hoy no funcionó como debía."
+    },
+    {
+      "pagina": 4,
+      "momento": "Tarde",
+      "simbolo": "💔",
+      "contenido": "He revisado el arco y las flechas varias veces. Algo ha cambiado."
+    },
+    {
+      "pagina": 5,
+      "momento": "Atardecer",
+      "simbolo": "vacío",
+      "contenido": "Decidí detener el entrenamiento. He dejado el arco en la sala principal."
+    },
+    {
+      "pagina": 6,
+      "momento": "Noche",
+      "simbolo": "vacío",
+      "contenido": "El entrenamiento nocturno estaba previsto pero he decidido cancelarlo."
+    },
+    {
+      "pagina": 7,
+      "momento": "Después",
+      "simbolo": "💔",
+      "contenido": "No consigo dormir. Sigo pensando en el fallo de la Flecha de la Confianza."
+    }
+  ],
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "El diario describe el entrenamiento de Cupido a lo largo del día. Ordenad las páginas por el momento del día."
+    },
+    {
+      "nivel": 2,
+      "texto": "El orden cronológico es: Amanecer, Mañana, Mediodía, Tarde, Atardecer, Noche, Después."
+    },
+    {
+      "nivel": 3,
+      "texto": "Buscad una pista que os diga qué páginas usar. Hay una referencia a 'horas con símbolos y números'."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ordenar 7 páginas cronológicamente y extraer código",
+    "descripcion": "Los jugadores ordenan las páginas por momento del día: Amanecer(1) → Mañana(2) → Mediodía(3) → Tarde(4) → Atardecer(5) → Noche(6) → Después(7). Una nota indica usar páginas 7-5-3-6 para el código.",
+    "resultado": "Código 7536 formado con los números de las páginas indicadas",
+    "validacion": "Verificar que las páginas están en orden cronológico y el código 7536 es correcto"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Las hojas del diario están dispersas por la sala. Pueden estar en mesa, suelo, o cajones."
+  },
+  "assets": {
+    "paginas_diario": "7 páginas con marcas temporales y contenido",
+    "nota_pista": "Nota que indica 'horas con símbolos y números: 7536'"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "logica",
+      "prueba-logica-secuencial",
+      "bajo_coste",
+      "cronologico"
+    ],
+    "proyecto": "skills_secuencial",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Sala con mesa para ordenar páginas",
+    "adaptacion_hall": {
+      "formato": "paginas_fisicas",
+      "interaccion": "presencial",
+      "feedback": "codigo_validacion"
+    },
+    "adaptacion_street": {
+      "formato": "app_movil",
+      "interaccion": "drag_drop",
+      "feedback": "validacion_automatica"
+    },
+    "adaptacion_investigation": {
+      "formato": "evidencias_caso",
+      "interaccion": "linea_temporal",
+      "feedback": "informacion_caso"
+    }
+  }
+}

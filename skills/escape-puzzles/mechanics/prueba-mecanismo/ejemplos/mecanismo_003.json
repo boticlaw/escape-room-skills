@@ -1,0 +1,98 @@
+{
+  "id": "mecanismo_003",
+  "nombre": "Balanza de Precisión",
+  "descripcion": "Los jugadores deben colocar objetos en una balanza hasta alcanzar el peso exacto que activa un interruptor de presión y revela un compartimento secreto.",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": ["prueba-logica-secuencial"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "fisicos_mecanismos",
+    "tipo_mecanismo": "peso",
+    "objetos_peso": [
+      {"nombre": "Libro antiguo", "peso": 250},
+      {"nombre": "Piedra volcánica", "peso": 150},
+      {"nombre": "Llave inglesa", "peso": 200},
+      {"nombre": "Diccionario", "peso": 400},
+      {"nombre": "Caja de madera", "peso": 100}
+    ],
+    "peso_objetivo": 450,
+    "tolerancia_peso": 10,
+    "feedback_tipo": "apertura",
+    "materiales_estimados": "Balanza digital o balancín, 5 objetos con peso conocido, interruptor de presión, compartimento secreto",
+    "coste_estimado": "medio",
+    "tiempo_preparacion_minutos": 90
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "La balanza tiene una marca que indica el peso objetivo: 450 gramos."
+    },
+    {
+      "nivel": 2,
+      "texto": "No todos los objetos son necesarios. Algunos son distractores."
+    },
+    {
+      "nivel": 3,
+      "texto": "Combinación correcta: Libro antiguo (250g) + Piedra volcánica (150g) + Caja de madera (100g) = 500g. ERROR. Correcta: Libro (250g) + Llave inglesa (200g) = 450g."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Balanza con peso objetivo",
+    "descripcion": "Los jugadores deben encontrar la combinación de objetos que suma exactamente 450g. Tienen 5 objetos disponibles con pesos diferentes. La combinación correcta es Libro antiguo (250g) + Llave inglesa (200g) = 450g. Al alcanzar el peso objetivo, un interruptor de presión activa un mecanismo que abre un compartimento secreto.",
+    "resultado": "Apertura de compartimento secreto con llave para siguiente prueba",
+    "validacion": "Sensor de peso detecta 450g ± 10g y activa relé"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 4,
+    "notas_espacio": "Requiere mesa o superficie estable para balanza. Para street escape, usar versión digital con app móvil."
+  },
+  "assets": {
+    "balanza": "Balanza digital con display",
+    "libro_antiguo": "Libro de 250g con apariencia antigua",
+    "piedra_volcanica": "Piedra negra de 150g",
+    "llave_inglesa": "Herramienta de 200g",
+    "diccionario": "Libro grande de 400g",
+    "caja_madera": "Caja pequeña de 100g",
+    "compartimento_secreto": "Cajón oculto que se abre electrónicamente"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "fisicos_mecanismos",
+      "prueba-mecanismo",
+      "medio_coste",
+      "peso_balance"
+    ],
+    "proyecto": "skills_mecanismo",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Mesa estable con balanza y objetos",
+    "adaptacion_hall": {
+      "formato": "mesa_fisica",
+      "interaccion": "presencial",
+      "feedback": "apertura_mecanica"
+    },
+    "adaptacion_street": {
+      "formato": "app_movil",
+      "interaccion": "digital",
+      "feedback": "qr_desbloqueado"
+    },
+    "adaptacion_investigation": {
+      "formato": "escena_crimen",
+      "interaccion": "analisis_evidencias",
+      "feedback": "revela_pista_fisica"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "brief_2026-05-01_legado-familia-v2",
+  "timestamp": "2026-05-01T20:00:00+02:00",
+  "request": {
+    "tematica": "Misterio familiar / Investigación generacional. Un antiguo legado ha permanecido oculto durante generaciones. Recuerdos, secretos y decisiones marcaron el destino de toda una familia, pero la historia quedó incompleta.",
+    "duracion_minutos": 50,
+    "jugadores_min": 4,
+    "jugadores_max": 8,
+    "dificultad": 4,
+    "objetivo": "Reconstruir la historia familiar completa a partir de pistas, recuerdos y secretos, descubriendo la verdad antes de que sea demasiado tarde. Colaboración y trabajo en equipo son clave.",
+    "notas_usuario": "Programa Viernes de Escape. Fecha: 15 de mayo de 2026. A partir de 12 años. Formato investigación. Enfoque en colaboración y trabajo en equipo."
+  },
+  "game_type_recomendado": "game-type-investigation",
+  "game_type_justificacion": "Juego explícitamente de investigación: reconstruir historia familiar a partir de pistas, recuerdos y secretos. Deducción, análisis de documentos, reconstrucción de eventos. Skills recomendados (investigacion-texto, logica-posiciones, emparejamiento-texto) coinciden con la mecánica.",
+  "proyecto": "viernes-de-escape",
+  "output_dir": "projects/viernes-de-escape/legado-familia/",
+  "research_frameworks_relevantes": [
+    "research-frameworks/01-game-design.md",
+    "research-frameworks/02-puzzle-design.md",
+    "research-frameworks/03-storytelling.md",
+    "research-frameworks/04-psicologia.md",
+    "research-frameworks/05-ux.md"
+  ],
+  "pruebas_existentes_candidatas": [
+    {"id": "prueba_mensaje_oculto_parrafos_001", "relevancia": "alta", "skill": "prueba-investigacion-texto"},
+    {"id": "prueba_emparejamiento_columnas_001", "relevancia": "alta", "skill": "prueba-emparejamiento-texto"},
+    {"id": "prueba_uno_ve_otro_actua_001", "relevancia": "alta", "skill": "prueba-comunicacion-mensajes"},
+    {"id": "prueba_linea_temporal_001", "relevancia": "alta", "skill": "prueba-logica-secuencial"},
+    {"id": "prueba_autoras_obras_001", "relevancia": "media", "skill": "prueba-emparejamiento-memoria"},
+    {"id": "prueba_logica_mesa_001", "relevancia": "media", "skill": "prueba-logica-posiciones"}
+  ],
+  "skills_recomendados": [
+    "prueba-investigacion-texto",
+    "prueba-emparejamiento-texto",
+    "prueba-logica-secuencial",
+    "prueba-emparejamiento-memoria",
+    "prueba-comunicacion-mensajes",
+    "prueba-logica-posiciones"
+  ],
+  "puzzles_recientes_evitar": [],
+  "datos_pendientes": [],
+  "research_data": {
+    "scout": null,
+    "extractor": null,
+    "datos_clave": "Tema de misterio familiar ficticio. No requiere investigación externa. Centrado en valores familiares, secretos generacionales y revelación emocional."
+  },
+  "baseline": {
+    "existe": true,
+    "ruta": "projects/viernes-de-escape/el-legado-de-la-familia/",
+    "version": "1.0",
+    "playtest_issues": [
+      "P2: 3 pistas pedidas (N1,N2,N3) → confusión en mecánica",
+      "P2: solo Cristina contribuyó → desbalance participación",
+      "P3: 2 pistas pedidas (N2,N3) → confusión en mecánica",
+      "P3: solo Cristina contribuyó → desbalance participación",
+      "P4: solo Cristina contribuyó → desbalance participación",
+      "P5: 2 pistas pedidas (N1,N3) → pista N2+ usada",
+      "P6: 2 pistas pedidas (N1,N3) → pista N2+ usada",
+      "P6: solo Cristina contribuyó → desbalance participación"
+    ]
+  }
+}

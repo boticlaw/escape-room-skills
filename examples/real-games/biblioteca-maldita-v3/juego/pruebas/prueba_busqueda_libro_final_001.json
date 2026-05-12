@@ -1,0 +1,39 @@
+{
+  "id": "prueba_busqueda_libro_final_001",
+  "nombre": "El Último Libro",
+  "skill_primario": "prueba-busqueda-objetos",
+  "skills_secundarios": [],
+  "metadata_contextual": {
+    "tipo_juego": "investigacion",
+    "adaptaciones": [
+      "búsqueda entre distractores en estantería",
+      "cierre emocional del juego",
+      "integración narrativa con personaje principal"
+    ]
+  },
+  "descripcion": "Los jugadores deben encontrar un libro específico escondido entre varios distractores en la sección E-LÍ de la estantería. La pista del grimorio descifrado indica 'sección E-LÍ'. El libro correcto es pequeño, marrón, sin título en el lomo. Al abrirlo, contiene una foto de Aurelio Vidal sonriendo y una nota manuscrita: 'El grimorio está a salvo. Gracias.' También contiene la llave física de salida.",
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "ubicacion": "estantería sur, sección E-LÍ",
+    "objeto_buscar": "Libro pequeño, tapa marrón, sin título en lomo",
+    "distractores": "10-15 libros reales de aspecto similar",
+    "recompensa": "Nota de Aurelio + foto + llave de salida",
+    "fragmento_misterio": "Resolución: ELÍAS MONTEJO"
+  },
+  "materiales": [
+    "Libro pequeño marrón (sin título) con nota y foto dentro",
+    "10-15 libros distractores de aspecto similar",
+    "Llave de salida",
+    "Foto de 'Aurelio Vidal' (puede ser imagen generada o recortada)",
+    "Nota manuscrita: 'El grimorio está a salvo. Gracias. —Aurelio'"
+  ],
+  "pistas": {
+    "nivel_1": "Buscad la sección E-LÍ en la estantería sur",
+    "nivel_2": "Es un libro pequeño, marrón, sin título en el lomo",
+    "nivel_3": "Está en la tercera balda, quinto libro desde la izquierda"
+  },
+  "solucion": "Los jugadores encuentran el libro marrón sin título en la sección E-LÍ. Al abrirlo, descubren la nota de Aurelio, la foto y la llave de salida. Con la llave, abren la puerta y completan el juego.",
+  "feedback_exito": "Al abrir el libro, los jugadores ven la foto de Aurelio sonriendo. El GM enciende la luz cálida y suena música suave. La nota dice: 'El grimorio está a salvo. Gracias. —Aurelio'. Los jugadores usan la llave para salir.",
+  "feedback_fallo": "Si abren un libro equivocado, contiene solo páginas en blanco o texto irrelevante."
+}

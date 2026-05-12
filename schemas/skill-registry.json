@@ -1,0 +1,270 @@
+{
+  "version": "2.0",
+  "generated": "2026-04-11T14:34:30.368668+00:00",
+  "skills": [
+    {
+      "id": "prueba-acrostico-ubicacion",
+      "category": "investigacion",
+      "path": "escape-material/.agents/skills/prueba-acrostico-ubicacion/"
+    },
+    {
+      "id": "prueba-adivinanza-ubicacion",
+      "category": "investigacion",
+      "path": "escape-material/.agents/skills/prueba-adivinanza-ubicacion/"
+    },
+    {
+      "id": "prueba-arcade-digital",
+      "category": "digital",
+      "path": "escape-material/.agents/skills/prueba-arcade-digital/"
+    },
+    {
+      "id": "prueba-busqueda-objetos",
+      "category": "exploracion",
+      "path": "escape-material/.agents/skills/prueba-busqueda-objetos/"
+    },
+    {
+      "id": "prueba-comunicacion-mensajes",
+      "category": "comunicacion",
+      "path": "escape-material/.agents/skills/prueba-comunicacion-mensajes/"
+    },
+    {
+      "id": "prueba-emparejamiento-memoria",
+      "category": "memoria",
+      "path": "escape-material/.agents/skills/prueba-emparejamiento-memoria/"
+    },
+    {
+      "id": "prueba-emparejamiento-texto",
+      "category": "memoria",
+      "path": "escape-material/.agents/skills/prueba-emparejamiento-texto/"
+    },
+    {
+      "id": "prueba-exploracion-visual",
+      "category": "exploracion",
+      "path": "escape-material/.agents/skills/prueba-exploracion-visual/"
+    },
+    {
+      "id": "prueba-gps-navegacion",
+      "category": "exploracion",
+      "path": "escape-material/.agents/skills/prueba-gps-navegacion/"
+    },
+    {
+      "id": "prueba-investigacion-texto",
+      "category": "investigacion",
+      "path": "escape-material/.agents/skills/prueba-investigacion-texto/"
+    },
+    {
+      "id": "prueba-laberinto-digital",
+      "category": "digital",
+      "path": "escape-material/.agents/skills/prueba-laberinto-digital/"
+    },
+    {
+      "id": "prueba-logica-nonogram",
+      "category": "logica",
+      "path": "escape-material/.agents/skills/prueba-logica-nonogram/"
+    },
+    {
+      "id": "prueba-logica-posiciones",
+      "category": "logica",
+      "path": "escape-material/.agents/skills/prueba-logica-posiciones/"
+    },
+    {
+      "id": "prueba-logica-secuencial",
+      "category": "logica",
+      "path": "escape-material/.agents/skills/prueba-logica-secuencial/"
+    },
+    {
+      "id": "prueba-mecanismo",
+      "category": "fisico",
+      "path": "escape-material/.agents/skills/prueba-mecanismo/"
+    },
+    {
+      "id": "prueba-panel-control-app",
+      "category": "otro",
+      "path": "escape-material/.agents/skills/prueba-panel-control-app/"
+    },
+    {
+      "id": "prueba-panel-electrico",
+      "category": "fisico",
+      "path": "escape-material/.agents/skills/prueba-panel-electrico/"
+    },
+    {
+      "id": "prueba-punteria-derribo",
+      "category": "fisico",
+      "path": "escape-material/.agents/skills/prueba-punteria-derribo/"
+    },
+    {
+      "id": "prueba-puzzle-ensamblaje",
+      "category": "fisico",
+      "path": "escape-material/.agents/skills/prueba-puzzle-ensamblaje/"
+    },
+    {
+      "id": "prueba-tablet-cooperativo",
+      "category": "digital",
+      "path": "escape-material/.agents/skills/prueba-tablet-cooperativo/"
+    },
+    {
+      "id": "prueba-ubicacion-qr",
+      "category": "exploracion",
+      "path": "escape-material/.agents/skills/prueba-ubicacion-qr/"
+    }
+  ],
+  "meta_skills": [
+    {
+      "id": "pipeline-build",
+      "description": "Pipeline Build — BuilderAgent (FASE 4)",
+      "path": "escape-material/.agents/skills/pipeline-build/"
+    },
+    {
+      "id": "pipeline-conceive",
+      "description": "Pipeline — FASE 2: Conceive (ConceiverAgent)",
+      "path": "escape-material/.agents/skills/pipeline-conceive/"
+    },
+    {
+      "id": "pipeline-design",
+      "description": "Pipeline Design (DesignerAgent)",
+      "path": "escape-material/.agents/skills/pipeline-design/"
+    },
+    {
+      "id": "pipeline-difficulty-calibration",
+      "description": "Pipeline Difficulty Calibration — Calibración de Dificultad",
+      "path": "escape-material/.agents/skills/pipeline-difficulty-calibration/"
+    },
+    {
+      "id": "pipeline-explore",
+      "description": "Pipeline Explore — FASE 1",
+      "path": "escape-material/.agents/skills/pipeline-explore/"
+    },
+    {
+      "id": "pipeline-judge-logic",
+      "description": "JudgeLogic — Evaluación de Lógica y Solucionabilidad",
+      "path": "escape-material/.agents/skills/pipeline-judge-logic/"
+    },
+    {
+      "id": "pipeline-judge-story",
+      "description": "JudgeStory — Evaluación de Narrativa",
+      "path": "escape-material/.agents/skills/pipeline-judge-story/"
+    },
+    {
+      "id": "pipeline-judgment-day",
+      "description": "Pipeline Judgment Day — Revisión Adversarial con Iteración",
+      "path": "escape-material/.agents/skills/pipeline-judgment-day/"
+    },
+    {
+      "id": "pipeline-narrative-consistency",
+      "description": "Pipeline Narrative Consistency — Checker de Coherencia Narrativa",
+      "path": "escape-material/.agents/skills/pipeline-narrative-consistency/"
+    },
+    {
+      "id": "pipeline-orchestrator",
+      "description": "Pipeline Orchestrator",
+      "path": "escape-material/.agents/skills/pipeline-orchestrator/"
+    },
+    {
+      "id": "pipeline-playtest",
+      "description": "Pipeline Playtest — Simulación de Partida",
+      "path": "escape-material/.agents/skills/pipeline-playtest/"
+    },
+    {
+      "id": "pipeline-regression",
+      "description": "Pipeline Regression — Testing de Regresión",
+      "path": "escape-material/.agents/skills/pipeline-regression/"
+    },
+    {
+      "id": "pipeline-skill-resolution",
+      "description": "Skill Resolution Protocol",
+      "path": "escape-material/.agents/skills/pipeline-skill-resolution/"
+    },
+    {
+      "id": "pipeline-verify",
+      "description": "Pipeline Verify — VerifierAgent (QA)",
+      "path": "escape-material/.agents/skills/pipeline-verify/"
+    },
+    {
+      "id": "skill-architect-pruebas-escape",
+      "description": "Architect de Skills de Pruebas Escape",
+      "path": "escape-material/.agents/skills/skill-architect-pruebas-escape/"
+    },
+    {
+      "id": "skill-creador-juegos",
+      "description": "Creador de Juegos de Escape",
+      "path": "escape-material/.agents/skills/skill-creador-juegos/"
+    },
+    {
+      "id": "skill-creator",
+      "description": "Skill Creator",
+      "path": "escape-material/.agents/skills/skill-creator/"
+    }
+  ],
+  "categories": {
+    "investigacion": [
+      "prueba-acrostico-ubicacion",
+      "prueba-adivinanza-ubicacion",
+      "prueba-investigacion-texto"
+    ],
+    "digital": [
+      "prueba-arcade-digital",
+      "prueba-laberinto-digital",
+      "prueba-tablet-cooperativo"
+    ],
+    "exploracion": [
+      "prueba-busqueda-objetos",
+      "prueba-exploracion-visual",
+      "prueba-gps-navegacion",
+      "prueba-ubicacion-qr"
+    ],
+    "comunicacion": [
+      "prueba-comunicacion-mensajes"
+    ],
+    "memoria": [
+      "prueba-emparejamiento-memoria",
+      "prueba-emparejamiento-texto"
+    ],
+    "logica": [
+      "prueba-logica-nonogram",
+      "prueba-logica-posiciones",
+      "prueba-logica-secuencial"
+    ],
+    "fisico": [
+      "prueba-mecanismo",
+      "prueba-panel-electrico",
+      "prueba-punteria-derribo",
+      "prueba-puzzle-ensamblaje"
+    ],
+    "otro": [
+      "prueba-panel-control-app"
+    ]
+  },
+  "game_type_templates": {
+    "game-type-hall-escape": {
+      "recommended_categories": [
+        "comunicacion",
+        "fisico",
+        "exploracion",
+        "memoria"
+      ],
+      "avoid_categories": [
+        "investigacion"
+      ],
+      "flujo_recomendado": "lineal"
+    },
+    "game-type-street-escape": {
+      "recommended_categories": [
+        "exploracion",
+        "digital",
+        "investigacion"
+      ],
+      "avoid_categories": [],
+      "flujo_recomendado": "cadenas_paralelas"
+    },
+    "game-type-investigation": {
+      "recommended_categories": [
+        "investigacion",
+        "logica",
+        "exploracion",
+        "memoria"
+      ],
+      "avoid_categories": [],
+      "flujo_recomendado": "acumulacion"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "mecanismo_002",
+  "nombre": "Caja de Seguridad Multi-Candado",
+  "descripcion": "Una caja fuerte con 3 candados distintos (numérico, letras, llave). Cada candado tiene su propia pista en diferentes lugares de la sala.",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": ["prueba-busqueda-objetos"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 15,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "fisicos_mecanismos",
+    "tipo_mecanismo": "multi_candado",
+    "numero_candados": 3,
+    "tipos_candados": ["numero", "letras", "llave"],
+    "pistas_separadas": true,
+    "orden_importa": false,
+    "feedback_tipo": "apertura",
+    "reintentos": "infinito",
+    "materiales_estimados": "Caja fuerte de madera o metálica, 3 candados, 3 pistas impresas en ubicaciones distintas",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 60
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada candado tiene su propia pista. Buscad en diferentes partes de la sala."
+    },
+    {
+      "nivel": 2,
+      "texto": "El candado numérico está relacionado con fechas. El de letras con nombres. El de llave con objetos físicos."
+    },
+    {
+      "nivel": 3,
+      "texto": "Candado 1: Código 1847 (fecha en cuadro). Candado 2: Palabra LUA (anagrama en libro). Candado 3: Llave escondida en florero."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Multi-candado con pistas distribuidas",
+    "descripcion": "Los jugadores encuentran 3 pistas en ubicaciones distintas: (1) fecha 1847 en un cuadro para candado numérico, (2) anagrama 'LUA' en libro para candado de letras, (3) llave física escondida en florero. Deben abrir los 3 candados para acceder al contenido de la caja.",
+    "resultado": "Acceso a contenido de caja: documento con código para siguiente prueba",
+    "validacion": "Los 3 candados abiertos físicamente permiten abrir la caja"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Requiere sala con múltiples ubicaciones para esconder pistas. Para street escape, usar pistas digitales via QR."
+  },
+  "assets": {
+    "caja_fuerte": "Caja de madera 30x20x15cm con 3 cerraduras",
+    "candado_numerico": "Candado 3 dígitos",
+    "candado_letras": "Candado 5 letras",
+    "candado_llave": "Candado con llave pequeña",
+    "pista_1": "Cuadro con fecha 1847 destacada",
+    "pista_2": "Libro con anagrama 'A-L-U-A' subrayado",
+    "pista_3": "Llave en florero"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "fisicos_mecanismos",
+      "prueba-mecanismo",
+      "bajo_coste",
+      "multi_candado",
+      "busqueda"
+    ],
+    "proyecto": "skills_mecanismo",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Sala con 3+ ubicaciones distintas para pistas",
+    "adaptacion_hall": {
+      "formato": "caja_fisica",
+      "interaccion": "presencial",
+      "pistas": "fisicas_escondidas"
+    },
+    "adaptacion_street": {
+      "formato": "caja_portatil",
+      "interaccion": "presencial",
+      "pistas": "qr_distribuidos_ubicaciones"
+    },
+    "adaptacion_investigation": {
+      "formato": "maleta_evidencias",
+      "interaccion": "contexto_caso",
+      "pistas": "documentos_expediente"
+    }
+  }
+}

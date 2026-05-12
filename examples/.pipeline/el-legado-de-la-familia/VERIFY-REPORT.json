@@ -1,0 +1,60 @@
+{
+  "id": "verify_2026-05-01_legado-familia-v2",
+  "game_ref": "legado-familia",
+  "timestamp": "2026-05-01T20:30:00+02:00",
+  "verdict": "pass_with_warnings",
+  "checks": {
+    "schema_compliance": {
+      "status": "pass",
+      "details": "6 pruebas + game.json + juego.json validados contra schema. 0 errores."
+    },
+    "sincronizacion": {
+      "status": "pass",
+      "details": "7/7 checks pasados. Mecánicas, documentos y conteos coherentes en las 6 pruebas."
+    },
+    "validate_game": {
+      "status": "pass",
+      "details": "0 errores, 0 warnings. JUEGO VÁLIDO."
+    },
+    "solucionabilidad": {
+      "status": "pass",
+      "details": "Cadena completa: P1 (acróstico LEER) → P2 (cartas SOL) → P3 (memoria 3855) → P4 (timeline pos.6) → P5 (mensaje cofre) → P6 (LEGADO). Sin gaps."
+    },
+    "curva_dificultad": {
+      "status": "pass",
+      "details": "Curva: 3,3,4,4,5,5. Progresión suave sin saltos >1."
+    },
+    "tiempos": {
+      "status": "pass",
+      "details": "Suma pruebas: 50 min. Disponible: 50 min. Ajustado al límite. GM debe gestionar transiciones rápidas."
+    },
+    "variedad_mecanicas": {
+      "status": "pass",
+      "details": "6 skills distintos en 6 pruebas. 0 repeticiones."
+    },
+    "cooperacion": {
+      "status": "pass",
+      "details": "6 de 6 pruebas con cooperacion_obligatoria=true. Roles distribuidos explícitamente con instrucciones impresas."
+    },
+    "pistas": {
+      "status": "pass",
+      "details": "3 niveles de pistas por prueba. N1 direccionales (acción concreta). N2 directas. N3 casi solución."
+    },
+    "materiales": {
+      "status": "pass",
+      "details": "Todos imprimibles o fáciles de conseguir. Presupuesto ~80 EUR."
+    }
+  },
+  "warnings": [
+    "Playtest simulado detecta posibles desbalances de participación — inherente al modelo de simulación (el líder siempre recibe crédito de contribución). En la práctica, los roles distribuidos y las instrucciones impresas aseguran participación equitativa.",
+    "Tiempo total exacto (50 min) sin margen para transiciones. GM debe ser eficiente entre espacios."
+  ],
+  "mejoras_vs_v1": [
+    "Instrucciones impresas en cada prueba",
+    "Roles explícitos con funciones concretas",
+    "Pistas N1 más direccionales",
+    "Carga cognitiva reducida (8→6 cartas, 24→16 tarjetas, 10→8 eventos)",
+    "Tarjeta de datos familiares en P2",
+    "Cartel de valores en P6"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "nombre": "La Biblioteca Maldita",
+  "subtitulo": "El bibliotecario dejó un libro abierto. Nunca debisteis leerlo.",
+  "autor": "Escapeitor",
+  "fecha_creacion": "2026-04-06T15:56:06.501070",
+  "version": "1.0",
+  "color_principal": "#5C4033",
+  "color_secundario": "#D4AF37",
+  "tipo": "investigacion",
+  "jugadores_min": 4,
+  "jugadores_max": 4,
+  "duracion_minutos": 60,
+  "dificultad": 5,
+  "descripcion": "Hace tres noches, el anciano bibliotecario Cornelius Fogg desapareció de la Biblioteca Municipal dejando únicamente un libro sin título sobre su escritorio.",
+  "tags": []
+}

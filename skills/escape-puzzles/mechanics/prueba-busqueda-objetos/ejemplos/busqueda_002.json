@@ -1,0 +1,101 @@
+{
+  "id": "busqueda_002",
+  "nombre": "Búsqueda Visual de Diferencias",
+  "descripcion": "Los jugadores tienen dos imágenes casi idénticas de una escena mitológica. Deben encontrar 10 diferencias sutiles entre ambas imágenes. Cada diferencia encontrada tiene un número asociado que forma parte del código final.",
+  "skill_primario": "prueba-busqueda-objetos",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 12,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "busqueda",
+    "tipo_busqueda": "visual",
+    "numero_objetos": 10,
+    "formato_presentacion": "poster",
+    "tamano_objetos": "pequeno",
+    "senalizador": false,
+    "feedback_progresivo": true,
+    "materiales_estimados": "2 posters grandes (A3), lista de diferencias para GM",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 30
+  },
+  "diferencias": [
+    {"id": 1, "ubicacion": "Esquina superior izquierda", "numero": 3, "descripcion": "Falta una estrella"},
+    {"id": 2, "ubicacion": "Centro", "numero": 7, "descripcion": "Color de la túnica diferente"},
+    {"id": 3, "ubicacion": "Lado derecho", "numero": 1, "descripcion": "Falta una flor"},
+    {"id": 4, "ubicacion": "Parte inferior", "numero": 9, "descripcion": "Posición del arco cambiada"},
+    {"id": 5, "ubicacion": "Fondo", "numero": 2, "descripcion": "Nube adicional"},
+    {"id": 6, "ubicacion": "Centro-izquierda", "numero": 8, "descripcion": "Tamaño de corazón diferente"},
+    {"id": 7, "ubicacion": "Esquina inferior derecha", "numero": 4, "descripcion": "Falta una flecha"},
+    {"id": 8, "ubicacion": "Parte superior", "numero": 6, "descripcion": "Sol con rayos extra"},
+    {"id": 9, "ubicacion": "Lado izquierdo", "numero": 5, "descripcion": "Pájaro en diferente posición"},
+    {"id": 10, "ubicacion": "Centro-derecha", "numero": 0, "descripcion": "Texto modificado"}
+  ],
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Comparad las dos imágenes con atención. Hay 10 diferencias sutiles."
+    },
+    {
+      "nivel": 2,
+      "texto": "Buscad en: esquinas, centro, fondos, y detalles pequeños. Cada diferencia tiene un número."
+    },
+    {
+      "nivel": 3,
+      "texto": "Las diferencias están en: estrella, túnica, flor, arco, nube, corazón, flecha, sol, pájaro, texto."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Búsqueda visual de 10 diferencias entre dos imágenes",
+    "descripcion": "Los jugadores comparan dos posters casi idénticos. Encuentran 10 diferencias, cada una con un número: 3,7,1,9,2,8,4,6,5,0.",
+    "resultado": "Código 3719284650 formado con todos los números de las diferencias (o subconjunto según pista)",
+    "validacion": "Verificar que han encontrado las 10 diferencias marcándolas en lista"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Posters en pared con buena iluminación. Lista de verificación en mesa cercana."
+  },
+  "assets": {
+    "poster_1": "Imagen original mitológica (A3)",
+    "poster_2": "Imagen con 10 diferencias (A3)",
+    "lista_verificacion": "Checklist para marcar diferencias encontradas"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "busqueda",
+      "prueba-busqueda-objetos",
+      "bajo_coste",
+      "visual"
+    ],
+    "proyecto": "skills_busqueda",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Pared para posters con buena iluminación",
+    "adaptacion_hall": {
+      "formato": "posters_pared",
+      "interaccion": "presencial",
+      "feedback": "checklist_fisico"
+    },
+    "adaptacion_street": {
+      "formato": "tablet_app",
+      "interaccion": "tactil",
+      "feedback": "validacion_automatica"
+    },
+    "adaptacion_investigation": {
+      "formato": "fotografias_caso",
+      "interaccion": "analisis_visual",
+      "feedback": "informacion_caso"
+    }
+  }
+}

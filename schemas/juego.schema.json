@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "juego.schema.json",
+  "title": "juego.json Schema (v2)",
+  "description": "Schema para el archivo principal juego.json de un juego de escape room (estructura v2).",
+  "type": "object",
+  "required": ["nombre", "tipo", "jugadores_min", "jugadores_max", "duracion_minutos", "dificultad"],
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del juego",
+      "minLength": 2
+    },
+    "tipo": {
+      "type": "string",
+      "description": "Tipo de juego",
+      "enum": ["hall_escape", "street_escape", "investigacion", "game-type-hall-escape", "game-type-street-escape", "game-type-investigation"]
+    },
+    "jugadores_min": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Mínimo de jugadores"
+    },
+    "jugadores_max": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Máximo de jugadores"
+    },
+    "duracion_minutos": {
+      "type": "integer",
+      "minimum": 5,
+      "description": "Duración en minutos"
+    },
+    "dificultad": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Dificultad (1-10)"
+    },
+    "id": { "type": "string" },
+    "autor": { "type": "string" },
+    "version": { "type": ["string", "number"] },
+    "fecha_creacion": { "type": "string" },
+    "fecha_actualizacion": { "type": "string" },
+    "descripcion": { "type": "string" },
+    "estado": { "type": "string" },
+    "modalidad": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "narrativa": { "type": "object" },
+    "espacio": { "type": "object" },
+    "publico": { "type": "object" },
+    "recursos": { "type": "object" },
+    "codigo_final": { "type": "string" },
+    "letras_por_prueba": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "num_pruebas": { "type": "integer", "minimum": 1 },
+    "curva_dificultad": { "type": "object" },
+    "objetivos_educativos": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notas": { "type": "string" }
+  },
+  "additionalProperties": true
+}

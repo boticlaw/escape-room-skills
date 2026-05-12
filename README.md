@@ -4,92 +4,203 @@
 
 ## What Is This?
 
-A self-contained toolkit that gives any LLM agent the knowledge and templates to design, build, and test professional escape room games. Three composable skills cover the full pipeline:
+A self-contained toolkit that gives any LLM agent the knowledge and templates to design, build, and test professional escape room games. Three composable skills cover the full pipeline, backed by 10 research frameworks, 21 puzzle mechanics, real game examples, and production-tested scripts.
 
 | Skill | Purpose |
 |---|---|
-| **escape-design** | Master pipeline — 10-phase design process with integrated research frameworks |
-| **escape-build** | HTML→PDF generation with themed templates and materials |
-| **escape-puzzles** | Catalog of 21 puzzle mechanics with selection guidance |
+| **escape-design** | Master pipeline — 12-phase resumable design process with 15 pipeline phase skills |
+| **escape-build** | HTML→PDF generation with themed templates and 7 material categories |
+| **escape-puzzles** | Catalog of 21 puzzle mechanics with individual SKILL.md files per mechanic |
 
 ## Architecture
 
 ```
 escape-room-skills/
 ├── skills/
-│   ├── escape-design/      # Master skill — full design pipeline
-│   ├── escape-build/       # Templates, CSS, materials generator
-│   └── escape-puzzles/     # Mechanics catalog (21 types)
-├── schemas/                # JSON Schema (draft-07) for game.json & prueba
-├── scripts/                # build-pdf.mjs, validate-schema.sh
+│   ├── escape-design/              # Master skill — full design pipeline
+│   │   ├── SKILL.md                # Main pipeline orchestrator
+│   │   └── pipeline/               # 15 individual phase skills
+│   │       ├── pipeline-orchestrator/  # Pipeline orchestrator with PROGRESS template
+│   │       ├── pipeline-explore/       # Brief + research
+│   │       ├── pipeline-conceive/      # Concept generation (dual perspective)
+│   │       ├── pipeline-design/        # Puzzle design (dual perspective)
+│   │       ├── pipeline-build/         # Build game files
+│   │       ├── pipeline-verify/        # Quality verification
+│   │       ├── pipeline-judgment-day/  # Adversarial review
+│   │       ├── pipeline-judge-logic/   # Logic evaluation
+│   │       ├── pipeline-judge-story/   # Narrative evaluation
+│   │       ├── pipeline-playtest/      # Simulated playtest
+│   │       ├── pipeline-narrative-consistency/  # Story coherence
+│   │       ├── pipeline-difficulty-calibration/ # Balance difficulty
+│   │       ├── pipeline-regression/    # Regression testing
+│   │       ├── pipeline-skill-resolution/  # Mechanic selection
+│   │       ├── skill-architect-pruebas-escape/ # New mechanic creator
+│   │       └── skill-creador-juegos/   # Game creator meta-skill
+│   ├── escape-build/               # Templates, CSS, materials generator
+│   └── escape-puzzles/             # Mechanics catalog
+│       ├── SKILL.md                # Overview + compatibility matrix
+│       └── mechanics/              # 21 individual mechanic folders
+│           ├── prueba-logica-nonogram/SKILL.md
+│           ├── prueba-gps-navegacion/SKILL.md
+│           └── ... (19 more)
+├── schemas/                        # JSON Schema (draft-07) + skill registry
+│   ├── game.schema.json
+│   ├── prueba.schema.json
+│   ├── brief.schema.json
+│   ├── concept.schema.json
+│   ├── design.schema.json
+│   ├── verify-report.schema.json
+│   └── skill-registry.json         # Full mechanic/pipeline registry
+├── scripts/                        # 14 utility scripts
+│   ├── build-pdf.mjs               # Puppeteer PDF generator
+│   ├── build.sh                    # Full build pipeline
+│   ├── escape-materials-generator.py  # Generate printable materials
+│   ├── escape-pdf-generator.mjs    # Advanced PDF with categories
+│   ├── escape-compact-pdf.py       # Compact PDF generation
+│   ├── init-juego.py               # Initialize new game project
+│   ├── validate-design.py          # Design validation
+│   ├── review-design.py            # Design review
+│   ├── playtest-simulado.py        # Simulated playtest
+│   ├── playtest-llm.py             # LLM-powered playtest
+│   ├── gamejson-to-markdown.mjs    # Convert JSON to Markdown
+│   ├── escape-json2md.sh           # Batch JSON to Markdown
+│   └── validate-schema.sh          # Schema validation
 ├── templates/
-│   ├── css/                # escape-base.css (variables + components)
-│   └── html/               # game-design.html template
+│   ├── css/escape-base.css         # 8 CSS variables + all components
+│   └── html/game-design.html       # Full game design template
+├── research-frameworks/            # 10 professional design guides
+│   ├── 01-game-design.md           # MDA framework, flow types
+│   ├── 02-puzzle-design.md         # Taxonomy, aha moments
+│   ├── 03-storytelling.md          # Freytag pyramid, environmental narrative
+│   ├── 04-psicologia.md            # Flow theory, motivation
+│   ├── 05-ux.md                    # Usability, friction, hints
+│   ├── 06-escenografia.md          # Atmosphere, sensory design
+│   ├── 07-tecnologia.md            # Sensors, AR, tablets
+│   ├── 08-testing.md               # Playtest methodology, metrics
+│   ├── 09-estilo-juegos.md         # Lessons from real games
+│   └── 10-escape-room-master.md    # Master treatise + checklists
 ├── game-types/
-│   ├── hall-escape/        # Indoor 50+ m², teams 5-10
-│   ├── street-escape/      # Outdoor, GPS/QR, teams 2-5
-│   └── investigation/      # Detective/crime, narrative-heavy
-├── research-frameworks/    # Source references
-└── examples/               # Sample game.json + prueba.json
+│   ├── hall-escape/                # Indoor 50+ m², teams 5-10
+│   ├── street-escape/              # Outdoor, GPS/QR, teams 2-5
+│   └── investigation/              # Detective/crime, teams 2-6
+├── docs/                           # System documentation
+│   ├── SOUL.md                     # Core identity + rules
+│   ├── pipeline-details.md         # Pipeline phase details
+│   ├── data-model.md               # JSON data model reference
+│   ├── validation-playtest.md      # Playtest validation guide
+│   └── build-commands.md           # Build command reference
+└── examples/
+    ├── example-game.json           # Sample game (museum heist)
+    ├── example-prueba.json         # Sample puzzle (nonogram)
+    ├── real-games/                 # 6 complete real games
+    │   ├── biblioteca-maldita-v2/  # Library-themed escape (v2)
+    │   ├── biblioteca-maldita-v3/  # Library-themed escape (v3)
+    │   ├── juego-de-prueba/        # Test game
+    │   ├── juego-de-prueba-con-cita/ # Test game with appointment
+    │   ├── test-final/             # Final test game
+    │   └── la-dama-del-salon/      # Street escape in production (13 levels)
+    ├── pipeline-artifacts/         # Pipeline run artifacts
+    │   ├── biblioteca-maldita-v2_20260406/  # BRIEF → CONCEPT → DESIGN → VERIFY → JUDGMENT
+    │   └── biblioteca-maldita-v3_20260406/
+    ├── .pipeline/                  # Active pipeline state example
+    └── escape-material-pruebas/    # 30+ real puzzle examples in Markdown
 ```
 
 ### Design Pipeline (escape-design)
 
 ```
-RESOLVE → EXPLORE → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → PLAYTEST → VERIFY → JUDGMENT
+RESOLVE → EXPLORE → REGRESSION* → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → PLAYTEST → VERIFY → JUDGMENT
+                                    *only if baseline exists
 ```
 
-Each phase has compact rules distilled from 10 research frameworks covering game design, puzzle theory, storytelling, psychology, UX, scenography, technology, testing, practical game style, and master-level escape room design.
+Each phase is a standalone skill with its own SKILL.md. The pipeline is **resumable** via `PROGRESS.json` — if interrupted, continues from the first incomplete phase.
 
 ### Core Design Rules
 
 | Rule | Meaning |
 |---|---|
-| **ZERO GM** | Games must run without a human game master |
-| **ANTI-CHEAT** | Puzzles resist brute-force and accidental solves |
-| **SELF-SERVICE** | Players self-verify solutions through mechanisms |
-| **REAL MECHANISMS** | Physical/digital locks, not "tell the GM the answer" |
-| **NO CROSS-DEPENDENCIES** | Each puzzle is self-contained; no data from puzzle A needed in puzzle B |
+| **ZERO GM** | Games must run without a human game master organizing, explaining, or enforcing |
+| **ANTI-CHEAT** | If players CAN cheat, they WILL — design to make cheating impossible or useless |
+| **SELF-SERVICE** | Everything players need is self-discovered in the game space |
+| **REAL MECHANISMS** | Every physical mechanism must be buildable with ~€120 budget and accessible materials |
+| **NO CROSS-DEPENDENCIES** | Each puzzle is self-contained; no data travels between puzzles (only keys and tools) |
+| **PHYSICAL > DIGITAL** | Prioritize tangible interaction; digital is support, never protagonist |
+| **DOUBLE DISCOVERY** | Each puzzle has 2+ layers of "aha!" — solve + reveal |
+
+### 21 Puzzle Mechanics
+
+| Category | Mechanics |
+|----------|-----------|
+| **Logic** | Nonogram, Positions, Sequential |
+| **Matching** | Memory, Text |
+| **Physical** | Mechanism, Electrical Panel, Target, Assembly |
+| **Digital** | Tablet Co-op, Control Panel, Arcade, Maze |
+| **Cooperative** | Communication/Messages |
+| **Search/Location** | Object Search, Visual Exploration, QR, GPS, Acrostic, Riddle |
+| **Investigation** | Text Research |
+
+Each mechanic has its own SKILL.md with: design variables, common errors, difficulty scaling, game-type adaptations, and example puzzles.
 
 ## Install
 
-### opencode
+```bash
+git clone https://github.com/boticlaw/escape-room-skills.git
+```
 
+### opencode
 ```bash
 cp -r skills/* ~/.config/opencode/skills/
 ```
 
 ### Claude Code
-
 ```bash
 cp -r skills/* .claude/skills/
 ```
 
 ### Generic LLM Agent
-
-Copy the contents of each `skills/*/SKILL.md` into your agent's instruction context. The files are self-contained with no external dependencies.
-
-See [INSTALL.md](INSTALL.md) for detailed instructions.
+Copy the contents of each `skills/*/SKILL.md` into your agent's instruction context. See [INSTALL.md](INSTALL.md) for details.
 
 ## Quick Start
 
 1. Load `escape-design/SKILL.md` into your agent
 2. Describe the game you want: type, theme, player count, duration
-3. The agent follows the 10-phase pipeline
+3. The agent follows the resumable pipeline with PROGRESS.json tracking
 4. Output: `game.json` + individual `prueba-*.json` files
 5. Run `scripts/build-pdf.mjs` to generate printable design and test documents
+6. Run `scripts/escape-materials-generator.py` to generate categorized printable materials
 
-## Schemas
+## Real Game Examples
 
-Validate your game files:
+The `examples/real-games/` directory contains 6 complete games:
 
-```bash
-# Validate game structure
-python3 -m json.tool schemas/game.schema.json > /dev/null
+| Game | Type | Puzzles | Notes |
+|------|------|---------|-------|
+| **Biblioteca Maldita v2** | Hall Escape | 6 | Library-themed, pipeline-tested |
+| **Biblioteca Maldita v3** | Hall Escape | 5 | Refined version with improvements |
+| **Juego de Prueba** | Test | Basic | Initial prototype |
+| **Juego de Prueba con Cita** | Test | With appointment | Appointment-based variant |
+| **Test Final** | Test | Complete | Final validation game |
+| **La Dama del Salón** | Street Escape | 13 levels | **In production** — Palencia street escape |
 
-# Validate all puzzles
-bash scripts/validate-schema.sh /path/to/game-dir
-```
+La Dama del Salón includes: complete analysis, 12 cataloged mechanics, narrative templates, data model patterns, and 13 GPS-enabled levels.
+
+## Scripts
+
+| Script | Language | Purpose |
+|--------|----------|---------|
+| `build-pdf.mjs` | Node.js | Generate PDF from HTML via Puppeteer |
+| `build.sh` | Bash | Full build pipeline orchestration |
+| `escape-materials-generator.py` | Python | Generate categorized printable materials (7 categories) |
+| `escape-pdf-generator.mjs` | Node.js | Advanced PDF with visual categories |
+| `escape-compact-pdf.py` | Python | Compact PDF generation |
+| `init-juego.py` | Python | Initialize new game project structure |
+| `validate-design.py` | Python | Validate game design against rules |
+| `review-design.py` | Python | Review and score design quality |
+| `playtest-simulado.py` | Python | Simulate 3 player profiles |
+| `playtest-llm.py` | Python | LLM-powered playtest simulation |
+| `gamejson-to-markdown.mjs` | Node.js | Convert game JSON to Markdown |
+| `escape-json2md.sh` | Bash | Batch JSON to Markdown conversion |
+| `validate-schema.sh` | Bash | Validate JSON against schemas |
 
 ## License
 

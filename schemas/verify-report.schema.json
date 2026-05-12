@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "verify-report.schema.json",
+  "title": "VERIFY-REPORT Schema",
+  "description": "Schema para el artefacto VERIFY-REPORT. Resultado de la verificación/validación de un juego de escape room.",
+  "type": "object",
+  "required": ["id", "juego_id", "resultado"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único del reporte"
+    },
+    "juego_id": {
+      "type": "string",
+      "description": "ID del juego verificado"
+    },
+    "juego_nombre": {
+      "type": "string",
+      "description": "Nombre del juego verificado"
+    },
+    "version_juego": {
+      "type": ["string", "number"],
+      "description": "Versión del juego verificada"
+    },
+    "fecha_verificacion": {
+      "type": "string",
+      "description": "Fecha de la verificación (YYYY-MM-DD)"
+    },
+    "verificador": {
+      "type": "string",
+      "description": "Agente o persona que realizó la verificación"
+    },
+    "resultado": {
+      "type": "string",
+      "description": "Resultado global de la verificación",
+      "enum": ["aprobado", "aprobado_con_observaciones", "rechazado", "pendiente"]
+    },
+    "puntuacion_total": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Puntuación global (0-100)"
+    },
+    "criterios": {
+      "type": "array",
+      "description": "Criterios verificados",
+      "items": {
+        "type": "object",
+        "required": ["nombre", "resultado"],
+        "properties": {
+          "nombre": { "type": "string" },
+          "descripcion": { "type": "string" },
+          "resultado": { "type": "string", "enum": ["aprobado", "fallido", "warning", "no_aplicable"] },
+          "detalles": { "type": "string" },
+          "puntuacion": { "type": "number", "minimum": 0, "maximum": 100 }
+        }
+      }
+    },
+    "errores": {
+      "type": "array",
+      "items": { "type": "object" },
+      "description": "Errores encontrados"
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "object" },
+      "description": "Warnings encontrados"
+    },
+    "recomendaciones": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Recomendaciones de mejora"
+    },
+    "resumen": {
+      "type": "string",
+      "description": "Resumen ejecutivo"
+    },
+    "notas": { "type": "string" },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "brief.schema.json",
+  "title": "BRIEF Schema",
+  "description": "Schema para el artefacto BRIEF de un juego de escape room. Define la visión general, requisitos y restricciones del juego antes del diseño detallado.",
+  "type": "object",
+  "required": ["id", "nombre", "tipo"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único del brief",
+      "minLength": 1
+    },
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del juego",
+      "minLength": 2
+    },
+    "subtitulo": {
+      "type": "string",
+      "description": "Subtítulo o tagline del juego"
+    },
+    "tipo": {
+      "type": "string",
+      "description": "Tipo de juego",
+      "enum": ["hall_escape", "street_escape", "investigacion", "game-type-hall-escape", "game-type-street-escape", "game-type-investigation"]
+    },
+    "modalidad": {
+      "type": "string",
+      "description": "Modalidad de juego (ej: secuencial_5_salas)"
+    },
+    "version": {
+      "type": ["string", "number"],
+      "description": "Versión del brief"
+    },
+    "fecha_creacion": {
+      "type": "string",
+      "description": "Fecha de creación (YYYY-MM-DD)"
+    },
+    "fecha_actualizacion": {
+      "type": "string",
+      "description": "Fecha de última actualización (YYYY-MM-DD)"
+    },
+    "estado": {
+      "type": "string",
+      "description": "Estado del brief en el pipeline"
+    },
+    "descripcion_corta": {
+      "type": "string",
+      "description": "Descripción breve del juego"
+    },
+    "narrativa": {
+      "type": "object",
+      "description": "Narrativa base del juego",
+      "properties": {
+        "sinopsis": { "type": "string" },
+        "objetivo_jugador": { "type": "string" },
+        "tono": { "type": "string" },
+        "temas_educativos": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "personajes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": { "type": "string" },
+              "rol": { "type": "string" },
+              "descripcion": { "type": "string" },
+              "personalidad": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "publico": {
+      "type": "object",
+      "description": "Público objetivo",
+      "properties": {
+        "edad_min": { "type": "integer", "minimum": 0 },
+        "edad_max": { "type": "integer", "minimum": 0 },
+        "jugadores": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer", "minimum": 1 },
+            "max": { "type": "integer", "minimum": 1 },
+            "optimo": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "experiencia_previa": { "type": "string" },
+        "nivel_tecnologico": { "type": "string" }
+      }
+    },
+    "espacio": {
+      "type": "object",
+      "description": "Requisitos del espacio físico",
+      "properties": {
+        "tipo": { "type": "string" },
+        "flujo": { "type": "string" },
+        "gm_abre_puertas": { "type": "boolean" },
+        "salas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "nombre": { "type": "string" },
+              "tema": { "type": "string" },
+              "simbolo": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "recursos": {
+      "type": "object",
+      "description": "Recursos necesarios"
+    },
+    "duracion_minutos": {
+      "type": "integer",
+      "minimum": 5,
+      "description": "Duración estimada en minutos"
+    },
+    "dificultad_objetivo": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Dificultad objetivo (1-10)"
+    },
+    "num_pruebas": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Número de pruebas planificadas"
+    },
+    "curva_dificultad": {
+      "type": "object",
+      "description": "Curva de dificultad por prueba",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "dificultad": { "type": "number" },
+          "duracion_min": { "type": "number" }
+        }
+      }
+    },
+    "codigo_final": {
+      "type": "string",
+      "description": "Código final del juego (si aplica)"
+    },
+    "letras_por_prueba": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Letras obtenidas por cada prueba"
+    },
+    "objetivos_educativos": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "valores_pedagogicos": {
+      "type": "object"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notas": { "type": "string" }
+  },
+  "additionalProperties": true
+}

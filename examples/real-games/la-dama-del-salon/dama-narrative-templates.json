@@ -1,0 +1,257 @@
+{
+  "_meta": {
+    "source": "La Dama del Salón - Street Escape",
+    "extracted_date": "2026-04-27",
+    "description": "Templates narrativos y patrones de diseño extraídos del diario de Clara Vela. Para reutilizar en nuevos juegos con temáticas diferentes."
+  },
+  "diary_template": {
+    "description": "Template del sistema de diario como hilo conductor narrativo",
+    "voice_and_tone": {
+      "perspective": "Primera persona",
+      "protagonist": "Clara Vela (joven burguesa, 1897)",
+      "tone": "Literario, romántico, misterioso",
+      "style": "Decimonónico español",
+      "language_level": "Alto, con vocabulario de época",
+      "themes": ["Búsqueda de libertad", "Secreto ancestral", "Antagonista poderoso", "Aliados misteriosos", "Objeto legendario"]
+    },
+    "structure_per_entry": {
+      "date_format": "DD de mes de YYYY",
+      "date_range_example": "15 de abril de 1897 → 7 de junio de 1897",
+      "entry_count": "10 entradas en 13 niveles (3 niveles sin diario: Memory, CodeLockBox, Final)",
+      "sections": [
+        {
+          "position": "opening",
+          "purpose": "Contexto temporal y emocional",
+          "pattern": "Hoy, al [momento del día], [acción que sitúa al personaje] + [estado emocional]",
+          "example": "Hoy, como cada amanecer, he huido de mi propia casa antes de que alcancen a susurrar en los salones..."
+        },
+        {
+          "position": "development",
+          "purpose": "Descubrimiento de pista o avance de la trama",
+          "pattern": "[Descubrimiento casual o buscado] + [Conexión con elemento anterior] + [Intriga sobre el siguiente paso]",
+          "example": "Hace ya varios meses, en una de mis lecturas casuales, encontré un pergamino firmado por el propio Ponce de León..."
+        },
+        {
+          "position": "closing",
+          "purpose": "Anticipación del siguiente nivel",
+          "pattern": "Mañana, [acción futura] + [Motivación renovada]",
+          "example": "Mañana, antes del alba, volveré para inspeccionar esa fuente y buscar el pescador de piedra."
+        }
+      ]
+    },
+    "narrative_techniques": {
+      "highlighted_keywords": {
+        "description": "Palabras clave que se resaltan visualmente en el texto como guía sutil al jugador",
+        "implementation": "Regex match → <span class='highlighted'>keyword</span>",
+        "purpose": "Señalar sin revelar — el jugador debe inferir qué hacer con esa información",
+        "example": {
+          "level": 1,
+          "keywords": ["columnas", "templete", "arte al aire libre", "trompetas", "timbales", "bandurrias"],
+          "purpose": "La palabra 'templete' es la solución del nivel"
+        }
+      },
+      "embedded_clues": {
+        "description": "Pistas integradas en la narrativa de forma natural",
+        "techniques": [
+          "Descripción poética del lugar que el jugador debe reconocer",
+          "Referencias históricas que requieren conocimiento real",
+          "Metáforas que apuntan a la solución",
+          "Fechas específicas que son códigos numéricos"
+        ],
+        "examples": [
+          {
+            "level": 1,
+            "clue": "Donde la bruma matinal envuelve las columnas de mármol",
+            "solution": "Templete del Salón",
+            "type": "descripción poética del lugar"
+          },
+          {
+            "level": 2,
+            "clue": "Ta-ta-ta-taaa, quinta creación sinfónica, compositor alemán",
+            "solution": "Beethoven (5ª Sinfonía)",
+            "type": "referencia cultural"
+          },
+          {
+            "level": 7,
+            "clue": "perfume de los claveles → nombre de la villa",
+            "solution": "Celia (villa nombrada por la protagonista de una novela)",
+            "type": "conexión semántica"
+          },
+          {
+            "level": 12,
+            "clue": "Año que aparece mencionado en el diario",
+            "solution": "63239 (código de la caja)",
+            "type": "fecha como código numérico"
+          }
+        ]
+      },
+      "antagonist_presence": {
+        "description": "El Marqués de Albaida como antagonista que genera tensión",
+        "purpose": "Crear urgencia y conflicto. El jugador no solo busca, sino que compite.",
+        "technique": "Mencionado indirectamente: sus notas, su biblioteca, sus pesquisas",
+        "reusable_pattern": "Cualquier juego puede tener un antagonista que 'también busca lo mismo'"
+      },
+      "ally_system": {
+        "description": "'Los Abuelos' como aliados misteriosos que ayudan progresivamente",
+        "purpose": "Dar información de forma gradual sin que sea expositiva",
+        "technique": "Aliados con conocimiento parcial que entregan fragmentos",
+        "reusable_pattern": "NPCs que entregan un fragmento por nivel, creando una red de informantes"
+      }
+    }
+  },
+  "level_design_patterns": {
+    "flow_types": {
+      "linear_unlock": {
+        "description": "Nivel N+1 solo accesible tras completar N",
+        "implementation": "LevelGuard compara maxLevelReached con el nivel solicitado",
+        "pros": ["Progresión controlada", "Narrativa lineal", "Simple de implementar"],
+        "cons": ["Sin exploración libre", "Replay value limitado"]
+      },
+      "branching_potential": {
+        "description": "No implementado pero el sistema lo permitiría",
+        "how": "Añadir levelId alternativos en getNextLevelId según decisiones del jugador"
+      }
+    },
+    "level_type_taxonomy": {
+      "diary": "Nivel narrativo con texto, imagen opcional y mecánica de verificación",
+      "location": "Nivel centrado en geolocalización",
+      "puzzle": "Nivel centrado en un minijuego",
+      "note": "En La Dama todos son tipo 'diary' pero la taxonomía permite variaciones"
+    },
+    "verification_methods": {
+      "text_free": {
+        "description": "Texto libre normalizado (lowercase + sin acentos)",
+        "use_when": "La respuesta es una palabra o frase específica",
+        "normalization": "value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')"
+      },
+      "numeric_exact": {
+        "description": "Comparación exacta de números",
+        "use_when": "La respuesta es un código numérico"
+      },
+      "geo_distance": {
+        "description": "Distancia Haversine < threshold",
+        "use_when": "El jugador debe estar físicamente en un lugar"
+      },
+      "sequence_match": {
+        "description": "Matching de arrays (notas musicales)",
+        "use_when": "La respuesta es una secuencia de elementos"
+      },
+      "game_completion": {
+        "description": "El minijuego debe completarse (buscaminas, memory, etc.)",
+        "use_when": "La prueba es un minijuego sin respuesta de texto"
+      }
+    },
+    "transition_patterns": {
+      "auto_advance": {
+        "description": "Al completar, avanza automáticamente tras delay",
+        "timing": "1000-2000ms después del éxito",
+        "used_in": "La mayoría de los niveles"
+      },
+      "button_advance": {
+        "description": "Muestra botón para avanzar manualmente",
+        "used_in": "Chat con NPC (botón 'Vamos para allí')"
+      },
+      "chain_completion": {
+        "description": "Un nivel desencadena mecánicas en cadena",
+        "example": "Nivel 3: Geo-check → StarPuzzle → Buscaminas → Avance",
+        "complexity": "Alta — requiere estados intermedios"
+      }
+    }
+  },
+  "hint_system": {
+    "description": "Sistema de pistas progresivas bajo demanda",
+    "implementation": {
+      "storage": "Un hint string por nivel en levels.ts",
+      "display": "HintDisplay component — botón 'Mostrar pista' que revela el hint",
+      "tracking": "Counter hintsUsed en GameProgress, se incrementa y persiste",
+      "scroll_preservation": "Al mostrar pista, se mantiene la posición de scroll (importante en mobile)"
+    },
+    "hint_styles_by_level": [
+      {"level": 1, "hint": "La foto da una buena pista.", "type": "directa"},
+      {"level": 2, "hint": "La melodía es la clave.", "type": "conceptual"},
+      {"level": 3, "hint": "Los símbolos en forma de estrella de Ponce de León aparecen cerca de estatuas del explorador.", "type": "narrativa"},
+      {"level": 6, "hint": "Pregunta por los abuelos y cualquiera te dirá donde los puedes encontrar.", "type": "accion"},
+      {"level": 7, "hint": "¿En qué villa jugaba de pequeña?", "type": "pregunta_guia"},
+      {"level": 10, "hint": "Vuelve al templete y busca siempre la casilla más lejana a los perseguidores.", "type": "estrategica"},
+      {"level": 12, "hint": "Sabes contar?", "type": "criptica"}
+    ],
+    "reusable_template": {
+      "levels": [
+        {"nivel": 1, "tipo": "directa", "descripción": "Apunta directamente al elemento clave"},
+        {"nivel": 2, "tipo": "conceptual", "descripción": "Describe el concepto sin revelar la respuesta"},
+        {"nivel": 3, "tipo": "narrativa", "descripción": "Conecta con la historia para guiar"},
+        {"nivel": 4, "tipo": "accion", "descripción": "Indica qué hacer, no qué responder"},
+        {"nivel": 5, "tipo": "pregunta_guia", "descripción": "Reformula el problema como pregunta"}
+      ]
+    }
+  },
+  "npc_chat_template": {
+    "description": "Template para crear NPCs conversacionales con IA",
+    "system_prompt_structure": {
+      "identity": "Quién es el NPC (edad, procedencia, rol)",
+      "language_style": "Cómo habla (refranes, tono, formalidad)",
+      "conversation_rules": "Duración máxima, qué revelar y qué no",
+      "objective": "Qué pista debe guiar al jugador a descubrir",
+      "boundaries": "Qué no debe hacer (dar pistas directas, etc.)",
+      "exit_strategy": "Cómo terminar la conversación una vez dada la pista"
+    },
+    "example_prompt": "Actúa como un ancianos sabios de 90 años de Palencia. Habla usando un lenguaje antiguo, con refranes (pero sin excederse demasiado) y sabiduría popular española, es vacilón y utiliza tono de broma. Usa plurales mayestáticos como 'nosotros sabemos', 'os aconsejamos'. La conversación debe ser breve (máximo 5-6 intercambios). La pista debe guiar al usuario ha decirles que ##Clara Vela vivia detras de la calle Clavel##, lleva la conversación hace ese tema de forma disimulada. Si te piden directamente una pista, no se la des. Tienen que concretarte algo más. Una vez que les digas la dirección, la conversación debe terminar, así que te despediras poniendo una excusa divertida.",
+    "end_detection_patterns": [
+      "Contenido clave en respuesta del NPC ('calle clavel')",
+      "Contador de mensajes >= 12",
+      "Patrones de despedida en input del usuario",
+      "Palabra clave en respuesta + mínimo 3 intercambios"
+    ],
+    "fallback_system": {
+      "levels": [
+        {"level": 1, "provider": "Gemini 2.0-flash-lite", "reason": "Barato y rápido"},
+        {"level": 2, "provider": "OpenAI GPT-4o-mini", "reason": "Backup confiable"},
+        {"level": 3, "provider": "Respuestas predefinidas", "reason": "Siempre funciona, sin API"}
+      ]
+    }
+  },
+  "visual_design_patterns": {
+    "diary_visual_style": {
+      "background": "Gradientes ámbar (amber-50 → amber-100)",
+      "corners": "Esquinas dobladas con CSS triangles (simula papel antiguo)",
+      "images": "Filtro sepia + contraste + brillo ajustado. Post-it amarillos decorativos con clipPath.",
+      "typography": "Playfair Display (serif) para títulos y texto narrativo",
+      "title_decoration": "Underline wavy amber, líneas decorativas a los lados",
+      "date_display": "Caja estilo 'papel pegado' con borde dashed y fondo sutil"
+    },
+    "mobile_first": {
+      "responsive_prefixes": "xs: < 375px, sm: 375-640px, md: 640-768px, lg: 768px+",
+      "touch_optimizations": [
+        "Cooldown anti-doble-tap (300ms)",
+        "preventDefault en touch para evitar zoom accidental",
+        "Long-press para flags en buscaminas",
+        "Controles directionales on-screen para juegos de grid"
+      ],
+      "animations": "animate-fadeIn, animate-pulse, animate-spin — CSS puro, sin librería"
+    },
+    "progress_visualization": {
+      "level_badge": "Badge circular con número de nivel",
+      "stats": "Panel con hintsUsed, wrongAttempts, currentLevel",
+      "progress_bar": "Barra basada en currentLevel/maxLevels"
+    }
+  },
+  "geo_config_patterns": {
+    "description": "Patrones de configuración geográfica para street escapes",
+    "location_data_structure": {
+      "latitude": "number (6 decimales de precisión)",
+      "longitude": "number (6 decimales de precisión)",
+      "name": "string — nombre legible del punto de interés"
+    },
+    "distance_thresholds": {
+      "open_park": "25m — funciona bien en parques sin edificios",
+      "urban": "40-50m — GPS menos preciso entre edificios",
+      "precise": "10-15m — para puntos muy específicos (estatuas, placas)"
+    },
+    "game_footprint": {
+      "total_distance": "~2km",
+      "area": "~0.5km²",
+      "location_count": "9 puntos de geolocalización en 13 niveles",
+      "backtracking": "Algunos puntos se repiten (Templete en niveles 1, 10) — intención de crear familiaridad"
+    }
+  }
+}

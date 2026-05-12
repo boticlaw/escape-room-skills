@@ -1,0 +1,343 @@
+{
+  "_meta": {
+    "source": "La Dama del Salón - Street Escape",
+    "extracted_date": "2026-04-27",
+    "description": "Catálogo completo de los 13 niveles con TODOS los datos extraídos del código: coordenadas, soluciones, hints, mecánicas, tiempos narrativos. Referencia rápida para diseñar nuevos juegos."
+  },
+  "game_metadata": {
+    "name": "La Dama del Salón",
+    "type": "Street Escape",
+    "location": "Parque del Salón, Palencia, España",
+    "total_levels": 13,
+    "narrative_period": "15 abril - 7 junio 1897",
+    "protagonist": "Clara Vela",
+    "antagonist": "Marqués de Albaida",
+    "allies": "Los Abuelos",
+    "macguffin": "Fuente de la Juventud (pergamino de Ponce de León)"
+  },
+  "levels": [
+    {
+      "id": "1",
+      "title": "El diario de Clara Vela",
+      "date": "15 de abril de 1897",
+      "type": "diary",
+      "mechanics": ["video-intro", "text-highlight", "geo-check"],
+      "geo_location": {
+        "latitude": 42.0060,
+        "longitude": -4.5291,
+        "name": "Templete del Salón",
+        "threshold_m": 25
+      },
+      "solution": "templete",
+      "solution_type": "text (normalized lowercase)",
+      "hint": "La foto da una buena pista.",
+      "hint_style": "directa",
+      "keywords": ["columnas", "templete", "arte al aire libre", "trompetas", "timbales", "bandurrias"],
+      "has_image": true,
+      "image_url": "/images/templete.jpg",
+      "image_after_paragraph": 1,
+      "narrative_summary": "Clara huye de su casa para evitar matrimonio arreglado. Lee pergamino de Ponce de León en el templete sobre la Fuente de la Juventud.",
+      "clue_type": "Descripción poética del lugar → el jugador debe identificar 'templete'",
+      "video_intro": "g0V2_dKage0"
+    },
+    {
+      "id": "2",
+      "title": "El diario de Clara Vela",
+      "date": "18 de abril de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "piano"],
+      "geo_location": null,
+      "solution": "beethoven",
+      "solution_type": "text (normalized lowercase)",
+      "hint": "La melodía es la clave.",
+      "hint_style": "conceptual",
+      "keywords": ["Ta-ta-ta-taaa", "compositor alemán", "quinta creación sinfónica", "genio de Bonn", "Ludwig", "beethoven"],
+      "has_image": true,
+      "image_url": "/images/beto.jpg",
+      "image_after_paragraph": 2,
+      "narrative_summary": "Clara habla de su amor por la música clásica y la visita de una orquesta de Viena. Describe la 5ª Sinfonía de Beethoven sin nombrarla directamente.",
+      "clue_type": "Referencia cultural — 'Ta-ta-ta-taaa' + 'compositor alemán' + 'quinta sinfonía' → Beethoven",
+      "piano_sequence": ["Sol", "Sol", "Sol", "Mib", "Fa", "Fa", "Fa", "Re"],
+      "piano_required_consecutive": 8
+    },
+    {
+      "id": "3",
+      "title": "El diario de Clara Vela",
+      "date": "21 de abril de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "geo-check", "star-puzzle", "buscaminas"],
+      "geo_location": {
+        "latitude": 42.0053,
+        "longitude": -4.5312,
+        "name": "Monumento Ponce de León",
+        "threshold_m": 25
+      },
+      "solution": "Monumento Ponce de León",
+      "solution_type": "text (normalized)",
+      "hint": "Los símbolos en forma de estrella de Ponce de León aparecen cerca de estatuas del explorador.",
+      "hint_style": "narrativa",
+      "keywords": ["Ponce de León", "símbolos en forma de estrella", "estatuas", "monumento", "Fuente de la Juventud", "homenaje en piedra"],
+      "has_image": false,
+      "narrative_summary": "Clara descubre símbolos estrellados de Ponce de León y los asocia a estatuas del explorador. Describe el monumento.",
+      "clue_type": "Conexión narrativa — símbolos + estatuas + monumento",
+      "mechanic_chain": "geo-check → star-puzzle → buscaminas → complete",
+      "buscaminas_difficulty": "easy"
+    },
+    {
+      "id": "4",
+      "title": "El diario de Clara Vela",
+      "date": "27 de abril de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "text-input"],
+      "geo_location": null,
+      "solution": "biblioteca",
+      "solution_type": "text (normalized lowercase)",
+      "hint": "Acudir al lugar te puede ayudar.",
+      "hint_style": "accion",
+      "keywords": ["Marqués de Albaida", "biblioteca privada", "sala de mapas", "símbolos estrellados", "letras invertidas", "símbolos numéricos", "Palacio del Marqués", "pasajes cifrados"],
+      "has_image": true,
+      "image_url": "/images/cuaderno.jpg",
+      "image_after_paragraph": 2,
+      "narrative_summary": "Clara descubre que el Marqués de Albaida también busca la Fuente. Encuentra sus notas cifradas y su biblioteca privada.",
+      "clue_type": "Antagonista intro — el Marqués y su biblioteca como siguiente destino"
+    },
+    {
+      "id": "5",
+      "title": "Juego de memoria",
+      "date": null,
+      "type": "diary",
+      "mechanics": ["memory-card"],
+      "geo_location": null,
+      "solution": "Juntar todas las piezas",
+      "solution_type": "game_completion",
+      "hint": "",
+      "has_image": false,
+      "narrative_summary": "Nivel de transición sin narrativa. Solo minijuego de memoria.",
+      "secret_word_revealed": "ABUELOS",
+      "memory_symbols": ["☉", "☽", "♃", "♄", "♆", "♇", "ária", " сере", "♀", "♂", "☿", "♈", "♌", "♎"]
+    },
+    {
+      "id": "6",
+      "title": "El diario de Clara Vela",
+      "date": "3 de mayo de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "geo-check", "chat-ia"],
+      "geo_location": {
+        "latitude": 42.0060,
+        "longitude": -4.5303,
+        "name": "Los abuelos",
+        "threshold_m": 25
+      },
+      "solution": "ir a los abuelos",
+      "solution_type": "chat_completion",
+      "hint": "Pregunta por los abuelos y cualquiera te dirá donde los puedes encontrar.",
+      "hint_style": "accion",
+      "keywords": ["Los abuelos", "Jardín del Norte", "rosales", "banco de piedra", "Fuente de la Juventud", "Ponce de León", "Marqués de Albaida"],
+      "has_image": false,
+      "narrative_summary": "Clara conoce a 'Los Abuelos', ancianos del pueblo con fragmentos del mapa. Le advierten del Marqués.",
+      "clue_type": "NPC reveal — los abuelos tienen información clave",
+      "chat_npc": {
+        "identity": "Ancianos sabios de 90 años de Palencia",
+        "personality": "Vacilones, usan refranes, plurales mayestáticos",
+        "objective": "Guiar al jugador a descubrir 'calle Clavel'",
+        "max_exchanges": 6,
+        "end_trigger": "Respuesta contiene 'calle clavel'",
+        "model": "gemini-2.0-flash-lite",
+        "backup_model": "gpt-4o-mini"
+      }
+    },
+    {
+      "id": "7",
+      "title": "El diario de Clara Vela",
+      "date": "10 de mayo de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "text-input", "numeric-code"],
+      "geo_location": null,
+      "solution": "celia",
+      "solution_type": "text (normalized lowercase)",
+      "hint": "¿En qué villa jugaba de pequeña?",
+      "hint_style": "pregunta_guia",
+      "keywords": ["perfume de los claveles", "Los abuelos", "Ponce de León", "Marqués de Albaida", "capilla de San Miguel", "manantial"],
+      "has_image": true,
+      "image_url": "/images/flores.jpg",
+      "image_after_paragraph": null,
+      "narrative_summary": "Clara examina pergamino de Los Abuelos con croquis de la ciudad. Pista de la capilla de San Miguel.",
+      "clue_type": "Conexión semántica — 'perfume de los claveles' → nombre de la villa (Celia)",
+      "secondary_code": {
+        "code": "6298",
+        "context": "Después de responder 'celia', se pide un código numérico",
+        "code_origin": "Derivado de la respuesta anterior"
+      }
+    },
+    {
+      "id": "8",
+      "title": "El diario de Clara Vela",
+      "date": "17 de mayo de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "geo-check", "fish-sort"],
+      "geo_location": {
+        "latitude": 42.0058,
+        "longitude": -4.5307,
+        "name": "Puerta - Ponce de León",
+        "threshold_m": 25
+      },
+      "solution": "En ponce al lado de la calle mayor",
+      "solution_type": "text (normalized lowercase)",
+      "hint": "¿Donde estaba la antigua puerta del mercado? La foto siempre ayuda :D",
+      "hint_style": "directa",
+      "keywords": ["Plaza Mayor", "estrella tallada", "tinta roja", "Ponce de León", "Los abuelos", "fuente antigua", "pescador tallado", "caña", "norte"],
+      "has_image": true,
+      "image_url": "/images/puerta-mercado.jpg",
+      "image_after_paragraph": 1,
+      "narrative_summary": "Clara va al mercado y encuentra estrella tallada. Recibe nota de Los Abuelos sobre pasadizo.",
+      "clue_type": "Descripción visual — foto de la puerta + pista textual",
+      "fish_sort_difficulty": "easy"
+    },
+    {
+      "id": "9",
+      "title": "El diario de Clara Vela",
+      "date": "23 de mayo de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "geo-check", "video", "text-input"],
+      "geo_location": {
+        "latitude": 42.0068,
+        "longitude": -4.5277,
+        "name": "Arco de las rosas",
+        "threshold_m": 25
+      },
+      "solution": "recuerdame",
+      "solution_type": "text (normalized lowercase, sin acentos)",
+      "hint": "Acude al lugar donde estaban antes los arcos de las rosas y presta atención a la melodía de los pájaros",
+      "hint_style": "narrativa",
+      "keywords": ["Jardín del Norte", "arcos de hierro forjado", "rosales", "estrella", "Ponce de León", "Los abuelos", "quiosco", "templete", "melodía", "pájaros"],
+      "has_image": true,
+      "image_url": "/images/arcos.jpg",
+      "image_after_paragraph": 1,
+      "narrative_summary": "Clara descubre estrella grabada en arcos de rosas. Encuentra mapa de Los Abuelos. Escucha melodía.",
+      "clue_type": "Multi-sensorial — texto + video + audio → respuesta 'recuérdame'",
+      "video": "glhK2eUxxzs (YouTube)",
+      "geo_special_logic": "Tras verificar ubicación, muestra video + enigma en vez de avanzar directamente"
+    },
+    {
+      "id": "10",
+      "title": "El diario de Clara Vela",
+      "date": "31 de mayo de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "geo-check", "monster-escape"],
+      "geo_location": {
+        "latitude": 42.0060,
+        "longitude": -4.5291,
+        "name": "Templete del Salón",
+        "threshold_m": 25
+      },
+      "solution": "recuérdame",
+      "solution_type": "text (normalized lowercase)",
+      "hint": "Vuelve al templete y busca siempre la casilla más lejana a los perseguidores.",
+      "hint_style": "estrategica",
+      "keywords": ["Recuérdame", "melodía", "canción", "salón antiguo", "memoria", "partitura antigua", "quiosco del templete", "Fuente", "Ponce de León", "farola"],
+      "has_image": false,
+      "narrative_summary": "Clara sueña con 'Recuérdame'. Recuerda infancia con su madre. Conecta la canción con la Fuente.",
+      "clue_type": "Continuación temática — 'Recuérdame' del nivel anterior",
+      "monster_escape_config": {
+        "board_size": 8,
+        "pursuer_count": 3,
+        "smart_probability": 0.7
+      }
+    },
+    {
+      "id": "11",
+      "title": "El diario de Clara Vela",
+      "date": "7 de junio de 1897",
+      "type": "diary",
+      "mechanics": ["text-highlight", "geo-check"],
+      "geo_location": {
+        "latitude": 42.0069,
+        "longitude": -4.5268,
+        "name": "Estatua 'Otro lado del silencio'",
+        "threshold_m": 25
+      },
+      "solution": "banco del paseo",
+      "solution_type": "geo_check_only",
+      "hint": "Busca en 'otro lado del silencio'",
+      "hint_style": "criptica",
+      "keywords": ["despistar", "Palacio del Marqués", "fuente del mercado", "templete", "último banco del paseo", "enredadera de rosas", "otro lado del silencio"],
+      "has_image": false,
+      "narrative_summary": "Última entrada del diario. Clara despista a sus perseguidores y esconde el diario bajo un banco.",
+      "clue_type": "Ubicación oculta — 'otro lado del silencio' es el nombre de una estatua",
+      "note": "Nivel más corto — solo geo-check, sin puzzle adicional. Funciona como transición al clímax."
+    },
+    {
+      "id": "12",
+      "title": "La caja de los secretos",
+      "date": "2025",
+      "type": "diary",
+      "mechanics": ["code-lock-box"],
+      "geo_location": null,
+      "solution": "63239",
+      "solution_type": "numeric_code (5 digits)",
+      "hint": "Sabes contar?",
+      "hint_style": "criptica",
+      "keywords": ["caja de los secretos", "combinación", "código", "Clara", "diamante", "secreto final"],
+      "has_image": false,
+      "narrative_summary": "El jugador encuentra la caja de Clara y debe abrir con código. El código viene de pistas acumuladas.",
+      "clue_type": "Acumulación — reúne conocimiento de niveles anteriores",
+      "code_lock_symbols": ["♠", "♥", "♦", "♣", "★"],
+      "note": "Unico nivel sin fecha de 1897 — '2025' indica que es el jugador quien habla, no Clara"
+    },
+    {
+      "id": "13",
+      "title": "Mensaje",
+      "date": null,
+      "type": "diary",
+      "mechanics": ["geo-check", "video"],
+      "geo_location": {
+        "latitude": 42.0052,
+        "longitude": -4.5317,
+        "name": "Puente de Hierro",
+        "threshold_m": 25
+      },
+      "solution": "",
+      "solution_type": "geo_check_final",
+      "hint": "Clarita te lo dice bien claro xD",
+      "hint_style": "meta",
+      "keywords": ["viajero", "Clara Vela", "Palencia", "Fuente de la Juventud", "Ponce de León", "aventura"],
+      "has_image": false,
+      "narrative_summary": "Nivel final. Geo-check en el Puente de Hierro. Video de cierre.",
+      "clue_type": "Final — solo llegar al lugar"
+    }
+  ],
+  "geolocation_summary": {
+    "total_points": 9,
+    "locations": [
+      {"name": "Templete del Salón", "lat": 42.0060, "lng": -4.5291, "levels": [1, 10]},
+      {"name": "Monumento Ponce de León", "lat": 42.0053, "lng": -4.5312, "levels": [3]},
+      {"name": "Los abuelos", "lat": 42.0060, "lng": -4.5303, "levels": [6]},
+      {"name": "Puerta - Ponce de León", "lat": 42.0058, "lng": -4.5307, "levels": [8]},
+      {"name": "Arco de las rosas", "lat": 42.0068, "lng": -4.5277, "levels": [9]},
+      {"name": "Estatua 'Otro lado del silencio'", "lat": 42.0069, "lng": -4.5268, "levels": [11]},
+      {"name": "Puente de Hierro", "lat": 42.0052, "lng": -4.5317, "levels": [13]}
+    ],
+    "bbox": {
+      "north": 42.0069,
+      "south": 42.0052,
+      "east": -4.5268,
+      "west": -4.5317,
+      "approximate_area": "~500m x ~400m"
+    }
+  },
+  "difficulty_distribution": {
+    "by_mechanic_complexity": [
+      {"levels": [1, 11, 13], "complexity": "baja", "mechanics": "geo-check simple o texto directo"},
+      {"levels": [4, 7, 9], "complexity": "media-baja", "mechanics": "texto + enigma conceptual"},
+      {"levels": [2, 5, 8], "complexity": "media", "mechanics": "puzzle interactivo (piano, memory, fish-sort)"},
+      {"levels": [3, 6], "complexity": "media-alta", "mechanics": "multi-step (geo + puzzle + sub-mecánica)"},
+      {"levels": [10, 12], "complexity": "alta", "mechanics": "arcade o código final que integra todo"}
+    ],
+    "pacing": {
+      "early_levels": "1-4: Introducción, mundo, mecánicas básicas",
+      "middle_levels": "5-8: Variedad, introducción de NPC IA, mecánicas más complejas",
+      "late_levels": "9-11: Tensión narrativa, ubicaciones más ocultas",
+      "finale": "12-13: Clímax (código final) + Resolución"
+    }
+  }
+}

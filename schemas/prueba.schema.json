@@ -1,248 +1,321 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://boticlaw.github.io/escape-room-skills/schemas/prueba.schema.json",
-  "title": "Escape Room Puzzle (Prueba)",
-  "description": "Schema for a single escape room puzzle/challenge",
+  "$id": "prueba.schema.json",
+  "title": "Escape Room Prueba Individual",
+  "description": "Schema para prueba-*.json — definición detallada de una prueba individual",
   "type": "object",
-  "required": ["id", "nombre", "descripcion", "skill_primario", "dificultad", "duracion_estimada_minutos", "configuracion", "pistas", "solucion", "materiales"],
-  "additionalProperties": false,
+  "required": [
+    "id",
+    "nombre",
+    "descripcion",
+    "dificultad",
+    "duracion_estimada_minutos",
+    "configuracion",
+    "barrera_fisica",
+    "hilo_conductor",
+    "pistas",
+    "solucion",
+    "materiales"
+  ],
+  "additionalProperties": true,
   "properties": {
     "id": {
       "type": "string",
-      "description": "Unique puzzle identifier (e.g. P01, P02)",
-      "pattern": "^P[0-9]{2,3}$"
+      "pattern": "^[a-z0-9]+_[0-9]+_[a-z0-9_-]+$",
+      "description": "ID único de la prueba (ej: touring_001_real_o_falso)"
     },
     "nombre": {
-      "type": "string",
-      "description": "Short puzzle name",
-      "minLength": 3,
-      "maxLength": 60
+      "type": "string"
     },
     "descripcion": {
-      "type": "string",
-      "description": "What the player sees and must do",
-      "minLength": 10
+      "type": "string"
+    },
+    "juego": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "espacio": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sala": {
+      "type": "string"
+    },
+    "tema_educativo": {
+      "type": "string"
     },
     "skill_primario": {
-      "type": "string",
-      "description": "Primary mechanic from escape-puzzles catalog",
-      "enum": [
-        "nonogram", "posiciones", "secuencial",
-        "memoria", "texto",
-        "mecanismo", "panel-electrico", "punteria-derribo", "puzzle-ensamblaje",
-        "tablet-cooperativo", "panel-control-app", "arcade-digital", "laberinto-digital",
-        "comunicacion-mensajes",
-        "busqueda-objetos", "exploracion-visual", "ubicacion-qr", "gps-navegacion", "acrostico-ubicacion", "adivinanza-ubicacion",
-        "investigacion-texto"
-      ]
+      "type": "string"
     },
     "skills_secundarios": {
       "type": "array",
-      "description": "Supporting mechanics involved",
       "items": {
         "type": "string"
-      },
-      "maxItems": 3
+      }
     },
     "dificultad": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 10,
-      "description": "Puzzle difficulty (1=trivial, 10=expert)"
+      "maximum": 10
     },
     "duracion_estimada_minutos": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 30,
-      "description": "Expected time to solve"
+      "minimum": 1
+    },
+    "jugadores_min": {
+      "type": "integer"
+    },
+    "jugadores_max": {
+      "type": "integer"
+    },
+    "edad_minima": {
+      "type": "integer"
+    },
+    "cooperacion_obligatoria": {
+      "type": "boolean"
+    },
+    "formato": {
+      "type": "string",
+      "enum": [
+        "secuencial",
+        "paralelo",
+        "libre"
+      ]
     },
     "configuracion": {
       "type": "object",
-      "description": "Puzzle setup details",
-      "required": ["mecanica_principal", "elementos_necesarios"],
-      "additionalProperties": false,
+      "required": [
+        "mecanica_principal",
+        "mecanismo_barrera",
+        "elementos_necesarios",
+        "distribucion_roles"
+      ],
+      "additionalProperties": true,
       "properties": {
         "mecanica_principal": {
-          "type": "string",
-          "description": "How the core mechanic works in this puzzle"
-        },
-        "mecanismo_barrera": {
-          "type": "string",
-          "description": "Physical/digital lock or barrier that opens on solve"
+          "type": "string"
         },
         "elementos_necesarios": {
           "type": "array",
-          "description": "Items needed for this puzzle",
           "items": {
             "type": "string"
           }
         },
+        "operador": {
+          "type": "string"
+        },
         "distribucion_roles": {
+          "type": "object"
+        },
+        "mecanismo_barrera": {
+          "type": "string"
+        }
+      }
+    },
+    "barrera_fisica": {
+      "type": "object",
+      "required": [
+        "tipo"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "tipo": {
           "type": "string",
-          "description": "How tasks split among players (if cooperative)"
+          "description": "Ej: Cryptex de 6 letras, Candado numérico de 4 dígitos, Llave física"
+        },
+        "codigo": {
+          "type": "string"
+        },
+        "codigo_candado": {
+          "type": "string"
+        },
+        "ubicacion": {
+          "type": "string"
+        },
+        "origen_codigo": {
+          "type": "string"
+        },
+        "montaje_minutos": {
+          "type": "integer"
+        }
+      }
+    },
+    "hilo_conductor": {
+      "type": "object",
+      "required": [
+        "letra",
+        "significado"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "letra": {
+          "type": "string",
+          "maxLength": 2
+        },
+        "significado": {
+          "type": "string"
+        },
+        "posicion": {
+          "type": "integer",
+          "minimum": 1
         }
       }
     },
     "pistas": {
       "type": "array",
-      "description": "Hint system (escalating from subtle to explicit)",
       "minItems": 1,
-      "maxItems": 3,
       "items": {
         "type": "object",
-        "required": ["nivel", "tipo", "texto"],
-        "additionalProperties": false,
+        "required": [
+          "nivel",
+          "texto"
+        ],
+        "additionalProperties": true,
         "properties": {
           "nivel": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 3,
-            "description": "Hint level (1=subtle, 2=moderate, 3=explicit)"
+            "minimum": 1
           },
           "tipo": {
             "type": "string",
-            "description": "Delivery method",
-            "enum": ["visual", "audio", "text", "environmental", "digital"]
+            "enum": [
+              "sutil",
+              "directa",
+              "casi_solucion"
+            ]
+          },
+          "timing": {
+            "type": "string"
           },
           "texto": {
-            "type": "string",
-            "description": "Hint content"
+            "type": "string"
           }
         }
       }
     },
     "solucion": {
       "type": "object",
-      "description": "Complete solution details",
-      "required": ["descripcion", "verificacion", "pasos_detallados"],
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "descripcion": {
-          "type": "string",
-          "description": "What the correct answer/action is"
+          "type": "string"
         },
         "verificacion": {
-          "type": "string",
-          "description": "How players self-verify (lock opens, light turns on, etc.)"
+          "type": "string"
         },
         "pasos_detallados": {
           "type": "array",
-          "description": "Step-by-step solution walkthrough",
           "items": {
             "type": "string"
           }
         },
         "recompensa": {
-          "type": "string",
-          "description": "What players get upon solving (next clue, item, access)"
+          "type": "object"
         }
       }
     },
     "materiales": {
       "type": "object",
-      "description": "Physical materials needed",
-      "required": ["impresion"],
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "impresion": {
           "type": "array",
-          "description": "Printable items",
           "items": {
-            "type": "object",
-            "required": ["archivo", "descripcion", "cantidad"],
-            "additionalProperties": false,
-            "properties": {
-              "archivo": { "type": "string" },
-              "descripcion": { "type": "string" },
-              "cantidad": { "type": "integer", "minimum": 1 }
-            }
+            "type": "string"
           }
         },
         "mobiliario": {
           "type": "array",
-          "description": "Furniture or fixtures needed",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "extras": {
           "type": "array",
-          "description": "Other materials (locks, props, electronics)",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
     "documentos_in_game": {
       "type": "array",
-      "description": "In-game documents players find and use",
+      "description": "Alias para ingame_docs (compatibilidad)",
       "items": {
         "type": "object",
-        "required": ["titulo", "texto", "cantidad"],
-        "additionalProperties": false,
+        "required": [
+          "titulo",
+          "texto"
+        ],
+        "additionalProperties": true,
         "properties": {
-          "titulo": { "type": "string" },
-          "texto": { "type": "string" },
-          "cantidad": { "type": "integer", "minimum": 1 },
-          "gm_notas": { "type": "string" }
+          "titulo": {
+            "type": "string"
+          },
+          "texto": {
+            "type": "string"
+          },
+          "cantidad": {
+            "type": "integer"
+          },
+          "gm_notas": {
+            "type": "string"
+          }
         }
       }
     },
-    "barrera_fisica": {
-      "type": "object",
-      "description": "Physical barrier/lock details",
-      "additionalProperties": false,
-      "properties": {
-        "tipo": {
-          "type": "string",
-          "description": "Type of barrier (padlock, electronic, magnetic, etc.)"
-        },
-        "ubicacion": {
-          "type": "string",
-          "description": "Where the barrier is placed"
-        },
-        "codigo": {
-          "type": "string",
-          "description": "The code/combination that opens it"
-        },
-        "origen_codigo": {
-          "type": "string",
-          "description": "How players derive the code from the puzzle"
-        },
-        "montaje_minutos": {
-          "type": "integer",
-          "description": "Setup time required"
-        }
-      }
+    "materiales_html": {
+      "type": "string"
     },
-    "hilo_conductor": {
-      "type": "object",
-      "description": "Narrative thread element (optional meta-puzzle)",
-      "additionalProperties": false,
-      "properties": {
-        "letra": {
-          "type": "string",
-          "description": "Letter or symbol contributed to meta-puzzle"
-        },
-        "significado": {
-          "type": "string",
-          "description": "Narrative meaning of this element"
-        },
-        "posicion": {
-          "type": "integer",
-          "description": "Position in the meta-puzzle sequence"
-        }
+    "narrativa": {
+      "type": "string"
+    },
+    "objetivos": {
+      "type": "array",
+      "items": {
+        "type": "string"
       }
     },
     "control_movimiento": {
       "type": "object",
-      "description": "Movement control for live games",
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "problema_potencial": {
-          "type": "string",
-          "description": "What could go wrong with player movement"
+          "type": "string"
         },
         "solucion_implementada": {
+          "type": "string"
+        },
+        "tipo_solucion": {
+          "type": "string"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "autor": {
+          "type": "string"
+        },
+        "fecha_creacion": {
           "type": "string",
-          "description": "How the design prevents or mitigates the issue"
+          "format": "date"
+        },
+        "fecha_actualizacion": {
+          "type": "string",
+          "format": "date"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "testado": {
+          "type": "boolean"
+        },
+        "notas": {
+          "type": "string"
         }
       }
     }

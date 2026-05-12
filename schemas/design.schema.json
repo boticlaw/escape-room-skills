@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "design.schema.json",
+  "title": "DESIGN Schema",
+  "description": "Schema para el artefacto DESIGN (DISEÑO-JUEGO) de un juego de escape room. Contiene el diseño completo y detallado listo para implementar.",
+  "type": "object",
+  "required": ["id", "nombre", "concept_id"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único del design",
+      "minLength": 1
+    },
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del juego",
+      "minLength": 2
+    },
+    "concept_id": {
+      "type": "string",
+      "description": "ID del CONCEPT del que proviene"
+    },
+    "brief_id": {
+      "type": "string",
+      "description": "ID del BRIEF original"
+    },
+    "version": { "type": ["string", "number"] },
+    "estado": { "type": "string" },
+    "fecha_creacion": { "type": "string" },
+    "fecha_actualizacion": { "type": "string" },
+    "descripcion": { "type": "string" },
+    "instrucciones_gm": { "type": "string" },
+    "cronograma": {
+      "type": "object",
+      "description": "Cronograma detallado del juego"
+    },
+    "salas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "nombre"],
+        "properties": {
+          "id": { "type": "string" },
+          "nombre": { "type": "string" },
+          "descripcion": { "type": "string" },
+          "pruebas": { "type": "array", "items": { "type": "string" } },
+          "materiales": { "type": "array", "items": { "type": "object" } },
+          "preparacion_minutos": { "type": "number" }
+        }
+      }
+    },
+    "materiales_totales": {
+      "type": "object",
+      "description": "Listado completo de materiales"
+    },
+    "presupuesto": {
+      "type": "object",
+      "description": "Presupuesto detallado"
+    },
+    "contingencias": {
+      "type": "array",
+      "items": { "type": "object" },
+      "description": "Planes de contingencia"
+    },
+    "debrief": {
+      "type": "object",
+      "description": "Plan de debrief post-juego"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notas": { "type": "string" }
+  },
+  "additionalProperties": true
+}

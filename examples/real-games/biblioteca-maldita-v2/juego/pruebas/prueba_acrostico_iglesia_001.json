@@ -1,0 +1,97 @@
+{
+  "id": "prueba_acrostico_iglesia_001",
+  "nombre": "Donde sera? - El Acróstico de la Iglesia",
+  "descripcion": "Pepe siente que se acerca a una parte crucial de su aventura. Monzon de Campos tiene muchos rincones llenos de historia y cultura, pero hay un lugar en particular que guarda las memorias mas profundas del pueblo. Debes resolver un enigma especial: un acrostico donde las primeras letras de cada verso forman el nombre del lugar.",
+  "skill_primario": "prueba-acrostico-ubicacion",
+  "skills_secundarios": [
+    "prueba-ubicacion-qr"
+  ],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "palabra_objetivo": "IGLESIA",
+    "numero_letras": 7,
+    "formato_texto": "poema",
+    "dificultad_deduccion": 4,
+    "explicitar_patron": false,
+    "versos": [
+      "Imagenes del pasado surgen a cada paso",
+      "Grandes historias estan grabadas en sus muros",
+      "Los ecos de tiempos antiguos aun resuenan",
+      "Entre sus calles, la vida se mezcla con la historia",
+      "Silencios y susurros que lo llenan de mistica",
+      "Imponentes estructuras resisten al paso del tiempo",
+      "Avanza y encontraras el lugar que buscas"
+    ],
+    "ubicacion_revelada": "Iglesia de Monzon de Campos",
+    "url_siguiente": "https://devueltaalpueblo.com/16lesi4",
+    "url_maps": "TODO: Google Maps de la iglesia",
+    "mensaje_exito": "Has descifrado el acrostico. La iglesia te espera.",
+    "categoria": "exploracion_visual"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Observa cuidadosamente el poema"
+    },
+    {
+      "nivel": 2,
+      "texto": "Como empiezas siempre es importante"
+    },
+    {
+      "nivel": 3,
+      "texto": "La palabra es un lugar sagrado y antiguo en el pueblo"
+    },
+    {
+      "nivel": 4,
+      "texto": "Fijate en las primeras letras de cada linea"
+    },
+    {
+      "nivel": 5,
+      "texto": "Debes ir a la iglesia de Monzon de Campos y escanear el codigo QR alli"
+    }
+  ],
+  "solucion": {
+    "mecanica": "Identificar patron de primeras letras + ir a ubicacion + escanear QR",
+    "acrostico": "I-G-L-E-S-I-A",
+    "metodo": "Leer la primera letra de cada verso de arriba a abajo",
+    "ubicacion": "Iglesia de Monzon de Campos",
+    "resultado": "Acceso a https://devueltaalpueblo.com/16lesi4"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "street_escape",
+    "jugadores_minimos": 1,
+    "jugadores_maximos": 6,
+    "notas_espacio": "STREET ESCAPE: Verificar acceso a la iglesia. Si hay horarios de culto, ajustar disponibilidad del QR."
+  },
+  "assets": {
+    "imagen_iglesia": "TODO: foto de la iglesia de Monzon de Campos",
+    "qr_code": "TODO: generar o fotografiar QR"
+  },
+  "metadata": {
+    "creado": "2026-02-15",
+    "version": "1.0",
+    "autor": "Dani",
+    "testeado": false,
+    "tags": [
+      "street_escape",
+      "acrostico",
+      "ubicacion",
+      "iglesia",
+      "monzon_campos"
+    ],
+    "proyecto": "DeVueltaAlPueblo",
+    "enigma_original": 10
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-street-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "STREET ESCAPE: Verificar acceso a la iglesia. Si hay horarios de culto, ajustar disponibilidad del QR.",
+    "adaptacion_street": {
+      "ubicaciones_reales": true,
+      "geolocalizacion": false,
+      "desbloqueo_por_proximidad": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "judgment_2026-05-01_legado-familia-v2",
+  "game_ref": "legado-familia",
+  "timestamp": "2026-05-01T20:35:00+02:00",
+  "verdict": "approved",
+  "scores": {
+    "narrativa": 8.5,
+    "puzzle_design": 8.0,
+    "cooperacion": 8.5,
+    "experiencia_jugador": 8.0,
+    "viabilidad_tecnica": 9.0,
+    "replayabilidad": 6.5,
+    "total": 8.1
+  },
+  "fortalezas": [
+    "Narrativa emocional coherente con arco completo (curiosidad → revelación → catarsis)",
+    "Hilo conductor LEGADO elegante y temático",
+    "Variedad excelente de mecánicas (6 tipos distintos)",
+    "Curva de dificultad bien calibrada (3,3,4,4,5,5)",
+    "Personajes ricos y consistentes entre pruebas",
+    "Materiales accesibles y presupuesto razonable (~80 EUR)",
+    "Instrucciones impresas eliminan confusión del primer paso",
+    "Roles distribuidos aseguran participación de todos"
+  ],
+  "debilidades_menores": [
+    "Tiempo ajustado al límite (50 min exacto) — poca holgura para transiciones lentas",
+    "P5 (Mensaje Dividido) puede frustrar si la comunicación verbal falla",
+    "Replayabilidad limitada (los puzzles se recuerdan tras jugar una vez)"
+  ],
+  "recomendaciones_finales": [
+    "GM debe cronometrar transiciones (<1 min entre espacios)",
+    "Tener copias de seguridad de documentos in-game",
+    "Ensayar P5 con equipos de prueba antes del evento",
+    "Considerar añadir un reloj visible para que los jugadores gestionen su tiempo"
+  ]
+}

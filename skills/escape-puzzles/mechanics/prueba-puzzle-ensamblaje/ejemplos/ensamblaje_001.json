@@ -1,0 +1,120 @@
+{
+  "id": "ensamblaje_001",
+  "nombre": "Tarjetas Fragmentadas de Cupido",
+  "descripcion": "Los jugadores encuentran varios trozos de cartas rasgadas esparcidos por la sala. Deben encontrar todas las piezas, identificar qué fragmentos pertenecen a cada carta, y ensamblarlas correctamente. Al dar la vuelta a las cartas completadas, se revela un número en cada una que forma el código.",
+  "skill_primario": "prueba-puzzle-ensamblaje",
+  "skills_secundarios": ["prueba-busqueda-objetos"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "tipo_prueba": "prueba_implementada",
+    "categoria": "ensamblaje",
+    "tipo_ensamblaje": "documento",
+    "numero_documentos": 4,
+    "fragmentos_por_documento": 4,
+    "total_fragmentos": 16,
+    "tipo_rotura": "rasgado",
+    "informacion_reverso": true,
+    "distribucion_fragmentos": "dispersos",
+    "pistas_agrupacion": true,
+    "materiales_estimados": "16 fragmentos de papel, 4 cartas completas",
+    "coste_estimado": "bajo",
+    "tiempo_preparacion_minutos": 30
+  },
+  "documentos": [
+    {
+      "id": 1,
+      "digito_reverso": "3",
+      "tema": "Flecha del Vínculo",
+      "fragmentos": 4,
+      "diferenciador": "Papel amarillento, letra cursiva"
+    },
+    {
+      "id": 2,
+      "digito_reverso": "5",
+      "tema": "Flecha del Compromiso",
+      "fragmentos": 4,
+      "diferenciador": "Papel blanco, letra impresa"
+    },
+    {
+      "id": 3,
+      "digito_reverso": "4",
+      "tema": "Flecha de la Confianza",
+      "fragmentos": 4,
+      "diferenciador": "Papel rosa, letra manuscrita"
+    },
+    {
+      "id": 4,
+      "digito_reverso": "8",
+      "tema": "El Fallo Misterioso",
+      "fragmentos": 4,
+      "diferenciador": "Papel azul, letra formal"
+    }
+  ],
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Buscad todos los trozos de papel rasgado. Parecen cartas rotas."
+    },
+    {
+      "nivel": 2,
+      "texto": "Agrupad los fragmentos por el tipo de letra o el color del papel."
+    },
+    {
+      "nivel": 3,
+      "texto": "Una vez completadas las cartas, dadles la vuelta. Cada una tiene un número en el reverso."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ensamblar 4 cartas de 4 fragmentos cada una",
+    "descripcion": "Los jugadores encuentran 16 fragmentos rasgados. Deben agruparlos por color de papel y tipo de letra, luego ensamblar cada carta. Al completar cada carta, el reverso muestra un dígito: 3, 5, 4, 8.",
+    "resultado": "Código 3548 formado con los números de las cartas completadas",
+    "validacion": "Verificar que las 4 cartas están completas y el código 3548 es correcto"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "8+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 6,
+    "notas_espacio": "Los fragmentos están esparcidos por la sala. Fomenta búsqueda colaborativa y luego ensamblaje en mesa."
+  },
+  "assets": {
+    "fragmentos_cartas": "16 fragmentos de papel con diferencias de color y letra",
+    "cartas_completas": "4 cartas completas con números en reverso"
+  },
+  "metadata": {
+    "creado": "2026-03-14",
+    "version": "1.0",
+    "autor": "Escapeitor",
+    "testeado": false,
+    "tags": [
+      "prueba_implementada",
+      "ensamblaje",
+      "prueba-puzzle-ensamblaje",
+      "bajo_coste",
+      "documento"
+    ],
+    "proyecto": "skills_ensamblaje",
+    "tipo": "ejemplo"
+  },
+  "metadata_contextual": {
+    "tipo_juego": "game-type-hall-escape",
+    "participantes_tipo": "equipos",
+    "espacio_requerido": "Sala con mesa para ensamblaje y ubicaciones para fragmentos",
+    "adaptacion_hall": {
+      "formato": "fragmentos_fisicos",
+      "interaccion": "presencial",
+      "feedback": "reverso_cartas"
+    },
+    "adaptacion_street": {
+      "formato": "sobres_gps",
+      "interaccion": "busqueda_exterior",
+      "feedback": "app_movil"
+    },
+    "adaptacion_investigation": {
+      "formato": "evidencias_caso",
+      "interaccion": "analisis_documentos",
+      "feedback": "informacion_caso"
+    }
+  }
+}

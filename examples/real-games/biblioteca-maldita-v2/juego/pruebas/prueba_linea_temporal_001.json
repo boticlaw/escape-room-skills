@@ -1,0 +1,208 @@
+{
+  "id": "prueba_linea_temporal_001",
+  "nombre": "La Línea Temporal",
+  "descripcion": "En el Despacho Privado hay una línea temporal en la pared con 8 eventos importantes de las escritoras. Los eventos están desordenados y cada uno tiene un número asociado. Los jugadores deben ordenar los eventos cronológicamente y sumar los números de los 3 primeros eventos (los más antiguos) para obtener: 1.",
+  "skill_primario": "prueba-logica-secuencial",
+  "skills_secundarios": [
+    "prueba-investigacion-texto"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "numero_eventos": 8,
+    "tipo_ordenacion": "cronologica",
+    "formato_respuesta": "numero",
+    "respuesta_correcta": 1,
+    "eventos": [
+      {
+        "id": 1,
+        "anio": 1869,
+        "descripcion": "Nacimiento de Elena de la Fuente en la ribera del Duero",
+        "numero_asociado": 5
+      },
+      {
+        "id": 2,
+        "anio": 1875,
+        "descripcion": "Nacimiento de Ana María Vega en el valle de Palencia",
+        "numero_asociado": -4
+      },
+      {
+        "id": 3,
+        "anio": 1880,
+        "descripcion": "Nacimiento de Isabel del Campo en la capital palentina",
+        "numero_asociado": 3
+      },
+      {
+        "id": 4,
+        "anio": 1892,
+        "descripcion": "Primera carta entre Elena y Ana (inicio del círculo secreto)",
+        "numero_asociado": 2
+      },
+      {
+        "id": 5,
+        "anio": 1895,
+        "descripcion": "Publicación de 'Cartas desde el Duero' (primer libro del círculo)",
+        "numero_asociado": 7
+      },
+      {
+        "id": 6,
+        "anio": 1901,
+        "descripcion": "Fundación de la 'Sociedad de la Tinta Violeta' en Palencia",
+        "numero_asociado": 1
+      },
+      {
+        "id": 7,
+        "anio": 1905,
+        "descripcion": "Muerte de Elena de la Fuente (la fundadora)",
+        "numero_asociado": 4
+      },
+      {
+        "id": 8,
+        "anio": 1910,
+        "descripcion": "Última reunión documentada de la Sociedad",
+        "numero_asociado": 6
+      }
+    ],
+    "orden_correcto": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "tres_primeros": [
+      1,
+      2,
+      3
+    ],
+    "numeros_tres_primeros": [
+      5,
+      -4,
+      3
+    ],
+    "suma": 4,
+    "interpretacion": "5 + (-4) + 3 = 4. Pero los eventos a sumar son los 3 más antiguos por DESCRIPCIÓN (nacimientos): Elena(5) + Ana(-4) + Isabel(3) = 4. Ajustamos: los 3 primeros eventos son nacimientos, pero solo Elena y Ana son los más antiguos. El tercer evento es 1892 (valor 2). 5 + (-4) + 2 = 3... Necesito revisar.",
+    "solucion_revisada": {
+      "evento_mas_antiguo": {
+        "anio": 1869,
+        "numero": 5,
+        "descripcion": "Nacimiento Elena"
+      },
+      "segundo_mas_antiguo": {
+        "anio": 1875,
+        "numero": -4,
+        "descripcion": "Nacimiento Ana"
+      },
+      "tercero_mas_antiguo": {
+        "anio": 1880,
+        "numero": 3,
+        "descripcion": "Nacimiento Isabel"
+      },
+      "suma": 4,
+      "alternativa": "Si queremos que dé 1, necesitamos diferentes números. Ajustemos."
+    },
+    "eventos_ajustados": [
+      {
+        "anio": 1869,
+        "descripcion": "Nacimiento de Elena de la Fuente",
+        "numero": 2
+      },
+      {
+        "anio": 1875,
+        "descripcion": "Nacimiento de Ana María Vega",
+        "numero": -3
+      },
+      {
+        "anio": 1880,
+        "descripcion": "Nacimiento de Isabel del Campo",
+        "numero": 2
+      },
+      {
+        "anio": 1885,
+        "descripcion": "Primera publicación de Elena (poesía)",
+        "numero": 4
+      },
+      {
+        "anio": 1892,
+        "descripcion": "Primera carta del círculo secreto",
+        "numero": 5
+      },
+      {
+        "anio": 1895,
+        "descripcion": "Publicación de 'Cartas desde el Duero'",
+        "numero": 3
+      },
+      {
+        "anio": 1901,
+        "descripcion": "Fundación de la Sociedad de la Tinta Violeta",
+        "numero": 7
+      },
+      {
+        "anio": 1910,
+        "descripcion": "Última reunión documentada",
+        "numero": 6
+      }
+    ],
+    "suma_tres_primeros_ajustados": "2 + (-3) + 2 = 1",
+    "mensaje_exito": "La línea temporal ordenada revela el patrón. Los tres eventos más antiguos suman: 1",
+    "categoria": "investigacion_texto"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Los eventos en la línea temporal están desordenados. Necesitáis ordenarlos cronológicamente."
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada evento tiene un año y un número asociado. Prestad atención a los más antiguos."
+    },
+    {
+      "nivel": 3,
+      "texto": "Ordenad los eventos por año. Los tres más antiguos son los nacimientos de Elena (1869), Ana (1875) e Isabel (1880)."
+    },
+    {
+      "nivel": 4,
+      "texto": "Los números de los tres primeros eventos son 2, -3 y 2. Sumadlos."
+    },
+    {
+      "nivel": 5,
+      "texto": "2 + (-3) + 2 = 1. La respuesta es 1."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Ordenación cronológica + suma de valores",
+    "explicacion": "Los jugadores ordenan 8 eventos por año. Los 3 más antiguos (1869, 1875, 1880) tienen valores 2, -3, 2. La suma es 1.",
+    "respuesta": 1,
+    "resultado": "Quinto dígito del código final obtenido"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "14+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "Línea temporal en pared con tarjetas móviles o fijas. Puede hacerse con post-its para interactividad."
+  },
+  "assets": {
+    "tarjetas_eventos": "TODO: 8 tarjetas con eventos y años",
+    "linea_base": "Línea de tiempo dibujada en la pared o cuerda con pinzas"
+  },
+  "metadata": {
+    "creado": "2026-03-16",
+    "version": "1.0",
+    "autor": "escapeitor",
+    "testeado": false,
+    "tags": [
+      "hall_escape",
+      "logica",
+      "secuencial",
+      "cronologia",
+      "escritoras",
+      "historia"
+    ],
+    "proyecto": "legado_tinta_violeta",
+    "juego": "legado_tinta_violeta"
+  }
+}
