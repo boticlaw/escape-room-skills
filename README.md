@@ -4,11 +4,13 @@
 
 ## ¿Qué es esto?
 
-Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Cuatro skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, 6 juegos reales con playtest data, 16 fases de pipeline (incluyendo remix), evaluación dual-LLM con detección de providers, y un stack de búsqueda self-hosted para investigación temática automática.
+Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Cuatro skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, 82 pruebas reales testeadas, 6 juegos completos con playtest data, 17 fases de pipeline (incluyendo remix), evaluación dual-LLM con detección de providers, y un stack de búsqueda self-hosted para investigación temática automática.
+
+Todos los skills siguen la [Gentle-AI Skill Style Guide](https://github.com/Gentleman-Programming/gentle-ai/blob/main/docs/skill-style-guide.md): instrucciones ejecutables compactas (activación → reglas → decisiones → pasos → output), con detalle en `references/` para no inflar el contexto del LLM.
 
 | Skill | Función |
 |---|---|
-| **escape-design** | Pipeline maestro — 16 fases resumibles con skills individuales por fase, incluyendo remix |
+| **escape-design** | Pipeline maestro — 17 fases resumibles con skills individuales por fase, incluyendo remix |
 | **escape-build** | Generación HTML→PDF con plantillas temáticas y 7 categorías de materiales |
 | **escape-puzzles** | Catálogo de 21 mecánicas de puzzle con archivos SKILL.md individuales por mecánica |
 | **escape-setup** | Configuración del sistema — detección de modelos, validación de providers, jueces dual-LLM |
@@ -19,37 +21,38 @@ Un toolkit completo que le da a cualquier agente de IA el conocimiento y las pla
 escape-room-skills/
 ├── skills/
 │   ├── escape-design/              # Skill maestro — pipeline completo de diseño
-│   │   ├── SKILL.md                # Orchestrador del pipeline
-│   │   └── pipeline/               # 16 skills de fase individuales
-│   │       ├── pipeline-orchestrator/  # Orchestrador con template PROGRESS
-│   │       ├── pipeline-explore/       # Brief + investigación temática + juegos reales
-│   │       ├── pipeline-conceive/      # Generación de concepto (dual-LLM)
-│   │       ├── pipeline-design/        # Diseño de puzzles (dual-LLM)
-│   │       ├── pipeline-build/         # Construcción de archivos del juego
-│   │       ├── pipeline-verify/        # Verificación de calidad (27 checks + playtest data)
+│   │   ├── SKILL.md                # Entrada al pipeline (~400 palabras)
+│   │   ├── references/             # Detalle movido fuera del skill principal
+│   │   └── pipeline/               # 18 skills de fase individuales
+│   │       ├── pipeline-orchestrator/  # Orchestrador resumible (~830 palabras)
+│   │       │   └── references/        # Design checks, progress schema, ejemplos
+│   │       ├── pipeline-explore/       # Brief + investigación temática
+│   │       ├── pipeline-conceive/      # Concepto (dual-LLM)
+│   │       ├── pipeline-design/        # Puzzles (dual-LLM)
+│   │       ├── pipeline-build/         # Construcción del juego
+│   │       ├── pipeline-verify/        # 18 checks + playtest calibration
 │   │       ├── pipeline-judgment-day/  # Revisión adversarial dual-LLM
-│   │       ├── pipeline-playtest/      # Playtest simulado dual-LLM + calibración real
-│   │       ├── pipeline-remix/         # ⭐ Crear variantes de juegos existentes
-│   │       ├── pipeline-judge-logic/   # Evaluación de lógica
-│   │       ├── pipeline-judge-story/   # Evaluación de narrativa
-│   │       ├── pipeline-narrative-consistency/
-│   │       ├── pipeline-difficulty-calibration/  # Calibrado contra curvas reales
-│   │       ├── pipeline-regression/    # Regresión + cross-game comparison
-│   │       ├── pipeline-skill-resolution/
-│   │       ├── skill-architect-pruebas-escape/
-│   │       └── skill-creador-juegos/
+│   │       ├── pipeline-playtest/      # Playtest dual-LLM + calibración real
+│   │       ├── pipeline-remix/         # ⭐ Variantes de juegos existentes
+│   │       └── ...                     # 9 skills más
 │   ├── escape-build/               # Plantillas, CSS, generador de materiales
+│   │   ├── SKILL.md                # (~300 palabras)
+│   │   └── references/             # CSS variables, templates, checklists
 │   ├── escape-puzzles/             # Catálogo de mecánicas
-│   │   ├── SKILL.md                # Resumen + matriz de compatibilidad
-│   │   └── mechanics/              # 21 carpetas individuales de mecánicas
+│   │   ├── SKILL.md                # Resumen + matriz de compatibilidad (~420 palabras)
+│   │   ├── references/             # Catálogo completo de 21 mecánicas
+│   │   └── mechanics/              # 21 mecánicas individuales (~220-350 palabras cada una)
+│   │       └── prueba-comunicacion-mensajes/
+│   │           ├── SKILL.md        # Instrucciones ejecutables compactas
+│   │           └── references/     # Variables, escalado, errores, ejemplos
 │   └── escape-setup/               # Configuración + validación de providers
+│       ├── SKILL.md                # (~350 palabras)
+│       └── references/             # Judge config, verification details
 ├── schemas/                        # JSON Schema (draft-07) + registro de skills
-├── scripts/                        # 19 scripts de utilidad
-│   ├── build-pdf.mjs, build.sh, escape-materials-generator.py...
-│   ├── search-games.py            # ⭐ Búsqueda en juegos reales (9 modos)
+├── scripts/                        # Scripts de utilidad
+│   ├── search-games.py            # ⭐ Búsqueda en juegos + 82 pruebas (13 modos)
 │   ├── verify-judges.py           # ⭐ Validación de providers de jueces
-│   ├── dual-llm-evaluate.py       # Evaluación LLM externa (fallback)
-│   └── dual-llm-synthesis.py      # Cruce de hallazgos dual-LLM
+│   └── ...                         # build-pdf, materials-generator, etc.
 ├── templates/
 │   ├── css/escape-base.css         # 8 variables CSS + componentes
 │   └── html/game-design.html       # Plantilla completa de diseño
@@ -58,20 +61,24 @@ escape-room-skills/
 │   ├── hall-escape/                # Interior 50+ m², equipos 5-10
 │   ├── street-escape/              # Exterior, GPS/QR, equipos 2-5
 │   ├── investigation/              # Detective/crimen, equipos 2-6
-│   └── concurso/                   # Quiz battle competitivo, equipos 2-3, 20-45 min
+│   └── concurso/                   # Quiz battle competitivo, equipos 2-3
 ├── services/                       # Stack de búsqueda (opcional, self-hosted)
-│   ├── docker-compose.yml          # SearXNG + Perplexica en Docker
-│   └── scripts/                    # Helpers de búsqueda
-├── docs/                           # Documentación del sistema
-├── SEARCH-SETUP.md                 # Guía completa de instalación del stack
-└── examples/
-    └── real-games/                 # 6 juegos reales con playtest data
-        ├── el-legado-de-la-familia/   # Completo con playtest reports
-        ├── legado-tinta-violeta/      # v4.1 completo, escritoras palentinas
-        ├── protocolo-alerta-verde/    # Sabotaje ecológico
-        ├── test-de-touring/           # IA y sus peligros
-        ├── quiz-battle-palencia/      # Quiz battle (Godot+MQTT)
-        └── la-dama-del-salon/         # App completa, 13 niveles GPS
+├── examples/
+│   ├── real-games/                 # 6 juegos reales con playtest data
+│   │   ├── el-legado-de-la-familia/
+│   │   ├── legado-tinta-violeta/
+│   │   ├── protocolo-alerta-verde/
+│   │   ├── test-de-touring/
+│   │   ├── quiz-battle-palencia/
+│   │   └── la-dama-del-salon/
+│   ├── puzzles/                    # ⭐ 82 pruebas reales como knowledge base
+│   │   ├── pruebas/                # 74 pruebas validadas
+│   │   ├── ideas/                  # 12 ideas pendientes
+│   │   ├── descartadas/            # 10 pruebas que no funcionaron
+│   │   ├── descriptions/           # 44 descripciones narrativas
+│   │   └── calendarios/            # Efemérides + calendario semanal
+│   └── ...
+└── docs/
 ```
 
 ### Pipeline de Diseño (escape-design)
@@ -112,7 +119,7 @@ Cada fase es un skill independiente con su propio SKILL.md. El pipeline es **res
 | **Búsqueda/Ubicación** | Búsqueda Objetos, Exploración Visual, QR, GPS, Acróstico, Adivinanza |
 | **Investigación** | Investigación de Texto |
 
-Cada mecánica tiene su propio SKILL.md con: variables de diseño, errores comunes, escalado de dificultad, adaptaciones por tipo de juego y ejemplos.
+Cada mecánica tiene su propio SKILL.md compacto con reglas, decisiones y pasos ejecutables. Variables, escalado de dificultad y ejemplos están en `references/` por mecánica.
 
 ## Evaluación Dual-LLM
 
@@ -181,24 +188,32 @@ Síntesis ajustada: hallazgos CONFIRMED peso 1.0, hallazgos SUSPECT peso 0.6 (re
 
 **Regla clave**: Los jueces DEBEN usar modelos de providers distintos. Ver `skills/escape-setup/SKILL.md` para configuración completa, rotación de modelos, y fallback para mismo provider.
 
-## Juegos Reales como Knowledge Base
+## Juegos Reales + Catálogo de Pruebas como Knowledge Base
 
-Los 6 juegos reales no son solo ejemplos — son una **knowledge base activa** que el pipeline consulta automáticamente:
+Los 6 juegos reales y las 82 pruebas individuales no son solo ejemplos — son una **knowledge base activa** que el pipeline consulta automáticamente:
 
-- **CONCEIVE**: Busca patrones narrativos que funcionaron (ganchos, arcos emocionales, lecciones de playtest)
-- **DESIGN**: Consulta qué mecánicas tuvieron mejor recepción y calibra tiempos contra datos reales
+- **CONCEIVE**: Busca patrones narrativos que funcionaron + pruebas sueltas por mecánica/dificultad
+- **DESIGN**: Consulta qué mecánicas tuvieron mejor recepción y calibra tiempos contra datos reales + consulta pruebas testeadas de similar dificultad
+- **BUILD**: Verifica estructura de output contra pruebas existentes (patrones probados)
 - **PLAYTEST**: Calibra perfiles simulados contra jugadores reales (frustración, pistas, energía, diversión)
 - **VERIFY**: Establece umbrales de verificación desde playtest data real
 - **DIFFICULTY**: Compara curvas de dificultad contra los 3 juegos completados con playtest
 - **REMIX**: Usa playtest scores para decidir qué conservar y qué eliminar al crear variantes
 
 ```bash
-# Buscar en juegos reales
+# Buscar en juegos reales + catálogo de pruebas (unificado)
 python3 scripts/search-games.py --theme "ecología" --pretty
 python3 scripts/search-games.py --mechanic "prueba-comunicacion" --pretty
 python3 scripts/search-games.py --similar "sabotaje naturaleza" --pretty
 python3 scripts/search-games.py --list-mechanics --pretty
-python3 scripts/search-games.py --recent-mechanics --pretty
+
+# Buscar solo en el catálogo de 82 pruebas
+python3 scripts/search-games.py --puzzles --difficulty 4-7 --pretty
+python3 scripts/search-games.py --puzzles --list-categories --pretty
+python3 scripts/search-games.py --puzzles --puzzle "prueba-laberinto-hilos" --pretty
+
+# Incluir pruebas descartadas (qué NO funciona)
+python3 scripts/search-games.py --puzzles --include-discarded --mechanic "prueba-mecanismo" --pretty
 ```
 
 ## Pipeline Remix — Variantes de Juegos
@@ -322,7 +337,7 @@ Funciona sin el stack también — el pipeline hace fallback a `webfetch` o inve
 
 | Script | Lenguaje | Función |
 |--------|----------|---------|
-| `search-games.py` | Python | Buscar en juegos reales por temática, mecánica, dificultad, similitud (9 modos) |
+| `search-games.py` | Python | Buscar en juegos reales + catálogo de 82 pruebas (13 modos, unificado) |
 | `verify-judges.py` | Python | Validar configuración de jueces y providers |
 | `build-pdf.mjs` | Node.js | Genera PDF desde HTML vía Puppeteer |
 | `build.sh` | Bash | Orchestración completa del build |
