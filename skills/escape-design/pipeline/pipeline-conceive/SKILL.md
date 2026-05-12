@@ -1,7 +1,7 @@
 ---
 name: pipeline-conceive
 description: >
-  FASE 2 del pipeline de escapeitor. Dual-LLM: Razonator (GLM-5.1) y Visionator (GPT-5.5) generan
+  FASE 2 del pipeline de escapeitor. Dual-LLM: Dos jueces con modelos distintos generan
   conceptos independientes desde enfoques distintos (estructurado vs creativo). Escapeitor
   sintetiza lo mejor de ambos en un CONCEPT.json final.
 license: Apache-2.0
@@ -16,7 +16,7 @@ metadata:
 
 # Pipeline — FASE 2: Conceive (Dual-LLM)
 
-Dos LLMs generan conceptos independientes desde perspectivas distintas. Escapeitor sintetiza lo mejor de cada uno en un concepto final unificado.
+Dos jueces con modelos distintos generan conceptos independientes desde perspectivas distintas. Escapeitor sintetiza lo mejor de cada uno en un concepto final unificado.
 
 ## Cuándo se ejecuta
 
@@ -26,22 +26,22 @@ Después de FASE 1 (Explore). El Orchestrator llama a este skill cuando el `BRIE
 
 | Fuente | Ruta |
 |--------|------|
-| Brief del juego | `agents/escapeitor/.pipeline/{juego-id}/BRIEF.json` |
+| Brief del juego | `{output_dir}/BRIEF.json` |
 
 ## Output
 
 | Producto | Ruta |
 |----------|------|
-| Concepto Juez A | `agents/escapeitor/.pipeline/{juego-id}/concepts/CONCEPT-A.json` |
-| Concepto Juez B | `agents/escapeitor/.pipeline/{juego-id}/concepts/CONCEPT-B.json` |
-| Concepto final sintetizado | `agents/escapeitor/.pipeline/{juego-id}/CONCEPT.json` |
+| Concepto Juez A | `{output_dir}/concepts/CONCEPT-A.json` |
+| Concepto Juez B | `{output_dir}/concepts/CONCEPT-B.json` |
+| Concepto final sintetizado | `{output_dir}/CONCEPT.json` |
 
 ## Los Dos Jueces
 
-| Agente | Modelo | Enfoque |
+| Agente | Config | Enfoque |
 |--------|--------|---------|
-| `razonator` | `zai/glm-5.1` | **Estructurado** — narrativa clásica, progresión lógica, arcos tradicionales, solidez narrativa |
-| `visionator` | `openai-codex/gpt-5.5` | **Creativo** — giros narrativos, mecánicas innovadoras, atmósferas originales, gancho impactante |
+| `escape-judge-a` | `opencode.json` model | **Estructurado** — narrativa clásica, progresión lógica, arcos tradicionales, solidez narrativa |
+| `escape-judge-b` | `opencode.json` model (DIFFERENT provider) | **Creativo** — giros narrativos, mecánicas innovadoras, atmósferas originales, gancho impactante |
 
 **Ventaja dual-LLM**: Un modelo prioriza solidez estructural, el otro aporta frescura creativa. La síntesis captura lo mejor de ambos enfoques.
 
@@ -49,57 +49,39 @@ Después de FASE 1 (Explore). El Orchestrator llama a este skill cuando el `BRIE
 
 | Framework | Ruta | Uso |
 |-----------|------|-----|
-| Storytelling | `agents/escapeitor/research-frameworks/03-storytelling.md` | Arco narrativo, Hero's Journey |
-| Psicología | `agents/escapeitor/research-frameworks/04-psicologia.md` | Flow Theory, progresión emocional |
-| Escenografía | `agents/escapeitor/research-frameworks/06-escenografia.md` | Atmósfera, inmersión sensorial |
+| Storytelling | `research-frameworks/03-storytelling.md` | Arco narrativo, Hero's Journey |
+| Psicología | `research-frameworks/04-psicologia.md` | Flow Theory, progresión emocional |
+| Escenografía | `research-frameworks/06-escenografia.md` | Atmósfera, inmersión sensorial |
 
 Ambos jueces deben leer estos frameworks antes de generar.
 
 ## Paso 1: Launch Paralelo
 
-Lanzar ambos jueces como **agentes independientes** con `sessions_spawn`:
+Launch both judges via delegation (parallel):
 
-```
-sessions_spawn(agentId=razonator, task:
-  "Lee skills/pipeline-conceive/SKILL.md para entender el formato de output.
-   Lee el BRIEF.json en agents/escapeitor/.pipeline/{juego-id}/BRIEF.json.
-   Lee los research frameworks: research-frameworks/03-storytelling.md, 04-psicologia.md, 06-escenografia.md.
-   Lee el GAMETYPE.md correspondiente al game_type del brief.
-   
-   Tu ENFOQUE: estructurado, narrativa clásica, progresión lógica.
-   - Arco narrativo sólido (3 actos claros con setup/confrontation/resolution)
-   - Personajes con motivaciones bien definidas
-   - Progresión emocional predecible pero efectiva
-   - Gancho basado en misterio clásico (algo que no debería estar ahí)
-   - Flujo recomendado conservador (compatible con el game_type)
-   
-   Genera un CONCEPT.json completo siguiendo la estructura del skill.
-   Escríbelo en agents/escapeitor/.pipeline/{juego-id}/concepts/CONCEPT-A.json"
-)
+  delegate(agent="escape-judge-a", prompt="Lee el BRIEF.json, los research frameworks (research-frameworks/03-storytelling.md, 04-psicologia.md, 06-escenografia.md) y el GAMETYPE.md correspondiente.
+  Tu ENFOQUE: estructurado, narrativa clásica, progresión lógica.
+  - Arco narrativo sólido (3 actos claros)
+  - Personajes con motivaciones definidas
+  - Progresión emocional predecible pero efectiva
+  - Gancho basado en misterio clásico
+  Genera un CONCEPT.json completo.
+  Escríbelo en {output_dir}/concepts/CONCEPT-A.json")
 
-sessions_spawn(agentId=visionator, task:
-  "Lee skills/pipeline-conceive/SKILL.md para entender el formato de output.
-   Lee el BRIEF.json en agents/escapeitor/.pipeline/{juego-id}/BRIEF.json.
-   Lee los research frameworks: research-frameworks/03-storytelling.md, 04-psicologia.md, 06-escenografia.md.
-   Lee el GAMETYPE.md correspondiente al game_type del brief.
-   
-   Tu ENFOQUE: creativo, giros narrativos, mecánicas innovadoras.
-   - Giros inesperados en la narrativa (nothing is what it seems)
-   - Mecánicas de interacción poco convencionales
-   - Atmósfera inmersiva y sensorialmente rica
-   - Gancho visual/emocional impactante (shock o wonder en <30 seg)
-   - Flujo recomendado atrevido si el game_type lo permite
-   
-   Genera un CONCEPT.json completo siguiendo la estructura del skill.
-   Escríbelo en agents/escapeitor/.pipeline/{juego-id}/concepts/CONCEPT-B.json"
-)
-```
+  delegate(agent="escape-judge-b", prompt="Lee el BRIEF.json, los research frameworks (research-frameworks/03-storytelling.md, 04-psicologia.md, 06-escenografia.md) y el GAMETYPE.md correspondiente.
+  Tu ENFOQUE: creativo, giros narrativos, atmósferas originales.
+  - Giros inesperados que redefinen la experiencia
+  - Mecánicas narrativas innovadoras (perspectiva múltiple, narrador no fiable)
+  - Atmósfera inmersiva como vehículo narrativo
+  - Gancho emocional potente
+  Genera un CONCEPT.json completo.
+  Escríbelo en {output_dir}/concepts/CONCEPT-B.json")
 
 Ambos en paralelo. Esperar AMBOS antes de continuar a Paso 2.
 
 **REGLA CRÍTICA**: Cada juez NO ve el output del otro. Generación 100% independiente.
 
-**Los jueces son agentes con modelo fijo en config** — Escapeitor no necesita especificar modelo, cada agente ya tiene su LLM asignado.
+**Los jueces son agentes configurados en opencode.json** — cada agente ya tiene su LLM asignado.
 
 ## Paso 2: Synthesis (Escapeitor orquesta)
 
@@ -108,12 +90,12 @@ Escapeitor lee `CONCEPT-A.json` y `CONCEPT-B.json` y sintetiza directamente (no 
 ### Prompt Template para Synthesis
 
 ```
-Eres un director creativo de escape rooms. Tienes dos propuestas de concepto de LLMs diferentes:
+Eres un director creativo de escape rooms. Tienes dos propuestas de concepto de jueces distintos:
 
-## CONCEPTO A (GLM-5.1 — Estructurado)
+## CONCEPTO A (Juez A — Estructurado)
 {CONCEPT-A.json completo}
 
-## CONCEPTO B (GPT-5.5 — Creativo)
+## CONCEPTO B (Juez B — Creativo)
 {CONCEPT-B.json completo}
 
 ## BRIEF ORIGINAL
@@ -157,9 +139,9 @@ Si falla validación, ajustar la síntesis y re-validar (máx 2 intentos). Si pe
 
 ## Paso 4: Guardar
 
-1. Guardar `CONCEPT-A.json` en `agents/escapeitor/.pipeline/{juego-id}/concepts/CONCEPT-A.json`
-2. Guardar `CONCEPT-B.json` en `agents/escapeitor/.pipeline/{juego-id}/concepts/CONCEPT-B.json`
-3. Guardar `CONCEPT.json` (final) en `agents/escapeitor/.pipeline/{juego-id}/CONCEPT.json`
+1. Guardar `CONCEPT-A.json` en `{output_dir}/concepts/CONCEPT-A.json`
+2. Guardar `CONCEPT-B.json` en `{output_dir}/concepts/CONCEPT-B.json`
+3. Guardar `CONCEPT.json` (final) en `{output_dir}/CONCEPT.json`
 
 ## Estructura de CONCEPT.json (output final)
 
@@ -223,9 +205,9 @@ El Orchestrator debe:
 
 ## Agentes Utilizados
 
-- `razonator` (GLM-5.1) — Agente independiente con modelo fijo en config
-- `visionator` (GPT-5.5) — Agente independiente con modelo fijo en config
-- Ambos son subagentes permitidos de Escapeitor
+- `escape-judge-a` — Agente configurado en `opencode.json` (enfoque estructurado)
+- `escape-judge-b` — Agente configurado en `opencode.json`, modelo de provider DISTINTO (enfoque creativo)
+- Ambos se invocan vía `delegate()`
 
 ## Ejemplo
 

@@ -11,7 +11,7 @@ Ejecutar al **inicio de cada fase** del pipeline. Determina qué research framew
 
 | Parámetro | Valores posibles | Fuente |
 |-----------|-----------------|--------|
-| `game_type` | `hall-escape`, `investigation`, `street-escape` | `BRIEF.json` o petición de Daniel |
+| `game_type` | `hall-escape`, `investigation`, `street-escape`, `concurso` | `BRIEF.json` o petición de Daniel |
 | `phase` | `conceive`, `design`, `build`, `explore`, `verify`, `judge` | Fase actual del pipeline |
 | `theme` | string (ej: `piratas`, `terror`) | `BRIEF.json` |
 | `difficulty` | `facil`, `medio`, `dificil` | `BRIEF.json` |
@@ -25,6 +25,7 @@ Ejecutar al **inicio de cada fase** del pipeline. Determina qué research framew
 | `hall-escape` | `01-narrative-arc`, `02-puzzle-design`, `06-spatial-puzzles`, `10-escape-room-master` |
 | `investigation` | `01-narrative-arc`, `03-clue-chains`, `07-deduction-games`, `10-escape-room-master` |
 | `street-escape` | `01-narrative-arc`, `04-team-dynamics`, `08-mobile-puzzles`, `10-escape-room-master` |
+| `concurso` | `01-narrative-arc`, `02-puzzle-design`, `05-ux`, `09-estilo-juegos` |
 
 ### Por phase → additions
 
@@ -43,17 +44,17 @@ El skill retorna un listado de archivos que el agente de la fase DEBE cargar. Fo
 
 ```
 RESOLVED_STANDARDS:
-- agents/escapeitor/research-frameworks/01-narrative-arc.md
-- agents/escapeitor/research-frameworks/02-puzzle-design.md
-- agents/escapeitor/research-frameworks/10-escape-room-master.md
-- agents/escapeitor/research-frameworks/09-estilo-juegos.md
+- research-frameworks/01-narrative-arc.md
+- research-frameworks/02-puzzle-design.md
+- research-frameworks/10-escape-room-master.md
+- research-frameworks/09-estilo-juegos.md
 ```
 
 Si la fase lo requiere, incluir también el SKILL.md correspondiente:
 ```
 RESOLVED_STANDARDS:
-- agents/escapeitor/research-frameworks/01-game-design.md
-- agents/escapeitor/escape-material/.agents/skills/pipeline-verify/SKILL.md
+- research-frameworks/01-game-design.md
+- skills/pipeline-verify/SKILL.md
 ```
 
 ## Reglas
@@ -61,7 +62,7 @@ RESOLVED_STANDARDS:
 1. **El agente de la fase DEBE cargar solo estos archivos**, no todo el directorio de frameworks
 2. Si `game_type` no está definido, usar `hall-escape` como default
 3. Si `phase` no está en la tabla, no añadir adicionales (solo frameworks base)
-4. Los paths son relativos a `agents/escapeitor/`
+4. Los paths son relativos a la raíz del proyecto
 5. Este skill NO genera archivos — solo retorna el listado como output del subagente
 6. Ejecución: < 5s (es un lookup, no requiere LLM pesado)
 
@@ -70,47 +71,47 @@ RESOLVED_STANDARDS:
 ### Ejemplo 1: hall-escape, fase design
 ```
 RESOLVED_STANDARDS:
-- agents/escapeitor/research-frameworks/01-narrative-arc.md
-- agents/escapeitor/research-frameworks/02-puzzle-design.md
-- agents/escapeitor/research-frameworks/06-spatial-puzzles.md
-- agents/escapeitor/research-frameworks/10-escape-room-master.md
-- agents/escapeitor/research-frameworks/09-estilo-juegos.md
+- research-frameworks/01-narrative-arc.md
+- research-frameworks/02-puzzle-design.md
+- research-frameworks/06-spatial-puzzles.md
+- research-frameworks/10-escape-room-master.md
+- research-frameworks/09-estilo-juegos.md
 ```
 
 ### Ejemplo 2: investigation, fase verify
 ```
 RESOLVED_STANDARDS:
-- agents/escapeitor/research-frameworks/01-narrative-arc.md
-- agents/escapeitor/research-frameworks/03-clue-chains.md
-- agents/escapeitor/research-frameworks/07-deduction-games.md
-- agents/escapeitor/research-frameworks/10-escape-room-master.md
-- agents/escapeitor/escape-material/.agents/skills/pipeline-verify/SKILL.md
+- research-frameworks/01-narrative-arc.md
+- research-frameworks/03-clue-chains.md
+- research-frameworks/07-deduction-games.md
+- research-frameworks/10-escape-room-master.md
+- escape-material/.agents/skills/pipeline-verify/SKILL.md
 ```
 
 ### Ejemplo 3: hall-escape, fase build
 ```
 RESOLVED_STANDARDS:
-- agents/escapeitor/research-frameworks/01-narrative-arc.md
-- agents/escapeitor/research-frameworks/02-puzzle-design.md
-- agents/escapeitor/research-frameworks/06-spatial-puzzles.md
-- agents/escapeitor/research-frameworks/10-escape-room-master.md
-- agents/escapeitor/research-frameworks/09-estilo-juegos.md
+- research-frameworks/01-narrative-arc.md
+- research-frameworks/02-puzzle-design.md
+- research-frameworks/06-spatial-puzzles.md
+- research-frameworks/10-escape-room-master.md
+- research-frameworks/09-estilo-juegos.md
 
 PUZZLE_CATALOG:
-- agents/escapeitor/escape-material/pruebas/prueba-laberinto-hilos.json
-- agents/escapeitor/escape-material/pruebas/prueba-cifrado-cesar.json
-- agents/escapeitor/escape-material/pruebas/prueba_codigo_binario_001.json
+- escape-material/pruebas/prueba-laberinto-hilos.json
+- escape-material/pruebas/prueba-cifrado-cesar.json
+- escape-material/pruebas/prueba_codigo_binario_001.json
 ```
 
 ### Ejemplo 4: street-escape, fase judge
 ```
 RESOLVED_STANDARDS:
-- agents/escapeitor/research-frameworks/01-narrative-arc.md
-- agents/escapeitor/research-frameworks/04-team-dynamics.md
-- agents/escapeitor/research-frameworks/08-mobile-puzzles.md
-- agents/escapeitor/research-frameworks/10-escape-room-master.md
-- agents/escapeitor/escape-material/.agents/skills/pipeline-judge-story/SKILL.md
-- agents/escapeitor/escape-material/.agents/skills/pipeline-judge-logic/SKILL.md
+- research-frameworks/01-narrative-arc.md
+- research-frameworks/04-team-dynamics.md
+- research-frameworks/08-mobile-puzzles.md
+- research-frameworks/10-escape-room-master.md
+- skills/pipeline-judge-story/SKILL.md
+- skills/pipeline-judge-logic/SKILL.md
 ```
 
 ## Puzzle Catalog Lookup (phase=build only)
@@ -118,10 +119,10 @@ RESOLVED_STANDARDS:
 Cuando la fase es `build`, además de los frameworks, buscar puzzles relevantes en el catálogo existente.
 
 ### Catálogo
-Ubicación: `agents/escapeitor/escape-material/pruebas/`
+Ubicación: `escape-material/pruebas/`
 
 ### Búsqueda
-1. Leer `agents/escapeitor/escape-material/pruebas/review-tracker.json`
+1. Leer `escape-material/pruebas/review-tracker.json`
 2. Del campo `ideas`, filtrar entradas con `"estado": "validada"`
 3. Cruzar con el diseño del juego según:
    - `skill_primario` / tipo de puzzle que coincida con las necesidades del diseño
@@ -132,13 +133,12 @@ Ubicación: `agents/escapeitor/escape-material/pruebas/`
 
 ```
 PUZZLE_CATALOG:
-- agents/escapeitor/escape-material/pruebas/prueba-laberinto-hilos.json
-- agents/escapeitor/escape-material/pruebas/prueba-cifrado-simbolos-001.json
+- escape-material/pruebas/prueba-laberinto-hilos.json
+- escape-material/pruebas/prueba-cifrado-simbolos-001.json
 ```
 
 ### Comando de búsqueda
 ```bash
-cd /home/daniel/.openclaw/workspace/agents/escapeitor/escape-material/pruebas
 # Filtrar validadas desde review-tracker.json
 jq '[.ideas[] | select(.estado == "validada") | .archivo]' review-tracker.json
 # Fallback sin jq: grep

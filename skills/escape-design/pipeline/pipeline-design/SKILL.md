@@ -1,14 +1,14 @@
 ---
 name: pipeline-design
 description: >
-  FASE 3 del pipeline — Dual-LLM: Razonator (GLM-5.1) diseña puzzles lógicos y deductivos,
-  Visionator (GPT-5.5) diseña puzzles experienciales y momentos wow. Escapeitor sintetiza
-  las mejores pruebas de cada propuesta en un DESIGN.json final.
+  FASE 3 del pipeline — Dual-LLM: Dos jueces con modelos distintos diseñan pruebas
+  desde perspectivas complementarias. Escapeitor sintetiza las mejores pruebas de cada
+  propuesta en un DESIGN.json final.
 ---
 
 # Pipeline Design (Dual-LLM)
 
-FASE 3 del pipeline. Dos LLMs diseñan el set completo de pruebas desde perspectivas complementarias. Escapeitor sintetiza lo mejor de cada propuesta.
+FASE 3 del pipeline. Dos jueces con modelos distintos diseñan el set completo de pruebas desde perspectivas complementarias. Escapeitor sintetiza lo mejor de cada propuesta.
 
 ## Input
 
@@ -22,28 +22,27 @@ FASE 3 del pipeline. Dos LLMs diseñan el set completo de pruebas desde perspect
 
 | Producto | Ruta |
 |----------|------|
-| Diseño Juez A | `agents/escapeitor/.pipeline/{juego-id}/designs/DESIGN-A.json` |
-| Diseño Juez B | `agents/escapeitor/.pipeline/{juego-id}/designs/DESIGN-B.json` |
-| Diseño final sintetizado | `agents/escapeitor/.pipeline/{juego-id}/DESIGN.json` |
+| Diseño Juez A | `{output_dir}/designs/DESIGN-A.json` |
+| Diseño Juez B | `{output_dir}/designs/DESIGN-B.json` |
+| Diseño final sintetizado | `{output_dir}/DESIGN.json` |
 
 ## Los Dos Jueces
 
-| Agente | Modelo | Enfoque |
+| Agente | Config | Enfoque |
 |--------|--------|---------|
-| `razonator` | `zai/glm-5.1` | **Puzzles lógicos** — cadena deductiva, progresión de dificultad equilibrada, mecánicas probadas |
-| `visionator` | `openai-codex/gpt-5.5` | **Puzzles experienciales** — momentos "wow", interacción física, sorpresa emocional |
+| `escape-judge-a` | `opencode.json` model | **Puzzles lógicos** — cadena deductiva, progresión equilibrada, mecánicas probadas |
+| `escape-judge-b` | `opencode.json` model (DIFFERENT provider) | **Puzzles experienciales** — momentos "wow", interacción física, sorpresa emocional |
 
 **Ventaja dual-LLM**: Un modelo optimiza la solidez lógica y el balance de dificultad; el otro prioriza la experiencia memorable y los momentos de sorpresa. La síntesis produce un diseño que es a la vez sólido y emocionante.
 
 ## Paso 1: Launch Paralelo
 
-Lanzar ambos jueces como **agentes independientes** con `sessions_spawn`:
+Lanzar ambos jueces como **agentes independientes** vía `delegate()`:
 
 ```
-sessions_spawn(agentId=razonator, task:
-  "Lee skills/pipeline-design/SKILL.md para entender el formato de output y las REGLAS CRÍTICAS.
-   Lee BRIEF.json en agents/escapeitor/.pipeline/{juego-id}/BRIEF.json.
-   Lee CONCEPT.json en agents/escapeitor/.pipeline/{juego-id}/CONCEPT.json.
+delegate(agent="escape-judge-a", prompt="Lee skills/pipeline-design/SKILL.md para entender el formato de output y las REGLAS CRÍTICAS.
+   Lee BRIEF.json en {output_dir}/BRIEF.json.
+   Lee CONCEPT.json en {output_dir}/CONCEPT.json.
    Lee skill-registry.json.
    Lee los research frameworks: 01-game-design.md, 02-puzzle-design.md, 04-psicologia.md, 05-ux.md, 09-estilo-juegos.md.
    
@@ -53,16 +52,15 @@ sessions_spawn(agentId=razonator, task:
    - Mecánicas probadas y fiables (priorizar EXISTENTES del registry)
    - Balance matemático de tiempos realista
    - Cierres variados pero funcionales
-   - Misterio secundario que refuerce la lógica (ej: sílabas que forman nombre)
+   - Misterio secundario que refuerza la lógica (ej: sílabas que forman nombre)
    
    Genera un DESIGN.json completo siguiendo la estructura del skill.
-   Escríbelo en agents/escapeitor/.pipeline/{juego-id}/designs/DESIGN-A.json"
+   Escríbelo en {output_dir}/designs/DESIGN-A.json"
 )
 
-sessions_spawn(agentId=visionator, task:
-  "Lee skills/pipeline-design/SKILL.md para entender el formato de output y las REGLAS CRÍTICAS.
-   Lee BRIEF.json en agents/escapeitor/.pipeline/{juego-id}/BRIEF.json.
-   Lee CONCEPT.json in agents/escapeitor/.pipeline/{juego-id}/CONCEPT.json.
+delegate(agent="escape-judge-b", prompt="Lee skills/pipeline-design/SKILL.md para entender el formato de output y las REGLAS CRÍTICAS.
+   Lee BRIEF.json en {output_dir}/BRIEF.json.
+   Lee CONCEPT.json in {output_dir}/CONCEPT.json.
    Lee skill-registry.json.
    Lee los research frameworks: 01-game-design.md, 02-puzzle-design.md, 04-psicologia.md, 05-ux.md, 09-estilo-juegos.md.
    
@@ -76,7 +74,7 @@ sessions_spawn(agentId=visionator, task:
    - Momentos de energía en inicio y final
    
    Genera un DESIGN.json completo siguiendo la estructura del skill.
-   Escríbelo en agents/escapeitor/.pipeline/{juego-id}/designs/DESIGN-B.json"
+   Escríbelo en {output_dir}/designs/DESIGN-B.json"
 )
 ```
 
@@ -84,7 +82,7 @@ Ambos en paralelo. Esperar AMBOS antes de continuar a Paso 2.
 
 **REGLA CRÍTICA**: Cada juez NO ve el output del otro. Diseño 100% independiente.
 
-**Los jueces son agentes con modelo fijo en config** — Escapeitor no necesita especificar modelo.
+**Los jueces son agentes configurados en opencode.json** — cada agente ya tiene su LLM asignado.
 
 ## Paso 2: Synthesis (Escapeitor orquesta)
 
@@ -97,19 +95,19 @@ Al comparar las propuestas, clasificar cada prueba:
 | Clasificación | Definición | Acción |
 |---------------|-----------|--------|
 | **CONFIRMED** | Ambos jueces proponen la misma (o equivalente) prueba | Alta calidad → incluir directamente |
-| **SUSPECT-A** | Solo Razonator la propone (enfoque lógico) | Evaluar si merece la pena por solidez |
-| **SUSPECT-B** | Solo Visionator la propone (enfoque experiencial) | Evaluar si merece la pena por impacto |
+| **SUSPECT-A** | Solo Juez A la propone (enfoque lógico) | Evaluar si merece la pena por solidez |
+| **SUSPECT-B** | Solo Juez B la propone (enfoque experiencial) | Evaluar si merece la pena por impacto |
 | **CONTRADICTION** | Ambos abordan el mismo slot narrativo pero con mecánicas distintas | Escapeitor decide cuál (o híbrida) |
 
 ### Prompt Template para Synthesis
 
 ```
-Eres un lead game designer de escape rooms. Tienes dos propuestas de diseño de LLMs diferentes:
+Eres un lead game designer de escape rooms. Tienes dos propuestas de diseño de jueces distintos:
 
-## DISEÑO A (GLM-5.1 — Lógico)
+## DISEÑO A (Juez A — Lógico)
 {DESIGN-A.json completo}
 
-## DISEÑO B (GPT-5.5 — Experiencial)
+## DISEÑO B (Juez B — Experiencial)
 {DESIGN-B.json completo}
 
 ## CONCEPT ORIGINAL
@@ -128,7 +126,7 @@ Sintetiza las mejores pruebas de cada propuesta en un único DESIGN.json final:
    - SUSPECT-B: solo el creativo → evaluar impacto
    - CONTRADICTION: mismo slot, mecánicas distintas → elegir la mejor o hibridar
 3. **Seleccionar el set final**:
-   - Mantener al menos 1 pruebaConfirmed de cada tipo si las hay
+   - Mantener al menos 1 prueba Confirmed de cada tipo si las hay
    - Balancear: ~60% lógicas (de A), ~40% experienciales (de B)
    - Si A tiene mejor flujo → usar flujo de A
    - Si B tiene mejores momentos de energía → usar momentos de B
@@ -162,9 +160,9 @@ Si falla, ajustar la síntesis y re-validar (máx 2 intentos). Si persiste, esca
 
 ## Paso 4: Guardar
 
-1. Guardar `DESIGN-A.json` en `agents/escapeitor/.pipeline/{juego-id}/designs/DESIGN-A.json`
-2. Guardar `DESIGN-B.json` en `agents/escapeitor/.pipeline/{juego-id}/designs/DESIGN-B.json`
-3. Guardar `DESIGN.json` (final) en `agents/escapeitor/.pipeline/{juego-id}/DESIGN.json`
+1. Guardar `DESIGN-A.json` en `{output_dir}/designs/DESIGN-A.json`
+2. Guardar `DESIGN-B.json` en `{output_dir}/designs/DESIGN-B.json`
+3. Guardar `DESIGN.json` (final) en `{output_dir}/DESIGN.json`
 
 ## Reglas CRÍTICAS
 
@@ -258,11 +256,11 @@ Si falla, ajustar la síntesis y re-validar (máx 2 intentos). Si persiste, esca
 
 | # | Framework | Ruta | Clave para diseño |
 |---|-----------|------|-------------------|
-| 1 | Game Design | `agents/escapeitor/research-frameworks/01-game-design.md` | MDA, balance, core loop |
-| 2 | Puzzle Design | `agents/escapeitor/research-frameworks/02-puzzle-design.md` | Principios de buen puzzle, variedad |
-| 3 | Psicología | `agents/escapeitor/research-frameworks/04-psicologia.md` | Flow Theory, zona óptima |
-| 4 | UX | `agents/escapeitor/research-frameworks/05-ux.md` | Fricción, feedback, affordances |
-| 5 | Estilo Juegos | `agents/escapeitor/research-frameworks/09-estilo-juegos.md` | Patrones probados de diseño |
+| 1 | Game Design | `research-frameworks/01-game-design.md` | MDA, balance, core loop |
+| 2 | Puzzle Design | `research-frameworks/02-puzzle-design.md` | Principios de buen puzzle, variedad |
+| 3 | Psicología | `research-frameworks/04-psicologia.md` | Flow Theory, zona óptima |
+| 4 | UX | `research-frameworks/05-ux.md` | Fricción, feedback, affordances |
+| 5 | Estilo Juegos | `research-frameworks/09-estilo-juegos.md` | Patrones probados de diseño |
 
 ## Scripts
 
@@ -270,7 +268,7 @@ Si falla, ajustar la síntesis y re-validar (máx 2 intentos). Si persiste, esca
 
 ```bash
 # Verificar que curva de dificultad es progresiva
-cat agents/escapeitor/.pipeline/{juego-id}/DESIGN.json | jq '.curva_dificultad' | \
+cat {output_dir}/DESIGN.json | jq '.curva_dificultad' | \
   python3 -c "
 import sys, json
 curve = json.load(sys.stdin)
@@ -282,11 +280,11 @@ print('Curva OK: progresiva')
 "
 
 # Verificar max 2 pruebas por skill
-cat agents/escapeitor/.pipeline/{juego-id}/DESIGN.json | jq -r '.pruebas_seleccionadas[].skill_primario' | \
+cat {output_dir}/DESIGN.json | jq -r '.pruebas_seleccionadas[].skill_primario' | \
   sort | uniq -c | awk '$1 > 2 {print "ERROR: " $2 " aparece " $1 " veces (máx 2)"}'
 
 # Verificar clasificación de síntesis
-cat agents/escapeitor/.pipeline/{juego-id}/DESIGN.json | jq '.pruebas_seleccionadas[].source' | \
+cat {output_dir}/DESIGN.json | jq '.pruebas_seleccionadas[].source' | \
   sort | uniq -c
 ```
 
@@ -300,6 +298,6 @@ El Orchestrator debe:
 
 ## Agentes Utilizados
 
-- `razonator` (GLM-5.1) — Agente independiente con modelo fijo en config
-- `visionator` (GPT-5.5) — Agente independiente con modelo fijo en config
-- Ambos son subagentes permitidos de Escapeitor
+- `escape-judge-a` — Agente configurado en `opencode.json` (enfoque lógico)
+- `escape-judge-b` — Agente configurado en `opencode.json`, modelo de provider DISTINTO (enfoque experiencial)
+- Ambos se invocan vía `delegate()`

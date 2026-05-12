@@ -36,8 +36,7 @@ Directorio completo en la ruta indicada por `BRIEF.json.output_dir`:
 ### Paso 1: Inicializar estructura
 
 ```bash
-cd /home/daniel/.openclaw/workspace/agents/escapeitor
-python scripts/init-juego.py "{juego-id}" "{output_dir}"
+python3 scripts/init-juego.py "{juego-id}" "{output_dir}"
 ```
 
 Esto crea el esqueleto de directorios del juego.
@@ -55,7 +54,7 @@ Generar el archivo principal del juego usando el schema:
   "version": "1.0",
   "color_principal": "#hex",
   "color_secundario": "#hex",
-  "tipo": "hall_escape|street_escape|investigation",
+  "tipo": "hall_escape|street_escape|investigation|concurso",
   "jugadores_min": number,
   "jugadores_max": number,
   "duracion_minutos": number,
@@ -201,8 +200,7 @@ Basada en `DESIGN.json.materiales_requeridos`:
 2. **Generar el PDF:**
 
 ```bash
-cd /home/daniel/.openclaw/workspace/agents/escapeitor
-python3 scripts/generate-pdf-html.py juegos/{juego-id}/ juegos/{juego-id}/{juego-id}.pdf
+python3 scripts/generate-pdf-html.py "{output_dir}/{juego-id}/" "{output_dir}/{juego-id}/{juego-id}.pdf"
 ```
 
 Opcionalmente, pasar colores explícitos como 3º y 4º argumento:
@@ -229,9 +227,9 @@ El script usa:
 ## Estructura de Archivos de Referencia
 
 ```
-agents/escapeitor/
+{project_root}/
 ├── escape-material/
-│   ├── .agents/skills/pipeline-build/SKILL.md  ← este archivo
+│   ├── skills/pipeline-build/SKILL.md  ← este archivo
 │   ├── scripts/init-juego.py
 │   ├── schemas/prueba.schema.json
 │   └── pruebas/              ← pruebas reutilizables existentes
@@ -239,7 +237,7 @@ agents/escapeitor/
 │   └── escape-room-template.html  ← template HTML+CSS
 ├── scripts/
 │   └── generate-pdf-html.py       ← generador PDF (Puppeteer)
-├── juegos/{juego-id}/        ← salida generada
+├── {output_dir}/{juego-id}/  ← salida generada
 ```
 
 ## Ejemplo de Flujo Completo
