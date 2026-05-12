@@ -1,0 +1,70 @@
+{
+  "id": "catacumbas_001_escritorio_saboteado",
+  "nombre": "El Escritorio Saboteado",
+  "descripcion": "Los jugadores encuentran el escritorio de investigación saboteado. Entre el caos de documentos esparcidos, fotos de la catedral y notas desordenadas, deben encontrar los documentos marcados con símbolos rojos ocultos. Cada documento marcado contiene un número que, ordenado correctamente, forma el código del candado de la carpeta del investigador.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": ["prueba-investigacion-texto"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "acto": 1,
+  "sala": 1,
+  "configuracion": {
+    "mecanica_principal": "Búsqueda visual de símbolos ocultos en documentos + ordenamiento por clave",
+    "mecanismo_barrera": "Candado de 4 dígitos en carpeta de cuero. El GM abre la puerta a Sala 2 cuando se resuelve.",
+    "contenedor_narrativo": "Carpeta de cuero viejo con sello de cera roto, cerrada con candado de 4 dígitos. Representa las notas protegidas del investigador principal.",
+    "materiales": [
+      "1× Carpeta de cuero con candado 4 dígitos (código: 1321)",
+      "10-12 documentos impresos en papel envejecido A5",
+      "4 documentos marcados con símbolos rojos en esquina inferior (ojo, cruz, media luna, estrella)",
+      "Documento del ojo: número '1' subrayado en texto",
+      "Documento de la media luna: número '3' subrayado en texto",
+      "Documento de la cruz: número '2' subrayado en texto",
+      "Documento de la estrella: número '1' subrayado en texto",
+      "1× Mapa desplegable de la catedral con marcas rojas y nota: 'Los símbolos siguen el orden de las constelaciones: ☉→☽→✟→★'",
+      "1× Corcho con fotos de la catedral y recortes de periódico",
+      "Post-its verdes con notas de la Dra. Marcos ('¡Revisar esto!', '¡Importante!')",
+      "1× Lámpara de escritorio con luz ámbar",
+      "1× Losa de cartón piedra con letra V y fragmento 'VERI...' (dentro de la carpeta)"
+    ],
+    "tipo_cierre": "candado-4-digitos",
+    "codigo": "1321"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Fijaos bien en los documentos. ¿Hay algo que no deberíais pasar por alto? Algo pequeño, casi invisible..."
+    },
+    {
+      "nivel": 2,
+      "texto": "Algunos documentos tienen marcas rojas en las esquinas. Buscad los que tengan un símbolo: un ojo, una cruz, una media luna o una estrella."
+    },
+    {
+      "nivel": 3,
+      "texto": "Encontrad los 4 documentos con símbolos rojos. Cada uno tiene un número subrayado. El mapa os dice el orden: ojo→1, media luna→3, cruz→2, estrella→1. El código es 1321."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Encontrar 4 documentos con símbolos ocultos, extraer los números subrayados de cada uno, ordenarlos según la clave del mapa (orden de constelaciones: ojo, media luna, cruz, estrella)",
+    "descripcion": "Los números de los 4 documentos marcados, en el orden ojo(1)-media luna(3)-cruz(2)-estrella(1), forman el código 1321 — el año en que se sellaron las catacumbas.",
+    "resultado": "Se abre la carpeta de cuero. Dentro hay una nota del investigador, el Fragmento V y una pista para la Sala 2."
+  },
+  "doble_descubrimiento": {
+    "capa_1": "Encontrar los 4 documentos con símbolos rojos ocultos entre los 10-12 documentos esparcidos en el escritorio desordenado.",
+    "capa_2": "Darse cuenta de que los números de esos documentos, ordenados según la pista del mapa (orden de constelaciones), forman el código del candado."
+  },
+  "fragmento_misterio": "Losa de cartón piedra con la letra V y fragmento de inscripción latina 'VERI...' — primera pieza del Sello de la Verdad.",
+  "jugadores_activos": "2 jugadores exploran la mesa principal buscando documentos. 1-2 jugadores revisan el corcho de la pared y las fotos. 1 jugador coordina y anota los números encontrados. 1 jugador examina el mapa para encontrar la pista del orden de los símbolos.",
+  "adaptaciones": {
+    "2_jugadores": "Reducir a 6-8 documentos totales. Los símbolos rojos son ligeramente más grandes y visibles. El mapa ya tiene la pista del orden marcada más claramente.",
+    "4_jugadores": "Configuración estándar. 2 en mesa, 1 en corcho, 1 en mapa.",
+    "6_jugadores": "Añadir 2-3 documentos extra distractors. Asignar roles: 2 en mesa, 1 en corcho, 1 en mapa, 1 organizando documentos encontrados, 1 buscando en cajones/zonas secundarias."
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": ["exploración", "visual", "símbolos", "candado-numérico", "acto-1", "curiosidad"],
+    "proyecto": "viernes-de-escape"
+  }
+}

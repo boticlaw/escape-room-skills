@@ -1,0 +1,87 @@
+{
+  "nombre": "Las Catacumbas de la Catedral",
+  "programa": "Viernes de Escape",
+  "tipo": "Hall Escape + Investigación",
+  "jugadores": {
+    "min": 2,
+    "max": 6,
+    "optimo": 5
+  },
+  "edad": {
+    "min": 12,
+    "max": 18
+  },
+  "duracion_minutos": 50,
+  "dificultad_objetivo": "4-5/10 promedio",
+  "fecha": "2026-05-29",
+  "lugar": "Espacio Joven, Palencia",
+  "presupuesto_euros": {
+    "min": 100,
+    "max": 150
+  },
+  "dispositivos": {
+    "tablets": 4,
+    "wifi": false,
+    "servidor": false
+  },
+  "texto_landing": "Durante más de 700 años, un secreto ha permanecido oculto bajo la catedral. Pero una reciente investigación ha sacado a la luz documentos antiguos, símbolos extraños y pistas que apuntan a la existencia de unas misteriosas catacumbas. Sin embargo, algo no encaja. Alguien ha intentado borrar su rastro y ocultar de nuevo todo lo que se ha descubierto.",
+  "estilo_visual": {
+    "referencia": "Stranger Things meets medieval gótico",
+    "titulos": "Rojo neón",
+    "zona_superior": "Ámbar cálido (catedral)",
+    "zona_inferior": "Azul oscuro (catacumbas)",
+    "tono": "Thriller sobrenatural accesible para adolescentes (sin gore, sin terror)"
+  },
+  "elementos_tematicos": [
+    "705 años de secreto oculto",
+    "Alguien intenta encubrir el descubrimiento",
+    "Documentos antiguos y símbolos extraños",
+    "Catacumbas bajo la catedral",
+    "Investigación + hall escape",
+    "Presión temporal (50 min)"
+  ],
+  "arco_narrativo": {
+    "acto_1": {
+      "nombre": "El Descubrimiento",
+      "salas": [1, 2],
+      "duracion_minutos": 15,
+      "dificultad": "3-4",
+      "descripcion": "Los jugadores entran como jóvenes investigadores. Encuentran la investigación saboteada. Alguien intentó ocultar las pruebas."
+    },
+    "acto_2": {
+      "nombre": "La Investigación",
+      "salas": [3, 4],
+      "duracion_minutos": 20,
+      "dificultad": "5-6",
+      "descripcion": "Profundizando. Documentos antiguos, mensajes codificados, símbolos. El secreto empieza a revelarse."
+    },
+    "acto_3": {
+      "nombre": "Las Catacumbas",
+      "salas": [5],
+      "duracion_minutos": 15,
+      "dificultad": "4",
+      "descripcion": "Descenso al subsuelo. Revelaciones finales. La verdad sobre lo que está oculto."
+    }
+  },
+  "curva_dificultad": {
+    "prueba_1": 3,
+    "prueba_2": 4,
+    "prueba_3": 5,
+    "prueba_4": 6,
+    "prueba_5": 4,
+    "prueba_6": 4,
+    "meta": 3
+  },
+  "hilo_misterio": {
+    "descripcion": "Cada prueba revela un fragmento con una letra. Los 6 fragmentos forman la palabra VERDAD.",
+    "fragmentos": ["V", "E", "R", "D", "A", "D"],
+    "revelacion_final": "La VERDAD sobre las catacumbas: no ocultaban algo oscuro, sino una biblioteca de conocimiento sagrado protegida durante 705 años."
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "proyecto": "viernes-de-escape",
+    "testeado": false
+  }
+}

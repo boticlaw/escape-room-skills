@@ -1,0 +1,72 @@
+{
+  "id": "catacumbas_003_codigo_archivero",
+  "nombre": "El Código del Archivero",
+  "descripcion": "La sala está dividida en dos zonas. Un grupo tiene un mensaje cifrado y la mitad de un disco de cifrado medieval; el otro tiene un texto de contexto y la otra mitad. Sin poder intercambiar materiales pero comunicándose verbalmente, deben reconstruir el cifrado, descifrar el mensaje y resolver la adivinanza que revela la palabra del cryptex.",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": ["prueba-cifrado"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 12,
+  "acto": 2,
+  "sala": 3,
+  "configuracion": {
+    "mecanica_principal": "Comunicación verbal obligatoria entre dos grupos con información complementaria para descifrar un mensaje usando un cifrado César",
+    "mecanismo_barrera": "Cryptex de 6 letras dentro de un estuche tubular de cuero. El GM abre la puerta a Sala 4 cuando se resuelve.",
+    "contenedor_narrativo": "Estuche tubular de cuero enrollable (tipo portafolios medieval) que contiene el cryptex y el mapa parcial de las catacumbas.",
+    "materiales": [
+      "1× Cryptex de 6 letras (código: PIEDRA)",
+      "1× Estuche tubular de cuero (donde va el cryptex)",
+      "GRUPO A:",
+      "  1× Mensaje cifrado impreso en pergamino (texto: 'YL SHOVUZ HZ LO CHH PZITTIT HZ UZ TLUHSUZ. PVO TLLY, OT IL UZTHUSH ZH LZDTITO. HZ LO CHH QHUSHUUY 705 LÑZP.')",
+      "  1× Mitad interior del disco de cifrado (anillo interior con letras A-Z, impreso en cartón rígido dorado)",
+      "GRUPO B:",
+      "  1× Texto de contexto: 'El archivero Pablo Herrera usaba un cifrado César para sus notas. El desplazamiento se calculaba sumando los dígitos del año fundacional de la orden del canónigo: 1321.'",
+      "  1× Mitad exterior del disco de cifrado (anillo exterior con letras desplazadas, impreso en cartón rígido)",
+      "COMPARTIDO:",
+      "  1× Estantería baja que divide visualmente las dos mesas",
+      "  1× Reloj de arena de 3 minutos (opcional, para micro-tensión)",
+      "  Notas del archivero Pablo: 'Si encontráis mis notas, buscad la mitad del disco. La otra mitad la tiene quien tiene el contexto. Hablaos.'",
+      "1× Sello de metal con letra R y fragmento '…LIBE…' (dentro del estuche)"
+    ],
+    "tipo_cierre": "cryptex",
+    "codigo": "PIEDRA",
+    "nota_cifrado": "Cifrado César con desplazamiento 7 (1+3+2+1=7). El mensaje descifrado dice: 'LA PALABRA ES LO QUE SOSTIENE LA CATEDRAL. SIN ELLA, NO HAY CONSTRUCCIÓN. ES LO QUE PERDURA 705 AÑOS.' → Respuesta: PIEDRA"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Los dos grupos tienen piezas diferentes del mismo rompecabezas. ¿Habéis intentado describir lo que veis al otro grupo?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Necesitáis ambas mitades del disco de cifrado. El grupo del contexto tiene la pista del desplazamiento: sumar los dígitos del año 1321. El otro grupo tiene el mensaje cifrado. Comunicad lo que veis y usad el disco completo para descifrar."
+    },
+    {
+      "nivel": 3,
+      "texto": "El desplazamiento es 7 (1+3+2+1=7). Alinead la A del anillo interior con la H del exterior. Descifrad el mensaje. La respuesta a la adivinanza es PIEDRA — lo que sostiene una catedral."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Comunicación verbal para reconstruir disco de cifrado → calcular desplazamiento (1+3+2+1=7) → descifrar mensaje → resolver adivinanza",
+    "descripcion": "El texto de contexto revela que el desplazamiento se calcula sumando los dígitos de 1321 (=7). Con ambas mitades del disco alineadas (desplazamiento 7), descifran: 'LA PALABRA ES LO QUE SOSTIENE LA CATEDRAL. SIN ELLA, NO HAY CONSTRUCCIÓN. ES LO QUE PERDURA 705 AÑOS.' La respuesta es PIEDRA.",
+    "resultado": "El cryptex se abre con PIEDRA. Dentro del estuche hay un mapa parcial de las catacumbas, el Fragmento R y una nota urgente del investigador."
+  },
+  "doble_descubrimiento": {
+    "capa_1": "Comunicarse verbalmente para reconstruir el sistema de cifrado César (ningún grupo tiene la información completa).",
+    "capa_2": "El mensaje descifrado es una adivinanza cuya respuesta no es explícita — deben deducir que lo que sostiene una catedral durante 705 años es la PIEDRA."
+  },
+  "fragmento_misterio": "Sello de metal con la letra R y fragmento de inscripción '…LIBE…' — tercera pieza del Sello de la Verdad.",
+  "jugadores_activos": "Grupo A (2-3 jugadores): tienen el mensaje cifrado y la mitad interior del disco. Describen su contenido al Grupo B verbalmente. Grupo B (2-3 jugadores): tienen el contexto y la mitad exterior del disco. Describen su contenido al Grupo A. Ambos grupos colaboran para alinear el cifrado, descifrar el mensaje y resolver la adivinanza juntos.",
+  "adaptaciones": {
+    "2_jugadores": "Un jugador por grupo (1+1). Reducir el mensaje cifrado a la versión corta: 'LO Q-HH S-PT-TI-HH UZ TLUHSUZ' (más fácil de descifrar). Texto de contexto ya incluye 'desplazamiento 7' directamente.",
+    "4_jugadores": "Configuración estándar: 2 por grupo.",
+    "6_jugadores": "3 por grupo. Añadir un segundo mensaje cifrado de distracción en el Grupo A (texto sin sentido). El Grupo B tiene una nota que dice 'solo el mensaje con la marca del ojo es real' (conecta con Sala 1)."
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": ["comunicación", "cifrado", "césar", "cryptex", "cooperación", "acto-2", "tensión"],
+    "proyecto": "viernes-de-escape"
+  }
+}

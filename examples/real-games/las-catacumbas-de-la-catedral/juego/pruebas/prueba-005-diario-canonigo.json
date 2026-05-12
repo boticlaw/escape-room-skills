@@ -1,0 +1,70 @@
+{
+  "id": "catacumbas_005_diario_canonigo",
+  "nombre": "El Diario del Canónigo",
+  "descripcion": "En la oscuridad de las catacumbas, los jugadores encuentran el diario del Canónigo Don Álvaro de Cervatos, fechado en 1321. Las entradas del diario contienen pistas sobre dónde escondió la llave del compartimento del altar. Deben interpretar las pistas y buscar en la sala, conectando símbolos que ya vieron en la Sala 1.",
+  "skill_primario": "prueba-investigacion-texto",
+  "skills_secundarios": ["prueba-logica-secuencial"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 5,
+  "acto": 3,
+  "sala": 5,
+  "configuracion": {
+    "mecanica_principal": "Análisis e interpretación de un diario histórico con pistas cripticas sobre la ubicación de una llave física",
+    "mecanismo_barrera": "Candado pequeño con llave física en el compartimento del altar. La llave está oculta bajo una piedra del suelo marcada con el símbolo del ojo.",
+    "contenedor_narrativo": "Compartimento oculto en la base del altar improvisado, cerrado con candado y llave. Representa el escondite secreto del Canónigo.",
+    "materiales": [
+      "1× Diario del Canónigo (cuaderno forrado en cuero envejecido, 8-10 páginas) con entradas fechadas en 1321:",
+      "  Entrada 15 marzo 1321: 'He sellado las catacumbas. La clave está dividida en seis, como manda la tradición. Pero la llave del altar debe estar a salvo. La ocultaré donde solo quien conozca nuestros símbolos pueda encontrarla.'",
+      "  Entrada 22 marzo 1321: 'He colocado la llave bajo la protección del Ojo que Todo lo Ve. Donde la luz del rosetón cae sobre la tercera piedra del camino. Buscad el símbolo que ya conocéis.'",
+      "  Entrada 5 abril 1321: 'Si alguien lee esto, debe saber que no ocultamos maldad. Protegemos conocimiento. Que la VERDAD os guíe.'",
+      "  Entrada 12 abril 1321: 'El saboteador del futuro entenderá mi motivación. No actuamos por egoísmo sino por preservación. El conocimiento es frágil y los hombres son crueles.'",
+      "  Entrada 20 abril 1321: 'He dejado la última pista donde todo comenzó. El Ojo ve más de lo que parece. Buscad en el suelo, no en las paredes.'",
+      "1× Altar improvisado (mesa cubierta con paño oscuro, cruz, 4-6 velas LED)",
+      "1× Compartimento en la base del altar (caja con bisagra oculta + candado pequeño con llave)",
+      "1× 'Piedra del suelo' (cartón pintado como piedra, tamaño ~20×20cm) con símbolo del ojo pintado en rojo neón",
+      "3-4 elementos decorativos en la sala (marco, placa, vela grande, jarrón) como posibles distractores",
+      "1× Llave física (escondida bajo la piedra del ojo)",
+      "1× Trozo de pergamino con letra A y fragmento '…VOS' (dentro del compartimento)"
+    ],
+    "tipo_cierre": "llave-fisica",
+    "codigo": "N/A — hallar la llave física bajo la piedra con el símbolo del ojo"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "El diario tiene varias entradas. Leedlas con atención — el canónigo describe dónde ocultó algo importante."
+    },
+    {
+      "nivel": 2,
+      "texto": "La entrada del 22 de marzo menciona 'el Ojo que Todo lo Ve' y 'la tercera piedra del camino'. ¿Habéis visto ese símbolo del ojo antes en el juego? Buscadlo en la sala."
+    },
+    {
+      "nivel": 3,
+      "texto": "El símbolo del ojo que visteis en la Sala 1 está en una de las piedras del suelo de esta sala. Levantad la piedra marcada con el ojo y encontrareis la llave."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Leer e interpretar las pistas del diario → conectar el 'Ojo que Todo lo Ve' con el símbolo del ojo de la Sala 1 → buscar la piedra con el símbolo → levantarla → encontrar la llave",
+    "descripcion": "Las entradas del diario dirigen a buscar el símbolo del ojo (que apareció en los documentos de la Sala 1). En el suelo de la Sala 5 hay una piedra con ese símbolo. Debajo de ella está la llave del compartimento del altar.",
+    "resultado": "Se abre el compartimento del altar. Dentro: el Fragmento A, una placa de piedra con inscripción 'Solo la VERDAD completa abrirá el camino', y la indicación de que la tablet tiene la interfaz para el código final."
+  },
+  "doble_descubrimiento": {
+    "capa_1": "Interpretar las pistas crípticas del diario para localizar dónde está la llave (requiere lectura cuidadosa y deducción).",
+    "capa_2": "La llave está bajo el símbolo del ojo de la Sala 1 (loop narrativo satisfactorio) Y el diario revela que las catacumbas no ocultan maldad sino conocimiento protegido — el GIRO de la historia."
+  },
+  "fragmento_misterio": "Trozo de pergamino con la letra A y fragmento de inscripción '…VOS' — quinta pieza del Sello de la Verdad.",
+  "jugadores_activos": "2-3 jugadores leen el diario en voz alta y discuten las pistas en grupo. 1-2 jugadores buscan en la sala el símbolo del ojo basándose en las pistas del diario. 1 jugador coordina pistas de salas anteriores con lo que encuentran ahora (conexión Sala 1 → Sala 5).",
+  "adaptaciones": {
+    "2_jugadores": "Diario con solo 3 entradas (las más directas). La entrada del 22 marzo ya dice explícitamente 'buscad en el suelo una piedra con un ojo'. Reducción de distractores a 1-2.",
+    "4_jugadores": "Configuración estándar. 2 leen, 1 busca, 1 coordina.",
+    "6_jugadores": "Diario completo con 5 entradas (incluye las 2 extra más crípticas). Más distractores en la sala (5-6 elementos). Un jugador debe vigilar el tiempo (reloj visible)."
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": ["investigación", "texto", "diario", "llave-física", "giro-narrativo", "acto-3", "catacumbas"],
+    "proyecto": "viernes-de-escape"
+  }
+}

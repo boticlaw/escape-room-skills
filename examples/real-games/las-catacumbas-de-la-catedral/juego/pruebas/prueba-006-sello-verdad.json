@@ -1,0 +1,76 @@
+{
+  "id": "catacumbas_006_sello_verdad",
+  "nombre": "El Sello de la Verdad",
+  "descripcion": "Los jugadores reúnen los cinco fragmentos de misterio recogidos durante toda la aventura y descienden al altar de piedra del fondo de las catacumbas. El altar tiene seis hendiduras donde encajan los fragmentos como piezas de un puzzle. Solo cinco de las seis están cubiertas — la sexta pieza (la D final) está oculta en la sala. Al ensamblar las seis piezas, el sello se ilumina (tira LED detrás) y revela la pantalla de la tablet donde deben introducir la palabra VERDAD. La inscripción completa descifra el secreto de 705 años: las catacumbas protegían una biblioteca de sabiduría, no algo oscuro. El saboteador era un descendiente de los canónigos guardianes.",
+  "skill_primario": "prueba-puzzle-ensamblaje",
+  "skills_secundarios": ["prueba-investigacion-texto", "prueba-exploracion-visual"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 4,
+  "acto": 3,
+  "sala": 5,
+  "configuracion": {
+    "mecanica_principal": "Ensamblaje físico de seis fragmentos-puzzle en un altar de piedra con hendiduras, culminando en la introducción de un código digital que revela el secreto final",
+    "mecanismo_barrera": "Código digital en tablet (palabra VERDAD). La tablet solo muestra la interfaz de introducción cuando los seis fragmentos están colocados en el altar y el sensor (interruptor oculto) se activa, encendiendo la tira LED que ilumina el sello.",
+    "contenedor_narrativo": "Arca de piedra antigua (caja de madera/polistireno pintada como piedra tallada con inscripciones góticas) que hace las veces de altar. Tiene seis hendiduras talladas donde encajan los fragmentos. Detrás del altar, una tira LED roja/neón se enciende al completar el sello. La tablet está en un soporte junto al altar.",
+    "materiales": [
+      "5× Fragmentos de misterio recogidos en pruebas anteriores:",
+      "  Fragmento V: Losa de cartón piedra con letra V e inscripción 'VERI...' (de Prueba 1)",
+      "  Fragmento E: Trozo de pergamino con letra E e inscripción '...TAS' (de Prueba 2)",
+      "  Fragmento R: Sello de metal con letra R e inscripción '...LIBE...' (de Prueba 3)",
+      "  Fragmento D: Pieza de metal con letra D e inscripción '...RABIT...' (de Prueba 4)",
+      "  Fragmento A: Trozo de pergamino con letra A e inscripción '...VOS' (de Prueba 5)",
+      "1× Fragmento D ( sexto, oculto en la sala): Pieza de piedra tallada con letra D e inscripción 'AD DISCENDO'. Escondida bajo una losa suelta del suelo marcada con una cruz gótica pequeña (visible si se mira con atención).",
+      "1× Altar de piedra (caja de polistireno extruido o MDF, pintada como piedra arenisca tallada, aprox. 60×40×30cm). La superficie tiene seis hendiduras circulares donde encajan los fragmentos. Cada hendidura tiene la letra grabada debajo (V, E, R, D, A, D) para guiar la colocación.",
+      "1× Tira LED roja/neón (1m, alimentada por baterías USB) pegada en el borde interior del altar, detrás de las hendiduras. Se enciende cuando un interruptor magnético oculto se cierra (un imán en la sexta pieza D activa el Reed switch debajo de la sexta hendidura).",
+      "1× Tablet con interfaz de código (app offline o página HTML local) que muestra:",
+      "  Pantalla inicial (antes de completar el sello): 'Reúne los seis fragmentos. Solo la VERDAD completa abrirá el camino.'",
+      "  Pantalla de entrada de código (tras completar el sello): Campo de texto con botón 'ABRIR'. Al introducir VERDAD correctamente se reproduce la revelación final.",
+      "  Pantalla de revelación: Texto final sobre el secreto de las catacumbas + nombre del equipo + tiempo empleado.",
+      "1× Placa de piedra con inscripción 'Solo la VERDAD completa abrirá el camino' (de Prueba 5, colocada junto al altar como recordatorio).",
+      "1× Losa suelta del suelo (pieza de cartón piedra, ~25×25cm) con una pequeña cruz gótica grabada en una esquina. Debajo está el sexto fragmento D.",
+      "2-3 elementos decorativos en la sala: columna de cartón, arcos de cartón pintados como piedra, velas LED adicionales.",
+      "Efecto de iluminación: Al completar el sello, las luces de la sala cambian de azul oscuro a dorado/ámbar cálido (se puede hacer con una segunda tira LED conectada al mismo interruptor o con una lámpara de cambio de color controlada por el GM)."
+    ],
+    "tipo_cierre": "codigo-digital",
+    "codigo": "VERDAD",
+    "nota_diseno": "La inscripción completa del sello formada por los seis fragmentos es 'VERITAS LIBERABIT VOS AD DISCENDO' — 'La verdad os hará libres al descubrirla'. Los cinco fragmentos de las pruebas anteriores forman 'VERITAS LIBERABIT VOS' y el sexto D encontrado en esta sala añade 'AD DISCENDO'. La palabra VERDAD se forma con las letras V-E-R-D-A-D de los seis fragmentos."
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Tenéis cinco fragmentos, pero el altar tiene seis hendiduras. Faltará una pieza por alguna parte... ¿Habéis buscado bien por la sala? Fijaos en el suelo."
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada fragmento tiene una letra y una parte de inscripción. Encajan en el altar por la letra grabada bajo cada hendidura. Colocad los cinco que tenéis y buscad el sexto — la losa del suelo con la cruz pequeña esconde algo debajo."
+    },
+    {
+      "nivel": 3,
+      "texto": "Levantad la losa con la cruz gótica del suelo: ahí está el sexto fragmento D. Colocad los seis en el altar (V-E-R-D-A-D). El sello se ilumina y la tablet pide un código. Las letras de los fragmentos forman la palabra VERDAD."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Reunir los cinco fragmentos anteriores → encontrar el sexto fragmento D bajo la losa marcada → ensamblar los seis fragmentos en el altar (cada pieza encaja en su hendidura por letra) → el sello se ilumina → leer la inscripción completa VERITAS LIBERABIT VOS AD DISCENDO → introducir VERDAD en la tablet",
+    "descripcion": "Los jugadores colocan los cinco fragmentos en sus hendiduras del altar (V, E, R, D, A). Falta una pieza. Buscando en la sala encuentran el sexto fragmento (D, con inscripción 'AD DISCENDO') bajo una losa del suelo marcada con una cruz gótica. Al colocar el sexto fragmento, el interruptor magnético cierra el circuito y la tira LED ilumina el sello completo. La inscripción leída en orden: VERI...TAS...LIBE...RABIT...VOS AD DISCENDO = 'VERITAS LIBERABIT VOS AD DISCENDO' (La verdad os hará libres al descubrirla). Las letras de los seis fragmentos forman V-E-R-D-A-D. Introducen VERDAD en la tablet.",
+    "resultado": "La tablet reproduce la revelación final: el secreto de 705 años era una biblioteca de manuscritos protegida por los canónigos, no algo oscuro. El saboteador Don Alejandro Quintana era descendiente del último canónigo guardián. Las catacumbas serán declaradas Patrimonio de la Humanidad. Las luces cambian a dorado. El equipo ve su nombre y tiempo en pantalla."
+  },
+  "doble_descubrimiento": {
+    "capa_1": "Ensamblar los seis fragmentos físicamente en el altar (puzzle de encaje) y descubrir que las letras forman la palabra VERDAD — la luz del sello confirma el ensamblaje correcto.",
+    "capa_2": "La inscripción completa del sello ('VERITAS LIBERABIT VOS AD DISCENDO' — La verdad os hará libres al descubrirla) revela el verdadero secreto de 705 años: las catacumbas protegían una biblioteca de conocimiento sagrado, no algo malvado. El saboteador no era un villano sino un descendiente de los guardianes originales que creía que el mundo aún no estaba preparado. Esto transforma todo el significado de la aventura."
+  },
+  "fragmento_misterio": "Sello completo con la inscripción VERITAS LIBERABIT VOS AD DISCENDO — la Verdad finalmente revelada. Los seis fragmentos (V-E-R-D-A-D) ensamblados forman el Sello de la Verdad que los canónigos dividieron y escondieron hace 705 años.",
+  "jugadores_activos": "TODOS los jugadores participan simultáneamente. Cada jugador tiene uno de los fragmentos (los 5 de pruebas anteriores) y deben coordinar el ensamblaje. Un jugador o pareja busca la sexta pieza D oculta en la sala. Encajan los fragmentos juntos en el altar. El jugador que encuentre la pieza D o el más rápido introduce VERDAD en la tablet. Todos leen y comentan la revelación final en grupo.",
+  "adaptaciones": {
+    "2_jugadores": "Cada jugador gestiona 2-3 fragmentos. La losa con la cruz tiene una nota visible que dice 'Levántame' (más directa). El altar tiene las letras grabadas con más contraste para facilitar el encaje. La tablet ya muestra la pantalla de código (no requiere completar el sello primero, solo el código).",
+    "4_jugadores": "Configuración estándar. 2 jugadores ensamblan en el altar, 1-2 buscan el fragmento D. Todos participan en la lectura de la inscripción y la revelación.",
+    "6_jugadores": "Configuración ideal: cada jugador tiene exactamente un fragmento de las pruebas anteriores. El sexto fragmento D está más oculto (la cruz en la losa es más pequeña, puede estar bajo un elemento decorativo). Los jugadores deben descubrir el orden de colocación sin guiarse solo por las letras grabadas (cubrir las letras con insertos removibles). Se requiere más coordinación verbal para el ensamblaje."
+  },
+  "metadata": {
+    "creado": "2026-05-13",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": ["ensamblaje", "puzzle", "meta-prueba", "código-digital", "finale", "acto-3", "catacumbas", "triunfo", "verdad"],
+    "proyecto": "viernes-de-escape"
+  }
+}

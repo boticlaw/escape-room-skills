@@ -1,0 +1,71 @@
+{
+  "id": "catacumbas_004_mapa_catacumbas",
+  "nombre": "El Mapa de las Catacumbas",
+  "descripcion": "Los jugadores se enfrentan a un mapa de las catacumbas con ubicaciones numeradas pero sin nombre. Seis crónicas del obispo, repartidas por la sala, describen posiciones relativas de cada ubicación. Deben compartir la información, deducir la posición correcta de cada ficha en el tablero, y colocarlas todas correctamente para que el mecanismo revele el compartimento secreto.",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": ["prueba-exploracion-visual", "prueba-emparejamiento-texto"],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 10,
+  "acto": 2,
+  "sala": 4,
+  "configuracion": {
+    "mecanica_principal": "Lógica espacial con posiciones relativas deducidas de textos descriptivos, requiere compartir información entre todos los jugadores",
+    "mecanismo_barrera": "Tablero de madera con 6 huecos numerados. Cuando las 6 fichas están en posición correcta, un compartimento en la base del tablero se abre (mecanismo de cierre magnético o de leva). El GM abre la puerta a Sala 5 cuando se resuelve.",
+    "contenedor_narrativo": "Bolsa de terciopelo oscuro que contiene las 6 fichas metálicas con símbolos, encontrada junto al mapa de las catacumbas.",
+    "materiales": [
+      "1× Mapa grande de las catacumbas (A1, impreso en papel tipo pergamino envejecido) con 6 ubicaciones numeradas sin nombre",
+      "1× Tablero de madera con 6 huecos numerados (1-6) y mecanismo de apertura en la base",
+      "6× Fichas metálicas (o madera pintada de metal) con símbolos grabados: CRIPTA (llave), COLUMNA (pilar), FUENTE (agua), ALTAR (cáliz), PASILLO (puerta), PUERTA (arco)",
+      "6× Crónicas del obispo en marcos individuales en las paredes:",
+      "  Crónica 1: 'La Cripta está en la posición más al norte, donde convergen los tres pasillos.'",
+      "  Crónica 2: 'La Fuente está al este de la entrada, una posición más al sur que la Cripta.'",
+      "  Crónica 3: 'El Altar está en el centro exacto del laberinto.'",
+      "  Crónica 4: 'La Puerta de entrada está en la posición más al sur y al oeste.'",
+      "  Crónica 5: 'La Columna está entre la Cripta y el Altar, una posición al este de la Cripta.'",
+      "  Crónica 6: 'El Pasillo Secreto está entre la Fuente y la Puerta.'",
+      "Tiras LED azules para iluminación ambiental",
+      "1× Tablet con audio ambiental (goteo y eco, 30s en loop, volumen bajo)",
+      "1× Pieza de metal con letra D y fragmento '…RABIT…' (dentro del compartimento)"
+    ],
+    "tipo_cierre": "mecanismo-fisico",
+    "codigo": "N/A — resolución física: Cripta(1), Columna(2), Fuente(3), Altar(4), Pasillo(5), Puerta(6)"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada texto de la pared describe una ubicación diferente. ¿Habéis leído todos? Cada jugador debería leer uno y luego compartir."
+    },
+    {
+      "nivel": 2,
+      "texto": "Las crónicas describen posiciones relativas en el mapa. Empezad por la más clara: 'la Cripta está en la posición más al norte'. Luego deducid las demás por relación espacial. Colocad las fichas en los huecos del tablero."
+    },
+    {
+      "nivel": 3,
+      "texto": "Las posiciones son: Cripta=1 (más norte), Columna=2 (entre Cripta y Altar, este de Cripta), Fuente=3 (este, sur de Cripta), Altar=4 (centro), Pasillo Secreto=5 (entre Fuente y Puerta), Puerta=6 (más sur y oeste)."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Cada jugador lee una crónica → comparten información verbalmente → deducen posiciones por lógica espacial relativa → colocan fichas en tablero → mecanismo se abre",
+    "descripcion": "Posiciones correctas en los 6 huecos del tablero: (1) Cripta — más al norte; (2) Columna — entre Cripta y Altar, al este; (3) Fuente — al este, sur de Cripta; (4) Altar — centro exacto; (5) Pasillo Secreto — entre Fuente y Puerta; (6) Puerta — más sur y oeste. Al colocar todas, las fichas forman visualmente una flecha que señala la base del tablero, donde se abre el compartimento.",
+    "resultado": "El mecanismo se abre. Dentro: la segunda mitad del mapa de las catacumbas, el Fragmento D y una nota del investigador desaparecido señalando el altar."
+  },
+  "doble_descubrimiento": {
+    "capa_1": "Compartir la información de cada crónica (ningún jugador tiene toda la información) y deducir la posición correcta de cada ficha mediante lógica espacial.",
+    "capa_2": "Cuando las fichas están correctamente colocadas, sus símbolos forman una flecha visual que señala el compartimento secreto en la base del tablero — la solución física confirma la deducción lógica."
+  },
+  "fragmento_misterio": "Pieza de metal con la letra D y fragmento de inscripción '…RABIT…' — cuarta pieza del Sello de la Verdad.",
+  "jugadores_activos": "Cada jugador lee una crónica diferente (ideal: 6 jugadores = 6 crónicas). Comparten la información en voz alta para deducir las posiciones. 1-2 jugadores colocan las fichas en el tablero mientras los demás dirigen. El grupo verifica juntos la flecha formada tras la colocación.",
+  "adaptaciones": {
+    "2_jugadores": "Cada jugador lee 3 crónicas. Las crónicas son más explícitas: 'La Cripta está en la posición 1, la más al norte' (incluyen el número). Reduce la deducción relativa.",
+    "4_jugadores": "Cada jugador lee 1-2 crónicas. Configuración estándar con lógica relativa.",
+    "6_jugadores": "Configuración ideal: 1 crónica por jugador. Máxima participación. Las crónicas usan lenguaje más indirecto: 'al este de la que nadie ha nombrado aún' (requiere más comunicación)."
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": ["lógica", "posiciones", "mapa", "espacial", "cooperación", "mecanismo-físico", "acto-2", "pico-dificultad"],
+    "proyecto": "viernes-de-escape"
+  }
+}

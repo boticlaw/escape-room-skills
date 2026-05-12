@@ -1,0 +1,126 @@
+{
+  "nombre": "Las Catacumbas de la Catedral",
+  "programa": "Viernes de Escape",
+  "tipo": "Hall Escape + Investigación",
+  "jugadores": {
+    "min": 2,
+    "max": 6,
+    "optimo": 5
+  },
+  "edad": { "min": 12, "max": 18 },
+  "duracion_minutos": 50,
+  "dificultad_promedio": 4.3,
+  "fecha": "2026-05-29",
+  "lugar": "Espacio Joven, Palencia",
+  "presupuesto_euros": { "min": 100, "max": 150 },
+  "tablets": 4,
+  "wifi_requerido": false,
+  "servidor_requerido": false,
+  "estructura": {
+    "salas": 5,
+    "pruebas": 6,
+    "meta_prueba": true,
+    "actos": 3
+  },
+  "salas": [
+    {
+      "id": 1,
+      "nombre": "El Escritorio Saboteado",
+      "acto": 1,
+      "duracion_estimada_minutos": 10,
+      "tipo_iluminacion": "Ámbar cálido",
+      "prueba": "catacumbas_001_escritorio_saboteado"
+    },
+    {
+      "id": 2,
+      "nombre": "Los Fragmentos Perdidos",
+      "acto": 1,
+      "duracion_estimada_minutos": 10,
+      "tipo_iluminacion": "Ámbar cálido",
+      "prueba": "catacumbas_002_fragmentos_perdidos"
+    },
+    {
+      "id": 3,
+      "nombre": "El Código del Archivero",
+      "acto": 2,
+      "duracion_estimada_minutos": 12,
+      "tipo_iluminacion": "Transición ámbar-azul",
+      "prueba": "catacumbas_003_codigo_archivero"
+    },
+    {
+      "id": 4,
+      "nombre": "El Mapa de las Catacumbas",
+      "acto": 2,
+      "duracion_estimada_minutos": 10,
+      "tipo_iluminacion": "Azul oscuro",
+      "prueba": "catacumbas_004_mapa_catacumbas"
+    },
+    {
+      "id": 5,
+      "nombre": "Las Catacumbas",
+      "acto": 3,
+      "duracion_estimada_minutos": 15,
+      "tipo_iluminacion": "Azul oscuro + velas LED",
+      "pruebas": [
+        "catacumbas_005_diario_canonigo",
+        "catacumbas_006_sello_verdad"
+      ],
+      "meta_prueba": "catacumbas_007_verdad_revelada"
+    }
+  ],
+  "curva_dificultad": {
+    "descripcion": "3→4→5→6→4 (pico en Sala 4, NO al final)",
+    "valores": [3, 4, 5, 6, 4, 4, 3]
+  },
+  "curva_emocional": {
+    "prueba_1": "CURIOSIDAD",
+    "prueba_2": "DESCUBRIMIENTO",
+    "prueba_3": "TENSIÓN",
+    "prueba_4": "COOPERACIÓN",
+    "prueba_5": "GIRO",
+    "prueba_6": "TRIUNFO",
+    "meta": "ALIVIO + RECOMPENSA"
+  },
+  "hilo_misterio": {
+    "mecanica": "Fragmentos con letras que forman la palabra VERDAD",
+    "fragmentos": [
+      { "prueba": 1, "letra": "V", "soporte": "Losa de cartón" },
+      { "prueba": 2, "letra": "E", "soporte": "Trozo de pergamino" },
+      { "prueba": 3, "letra": "R", "soporte": "Sello de metal" },
+      { "prueba": 4, "letra": "D", "soporte": "Pieza de metal" },
+      { "prueba": 5, "letra": "A", "soporte": "Trozo de pergamino" },
+      { "prueba": 6, "letra": "D", "soporte": "Ensamblaje final" }
+    ],
+    "revelacion": "VERDAD — La verdad sobre las catacumbas: una biblioteca de conocimiento protegida durante 705 años"
+  },
+  "tipos_cierre": {
+    "total_tipos_distintos": 6,
+    "detalle": [
+      "Candado 4 dígitos (Sala 1)",
+      "Candado letras (Sala 2)",
+      "Cryptex (Sala 3)",
+      "Mecanismo físico (Sala 4)",
+      "Llave física (Sala 5a)",
+      "Código digital tablet (Sala 5b)"
+    ]
+  },
+  "skills_utilizadas": {
+    "totales_distintas": 6,
+    "detalle": [
+      "prueba-exploracion-visual",
+      "prueba-emparejamiento-texto",
+      "prueba-comunicacion-mensajes",
+      "prueba-logica-posiciones",
+      "prueba-investigacion-texto",
+      "prueba-puzzle-ensamblaje"
+    ],
+    "ninguna_repetida_mas_de_2": true
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "proyecto": "viernes-de-escape",
+    "testeado": false
+  }
+}

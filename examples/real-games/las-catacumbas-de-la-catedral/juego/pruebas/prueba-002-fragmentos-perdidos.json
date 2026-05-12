@@ -1,0 +1,70 @@
+{
+  "id": "catacumbas_002_fragmentos_perdidos",
+  "nombre": "Los Fragmentos Perdidos",
+  "descripcion": "Los jugadores encuentran un archivo parroquial donde alguien ha rasgado documentos antiguos. Deben buscar los fragmentos esparcidos por la sala, emparejar las mitades por contenido y bordes, y reconstruir las cartas del Archivero. Cada carta reconstruida revela una letra, y junto con una letra del marco genealógico, forman la palabra que abre el cofre.",
+  "skill_primario": "prueba-emparejamiento-texto",
+  "skills_secundarios": ["prueba-exploracion-visual", "prueba-logica-secuencial"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "acto": 1,
+  "sala": 2,
+  "configuracion": {
+    "mecanica_principal": "Emparejamiento de fragmentos por contenido textual y bordes físicos + ordenamiento cronológico",
+    "mecanismo_barrera": "Candado de letras (5 posiciones) en cofre de madera. El GM abre la puerta a Sala 3 cuando se resuelve.",
+    "contenedor_narrativo": "Cofre de madera antigua con herrajes de latón, cerrado con candado de 5 letras. Contiene los documentos que el saboteador no pudo destruir.",
+    "materiales": [
+      "1× Cofre de madera con candado letras 5 posiciones (código: LIBRO)",
+      "8 fragmentos de documentos rasgados (4 pares), impresos en papel envejecido",
+      "Par 1 (Siglo XIV, carta sobre construcción): letra 'L' en encabezado rojo",
+      "Par 2 (Siglo XV, carta sobre restauración): letra 'I' en encabezado rojo",
+      "Par 3 (Siglo XVI, carta sobre obispo): letra 'B' en encabezado rojo",
+      "Par 4 (Siglo XVII, carta sobre archivo): letra 'R' en encabezado rojo",
+      "1× Marco con árbol genealógico de 5 obispos de Palencia con fechas",
+      "Obispo 5: 'Obispo Ordoño (1580-1612)' — la 'O' de Ordoño destacada en rojo",
+      "Nota en el marco: 'El orden de los obispos revela el orden de las letras'",
+      "2-3 cajas de archivo etiquetadas como decoración ('Siglo XIV', 'Restauración 1580')",
+      "5-8 libros viejos de atrezzo en estantes",
+      "1× Trozo de pergamino con letra E y fragmento '…TAS' (dentro del cofre)"
+    ],
+    "tipo_cierre": "candado-letras",
+    "codigo": "LIBRO"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Esos fragmentos parecen encajar entre sí. ¿Y si los uniérais por los bordes y el contenido?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Emparejad los fragmentos: cada mitad tiene texto que continúa en la otra. Al formar las cartas completas, fijaos en las letras rojas de los encabezados. El marco del árbol genealógico os da el orden, y la quinta letra está en el nombre del quinto obispo."
+    },
+    {
+      "nivel": 3,
+      "texto": "Las letras de las cartas son L, I, B, R (en orden cronológico). La quinta letra es la O de 'Ordoño' en el marco. El código es LIBRO."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Emparejar 4 pares de fragmentos por contenido y bordes → leer letras rojas de encabezados → ordenar por cronología de obispos → añadir O de Ordoño",
+    "descripcion": "Las 4 cartas reconstruidas tienen letras L, I, B, R en los encabezados. Ordenadas por la cronología del árbol genealógico (que coincide con las fechas de las cartas) forman L-I-B-R. La quinta letra O viene del nombre del quinto obispo Ordoño. Código: LIBRO.",
+    "resultado": "Se abre el cofre de madera. Dentro hay un manuscrito sobre el código del archivero, el Fragmento E y un mensaje codificado para la Sala 3."
+  },
+  "doble_descubrimiento": {
+    "capa_1": "Emparejar correctamente los 8 fragmentos para reconstruir las 4 cartas del Archivero de la Catedral.",
+    "capa_2": "Darse cuenta de que las letras rojas de los encabezados + la O de Ordoño, ordenadas cronológicamente, forman la palabra LIBRO."
+  },
+  "fragmento_misterio": "Trozo de pergamino con la letra E y fragmento de inscripción '…TAS' — segunda pieza del Sello de la Verdad.",
+  "jugadores_activos": "2-3 jugadores buscan fragmentos por la sala (cajas de archivo, entre libros, sobre la mesa). 2 jugadores trabajan en la mesa principal emparejando los fragmentos encontrados. 1 jugador analiza el árbol genealógico buscando la conexión con las letras.",
+  "adaptaciones": {
+    "2_jugadores": "Reducir a 3 pares (6 fragmentos). Las letras de las cartas son L-I-B y la O-R están ambas marcadas en el marco genealógico. Código sigue siendo LIBRO pero más accesible.",
+    "4_jugadores": "Configuración estándar. 2 buscan, 1 empareja, 1 analiza marco.",
+    "6_jugadores": "Añadir 2 fragmentos distractors (que no emparejan con nada). 3 buscan, 2 emparejan, 1 analiza marco."
+  },
+  "metadata": {
+    "creado": "2026-05-12",
+    "version": "1.0",
+    "autor": "Equipo de diseño",
+    "testeado": false,
+    "tags": ["emparejamiento", "texto", "fragmentos", "candado-letras", "acto-1", "descubrimiento"],
+    "proyecto": "viernes-de-escape"
+  }
+}
