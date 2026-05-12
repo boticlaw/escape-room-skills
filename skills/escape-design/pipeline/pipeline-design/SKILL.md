@@ -46,18 +46,49 @@ Si `scripts/verify-judges.py` reporta `same_provider: true`, los jueces deben MA
 | Bias | Pesimista (asumir problemas) | Optimista (asumir que funciona, demostrar que no) |
 | Output | JSON estructurado con scores | Narrativa libre + resumen de problemas |
 
-### Paso 0: Consultar juegos reales para diseño de pruebas ⚠️ OBLIGATORIO
+### Paso 0a: Consultar catálogo de pruebas para diseño ⚠️ OBLIGATORIO
 
-Antes de diseñar pruebas, consultar los juegos reales para basar las decisiones en data probada:
+Antes de diseñar pruebas, consultar el catálogo de 82+ pruebas individuales (testeadas e ideas) para basar las decisiones en data concreta de mecánicas y dificultad:
 
 ```bash
-# Buscar mecánicas que funcionaron en juegos similares
+# Buscar pruebas por mecánica específica (ver qué ya existe)
+python3 scripts/search-games.py --puzzles --mechanic "{skill_deseado}" --pretty
+
+# Ver pruebas en el rango de dificultad del diseño actual
+python3 scripts/search-games.py --puzzles --difficulty {dificultad_min}-{dificultad_max} --pretty
+
+# Ver categorías disponibles (para variedad de mecánicas)
+python3 scripts/search-games.py --puzzles --list-categories --pretty
+
+# Buscar pruebas similares temáticamente
+python3 scripts/search-games.py --puzzles --similar "{tema}" --pretty
+
+# Ver detalle completo de una prueba candidata
+python3 scripts/search-games.py --puzzles --puzzle "{puzzle_id}" --pretty
+
+# Incluir descartadas para ver qué NO funcionó
+python3 scripts/search-games.py --puzzles --include-discarded --mechanic "{skill}" --pretty
+```
+
+**Extraer del catálogo de pruebas:**
+- **Pruebas existentes por mecánica**: Cuántas pruebas hay de cada skill (priorizar las ya testeadas)
+- **Duración real**: Tiempos estimados por tipo de prueba (calibrar tiempos del diseño)
+- **Dificultad real**: Niveles de dificultad observados por mecánica (validar curva)
+- **Configuración concreta**: Estructura, materiales, pistas de pruebas reales (modelo para pruebas nuevas)
+- **Descartadas**: Qué mecánicas/probaditas fallaron y por qué (evitar repetir errores)
+
+### Paso 0b: Consultar juegos reales para diseño de pruebas ⚠️ OBLIGATORIO
+
+Después del catálogo de pruebas, consultar los juegos reales para basar las decisiones en data probada de juegos completos:
+
+```bash
+# Buscar mecánicas que funcionaron en juegos similares (unificado: juegos + catálogo)
 python3 scripts/search-games.py --similar "{tema}" --pretty
 
 # Ver qué mecánicas se usaron recientemente (para variedad)
 python3 scripts/search-games.py --recent-mechanics --pretty
 
-# Ver mecánicas disponibles
+# Ver mecánicas disponibles (unificado: juegos + catálogo)
 python3 scripts/search-games.py --list-mechanics --pretty
 
 # Ver detalle de un juego específico con sus playtests

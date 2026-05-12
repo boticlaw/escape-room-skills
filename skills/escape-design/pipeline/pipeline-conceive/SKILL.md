@@ -66,18 +66,49 @@ Si `scripts/verify-judges.py` reporta `same_provider: true`, los jueces deben MA
 
 Ambos jueces deben leer estos frameworks antes de generar.
 
-### Paso 0: Consultar juegos reales como referencia ⚠️ OBLIGATORIO
+### Paso 0a: Consultar catálogo de pruebas individuales ⚠️ OBLIGATORIO
 
-Antes de generar conceptos, buscar en los 6 juegos reales para alimentar la creatividad con patrones probados:
+El catálogo de pruebas (`examples/puzzles/`) contiene 82+ pruebas reales (testeadas e ideas) con datos de mecánicas, dificultad y duración que NO existen en los 4 juegos documentados. Consultarlo ANTES de los juegos reales:
 
 ```bash
-# Buscar juegos con temática similar
+# Buscar pruebas sueltas por temática similar al brief
+python3 scripts/search-games.py --puzzles --similar "{tema_del_brief}" --pretty
+
+# Buscar pruebas por mecánica deseada
+python3 scripts/search-games.py --puzzles --mechanic "{mecanica_deseada}" --pretty
+
+# Ver pruebas en el rango de dificultad objetivo
+python3 scripts/search-games.py --puzzles --difficulty {dificultad_objetivo} --pretty
+
+# Ver todas las categorías disponibles
+python3 scripts/search-games.py --puzzles --list-categories --pretty
+
+# Ver detalle de una prueba específica
+python3 scripts/search-games.py --puzzles --puzzle "{puzzle_id}" --pretty
+
+# Incluir pruebas descartadas (para aprender qué NO funciona)
+python3 scripts/search-games.py --puzzles --include-discarded --mechanic "{mecanica}" --pretty
+```
+
+**Extraer del catálogo de pruebas:**
+- **Mecánicas disponibles**: Qué skills existen en el catálogo y cuántas pruebas los usan
+- **Rango de dificultad real**: Qué niveles de dificultad tienen las pruebas de cada mecánica
+- **Duraciones estimadas**: Tiempos típicos por tipo de prueba (para calibrar actos)
+- **Pruebas testeadas vs ideas**: Las testeadas son más fiables; las ideas son inspiración
+- **Descartadas**: Qué mecánicas NO funcionaron y por qué (evitar esos patrones)
+
+### Paso 0b: Consultar juegos reales como referencia ⚠️ OBLIGATORIO
+
+Después del catálogo, buscar en los 4 juegos reales para alimentar la creatividad con patrones probados:
+
+```bash
+# Buscar juegos con temática similar (incluye resultados del catálogo de pruebas)
 python3 scripts/search-games.py --similar "{tema_del_brief}" --pretty
 
 # Buscar por tipo de juego
 python3 scripts/search-games.py --type "{game_type}" --pretty
 
-# Ver qué mecánicas tuvieron mejor recepción en juegos similares
+# Ver qué mecánicas tuvieron mejor recepción (juegos + catálogo unificado)
 python3 scripts/search-games.py --list-mechanics --pretty
 
 # Ver juegos completos con detalle (para inspiración narrativa)
@@ -93,15 +124,21 @@ python3 scripts/search-games.py --game "protocolo-alerta-verde" --pretty
 
 **Inyectar en los prompts de ambos jueces** como contexto adicional:
 ```
+## Catálogo de pruebas individuales (82+ pruebas, datos reales de mecánicas y dificultad)
+
+{output del search-games.py --puzzles}
+
 ## Juegos reales de referencia (para inspiración, NO copiar)
 
-{output del search-games.py}
+{output del search-games.py --similar}
 
 Reglas:
 - Inspirarse en los PATRONES (tipo de arco, estructura de actos, variedad mecánica)
 - NO copiar narrativas ni mecánicas específicas directamente
 - Si un juego real con temática similar tuvo un problema documentado en playtest, evitar ese patrón
 - Priorizar mecánicas que los playtests reales muestran como más disfrutadas
+- Consultar el catálogo de pruebas para mecánicas que NO aparecen en los juegos documentados
+- Las pruebas descartadas indican patrones a EVITAR (ver --include-discarded)
 ```
 
 ## Paso 1: Launch Paralelo

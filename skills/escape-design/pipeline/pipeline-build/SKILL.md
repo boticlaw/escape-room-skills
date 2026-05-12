@@ -85,6 +85,33 @@ cp escape-material/pruebas/*.json juegos/{juego-id}/juego/pruebas/
 
 Para cada prueba en `DESIGN.json.pruebas_nuevas_requeridas`:
 
+#### Paso 4a: Consultar catálogo de pruebas como referencia ⚠️ OBLIGATORIO
+
+Antes de generar cada prueba nueva, buscar en el catálogo de 82+ pruebas existentes para asegurar que el formato y estructura coincida con patrones probados:
+
+```bash
+# Buscar pruebas con la misma mecánica (modelo de estructura)
+python3 scripts/search-games.py --puzzles --mechanic "{skill_primario_de_la_prueba}" --pretty
+
+# Buscar pruebas de dificultad similar (modelo de complejidad)
+python3 scripts/search-games.py --puzzles --difficulty {dificultad_objetivo} --pretty
+
+# Ver detalle de una prueba similar existente (modelo de formato JSON completo)
+python3 scripts/search-games.py --puzzles --puzzle "{puzzle_id_similar}" --pretty
+
+# Ver pruebas descartadas con la misma mecánica (errores a evitar)
+python3 scripts/search-games.py --puzzles --include-discarded --mechanic "{skill_primario}" --pretty
+```
+
+**Usar como referencia para:**
+- **Estructura JSON**: Todos los campos requeridos (id, nombre, configuracion, pistas, solucion, adaptaciones, etc.)
+- **Niveles de pistas**: Cómo se estructuran las pistas de nivel 1-5 en pruebas reales
+- **Configuración**: Variables específicas del skill y sus valores típicos
+- **Adaptaciones**: Formato estándar de edad, espacio, jugadores
+- **Duración y dificultad**: Calibrar contra datos reales de pruebas similares
+
+#### Paso 4b: Generar el JSON de la prueba
+
 1. **Leer el skill** del `skill_primario` correspondiente (en `escape-material/skills/`)
 2. **Leer el schema** `schemas/prueba.schema.json` para validar estructura
 3. **Generar el JSON** completo con todos los campos:
