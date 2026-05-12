@@ -18,8 +18,8 @@ Leer estos archivos del proyecto:
 
 ## Research Frameworks
 
-- `agents/escapeitor/research-frameworks/01-game-design.md`
-- `agents/escapeitor/research-frameworks/02-puzzle-design.md`
+- `research-frameworks/01-game-design.md`
+- `research-frameworks/02-puzzle-design.md`
 
 ## Criterios de Evaluación
 

@@ -1,14 +1,14 @@
 ---
 name: pipeline-conceive
 description: >
-  FASE 2 del pipeline de escapeitor. Dual-LLM: Dos jueces con modelos distintos generan
-  conceptos independientes desde enfoques distintos (estructurado vs creativo). Escapeitor
+  FASE 2 del pipeline. Dual-LLM: Dos jueces con modelos distintos generan
+  conceptos independientes desde enfoques distintos (estructurado vs creativo). El agente
   sintetiza lo mejor de ambos en un CONCEPT.json final.
 license: Apache-2.0
 metadata:
-  author: escapeitor-team
+  author: escape-room-skills
   version: "2.0"
-  scope: [escapeitor]
+  scope: [escape-design]
   phase: 2
   dual_llm: true
   auto_invoke: "Cuando se solicita crear el concepto narrativo de un juego de escape room"
@@ -16,7 +16,7 @@ metadata:
 
 # Pipeline — FASE 2: Conceive (Dual-LLM)
 
-Dos jueces con modelos distintos generan conceptos independientes desde perspectivas distintas. Escapeitor sintetiza lo mejor de cada uno en un concepto final unificado.
+Dos jueces con modelos distintos generan conceptos independientes desde perspectivas distintas. El agente sintetiza lo mejor de cada uno en un concepto final unificado.
 
 ## Cuándo se ejecuta
 
@@ -132,9 +132,9 @@ Ambos en paralelo. Esperar AMBOS antes de continuar a Paso 2.
 
 **Los jueces son agentes configurados en opencode.json** — cada agente ya tiene su LLM asignado.
 
-## Paso 2: Synthesis (Escapeitor orquesta)
+## Paso 2: Synthesis (el agente orchestrador orquesta)
 
-Escapeitor lee `CONCEPT-A.json` y `CONCEPT-B.json` y sintetiza directamente (no delega a subagente).
+El agente lee `CONCEPT-A.json` y `CONCEPT-B.json` y sintetiza directamente (no delega a subagente).
 
 ### Prompt Template para Synthesis
 

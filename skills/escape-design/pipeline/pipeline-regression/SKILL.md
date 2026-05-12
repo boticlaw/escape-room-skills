@@ -11,7 +11,7 @@ Verifica que las modificaciones a un escape room existente no rompieron funciona
 
 ## Input
 
-- `agents/escapeitor/.pipeline/{juego-id}/BASELINE-{version}.json` — Snapshot anterior (si existe)
+- `{output_dir}/BASELINE-{version}.json` — Snapshot anterior (si existe)
 - `juegos/{juego}/` — Estado actual del juego
 - `DESIGN.json` — Diseño estructurado actual
 - Reports previos: `VERIFY-REPORT.json`, `JUDGMENT-REPORT.json`, `PLAYTEST-REPORT.json`, `DIFFICULTY-REPORT.json`, `NARRATIVE-CONSISTENCY-REPORT.json`
@@ -45,7 +45,7 @@ Al pasar Verify o Judgment Day por primera vez, guardar un snapshot:
 }
 ```
 
-Guardar en: `agents/escapeitor/.pipeline/{juego-id}/BASELINE-{version}.json`
+Guardar en: `{output_dir}/BASELINE-{version}.json`
 
 ### 2. Diff Analysis
 

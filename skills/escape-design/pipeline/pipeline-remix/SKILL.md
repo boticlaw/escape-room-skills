@@ -37,6 +37,20 @@ Crea una variante de un juego existente sin empezar de cero. Lee el juego base, 
 
 ## Paso 1: Cargar juego base
 
+**⚠️ VALIDACIÓN PREVIA**: Antes de cargar el juego, verificar que existe:
+
+```bash
+python3 scripts/search-games.py --game "{base_game}" 
+```
+
+Si el script no encuentra el juego → MOSTRAR ERROR y listar juegos disponibles:
+
+```bash
+python3 scripts/search-games.py --list-games --pretty
+```
+
+El usuario debe elegir un juego de la lista o usar el pipeline completo para crear desde cero.
+
 ```bash
 # Obtener el juego completo
 python3 scripts/search-games.py --game "{base_game}" --pretty

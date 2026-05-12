@@ -7,7 +7,7 @@ description: >
   Trigger: Cuando se inicia la generación de un nuevo escape room.
 metadata:
   version: "1.0"
-  scope: [escapeitor]
+  scope: [escape-design]
   auto_invoke: "Inicio de generación de escape room"
   pipeline_phase: 1
 ---
@@ -47,7 +47,7 @@ Si el usuario no lo indica, **preguntar**: "¿Este juego pertenece a algún proy
 
 ## Output
 
-`BRIEF.json` guardado en `agents/escapeitor/.pipeline/{juego-id}/BRIEF.json`
+`BRIEF.json` guardado en `{output_dir}/BRIEF.json`
 
 ```json
 {
@@ -90,9 +90,9 @@ Si faltan datos obligatorios → llenar `datos_pendientes` con preguntas especí
 ### 2. Determinar game type óptimo
 Leer los 3 GAMETYPE.md existentes:
 
-- `agents/escapeitor/game-types/game-type-hall-escape/GAMETYPE.md`
-- `agents/escapeitor/game-types/game-type-street-escape/GAMETYPE.md`
-- `agents/escapeitor/game-types/game-type-investigation/GAMETYPE.md`
+- `game-types/game-type-hall-escape/GAMETYPE.md`
+- `game-types/game-type-street-escape/GAMETYPE.md`
+- `game-types/game-type-investigation/GAMETYPE.md`
 
 Comparar temática, duración y objetivos del usuario con cada game type. Seleccionar el mejor ajuste e incluir justificación en `game_type_justificacion`.
 
@@ -217,12 +217,12 @@ Guardar los resultados en `research_data` del BRIEF.json:
 
 ### 6. Consultar contexto histórico
 
-- Leer `agents/escapeitor/MEMORY.md` → identificar puzzles usados recientemente → añadir a `puzzles_recientes_evitar`
-- Consultar `agents/escapeitor/scripts/generate_escape_ideas.py` para ideas recientes
-- Leer `agents/escapeitor/.registry/skill-registry.json` para skills recomendados por game type
+- Consultar el historial de juegos generados → identificar puzzles usados recientemente → añadir a `puzzles_recientes_evitar`
+- Consultar `scripts/generate_escape_ideas.py` para ideas recientes
+- Leer `schemas/skill-registry.json` para skills recomendados por game type
 
 ### 7. Seleccionar research frameworks
-Según la temática y game type, seleccionar frameworks relevantes de `agents/escapeitor/research-frameworks/` (ej: `01-game-design.md`, `02-puzzle-theory.md`, etc.)
+Según la temática y game type, seleccionar frameworks relevantes de `research-frameworks/` (ej: `01-game-design.md`, `02-puzzle-theory.md`, etc.)
 
 ### 8. Seleccionar skills recomendados
 Del skill-registry.json, elegir al menos 3 skills que mejor se adapten al game type y temática. **SOLO** usar IDs de los 20 skills registrados.

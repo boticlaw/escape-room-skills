@@ -18,8 +18,8 @@ Leer estos archivos del proyecto:
 
 ## Research Frameworks
 
-- `agents/escapeitor/research-frameworks/03-storytelling.md`
-- `agents/escapeitor/research-frameworks/05-ux.md`
+- `research-frameworks/03-storytelling.md`
+- `research-frameworks/05-ux.md`
 
 ## Criterios de Evaluación
 

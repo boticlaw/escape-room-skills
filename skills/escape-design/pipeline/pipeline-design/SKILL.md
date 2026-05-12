@@ -2,13 +2,13 @@
 name: pipeline-design
 description: >
   FASE 3 del pipeline — Dual-LLM: Dos jueces con modelos distintos diseñan pruebas
-  desde perspectivas complementarias. Escapeitor sintetiza las mejores pruebas de cada
+  desde perspectivas complementarias. El agente sintetiza las mejores pruebas de cada
   propuesta en un DESIGN.json final.
 ---
 
 # Pipeline Design (Dual-LLM)
 
-FASE 3 del pipeline. Dos jueces con modelos distintos diseñan el set completo de pruebas desde perspectivas complementarias. Escapeitor sintetiza lo mejor de cada propuesta.
+FASE 3 del pipeline. Dos jueces con modelos distintos diseñan el set completo de pruebas desde perspectivas complementarias. El agente sintetiza lo mejor de cada propuesta.
 
 ## Input
 
@@ -134,9 +134,9 @@ Ambos en paralelo. Esperar AMBOS antes de continuar a Paso 2.
 
 **Los jueces son agentes configurados en opencode.json** — cada agente ya tiene su LLM asignado.
 
-## Paso 2: Synthesis (Escapeitor orquesta)
+## Paso 2: Synthesis (el agente orchestrador orquesta)
 
-Escapeitor lee `DESIGN-A.json` y `DESIGN-B.json` y sintetiza directamente.
+El agente lee `DESIGN-A.json` y `DESIGN-B.json` y sintetiza directamente.
 
 ### Clasificación de Pruebas
 
@@ -147,7 +147,7 @@ Al comparar las propuestas, clasificar cada prueba:
 | **CONFIRMED** | Ambos jueces proponen la misma (o equivalente) prueba | Alta calidad → incluir directamente |
 | **SUSPECT-A** | Solo Juez A la propone (enfoque lógico) | Evaluar si merece la pena por solidez |
 | **SUSPECT-B** | Solo Juez B la propone (enfoque experiencial) | Evaluar si merece la pena por impacto |
-| **CONTRADICTION** | Ambos abordan el mismo slot narrativo pero con mecánicas distintas | Escapeitor decide cuál (o híbrida) |
+| **CONTRADICTION** | Ambos abordan el mismo slot narrativo pero con mecánicas distintas | El agente decide cuál (o híbrida) |
 
 ### Prompt Template para Synthesis
 

@@ -7,7 +7,7 @@ description: "FASE 5 — VerifierAgent (QA). Valida que el juego generado es cor
 
 ## Input
 
-Directorio completo del juego: `agents/escapeitor/juegos/{juego-id}/`
+Directorio completo del juego: `juegos/{juego-id}/`
 
 | Archivo | Ubicación relativa |
 |---------|-------------------|
@@ -15,12 +15,12 @@ Directorio completo del juego: `agents/escapeitor/juegos/{juego-id}/`
 | NARRATIVA.md | `juego/narrativa/NARRATIVA.md` |
 | DISEÑO-JUEGO.md | `juego/diseño/DISEÑO-JUEGO.md` |
 | Pruebas | `juego/pruebas/*.json` |
-| DESIGN.json | `agents/escapeitor/.pipeline/{juego-id}/DESIGN.json` |
-| CONCEPT.json | `agents/escapeitor/.pipeline/{juego-id}/CONCEPT.json` |
+| DESIGN.json | `{output_dir}/DESIGN.json` |
+| CONCEPT.json | `{output_dir}/CONCEPT.json` |
 
 ## Output
 
-`agents/escapeitor/.pipeline/{juego-id}/VERIFY-REPORT.json`
+`{output_dir}/VERIFY-REPORT.json`
 
 ### Calibración contra playtests reales
 
@@ -51,7 +51,7 @@ Si el juego nuevo rompe algún umbral real → CRITICAL en Verify.
 Ejecutar el script de validación:
 
 ```bash
-cd /home/daniel/.openclaw/workspace/agents/escapeitor
+cd {project_root}
 python scripts/validate_game.py juegos/{juego-id}/
 ```
 
@@ -414,9 +414,9 @@ Verificar trazabilidad completa entre decisiones de diseño y verificaciones:
 
 Consultar si es necesario para profundizar en algún check:
 
-- `agents/escapeitor/research-frameworks/08-testing.md` — Checklists de QA
-- `agents/escapeitor/research-frameworks/01-game-design.md` — Balance y curva de dificultad
-- `agents/escapeitor/research-frameworks/09-estilo-juegos.md` — Patrones de diseño probados (equipo activo, doble descubrimiento, variedad de cierres, misterio secundario)
+- `research-frameworks/08-testing.md` — Checklists de QA
+- `research-frameworks/01-game-design.md` — Balance y curva de dificultad
+- `research-frameworks/09-estilo-juegos.md` — Patrones de diseño probados (equipo activo, doble descubrimiento, variedad de cierres, misterio secundario)
 
 ## Procedimiento
 

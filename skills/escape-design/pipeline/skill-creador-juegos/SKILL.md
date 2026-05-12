@@ -374,14 +374,14 @@ Si una prueba requiere más de 15 minutos de montaje físico, reconsiderar el di
 Usar Puppeteer para convertir un HTML con CSS inline a PDF A4. No usar `wkhtmltopdf`, `weasyprint` ni Typst.
 
 ```bash
-# Puppeteer disponible globalmente en:
-# /home/daniel/.npm-global/lib/node_modules/md-to-pdf/node_modules/puppeteer
+# Puppeteer disponible globalmente vía md-to-pdf:
+# require('puppeteer') — usar la instancia disponible en el sistema
 ```
 
 ### Script de generación
 
 ```javascript
-const puppeteer = require('/home/daniel/.npm-global/lib/node_modules/md-to-pdf/node_modules/puppeteer');
+const puppeteer = require('puppeteer');
 const path = require('path');
 
 (async () => {

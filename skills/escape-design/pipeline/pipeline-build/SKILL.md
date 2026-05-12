@@ -1,6 +1,6 @@
 ---
 name: pipeline-build
-description: FASE 4 del pipeline de Escapeitor. El BuilderAgent genera todos los archivos del juego: estructura, pruebas, narrativa, diseño, materiales y PDF final.
+description: FASE 4 del pipeline. El BuilderAgent genera todos los archivos del juego: estructura, pruebas, narrativa, diseño, materiales y PDF final.
 ---
 
 # Pipeline Build — BuilderAgent (FASE 4)
@@ -49,7 +49,7 @@ Generar el archivo principal del juego usando el schema:
 {
   "nombre": "string",
   "subtitulo": "string (del CONCEPT.json tagline)",
-  "autor": "Escapeitor",
+  "autor": "escape-room-skills",
   "fecha_creacion": "ISO-8601",
   "version": "1.0",
   "color_principal": "#hex",
@@ -69,7 +69,7 @@ Generar el archivo principal del juego usando el schema:
 - `subtitulo` → de `CONCEPT.json.tagline`
 - `descripcion` → de `CONCEPT.json.premisa`
 - `color_*` → derivar de la temática (coherencia visual)
-- `autor` → siempre `"Escapeitor"`
+- `autor` → siempre `"escape-room-skills"`
 - `fecha_creacion` → fecha actual en ISO-8601
 - `version` → `"1.0"`
 
