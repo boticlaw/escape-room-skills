@@ -71,7 +71,8 @@ escape-room-skills/
 ├── game-types/
 │   ├── hall-escape/                # Interior 50+ m², equipos 5-10
 │   ├── street-escape/              # Exterior, GPS/QR, equipos 2-5
-│   └── investigation/              # Detective/crimen, equipos 2-6
+│   ├── investigation/              # Detective/crimen, equipos 2-6
+│   └── concurso/                   # Quiz battle competitivo, equipos 2-3, 20-45 min
 ├── services/                       # Stack de búsqueda (opcional, self-hosted)
 │   ├── docker-compose.yml          # SearXNG + Perplexica en Docker
 │   ├── searxng/settings.yml        # Config SearXNG (JSON habilitado)
