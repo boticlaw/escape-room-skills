@@ -4,7 +4,7 @@
 
 ## What Is This?
 
-A self-contained toolkit that gives any LLM agent the knowledge and templates to design, build, and test professional escape room games. Three composable skills cover the full pipeline, backed by 10 research frameworks, 21 puzzle mechanics, real game examples, and production-tested scripts.
+A self-contained toolkit that gives any LLM agent the knowledge and templates to design, build, and test professional escape room games. Three composable skills cover the full pipeline, backed by 10 research frameworks, 21 puzzle mechanics, real game examples, production-tested scripts, and an optional self-hosted search stack for automatic thematic research.
 
 | Skill | Purpose |
 |---|---|
@@ -89,6 +89,14 @@ escape-room-skills/
 │   ├── data-model.md               # JSON data model reference
 │   ├── validation-playtest.md      # Playtest validation guide
 │   └── build-commands.md           # Build command reference
+├── services/                       # Search stack (optional, self-hosted)
+│   ├── docker-compose.yml          # SearXNG + Perplexica in Docker
+│   ├── searxng/settings.yml        # SearXNG config (JSON enabled)
+│   ├── perplexica/config.toml      # Perplexica config (Gemini API)
+│   └── scripts/                    # Search helper scripts
+│       ├── searxng-search.py       # SearXNG query helper
+│       └── perplexica-search.py    # Perplexica AI search helper
+├── SEARCH-SETUP.md                 # Full setup guide for search stack
 └── examples/
     ├── example-game.json           # Sample game (museum heist)
     ├── example-prueba.json         # Sample puzzle (nonogram)
@@ -163,11 +171,13 @@ Copy the contents of each `skills/*/SKILL.md` into your agent's instruction cont
 ## Quick Start
 
 1. Load `escape-design/SKILL.md` into your agent
-2. Describe the game you want: type, theme, player count, duration
-3. The agent follows the resumable pipeline with PROGRESS.json tracking
-4. Output: `game.json` + individual `prueba-*.json` files
-5. Run `scripts/build-pdf.mjs` to generate printable design and test documents
-6. Run `scripts/escape-materials-generator.py` to generate categorized printable materials
+2. *(Optional)* Set up the search stack for automatic research: `docker compose -f services/docker-compose.yml up -d` → see [SEARCH-SETUP.md](SEARCH-SETUP.md)
+3. Describe the game you want: type, theme, player count, duration
+4. The agent follows the resumable pipeline with PROGRESS.json tracking
+5. If search stack is running, the EXPLORE phase automatically researches the theme via SearXNG + Perplexica
+6. Output: `game.json` + individual `prueba-*.json` files
+7. Run `scripts/build-pdf.mjs` to generate printable design and test documents
+8. Run `scripts/escape-materials-generator.py` to generate categorized printable materials
 
 ## Real Game Examples
 
@@ -183,6 +193,26 @@ The `examples/real-games/` directory contains 6 complete games:
 | **La Dama del Salón** | Street Escape | 13 levels | **In production** — Palencia street escape |
 
 La Dama del Salón includes: complete analysis, 12 cataloged mechanics, narrative templates, data model patterns, and 13 GPS-enabled levels.
+
+## Search Stack (Optional — Automatic Thematic Research)
+
+The pipeline can automatically research game themes using a self-hosted search stack:
+
+```
+SearXNG (:8888)  →  Perplexica (:3100)  →  LLM (Gemini/OpenAI/Ollama)
+  meta-search         AI summary+citations     any provider
+  70+ engines         with sources              local or cloud
+```
+
+When running, the EXPLORE phase automatically:
+1. Searches for historical facts, curiosities, playable elements via SearXNG
+2. Gets AI-summarized research with citations via Perplexica
+3. Extracts key content from promising URLs via Jina Reader
+4. Compiles everything into the BRIEF's `research_data` field
+
+**Setup:** `docker compose -f services/docker-compose.yml up -d` — see [SEARCH-SETUP.md](SEARCH-SETUP.md) for full instructions.
+
+Works without the stack too — the pipeline falls back to `webfetch` or manual research.
 
 ## Scripts
 

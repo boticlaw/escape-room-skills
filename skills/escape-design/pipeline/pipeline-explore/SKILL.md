@@ -126,27 +126,64 @@ agents/escapeitor/scripts/escape-search.sh --tipo=pruebas
 
 Filtrar resultados: máx 10 pruebas candidatas, clasificar relevancia (alta/media/baja).
 
-### 5. Investigación temática con Scout + Extractor ⚠️ OBLIGATORIO si el tema lo requiere
+### 5. Investigación temática automática ⚠️ OBLIGATORIO si el tema lo requiere
 
-Si la temática del juego necesita datos reales (históricos, científicos, geográficos, culturales):
+Si la temática del juego necesita datos reales (históricos, científicos, geográficos, culturales), usar el search stack (SearXNG + Perplexica). Ver `SEARCH-SETUP.md` para instalación.
 
-**Lanzar en paralelo:**
+#### 5a. Búsqueda de hechos con SearXNG (raw results)
+
+```bash
+# General thematic search
+python3 services/scripts/searxng-search.py "[temática] escape room historical facts curiosities" 10
+
+# Specific searches for playable elements
+python3 services/scripts/searxng-search.py "[temática] puzzles mechanisms interactive elements" 10
+python3 services/scripts/searxng-search.py "[temática] timeline key events dates" 5
+
+# Direct API alternative:
+curl -s "http://localhost:8888/search?q=QUERY&format=json" | jq '.results[:5] | .[] | {title, url, content}'
 ```
-sessions_spawn(agentId=scout, runTimeoutSeconds=600, task:
-  "Investiga sobre [tema] para diseñar un escape room.
-  Busca datos históricos, curiosidades, anécdotas, elementos jugables.
-  Guarda en: {output_dir}/research-scout.json")
 
-sessions_spawn(agentId=extractor, runTimeoutSeconds=300, task:
-  "Busca datos concretos sobre [tema].
-  python3 ~/.openclaw/workspace/skills/searxng-search/searxng-search.py '[query]' 10
-  Para URLs: curl -s 'https://r.jina.ai/URL'
-  Guarda en: {output_dir}/research-extractor.json")
+#### 5b. Síntesis con IA usando Perplexica (AI summary + citations)
+
+```bash
+# AI-powered research synthesis
+python3 services/scripts/perplexica-search.py "Research [temática] for escape room design. Key historical facts, curiosities, anecdotes, playable elements, dates, locations, characters." webSearch
+
+# Academic/historical focus
+python3 services/scripts/perplexica-search.py "[temática] academic research timeline primary sources" academicSearch
 ```
 
-Esperar ambos resultados. Incluir datos en BRIEF.json campo `research_data`.
+#### 5c. Extracción de contenido de URLs específicas
 
-**No requiere research:** temas genéricos (fantasía, sci-fi genérico), o si Daniel ya proporciona todos los datos.
+```bash
+# Extract full text from promising URLs found in step 5a
+curl -s "https://r.jina.ai/URL_HERE" | head -200
+```
+
+#### 5d. Compilar research_data
+
+Guardar los resultados en `research_data` del BRIEF.json:
+
+```json
+{
+  "research_data": {
+    "searxng_queries": ["query1", "query2"],
+    "perplexica_summary": "AI-generated summary with key findings",
+    "sources": [
+      {"title": "...", "url": "...", "relevant_facts": ["..."]}
+    ],
+    "playable_elements": ["fact suitable for puzzle", "date for timeline", "location for map"],
+    "historical_timeline": ["event1 (year)", "event2 (year)"],
+    "characters": ["name - role - why interesting"],
+    "datos_clave": "Concise summary of findings most relevant for game design"
+  }
+}
+```
+
+**No requiere research:** temas genéricos (fantasía, sci-fi genérico), o si el usuario ya proporciona todos los datos.
+
+**Si SearXNG/Perplexica no están disponibles:** Usar `webfetch` o búsqueda web directa como fallback. Marcar `research_data.incomplete = true` y listar qué faltaría investigar manualmente.
 
 ### 6. Consultar contexto histórico
 
@@ -172,20 +209,20 @@ Componer el JSON final y guardarlo en la ruta del pipeline.
 5. **No inventar** → Si el usuario no da un dato, preguntar. Nunca asumir valores para campos obligatorios (salvo defaults explícitos en la tabla de Input).
 6. **Evitar repetición** → Siempre consultar MEMORY.md y excluir puzzles recientes.
 
-## Scripts Usados
+## Scripts & Tools
 
-| Script | Uso |
-|--------|-----|
-| `agents/escapeitor/scripts/escape-search.sh` | Buscar pruebas por dificultad y término |
-| `qmd search` | Búsqueda en colección de pruebas |
-| `agents/escapeitor/scripts/generate_escape_ideas.py` | Ideas recientes de escape rooms |
+| Tool | Uso | Disponibilidad |
+|------|-----|----------------|
+| `services/scripts/searxng-search.py` | Búsqueda raw multi-motor | Requiere SearXNG (localhost:8888) |
+| `services/scripts/perplexica-search.py` | Búsqueda AI con citas | Requiere Perplexica (localhost:3100) |
+| `curl r.jina.ai/URL` | Extraer contenido de URLs | Sin instalación |
+| `webfetch` | Búsqueda web directa | Fallback si no hay search stack |
 
-## Ficheros Referenciados
+## Files Referenciados
 
 | Fichero | Propósito |
 |---------|-----------|
-| `agents/escapeitor/game-types/*/GAMETYPE.md` | Definiciones de game types |
-| `agents/escapeitor/.registry/skill-registry.json` | Registro de skills disponibles |
-| `agents/escapeitor/MEMORY.md` | Historial de puzzles usados |
-| `agents/escapeitor/research-frameworks/*.md` | Frameworks de investigación |
-| `agents/escapeitor/.pipeline/{id}/BRIEF.json` | Output del brief |
+| `game-types/*/GAMETYPE.md` | Definiciones de game types |
+| `schemas/skill-registry.json` | Registro de skills disponibles |
+| `research-frameworks/*.md` | Frameworks de investigación |
+| `SEARCH-SETUP.md` | Instalación del search stack (SearXNG + Perplexica) |

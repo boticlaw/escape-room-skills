@@ -1,0 +1,42 @@
+services:
+  perplexica:
+    image: itzcrazykns1337/perplexica:slim-latest
+    container_name: perplexica
+    restart: unless-stopped
+    ports:
+      - "3100:3000"
+    volumes:
+      - perplexica-dbstore:/home/perplexica/data
+      - perplexica-uploads:/home/perplexica/uploads
+      - ./perplexica/config.toml:/home/perplexica/config.toml:ro
+    environment:
+      - SEARXNG_API_URL=http://searxng:8080
+    depends_on:
+      - searxng
+    networks:
+      - search-net
+
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    restart: unless-stopped
+    ports:
+      - "8888:8080"
+    volumes:
+      - ./searxng/settings.yml:/etc/searxng/settings.yml:rw
+    networks:
+      - search-net
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+
+volumes:
+  perplexica-dbstore:
+  perplexica-uploads:
+
+networks:
+  search-net:
+    driver: bridge
