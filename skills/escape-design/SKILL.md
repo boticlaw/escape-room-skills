@@ -1,6 +1,6 @@
 ---
 name: escape-design
-description: Master escape room design pipeline. 10-phase process with integrated research frameworks for designing complete escape room games.
+description: Portable master escape room design pipeline. Multi-phase process with integrated research frameworks for designing complete escape room games. Zero GM, self-service verification, dual-LLM quality gates.
 triggers:
   - design escape room
   - create escape game
@@ -13,7 +13,7 @@ triggers:
 
 ## Overview
 
-This skill drives the complete design of an escape room game through a 10-phase pipeline. Each phase integrates compact rules from 10 research frameworks. Output: `game.json` + individual `prueba-*.json` files.
+This skill drives the complete design of an escape room game through a multi-phase pipeline. Each phase integrates compact rules from research frameworks. Output: `game.json` + individual `prueba-*.json` files.
 
 ## Core Design Rules
 
@@ -24,12 +24,36 @@ This skill drives the complete design of an escape room game through a 10-phase 
 | **SELF-SERVICE** | Players verify solutions through physical/digital mechanisms. |
 | **REAL MECHANISMS** | Locks open, lights turn on, doors unlock — real feedback. |
 | **NO CROSS-DEPENDENCIES** | Each puzzle is self-contained. No data from puzzle A needed in puzzle B. |
+| **PHYSICAL > DIGITAL** | Prioritize physical manipulation (touch, move, overlay, search). Digital only as support, never as protagonist. |
+| **DOUBLE DISCOVERY** | Every puzzle has at least 2 layers of "aha!": solve the main puzzle AND discover something that reveals the solution or next step. |
 
 ## Pipeline Phases
 
 ```
-RESOLVE → EXPLORE → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → PLAYTEST → VERIFY → JUDGMENT
+RESOLVE → EXPLORE → REGRESSION → CONCEIVE → DESIGN → NARRATIVE-CONSISTENCY → DIFFICULTY-CALIBRATION → BUILD → NARRATIVE-RECHECK → PLAYTEST → VERIFY → JUDGMENT → REMIX
 ```
+
+### Phase Directory Mapping
+
+| Phase | Directory |
+|---|---|
+| Orchestration | `pipeline-orchestrator/` |
+| Explore | `pipeline-explore/` |
+| Conceive | `pipeline-conceive/` |
+| Design | `pipeline-design/` |
+| Build | `pipeline-build/` |
+| Verify | `pipeline-verify/` |
+| Judgment Day | `pipeline-judgment-day/` |
+| Playtest | `pipeline-playtest/` |
+| Judge Logic | `pipeline-judge-logic/` |
+| Judge Story | `pipeline-judge-story/` |
+| Narrative Consistency | `pipeline-narrative-consistency/` |
+| Difficulty Calibration | `pipeline-difficulty-calibration/` |
+| Regression | `pipeline-regression/` |
+| Skill Resolution | `pipeline-skill-resolution/` |
+| Remix | `pipeline-remix/` |
+| Test Architect | `skill-architect-pruebas-escape/` |
+| Game Creator | `skill-creador-juegos/` |
 
 ### 1. RESOLVE — Gather Requirements
 
@@ -189,6 +213,23 @@ Evaluate the complete design against quality criteria.
 - [ ] Flow: Does the game maintain engagement from start to finish?
 - [ ] Fun: Would players recommend this to a friend?
 
+### 11. REMIX — Variations & Reuse
+
+Generate variations of the completed game for different audiences, themes, or difficulty levels.
+
+**Output**: Remix variants with change annotations.
+
+**Research rules applied**:
+- Game Design: Identify which elements are theme-dependent vs. structure-dependent
+- Puzzle Design: Swap mechanics while preserving difficulty curves
+- Psychology: Adapt for different player experience levels
+
+**Remix options**:
+- Theme swap: same structure, different narrative skin
+- Difficulty shift: easier/harder variants with adjusted puzzle complexity
+- Audience adaptation: age-appropriate content and mechanism changes
+- Duration variant: shorter/longer versions with puzzle count adjustment
+
 ## Research Frameworks (Compact Rules)
 
 ### F1. Game Design
@@ -335,14 +376,17 @@ Best practices checklist:
   "phase_status": {
     "RESOLVE": "pending",
     "EXPLORE": "pending",
+    "REGRESSION": "pending",
     "CONCEIVE": "pending",
     "DESIGN": "pending",
-    "NARRATIVE": "pending",
-    "DIFFICULTY": "pending",
+    "NARRATIVE-CONSISTENCY": "pending",
+    "DIFFICULTY-CALIBRATION": "pending",
     "BUILD": "pending",
+    "NARRATIVE-RECHECK": "pending",
     "PLAYTEST": "pending",
     "VERIFY": "pending",
-    "JUDGMENT": "pending"
+    "JUDGMENT": "pending",
+    "REMIX": "pending"
   },
   "iterations": {
     "total": 0,

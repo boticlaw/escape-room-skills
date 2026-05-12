@@ -34,8 +34,8 @@
       "completed_at": null,
       "file": "CONCEPT.json",
       "dual_llm": {
-        "razonator": null,
-        "visionator": null,
+        "escape-judge-a": null,
+        "escape-judge-b": null,
         "synthesis": null
       },
       "checks_passed": [],
@@ -48,8 +48,8 @@
       "completed_at": null,
       "file": "DESIGN.json",
       "dual_llm": {
-        "razonator": null,
-        "visionator": null,
+        "escape-judge-a": null,
+        "escape-judge-b": null,
         "synthesis": null
       },
       "checks_passed": [],
@@ -93,8 +93,8 @@
       "completed_at": null,
       "file": "PLAYTEST-REPORT.json",
       "dual_llm": {
-        "razonator": null,
-        "visionator": null,
+        "escape-judge-a": null,
+        "escape-judge-b": null,
         "synthesis": null
       },
       "verdict": null,
@@ -116,8 +116,8 @@
       "completed_at": null,
       "file": "JUDGMENT-REPORT.json",
       "dual_llm": {
-        "razonator": null,
-        "visionator": null,
+        "escape-judge-a": null,
+        "escape-judge-b": null,
         "synthesis": null
       },
       "verdict": null,

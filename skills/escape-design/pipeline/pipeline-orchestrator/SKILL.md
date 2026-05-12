@@ -1,15 +1,17 @@
 ---
 name: pipeline-orchestrator
+scope: [escape-design]
+author: escape-room-skills
 description: Skill maestro que coordina las fases del pipeline de creación de escape rooms. Sistema retomable con PROGRESS.json, ejecución fase por fase, gates de decisión, dual-LLM en CONCEIVE/DESIGN/PLAYTEST/JUDGMENT, y reglas de diseño integradas.
 ---
 
 # Pipeline Orchestrator — Escape Room Creation Pipeline
 
-Skill maestro que ejecuta cuando Daniel pide "crea un escape room". Coordina las fases delegando cada una como subagente. Las fases CONCEIVE, DESIGN, PLAYTEST y JUDGMENT usan dual-LLM (razonator + visionator).
+Skill maestro que ejecuta cuando se pide "crea un escape room". Coordina las fases delegando cada una como subagente. Las fases CONCEIVE, DESIGN, PLAYTEST y JUDGMENT usan dual-LLM (escape-judge-a + escape-judge-b).
 
 ## Resumen
 
-El orchestrator NO ejecuta fases directamente. Lee el SKILL.md de cada fase, prepara el prompt con el artefacto input correcto, delega vía `sessions_spawn`, valida output y decide si continuar o iterar.
+El orchestrator NO ejecuta fases directamente. Lee el SKILL.md de cada fase, prepara el prompt con el artefacto input correcto, delega vía `delegate(agent="escape-judge-a", prompt="...")`, valida output y decide si continuar o iterar.
 
 **Sistema retomable:** Cada fase guarda su output inmediatamente. PROGRESS.json trackea el estado. Si el pipeline se interrumpe (timeout, crash, sesión nueva), se retoma desde la primera fase no completada.
 
@@ -62,10 +64,10 @@ Actualizar PROGRESS.json después de cada fase completada exitosamente.
     "total_full_cycles": 0
   },
   "dual_llm_results": {
-    "conceive": { "razonator": "done", "visionator": "done", "synthesis": "done" },
-    "design": { "razonator": "done", "visionator": "done", "synthesis": "done" },
-    "playtest": { "razonator": null, "visionator": null, "synthesis": null },
-    "judgment": { "razonator": null, "visionator": null, "synthesis": null }
+    "conceive": { "escape-judge-a": "done", "escape-judge-b": "done", "synthesis": "done" },
+    "design": { "escape-judge-a": "done", "escape-judge-b": "done", "synthesis": "done" },
+    "playtest": { "escape-judge-a": null, "escape-judge-b": null, "synthesis": null },
+    "judgment": { "escape-judge-a": null, "escape-judge-b": null, "synthesis": null }
   }
 }
 ```
@@ -119,18 +121,18 @@ Después de DESIGN.json, evaluar:
 | RESOLVE | `zai/glm-5-turbo` | No | Búsqueda y clasificación |
 | EXPLORE | `zai/glm-5-turbo` | No | Recopilar brief |
 | REGRESSION | `zai/glm-5-turbo` | No | Comparación y diff |
-| **CONCEIVE** | **Razonator (GLM-5.1) + Visionator (GPT-5.5)** | **Sí** | **Concepto: estructurado + creativo → síntesis** |
-| **DESIGN** | **Razonator (GLM-5.1) + Visionator (GPT-5.5)** | **Sí** | **Puzzles: lógicos + experienciales → síntesis** |
+| **CONCEIVE** | **escape-judge-a (GLM-5.1) + escape-judge-b (GPT-5.5)** | **Sí** | **Concepto: estructurado + creativo → síntesis** |
+| **DESIGN** | **escape-judge-a (GLM-5.1) + escape-judge-b (GPT-5.5)** | **Sí** | **Puzzles: lógicos + experienciales → síntesis** |
 | NARRATIVE-CONSISTENCY | `zai/glm-5-turbo` | No | Extracción y cross-reference |
 | DIFFICULTY-CALIBRATION | `zai/glm-5-turbo` | No | Evaluación de parámetros y curva |
 | BUILD | `zai/glm-5.1` | No | Generación de contenido |
-| **PLAYTEST** | **Razonator (GLM-5.1) + Visionator (GPT-5.5)** | **Sí** | **6 perfiles: analíticos + experienciales → cruce** |
+| **PLAYTEST** | **escape-judge-a (GLM-5.1) + escape-judge-b (GPT-5.5)** | **Sí** | **6 perfiles: analíticos + experienciales → cruce** |
 | VERIFY | `zai/glm-5-turbo` | No | Checks mecánicos y validación |
-| **JUDGMENT** | **Razonator (GLM-5.1) + Visionator (GPT-5.5)** | **Sí** | **Evaluación: analítica + creativa → síntesis con auto-fix** |
+| **JUDGMENT** | **escape-judge-a (GLM-5.1) + escape-judge-b (GPT-5.5)** | **Sí** | **Evaluación: analítica + creativa → síntesis con auto-fix** |
 
 ### Resumen Dual-LLM
 
-| Fase | Razonator (GLM-5.1) aporta | Visionator (GPT-5.5) aporta | Síntesis |
+| Fase | escape-judge-a (GLM-5.1) aporta | escape-judge-b (GPT-5.5) aporta | Síntesis |
 |------|------------------------|------------------------|----------|
 | **CONCEIVE** | Narrativa clásica, progresión lógica | Giros narrativos, mecánicas innovadoras | Mejor de cada uno → 1 CONCEPT.json |
 | **DESIGN** | Puzzles lógicos, cadena deductiva | Puzzles experienciales, momentos "wow" | Mejores pruebas → 1 DESIGN.json |
@@ -213,14 +215,14 @@ Para CADA fase del pipeline:
 2. Marcar fase como "in_progress" en PROGRESS.json → GUARDAR
 3. Leer el SKILL.md del pipeline-{fase}
 4. Preparar el prompt con el input correcto (artefacto de la fase anterior) + RESOLVED_STANDARDS
-5. sessions_spawn con el prompt
+5. delegate(agent="escape-judge-a", prompt="...") con el prompt
 6. Esperar resultado (push-based)
 7. Validar que el output se generó correctamente (ls -la {output_file})
 8. Si falla → intentar 1 vez más → si vuelve a fallar → marcar "failed" + escalar a Daniel
 9. Si ok → marcar como "done" en PROGRESS.json → GUARDAR → pasar a siguiente fase
 ```
 
-**Skills de pipeline referenciados** (todos en `escape-material/.agents/skills/`):
+**Skills de pipeline referenciados** (todos en `skills/escape-design/pipeline/`):
 - `pipeline-skill-resolution/SKILL.md`
 - `pipeline-explore/SKILL.md`
 - `pipeline-conceive/SKILL.md` (dual-LLM)
@@ -258,13 +260,13 @@ Si `BRIEF.json` tiene `datos_pendientes` no vacío:
 ### Si CONCEIVE falla
 
 La síntesis dual-LLM raramente falla, pero si el concepto final no pasa los checks obligatorios de CONCEIVE:
-1. Escapeitor ajusta la síntesis (máx 2 intentos).
+1. El agente orchestrador ajusta la síntesis (máx 2 intentos).
 2. Si persiste → escalar a Daniel con ambos conceptos (A y B) para que elija dirección.
 
 ### Si DESIGN falla
 
 Si la síntesis dual-LLM no pasa los checks obligatorios de DESIGN:
-1. Escapeitor ajusta la síntesis (máx 2 intentos).
+1. El agente orchestrador ajusta la síntesis (máx 2 intentos).
 2. Si persiste → escalar a Daniel con ambos diseños y las validaciones fallidas.
 
 ### Si PLAYTEST falla (`verdict = "fail"`)
@@ -325,7 +327,7 @@ Si la síntesis dual-LLM no pasa los checks obligatorios de DESIGN:
 
 ### Si JUDGMENT — Tabla de Consenso (Dual-LLM)
 
-| Razonator (GLM-5.1) | Visionator (GPT-5.5) | Acción |
+| escape-judge-a (GLM-5.1) | escape-judge-b (GPT-5.5) | Acción |
 |-------------------|-------------------|--------|
 | approved | approved | ✅ ENTREGAR |
 | approved_with_suggestions | approved | ✅ ENTREGAR (con notas) |
@@ -364,25 +366,25 @@ El orchestrator DEBE informar en estos puntos:
 ### Durante el pipeline
 
 ```
-agents/escapeitor/.pipeline/{juego-id}/
+{output_dir}/
 ├── PROGRESS.json               ← Estado del pipeline (retomable)
 ├── RESOLVED_STANDARDS.json
 ├── BRIEF.json
 ├── REGRESSION-REPORT.json      ← Solo si existe baseline
 ├── concepts/
-│   ├── CONCEPT-A.json          (Razonator output)
-│   └── CONCEPT-B.json          (Visionator output)
+│   ├── CONCEPT-A.json          (escape-judge-a output)
+│   └── CONCEPT-B.json          (escape-judge-b output)
 ├── CONCEPT.json                (síntesis final)
 ├── designs/
-│   ├── DESIGN-A.json           (Razonator output)
-│   └── DESIGN-B.json           (Visionator output)
+│   ├── DESIGN-A.json           (escape-judge-a output)
+│   └── DESIGN-B.json           (escape-judge-b output)
 ├── DESIGN.json                 (síntesis final)
 ├── NARRATIVE-CONSISTENCY-REPORT.json
 ├── DIFFICULTY-REPORT.json
 ├── VERIFY-REPORT.json
 ├── playtests/
-│   ├── PLAYTEST-A.json         (Razonator output)
-│   └── PLAYTEST-B.json         (Visionator output)
+│   ├── PLAYTEST-A.json         (escape-judge-a output)
+│   └── PLAYTEST-B.json         (escape-judge-b output)
 ├── PLAYTEST-REPORT.json        (síntesis final)
 └── JUDGMENT-REPORT.json
 ```
@@ -424,15 +426,15 @@ FASE 1b: REGRESSION (solo si baseline)    │
   ▼                                       │
 FASE 2: CONCEIVE (dual-LLM)               │
   Checks CONCEIVE obligatorios            │
-  razonator: estructurado                 │
-  visionator: creativo                    │
+  escape-judge-a: estructurado                 │
+  escape-judge-b: creativo                    │
   síntesis → CONCEPT.json                 │
   │ GUARDAR PROGRESS.json                 │
   ▼                                       │
 FASE 3: DESIGN (dual-LLM)                 │
   Checks DESIGN obligatorios              │
-  razonator: lógico                       │
-  visionator: experiencial                │
+  escape-judge-a: lógico                       │
+  escape-judge-b: experiencial                │
   síntesis → DESIGN.json                  │
   │ GUARDAR PROGRESS.json                 │
   ▼                                       │
@@ -445,8 +447,8 @@ FASE 4: BUILD                             │
   ▼                                       │
 FASE 4a: NARRATIVE CONSISTENCY (re-check) │
 FASE 4b: PLAYTEST (dual-LLM)              │
-  razonator: 3 perfiles analíticos        │
-  visionator: 3 perfiles experienciales   │
+  escape-judge-a: 3 perfiles analíticos        │
+  escape-judge-b: 3 perfiles experienciales   │
   síntesis → PLAYTEST-REPORT.json         │
   │ GUARDAR PROGRESS.json                 │
   ▼                                       │
@@ -457,8 +459,8 @@ FASE 5: VERIFY                            │
   │                   N         N
   ▼                    ▼          ▼
 FASE 6: JUDGMENT (dual-LLM)        escalar
-  razonator: evaluación completa
-  visionator: evaluación completa
+  escape-judge-a: evaluación completa
+  escape-judge-b: evaluación completa
   síntesis → auto-fix → JUDGMENT-REPORT.json
   │ GUARDAR PROGRESS.json
   │
