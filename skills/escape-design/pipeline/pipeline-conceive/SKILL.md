@@ -1,9 +1,6 @@
 ---
 name: pipeline-conceive
-description: >
-  FASE 2 del pipeline. Dual-LLM: Dos jueces con modelos distintos generan
-  conceptos independientes desde enfoques distintos (estructurado vs creativo). El agente
-  sintetiza lo mejor de ambos en un CONCEPT.json final.
+description: "Trigger: concepto narrativo escape room, concebir juego, FASE 2 pipeline. Dual-LLM: dos jueces generan conceptos independientes (estructurado vs creativo), síntesis unificada en CONCEPT.json."
 license: Apache-2.0
 metadata:
   author: escape-room-skills
@@ -11,321 +8,97 @@ metadata:
   scope: [escape-design]
   phase: 2
   dual_llm: true
-  auto_invoke: "Cuando se solicita crear el concepto narrativo de un juego de escape room"
 ---
 
-# Pipeline — FASE 2: Conceive (Dual-LLM)
+# Pipeline Conceive (FASE 2 — Dual-LLM)
 
-Dos jueces con modelos distintos generan conceptos independientes desde perspectivas distintas. El agente sintetiza lo mejor de cada uno en un concepto final unificado.
+## Activation Contract
 
-## Cuándo se ejecuta
+After EXPLORE. BRIEF.json complete, `datos_pendientes` empty.
 
-Después de FASE 1 (Explore). El Orchestrator llama a este skill cuando el `BRIEF.json` está completo y sin `datos_pendientes`.
+## Hard Rules
 
-## Input
+1. **Independencia**: Judges NO comparten output. 100% independent generation.
+2. **Duración**: suma de actos ≤ duración del BRIEF.
+3. **Actos**: mínimo 3, máximo 4.
+4. **Progresión emocional**: no plana — actos suben o bajan, no se repiten.
+5. **Gancho**: visual/inmediato, <30 seg. No backstory largo.
+6. **Síntesis coherente**: el concepto final lee como una sola propuesta, no una mezcla.
 
-| Fuente | Ruta |
-|--------|------|
-| Brief del juego | `{output_dir}/BRIEF.json` |
+## Decision Gates
 
-## Output
+### Same-provider detection
 
-| Producto | Ruta |
-|----------|------|
-| Concepto Juez A | `{output_dir}/concepts/CONCEPT-A.json` |
-| Concepto Juez B | `{output_dir}/concepts/CONCEPT-B.json` |
-| Concepto final sintetizado | `{output_dir}/CONCEPT.json` |
-
-## Los Dos Jueces
-
-| Agente | Config | Enfoque |
-|--------|--------|---------|
-| `escape-judge-a` | `opencode.json` model | **Estructurado** — narrativa clásica, progresión lógica, arcos tradicionales, solidez narrativa |
-| `escape-judge-b` | `opencode.json` model (DIFFERENT provider) | **Creativo** — giros narrativos, mecánicas innovadoras, atmósferas originales, gancho impactante |
-
-**Ventaja dual-LLM**: Un modelo prioriza solidez estructural, el otro aporta frescura creativa. La síntesis captura lo mejor de ambos enfoques.
-
-### Si ambos jueces usan el mismo provider
-
-Si `scripts/verify-judges.py` reporta `same_provider: true`, los jueces deben MAXIMIZAR la divergencia de enfoque:
+If `scripts/verify-judges.py` reports `same_provider: true`, maximize divergence:
 
 | Aspecto | Juez A | Juez B |
 |---------|--------|--------|
-| Personalidad | Ingeniero QA — sistemático, frío, busca fallos | Jugador apasionado — emocional, busca magia |
-| Método | Checklist de criterios, scoring 1-10 por item | Narrativa experiencial + red flags específicas |
-| Bias | Pesimista (asumir problemas) | Optimista (asumir que funciona, demostrar que no) |
-| Output | JSON estructurado con scores | Narrativa libre + resumen de problemas |
+| Personalidad | Ingeniero QA — sistemático, pesimista | Jugador apasionado — emocional, optimista |
+| Método | Checklist, scoring 1-10 | Narrativa experiencial + red flags |
+| Output | JSON con scores | Narrativa libre + resumen |
 
-## Research Frameworks (consultar ANTES de generar)
+## Execution Steps
 
-| Framework | Ruta | Uso |
-|-----------|------|-----|
-| Storytelling | `research-frameworks/03-storytelling.md` | Arco narrativo, Hero's Journey |
-| Psicología | `research-frameworks/04-psicologia.md` | Flow Theory, progresión emocional |
-| Escenografía | `research-frameworks/06-escenografia.md` | Atmósfera, inmersión sensorial |
+### Step 0: Research (both judges)
 
-Ambos jueces deben leer estos frameworks antes de generar.
+Consult puzzle catalog + real games (see `references/research-commands.md`).
 
-### Paso 0a: Consultar catálogo de pruebas individuales ⚠️ OBLIGATORIO
+Research frameworks: `03-storytelling.md`, `04-psicologia.md`, `06-escenografia.md`.
 
-El catálogo de pruebas (`examples/puzzles/`) contiene 82+ pruebas reales (testeadas e ideas) con datos de mecánicas, dificultad y duración que NO existen en los 4 juegos documentados. Consultarlo ANTES de los juegos reales:
-
-```bash
-# Buscar pruebas sueltas por temática similar al brief
-python3 scripts/search-games.py --puzzles --similar "{tema_del_brief}" --pretty
-
-# Buscar pruebas por mecánica deseada
-python3 scripts/search-games.py --puzzles --mechanic "{mecanica_deseada}" --pretty
-
-# Ver pruebas en el rango de dificultad objetivo
-python3 scripts/search-games.py --puzzles --difficulty {dificultad_objetivo} --pretty
-
-# Ver todas las categorías disponibles
-python3 scripts/search-games.py --puzzles --list-categories --pretty
-
-# Ver detalle de una prueba específica
-python3 scripts/search-games.py --puzzles --puzzle "{puzzle_id}" --pretty
-
-# Incluir pruebas descartadas (para aprender qué NO funciona)
-python3 scripts/search-games.py --puzzles --include-discarded --mechanic "{mecanica}" --pretty
-```
-
-**Extraer del catálogo de pruebas:**
-- **Mecánicas disponibles**: Qué skills existen en el catálogo y cuántas pruebas los usan
-- **Rango de dificultad real**: Qué niveles de dificultad tienen las pruebas de cada mecánica
-- **Duraciones estimadas**: Tiempos típicos por tipo de prueba (para calibrar actos)
-- **Pruebas testeadas vs ideas**: Las testeadas son más fiables; las ideas son inspiración
-- **Descartadas**: Qué mecánicas NO funcionaron y por qué (evitar esos patrones)
-
-### Paso 0b: Consultar juegos reales como referencia ⚠️ OBLIGATORIO
-
-Después del catálogo, buscar en los 4 juegos reales para alimentar la creatividad con patrones probados:
-
-```bash
-# Buscar juegos con temática similar (incluye resultados del catálogo de pruebas)
-python3 scripts/search-games.py --similar "{tema_del_brief}" --pretty
-
-# Buscar por tipo de juego
-python3 scripts/search-games.py --type "{game_type}" --pretty
-
-# Ver qué mecánicas tuvieron mejor recepción (juegos + catálogo unificado)
-python3 scripts/search-games.py --list-mechanics --pretty
-
-# Ver juegos completos con detalle (para inspiración narrativa)
-python3 scripts/search-games.py --game "legado-tinta-violeta" --pretty
-python3 scripts/search-games.py --game "protocolo-alerta-verde" --pretty
-```
-
-**Extraer de cada juego referenciado:**
-- **Patrón narrativo**: ¿Qué tipo de historia usó? (misterio personal, sabotaje, investigación histórica, etc.)
-- **Gancho**: ¿Cuál fue el hook inicial y por qué funcionó?
-- **Arco emocional**: ¿Qué emociones recorren los jugadores y en qué orden?
-- **Lección del playtest**: Si hay playtest-report.json, qué funcionó mejor y peor
-
-**Inyectar en los prompts de ambos jueces** como contexto adicional:
-```
-## Catálogo de pruebas individuales (82+ pruebas, datos reales de mecánicas y dificultad)
-
-{output del search-games.py --puzzles}
-
-## Juegos reales de referencia (para inspiración, NO copiar)
-
-{output del search-games.py --similar}
-
-Reglas:
-- Inspirarse en los PATRONES (tipo de arco, estructura de actos, variedad mecánica)
-- NO copiar narrativas ni mecánicas específicas directamente
-- Si un juego real con temática similar tuvo un problema documentado en playtest, evitar ese patrón
-- Priorizar mecánicas que los playtests reales muestran como más disfrutadas
-- Consultar el catálogo de pruebas para mecánicas que NO aparecen en los juegos documentados
-- Las pruebas descartadas indican patrones a EVITAR (ver --include-discarded)
-```
-
-## Paso 1: Launch Paralelo
-
-Launch both judges via delegation (parallel):
-
-  delegate(agent="escape-judge-a", prompt="Lee el BRIEF.json, los research frameworks (research-frameworks/03-storytelling.md, 04-psicologia.md, 06-escenografia.md) y el GAMETYPE.md correspondiente.
-  Tu ENFOQUE: estructurado, narrativa clásica, progresión lógica.
-  - Arco narrativo sólido (3 actos claros)
-  - Personajes con motivaciones definidas
-  - Progresión emocional predecible pero efectiva
-  - Gancho basado en misterio clásico
-  Genera un CONCEPT.json completo.
-  Escríbelo en {output_dir}/concepts/CONCEPT-A.json")
-
-  delegate(agent="escape-judge-b", prompt="Lee el BRIEF.json, los research frameworks (research-frameworks/03-storytelling.md, 04-psicologia.md, 06-escenografia.md) y el GAMETYPE.md correspondiente.
-  Tu ENFOQUE: creativo, giros narrativos, atmósferas originales.
-  - Giros inesperados que redefinen la experiencia
-  - Mecánicas narrativas innovadoras (perspectiva múltiple, narrador no fiable)
-  - Atmósfera inmersiva como vehículo narrativo
-  - Gancho emocional potente
-  Genera un CONCEPT.json completo.
-  Escríbelo en {output_dir}/concepts/CONCEPT-B.json")
-
-Ambos en paralelo. Esperar AMBOS antes de continuar a Paso 2.
-
-**REGLA CRÍTICA**: Cada juez NO ve el output del otro. Generación 100% independiente.
-
-**Los jueces son agentes configurados en opencode.json** — cada agente ya tiene su LLM asignado.
-
-## Paso 2: Synthesis (el agente orchestrador orquesta)
-
-El agente lee `CONCEPT-A.json` y `CONCEPT-B.json` y sintetiza directamente (no delega a subagente).
-
-### Prompt Template para Synthesis
+### Step 1: Launch Parallel
 
 ```
-Eres un director creativo de escape rooms. Tienes dos propuestas de concepto de jueces distintos:
+delegate(agent="escape-judge-a", prompt="Lee BRIEF.json, research frameworks, GAMETYPE.md.
+ENFOQUE: estructurado — arco clásico 3 actos, progresión lógica, gancho por misterio.
+Genera CONCEPT.json completo → {output_dir}/concepts/CONCEPT-A.json")
 
-## CONCEPTO A (Juez A — Estructurado)
-{CONCEPT-A.json completo}
-
-## CONCEPTO B (Juez B — Creativo)
-{CONCEPT-B.json completo}
-
-## BRIEF ORIGINAL
-{BRIEF.json completo}
-
-## TAREA
-Sintetiza lo mejor de ambos conceptos en un único CONCEPT.json final:
-
-1. **Título**: Elige el mejor, o combina si hay sinergia
-2. **Tagline**: El más evocador de los dos
-3. **Premisa**: Combina la solidez lógica de A con el giro de B (si funciona)
-4. **Gancho**: El más impactante visualmente/emocionalmente
-5. **Actos**: Estructura de A (3-4 actos con progresión clara) con momentos wow de B
-6. **Personajes**: Los mejor definidos de cada propuesta
-7. **Flujo**: El más compatible con el game_type del BRIEF
-8. **Atmósfera**: La más inmersiva (tiende a B si es factible)
-9. **Tono**: El más coherente con la premisa final
-
-REGLAS:
-- La síntesis debe ser coherente, no un Frankenstein
-- Priorizar la viabilidad del concepto final sobre la originalidad pura
-- La suma de actos debe ser ≤ duración del BRIEF
-- Mínimo 3, máximo 4 actos
-- Progresión emocional NO plana
-
-Genera el CONCEPT.json final siguiendo la estructura estándar.
+delegate(agent="escape-judge-b", prompt="Lee BRIEF.json, research frameworks, GAMETYPE.md.
+ENFOQUE: creativo — giros narrativos, mecánicas innovadoras, atmósfera inmersiva.
+Genera CONCEPT.json completo → {output_dir}/concepts/CONCEPT-B.json")
 ```
 
-## Paso 3: Validar
+Both in parallel. Wait for BOTH before Step 2.
 
-Verificar el concepto final:
+### Step 2: Synthesis (orchestrator agent reads + synthesizes)
 
-- [ ] Suma de duración de actos ≤ duración del BRIEF
+Read CONCEPT-A.json + CONCEPT-B.json. Synthesize following these priorities:
+
+1. **Título**: best of both, or combine if synergy
+2. **Premisa**: logic of A + twist of B (if it works)
+3. **Actos**: structure of A + wow moments of B
+4. **Atmósfera**: most immersive (tends to B if feasible)
+
+Synthesis prompt template in `references/synthesis-prompt.md`.
+
+### Step 3: Validate
+
+- [ ] Suma duración actos ≤ duración BRIEF
 - [ ] 3 ≤ actos ≤ 4
-- [ ] Progresión emocional (no plana: los actos suben o bajan, no se repiten)
+- [ ] Progresión emocional no plana
 - [ ] Gancho intriguing <30 seg
-- [ ] Tono coherente con temática del brief
-- [ ] Flujo compatible con game_type del GAMETYPE.md
+- [ ] Tono coherente con temática
+- [ ] Flujo compatible con game_type
 
-Si falla validación, ajustar la síntesis y re-validar (máx 2 intentos). Si persiste, escalar al Orchestrator.
+If fails: adjust synthesis, re-validate (max 2 attempts). Then escalate.
 
-## Paso 4: Guardar
+### Step 4: Save
 
-1. Guardar `CONCEPT-A.json` en `{output_dir}/concepts/CONCEPT-A.json`
-2. Guardar `CONCEPT-B.json` en `{output_dir}/concepts/CONCEPT-B.json`
-3. Guardar `CONCEPT.json` (final) en `{output_dir}/CONCEPT.json`
+1. `concepts/CONCEPT-A.json`
+2. `concepts/CONCEPT-B.json`
+3. `CONCEPT.json` (final)
 
-## Estructura de CONCEPT.json (output final)
+## Output Contract
 
-```json
-{
-  "id": "concept_{YYYY-MM-DD}_{tematica_slug}",
-  "brief_ref": "brief_id_del_brief_original",
-  "dual_llm": true,
-  "synthesis_sources": {
-    "concept_a": "concepts/CONCEPT-A.json",
-    "concept_b": "concepts/CONCEPT-B.json"
-  },
-  "titulo": "string",
-  "tagline": "string",
-  "premisa": "string (2-3 frases)",
-  "gancho": "string (lo que ven al entrar)",
-  "actos": [
-    {
-      "numero": 1,
-      "nombre": "string",
-      "duracion_minutos": 15,
-      "emocion_objetivo": "string"
-    }
-  ],
-  "personajes": [
-    {
-      "nombre": "string",
-      "rol": "string",
-      "descripcion_breve": "string"
-    }
-  ],
-  "flujo_recomendado": "lineal|acumulacion|cadenas_paralelas",
-  "atmosfera": {
-    "iluminacion": "string",
-    "sonido": "string",
-    "elementos_sensoriales": "string"
-  },
-  "tono": "string"
-}
-```
+| Product | Path |
+|---------|------|
+| Concept Judge A | `{output_dir}/concepts/CONCEPT-A.json` |
+| Concept Judge B | `{output_dir}/concepts/CONCEPT-B.json` |
+| Final synthesized | `{output_dir}/CONCEPT.json` |
 
-## Reglas
+CONCEPT.json schema: `references/concept-schema.md`
 
-1. **Duración**: suma de actos ≤ duración del BRIEF
-2. **Actos**: mínimo 3, máximo 4
-3. **Progresión emocional**: los actos NO pueden tener la misma emoción objetivo. Buscar curva (ascenso, descenso, clímax)
-4. **Gancho**: debe ser visual/inmediato. No backstory largo. "Los jugadores ven X que les hace preguntarse Y"
-5. **Tono**: una sola palabra, coherente con la temática
-6. **Título**: evocativo, ≤5 palabras, fácil de recordar y pronunciar
-7. **Compatibilidad**: el flujo_recomendado debe ser compatible con el game_type según su GAMETYPE.md
-8. **Independencia**: los jueces NO comparten output. Cada uno genera su concepto sin ver el del otro
-9. **Síntesis coherente**: el concepto final debe leerse como una sola propuesta, no como una mezcla
+## References
 
-## Integración con Orchestrator
-
-El Orchestrator debe:
-1. Llamar a `pipeline-conceive` cuando BRIEF.json esté completo
-2. Esperar los 3 archivos (CONCEPT-A.json, CONCEPT-B.json, CONCEPT.json)
-3. Mostrar a Daniel: título + tagline + premisa (del CONCEPT.json final)
-4. Si quiere ver alternativas → puede consultar CONCEPT-A.json y CONCEPT-B.json en `concepts/`
-
-## Agentes Utilizados
-
-- `escape-judge-a` — Agente configurado en `opencode.json` (enfoque estructurado)
-- `escape-judge-b` — Agente configurado en `opencode.json`, modelo de provider DISTINTO (enfoque creativo)
-- Ambos se invocan vía `delegate()`
-
-## Ejemplo
-
-```json
-{
-  "id": "concept_2026-04-06_hospital_abandonado",
-  "brief_ref": "brief_2026-04-06_horror_medico",
-  "dual_llm": true,
-  "synthesis_sources": {
-    "concept_a": "concepts/CONCEPT-A.json",
-    "concept_b": "concepts/CONCEPT-B.json"
-  },
-  "titulo": "Pabellón 7",
-  "tagline": "La última operación nunca terminó.",
-  "premisa": "En 1983, el pabellón 7 del Hospital San Miguel fue clausurado tras la desaparición del Dr. Vega y tres pacientes. Ahora, 40 años después, una filtración en el sótano ha revelado pasillos que no aparecen en ningún plano.",
-  "gancho": "Al entrar, los jugadores ven una sala de espera intacta de los años 80 con tres sillas vacías y un televisor encendido en estática. En la pared, escritos a mano: 'No salgan del pabellón después de las 10.'",
-  "actos": [
-    {"numero": 1, "nombre": "La Llegada", "duracion_minutos": 15, "emocion_objetivo": "inquietud"},
-    {"numero": 2, "nombre": "Los Expedientes", "duracion_minutos": 20, "emocion_objetivo": "curiosidad escalofriante"},
-    {"numero": 3, "nombre": "El Quirófano", "duracion_minutos": 20, "emocion_objetivo": "tensión extrema"},
-    {"numero": 4, "nombre": "Salida", "duracion_minutos": 10, "emocion_objetivo": "alivio con resaca"}
-  ],
-  "personajes": [
-    {"nombre": "Dr. Vega", "rol": "antagonista ausente", "descripcion_breve": "Cirujano jefe que desapareció. Sus notas aparecen por toda la sala."},
-    {"nombre": "Enfermera Ruiz", "rol": "guía fantasma", "descripcion_breve": "Aparece en grabaciones de audio fragmentadas dando pistas."}
-  ],
-  "flujo_recomendado": "lineal",
-  "atmosfera": {
-    "iluminacion": "Luz fluorescente parpadeante, zonas de penumbra casi total",
-    "sonido": "Zumbido eléctrico constante, pitidos de monitor cardíaco esporádicos",
-    "elementos_sensoriales": "Olor a formaldehído, texturas de metal frío, temperatura baja"
-  },
-  "tono": "tenso"
-}
-```
+- `references/concept-schema.md` — Full CONCEPT.json schema + example
+- `references/synthesis-prompt.md` — Synthesis prompt template
+- `references/research-commands.md` — Catalog/game search commands

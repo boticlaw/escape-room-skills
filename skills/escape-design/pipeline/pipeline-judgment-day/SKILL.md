@@ -1,218 +1,100 @@
 ---
 name: pipeline-judgment-day
-description: "FASE 6 — Dual-LLM adversarial review with iteration. Judge A (escape-judge-a) evaluates analytically, Judge B (escape-judge-b) evaluates creatively. Synthesis crosses findings, auto-fixes confirmed issues, iterates."
+description: "Trigger: revisión adversarial escape room, judgment day, FASE 6 pipeline. Dual-LLM: evaluación analítica vs creativa, clasificación CONFIRMED/SUSPECT/CONTRADICTION, auto-fix iterativo hasta convergencia."
 ---
 
-# Pipeline Judgment Day — Dual-LLM Review (Portable)
+# Pipeline Judgment Day (FASE 6 — Dual-LLM Review)
 
-Two DIFFERENT LLMs evaluate the complete escape room independently via opencode agent delegation. Each evaluates BOTH narrative and logic from their perspective. Synthesis crosses findings, auto-fixes confirmed issues, iterates until convergence.
+## Activation Contract
 
-## Architecture
+After VERIFY (Phase 5). If Verify failed → back to Design first.
 
-```
-┌─────────────────────┐     ┌──────────────────────────┐
-│  Judge A             │     │  Judge B                  │
-│  (opencode agent)    │     │  (opencode agent)         │
-│  escape-judge-a      │     │  escape-judge-b            │
-│  GLM-5.1             │     │  GPT-5.5                  │
-│                      │     │                           │
-│  ANALYTICAL focus:   │     │  CREATIVE focus:          │
-│  - Coherence         │     │  - Immersion quality      │
-│  - Structure         │     │  - Emotional arc          │
-│  - Solvability       │     │  - Originality            │
-│  - Consistency       │     │  - Player experience      │
-└────────┬─────────────┘     └──────────┬────────────────┘
-         │                              │
-         ▼                              ▼
-    JUDGE-A.json                  JUDGE-B.json
-         │                              │
-         └──────────┬───────────────────┘
-                    ▼
-         dual-llm-synthesis.py → CONFIRMED / SUSPECT / CONTRADICTION
-                    │
-                    ▼
-         Auto-fix CONFIRMED → Re-judge → Converge
-```
+## Hard Rules
 
-## When to Run
-
-After Build (Phase 4) and Verify (Phase 5). If Verify is `fail`, go back to Design first.
-
-## Input
-
-- Complete game directory: `{game_dir}/`
-- `CONCEPT.json`, `DESIGN.json`, `VERIFY-REPORT.json`
+1. Both judges evaluate narrative AND logic (no separation).
+2. Judges run independently — neither sees the other's output.
+3. Only CONFIRMED issues get auto-fixed. SUSPECT/CONTRADICTION = manual review.
+4. Max 2 iterations. Exceeded → escalate to user.
 
 ## The Two Judges
 
-| Judge | Source | Perspective |
-|-------|--------|------------|
-| **A** | opencode agent (escape-judge-a) | Analytical — coherence, structure, solvability, consistency |
-| **B** | opencode agent (escape-judge-b) | Creative — immersion, emotion, originality, experience |
+| Judge | Agent | Perspective |
+|-------|-------|------------|
+| **A** | escape-judge-a | Analytical — coherence, structure, solvability, consistency, completeness |
+| **B** | escape-judge-b | Creative — immersion, emotion, originality, player experience |
 
-**Key advantage**: Two genuinely different models capture more defects and biases than one model self-evaluating.
+### Same-provider divergence
 
-### Enhanced Prompt Divergence Mode (same provider)
+If `scripts/verify-judges.py` → `same_provider: true`:
 
-If `scripts/verify-judges.py` reports `same_provider: true`, activate Enhanced Prompt Divergence:
+- Judge A: QA engineer mode — systematic, cold, checklist, 1-10 scoring per item
+- Judge B: Player advocate — passionate, emotional first, then analytical
+- SUSPECT weight: 0.6 (reduced). CONTRADICTION: manual review required.
 
-**Judge A (QA Engineer mode):**
-- "You are a QA engineer reviewing escape room designs. Systematic checklist evaluation. Score each criterion independently. Cold and precise. Flag anything that COULD be a problem."
-- Evaluates: coherence, structure, solvability, consistency, completeness
-- Method: criterion-by-criterion with 1-10 scoring per item
+## Execution Steps
 
-**Judge B (Player Advocate mode):**
-- "You are a passionate escape room enthusiast who has played 50+ rooms. You WANT this game to be amazing. Experience the design emotionally first. Write what excites you, THEN write what concerns you. Only flag things that genuinely disappoint or break immersion."
-- Evaluates: immersion, emotional arc, originality, player experience, narrative-puzzle integration
-- Method: holistic experience narrative + specific callouts
+### Step 1: Prepare game data
 
-**Synthesis modification:**
-- CONFIRMED weight: 1.0 (same)
-- SUSPECT weight: 0.6 (reduced)
-- CONTRADICTION weight: requires manual review (more likely with same model)
-- All outputs marked `_meta.enhanced_prompt_divergence = true`
+Combine all game files (same pattern as playtest).
 
-## Step 1: Prepare game data
-
-```bash
-# Same as playtest — combine all game files
-# (see pipeline-playtest for the script)
-```
-
-## Step 2: Launch Judge A (opencode agent — escape-judge-a)
-
-Launch via delegation:
+### Step 2: Launch both judges (parallel)
 
 ```
-delegate(agent="escape-judge-a", prompt="Evaluate this escape room from an ANALYTICAL perspective: coherence, structure, solvability, consistency, completeness. Read all game files in {game_dir}/. Score each criterion 1-10. List every issue found. Be RUTHLESS but constructive. Reference specific elements. Output JUDGE-A.json to {output_dir}/JUDGE-A.json")
+delegate(agent="escape-judge-a", prompt="Evaluate ANALYTICALLY: coherence, structure, solvability, consistency, completeness. Score 1-10 per criterion. List every issue. RUTHLESS but constructive. Output JUDGE-A.json → {output_dir}/JUDGE-A.json")
+
+delegate(agent="escape-judge-b", prompt="Evaluate CREATIVELY: immersion, emotional arc, originality, narrative-puzzle integration, player experience. Score 1-10 per criterion. BRUTALLY HONEST. Output JUDGE-B.json → {output_dir}/JUDGE-B.json")
 ```
 
-**System prompt for Judge A (configured in opencode.json):**
-
-```
-You are Judge A — an ANALYTICAL evaluator for escape rooms.
-
-Evaluate this escape room from an ANALYTICAL perspective:
-- Coherence: Does the story hold together? Are characters consistent?
-- Structure: Is the flow logical? Are transitions clear?
-- Solvability: Can every puzzle be solved with available information?
-- Consistency: Do codes match their lock types? Do materials match descriptions?
-- Completeness: Does every solution list all required values?
-
-Score each criterion 1-10. List every issue found.
-Be RUTHLESS but constructive. Reference specific elements.
-
-Output JSON:
-{
-  "scores": {"coherence": N, "structure": N, "solvability": N, "consistency": N, "completeness": N},
-  "overall_score": N,
-  "findings": [
-    {"criterion": "...", "description": "...", "severity": "critical|major|minor", "suggestion": "..."}
-  ],
-  "verdict": "approved|approved_with_suggestions|rejected"
-}
-```
-
-## Step 3: Launch Judge B (opencode agent — escape-judge-b, in parallel)
-
-Launch via delegation:
-
-```
-delegate(agent="escape-judge-b", prompt="Evaluate this escape room from a CREATIVE and EXPERIENTIAL perspective: immersion quality, emotional arc, originality, narrative-puzzle integration, player experience. Read all game files in {game_dir}/. Score each criterion 1-10. List all issues and suggestions. Be BRUTALLY HONEST but constructive. Reference specific elements. Output JUDGE-B.json to {output_dir}/JUDGE-B.json")
-```
-
-Both judges run independently via async delegation — neither sees the other's output.
-
-## Step 4: Synthesize
+### Step 3: Synthesize
 
 ```bash
 python3 scripts/dual-llm-synthesis.py \
   --judge-a {output_dir}/JUDGE-A.json \
   --judge-b {output_dir}/JUDGE-B.json \
   --output {output_dir}/JUDGMENT-REPORT.json \
-  --type judgment \
-  --game-ref {juego-id}
+  --type judgment --game-ref {juego-id}
 ```
 
 ### Finding Classification
 
 | Type | Definition | Action |
 |------|-----------|--------|
-| **CONFIRMED** | Both judges found same issue | Auto-fix mandatory |
-| **SUSPECT** | Only one judge found it | Investigate, optional fix |
-| **CONTRADICTION** | Judges disagree (score delta ≥ 3) | Manual review needed |
+| **CONFIRMED** | Both found same issue | Auto-fix mandatory |
+| **SUSPECT** | Only one found | Investigate, optional |
+| **CONTRADICTION** | Score delta ≥ 3 | Manual review |
 
-## Step 5: Auto-fix
+### Step 4: Auto-fix CONFIRMED issues
 
-For each CONFIRMED issue:
-1. Apply the concrete fix described in synthesis
-2. Update game files in `{game_dir}/`
-3. Document what changed and why
+For each CONFIRMED: apply fix, update game files, document change.
 
-**Do NOT auto-fix** SUSPECT or CONTRADICTION issues.
+Do NOT auto-fix SUSPECT or CONTRADICTION.
 
-## Step 6: Re-judge
+### Step 5: Re-judge modified parts only
 
-Re-launch both judges on the **modified parts only**:
-- If narrative + logic changed → both re-evaluate
-- If only narrative → both evaluate narrative only
-- If only logic → both evaluate logic only
+- Narrative + logic changed → both re-evaluate both
+- Only narrative → both evaluate narrative only
+- Only logic → both evaluate logic only
 
-## Step 7: Convergence
+### Step 6: Convergence
 
 | Condition | Result |
 |-----------|--------|
-| `combined ≥ 8.0` | ✅ APPROVED — no more iterations |
-| `0 CONFIRMED + 0 CONTRADICTION` | ✅ APPROVED — only suspects |
-| Iteration ≥ 2 | ⚠️ ESCALATE — present to user |
+| `combined ≥ 8.0` | ✅ APPROVED |
+| `0 CONFIRMED + 0 CONTRADICTION` | ✅ APPROVED (only suspects) |
+| Iteration ≥ 2 | ⚠️ ESCALATE to user |
 
-### If escalated
+If escalated: (1) continue 1 more iteration, (2) accept with warnings, (3) discard → back to CONCEIVE.
 
-Present options:
-1. **Continue iterating** — reset counter (1 more iteration)
-2. **Accept with warnings** — deliver with suspect notes
-3. **Discard and regenerate** — back to Phase 2 (Conceive) with all feedback
+## Output Contract
 
-## Output: JUDGMENT-REPORT.json
+`{output_dir}/JUDGMENT-REPORT.json` — Schema in `references/judgment-report-schema.md`.
 
-```json
-{
-  "id": "judgment_YYYY-MM-DD_{juego-slug}",
-  "game_ref": "{juego-slug}",
-  "timestamp": "ISO-8601",
-  "dual_llm": true,
-  "iterations": 1,
-  "judge_a_model": "opencode/glm-5.1",
-  "judge_b_model": "opencode/gpt-5.5",
-  "synthesis": {
-    "confirmed": [],
-    "suspect": [],
-    "contradiction": []
-  },
-  "scores": {
-    "judge_a": 7.5,
-    "judge_b": 7.4,
-    "combined": 7.45
-  },
-  "verdict": "approved|approved_with_suggestions|rejected",
-  "fixes_applied": [],
-  "remaining_suspects": []
-}
-```
+## References
 
-## Scripts
+- `references/judgment-report-schema.md` — Full report schema
+- `references/system-prompts.md` — System prompts for both judges
+- `references/fallback.md` — Single-LLM fallback
 
-| Script | Purpose |
-|--------|---------|
-| `scripts/dual-llm-synthesis.py` | Cross findings, classify, synthesize |
-
-Note: `scripts/dual-llm-evaluate.py` is no longer needed — both judges are opencode agents now.
-
-## Fallback (single-LLM)
-
-If only one judge agent is configured, run Judge A only. Mark `_meta.dual_llm = false`. Single-judge evaluation has lower confidence but is still valuable for catching basic issues.
-
-## Skills Referenced
-
-- `pipeline-judge-story/SKILL.md` — Narrative evaluation criteria (used by both judges)
-- `pipeline-judge-logic/SKILL.md` — Logic evaluation criteria (used by both judges)
+Referenced skills (used by both judges for criteria):
+- `pipeline-judge-story/SKILL.md`
+- `pipeline-judge-logic/SKILL.md`
