@@ -1,0 +1,250 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boticlaw.github.io/escape-room-skills/schemas/prueba.schema.json",
+  "title": "Escape Room Puzzle (Prueba)",
+  "description": "Schema for a single escape room puzzle/challenge",
+  "type": "object",
+  "required": ["id", "nombre", "descripcion", "skill_primario", "dificultad", "duracion_estimada_minutos", "configuracion", "pistas", "solucion", "materiales"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique puzzle identifier (e.g. P01, P02)",
+      "pattern": "^P[0-9]{2,3}$"
+    },
+    "nombre": {
+      "type": "string",
+      "description": "Short puzzle name",
+      "minLength": 3,
+      "maxLength": 60
+    },
+    "descripcion": {
+      "type": "string",
+      "description": "What the player sees and must do",
+      "minLength": 10
+    },
+    "skill_primario": {
+      "type": "string",
+      "description": "Primary mechanic from escape-puzzles catalog",
+      "enum": [
+        "nonogram", "posiciones", "secuencial",
+        "memoria", "texto",
+        "mecanismo", "panel-electrico", "punteria-derribo", "puzzle-ensamblaje",
+        "tablet-cooperativo", "panel-control-app", "arcade-digital", "laberinto-digital",
+        "comunicacion-mensajes",
+        "busqueda-objetos", "exploracion-visual", "ubicacion-qr", "gps-navegacion", "acrostico-ubicacion", "adivinanza-ubicacion",
+        "investigacion-texto"
+      ]
+    },
+    "skills_secundarios": {
+      "type": "array",
+      "description": "Supporting mechanics involved",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3
+    },
+    "dificultad": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Puzzle difficulty (1=trivial, 10=expert)"
+    },
+    "duracion_estimada_minutos": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30,
+      "description": "Expected time to solve"
+    },
+    "configuracion": {
+      "type": "object",
+      "description": "Puzzle setup details",
+      "required": ["mecanica_principal", "elementos_necesarios"],
+      "additionalProperties": false,
+      "properties": {
+        "mecanica_principal": {
+          "type": "string",
+          "description": "How the core mechanic works in this puzzle"
+        },
+        "mecanismo_barrera": {
+          "type": "string",
+          "description": "Physical/digital lock or barrier that opens on solve"
+        },
+        "elementos_necesarios": {
+          "type": "array",
+          "description": "Items needed for this puzzle",
+          "items": {
+            "type": "string"
+          }
+        },
+        "distribucion_roles": {
+          "type": "string",
+          "description": "How tasks split among players (if cooperative)"
+        }
+      }
+    },
+    "pistas": {
+      "type": "array",
+      "description": "Hint system (escalating from subtle to explicit)",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["nivel", "tipo", "texto"],
+        "additionalProperties": false,
+        "properties": {
+          "nivel": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "description": "Hint level (1=subtle, 2=moderate, 3=explicit)"
+          },
+          "tipo": {
+            "type": "string",
+            "description": "Delivery method",
+            "enum": ["visual", "audio", "text", "environmental", "digital"]
+          },
+          "texto": {
+            "type": "string",
+            "description": "Hint content"
+          }
+        }
+      }
+    },
+    "solucion": {
+      "type": "object",
+      "description": "Complete solution details",
+      "required": ["descripcion", "verificacion", "pasos_detallados"],
+      "additionalProperties": false,
+      "properties": {
+        "descripcion": {
+          "type": "string",
+          "description": "What the correct answer/action is"
+        },
+        "verificacion": {
+          "type": "string",
+          "description": "How players self-verify (lock opens, light turns on, etc.)"
+        },
+        "pasos_detallados": {
+          "type": "array",
+          "description": "Step-by-step solution walkthrough",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recompensa": {
+          "type": "string",
+          "description": "What players get upon solving (next clue, item, access)"
+        }
+      }
+    },
+    "materiales": {
+      "type": "object",
+      "description": "Physical materials needed",
+      "required": ["impresion"],
+      "additionalProperties": false,
+      "properties": {
+        "impresion": {
+          "type": "array",
+          "description": "Printable items",
+          "items": {
+            "type": "object",
+            "required": ["archivo", "descripcion", "cantidad"],
+            "additionalProperties": false,
+            "properties": {
+              "archivo": { "type": "string" },
+              "descripcion": { "type": "string" },
+              "cantidad": { "type": "integer", "minimum": 1 }
+            }
+          }
+        },
+        "mobiliario": {
+          "type": "array",
+          "description": "Furniture or fixtures needed",
+          "items": { "type": "string" }
+        },
+        "extras": {
+          "type": "array",
+          "description": "Other materials (locks, props, electronics)",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "documentos_in_game": {
+      "type": "array",
+      "description": "In-game documents players find and use",
+      "items": {
+        "type": "object",
+        "required": ["titulo", "texto", "cantidad"],
+        "additionalProperties": false,
+        "properties": {
+          "titulo": { "type": "string" },
+          "texto": { "type": "string" },
+          "cantidad": { "type": "integer", "minimum": 1 },
+          "gm_notas": { "type": "string" }
+        }
+      }
+    },
+    "barrera_fisica": {
+      "type": "object",
+      "description": "Physical barrier/lock details",
+      "additionalProperties": false,
+      "properties": {
+        "tipo": {
+          "type": "string",
+          "description": "Type of barrier (padlock, electronic, magnetic, etc.)"
+        },
+        "ubicacion": {
+          "type": "string",
+          "description": "Where the barrier is placed"
+        },
+        "codigo": {
+          "type": "string",
+          "description": "The code/combination that opens it"
+        },
+        "origen_codigo": {
+          "type": "string",
+          "description": "How players derive the code from the puzzle"
+        },
+        "montaje_minutos": {
+          "type": "integer",
+          "description": "Setup time required"
+        }
+      }
+    },
+    "hilo_conductor": {
+      "type": "object",
+      "description": "Narrative thread element (optional meta-puzzle)",
+      "additionalProperties": false,
+      "properties": {
+        "letra": {
+          "type": "string",
+          "description": "Letter or symbol contributed to meta-puzzle"
+        },
+        "significado": {
+          "type": "string",
+          "description": "Narrative meaning of this element"
+        },
+        "posicion": {
+          "type": "integer",
+          "description": "Position in the meta-puzzle sequence"
+        }
+      }
+    },
+    "control_movimiento": {
+      "type": "object",
+      "description": "Movement control for live games",
+      "additionalProperties": false,
+      "properties": {
+        "problema_potencial": {
+          "type": "string",
+          "description": "What could go wrong with player movement"
+        },
+        "solucion_implementada": {
+          "type": "string",
+          "description": "How the design prevents or mitigates the issue"
+        }
+      }
+    }
+  }
+}

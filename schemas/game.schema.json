@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boticlaw.github.io/escape-room-skills/schemas/game.schema.json",
+  "title": "Escape Room Game",
+  "description": "Schema for a complete escape room game definition",
+  "type": "object",
+  "required": ["id", "nombre", "tipo", "version", "jugadores", "duracion_minutos", "dificultad_objetivo", "tematica", "flujo", "objetivo_principal", "pruebas"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique game identifier (slug format)",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    },
+    "nombre": {
+      "type": "string",
+      "description": "Human-readable game name",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "tipo": {
+      "type": "string",
+      "description": "Game type",
+      "enum": ["hall_escape", "street_escape", "investigation"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "jugadores": {
+      "type": "object",
+      "description": "Player count configuration",
+      "required": ["min", "max", "optimo"],
+      "additionalProperties": false,
+      "properties": {
+        "min": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Minimum players"
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum players"
+        },
+        "optimo": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Optimal player count"
+        }
+      }
+    },
+    "duracion_minutos": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 180,
+      "description": "Total game duration in minutes"
+    },
+    "dificultad_objetivo": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Target difficulty (1=easy, 10=expert)"
+    },
+    "tematica": {
+      "type": "string",
+      "description": "Game theme/narrative setting",
+      "minLength": 5
+    },
+    "flujo": {
+      "type": "string",
+      "description": "Game flow structure",
+      "enum": ["lineal", "no_lineal", "multi_lineal"]
+    },
+    "objetivo_principal": {
+      "type": "string",
+      "description": "What players must achieve to win",
+      "minLength": 10
+    },
+    "pruebas": {
+      "type": "array",
+      "description": "Ordered list of puzzles/challenges",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "archivo"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Puzzle identifier matching the prueba JSON file"
+          },
+          "archivo": {
+            "type": "string",
+            "description": "Filename of the prueba JSON (e.g. prueba-01.json)"
+          }
+        }
+      }
+    },
+    "notas_diseno": {
+      "type": "string",
+      "description": "Design notes and rationale"
+    },
+    "iteracion": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Design iteration number"
+    }
+  }
+}

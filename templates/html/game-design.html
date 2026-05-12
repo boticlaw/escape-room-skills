@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Room — Game Design Document</title>
+  <link rel="stylesheet" href="escape-base.css">
+  <style>
+    /* Per-game theme overrides — customize these variables */
+    :root {
+      --color-primary: #1a1a2e;
+      --color-secondary: #16213e;
+      --color-accent: #e94560;
+      --color-text: #eaeaea;
+      --color-text-muted: #a0a0a0;
+      --color-proof-bg: #0f3460;
+      --color-proof-header: #e94560;
+      --color-border: #2a2a4a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       COVER
+       ================================================================ -->
+  <section class="cover">
+    <h1>{{GAME_NAME}}</h1>
+    <p class="subtitle">{{GAME_TYPE}} — Design Document v{{VERSION}}</p>
+    <dl class="metadata">
+      <dt>Theme</dt>
+      <dd>{{THEME}}</dd>
+      <dt>Players</dt>
+      <dd>{{PLAYERS_MIN}}–{{PLAYERS_MAX}} (optimal: {{PLAYERS_OPT}})</dd>
+      <dt>Duration</dt>
+      <dd>{{DURATION}} minutes</dd>
+      <dt>Difficulty</dt>
+      <dd>{{DIFFICULTY}}/10</dd>
+      <dt>Flow</dt>
+      <dd>{{FLOW_TYPE}}</dd>
+      <dt>Date</dt>
+      <dd>{{DATE}}</dd>
+    </dl>
+  </section>
+
+  <!-- ================================================================
+       SYNOPSIS
+       ================================================================ -->
+  <section class="page-break">
+    <div class="synopsis">
+      <h2>Synopsis</h2>
+      <p>{{OBJECTIVE_PRINCIPAL}}</p>
+      <p><strong>Narrative hook:</strong> {{NARRATIVE_HOOK}}</p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       GAME STRUCTURE
+       ================================================================ -->
+  <section>
+    <h2>Game Structure</h2>
+    <table class="structure-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Puzzle</th>
+          <th>Mechanic</th>
+          <th>Difficulty</th>
+          <th>Est. Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Repeat for each puzzle -->
+        <tr>
+          <td>P01</td>
+          <td>{{PUZZLE_NAME}}</td>
+          <td>{{MECHANIC}}</td>
+          <td>
+            <div class="difficulty-bar">
+              <!-- Generate N filled segments for difficulty -->
+              <span class="segment filled"></span>
+              <span class="segment filled"></span>
+              <span class="segment"></span>
+              <span class="label">3/10</span>
+            </div>
+          </td>
+          <td>{{EST_TIME}} min</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ================================================================
+       FLOW DIAGRAM
+       ================================================================ -->
+  <section>
+    <h2>Flow Diagram</h2>
+    <div class="flow-diagram">
+{{FLOW_DIAGRAM_ASCII}}
+    </div>
+  </section>
+
+  <!-- ================================================================
+       PROOF CARDS — One per puzzle
+       ================================================================ -->
+  <section class="page-break">
+    <h2>Puzzle Details</h2>
+
+    <!-- Proof Card Template — duplicate for each puzzle -->
+    <article class="proof-card">
+      <div class="proof-header">
+        <span class="puzzle-id">P01</span>
+        <span class="puzzle-name">{{PUZZLE_NAME}}</span>
+        <div class="difficulty-bar">
+          <span class="segment filled"></span>
+          <span class="segment filled"></span>
+          <span class="segment filled"></span>
+          <span class="segment"></span>
+          <span class="label">3/10</span>
+        </div>
+      </div>
+      <div class="proof-body">
+        <div class="proof-section">
+          <h4>Description</h4>
+          <p>{{PUZZLE_DESCRIPTION}}</p>
+        </div>
+
+        <div class="proof-section">
+          <h4>Mechanic</h4>
+          <p>Primary: <strong>{{PRIMARY_MECHANIC}}</strong></p>
+          {{#SECONDARY_MECHANICS}}
+          <p>Secondary: {{SECONDARY_MECHANICS}}</p>
+          {{/SECONDARY_MECHANICS}}
+        </div>
+
+        <div class="proof-section">
+          <h4>Solution</h4>
+          <p>{{SOLUTION_DESCRIPTION}}</p>
+          <p><strong>Verification:</strong> {{VERIFICATION}}</p>
+        </div>
+
+        <div class="proof-section">
+          <h4>Hints</h4>
+          <div class="hint-item">
+            <span class="hint-level">LVL 1</span>
+            <span class="hint-text">{{HINT_1}}</span>
+          </div>
+          <div class="hint-item">
+            <span class="hint-level">LVL 2</span>
+            <span class="hint-text">{{HINT_2}}</span>
+          </div>
+          <div class="hint-item">
+            <span class="hint-level">LVL 3</span>
+            <span class="hint-text">{{HINT_3}}</span>
+          </div>
+        </div>
+
+        <div class="proof-section">
+          <h4>Materials</h4>
+          <ul>
+            <li>{{MATERIAL_1}}</li>
+            <li>{{MATERIAL_2}}</li>
+          </ul>
+        </div>
+
+        <div class="proof-section">
+          <h4>Barrier / Lock</h4>
+          <p>Type: {{BARRIER_TYPE}} | Code: <code>{{BARRIER_CODE}}</code></p>
+          <p>Origin: {{CODE_ORIGIN}}</p>
+        </div>
+      </div>
+    </article>
+    <!-- End Proof Card -->
+  </section>
+
+  <!-- ================================================================
+       GM SHEET (Setup & Reset)
+       ================================================================ -->
+  <section class="page-break">
+    <div class="gm-sheet">
+      <h2>Setup &amp; Reset Sheet</h2>
+
+      <h3>Pre-Game Setup ({{SETUP_TIME}} min)</h3>
+      <ol>
+        <li>{{SETUP_STEP_1}}</li>
+        <li>{{SETUP_STEP_2}}</li>
+        <li>{{SETUP_STEP_3}}</li>
+      </ol>
+
+      <h3>Reset Between Games ({{RESET_TIME}} min)</h3>
+      <ol>
+        <li>{{RESET_STEP_1}}</li>
+        <li>{{RESET_STEP_2}}</li>
+        <li>{{RESET_STEP_3}}</li>
+      </ol>
+
+      <h3>Emergency Overrides</h3>
+      <ul>
+        <li>{{EMERGENCY_OVERRIDE}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="document-footer">
+    <span>{{GAME_NAME}} — Design Document</span>
+    <span>v{{VERSION}} — {{DATE}}</span>
+  </footer>
+
+</body>
+</html>

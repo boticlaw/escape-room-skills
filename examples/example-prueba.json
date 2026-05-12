@@ -1,0 +1,106 @@
+{
+  "id": "P01",
+  "nombre": "Gallery Grid",
+  "descripcion": "A large nonogram is projected on the wall. Players must solve it using clues hidden in the museum catalog. The completed image reveals the code for the service door.",
+  "skill_primario": "nonogram",
+  "skills_secundarios": ["busqueda-objetos"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "configuracion": {
+    "mecanica_principal": "7x7 nonogram grid projected on wall. Row and column clues are distributed across 4 museum catalog pages hidden in the room.",
+    "mecanismo_barrera": "4-digit combination padlock on the service door",
+    "elementos_necesarios": [
+      "Projector for nonogram grid display",
+      "4 printed museum catalog pages with hidden clues",
+      "4-digit combination padlock (code: 7392)",
+      "Service door or prop door with hasp"
+    ],
+    "distribucion_roles": "2-3 players search for catalog pages. 1-2 players work the nonogram at the projector. Remaining players cross-reference and verify."
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "environmental",
+      "texto": "The projector flickers and highlights the first row clue on the catalog spine."
+    },
+    {
+      "nivel": 2,
+      "tipo": "text",
+      "texto": "Each catalog page has a colored border. Match the border color to the nonogram row/column it belongs to."
+    },
+    {
+      "nivel": 3,
+      "tipo": "visual",
+      "texto": "The completed nonogram forms the number 7-3-9-2, which is the door code."
+    }
+  ],
+  "solucion": {
+    "descripcion": "Fill the 7x7 grid according to the number clues from the catalog pages. The filled cells form the digits 7-3-9-2.",
+    "verificacion": "Entering 7392 on the padlock opens the service door with an audible click.",
+    "pasos_detallados": [
+      "Find all 4 catalog pages hidden around the room (under table, inside frame backing, behind curtain, inside drawer)",
+      "Match each catalog page to its nonogram row/column using the colored border system",
+      "Solve the nonogram by filling cells according to the number sequences",
+      "Read the completed image as 4 digits: 7-3-9-2",
+      "Enter the code on the service door padlock"
+    ],
+    "recompensa": "Access to the service corridor (next area)"
+  },
+  "materiales": {
+    "impresion": [
+      {
+        "archivo": "catalog-page-1.pdf",
+        "descripcion": "Museum catalog page with blue border — nonogram rows 1-3 clues",
+        "cantidad": 1
+      },
+      {
+        "archivo": "catalog-page-2.pdf",
+        "descripcion": "Museum catalog page with red border — nonogram rows 4-5 clues",
+        "cantidad": 1
+      },
+      {
+        "archivo": "catalog-page-3.pdf",
+        "descripcion": "Museum catalog page with green border — nonogram columns 1-4 clues",
+        "cantidad": 1
+      },
+      {
+        "archivo": "catalog-page-4.pdf",
+        "descripcion": "Museum catalog page with yellow border — nonogram columns 5-7 clues",
+        "cantidad": 1
+      }
+    ],
+    "mobiliario": [
+      "Display table with catalog holder",
+      "Curtain for hiding one catalog page",
+      "Picture frame with removable backing"
+    ],
+    "extras": [
+      "4-digit combination padlock (set to 7392)",
+      "Hasp and staple on service door or prop door"
+    ]
+  },
+  "documentos_in_game": [
+    {
+      "titulo": "Metropolitan Gallery Evening Catalog",
+      "texto": "Welcome to the Metropolitan Gallery. Our collection spans 3 floors and includes works from the Renaissance to Modern Art. This evening's exhibition features: The Golden Sunset (Floor 1), The Storm (Floor 2), The Silent Watch (Floor 3), and The Hidden Garden (Floor 1). Gallery hours: 9am-9pm. Security patrols: Every 15 minutes. Emergency exit: Service corridor, Floor 1. Staff note: Blue wing closed for renovation.",
+      "cantidad": 4,
+      "gm_notas": "Each page has a different colored border and different nonogram clues embedded in the text layout."
+    }
+  ],
+  "barrera_fisica": {
+    "tipo": "combination_padlock",
+    "ubicacion": "Service door at end of gallery room",
+    "codigo": "7392",
+    "origen_codigo": "Nonogram solution forms the digits 7-3-9-2",
+    "montaje_minutos": 2
+  },
+  "hilo_conductor": {
+    "letra": "M",
+    "significado": "First letter of 'Metropolitan' — the museum name. Players collect letters M-U-S-E to spell MUSE in the meta-puzzle.",
+    "posicion": 1
+  },
+  "control_movimiento": {
+    "problema_potencial": "All players crowd around the projector at once",
+    "solucion_implementada": "Catalog pages are distributed across the room, forcing searchers away from the projector. Nonogram solver stays at projector, searchers bring pages."
+  }
+}
