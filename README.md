@@ -214,6 +214,19 @@ When running, the EXPLORE phase automatically:
 
 Works without the stack too — the pipeline falls back to `webfetch` or manual research.
 
+## opencode Agent Configuration (Dual-LLM Judges)
+
+The playtest and judgment-day pipeline phases use **two opencode agents** with different LLM models for dual evaluation:
+
+| Agent | Model | Role |
+|-------|-------|------|
+| `escape-judge-a` | GLM-5.1 (analytical) | Coherence, structure, solvability |
+| `escape-judge-b` | GPT-5.5 (creative) | Immersion, emotional arc, originality |
+
+These agents are configured in `opencode.json` under the `"agent"` block. The pipeline uses `delegate()` to launch both judges in parallel, then a synthesis script crosses their findings.
+
+**Setup**: See `skills/escape-setup/SKILL.md` for model detection, configuration, and verification. Key rule: judges MUST use models from different providers to avoid shared biases.
+
 ## Scripts
 
 | Script | Language | Purpose |

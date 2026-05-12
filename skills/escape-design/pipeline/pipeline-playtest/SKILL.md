@@ -1,8 +1,8 @@
 ---
 name: pipeline-playtest
 description: >
-  FASE 4b — Dual-LLM Playtest Simulation. Judge A (opencode agent) simulates
-  analytical profiles, Judge B (external API) simulates experiential profiles.
+  FASE 4b — Dual-LLM Playtest Simulation. Judge A and Judge B (opencode agents,
+  different models) simulate analytical and experiential profiles respectively.
   Synthesis script crosses findings from both.
 ---
 
@@ -21,8 +21,9 @@ After Build (Phase 4). Before Verify (Phase 5).
 ```
 ┌─────────────────────┐     ┌──────────────────────────┐
 │  Judge A             │     │  Judge B                  │
-│  (opencode agent)    │     │  (Gemini/OpenAI API)      │
-│  DIFFERENT model     │     │  DIFFERENT model          │
+│  (opencode agent)    │     │  (opencode agent)         │
+│  escape-judge-a      │     │  escape-judge-b            │
+│  GLM-5.1             │     │  GPT-5.5                  │
 │                      │     │                           │
 │  Perfil A1: Novato   │     │  Perfil B1: Novato        │
 │    Lento (analítico) │     │    Ansioso (experiencial) │
@@ -61,7 +62,7 @@ After Build (Phase 4). Before Verify (Phase 5).
 
 ## The Six Profiles
 
-### Judge A: Analytical Profiles (opencode agent)
+### Judge A: Analytical Profiles (opencode agent — escape-judge-a)
 
 | Profile | Players | Behavior | Time vs Design |
 |---------|---------|----------|---------------|
@@ -69,7 +70,7 @@ After Build (Phase 4). Before Verify (Phase 5).
 | **A2: Experimentado Metódico** | 4 | Systematic, divide & conquer, optimize | -10-20% on known, normal on new |
 | **A3: Experto Crítico** | 2-4 | Evaluate design quality, spot flaws, compare | Normal, stops to analyze |
 
-### Judge B: Experiential Profiles (external API)
+### Judge B: Experiential Profiles (opencode agent — escape-judge-b)
 
 | Profile | Players | Behavior | Time vs Design |
 |---------|---------|----------|---------------|
@@ -102,11 +103,15 @@ with open('{output_dir}/playtests/game-data.json', 'w') as fh:
 "
 ```
 
-## Step 2: Launch Judge A (opencode agent)
+## Step 2: Launch Judge A (opencode agent — escape-judge-a)
 
-Run this as a delegation or task. The agent IS Judge A.
+Launch via delegation:
 
-**System prompt for Judge A:**
+```
+delegate(agent="escape-judge-a", prompt="Simulate 3 analytical profiles: A1 Novato Lento, A2 Experimentado Metódico, A3 Experto Crítico. Read the game files in {game_dir}/ and simulate complete playthroughs step by step. For EACH profile: entry reaction, each puzzle approach/attempts/time/hints/block risks, transitions, ending satisfaction. Be BRUTALLY HONEST. Reference specific elements. Output PLAYTEST-A.json to {output_dir}/playtests/PLAYTEST-A.json")
+```
+
+**System prompt for Judge A (configured in opencode.json):**
 
 ```
 You are Judge A — an ANALYTICAL playtest simulator for escape rooms.
@@ -138,23 +143,15 @@ Output JSON:
 }
 ```
 
-## Step 3: Launch Judge B (external API, in parallel)
+## Step 3: Launch Judge B (opencode agent — escape-judge-b, in parallel)
 
-```bash
-python3 scripts/dual-llm-evaluate.py \
-  --task playtest \
-  --input {output_dir}/playtests/game-data.json \
-  --output {output_dir}/playtests/PLAYTEST-B.json
+Launch via delegation:
+
+```
+delegate(agent="escape-judge-b", prompt="Simulate 3 experiential profiles: B1 Novato Ansioso, B2 Adolescente Impulsivo, B3 Adulto Pragmático. Read the game files in {game_dir}/ and simulate complete playthroughs step by step. For EACH profile: entry reaction, each puzzle approach/attempts/time/hints/block risks, transitions, ending satisfaction. Be BRUTALLY HONEST but constructive. Reference specific elements. Output PLAYTEST-B.json to {output_dir}/playtests/PLAYTEST-B.json")
 ```
 
-Environment variables needed:
-```bash
-export DUAL_LLM_API_KEY="your-gemini-api-key"   # or OpenAI key
-export DUAL_LLM_PROVIDER="gemini"                 # or "openai"
-export DUAL_LLM_MODEL="gemini-2.0-flash"          # any available model
-```
-
-**CRITICAL**: Judge A and Judge B run INDEPENDENTLY. Neither sees the other's output.
+**CRITICAL**: Judge A and Judge B run INDEPENDENTLY via delegation (async). Neither sees the other's output.
 
 ## Step 4: Synthesize
 

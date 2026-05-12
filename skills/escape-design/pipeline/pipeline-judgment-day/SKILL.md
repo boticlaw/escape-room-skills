@@ -1,19 +1,20 @@
 ---
 name: pipeline-judgment-day
-description: "FASE 6 — Dual-LLM adversarial review with iteration. Judge A (opencode agent) evaluates analytically, Judge B (external API) evaluates creatively. Synthesis crosses findings, auto-fixes confirmed issues, iterates."
+description: "FASE 6 — Dual-LLM adversarial review with iteration. Judge A (escape-judge-a) evaluates analytically, Judge B (escape-judge-b) evaluates creatively. Synthesis crosses findings, auto-fixes confirmed issues, iterates."
 ---
 
 # Pipeline Judgment Day — Dual-LLM Review (Portable)
 
-Two DIFFERENT LLMs evaluate the complete escape room independently. Each evaluates BOTH narrative and logic from their perspective. Synthesis crosses findings, auto-fixes confirmed issues, iterates until convergence.
+Two DIFFERENT LLMs evaluate the complete escape room independently via opencode agent delegation. Each evaluates BOTH narrative and logic from their perspective. Synthesis crosses findings, auto-fixes confirmed issues, iterates until convergence.
 
 ## Architecture
 
 ```
 ┌─────────────────────┐     ┌──────────────────────────┐
 │  Judge A             │     │  Judge B                  │
-│  (opencode agent)    │     │  (Gemini/OpenAI API)      │
-│  DIFFERENT model     │     │  DIFFERENT model          │
+│  (opencode agent)    │     │  (opencode agent)         │
+│  escape-judge-a      │     │  escape-judge-b            │
+│  GLM-5.1             │     │  GPT-5.5                  │
 │                      │     │                           │
 │  ANALYTICAL focus:   │     │  CREATIVE focus:          │
 │  - Coherence         │     │  - Immersion quality      │
@@ -46,8 +47,8 @@ After Build (Phase 4) and Verify (Phase 5). If Verify is `fail`, go back to Desi
 
 | Judge | Source | Perspective |
 |-------|--------|------------|
-| **A** | opencode agent (delegation) | Analytical — coherence, structure, solvability, consistency |
-| **B** | External API (Gemini/OpenAI) | Creative — immersion, emotion, originality, experience |
+| **A** | opencode agent (escape-judge-a) | Analytical — coherence, structure, solvability, consistency |
+| **B** | opencode agent (escape-judge-b) | Creative — immersion, emotion, originality, experience |
 
 **Key advantage**: Two genuinely different models capture more defects and biases than one model self-evaluating.
 
@@ -58,9 +59,15 @@ After Build (Phase 4) and Verify (Phase 5). If Verify is `fail`, go back to Desi
 # (see pipeline-playtest for the script)
 ```
 
-## Step 2: Launch Judge A (opencode agent)
+## Step 2: Launch Judge A (opencode agent — escape-judge-a)
 
-**System prompt for Judge A:**
+Launch via delegation:
+
+```
+delegate(agent="escape-judge-a", prompt="Evaluate this escape room from an ANALYTICAL perspective: coherence, structure, solvability, consistency, completeness. Read all game files in {game_dir}/. Score each criterion 1-10. List every issue found. Be RUTHLESS but constructive. Reference specific elements. Output JUDGE-A.json to {output_dir}/JUDGE-A.json")
+```
+
+**System prompt for Judge A (configured in opencode.json):**
 
 ```
 You are Judge A — an ANALYTICAL evaluator for escape rooms.
@@ -86,22 +93,15 @@ Output JSON:
 }
 ```
 
-## Step 3: Launch Judge B (external API, in parallel)
+## Step 3: Launch Judge B (opencode agent — escape-judge-b, in parallel)
 
-```bash
-python3 scripts/dual-llm-evaluate.py \
-  --task judge \
-  --input {output_dir}/game-data.json \
-  --output {output_dir}/JUDGE-B.json \
-  --prompt "Evaluate this escape room from a creative and experiential perspective. Score immersion, emotional arc, originality, narrative-puzzle integration, and player experience 1-10. List all issues and suggestions."
+Launch via delegation:
+
+```
+delegate(agent="escape-judge-b", prompt="Evaluate this escape room from a CREATIVE and EXPERIENTIAL perspective: immersion quality, emotional arc, originality, narrative-puzzle integration, player experience. Read all game files in {game_dir}/. Score each criterion 1-10. List all issues and suggestions. Be BRUTALLY HONEST but constructive. Reference specific elements. Output JUDGE-B.json to {output_dir}/JUDGE-B.json")
 ```
 
-Environment:
-```bash
-export DUAL_LLM_API_KEY="your-api-key"
-export DUAL_LLM_PROVIDER="gemini"     # or "openai"
-export DUAL_LLM_MODEL="gemini-2.0-flash"
-```
+Both judges run independently via async delegation — neither sees the other's output.
 
 ## Step 4: Synthesize
 
@@ -162,8 +162,8 @@ Present options:
   "timestamp": "ISO-8601",
   "dual_llm": true,
   "iterations": 1,
-  "judge_a_model": "opencode-agent-model",
-  "judge_b_model": "gemini-2.0-flash",
+  "judge_a_model": "opencode/glm-5.1",
+  "judge_b_model": "opencode/gpt-5.5",
   "synthesis": {
     "confirmed": [],
     "suspect": [],
@@ -184,12 +184,13 @@ Present options:
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/dual-llm-evaluate.py` | Call external API as Judge B |
 | `scripts/dual-llm-synthesis.py` | Cross findings, classify, synthesize |
+
+Note: `scripts/dual-llm-evaluate.py` is no longer needed — both judges are opencode agents now.
 
 ## Fallback (single-LLM)
 
-If no external API key available, run Judge A only. Mark `_meta.dual_llm = false`. Single-judge evaluation has lower confidence but is still valuable for catching basic issues.
+If only one judge agent is configured, run Judge A only. Mark `_meta.dual_llm = false`. Single-judge evaluation has lower confidence but is still valuable for catching basic issues.
 
 ## Skills Referenced
 
