@@ -1,155 +1,188 @@
 # Escape Room Skills
 
-> Portable escape room design system for AI agents — from concept to printable materials.
+> Sistema portable de diseño de escape rooms para agentes de IA — desde el concepto hasta los materiales imprimibles.
 
-## What Is This?
+## ¿Qué es esto?
 
-A self-contained toolkit that gives any LLM agent the knowledge and templates to design, build, and test professional escape room games. Three composable skills cover the full pipeline, backed by 10 research frameworks, 21 puzzle mechanics, real game examples, production-tested scripts, and an optional self-hosted search stack for automatic thematic research.
+Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Tres skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, juegos reales de ejemplo, scripts probados en producción, evaluación dual-LLM y un stack de búsqueda self-hosted para investigación temática automática.
 
-| Skill | Purpose |
+| Skill | Función |
 |---|---|
-| **escape-design** | Master pipeline — 12-phase resumable design process with 15 pipeline phase skills |
-| **escape-build** | HTML→PDF generation with themed templates and 7 material categories |
-| **escape-puzzles** | Catalog of 21 puzzle mechanics with individual SKILL.md files per mechanic |
+| **escape-design** | Pipeline maestro — proceso de diseño de 12 fases resumible con 15 skills de fase individuales |
+| **escape-build** | Generación HTML→PDF con plantillas temáticas y 7 categorías de materiales |
+| **escape-puzzles** | Catálogo de 21 mecánicas de puzzle con archivos SKILL.md individuales por mecánica |
+| **escape-setup** | Configuración del sistema — detección de modelos, jueces dual-LLM, verificación de entorno |
 
-## Architecture
+## Arquitectura
 
 ```
 escape-room-skills/
 ├── skills/
-│   ├── escape-design/              # Master skill — full design pipeline
-│   │   ├── SKILL.md                # Main pipeline orchestrator
-│   │   └── pipeline/               # 15 individual phase skills
-│   │       ├── pipeline-orchestrator/  # Pipeline orchestrator with PROGRESS template
-│   │       ├── pipeline-explore/       # Brief + research
-│   │       ├── pipeline-conceive/      # Concept generation (dual perspective)
-│   │       ├── pipeline-design/        # Puzzle design (dual perspective)
-│   │       ├── pipeline-build/         # Build game files
-│   │       ├── pipeline-verify/        # Quality verification
-│   │       ├── pipeline-judgment-day/  # Adversarial review
-│   │       ├── pipeline-judge-logic/   # Logic evaluation
-│   │       ├── pipeline-judge-story/   # Narrative evaluation
-│   │       ├── pipeline-playtest/      # Simulated playtest
-│   │       ├── pipeline-narrative-consistency/  # Story coherence
-│   │       ├── pipeline-difficulty-calibration/ # Balance difficulty
-│   │       ├── pipeline-regression/    # Regression testing
-│   │       ├── pipeline-skill-resolution/  # Mechanic selection
-│   │       ├── skill-architect-pruebas-escape/ # New mechanic creator
-│   │       └── skill-creador-juegos/   # Game creator meta-skill
-│   ├── escape-build/               # Templates, CSS, materials generator
-│   └── escape-puzzles/             # Mechanics catalog
-│       ├── SKILL.md                # Overview + compatibility matrix
-│       └── mechanics/              # 21 individual mechanic folders
-│           ├── prueba-logica-nonogram/SKILL.md
-│           ├── prueba-gps-navegacion/SKILL.md
-│           └── ... (19 more)
-├── schemas/                        # JSON Schema (draft-07) + skill registry
+│   ├── escape-design/              # Skill maestro — pipeline completo de diseño
+│   │   ├── SKILL.md                # Orchestrador del pipeline
+│   │   └── pipeline/               # 15 skills de fase individuales
+│   │       ├── pipeline-orchestrator/  # Orchestrador con template PROGRESS
+│   │       ├── pipeline-explore/       # Brief + investigación temática
+│   │       ├── pipeline-conceive/      # Generación de concepto
+│   │       ├── pipeline-design/        # Diseño de puzzles
+│   │       ├── pipeline-build/         # Construcción de archivos del juego
+│   │       ├── pipeline-verify/        # Verificación de calidad (27 checks)
+│   │       ├── pipeline-judgment-day/  # Revisión adversarial dual-LLM
+│   │       ├── pipeline-playtest/      # Playtest simulado dual-LLM
+│   │       ├── pipeline-judge-logic/   # Evaluación de lógica
+│   │       ├── pipeline-judge-story/   # Evaluación de narrativa
+│   │       ├── pipeline-narrative-consistency/
+│   │       ├── pipeline-difficulty-calibration/
+│   │       ├── pipeline-regression/
+│   │       ├── pipeline-skill-resolution/
+│   │       ├── skill-architect-pruebas-escape/
+│   │       └── skill-creador-juegos/
+│   ├── escape-build/               # Plantillas, CSS, generador de materiales
+│   ├── escape-puzzles/             # Catálogo de mecánicas
+│   │   ├── SKILL.md                # Resumen + matriz de compatibilidad
+│   │   └── mechanics/              # 21 carpetas individuales de mecánicas
+│   └── escape-setup/               # Configuración del sistema
+├── schemas/                        # JSON Schema (draft-07) + registro de skills
 │   ├── game.schema.json
 │   ├── prueba.schema.json
 │   ├── brief.schema.json
 │   ├── concept.schema.json
 │   ├── design.schema.json
 │   ├── verify-report.schema.json
-│   └── skill-registry.json         # Full mechanic/pipeline registry
-├── scripts/                        # 14 utility scripts
-│   ├── build-pdf.mjs               # Puppeteer PDF generator
-│   ├── build.sh                    # Full build pipeline
-│   ├── escape-materials-generator.py  # Generate printable materials
-│   ├── escape-pdf-generator.mjs    # Advanced PDF with categories
-│   ├── escape-compact-pdf.py       # Compact PDF generation
-│   ├── init-juego.py               # Initialize new game project
-│   ├── validate-design.py          # Design validation
-│   ├── review-design.py            # Design review
-│   ├── playtest-simulado.py        # Simulated playtest
-│   ├── playtest-llm.py             # LLM-powered playtest
-│   ├── gamejson-to-markdown.mjs    # Convert JSON to Markdown
-│   ├── escape-json2md.sh           # Batch JSON to Markdown
-│   └── validate-schema.sh          # Schema validation
+│   └── skill-registry.json
+├── scripts/                        # 16 scripts de utilidad
+│   ├── build-pdf.mjs, build.sh, escape-materials-generator.py...
+│   ├── dual-llm-evaluate.py        # Evaluación LLM externa (fallback)
+│   └── dual-llm-synthesis.py       # Cruce de hallazgos dual-LLM
 ├── templates/
-│   ├── css/escape-base.css         # 8 CSS variables + all components
-│   └── html/game-design.html       # Full game design template
-├── research-frameworks/            # 10 professional design guides
-│   ├── 01-game-design.md           # MDA framework, flow types
-│   ├── 02-puzzle-design.md         # Taxonomy, aha moments
-│   ├── 03-storytelling.md          # Freytag pyramid, environmental narrative
-│   ├── 04-psicologia.md            # Flow theory, motivation
-│   ├── 05-ux.md                    # Usability, friction, hints
-│   ├── 06-escenografia.md          # Atmosphere, sensory design
-│   ├── 07-tecnologia.md            # Sensors, AR, tablets
-│   ├── 08-testing.md               # Playtest methodology, metrics
-│   ├── 09-estilo-juegos.md         # Lessons from real games
-│   └── 10-escape-room-master.md    # Master treatise + checklists
+│   ├── css/escape-base.css         # 8 variables CSS + componentes
+│   └── html/game-design.html       # Plantilla completa de diseño
+├── research-frameworks/            # 10 guías profesionales de diseño
+│   ├── 01-game-design.md           # Framework MDA, tipos de flow
+│   ├── 02-puzzle-design.md         # Taxonomía, momentos aha
+│   ├── 03-storytelling.md          # Pirámide de Freytag, narrativa ambiental
+│   ├── 04-psicologia.md            # Teoría del flow, motivación
+│   ├── 05-ux.md                    # Usabilidad, fricción, pistas
+│   ├── 06-escenografia.md          # Atmósfera, diseño sensorial
+│   ├── 07-tecnologia.md            # Sensores, AR, tablets
+│   ├── 08-testing.md               # Metodología de playtest, métricas
+│   ├── 09-estilo-juegos.md         # Lecciones de juegos reales
+│   └── 10-escape-room-master.md    # Tratado master + checklists
 ├── game-types/
-│   ├── hall-escape/                # Indoor 50+ m², teams 5-10
-│   ├── street-escape/              # Outdoor, GPS/QR, teams 2-5
-│   └── investigation/              # Detective/crime, teams 2-6
-├── docs/                           # System documentation
-│   ├── SOUL.md                     # Core identity + rules
-│   ├── pipeline-details.md         # Pipeline phase details
-│   ├── data-model.md               # JSON data model reference
-│   ├── validation-playtest.md      # Playtest validation guide
-│   └── build-commands.md           # Build command reference
-├── services/                       # Search stack (optional, self-hosted)
-│   ├── docker-compose.yml          # SearXNG + Perplexica in Docker
-│   ├── searxng/settings.yml        # SearXNG config (JSON enabled)
-│   ├── perplexica/config.toml      # Perplexica config (Gemini API)
-│   └── scripts/                    # Search helper scripts
-│       ├── searxng-search.py       # SearXNG query helper
-│       └── perplexica-search.py    # Perplexica AI search helper
-├── SEARCH-SETUP.md                 # Full setup guide for search stack
+│   ├── hall-escape/                # Interior 50+ m², equipos 5-10
+│   ├── street-escape/              # Exterior, GPS/QR, equipos 2-5
+│   └── investigation/              # Detective/crimen, equipos 2-6
+├── services/                       # Stack de búsqueda (opcional, self-hosted)
+│   ├── docker-compose.yml          # SearXNG + Perplexica en Docker
+│   ├── searxng/settings.yml        # Config SearXNG (JSON habilitado)
+│   ├── perplexica/config.toml      # Config Perplexica (Gemini API)
+│   └── scripts/
+│       ├── searxng-search.py       # Helper de consultas SearXNG
+│       └── perplexica-search.py    # Helper de búsqueda IA Perplexica
+├── docs/                           # Documentación del sistema
+│   ├── SOUL.md, pipeline-details.md, data-model.md...
+├── SEARCH-SETUP.md                 # Guía completa de instalación del stack
 └── examples/
-    ├── example-game.json           # Sample game (museum heist)
-    ├── example-prueba.json         # Sample puzzle (nonogram)
-    ├── real-games/                 # 6 complete real games
-    │   ├── biblioteca-maldita-v2/  # Library-themed escape (v2)
-    │   ├── biblioteca-maldita-v3/  # Library-themed escape (v3)
-    │   ├── juego-de-prueba/        # Test game
-    │   ├── juego-de-prueba-con-cita/ # Test game with appointment
-    │   ├── test-final/             # Final test game
-    │   └── la-dama-del-salon/      # Street escape in production (13 levels)
-    ├── pipeline-artifacts/         # Pipeline run artifacts
-    │   ├── biblioteca-maldita-v2_20260406/  # BRIEF → CONCEPT → DESIGN → VERIFY → JUDGMENT
-    │   └── biblioteca-maldita-v3_20260406/
-    ├── .pipeline/                  # Active pipeline state example
-    └── escape-material-pruebas/    # 30+ real puzzle examples in Markdown
+    ├── example-game.json, example-prueba.json
+    ├── real-games/                 # 6 juegos reales completos
+    │   ├── biblioteca-maldita-v2/  # Escape temático de biblioteca (v2)
+    │   ├── biblioteca-maldita-v3/  # Versión refinada con mejoras
+    │   ├── juego-de-prueba/, juego-de-prueba-con-cita/, test-final/
+    │   └── la-dama-del-salon/      # Street escape en producción (13 niveles)
+    ├── pipeline-artifacts/         # Artifacts de ejecuciones reales del pipeline
+    └── escape-material-pruebas/    # 30+ ejemplos de pruebas reales en Markdown
 ```
 
-### Design Pipeline (escape-design)
+### Pipeline de Diseño (escape-design)
 
 ```
 RESOLVE → EXPLORE → REGRESSION* → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → PLAYTEST → VERIFY → JUDGMENT
-                                    *only if baseline exists
+                                    *solo si existe baseline
 ```
 
-Each phase is a standalone skill with its own SKILL.md. The pipeline is **resumable** via `PROGRESS.json` — if interrupted, continues from the first incomplete phase.
+Cada fase es un skill independiente con su propio SKILL.md. El pipeline es **resumible** vía `PROGRESS.json` — si se interrumpe, continúa desde la primera fase incompleta.
 
-### Core Design Rules
+### Reglas de Diseño Core
 
-| Rule | Meaning |
+| Regla | Significado |
 |---|---|
-| **ZERO GM** | Games must run without a human game master organizing, explaining, or enforcing |
-| **ANTI-CHEAT** | If players CAN cheat, they WILL — design to make cheating impossible or useless |
-| **SELF-SERVICE** | Everything players need is self-discovered in the game space |
-| **REAL MECHANISMS** | Every physical mechanism must be buildable with ~€120 budget and accessible materials |
-| **NO CROSS-DEPENDENCIES** | Each puzzle is self-contained; no data travels between puzzles (only keys and tools) |
-| **PHYSICAL > DIGITAL** | Prioritize tangible interaction; digital is support, never protagonist |
-| **DOUBLE DISCOVERY** | Each puzzle has 2+ layers of "aha!" — solve + reveal |
+| **ZERO GM** | Los juegos deben funcionar sin un game master humano organizando, explicando o enforcementando |
+| **ANTI-CHEAT** | Si los jugadores PUEDEN hacer trampa, la HARÁN — diseñar para que sea imposible o inútil |
+| **SELF-SERVICE** | Todo lo que los jugadores necesitan se autodescubren en el espacio de juego |
+| **MECANISMOS REALES** | Cada mecanismo físico debe ser construible con ~120€ de presupuesto y materiales accesibles |
+| **SIN DEPENDENCIAS CRUZADAS** | Cada puzzle es autocontenido; no viaja data entre puzzles (solo llaves y herramientas) |
+| **FÍSICO > DIGITAL** | Priorizar interacción tangible; lo digital es soporte, nunca protagonista |
+| **DOBLE DESCUBRIMIENTO** | Cada puzzle tiene 2+ capas de "¡aha!" — resolver + revelar |
 
-### 21 Puzzle Mechanics
+### 21 Mecánicas de Puzzle
 
-| Category | Mechanics |
-|----------|-----------|
-| **Logic** | Nonogram, Positions, Sequential |
-| **Matching** | Memory, Text |
-| **Physical** | Mechanism, Electrical Panel, Target, Assembly |
-| **Digital** | Tablet Co-op, Control Panel, Arcade, Maze |
-| **Cooperative** | Communication/Messages |
-| **Search/Location** | Object Search, Visual Exploration, QR, GPS, Acrostic, Riddle |
-| **Investigation** | Text Research |
+| Categoría | Mecánicas |
+|-----------|-----------|
+| **Lógica** | Nonogram, Posiciones, Secuencial |
+| **Emparejamiento** | Memoria, Texto |
+| **Física** | Mecanismo, Panel Eléctrico, Diana, Ensamblaje |
+| **Digital** | Tablet Cooperativo, Panel de Control, Arcade, Laberinto |
+| **Cooperativo** | Comunicación/Mensajes |
+| **Búsqueda/Ubicación** | Búsqueda Objetos, Exploración Visual, QR, GPS, Acróstico, Adivinanza |
+| **Investigación** | Investigación de Texto |
 
-Each mechanic has its own SKILL.md with: design variables, common errors, difficulty scaling, game-type adaptations, and example puzzles.
+Cada mecánica tiene su propio SKILL.md con: variables de diseño, errores comunes, escalado de dificultad, adaptaciones por tipo de juego y ejemplos.
 
-## Install
+## Evaluación Dual-LLM
+
+El sistema usa **dos modelos GENUINAMENTE distintos** para evaluar cada juego — lo que elimina sesgos individuales de un solo modelo:
+
+```
+┌─────────────────────┐     ┌──────────────────────────┐
+│  Juez A              │     │  Juez B                  │
+│  (opencode agent)    │     │  (opencode agent)        │
+│  MODELO DISTINTO     │     │  MODELO DISTINTO         │
+│                      │     │                          │
+│  Perfil analítico:   │     │  Perfil experiencial:    │
+│  - Coherencia        │     │  - Inmersión             │
+│  - Estructura        │     │  - Arco emocional        │
+│  - Solvabilidad      │     │  - Originalidad          │
+│  - Consistencia      │     │  - Experiencia jugador   │
+└────────┬─────────────┘     └──────────┬───────────────┘
+         │                              │
+         └──────────┬───────────────────┘
+                    ▼
+         Síntesis: CONFIRMED / SUSPECT / CONTRADICTION
+```
+
+Se aplica en dos fases:
+
+**Playtest** — Simula 6 perfiles de jugador (3 por juez):
+- Juez A: Novato Lento, Experimentado Metódico, Experto Crítico
+- Juez B: Novato Ansioso, Adolescente Impulsivo, Adulto Pragmático
+
+**Judgment Day** — Revisión adversarial con iteración:
+- Cruza hallazgos de ambos jueces
+- Auto-fixea issues CONFIRMED (ambos coinciden)
+- Re-evalúa y itera hasta convergencia (máx. 2 iteraciones)
+
+**Configuración en opencode** — Dos agentes en `opencode.json`:
+
+```json
+{
+  "agent": {
+    "escape-judge-a": {
+      "model": "opencode/glm-5.1",
+      "mode": "subagent",
+      "prompt": "Juez A — evaluador ANALÍTICO..."
+    },
+    "escape-judge-b": {
+      "model": "opencode/gpt-5.5",
+      "mode": "subagent",
+      "prompt": "Juez B — evaluador CREATIVO..."
+    }
+  }
+}
+```
+
+**Regla clave**: Los jueces DEBEN usar modelos de PROVEEDORES DISTINTOS. Ver `skills/escape-setup/SKILL.md` para configuración completa.
+
+## Instalación
 
 ```bash
 git clone https://github.com/boticlaw/escape-room-skills.git
@@ -158,6 +191,9 @@ git clone https://github.com/boticlaw/escape-room-skills.git
 ### opencode
 ```bash
 cp -r skills/* ~/.config/opencode/skills/
+
+# Configurar jueces dual-LLM (agregar a opencode.json)
+# Ver skills/escape-setup/SKILL.md para detalles
 ```
 
 ### Claude Code
@@ -165,86 +201,76 @@ cp -r skills/* ~/.config/opencode/skills/
 cp -r skills/* .claude/skills/
 ```
 
-### Generic LLM Agent
-Copy the contents of each `skills/*/SKILL.md` into your agent's instruction context. See [INSTALL.md](INSTALL.md) for details.
+### Agente LLM genérico
+Copiar el contenido de cada `skills/*/SKILL.md` en el contexto de instrucciones del agente. Ver [INSTALL.md](INSTALL.md) para detalles.
 
 ## Quick Start
 
-1. Load `escape-design/SKILL.md` into your agent
-2. *(Optional)* Set up the search stack for automatic research: `docker compose -f services/docker-compose.yml up -d` → see [SEARCH-SETUP.md](SEARCH-SETUP.md)
-3. Describe the game you want: type, theme, player count, duration
-4. The agent follows the resumable pipeline with PROGRESS.json tracking
-5. If search stack is running, the EXPLORE phase automatically researches the theme via SearXNG + Perplexica
-6. Output: `game.json` + individual `prueba-*.json` files
-7. Run `scripts/build-pdf.mjs` to generate printable design and test documents
-8. Run `scripts/escape-materials-generator.py` to generate categorized printable materials
+1. Instalar los skills en tu agente
+2. *(Opcional)* Levantar el stack de búsqueda: `docker compose -f services/docker-compose.yml up -d` → ver [SEARCH-SETUP.md](SEARCH-SETUP.md)
+3. *(Opcional)* Configurar los jueces dual-LLM en `opencode.json` → ver `skills/escape-setup/SKILL.md`
+4. Describir el juego que querés: tipo, temática, jugadores, duración
+5. El agente sigue el pipeline resumible con tracking via `PROGRESS.json`
+6. Si el stack de búsqueda está corriendo, la fase EXPLORE investiga la temática automáticamente vía SearXNG + Perplexica
+7. Output: `game.json` + archivos `prueba-*.json` individuales
+8. Ejecutar `scripts/build-pdf.mjs` para generar documentos de diseño imprimibles
+9. Ejecutar `scripts/escape-materials-generator.py` para generar materiales categorizados
 
-## Real Game Examples
+## Juegos Reales de Ejemplo
 
-The `examples/real-games/` directory contains 6 complete games:
+El directorio `examples/real-games/` contiene 6 juegos completos:
 
-| Game | Type | Puzzles | Notes |
-|------|------|---------|-------|
-| **Biblioteca Maldita v2** | Hall Escape | 6 | Library-themed, pipeline-tested |
-| **Biblioteca Maldita v3** | Hall Escape | 5 | Refined version with improvements |
-| **Juego de Prueba** | Test | Basic | Initial prototype |
-| **Juego de Prueba con Cita** | Test | With appointment | Appointment-based variant |
-| **Test Final** | Test | Complete | Final validation game |
-| **La Dama del Salón** | Street Escape | 13 levels | **In production** — Palencia street escape |
+| Juego | Tipo | Puzzles | Notas |
+|-------|------|---------|-------|
+| **Biblioteca Maldita v2** | Hall Escape | 6 | Temática de biblioteca, testeado por pipeline |
+| **Biblioteca Maldita v3** | Hall Escape | 5 | Versión refinada con mejoras |
+| **Juego de Prueba** | Test | Básico | Prototipo inicial |
+| **Juego de Prueba con Cita** | Test | Con cita | Variante con sistema de citas |
+| **Test Final** | Test | Completo | Juego de validación final |
+| **La Dama del Salón** | Street Escape | 13 niveles | **En producción** — street escape de Palencia |
 
-La Dama del Salón includes: complete analysis, 12 cataloged mechanics, narrative templates, data model patterns, and 13 GPS-enabled levels.
+La Dama del Salón incluye: análisis completo, 12 mecánicas catalogadas, plantillas narrativas, patrones del data model y 13 niveles con GPS.
 
-## Search Stack (Optional — Automatic Thematic Research)
+## Stack de Búsqueda (Opcional — Investigación Temática Automática)
 
-The pipeline can automatically research game themes using a self-hosted search stack:
+El pipeline puede investigar automáticamente las temáticas usando un stack self-hosted:
 
 ```
 SearXNG (:8888)  →  Perplexica (:3100)  →  LLM (Gemini/OpenAI/Ollama)
-  meta-search         AI summary+citations     any provider
-  70+ engines         with sources              local or cloud
+  meta-search         resumen IA+citas       cualquier provider
+  70+ motores         con fuentes            local o cloud
 ```
 
-When running, the EXPLORE phase automatically:
-1. Searches for historical facts, curiosities, playable elements via SearXNG
-2. Gets AI-summarized research with citations via Perplexica
-3. Extracts key content from promising URLs via Jina Reader
-4. Compiles everything into the BRIEF's `research_data` field
+Cuando está corriendo, la fase EXPLORE automáticamente:
+1. Busca datos históricos, curiosidades, elementos jugables vía SearXNG
+2. Obtiene investigación resumida con citas vía Perplexica
+3. Extrae contenido clave de URLs prometedoras vía Jina Reader
+4. Compila todo en el campo `research_data` del BRIEF
 
-**Setup:** `docker compose -f services/docker-compose.yml up -d` — see [SEARCH-SETUP.md](SEARCH-SETUP.md) for full instructions.
+**Instalación:** `docker compose -f services/docker-compose.yml up -d` — ver [SEARCH-SETUP.md](SEARCH-SETUP.md) para instrucciones completas.
 
-Works without the stack too — the pipeline falls back to `webfetch` or manual research.
-
-## opencode Agent Configuration (Dual-LLM Judges)
-
-The playtest and judgment-day pipeline phases use **two opencode agents** with different LLM models for dual evaluation:
-
-| Agent | Model | Role |
-|-------|-------|------|
-| `escape-judge-a` | GLM-5.1 (analytical) | Coherence, structure, solvability |
-| `escape-judge-b` | GPT-5.5 (creative) | Immersion, emotional arc, originality |
-
-These agents are configured in `opencode.json` under the `"agent"` block. The pipeline uses `delegate()` to launch both judges in parallel, then a synthesis script crosses their findings.
-
-**Setup**: See `skills/escape-setup/SKILL.md` for model detection, configuration, and verification. Key rule: judges MUST use models from different providers to avoid shared biases.
+Funciona sin el stack también — el pipeline hace fallback a `webfetch` o investigación manual.
 
 ## Scripts
 
-| Script | Language | Purpose |
+| Script | Lenguaje | Función |
 |--------|----------|---------|
-| `build-pdf.mjs` | Node.js | Generate PDF from HTML via Puppeteer |
-| `build.sh` | Bash | Full build pipeline orchestration |
-| `escape-materials-generator.py` | Python | Generate categorized printable materials (7 categories) |
-| `escape-pdf-generator.mjs` | Node.js | Advanced PDF with visual categories |
-| `escape-compact-pdf.py` | Python | Compact PDF generation |
-| `init-juego.py` | Python | Initialize new game project structure |
-| `validate-design.py` | Python | Validate game design against rules |
-| `review-design.py` | Python | Review and score design quality |
-| `playtest-simulado.py` | Python | Simulate 3 player profiles |
-| `playtest-llm.py` | Python | LLM-powered playtest simulation |
-| `gamejson-to-markdown.mjs` | Node.js | Convert game JSON to Markdown |
-| `escape-json2md.sh` | Bash | Batch JSON to Markdown conversion |
-| `validate-schema.sh` | Bash | Validate JSON against schemas |
+| `build-pdf.mjs` | Node.js | Genera PDF desde HTML vía Puppeteer |
+| `build.sh` | Bash | Orchestración completa del build |
+| `escape-materials-generator.py` | Python | Genera materiales imprimibles categorizados (7 categorías) |
+| `escape-pdf-generator.mjs` | Node.js | PDF avanzado con categorías visuales |
+| `escape-compact-pdf.py` | Python | Generación compacta de PDF |
+| `init-juego.py` | Python | Inicializa estructura de nuevo juego |
+| `validate-design.py` | Python | Valida diseño contra reglas |
+| `review-design.py` | Python | Revisa y puntúa calidad del diseño |
+| `playtest-simulado.py` | Python | Simula 3 perfiles de jugador |
+| `playtest-llm.py` | Python | Playtest simulado con LLM |
+| `dual-llm-evaluate.py` | Python | Evaluación LLM externa (fallback si no hay opencode) |
+| `dual-llm-synthesis.py` | Python | Cruce de hallazgos dual-LLM |
+| `gamejson-to-markdown.mjs` | Node.js | Convierte JSON de juego a Markdown |
+| `escape-json2md.sh` | Bash | Conversión batch JSON a Markdown |
+| `validate-schema.sh` | Bash | Valida JSON contra schemas |
 
-## License
+## Licencia
 
-[Apache-2.0](LICENSE) — use freely, attribution appreciated.
+[Apache-2.0](LICENSE) — uso libre, se agradece atribución.
