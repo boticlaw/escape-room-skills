@@ -78,6 +78,51 @@ After Build (Phase 4). Before Verify (Phase 5).
 | **B2: Adolescente Impulsivo** | 4-6 | High energy, skip reading, brute force | +20% action, +40% reading puzzles |
 | **B3: Adulto Pragmático** | 3-5 | Practical, want clear feedback, hate "nonsense" | Normal if clear, +30% if confusing |
 
+## Step 0: Calibrar perfiles contra playtests reales ⚠️ OBLIGATORIO
+
+Antes de simular, leer los playtest reports de juegos reales para calibrar los perfiles de jugador:
+
+```bash
+# Buscar juegos con playtest data
+python3 scripts/search-games.py --game "el-legado-de-la-familia" --pretty
+```
+
+**Leer playtest reports disponibles en:**
+- `examples/real-games/el-legado-de-la-familia/juego/pruebas/playtest-report.json`
+- `examples/real-games/el-legado-de-la-familia/juego/pruebas/playtest-llm-report.json`
+
+**Extraer métricas de calibración:**
+
+| Métrica | Fuente | Uso |
+|---------|--------|-----|
+| Frustración media por perfil | `playtest-report.json` → `frustracion_final` por jugador | Si la frustración media real es 0-5, los perfiles simulados no deben predecir frustración >10 |
+| Pistas pedidas por rol | `frustracion_final` + `pistas_pedidas` | Calibrar cuántas pistas pide cada tipo de jugador |
+| Energía final media | `energia_final` | Si la energía real baja a 50-70%, los perfiles deben reflejar cansancio similar |
+| Diversión media | `diversion` | Target: diversión simulada ≥ diversión real de juegos exitosos |
+| Tiempo real vs estimado | Comparar duración estimada en prueba JSON vs comportamiento real | Calibrar time_delta de perfiles |
+
+**Ajustar los 6 perfiles simulados con esta data:**
+
+Para CADA perfil, antes de simular:
+1. Buscar el jugador REAL más parecido en los playtest reports (por rol: líder≈novato, analítico≈experimentado, impaciente≈adolescente)
+2. Usar sus métricas como baseline (frustración, pistas, energía, diversión)
+3. Ajustar el perfil simulado: si el jugador real "impaciente" pidió 0 pistas, el perfil Adolescente Impulsivo no debe pedir 5
+
+**Inyectar data de calibración en los prompts de ambos jueces:**
+```
+## Datos de calibración de jugadores reales
+
+Jugadores reales observados en juegos similares:
+{datos extraídos de playtest-report.json}
+
+REGLAS DE CALIBRACIÓN:
+- Frustración predicha: usar frustración_real ± 2 como rango (no inventar valores fuera de rango)
+- Pistas pedidas: usar pistas_reales ± 1 como rango
+- Energía final: si la energía real baja a X, la simulada debe ser similar
+- Diversión: el target es ≥ diversión_media_real de juegos exitosos (actualmente ~80)
+- Time delta: si los puzzles reales tomaron +30% del estimado, asumir similar para puzzles del mismo tipo
+```
+
 ## Step 1: Prepare game data
 
 Combine all game files into a single JSON for Judge B:

@@ -55,6 +55,44 @@ Después de FASE 1 (Explore). El Orchestrator llama a este skill cuando el `BRIE
 
 Ambos jueces deben leer estos frameworks antes de generar.
 
+### Paso 0: Consultar juegos reales como referencia ⚠️ OBLIGATORIO
+
+Antes de generar conceptos, buscar en los 6 juegos reales para alimentar la creatividad con patrones probados:
+
+```bash
+# Buscar juegos con temática similar
+python3 scripts/search-games.py --similar "{tema_del_brief}" --pretty
+
+# Buscar por tipo de juego
+python3 scripts/search-games.py --type "{game_type}" --pretty
+
+# Ver qué mecánicas tuvieron mejor recepción en juegos similares
+python3 scripts/search-games.py --list-mechanics --pretty
+
+# Ver juegos completos con detalle (para inspiración narrativa)
+python3 scripts/search-games.py --game "legado-tinta-violeta" --pretty
+python3 scripts/search-games.py --game "protocolo-alerta-verde" --pretty
+```
+
+**Extraer de cada juego referenciado:**
+- **Patrón narrativo**: ¿Qué tipo de historia usó? (misterio personal, sabotaje, investigación histórica, etc.)
+- **Gancho**: ¿Cuál fue el hook inicial y por qué funcionó?
+- **Arco emocional**: ¿Qué emociones recorren los jugadores y en qué orden?
+- **Lección del playtest**: Si hay playtest-report.json, qué funcionó mejor y peor
+
+**Inyectar en los prompts de ambos jueces** como contexto adicional:
+```
+## Juegos reales de referencia (para inspiración, NO copiar)
+
+{output del search-games.py}
+
+Reglas:
+- Inspirarse en los PATRONES (tipo de arco, estructura de actos, variedad mecánica)
+- NO copiar narrativas ni mecánicas específicas directamente
+- Si un juego real con temática similar tuvo un problema documentado en playtest, evitar ese patrón
+- Priorizar mecánicas que los playtests reales muestran como más disfrutadas
+```
+
 ## Paso 1: Launch Paralelo
 
 Launch both judges via delegation (parallel):

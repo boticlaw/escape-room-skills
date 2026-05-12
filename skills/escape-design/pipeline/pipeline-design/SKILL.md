@@ -35,6 +35,45 @@ FASE 3 del pipeline. Dos jueces con modelos distintos diseñan el set completo d
 
 **Ventaja dual-LLM**: Un modelo optimiza la solidez lógica y el balance de dificultad; el otro prioriza la experiencia memorable y los momentos de sorpresa. La síntesis produce un diseño que es a la vez sólido y emocionante.
 
+### Paso 0: Consultar juegos reales para diseño de pruebas ⚠️ OBLIGATORIO
+
+Antes de diseñar pruebas, consultar los juegos reales para basar las decisiones en data probada:
+
+```bash
+# Buscar mecánicas que funcionaron en juegos similares
+python3 scripts/search-games.py --similar "{tema}" --pretty
+
+# Ver qué mecánicas se usaron recientemente (para variedad)
+python3 scripts/search-games.py --recent-mechanics --pretty
+
+# Ver mecánicas disponibles
+python3 scripts/search-games.py --list-mechanics --pretty
+
+# Ver detalle de un juego específico con sus playtests
+python3 scripts/search-games.py --game "el-legado-de-la-familia" --pretty
+```
+
+**Extraer de cada juego referenciado:**
+- **Mecánicas principales**: Qué skills usó como primarios y cómo se combinaron
+- **Curva de dificultad real**: Dificultad por prueba y si los playtests confirmaron la curva
+- **Tiempos reales**: Duración estimada vs real de cada prueba (si hay playtest data)
+- **Cierres**: Tipo de cierre por prueba (candado, cryptex, llave, digital) y variedad
+- **Lecciones del playtest**: Qué pruebas fueron más rápidas/lentas de lo esperado, dónde piden más pistas
+
+**Inyectar en los prompts de ambos jueces** como contexto:
+```
+## Data real de juegos existentes (para calibración)
+
+{output del search-games.py}
+
+Reglas:
+- Calibrar tiempos de cada prueba contra los tiempos reales de juegos similares
+- Evitar mecánicas que los playtests muestran como frustrantes sin buena razón
+- Priorizar mecánicas con mejor recepción (mayor diversión, menor frustración)
+- Mantener variedad de cierres: no más de 2 del mismo tipo (como en los juegos reales)
+- La dificultad máxima del nuevo juego no debe exceder la del juego real más difícil del mismo tipo
+```
+
 ## Paso 1: Launch Paralelo
 
 Lanzar ambos jueces como **agentes independientes** vía `delegate()`:

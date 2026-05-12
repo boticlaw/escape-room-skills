@@ -121,6 +121,28 @@ Output: `difficulty_target.json`
 }
 ```
 
+### Paso 1b: Calibrar contra curvas de dificultad reales
+
+Verificar que la curva de dificultad propuesta es consistente con los juegos reales completados:
+
+```bash
+python3 scripts/search-games.py --difficulty 3-5 --pretty
+```
+
+**Comparar contra juegos reales:**
+
+| Juego Real | Dificultad Objetivo | Curva Real (por prueba) | Resultado Playtest |
+|------------|-------------------|------------------------|-------------------|
+| El Legado de la Familia | 4/10 | 3→4→4→5→4→3 | ✅ Diversión 80, Frustración 0-5 |
+| Legado Tinta Violeta | 4/10 | 3→3→4→5→5→4→3 | ✅ v4.1 estable |
+| Protocolo Alerta Verde | 4/10 | (ver prueba JSONs) | ✅ Completo |
+
+**Reglas de calibración:**
+- Si el juego nuevo tiene dificultad pico > max(dificultad_pico_juegos_reales) + 1 → WARNING
+- Si la dificultad del primer puzzle > 4 (cuando los juegos reales empiezan en 3) → WARNING
+- Si la dificultad del último puzzle es la más alta (cuando en juegos reales el último es de recompensa) → WARNING
+- Calibrar duración: si los juegos reales de dificultad 4 tienen 6-7 pruebas en 50 min, el nuevo debe mantener esa proporción
+
 ## Paso 2: Evaluar cada puzzle
 
 Para cada prueba del escape room, evaluar los 6 parámetros (escala 1-10) y comparar contra el target.

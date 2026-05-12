@@ -22,6 +22,28 @@ Directorio completo del juego: `agents/escapeitor/juegos/{juego-id}/`
 
 `agents/escapeitor/.pipeline/{juego-id}/VERIFY-REPORT.json`
 
+### Calibración contra playtests reales
+
+Antes de ejecutar los 27 checks, calibrar los umbrales contra datos reales de juegos existentes:
+
+```bash
+# Obtener datos de juegos completados
+python3 scripts/search-games.py --game "el-legado-de-la-familia" --pretty
+python3 scripts/search-games.py --game "legado-tinta-violeta" --pretty
+```
+
+**Leer playtest reports y extraer umbrales reales:**
+
+| Umbral | Fuente | Valor de referencia |
+|--------|--------|-------------------|
+| Frustración máxima aceptable | `playtest-report.json` → max `frustracion_final` | ~5 (de 100) en juegos exitosos |
+| Diversión mínima aceptable | `playtest-report.json` → min `diversion` | ~80 (de 100) en juegos exitosos |
+| Máximo de pistas por jugador | `playtest-report.json` → max `pistas_pedidas` | ~4 en juegos con GM presente |
+| Energía mínima final | `playtest-report.json` → min `energia_final` | ~50 (de 100) en juegos de 50 min |
+| Ratio tiempo puzzle/transición | Tiempos en prueba JSON vs playtest | ~70/30 en juegos exitosos |
+
+Si el juego nuevo rompe algún umbral real → CRITICAL en Verify.
+
 ## Checks (18 checks)
 
 ### 1. Schema Compliance (automático)
