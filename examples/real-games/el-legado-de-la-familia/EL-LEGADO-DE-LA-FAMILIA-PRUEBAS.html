@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>El Legado de la Familia — Libro de Pruebas</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 2.2cm;
+    @bottom-center {
+      content: counter(page);
+      font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9pt;
+      color: #999;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #2c2c2c;
+    background: #fff;
+  }
+
+  :root {
+    --color-primary: #8B4513;
+    --color-primary-dark: #6B3410;
+    --color-primary-deep: #4A2308;
+    --color-primary-light: #D2B48C;
+    --color-primary-pale: #FAEBD7;
+    --color-primary-bg: #FFF8F0;
+    --color-primary-muted: #A0785A;
+  }
+
+  .cover {
+    page-break-after: always;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, var(--color-primary-bg) 0%, var(--color-primary-pale) 40%, var(--color-primary-light) 100%);
+    padding: 3cm;
+  }
+  .cover-accent {
+    width: 80px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 0 auto 28px;
+    border-radius: 2px;
+  }
+  .cover h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--color-primary-deep);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: 36px;
+  }
+  .cover-footer {
+    margin-top: 60px;
+    font-size: 9pt;
+    color: var(--color-primary-muted);
+  }
+
+  h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18pt;
+    color: var(--color-primary-deep);
+    margin-top: 32px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--color-primary-light);
+  }
+  h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13pt;
+    color: var(--color-primary-dark);
+    margin-top: 22px;
+    margin-bottom: 8px;
+  }
+  h4 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: var(--color-primary-deep);
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 8px; }
+  .page-break { page-break-before: always; }
+
+  .sym {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-primary);
+    padding: 1px 6px;
+    border: 1.5px solid var(--color-primary);
+    border-radius: 3px;
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+    vertical-align: 1px;
+  }
+
+  .quote-block {
+    background: var(--color-primary-bg);
+    border-left: 4px solid var(--color-primary);
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--color-primary-deep);
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 9.5pt;
+  }
+  th {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e8d8c8;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #faf6f0; }
+
+  .code-box {
+    display: inline-block;
+    background: #ffffff;
+    color: #1a0a04;
+    border: 3px solid #000000;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18pt;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 6px 0;
+    line-height: 1.2;
+  }
+
+  .proof-card {
+    border: 1px solid var(--color-primary-light);
+    border-radius: 8px;
+    margin: 20px 0 24px;
+    overflow: hidden;
+    page-break-inside: auto;
+  }
+  .proof-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .proof-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 14pt;
+  }
+  .proof-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .proof-body {
+    padding: 16px 18px;
+  }
+  .proof-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .proof-meta-item {
+    font-size: 9pt;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  .proof-section {
+    margin-top: 12px;
+    page-break-inside: avoid;
+  }
+  .proof-section-title {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary-muted);
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .step-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 5px;
+    font-size: 9.5pt;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary-pale);
+    color: var(--color-primary-deep);
+    border-radius: 50%;
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reward-box {
+    background: linear-gradient(135deg, var(--color-primary-bg) 0%, var(--color-primary-pale) 100%);
+    border: 1px solid var(--color-primary-light);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+  .materials-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .materials-list li {
+    font-size: 9pt;
+    color: #555;
+    position: relative;
+    padding-left: 14px;
+  }
+  .materials-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 7px;
+    height: 7px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  .doc-box {
+    background: #faf6f0;
+    border: 1px dashed var(--color-primary-light);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    page-break-inside: avoid;
+  }
+  .doc-box-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--color-primary-deep);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .doc-box-text {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+
+  .hint-box {
+    background: #fff8f0;
+    border-left: 3px solid var(--color-primary-muted);
+    padding: 8px 12px;
+    margin: 6px 0;
+    font-size: 9pt;
+  }
+  .hint-level {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 8pt;
+    text-transform: uppercase;
+  }
+
+  .gm-setup {
+    background: #f0e8d8;
+    border: 1px solid var(--color-primary-light);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 9pt;
+  }
+
+  h2 { page-break-after: avoid; }
+  h3 { page-break-after: avoid; }
+  table { page-break-inside: auto; }
+  .proof-card table { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-accent"></div>
+  <h1>El Legado de la Familia</h1>
+  <div class="subtitle">Libro de Pruebas — Contenido Detallado de Cada Prueba</div>
+  <div class="cover-footer">
+    Version 5.1 — Mayo 2026<br>
+    Documento Complementario al Diseno del Juego
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 1 ═══════════════════ -->
+<h2>Prueba 1 — El Tablero de las Presencias</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Tablero de las Presencias</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~9 MIN</span>
+      <span class="proof-badge">DESPACHO</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">L</span> Lealtad</div>
+      <div class="proof-meta-item">Candado 4 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">3154</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa completa</div>
+      <p>En el escritorio del despacho de la Abuela Elena, los jugadores encuentran una caja de notario CERRADA con candado. Fuera de la caja, sobre la mesa, hay un tablero plegable con 6 casillas numeradas (eventos familiares), 6 fichas de personaje (Elena, Marcos, Carmen, Luis, Miguel y M. A.) y 6 sobres de testimonio sellados. La instruccion impresa dice: "COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA." Cada jugador toma un sobre y lo lee en voz alta. Las 6 restricciones, compartidas entre todos, permiten deducir la posicion unica de cada personaje. Las posiciones de los 4 hijos en orden de edad forman el codigo del candado.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Documentos in-game</div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Instruccion del Tablero (×1)</div>
+        <div class="doc-box-text">COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.
+
+LAS POSICIONES DE LOS CUATRO HIJOS DE RODRIGO Y ELENA, DEL MAYOR AL MENOR, ABREN EL CAMINO.
+
+CONSEJO DE LA FAMILIA:
+Nadie coloca hasta que todas las voces hayan hablado.
+Cada testimonio lo lee su dueño, no otro.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Eventos del Tablero (×1, impreso en las casillas)</div>
+        <div class="doc-box-text">1. La tarde de la tormenta
+2. La visita al medico
+3. La firma ante el notario
+4. La foto sin rostro
+5. El cumpleanos aplazado
+6. La despedida en la estacion</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Restricciones de los Testimonios (×6, una por sobre)</div>
+        <div class="doc-box-text">Testimonio 1: El hijo mayor firmo ante el notario.
+
+Testimonio 2: Elena aparece antes que Miguel, pero despues de Carmen.
+
+Testimonio 3: M. A. estuvo en la estacion; Miguel no figura con su nombre completo alli.
+
+Testimonio 4: Luis no estuvo antes que Miguel.
+
+Testimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.
+
+Testimonio 6: Marcos estuvo inmediatamente despues de Elena.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Fragmento de Carta de Elena — P1 (×1, dentro de la caja)</div>
+        <div class="doc-box-text">Mis queridos ninos:
+
+Lealtad no fue callar por miedo, sino guardar una vida hasta que pudiera ser nombrada sin peligro. Si veis una ausencia en esta casa, no la acuseis todavia. Preguntad primero a los lugares donde todos estuvimos presentes.
+
+Rodrigo movia los hilos de esta familia con mano firme. Pero ni el pudo cortar del todo el hilo que nos unia a quien faltaba.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Carta de Navegacion P1→P2 (×1, fondo de la caja)</div>
+        <div class="doc-box-text">No todas las presencias se ven en los rostros. A veces se esconden detras de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Consejo Familiar — anti-monopolio (×1, dentro de la caja)</div>
+        <div class="doc-box-text">CONSEJO DE LA FAMILIA:
+Nadie coloca hasta que todas las voces hayan hablado.
+Nadie anuncia un codigo hasta que todas las fichas esten en su sitio.
+Cada testimonio lo lee su dueno, no otro.</div>
+      </div>
+
+      <p><em>Ademas: 8 cartas familiares complementarias (Madrid 1990, Sevilla 1992, Madrid 1995, Barcelona 1996, Sevilla 1998, Madrid 2000, Barcelona 2003, Sevilla 2005) — papel vintage sepia DIN-A5.</em></p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica detallada</div>
+      <ol class="step-list">
+        <li>Los jugadores encuentran la zona del escritorio: tablero, fichas, 6 sobres de testimonio y la caja de notario CERRADA con candado de 4 digitos.</li>
+        <li>La instruccion impresa dice: COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.</li>
+        <li>Cada jugador coge un sobre de testimonio y lo lee en voz alta. Si son menos de 6, los sobres sobrantes se abren y se leen tambien.</li>
+        <li>Por deduccion cruzada de las 6 restricciones, colocar las fichas en las casillas correctas: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. A.=6</li>
+        <li>La tarjeta Consejo Familiar recuerda: del mayor al menor de los cuatro hijos de Rodrigo y Elena.</li>
+        <li>Extraer codigo de posiciones de los 4 hijos en orden de edad (mayor a menor): Marcos=3, Carmen=1, Luis=5, Miguel=4 → 3154.</li>
+        <li>Introducir 3154 en el candado de la caja de notario.</li>
+        <li>Dentro: foto de bebe con dorso tachado "Miguel A.", la letra L y fragmento de carta de Elena.</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas del GM</div>
+      <div class="hint-box"><span class="hint-level">Nivel 1 (sutil, tras 3 min):</span> La caja no se resuelve mirando: se resuelve escuchando. Que cada testimonio se lea en alto.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 2 (directa, tras 5 min):</span> Empezad por las restricciones con "no", "antes/despues" e "inmediatamente". Fijan posiciones mas rapido. El codigo son las posiciones de los 4 hijos en orden de edad.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 3 (casi solucion, tras 7 min):</span> Solucion: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M.A.=6. Codigo: 3154.</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Solucion completa</div>
+      <p><strong>Solucion unica:</strong> Carmen=1 (La tarde de la tormenta), Elena=2 (La visita al medico), Marcos=3 (La firma ante el notario), Miguel=4 (La foto sin rostro), Luis=5 (El cumpleanos aplazado), M. A.=6 (La despedida en la estacion).</p>
+      <p><strong>Codigo:</strong> <span class="code-box">3154</span> — posiciones de los 4 hijos en orden de edad: Marcos(3), Carmen(1), Luis(5), Miguel(4).</p>
+      <p><strong>Verificacion:</strong> El candado de 4 digitos se abre con 3154. Dentro hay foto de bebe con dorso tachado "Miguel A." y la letra L.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Letra L</strong> = Lealtad<br>
+        <strong>Carta de navegacion:</strong> "Buscad el retrato que cuelga de la pared."<br>
+        <strong>Revelacion:</strong> Miguel = M. A. (cuarto hijo oculto, duplicidad como proteccion).
+      </div>
+    </div>
+
+    <div class="gm-setup">
+      <strong>Setup GM:</strong> Colocar tablero plegable y fichas sobre la mesa. Repartir los 6 sobres de testimonio. Caja de notario CERRADA con candado (3154). Dentro de la caja: foto de bebe, letra L, carta de Elena, consejo familiar, 8 cartas familiares. Cinta roja del tablero a la caja.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 2 ═══════════════════ -->
+<h2>Prueba 2 — El Retrato que Miente</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Retrato que Miente</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 3/10</span>
+      <span class="proof-badge">~8 MIN</span>
+      <span class="proof-badge">DESPACHO</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">E</span> Empatia</div>
+      <div class="proof-meta-item">Candado 3 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">5-2-8</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa completa</div>
+      <p>Los jugadores descubren un retrato familiar enmarcado en el despacho de Elena. El retrato muestra a la familia completa, pero algo falta: un nino fue borrado de la imagen. En un cajon del escritorio hay una carpeta de restauracion que contiene una hoja de papel ferromagnetico verde (detector de magnetismo) y una nota de Elena. Al descolgar el retrato para examinarlo, encuentran en su reverso una inscripcion manuscrita de Elena. Detras del panel trasero del marco, imanes neodimio ocultos forman un CODIGO NUMERICO de 3 digitos (5-2-8). Al pasar el papel verde por la parte trasera del marco, los imanes se revelan como puntos agrupados en 3 columnas: 5 puntos | 2 puntos | 8 puntos.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Documentos in-game</div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Inscripcion en el Reverso del Retrato (×1)</div>
+        <div class="doc-box-text">Este retrato miente. Hubo uno mas entre nosotros.
+
+Rodrigo lo borro con la misma mano con la que movia nuestros hilos. Yo guarde su recuerdo donde los ojos no llegan.
+
+Mirad detras. Usad el papel verde.
+
+— E.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Etiqueta de la Carpeta de Restauracion (×1)</div>
+        <div class="doc-box-text">Restauracion del retrato familiar.
+
+Dentro encontrais una hoja verde de deteccion magnetica. Elena escribio: "El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRAS del marco, despacio."</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Fragmento de Carta de Elena — P2 (×1)</div>
+        <div class="doc-box-text">Empatia fue escribir dos nombres para un mismo nino y confiar en que algun dia ninguno de los dos le pesaria. Si encontrais una ausencia en esta casa, no la acuseis todavia. Preguntad primero a los lugares donde todos estuvimos presentes.
+
+Rodrigo movia los hilos de esta familia con mano firme. Pero ni el pudo cortar del todo el hilo que nos unia a quien faltaba.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Carta de Navegacion P2→P3 (×1)</div>
+        <div class="doc-box-text">No todas las presencias se ven. Algunas se escuchan en como se recuerdan. Id al salon.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Diario de la Abuela Elena — Pagina 1 (Entrada de 1962)</div>
+        <div class="doc-box-text" style="font-style:italic;">Primavera de 1962
+
+Hoy he cumplido 18 anos. Mi madre me preparo un pastel de limon, el mismo que hacia su abuela. La cocina olia a azucar y a recuerdos felices. Pensé que la vida seria siempre asi, sencilla y luminosa.
+
+★ Las mananas en esta casa siempre me recordaron lo afortunada que fui de nacer rodeada de amor. No todos pueden decir lo mismo.
+
+★ En el jardin, las rosas que planto mi abuela siguen floreciendo cada ano. Es como si el tiempo se detuviera en este rincon del mundo.
+
+Papi me regalo un collar de perlas que pertenecio a su madre. Dijo que las perlas son lagrimas de alegria convertidas en joya. Lo guardare siempre.
+
+★ El rosal trepador que cubre la fachada de nuestra casa fue plantado el dia que naci. Mama siempre dijo que creceria conmigo.
+
+★ Recuerdo haber leido en algun sitio que las familias son como los arboles: las raices pueden ser invisibles, pero sostienen todo.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Diario de la Abuela Elena — Pagina 2 (Entrada de 1985)</div>
+        <div class="doc-box-text" style="font-style:italic;">Octubre de 1985
+
+El tiempo pasa y los hijos crecen. A veces miro a Marcos, Carmen y Luis durmiendo y me pregunto si estare haciendo lo correcto. La maternidad no viene con instrucciones.
+
+Marcos ya tiene 10 anos y es tan responsable como su padre. Se pone corbata para ir al colegio y mira al mundo con la misma firmeza que Rodrigo. Carmen, con 7, no para de hacer preguntas. Y el pequeno Luis, apenas tiene 3 anos y ya sonrie a todo el mundo.
+
+Rodrigo trabajo hasta tarde otra vez. La casa esta en silencio y yo escribo para no pensar demasiado. A veces el silencio duele mas que las palabras. Rodrigo dice que las familias fuertes no necesitan explicaciones, solo obediencia. Yo digo que las familias fuertes necesitan verdad.
+
+Guardo un secreto que pesa como una montana. Hay noches en las que me despierto sobresaltada, pensando en el dia en que todo tendra que salir a la luz. Pero no hoy. Hoy protejo.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Diario de la Abuela Elena — Pagina 3 (Entrada de 2005)</div>
+        <div class="doc-box-text" style="font-style:italic;">Marzo de 2005
+
+Los nietos ya estan creciendo. Ayer vino a visitarme Lucia con los ninos. Sebastian, con su polo oscuro y mirada seria, me recuerda a Marcos cuando era joven. Olivia inclino la cabeza y me dio un beso en la mejilla, tan dulce. El pequeno Leo y Sofia jugaban abrazados en el jardin. Los vi desde la ventana y pense: esta es la inocencia que yo protegi.
+
+Si alguno de mis nietos lee esto algun dia, quiero que sepa que todo lo que hice fue por amor. No siempre se puede proteger a quien uno quiere de la forma mas honesta.
+
+He escondido pistas por toda la casa. Si alguien es lo suficientemente paciente y trabajador para seguirlas, encontra la verdad que deje preparada.
+
+El reloj del salon marca siempre la misma hora: las tres y cuarto. Ese fue el momento en que todo cambio. Nunca lo olvido.
+
+A veces, la unica forma de proteger es callar. Pero el silencio tiene fecha de caducidad.</div>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica detallada</div>
+      <ol class="step-list">
+        <li>Encontrar la carpeta de restauracion en el cajon abierto del escritorio: hoja de papel verde + nota de Elena.</li>
+        <li>Leer la etiqueta: "El papel verde revela lo que los ojos no pueden ver."</li>
+        <li>Notar el retrato familiar en la pared. Cinta roja (hilo de marioneta) lo conecta con el diario.</li>
+        <li>Descolgar el retrato. En el reverso: inscripcion manuscrita de Elena sobre un "ausente" y la instruccion "Mirad donde los ojos no llegan."</li>
+        <li>Un jugador (Explorador Magnetico) pasa el papel verde despacio por la parte trasera del marco.</li>
+        <li>El papel verde reacciona (se oscurece) donde hay imanes: puntos en 3 columnas verticales.</li>
+        <li>Otros jugadores marcan cada punto de reaccion.</li>
+        <li>Un jugador (Contador) cuenta los imanes de cada columna: 5, 2, 8.</li>
+        <li>Probar 5-2-8 en el candado de la caja de madera vintage del escritorio.</li>
+        <li>El candado se abre. Dentro: letra E + sobre sellado.</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas del GM</div>
+      <div class="hint-box"><span class="hint-level">Nivel 1 (sutil, tras 3 min):</span> La etiqueta de la carpeta dice que Elena usaba el papel verde para ver lo que los ojos no pueden. Descolgad el retrato y pasad el papel verde por la parte de atras, despacio.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 2 (directa, tras 5 min):</span> El papel verde reacciona donde hay imanes ocultos. Escanead todo el reverso del marco y marcad cada punto. Contad cuantos puntos hay en cada columna: esos son los numeros del codigo del candado.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 3 (casi solucion, tras 7 min):</span> Los imanes estan en 3 columnas: 5, 2, 8. Codigo del candado: 5-2-8.</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Solucion completa</div>
+      <p><strong>Codigo:</strong> <span class="code-box">5-2-8</span> — 15 imanes neodimio pegados en 3 columnas en la cara interna del panel trasero del marco: col. izquierda = 5, col. central = 2, col. derecha = 8.</p>
+      <p><strong>Construccion:</strong> Marco fotos A3 madera (~8€) + 15 imanes neodimio 5mm con epoxi (~3€) + Candado combinacion 3 dig. + caja madera vintage (~8€) = ~19€ total.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Letra E</strong> = Empatia<br>
+        <strong>Carta de navegacion:</strong> "Id al salon."<br>
+        <strong>Revelacion:</strong> Un nino fue borrado del retrato. Rodrigo movio los hilos para borrarlo.
+      </div>
+    </div>
+
+    <div class="gm-setup">
+      <strong>Setup GM:</strong> Colgar retrato en pared (con 15 imanes tras panel). Carpeta con papel verde en cajon del escritorio. Caja de madera vintage en escritorio, cerrada con candado (5-2-8), conteniendo letra E y sobre. Diario de Elena en escritorio. Cinta roja del marco al diario.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 3 ═══════════════════ -->
+<h2>Prueba 3 — Las Voces que No se Muestran</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>Las Voces que No se Muestran</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~6 MIN</span>
+      <span class="proof-badge">SALON</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">G</span> Generosidad</div>
+      <div class="proof-meta-item">Candado 4 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">7391</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa completa</div>
+      <p>En el Salon Familiar, los jugadores encuentran un album familiar en funda de terciopelo sepia con sello de Elena. Contiene 8 tarjetas-foto boca abajo en dos filas: 4 Momentos (eventos familiares) y 4 Recuerdos (citas de Elena). TODAS las tarjetas estan en el album — no hay equipos ni division. Las tarjetas tienen informacion VISIBLE (descripcion sensorial) y un SELLO con digito bajo CAPA RASPABLE plateada. El grupo trabaja junto: leen descripciones en voz alta, buscan conexiones sensoriales, y emparejan. Solo al confirmar una pareja se raspan los sellos.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Documentos in-game</div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Instruccion del Album (×1)</div>
+        <div class="doc-box-text">DESCUBRID LO QUE CONECTA CADA MOMENTO CON SU RECUERDO.
+
+Hay 4 Momentos y 4 Recuerdos. Leed todos en voz alta. Buscad detalles que se repitan: objetos, lugares, sensaciones.
+
+Los sellos plateados custodian numeros. NO los raspéis hasta que TODOS estéis de acuerdo en una pareja.
+
+Las iniciales de los Recuerdos, en el orden correcto, revelan lo que Elena quiso dejaros.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Tarjetas Momento (×4, informacion visible + sello raspable)</div>
+        <div class="doc-box-text">M1 — Boda en San Pedro (1962). Lluvia, arroz pegado al abrigo, campanas tarde. [SELLO RASPABLE PLATEADO: 7]
+
+M2 — Primer verano en la casa (1965). Un tren de madera bajo la mesa. [SELLO RASPABLE PLATEADO: 3]
+
+M3 — Noche de fiebre (1970). Panuelo blanco junto a una taza azul. [SELLO RASPABLE PLATEADO: 9]
+
+M4 — Estacion del Norte (1975). Maleta marron, anden 4, silbato largo. [SELLO RASPABLE PLATEADO: 1]</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Tarjetas Recuerdo (×4, informacion visible + sello raspable)</div>
+        <div class="doc-box-text">A — Acaricie aquel panuelo hasta que dejo de parecer despedida. [SELLO RASPABLE PLATEADO: 9]
+
+M — Mi vestido guardo una mancha de lluvia porque aquel dia prometimos no soltarnos. [SELLO RASPABLE PLATEADO: 7]
+
+O — Olvide encender la vela del anden; la maleta quedo esperando un tren que nunca llego. Algunas esperanzas arden por dentro. [SELLO RASPABLE PLATEADO: 1]
+
+R — Recorde el tren porque nadie debe irse sin saber volver. [SELLO RASPABLE PLATEADO: 3]</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Fragmento de Carta de Elena — P3 (×1)</div>
+        <div class="doc-box-text">Generosidad fue la forma mas silenciosa de seguir cuidandoos. Si alguna vez os parecio que callaba demasiado, perdonadme: estaba guardando una puerta abierta.
+
+Rodrigo creia que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Carta de Navegacion P3→P4 (×1)</div>
+        <div class="doc-box-text">Los recuerdos tienen raices. Buscad el arbol que no se atrevio a escribir todos sus nombres.</div>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica detallada</div>
+      <ol class="step-list">
+        <li>Encontrar el album en el Salon Familiar.</li>
+        <li>Abrir el album y encontrar 8 tarjetas: 4 Momentos y 4 Recuerdos.</li>
+        <li>Leer la tarjeta de instrucciones en la primera pagina.</li>
+        <li>Extender las 8 tarjetas sobre la mesa. TODOS las ven.</li>
+        <li>Cada jugador lee una o dos tarjetas en voz alta.</li>
+        <li>Buscar conexiones sensoriales: tren, panuelo, lluvia, maleta.</li>
+        <li>Emparejar: M1(boda/lluvia)↔M(vestido/lluvia), M2(verano/tren)↔R(tren), M3(fiebre/panuelo)↔A(panuelo), M4(estacion/maleta)↔O(maleta).</li>
+        <li>Cuando el grupo CONFIRMA una pareja por consenso → rascar la capa plateada de ambas tarjetas.</li>
+        <li>Las parejas correctas tienen el mismo digito (confirmacion visual).</li>
+        <li>Ordenar cronologicamente: M1=7, M2=3, M3=9, M4=1 → 7391.</li>
+        <li>Abrir el candado del bolsillo lateral del album con 7391.</li>
+        <li>Las iniciales de los 4 Recuerdos forman A-M-O-R = AMOR.</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas del GM</div>
+      <div class="hint-box"><span class="hint-level">Nivel 1 (sutil, tras 2 min):</span> No intenteis memorizarlo todo: anotad palabras concretas que se repiten entre Momentos y Recuerdos. Los objetos son puentes.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 2 (directa, tras 4 min):</span> Los objetos son puentes: tren, panuelo, lluvia, maleta. Emparejad por esos detalles. Cuando estéis seguros de una pareja, rascad los sellos.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 3 (casi solucion, tras 6 min):</span> Ordenad las parejas por ano cronologico: los 4 digitos del candado. Las iniciales ordenadas dicen AMOR.</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Solucion completa</div>
+      <p><strong>Emparejamiento:</strong> M1(lluvia)↔M(vestido/lluvia)=7, M2(tren)↔R(tren)=3, M3(panuelo)↔A(panuelo)=9, M4(maleta)↔O(maleta)=1</p>
+      <p><strong>Codigo cronologico:</strong> <span class="code-box">7391</span></p>
+      <p><strong>Iniciales:</strong> A-M-O-R = AMOR</p>
+    </div>
+
+    <div class="gm-setup">
+      <strong>Setup GM:</strong> Album A4 vintage con 8 tarjetas (4 Momentos + 4 Recuerdos, sellos raspables intactos). Candado 4 digitos (7391) cerrando bolsillo lateral con letra G y carta dentro. Cinta roja entre paginas. Presupuesto: ~15€.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 4 ═══════════════════ -->
+<h2>Prueba 4 — El Arbol que Faltaba</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Arbol que Faltaba</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 6/10</span>
+      <span class="proof-badge">~10 MIN</span>
+      <span class="proof-badge">SALON · GIRO NARRATIVO</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">A</span> Amor</div>
+      <div class="proof-meta-item">Cryptex 5 letras</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">ALVAR</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa completa</div>
+      <p>La hoja de P3 lleva a un tubo de arquitecto familiar con un plano enrollado del arbol genealogico y 10 tarjetas-hoja para injertar nombres. Los jugadores describen (sin mostrar inicialmente) sus tarjetas y colocan cada una en el hueco correcto del arbol. Cada hueco tiene una pista contextual, y cada tarjeta es 100% autosuficiente. Al completar el arbol correctamente, ocurre el GIRO NARRATIVO: los jugadores descubren que hay un CUARTO hijo del que nunca se hablo — Miguel, dado en adopcion al hermano de Elena, Alvaro.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Documentos in-game</div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Instruccion del Plano (×1)</div>
+        <div class="doc-box-text">LEED LOS HUECOS ANTES DE PEGAR LAS HOJAS. UN ARBOL SE ROMPE SI UNA RAMA OCUPA EL LUGAR DE OTRA.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Pistas de los Huecos del Arbol (×10, impresas junto a cada hueco)</div>
+        <div class="doc-box-text">Hueco 1: Hijo/a mayor de Elena: estuvo en la firma ante notario.
+
+Hueco 2: Hijo/a que conservo el panuelo blanco.
+
+Hueco 3: Nino nacido antes del verano del tren.
+
+Hueco 4: Patriarca de la familia: testigo de la firma y de la promesa.
+
+Hueco 5: Hija mediana: recuerda la noche de fiebre.
+
+Hueco 6: Hijo menor de los tres visibles en Navidad.
+
+Hueco 7: Esposa del hijo mayor: llego despues, recuerda la boda.
+
+Hueco 8 (★): Hermano de Elena que crio al que nadie nombra. [Icono: dos ramas entrelazadas]
+
+Hueco 9 (★): Nombre que cambia de raiz pero no de savia. Hijo de Rodrigo y Elena, dado en adopcion. [Icono: hoja con raiz rota]
+
+Hueco 10 (★): El nombre que se duplico para proteger una vida. Registro legal del hijo adoptado. [Icono: dos hojas con el mismo simbolo]</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Tarjetas-Hoja del Arbol (×10)</div>
+        <div class="doc-box-text">Tarjeta 1: Marcos — Mayor. Firmo ante el notario.
+
+Tarjeta 2: Carmen — Guardo un panuelo blanco en la noche de fiebre.
+
+Tarjeta 3: Luis — Menor de los tres visibles en Navidad.
+
+Tarjeta 4: Rodrigo — Patriarca. Testigo de la firma y de la promesa.
+
+Tarjeta 5: Elena — Matriarca. Firmo la promesa.
+
+Tarjeta 6: Lucia — Esposa de Marcos. Llego despues, recuerda la boda.
+
+Tarjeta 7: Alvaro — Hermano de Elena. Crio al que nadie nombra como si fuera suyo.
+
+Tarjeta 8: Miguel — Hijo de Rodrigo y Elena, dado en adopcion a Alvaro. Nacio en marzo de 1963.
+
+Tarjeta 9: Miguel Alvarez — Nombre legal adoptivo. El mismo nino, criado por el hermano de su madre.
+
+Tarjeta 10: Nota marginal — "Rodrigo corto el hilo pero yo lo guarde para volver a atarlo algun dia. Buscad el nombre del hombre que salvo a mi hijo en lo que Rodrigo nunca toco."</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Certificado de Adopcion (×1, dentro del cryptex)</div>
+        <div class="doc-box-text">Registro reservado.
+
+Por acuerdo familiar y recomendacion legal, el menor Miguel quedara bajo tutela de don Alvaro, hermano de la madre, quien lo criara como propio bajo el apellido Alvarez.
+
+La filiacion de origen no se destruye: se custodia.
+
+Firmado: Elena, Notario Publico.
+
+En el margen, escrito a mano con tinta descolorida: "Rodrigo corto el hilo. Yo lo guarde para volver a atarlo algun dia. El hombre que salvo a mi hijo le dio su nombre y su amor."</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Fragmento de Carta de Elena — P4 (×1)</div>
+        <div class="doc-box-text">Amor fue elegir que mi hijo creciera lejos antes que verlo crecer perseguido por una deuda que no era suya. Nadie me lo arranco: yo firme temblando para salvarlo.
+
+Mi hermano lo crio como suyo. Le dio su nombre, su hogar, su amor. Rodrigo nunca quiso saber de el, pero yo nunca deje de escribirle desde el silencio.
+
+Si encontrais su nombre en el arbol, no lo borreis. Miguel Alvarez existio porque alguien lo quiso como propio. Y ambos existieron porque yo no permiti que Rodrigo cortara del todo el hilo.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Carta de Navegacion P4→P5 (×1)</div>
+        <div class="doc-box-text">Ahora sabeis lo que Rodrigo oculto. Pero Miguel tiene su propio camino, y yo lo prepare. Hay un mensaje que deje dividido en dos mitades — nadie puede leerlo entero solo. Subid al desvan. Buscad donde guarde lo que no cupo en el salon. Cada mitad os dara la pieza que os falta.</div>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica detallada</div>
+      <ol class="step-list">
+        <li>Encontrar el tubo de carton con etiqueta "Ramas pendientes" en el Salon.</li>
+        <li>Desenrollar el poster A2 del arbol genealogico con 10 huecos.</li>
+        <li>Repartir las 10 tarjetas-hoja entre los jugadores.</li>
+        <li>Leer la instruccion: LEED LOS HUECOS ANTES DE PEGAR LAS HOJAS.</li>
+        <li>Cada jugador describe (sin mostrar) los datos de sus tarjetas.</li>
+        <li>El Cartografo lee las pistas de cada hueco y propone colocaciones.</li>
+        <li>Colocar por deduccion: cada hueco tiene pista contextual autosuficiente.</li>
+        <li>★ GIRO NARRATIVO: Al colocar tarjetas 7-9, descubren a Alvaro y a Miguel (cuarto hijo secreto).</li>
+        <li>Tarjeta 10: "Buscad el nombre del hombre que salvo a mi hijo en lo que Rodrigo nunca toco".</li>
+        <li>Mirar el arbol: el salvador es ALVARO. Deducir: Alvaro → ALVARO → ALVAR (primeras 5 letras).</li>
+        <li>Las ramas con lunas del arbol correcto senalan: A-L-V-A-R (confirmacion).</li>
+        <li>Introducir ALVAR en el cryptex.</li>
+        <li>Dentro: certificado adoptivo, fragmento de carta urgente de Elena, la letra A.</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas del GM</div>
+      <div class="hint-box"><span class="hint-level">Nivel 1 (sutil, tras 3 min):</span> Tres pasos: 1) Leed todos los huecos antes de tocar ninguna tarjeta. 2) Colocad primero las hojas con huecos mas concretos. 3) Cuando las lunas conecten, leed las letras del marco.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 2 (directa, tras 6 min):</span> El arbol correcto tiene ramas con lunas conectadas. Atencion a los huecos con estrella (★). La tarjeta 10 os pide un nombre: buscadlo en el arbol completo.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 3 (casi solucion, tras 8 min):</span> El hombre que salvo a Miguel es el hermano de Elena: Alvaro. Las primeras 5 letras de su nombre son el codigo del cryptex. Lunas: A-L-V-A-R.</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Solucion completa</div>
+      <p><strong>Colocacion:</strong> H1=Marcos, H2=Carmen, H3=Luis, H4=Rodrigo, H5=Elena, H6=Lucia, H7=Alvaro, H8=Miguel, H9=Miguel Alvarez, H10=Nota marginal</p>
+      <p><strong>Codigo:</strong> <span class="code-box">ALVAR</span> — deducido de Alvaro (hermano de Elena). Las ramas con lunas confirman: A-L-V-A-R.</p>
+    </div>
+
+    <div class="gm-setup">
+      <strong>Setup GM:</strong> Tubo de carton con poster A2 + 10 tarjetas-hoja (Velcro). Cryptex configurado a ALVAR. 5 letras discretas en el marco. Certificado y carta dentro del cryptex. Letra A en el tubo. Presupuesto: ~30€.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 5 ═══════════════════ -->
+<h2>Prueba 5 — El Mensaje Rasgado</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Mensaje Rasgado</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 5/10</span>
+      <span class="proof-badge">~8 MIN</span>
+      <span class="proof-badge">DESVAN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">D</span> Dignidad</div>
+      <div class="proof-meta-item">Reconstruccion puzzle fisico</div>
+      <div class="proof-meta-item">Resultado: <span class="code-box">UBICACION</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa completa</div>
+      <p>En el desvan, entre la penumbra y la luz calida de una lampara antigua, los jugadores encuentran una mesa con dos montones de fragmentos de papel sepia. Son los restos de una carta que Elena rasgo en 12 fragmentos irregulares para proteger su contenido. Los fragmentos tienen bordes irregulares que encastan como un puzzle fisico: cada fragmento solo se une correctamente con su vecino. El grupo trabaja JUNTO: busca bordes que encajan, lee el texto parcial de cada fragmento, y reconstruye la carta completa.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Documentos in-game</div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Tarjeta de Instrucciones (×1)</div>
+        <div class="doc-box-text">Elena rasgo esta carta para protegerla. Los fragmentos solo cuentan la verdad cuando se reunen.
+
+Encajad los bordes. Leed lo que dice cada fragmento.
+
+La carta os llevara a un lugar de este desvan.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Carta Rasgada de Elena — 12 fragmentos</div>
+        <div class="doc-box-text">Fragmento 1: 'Buscad'
+Fragmento 2: 'bajo la'
+Fragmento 3: 'tercera tabla'
+Fragmento 4: 'del suelo del'
+Fragmento 5: 'desvan, la'
+Fragmento 6: 'que tiene una marca'
+Fragmento 7: 'de cera roja'
+Fragmento 8: 'en la esquina.'
+Fragmento 9: 'Alli deje'
+Fragmento 10: 'lo que Rodrigo quiso'
+Fragmento 11: 'destruir pero yo'
+Fragmento 12: 'lo guarde para vosotros.'</div>
+      </div>
+
+      <p><strong>Mensaje reconstruido completo:</strong></p>
+      <div class="quote-block">"Buscad bajo la tercera tabla del suelo del desvan, la que tiene una marca de cera roja en la esquina. Alli deje lo que Rodrigo quiso destruir pero yo lo guarde para vosotros."</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica detallada</div>
+      <ol class="step-list">
+        <li>Entrar al desvan y encontrar los fragmentos en la mesa.</li>
+        <li>Leer la tarjeta de instrucciones junto a los fragmentos.</li>
+        <li>Extender los 12 fragmentos sobre la mesa.</li>
+        <li>Buscar bordes irregulares que encajen (como un puzzle).</li>
+        <li>Leer el texto parcial de cada fragmento para orientar la reconstruccion.</li>
+        <li>Unir fragmentos por bordes + contenido textual.</li>
+        <li>Reconstruir la carta completa → ubicacion: "bajo la tercera tabla del suelo del desvan".</li>
+        <li>Identificar la tercera tabla (marcada con cera roja PERMANENTE).</li>
+        <li>Bajo la tabla: sobre lacrado rojo con simbolo de marioneta.</li>
+        <li>Dentro del sobre: letra D, 6 letras LEGADO con numeros romanos, carta de despedida de Elena, tijeras doradas.</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas del GM</div>
+      <div class="hint-box"><span class="hint-level">Nivel 1 (sutil, tras 2 min):</span> Empezad por los bordes mas irregulares: son mas faciles de encajar. Leed el texto de cada fragmento en voz alta — el contenido os guiara.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 2 (directa, tras 4 min):</span> La carta habla de un lugar concreto del desvan donde Elena escondio algo importante. Reconstruid el texto completo. Fijaos en los fragmentos con numeros ("tercera", "tabla").</div>
+      <div class="hint-box"><span class="hint-level">Nivel 3 (casi solucion, tras 6 min):</span> "Buscad bajo la tercera tabla del suelo del desvan, la que tiene una marca de cera roja en la esquina."</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Solucion completa</div>
+      <p><strong>Ubicacion:</strong> Bajo la tercera tabla del suelo del desvan (marcada con cera roja permanente).</p>
+      <p><strong>Sobre lacrado rojo</strong> contiene: letra D, 6 letras LEGADO con numeros romanos, carta de despedida de Elena, tijeras doradas.</p>
+    </div>
+
+    <div class="gm-setup">
+      <strong>Setup GM:</strong> Imprimir carta en papel sepia A4 y rasgar en 12 fragmentos irregulares (numerar reverso para reset). Marcar tercera tabla con cera roja permanente. Colocar sobre lacrado rojo bajo la tabla. Fragmentos en dos montones sobre la mesa del desvan. Arbol del Reencuentro visible en el desvan. Cinta roja de la mesa al arbol. Presupuesto: ~12€.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 6 ═══════════════════ -->
+<h2>Prueba 6 — El Arbol del Reencuentro</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Arbol del Reencuentro</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 3/10</span>
+      <span class="proof-badge">~7 MIN</span>
+      <span class="proof-badge">DESVAN · FINAL</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">O</span> Orgullo</div>
+      <div class="proof-meta-item">Ceremonia cooperativa</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">LEGADO</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa completa</div>
+      <p>Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) y el sobre lacrado de P5 al Arbol del Reencuentro en el Desvan. La letra O esta en una etiqueta colgante de la raiz. Las letras llegan DESORDENADAS con numeros romanos que no coinciden con el orden LEGADO — Elena los numero "en el orden en que quiso que sus nietos descubrieran cada valor". Usando el cartel de valores de la base, deducen el orden correcto. Al completar LEGADO y presionar durante 3 segundos, los imanes liberan la raiz: contiene la marioneta con hilos cortados y una foto de Miguel adulto. Un JUGADOR lee la carta de Elena en voz alta.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Documentos in-game</div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Cartel de la Raiz (×1)</div>
+        <div class="doc-box-text">Los valores se ganaron en orden:
+1.ª prueba — Lealtad
+2.ª prueba — Empatia
+3.ª prueba — Generosidad
+4.ª prueba — Amor
+5.ª prueba — Dignidad
+6.ª prueba — Orgullo
+
+Elena numero las letras en el orden en que quiso que sus nietos descubrieran cada valor, no en el orden de la palabra. Buscad el orden correcto.
+
+UNA RAMA SOLA NO ABRE UNA RAIZ.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Instruccion Final (×1)</div>
+        <div class="doc-box-text">Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raiz responda.
+
+Cuando la raiz se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Despues, colocad la foto de quien faltaba y cortad el ultimo hilo.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Carta de Despedida de la Abuela Elena (×1)</div>
+        <div class="doc-box-text" style="font-style:italic;"><strong>Mis queridos nietos:</strong>
+
+Si estais leyendo esta carta, significa que habeis seguido todos los hilos que deje para vosotros. Y eso quiere decir que estais listos para conocer la verdad.
+
+Tuve un cuarto hijo. Se llama Miguel. Nacio el 14 de marzo de 1963, cuando apenas tenia 19 anos. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movia los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que el habia construido.
+
+Rodrigo decidio que Miguel debia desaparecer. Como quien corta un hilo de marioneta, lo arranco de nuestra vida. Pero yo nunca deje de pensar en el, nunca deje de buscarlo, y siempre supe que algun dia la verdad saldria a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movio permanece para siempre.
+
+Marcos, vuestro padre, heredo la firmeza de Rodrigo y tambien su silencio. Lucia, vuestra madre, siempre sospecho algo pero me respetaba demasiado para preguntar. Carmen nunca dejo de buscar. Y Luis... Luis fue el unico que se atrevio a cortar sus propios hilos y marcharse.
+
+A vosotros, mis queridos nietos — Sebastian, con tu mirada seria y tu corazon fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofia, abrazados siempre en la inocencia que yo protegi — a vosotros os dejo mi verdadero legado.
+
+No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.
+
+Buscad a Miguel. Mi ultimo deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompio con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.
+
+No me arrepiento de nada. Protegi a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.
+
+Os quiero con toda mi alma.
+
+<strong>Abuela Elena</strong>
+
+P.D.: Cada letra que encontrais representa un valor que quiero que conserveis: Lealtad, Empatia, Generosidad, Amor, Dignidad, Orgullo de pertenecer a esta familia. Ese es mi verdadero LEGADO. Cortad los hilos. Sed libres.</div>
+      </div>
+
+      <div class="doc-box">
+        <div class="doc-box-title">Mensaje de Recompensa Final (×1)</div>
+        <div class="doc-box-text">No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre pertenecio. Los hilos ya estan cortados. Sois libres de escribir vuestra propia historia.</div>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica detallada</div>
+      <ol class="step-list">
+        <li>Llevar las 5 letras (L, E, G, A, D) al Arbol del Reencuentro.</li>
+        <li>Encontrar la letra O en etiqueta colgante de la raiz.</li>
+        <li>Leer el cartel de la base: valores en orden de prueba.</li>
+        <li>Cada jugador coge una letra e intenta colocarla en las ramas — cada letra SOLO ENCAJA en su rama correcta.</li>
+        <li>Colocar: L→rama I, E→rama II, G→rama III, A→rama IV, D→rama V, O→rama VI.</li>
+        <li>"Que nadie suelte su rama hasta que la raiz responda."</li>
+        <li>Al tener las 6 letras encajadas, la raiz se desliza y se abre.</li>
+        <li>Dentro: carta completa de Elena, foto de Miguel adulto, marioneta con hilos cortados.</li>
+        <li>Un jugador lee la carta en voz alta al grupo.</li>
+        <li>Colocar la foto de Miguel en el hueco del arbol.</li>
+        <li>Cortar el ultimo hilo rojo de la marioneta con las tijeras doradas.</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas del GM</div>
+      <div class="hint-box"><span class="hint-level">Nivel 1 (sutil, tras 2 min):</span> Cada letra solo encaja en una rama. Probad cada letra en las ranuras — el cartel de la base os dice que valor va en cada rama.</div>
+      <div class="hint-box"><span class="hint-level">Nivel 2 (directa, tras 3 min):</span> El orden es el de las pruebas: Lealtad fue la primera (P1), Empatia la segunda (P2)... y asi hasta Orgullo (P6).</div>
+      <div class="hint-box"><span class="hint-level">Nivel 3 (casi solucion, tras 5 min):</span> Las letras encajan por forma. Rama I=Lealtad, II=Empatia, etc. Si no encaja, no es su rama.</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Solucion completa</div>
+      <p><strong>Orden:</strong> Rama I = L (Lealtad), Rama II = E (Empatia), Rama III = G (Generosidad), Rama IV = A (Amor), Rama V = D (Dignidad), Rama VI = O (Orgullo).</p>
+      <p><strong>Resultado:</strong> La raiz se abre. Contiene: carta de Elena, foto de Miguel adulto, marioneta con hilos cortados.</p>
+      <p><strong>Fin:</strong> Foto de Miguel en el arbol + cortar ultimo hilo con tijeras doradas.</p>
+    </div>
+
+    <div class="gm-setup">
+      <strong>Setup GM:</strong> Arbol de madera/carton pluma con 6 ramas numeradas y raiz abatible. 6 ranuras con silueta unica por letra. Letra O en etiqueta colgante de la raiz. Cartel de valores en la base. Dentro de la raiz: marioneta + foto Miguel + carta Elena. Tijeras doradas del sobre de P5. Presupuesto: ~25€.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CHECKLIST IMPRESION ═══════════════════ -->
+<h2>Checklist de Impresion</h2>
+
+<table>
+  <tr><th>Documento</th><th>Formato</th><th>Cant.</th><th>Material</th><th>Ubicacion</th></tr>
+  <tr><td colspan="5" style="background:var(--color-primary-pale);font-weight:700;">DESPACHO — P1 + P2</td></tr>
+  <tr><td>Tablero plegable</td><td>A3</td><td>×1</td><td>Cartulina</td><td>Mesa escritorio</td></tr>
+  <tr><td>Fichas de personaje</td><td>Tarjeta</td><td>×6</td><td>Cartulina</td><td>Sobre tablero</td></tr>
+  <tr><td>Sobres de testimonio</td><td>A6</td><td>×6</td><td>Papel</td><td>Mesa escritorio</td></tr>
+  <tr><td>Cartas familiares</td><td>DIN-A5</td><td>×8</td><td>Papel vintage sepia</td><td>Dentro caja notario</td></tr>
+  <tr><td>Foto de bebe</td><td>Tarjeta</td><td>×1</td><td>Papel foto</td><td>Dentro caja notario</td></tr>
+  <tr><td>Retrato familiar</td><td>A3</td><td>×1</td><td>Papel mate sepia</td><td>Marco en pared</td></tr>
+  <tr><td>Diario de Elena</td><td>DIN-A4</td><td>×3 pag.</td><td>Papel sepia</td><td>Escritorio</td></tr>
+  <tr><td colspan="5" style="background:var(--color-primary-pale);font-weight:700;">SALON — P3 + P4</td></tr>
+  <tr><td>Tarjetas Momento</td><td>A6</td><td>×4</td><td>Papel + scratch-off</td><td>Album</td></tr>
+  <tr><td>Tarjetas Recuerdo</td><td>A6</td><td>×4</td><td>Papel + scratch-off</td><td>Album</td></tr>
+  <tr><td>Poster arbol genealogico</td><td>A2</td><td>×1</td><td>Papel sepia</td><td>Tubo carton</td></tr>
+  <tr><td>Tarjetas-hoja arbol</td><td>A6</td><td>×10</td><td>Cartulina + velcro</td><td>Tubo carton</td></tr>
+  <tr><td>Certificado adopcion</td><td>A5</td><td>×1</td><td>Papel envejecido</td><td>Dentro cryptex</td></tr>
+  <tr><td colspan="5" style="background:var(--color-primary-pale);font-weight:700;">DESVAN — P5 + P6</td></tr>
+  <tr><td>Fragmentos carta rasgada</td><td>A4 roto</td><td>×12</td><td>Papel sepia</td><td>Mesa desvan</td></tr>
+  <tr><td>Sobre lacrado rojo</td><td>Sobre</td><td>×1</td><td>Papel + lacre</td><td>Bajo 3.ª tabla</td></tr>
+  <tr><td>Letras LEGADO</td><td>Tarjeta</td><td>×6</td><td>Madera/carton</td><td>Dentro sobre</td></tr>
+  <tr><td>Carta despedida Elena</td><td>A4</td><td>×1</td><td>Papel envejecido</td><td>Dentro sobre</td></tr>
+  <tr><td>Cartel valores</td><td>A5</td><td>×1</td><td>Cartulina</td><td>Base arbol</td></tr>
+  <tr><td>Foto Miguel adulto</td><td>Tarjeta</td><td>×1</td><td>Papel foto</td><td>Dentro raiz arbol</td></tr>
+</table>
+
+<p style="text-align:center; font-size:8pt; color:#bbb; margin-top:24px;">
+  El Legado de la Familia — Libro de Pruebas · v5.1 · Mayo 2026
+</p>
+
+</body>
+</html>

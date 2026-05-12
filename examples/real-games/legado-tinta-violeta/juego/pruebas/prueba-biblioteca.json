@@ -1,0 +1,180 @@
+{
+  "id": "legado_001_biblioteca",
+  "nombre": "Las Palabras Magnéticas de Casilda",
+  "descripcion": "Los jugadores encuentran palabras magnéticas sueltas y un tablero magnético con líneas numeradas. Un jugador escucha el audio (60s) con las 14 palabras clave del soneto y las dicta. Los demás buscan las palabras entre las piezas magnéticas y las ordenan en el tablero. En el reverso de cada palabra magnética hay una letra. Cuando las 14 palabras están en el orden correcto, las letras del reverso forman la palabra que abre el cryptex.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 6,
+  "espacio": 1,
+  "planta": 1,
+  "escritora": "Casilda Ordóñez Ferrer",
+  "skill_primario": "prueba-comunicacion",
+  "skills_secundarios": [
+    "prueba-logica-ordenamiento",
+    "prueba-cooperacion"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 3,
+  "jugadores_max": 5,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Escuchar audio 60s con las 14 palabras clave del soneto. Buscar las palabras entre las piezas magnéticas y ordenarlas en el tablero. Las letras del reverso de cada palabra, leídas en orden, forman el código que abre el cryptex.",
+    "elementos_necesarios": [
+      "Tablet con audio de 60s (14 palabras clave del soneto de Casilda)",
+      "30+ palabras magnéticas sueltas (incluidas las 14 clave y distractores)",
+      "1 tablero magnético con 14 líneas numeradas",
+      "1 cryptex de 6 letras",
+      "Soneto original enmarcado con fecha 1947 visible (referencia visual)"
+    ],
+    "distribucion_roles": {
+      "oyente": "Escucha el audio (60s) con las 14 palabras clave y las dicta al equipo",
+      "buscadores": "2-3 jugadores buscan las palabras magnéticas entre las piezas sueltas",
+      "ordenador": "Coloca las palabras en las líneas correctas del tablero magnético"
+    },
+    "codigo_candado": "LEGADO",
+    "mecanismo_codigo": "Las 14 palabras magnéticas ordenadas correctamente revelan 6 letras en el reverso que forman LEGADO (las demás palabras no tienen letra o tienen letras que no contribuyen al código)",
+    "mecanismo_barrera": "Cryptex de 6 letras. Código: LEGADO.",
+    "codigo_cryptex": {
+      "palabra": "LEGADO",
+      "origen": "Las letras del reverso de las 14 palabras magnéticas, leídas en orden correcto, forman la palabra LEGADO",
+      "letras_por_palabra": [
+        {
+          "posicion": 1,
+          "palabra": "En",
+          "letra_reverso": "L"
+        },
+        {
+          "posicion": 2,
+          "palabra": "mi",
+          "letra_reverso": "E"
+        },
+        {
+          "posicion": 3,
+          "palabra": "ciudad",
+          "letra_reverso": "G"
+        },
+        {
+          "posicion": 4,
+          "palabra": "nacen",
+          "letra_reverso": "A"
+        },
+        {
+          "posicion": 5,
+          "palabra": "los",
+          "letra_reverso": "D"
+        },
+        {
+          "posicion": 6,
+          "palabra": "versos",
+          "letra_reverso": "O"
+        }
+      ]
+    }
+  },
+  "control_movimiento": {
+    "problema_potencial": "Ninguno - todos los jugadores en misma habitación",
+    "solucion_implementada": "No requiere - prueba en habitación única",
+    "tipo_solucion": "no_requerido",
+    "prioridad": "baja"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Casilda fue académica: la poesía se comparte. Escuchad el audio y buscad las palabras entre las piezas magnéticas. ¿Hay algo en el reverso de las palabras?"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Escuchad el audio para identificar las 14 palabras clave. Ordenadlas en el tablero magnético. Dad la vuelta a las palabras o mirad el reverso: las letras forman una palabra de 6 letras."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Las 14 palabras en orden correcto tienen letras en el reverso que forman LEGADO. Introducid LEGADO en el cryptex."
+    }
+  ],
+  "solucion": {
+    "descripcion": "1) Observar el marco del soneto y encontrar la fecha 1947. 2) Encender la tablet e introducir 1947 para acceder al audio. 3) Escuchar audio 60s con las 14 palabras clave. 4) Buscar las palabras entre las piezas magnéticas. 5) Ordenarlas en el tablero magnético. 6) Leer las letras del reverso de cada palabra en orden → forman LEGADO. 7) Introducir LEGADO en el cryptex.",
+    "verificacion": "El cryptex se abre con LEGADO, revelando su contenido.",
+    "pasos_detallados": [
+      "Paso 1: Observar marco del soneto → Fecha: 1947",
+      "Paso 2: Encender tablet → Introducir 1947 → Audio desbloqueado",
+      "Paso 3: Escuchar audio 60s con las 14 palabras clave",
+      "Paso 4: Buscar las palabras entre las piezas magnéticas sueltas",
+      "Paso 5: Ordenar las 14 palabras en el tablero magnético",
+      "Paso 6: Observar las letras del reverso de cada palabra",
+      "Paso 7: Leer en orden → las letras forman LEGADO",
+      "Paso 8: Introducir LEGADO en el cryptex",
+      "Paso 9: Abrir el cryptex y obtener la recompensa"
+    ],
+    "recompensa": {
+      "carta": "Carta de Casilda: 'Carmen guardó los periódicos en la sala de prensa. Buscad la puerta con la PRENSA.'",
+      "parte_cartel": "Símbolo de PLUMA",
+      "silaba": "CA",
+      "siguiente_espacio": "Prensa (símbolo: Prensa)"
+    }
+  },
+  "misterio_secundario": {
+    "silaba": "CA",
+    "nombre_completo": "CATALINA VALENTO",
+    "posicion": 1,
+    "simbolo_visual": "Pluma estilizada"
+  },
+  "barrera_fisica": {
+    "tipo": "Cryptex de 6 letras",
+    "ubicacion": "Sobre la mesa de la biblioteca, visible desde el inicio",
+    "codigo": "LEGADO",
+    "origen_codigo": "Letras del reverso de las 14 palabras magnéticas ordenadas correctamente",
+    "montaje_minutos": 5,
+    "materiales": [
+      "1 cryptex de 6 letras (~15-20€)"
+    ]
+  },
+  "adaptaciones": {
+    "sin_tablet": {
+      "descripcion": "Usar altavoz Bluetooth con audio pregrabado",
+      "implementacion": "MP3 o altavoz con audio de 60s, sin contraseña"
+    },
+    "mas_facil": {
+      "descripcion": "Letras del reverso más visibles",
+      "implementacion": "Letras en color rojo en el reverso de cada pieza magnética"
+    },
+    "mas_dificil": {
+      "descripcion": "Más palabras distractores (40+ en vez de 30)",
+      "implementacion": "Añadir más piezas magnéticas que no corresponden al poema"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "30+ palabras magnéticas (14 clave + distractores, con letra en el reverso) (×2 equipos)",
+      "1 tablero magnético con 14 líneas numeradas (×2)",
+      "1 soneto original enmarcado (referencia visual, ×2)",
+      "1 carta de Casilda (pergamino envejecido, ×2)",
+      "1 parte del cartel del juego con símbolo de PLUMA (×2)",
+      "1 sílaba 'CA' (letras recortadas en cartulina violeta, ×2)"
+    ],
+    "mobiliario": [
+      "Mesa con sillas para el equipo",
+      "Tablet con audio de 60s",
+      "Cryptex de 6 letras"
+    ],
+    "extras": [
+      "Lápices para anotaciones",
+      "Marco dorado para el soneto enmarcado"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-16",
+    "fecha_actualizacion": "2026-03-24",
+    "version": 6,
+    "testado": false,
+    "cambios_version_5": "AÑADIDO sistema de password para tablet (1947). Mini-puzzle de observación antes del principal. Fecha visible en marco del soneto.",
+    "cambios_version_4": "ELIMINADA cristalera entre gabinetes. Ahora usa tablet con auriculares para escuchar soneto. Formato competitivo - mismo espacio para ambos equipos con sets paralelos.",
+    "notas": "REFACTOR v6: Mecánica de poemas magnéticos con letras en el reverso. Audio 60s con 14 palabras clave. Al ordenar las palabras correctamente, las letras del reverso forman LEGADO (código del cryptex). Eliminado mecanismo FLOR/FLORCA. Eliminado conteo de 107 palabras. Dificultad 3/10 (entrada de confianza).",
+    "cambios_version_6": "REFACTOR completa. Antes: dictado de soneto completo + conteo de 107 palabras + candado 3 dígitos. Ahora: poemas magnéticos + audio 60s + letras en reverso forman LEGADO + cryptex de 6 letras. Eliminado PULSA LA FLOR / FLORCA. Dificultad bajada a 3/10."
+  }
+}

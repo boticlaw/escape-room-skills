@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@page { size: A4 portrait; margin: 0; }
+body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+.tablero-page {
+  width: 186mm; min-height: 267mm; padding: 15mm 18mm;
+  background: #faf0e6; font-family: 'EB Garamond', serif;
+  color: #3d2b1f; box-sizing: border-box;
+  page-break-inside: auto; page-break-after: always;
+}
+.section-title {
+  font-size: 14pt; font-weight: 700; text-align: center;
+  margin-bottom: 6mm; letter-spacing: 2px; text-transform: uppercase;
+  border-bottom: 2px solid #8b7355; padding-bottom: 3mm;
+}
+.eventos-list {
+  list-style: none; padding: 0; margin: 0 0 8mm 0;
+}
+.eventos-list li {
+  padding: 3mm 4mm; margin-bottom: 2mm; font-size: 11pt;
+  border-left: 3px solid #8b7355; background: #fdf5e6;
+  line-height: 1.4;
+}
+.eventos-list .num { font-weight: 700; color: #8b4513; margin-right: 2mm; }
+table.restricciones {
+  width: 100%; border-collapse: collapse; font-size: 8.5pt;
+}
+table.restricciones th, table.restricciones td {
+  border: 1px solid #8b7355; padding: 2mm; text-align: center;
+  font-size: 8pt;
+}
+table.restricciones th {
+  background: #8b7355; color: #faf0e6; font-weight: 600;
+}
+table.restricciones td {
+  background: #fdf5e6;
+}
+table.restricciones .fila-nombre {
+  background: #e8dcc8; font-weight: 600; text-align: left;
+}
+</style>
+</head>
+<body>
+
+<div class="tablero-page">
+  <div class="section-title">Eventos del Tablero</div>
+  <ul class="eventos-list">
+    <li><span class="num">1.</span> La tarde de la tormenta</li>
+    <li><span class="num">2.</span> La visita al médico</li>
+    <li><span class="num">3.</span> La firma ante el notario</li>
+    <li><span class="num">4.</span> La foto sin rostro</li>
+    <li><span class="num">5.</span> El cumpleaños aplazado</li>
+    <li><span class="num">6.</span> La despedida en la estación</li>
+  </ul>
+
+  <div class="section-title" style="margin-top: 5mm;">Tabla de Restricciones</div>
+  <table class="restricciones">
+    <tr>
+      <th></th>
+      <th>Tormenta</th>
+      <th>Médico</th>
+      <th>Notario</th>
+      <th>Foto</th>
+      <th>Cumpleaños</th>
+      <th>Estación</th>
+    </tr>
+    <tr>
+      <td class="fila-nombre">Elena</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td class="fila-nombre">Marcos</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td class="fila-nombre">Carmen</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td class="fila-nombre">Luis</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td class="fila-nombre">Miguel</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td class="fila-nombre">M. Á.</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html>

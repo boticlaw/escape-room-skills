@@ -1,0 +1,71 @@
+{
+  "id": "prueba_caja_violeta_001",
+  "nombre": "La Caja de Tinta Violeta",
+  "descripcion": "En la Sala del Tesoro hay una caja fuerte antigua con un candado de 5 dígitos. Los jugadores deben introducir el código que han ido recopilando en las 5 pruebas anteriores: 3-7-2-9-1. Al abrir la caja, encuentran el manuscrito de 'la dama de tinta violeta'.",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": ["prueba-logica-secuencial"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 7,
+  "configuracion": {
+    "tipo_mecanismo": "candado_combinacion_5_digitos",
+    "codigo_correcto": "37291",
+    "intentos_maximos": null,
+    "feedback_apertura": "click audible + luz verde",
+    "mensaje_exito": "¡LA CAJA SE ABRE! Dentro encontráis un manuscrito encuadernado en cuero viejo. La portada dice: 'Versos del Silencio - Por la Dama de Tinta Violeta - Palencia, 1899'. ¡Habéis recuperado un tesoro literario perdido!"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Cada prueba que habéis superado os ha dado un número. ¿Los recordáis todos?"
+    },
+    {
+      "nivel": 2,
+      "texto": "Los números se obtienen en orden: del mural (3), de las autoras (7), de las cartas (2), del acróstico (9), de la línea temporal (1)."
+    },
+    {
+      "nivel": 3,
+      "texto": "El código tiene 5 dígitos. El primer número vino de la recepción, el segundo de la sala de introducción..."
+    },
+    {
+      "nivel": 4,
+      "texto": "El código es 3-7-2-9-1. Introducidlo en el candado."
+    },
+    {
+      "nivel": 5,
+      "texto": "37291. Girad cada dial hasta mostrar el número correcto y abrid la caja."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Introducción de código de 5 dígitos obtenido en pruebas anteriores",
+    "codigo": "37291",
+    "desglose": {
+      "digito_1": {"prueba": "El Mural de las Escritoras", "valor": 3, "origen": "3 nombres en violeta"},
+      "digito_2": {"prueba": "Autoras y Obras", "valor": 7, "origen": "Tarjetas revelan 7"},
+      "digito_3": {"prueba": "Las Cartas Secretas", "valor": 2, "origen": "DOS de las cartas"},
+      "digito_4": {"prueba": "El Acróstico Violeta", "valor": 9, "origen": "NUEVES = 9"},
+      "digito_5": {"prueba": "La Línea Temporal", "valor": 1, "origen": "Suma de 3 primeros = 1"}
+    },
+    "resultado": "Manuscrito encontrado → VICTORIA"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "10+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "Caja fuerte visible al entrar en la sala. Iluminación dramática. Manuscrito prop de alta calidad."
+  },
+  "assets": {
+    "caja_fuerte": "TODO: Caja fuerte de época con candado de 5 diales",
+    "manuscrito": "TODO: Prop de manuscrito encuadernado con páginas de texto ficticio",
+    "iluminacion": "Luz focal sobre la caja cuando se abre"
+  },
+  "metadata": {
+    "creado": "2026-03-16",
+    "version": "1.0",
+    "autor": "escapeitor",
+    "testeado": false,
+    "tags": ["hall_escape", "mecanismo", "final", "candado", "codigo", "victoria"],
+    "proyecto": "legado_tinta_violeta",
+    "juego": "legado_tinta_violeta"
+  }
+}

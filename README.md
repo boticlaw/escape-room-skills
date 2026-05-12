@@ -218,18 +218,29 @@ Copiar el contenido de cada `skills/*/SKILL.md` en el contexto de instrucciones 
 
 ## Juegos Reales de Ejemplo
 
-El directorio `examples/real-games/` contiene 6 juegos completos:
+El directorio `examples/real-games/` contiene juegos reales del proyecto **Viernes de Escape** (Palencia) y **La Dama del Salón** (street escape en producción):
 
-| Juego | Tipo | Puzzles | Notas |
-|-------|------|---------|-------|
-| **Biblioteca Maldita v2** | Hall Escape | 6 | Temática de biblioteca, testeado por pipeline |
-| **Biblioteca Maldita v3** | Hall Escape | 5 | Versión refinada con mejoras |
-| **Juego de Prueba** | Test | Básico | Prototipo inicial |
-| **Juego de Prueba con Cita** | Test | Con cita | Variante con sistema de citas |
-| **Test Final** | Test | Completo | Juego de validación final |
-| **La Dama del Salón** | Street Escape | 13 niveles | **En producción** — street escape de Palencia |
+### Proyecto: Viernes de Escape
 
-La Dama del Salón incluye: análisis completo, 12 mecánicas catalogadas, plantillas narrativas, patrones del data model y 13 niveles con GPS.
+Evento de escape rooms para jóvenes (12-18 años), 5-6 jugadores, 45-55 minutos. Incluye `PROJECT-SPECS.md` con todas las restricciones del proyecto.
+
+| Juego | Temática | Estado | Puzzles |
+|-------|----------|--------|---------|
+| **El Legado de la Familia** | Familiar/misterio | Completo con playtest | 6 pruebas + meta-prueba |
+| **Legado Tinta Violeta** | Escritoras palentinas | v4.1 completo | 7 pruebas + final |
+| **Protocolo Alerta Verde** | Medio ambiente/sabotaje ecológico | Completo | 6 pruebas |
+| **Test de Touring** | IA y sus peligros | En diseño | 6 pruebas |
+| **Quiz Battle Palencia** | Cultura palentina + lógica | MVP funcional (Godot+MQTT) | Quiz + minijuegos |
+
+### La Dama del Salón
+
+Street escape real de Palencia — app web completa (React + Node.js + PostgreSQL + Stripe) con:
+- **13 niveles GPS** con coordenadas reales de Palencia
+- **3 tipos de nivel**: diario (narrativa), ubicación (GPS), puzzle (interactivo)
+- **Componentes de juego**: GPS checker, memory cards, sliding puzzle, piano, minesweeper, fish sort, code lock box, star puzzle
+- **Integración Stripe/LemonSqueezy** para pagos
+- **E2E tests** incluidos
+- **Desplegado en producción** con Docker + Fly.io
 
 ## Stack de Búsqueda (Opcional — Investigación Temática Automática)
 

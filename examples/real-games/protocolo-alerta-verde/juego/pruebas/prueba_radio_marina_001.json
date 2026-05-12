@@ -1,0 +1,113 @@
+{
+  "id": "prueba_radio_marina_001",
+  "nombre": "La Radio de Marina",
+  "juego": "protocolo-alerta-verde",
+  "descripcion": "Prueba física en la Sala de Control (Planta 3). Los jugadores encuentran la máquina de radio y un diagrama completo en la pared. Deben montar 5 cables en orden (rojo, verde, azul, amarillo, negro), configurar 4 interruptores ON/OFF (ON-ON-OFF-ON) y 2 interruptores posicionales (Arriba-Abajo), y sintonizar 104.5 MHz en una radio FM para escuchar el mensaje de Marina con pistas veladas del Código Maestro.",
+  "skill_primario": "prueba-panel-electrico",
+  "skills_secundarios": ["prueba-logica-posiciones", "prueba-comunicacion-mensajes"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "ubicacion": "Planta 3 — Sala de Control",
+  "configuracion": {
+    "espacio": "Sala de Control, última planta, ambiente de urgencia",
+    "elementos_fisicos": [
+      "Máquina de radio (emisor FM) con 5 puertos de cable",
+      "Diagrama completo de montaje pegado en la pared",
+      "5 cables de colores: rojo, verde, azul, amarillo, negro (viajan desde pruebas 1-3)",
+      "4 interruptores ON/OFF",
+      "2 interruptores posicionales (3 posiciones)",
+      "Radio FM portátil para recibir el mensaje en 104.5 MHz",
+      "Nota con instrucciones de interruptores (obtenida en Prueba 3)"
+    ],
+    "cables": {
+      "numero": 5,
+      "colores": ["rojo", "verde", "azul", "amarillo", "negro"],
+      "secuencia_correcta": ["rojo", "verde", "azul", "amarillo", "negro"],
+      "origen": {
+        "rojo": "Prueba 1 (Archivo de Alertas)",
+        "verde": "Prueba 1 (Archivo de Alertas)",
+        "azul": "Prueba 2 (Frecuencias Cruzadas)",
+        "amarillo": "Prueba 2 (Frecuencias Cruzadas)",
+        "negro": "Prueba 3 (Tablón del Investigador)"
+      }
+    },
+    "interruptores_onoff": {
+      "numero": 4,
+      "configuracion_correcta": ["ON", "ON", "OFF", "ON"]
+    },
+    "interruptores_posicionales": {
+      "numero": 2,
+      "configuracion_correcta": ["Arriba", "Abajo"]
+    },
+    "emisor_fm": {
+      "frecuencia": "104.5 MHz",
+      "mensaje": "Agentes de la UPA, aquí la Doctora Marina Soler. Si escucháis esto, el Protocolo Alerta Verde funciona. El código maestro tiene cuatro caracteres: la primera letra del sistema que cayó primero, la letra de la estación que nunca fue tocada, el primer dígito del código de emergencia de Tomás, y la inicial del hombre que lo hizo todo. Tienen que ser rápidos. No fallen.",
+      "duracion_segundos": 20,
+      "repetir": true
+    },
+    "diagrama_pared": {
+      "contenido": "Diagrama visual con 5 puertos de cable numerados y etiquetados con colores, secuencia de conexión, configuración de los 4 interruptores ON/OFF (ON-ON-OFF-ON), configuración de los 2 interruptores posicionales (Arriba-Abajo), y frecuencia FM 104.5 MHz"
+    }
+  },
+  "solucion": {
+    "pasos": [
+      "1. Identificar los 5 cables acumulados de pruebas anteriores (rojo, verde, azul, amarillo, negro)",
+      "2. Consultar el diagrama completo en la pared",
+      "3. Conectar los 5 cables en orden: rojo → verde → azul → amarillo → negro",
+      "4. Configurar los 4 interruptores ON/OFF: ON — ON — OFF — ON",
+      "5. Configurar los 2 interruptores posicionales: Arriba — Abajo",
+      "6. Sintonizar la radio FM en 104.5 MHz",
+      "7. Escuchar el mensaje de la Dra. Marina Soler con pistas veladas del Código Maestro"
+    ],
+    "codigo_recompensa": "Mensaje FM con pistas veladas",
+    "tipo_cierre": "emisor_fm_activado",
+    "es_meta_prueba": false
+  },
+  "recompensa": {
+    "al_abrir": [
+      "Mensaje FM de la Dra. Marina Soler con pistas veladas del Código Maestro (AV1P)",
+      "Acceso a los documentos de la sala para deducir el código final (Prueba 6)"
+    ],
+    "desbloquea": "Prueba 6 — Detener el Sabotaje"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "timing": "4 min sin progreso",
+      "texto": "El orden de los cables sigue un patrón cromático que encontraste en el diagrama de la pared.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 2,
+      "timing": "7 min sin progreso",
+      "texto": "Los cables van en este orden: rojo, verde, azul, amarillo, negro. Los interruptores ON/OFF deben ser: ON-ON-OFF-ON. Los posicionales: Arriba-Abajo.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 3,
+      "timing": "10 min sin progreso",
+      "texto": "Cables: rojo, verde, azul, amarillo, negro. Interruptores: ON-ON-OFF-ON. Posicionales: Arriba-Abajo. Radio: 104.5 MHz.",
+      "da_solucion": true
+    }
+  ],
+  "adaptaciones": {
+    "edad": {
+      "12-14": "La parte física de conectar cables es divertida y tangible. El diagrama en la pared guía todo.",
+      "15-18": "Pueden resolverlo más rápido pero el momento de escuchar la radio FM es emocionante para todos."
+    },
+    "espacio": "Cualquier mesa o superficie con el panel eléctrico montado. El diagrama va en la pared.",
+    "n_jugadores": {
+      "2-3": "Se reparten tareas: unos conectan cables, otros configuran interruptores, otro sintoniza la radio.",
+      "4-6": "Ideal, cada jugador puede encargarse de una parte del montaje."
+    }
+  },
+  "notas_gm": "Los 5 cables se acumulan durante las pruebas 1-3. Si un grupo pierde algún cable, tener repuestos. La radio FM debe estar encendida y a volumen suficiente. Probar la frecuencia 104.5 MHz antes del juego. El mensaje FM se repite automáticamente. Esta prueba es la 'experiencia wow' física del juego — conectar cables reales y escuchar una voz real.",
+  "metadata": {
+    "autor": "escapeitor + boti",
+    "version": "5.0",
+    "fecha_creacion": "2026-04-06",
+    "fecha_actualizacion": "2026-04-06",
+    "testeado": false,
+    "cambio_v5": "NUEVA prueba 5: La Radio de Marina. Reemplaza la antigua Prueba 5 (Código Maestro) que ahora es Prueba 6. Integra el emisor de radio físico con cables acumulados de pruebas 1-3."
+  }
+}

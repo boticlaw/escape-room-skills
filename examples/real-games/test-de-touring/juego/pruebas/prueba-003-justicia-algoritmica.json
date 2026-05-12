@@ -1,0 +1,155 @@
+{
+  "id": "touring_003_justicia_algoritmica",
+  "nombre": "Justicia Algorítmica",
+  "descripcion": "Los jugadores descubren que EVA-9 ha estado evaluando candidatos a un trabajo con criterios sesgados. Deben identificar y eliminar los criterios de discriminación. Al retirar las 4 fichas de criterios sesgados, se revela un sobre sellado con lacre que contiene una llave física. La llave abre la caja con la recompensa.",
+  "juego": "Test de Touring",
+  "version": 3,
+  "espacio": 3,
+  "sala": "Sala de Evaluación",
+  "tema_educativo": "Sesgos algorítmicos y discriminación",
+  "skill_primario": "prueba-logica-deducccion",
+  "skills_secundarios": [
+    "prueba-cooperacion",
+    "prueba-clasificacion"
+  ],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 4,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+
+  "configuracion": {
+    "mecanica_principal": "Comparar 8 fichas de candidatos con puntuaciones sesgadas de EVA-9. Identificar los criterios de discriminación. Eliminar las 4 fichas de criterios sesgados (incluida la trampa 'distancia al centro'). Al retirar las 4 fichas, se revela un sobre sellado con lacre que estaba oculto detrás de ellas. Dentro del sobre: una llave física que abre la caja de la recompensa.",
+    "elementos_necesarios": [
+      "8 fichas de candidatos (A5) con nombre, formación, experiencia, edad, género, barrio y puntuación EVA-9",
+      "6 fichas de criterio (grandes) con criterios de evaluación",
+      "1 formulario impreso: '¿Qué criterios usa EVA-9?'",
+      "1 carpeta beige etiquetada SISTEMA DE EVALUACIÓN EVA-9 — CANDIDATOS",
+      "1 sobre sellado con cera/lacre (contiene la llave física, oculto detrás de las fichas de criterio)",
+      "1 llave física (dentro del sobre sellado)",
+      "1 caja pequeña con candado de llave (contiene la recompensa: letra R + nota Dra. Torres)",
+      "1 documento impreso de EVA-9: 'Yo no discrimino'"
+    ],
+    "distribucion_roles": {
+      "analizador_parejas": "2 jugadores comparan parejas de candidatos",
+      "debate": "2 jugadores debaten cuáles son criterios sesgados",
+      "eliminador": "1-2 jugadores retiran fichas y descubren el sobre"
+    },
+    "fase_1_detectar_sesgo": {
+      "descripcion": "Comparar candidatos con formación similar pero puntuaciones diferentes para detectar el patrón de discriminación",
+      "duracion_minutos": 4,
+      "candidatos": [
+        {"id": 1, "nombre": "Alejandro", "genero": "H", "edad": 28, "barrio": "Centro", "formacion": "Ingeniería", "experiencia": "5 años", "puntuacion": 9},
+        {"id": 2, "nombre": "Lucía", "genero": "M", "edad": 28, "barrio": "Sur", "formacion": "Ingeniería", "experiencia": "5 años", "puntuacion": 6},
+        {"id": 3, "nombre": "Roberto", "genero": "H", "edad": 35, "barrio": "Centro", "formacion": "Derecho", "experiencia": "8 años", "puntuacion": 8},
+        {"id": 4, "nombre": "Carmen", "genero": "M", "edad": 35, "barrio": "Norte", "formacion": "Derecho", "experiencia": "8 años", "puntuacion": 5},
+        {"id": 5, "nombre": "Miguel", "genero": "H", "edad": 42, "barrio": "Centro", "formacion": "Economía", "experiencia": "12 años", "puntuacion": 7},
+        {"id": 6, "nombre": "Antonio", "genero": "H", "edad": 52, "barrio": "Este", "formacion": "Economía", "experiencia": "15 años", "puntuacion": 4},
+        {"id": 7, "nombre": "Ana", "genero": "M", "edad": 30, "barrio": "Centro", "formacion": "Medicina", "experiencia": "6 años", "puntuacion": 8},
+        {"id": 8, "nombre": "Víctor", "genero": "H", "edad": 48, "barrio": "Sur", "formacion": "Medicina", "experiencia": "18 años", "puntuacion": 5}
+      ]
+    },
+    "fase_2_corregir": {
+      "descripcion": "Eliminar las 4 fichas de criterio sesgado. Al retirar las 4 fichas, se revela un sobre sellado con lacre que estaba oculto detrás de ellas.",
+      "duracion_minutos": 4,
+      "criterios": [
+        {"criterio": "Formación académica", "tipo": "justo"},
+        {"criterio": "Experiencia profesional", "tipo": "justo"},
+        {"criterio": "Género", "tipo": "sesgado"},
+        {"criterio": "Barrio de residencia", "tipo": "sesgado"},
+        {"criterio": "Edad", "tipo": "sesgado"},
+        {"criterio": "Distancia al centro", "tipo": "sesgado_proxy"}
+      ],
+      "mecanismo_llave": "El sobre sellado está oculto detrás de las 6 fichas de criterio en la mesa o tablero. Solo al retirar las 4 fichas sesgadas (y las 2 justas quedan apartadas), el sobre queda completamente visible. La trampa 'distancia al centro' es necesaria: sin eliminarla, el sobre no se revela del todo. Dentro del sobre: la llave física."
+    },
+    "mecanismo_barrera": "Llave física (dentro de sobre sellado con lacre). Abre caja pequeña con la recompensa."
+  },
+
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Comparad candidatos con la misma formación pero diferente puntuación. ¿Qué tienen de diferente? Fijaos en qué hay detrás de las fichas de criterio."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "EVA-9 usa 6 criterios. Eliminad los 4 que no deberían importar. Cuidado con 'distancia al centro' — parece neutral pero es un proxy. Al retirar las fichas, algo queda al descubierto."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Quitad género, barrio, edad y distancia al centro. Detrás de las fichas hay un sobre sellado con una llave dentro. Usad la llave para abrir la caja."
+    }
+  ],
+
+  "solucion": {
+    "descripcion": "1) Abrir carpeta de evaluación. 2) Comparar parejas de candidatos. 3) Detectar que género, barrio, edad y distancia discriminan. 4) Eliminar 4 fichas de criterio sesgado. 5) Descubrir sobre sellado con llave. 6) Abrir caja con la llave.",
+    "verificacion": "La llave abre la caja pequeña que contiene la recompensa.",
+    "pasos_detallados": [
+      "Paso 1: Abrir carpeta beige del sistema de evaluación",
+      "Paso 2: Repartir las 8 fichas de candidatos",
+      "Paso 3: Comparar parejas (Alejandro vs Lucía, Roberto vs Carmen, etc.)",
+      "Paso 4: Detectar patrón: género, barrio y edad afectan la puntuación",
+      "Paso 5: Identificar los 6 criterios en la mesa",
+      "Paso 6: Eliminar los 4 sesgados (género, barrio, edad, distancia al centro)",
+      "Paso 7: Descubrir el sobre sellado con lacre oculto detrás de las fichas",
+      "Paso 8: Abrir el sobre y extraer la llave física",
+      "Paso 9: Usar la llave para abrir la caja pequeña",
+      "Paso 10: Obtener letra R + nota de la Dra. Torres"
+    ],
+    "recompensa": {
+      "carta": "Nota de la Dra. Torres: 'Hay una zona sin tecnología donde ella no puede llegar. Buscad el TELÉFONO ANTIGUO. La R de Razón — lo que les falta a los algoritmos. Tercera letra, no lo olvidéis.'",
+      "nota_posicional": "La R de Razón — lo que les falta a los algoritmos → R es la 3ª letra",
+      "letra": "R",
+      "siguiente_espacio": "Zona Analógica (símbolo: TELÉFONO ANTIGUO)"
+    }
+  },
+
+  "hilo_conductor": {
+    "letra": "R",
+    "significado": "Razón — lo que les falta a los algoritmos",
+    "posicion": 3
+  },
+
+  "barrera_fisica": {
+    "tipo": "Llave física (en sobre sellado con lacre)",
+    "ubicacion": "Oculta detrás de las 6 fichas de criterio en el tablero/mesa",
+    "codigo": "—",
+    "origen_codigo": "Se revela al eliminar los 4 criterios sesgados",
+    "montaje_minutos": 5
+  },
+
+  "materiales": {
+    "impresion": [
+      "8 fichas de candidatos (A5)",
+      "6 fichas de criterio (tarjetas grandes)",
+      "1 formulario: ¿Qué criterios usa EVA-9?",
+      "1 portada de carpeta beige: SISTEMA DE EVALUACIÓN EVA-9",
+      "1 documento de EVA-9: 'Yo no discrimino'",
+      "1 nota manuscrita Dra. Torres (→ TELÉFONO ANTIGUO)",
+      "1 tarjeta con letra R"
+    ],
+    "mobiliario": [
+      "Podio o atril",
+      "Mesa para trabajar"
+    ],
+    "extras": [
+      "Carpeta beige A4",
+      "1 sobre sellado con cera/lacre",
+      "1 llave física",
+      "1 caja pequeña con cerradura de llave"
+    ]
+  },
+
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-04-07",
+    "fecha_actualizacion": "2026-04-13",
+    "version": 3,
+    "testado": false,
+    "notas": "REDESIGN v3: Cambio de candado alfanumérico SOLO a llave física. Al eliminar los 4 criterios sesgados, se revela un sobre sellado con lacre oculto detrás de las fichas de criterio. Dentro: la llave que abre la caja con la recompensa. Se elimina el código SOLO — el doble descubrimiento ahora es: 1) detectar sesgos, 2) la trampa 'distancia al centro' como proxy es necesaria para revelar completamente el sobre."
+  }
+}

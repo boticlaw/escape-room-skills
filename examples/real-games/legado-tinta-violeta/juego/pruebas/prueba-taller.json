@@ -1,0 +1,189 @@
+{
+  "id": "legado_003_taller",
+  "nombre": "La Maleta del Taller",
+  "descripcion": "En el taller hay una maleta vieja con materiales típicos que usaba Enriqueta (plumas, papel, tintas). Dentro de la maleta los jugadores encuentran un plano/dibujo del taller y 3 acetatos transparentes con rayas extrañas. Al superponer los 3 acetatos sobre el plano, las líneas forman la palabra 'MESA' y se lee 'Abajo'. Esto indica que deben mirar debajo de la mesa del taller. Debajo de la mesa encuentran la llave con símbolo de sol que abre el cofre.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 5,
+  "espacio": 3,
+  "planta": 1,
+  "escritora": "Enriqueta Antolín",
+  "skill_primario": "prueba-visual-cooperativo",
+  "skills_secundarios": [
+    "prueba-audio-cooperativo",
+    "prueba-logica-emparejamiento"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 3,
+  "jugadores_max": 5,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Abrir la maleta de Enriqueta, encontrar el plano del taller y 3 acetatos con rayas. Superponer los 3 acetatos sobre el plano: las líneas forman la palabra MESA y se lee 'Abajo'. Buscar debajo de la mesa real del taller → encontrar llave con símbolo de sol → abrir cofre.",
+    "elementos_necesarios": [
+      "1 maleta antigua/vintage con materiales de Enriqueta (plumas, papel, tintas decorativos)",
+      "1 plano/dibujo del taller (A3, papel sepia) dentro de la maleta",
+      "3 acetatos transparentes A4 con rayas/fragmentos de líneas dentro de la maleta",
+      "1 cofre con cerradura (se abre con la llave del sol)",
+      "Llave con símbolo de sol pegada con cinta washi bajo la mesa real del taller"
+    ],
+    "acetatos": {
+      "acetato_1": {
+        "nombre": "Rayas superiores + elementos del taller",
+        "contenido": "Líneas rayadas que forman parte superior de letras cuando se superponen con los otros acetatos. También incluye dibujos genéricos del taller: ventana, estante alto. NINGÚN acetato muestra la mesa ni la palabra 'mesa' por separado.",
+        "fragmento_letra": "Parte superior de M, E, S (arcos, líneas horizontales)",
+        "color": "Azul claro"
+      },
+      "acetato_2": {
+        "nombre": "Rayas centrales + elementos del taller",
+        "contenido": "Líneas rayadas que forman parte central de letras. Dibujos genéricos: atril, pupitre. No muestra mesa ni palabra completa.",
+        "fragmento_letra": "Parte central de M, E, S, A (travesaños, curvas)",
+        "color": "Verde claro"
+      },
+      "acetato_3": {
+        "nombre": "Rayas inferiores + elementos del taller",
+        "contenido": "Líneas rayadas que forman parte inferior de letras. Dibujos genéricos: silla, lámpara. Fragmentos distractores que nunca forman nada legible.",
+        "fragmento_letra": "Parte inferior de M, E, S, A (bases, pies verticales)",
+        "color": "Amarillo/dorado",
+        "distractores": "Fragmentos de trazos sueltos que parecen letras pero no forman ninguna palabra al combinarse"
+      },
+      "plano_base": {
+        "nombre": "Plano/dibujo del taller (papel sepia, dentro de la maleta)",
+        "contenido": "Plano A3 con el dibujo completo del taller INCLUYENDO la mesa dibujada en el centro. Símbolo de sol junto a la mesa.",
+        "clave_visual": "La palabra MESA solo se forma cuando los 3 acetatos se superponen sobre el dibujo de la mesa del plano. Junto a MESA se lee la indicación 'Abajo'."
+      }
+    },
+    "distribucion_roles": {
+      "exploradores_maleta": "Abren la maleta, revisan materiales de Enriqueta",
+      "alineadores": "2-3 jugadores que manipulan los acetatos y buscan la alineación correcta sobre el plano",
+      "descubridor": "Lee la palabra MESA formada + 'Abajo', busca la llave bajo la mesa"
+    },
+    "pista_llave": {
+      "ubicacion": "Bajo la mesa real del taller, pegada con cinta washi reutilizable",
+      "como_se_indica": "1) Acetatos alineados forman MESA + 'Abajo' sobre la mesa dibujada en el plano → 2) Buscar bajo la mesa real del taller",
+      "llave": "Llave física con símbolo de sol grabado"
+    },
+    "codigo_candado": "SOL",
+    "mecanismo_codigo": "La llave con símbolo de sol abre el cofre",
+    "mecanismo_barrera": "Cofre con cerradura. Se abre con la llave física del sol.",
+    "maleta": {
+      "descripcion": "Maleta antigua/vintage que contiene los materiales típicos de Enriqueta (plumas, papel, tintas) y dentro el plano del taller + 3 acetatos",
+      "materiales_interiores": [
+        "Plumas decorativas",
+        "Papel antiguo",
+        "Tintero decorativo",
+        "Plano A3 del taller",
+        "3 acetatos A4 con rayas"
+      ]
+    }
+  },
+  "control_movimiento": {
+    "problema_potencial": "Ninguno - todos en misma habitación",
+    "solucion_implementada": "No requiere - prueba en habitación única",
+    "tipo_solucion": "no_requerido",
+    "prioridad": "baja"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Enriqueta guardaba sus secretos entre sus cosas. Revisad todo lo que hay dentro de la maleta. Hay un plano y unas láminas transparentes. Probad a superponer las láminas sobre el plano."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Colocad los 3 acetatos sobre el plano del taller que está dentro de la maleta. Las rayas forman una palabra sobre la mesa dibujada: MESA, y junto a ella se lee 'Abajo'."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Abrid la maleta, sacad el plano A3 y los 3 acetatos. Superponed los acetatos: la palabra MESA se forma sobre la mesa del plano + se lee 'Abajo'. La llave con el sol está pegada con cinta washi bajo la mesa real del taller."
+    }
+  ],
+  "solucion": {
+    "descripcion": "1) Encontrar la maleta en el taller. 2) Abrirla y revisar los materiales de Enriqueta. 3) Encontrar el plano/dibujo del taller (A3) y los 3 acetatos con rayas. 4) Superponer los 3 acetatos sobre el plano. 5) Las líneas forman la palabra MESA y se lee 'Abajo' sobre el dibujo de la mesa. 6) Mirar debajo de la mesa real del taller. 7) Encontrar la llave con símbolo de sol pegada con cinta washi. 8) Abrir el cofre con la llave.",
+    "verificacion": "La llave del sol abre el cofre, revelando su contenido.",
+    "pasos_detallados": [
+      "Paso 1: Encontrar la maleta de Enriqueta en el taller",
+      "Paso 2: Abrir la maleta y revisar los materiales",
+      "Paso 3: Identificar el plano/dibujo del taller (A3)",
+      "Paso 4: Identificar los 3 acetatos transparentes con rayas",
+      "Paso 5: Superponer los 3 acetatos sobre el plano",
+      "Paso 6: Observar que las líneas forman la palabra MESA + 'Abajo'",
+      "Paso 7: Mirar debajo de la mesa real del taller",
+      "Paso 8: Encontrar llave con símbolo de sol (pegada con cinta washi)",
+      "Paso 9: Abrir el cofre con la llave"
+    ],
+    "recompensa": {
+      "carta": "Carta de Enriqueta: 'Noemí dibuja mundos con su lápiz mágico. Subid a la planta de arriba y buscad la puerta con el PINCEL.'",
+      "parte_cartel": "Símbolo de LIBRO ALADO",
+      "silaba": "LI",
+      "siguiente_espacio": "Ilustración (símbolo: Pincel) - PLANTA 2"
+    }
+  },
+  "misterio_secundario": {
+    "silaba": "LI",
+    "nombre_completo": "CATALINA VALENTO",
+    "posicion": 3,
+    "simbolo_visual": "Libro con alas"
+  },
+  "barrera_fisica": {
+    "tipo": "Cofre con cerradura (llave física)",
+    "ubicacion": "Sobre la mesa de trabajo, visible desde el inicio",
+    "codigo": "SOL",
+    "origen_codigo": "Llave con símbolo de sol encontrada bajo la mesa real de la habitación",
+    "montaje_minutos": 3,
+    "materiales": [
+      "1 cofre con cerradura (~5-8€)",
+      "1 llave con símbolo de sol grabado (~2€)"
+    ]
+  },
+  "adaptaciones": {
+    "sin_acetatos": {
+      "descripcion": "Usar papel vegetal en lugar de acetato",
+      "implementacion": "Imprimir las capas en papel vegetal (más barato pero menos durable)"
+    },
+    "mas_facil": {
+      "descripcion": "Indicación más clara en el plano",
+      "implementacion": "Añadir una flecha sutil apuntando hacia abajo junto a la palabra MESA"
+    },
+    "mas_dificil": {
+      "descripcion": "Añadir un 4º acetato distractor dentro de la maleta",
+      "implementacion": "Acetato extra con fragmentos que no forman nada al combinarse con los otros"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "3 acetatos A4 con fragmentos de rayas/letras (superior/central/inferior) + elementos genéricos SIN mesa (×2 equipos = 6)",
+      "1 plano A3: dibujo completo del taller INCLUYENDO mesa + símbolo de sol (×2)",
+      "1 carta de Enriqueta (papel enrollado con cinta violeta, ×2)",
+      "1 parte del cartel del juego con símbolo de LIBRO ALADO (×2)",
+      "1 sílaba 'LI' en etiqueta de cuero (×2)"
+    ],
+    "mobiliario": [
+      "Mesa de trabajo del taller (con llave debajo)",
+      "1 cofre con cerradura (sobre la mesa o en zona visible)",
+      "1 maleta antigua/vintage con materiales de Enriqueta"
+    ],
+    "extras": [
+      "Materiales decorativos para la maleta: plumas, papel antiguo, tintero",
+      "Cinta washi reutilizable (para fijar la llave bajo la mesa)",
+      "1 llave física con símbolo de sol grabado"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-16",
+    "fecha_actualizacion": "2026-03-24",
+    "version": 8,
+    "testado": false,
+    "cambios_version_5": "AÑADIDO microscopio portátil con objetos con detalles microscópicos. Objetos verdaderos (5, 3, 7) vs distractores (2, 1). Narrativa: 'Solo quien mira de cerca descubre la verdad.'",
+    "cambios_version_4": "Sin cambios estructurales - ya usaba tablet/audio. Formato competitivo - mismo espacio para ambos equipos con sets paralelos.",
+    "notas": "La maleta centraliza todo el material. No necesita atril ni audio. Los acetatos y plano van dentro de la maleta. La indicación 'Abajo' reemplaza el sistema de 'Dale la vuelta' / 'Bajo el tablero'. La llave se pega con cinta washi bajo la mesa real.",
+    "cambios_version_6": "REEMPLAZADO microscopio + objetos sueltos por El Mapa del Taller. 3 acetatos + base A3 que se alinean para revelar flechas apuntando hacia ABAJO. Llave bajo la mesa con cinta washi. Todo portátil y sin decoración fija. Motivo: espacio cedido por ayuntamiento, no se pueden poner objetos sueltos ni decoración fija.",
+    "cambios_version_7": "REFACTOR completa de mecánica de acetatos. Ahora cada acetato tiene fragmentos de letras (superior/central/inferior) que solo al superponer los 3 forman la palabra MESA. Ningún acetato muestra mesa ni la palabra 'mesa' por separado. Base A3 es el único sitio con mesa dibujada. Nota 'Dale la vuelta' en anverso, 'Bajo el tablero.' en reverso. Llave SOL bajo la mesa real con cinta washi. Eliminadas flechas de luz — reemplazadas por formación de palabra MESA.",
+    "cambios_version_8": "REFACTOR: reemplazado atril + base A3 con doble cara por MALETA con materiales de Enriqueta. Ahora los acetatos y el plano van dentro de la maleta. Al superponer los 3 acetatos se forma MESA + 'Abajo' (en vez de 'Dale la vuelta' → 'Bajo el tablero'). Eliminado audio. Maleta más inmersiva y portátil."
+  },
+  "fecha_actualizacion": "2026-03-24"
+}

@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Protocolo Alerta Verde — Libro de Pruebas</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 2.2cm;
+    @bottom-center {
+      content: counter(page);
+      font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9pt;
+      color: #999;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #2c2c2c;
+    background: #fff;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: -3px;
+    margin-right: 2px;
+  }
+  .icon-lg {
+    width: 22px;
+    height: 22px;
+    vertical-align: -4px;
+  }
+  .sym {
+    display: inline-block;
+    font-weight: 700;
+    color: #1a7a3a;
+    padding: 1px 6px;
+    border: 1.5px solid #1a7a3a;
+    border-radius: 3px;
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+    vertical-align: 1px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    page-break-after: always;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, #f0f9f1 0%, #d4f0d8 40%, #b8e0c0 100%);
+    padding: 3cm;
+  }
+  .cover-accent {
+    width: 80px;
+    height: 3px;
+    background: #1a7a3a;
+    margin: 0 auto 28px;
+    border-radius: 2px;
+  }
+  .cover h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32pt;
+    font-weight: 700;
+    color: #0a3d1a;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: #1a7a3a;
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item {
+    text-align: center;
+  }
+  .cover-meta-item .label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #5aad6e;
+    font-weight: 600;
+  }
+  .cover-meta-item .value {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #0a3d1a;
+    margin-top: 4px;
+  }
+  .cover-footer {
+    margin-top: 60px;
+    font-size: 9pt;
+    color: #5aad6e;
+  }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18pt;
+    color: #0a3d1a;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #b8e0c0;
+  }
+  h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13pt;
+    color: #0e5c28;
+    margin-top: 22px;
+    margin-bottom: 8px;
+  }
+  h4 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #0a3d1a;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 8px; }
+  .page-break { page-break-before: always; }
+
+  .quote-block {
+    background: #f0f9f1;
+    border-left: 4px solid #1a7a3a;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: #0a3d1a;
+    line-height: 1.6;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 9.5pt;
+  }
+  th {
+    background: #1a7a3a;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #d8f0dc;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f4faf5; }
+
+  /* ── CODE BOX ── */
+  .code-box {
+    display: inline-block;
+    background: #ffffff;
+    color: #1a0a24;
+    border: 3px solid #000000;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18pt;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 6px 0;
+    line-height: 1.2;
+  }
+  .proof-body .code-box,
+  .proof-card .code-box,
+  .proof-header .code-box,
+  table .code-box,
+  table tr .code-box,
+  table tr td .code-box {
+    background: #ffffff;
+    color: #1a0a24;
+    border: 3px solid #000000;
+    font-size: 18pt;
+    font-weight: 900;
+  }
+
+  /* ── PROOF CARDS ── */
+  .proof-card {
+    border: 1px solid #b8e0c0;
+    border-radius: 8px;
+    margin: 20px 0 24px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .proof-header {
+    background: linear-gradient(135deg, #1a7a3a 0%, #0e5c28 100%);
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .proof-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 14pt;
+  }
+  .proof-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .proof-body {
+    padding: 16px 18px;
+  }
+  .proof-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .proof-meta-item {
+    font-size: 9pt;
+    color: #1a7a3a;
+    font-weight: 500;
+  }
+  .proof-meta-item span {
+    color: #2c2c2c;
+    font-weight: 400;
+  }
+  .proof-section {
+    margin-top: 12px;
+  }
+  .proof-section-title {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #5aad6e;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .step-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 5px;
+    font-size: 9.5pt;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #d4f0d8;
+    color: #0a3d1a;
+    border-radius: 50%;
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reward-box {
+    background: linear-gradient(135deg, #f0f9f1 0%, #d4f0d8 100%);
+    border: 1px solid #b8e0c0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+  .materials-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .materials-list li {
+    font-size: 9pt;
+    color: #555;
+    position: relative;
+    padding-left: 14px;
+  }
+  .materials-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 7px;
+    height: 7px;
+    background: #1a7a3a;
+    border-radius: 50%;
+  }
+
+  /* ── IN-GAME DOCUMENT ── */
+  .ingame-doc {
+    background: #fffde6;
+    border: 1px solid #d4c87a;
+    border-radius: 6px;
+    margin: 14px 0;
+    page-break-inside: avoid;
+  }
+  .ingame-doc-header {
+    background: linear-gradient(135deg, #f5e87a 0%, #e8d95a 100%);
+    padding: 8px 14px;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #6a5e10;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .ingame-doc-body {
+    padding: 14px 16px;
+    font-size: 10pt;
+    line-height: 1.6;
+  }
+  .ingame-doc-body .doc-title {
+    font-weight: 700;
+    font-size: 11pt;
+    margin-bottom: 8px;
+    color: #0a3d1a;
+  }
+  .ingame-doc-body .doc-text {
+    white-space: pre-line;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 10pt;
+    line-height: 1.65;
+    color: #333;
+  }
+  .ingame-doc-body .doc-meta {
+    margin-top: 8px;
+    font-size: 8.5pt;
+    color: #888;
+    font-style: italic;
+  }
+  .doc-meta .gm-only {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin-top: 4px;
+    color: #856404;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 8pt;
+  }
+  .doc-meta .gm-only::before {
+    content: "🔒 ";
+    font-size: 7pt;
+  }
+  .section-gm {
+    background: #fff8e1;
+    border-left: 3px solid #ff9800;
+    border-radius: 0 4px 4px 0;
+    padding: 6px 10px;
+    margin: 8px 0;
+    font-size: 9pt;
+  }
+  .section-gm::before {
+    content: "🔒 GM";
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: 700;
+    color: #e65100;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .section-player {
+    background: #e8f5e9;
+    border-left: 3px solid #4caf50;
+    border-radius: 0 4px 4px 0;
+    padding: 6px 10px;
+    margin: 8px 0;
+    font-size: 9pt;
+  }
+  .section-player::before {
+    content: "🎮 IN-GAME";
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: 700;
+    color: #2e7d32;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .doc-qty {
+    display: inline-block;
+    background: #1a7a3a;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 8pt;
+    font-weight: 600;
+  }
+
+  /* ── SETUP BOX ── */
+  .setup-box {
+    background: #f0f4ff;
+    border: 1px solid #b0c4de;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9pt;
+  }
+  .setup-box-title {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4a6fa5;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  /* ── HINT BOX ── */
+  .hint-box {
+    background: #fff3f0;
+    border: 1px solid #deb0a8;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 3px 0;
+    font-size: 9pt;
+  }
+  .hint-level {
+    display: inline-block;
+    background: #c0392b;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 8pt;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .hint-level.l1 { background: #e67e22; }
+  .hint-level.l2 { background: #c0392b; }
+  .hint-level.l3 { background: #8e1a1a; }
+  .hint-timing {
+    font-size: 8pt;
+    color: #999;
+    font-style: italic;
+  }
+  .hint-text {
+    margin-top: 4px;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* ── CHECKLIST TABLE ── */
+  .checklist-table td:first-child {
+    font-weight: 600;
+  }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 16px 0;
+    font-size: 9.5pt;
+  }
+  .flow-step {
+    background: #f0f9f1;
+    border: 1px solid #b8e0c0;
+    border-radius: 6px;
+    padding: 8px 16px;
+    text-align: center;
+    width: 85%;
+    max-width: 420px;
+  }
+  .flow-step .flow-num {
+    font-weight: 700;
+    color: #1a7a3a;
+    font-size: 8pt;
+  }
+  .flow-arrow {
+    color: #1a7a3a;
+    font-size: 14pt;
+    line-height: 1;
+  }
+
+  .toc {
+    margin: 16px 0;
+  }
+  .toc li {
+    padding: 4px 0;
+    border-bottom: 1px dotted #b8e0c0;
+    font-size: 10pt;
+  }
+
+  /* ── SOLUTION BOX ── */
+  .solution-box {
+    background: #e8f5e9;
+    border: 2px solid #1a7a3a;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 6px 0;
+    font-size: 9pt;
+  }
+  .solution-box .sol-label {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1a7a3a;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+/* Headers: nunca solos */
+h1 { page-break-after: avoid; }
+h2 { page-break-after: avoid; page-break-before: auto; }
+h3 { page-break-after: avoid; page-break-inside: avoid; }
+h4 { page-break-after: avoid; page-break-inside: avoid; }
+
+/* Proof cards: permitir partirse (son largas) pero header nunca solo */
+.proof-card { page-break-inside: auto; }
+.proof-header { page-break-after: avoid; }
+.proof-body { page-break-inside: auto; }
+
+/* Secciones: evitar cortar solo si caben en ~60% de página */
+.proof-section { page-break-inside: auto; orphans: 4; widows: 3; }
+.proof-section-title { page-break-after: avoid; }
+.section-gm { page-break-inside: auto; orphans: 4; widows: 3; }
+.section-player { page-break-inside: auto; orphans: 4; widows: 3; }
+
+/* Elementos pequeños: nunca cortar */
+.hint-box { page-break-inside: avoid; }
+.solution-box { page-break-inside: avoid; }
+.setup-box { page-break-inside: avoid; }
+.quote-block { page-break-inside: avoid; }
+.ingame-doc-header { page-break-after: avoid; }
+
+/* Documentos in-game: evitar cortar si son cortos */
+.ingame-doc { page-break-inside: avoid; orphans: 3; widows: 2; }
+
+/* Tablas y listas */
+table { page-break-inside: auto; }
+tr { page-break-inside: avoid; }
+.step-list li { page-break-inside: avoid; }
+.code-box { page-break-inside: avoid; }
+.proof-badge { page-break-inside: avoid; }
+.flow { page-break-inside: avoid; }
+
+/* ── PLANT DIVIDER ── */
+.plant-divider {
+  background: linear-gradient(135deg, #1a7a3a 0%, #0e5c28 100%);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 10px;
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-accent"></div>
+  <h1>Protocolo Alerta Verde</h1>
+  <div class="subtitle">Libro de Pruebas — Contenido Detallado de Cada Prueba</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Pruebas</div>
+      <div class="value">6</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Zonas</div>
+      <div class="value">3</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Presupuesto</div>
+      <div class="value">~130 €</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Edad</div>
+      <div class="value">12 - 18</div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    Versión 7.0 — Abril 2026<br>
+    Documento Complementario al Diseño del Juego
+  </div>
+</div>
+
+<!-- ═══════════════════ TOC ═══════════════════ -->
+<h2>Índice</h2>
+<ul class="toc">
+  <li><strong>1.</strong> Prueba 1 — El Archivo de Alertas · Centro de Operaciones · Código <span class="code-box" style="font-size:12pt;padding:2px 8px;">2030</span></li>
+  <li><strong>2.</strong> Prueba 2 — Frecuencias Cruzadas · Centro de Operaciones · Candado <span class="code-box" style="font-size:12pt;padding:2px 8px;">1038</span></li>
+  <li><strong>3.</strong> Prueba 3 — El Tablón del Investigador · Laboratorio de Análisis · Código <span class="code-box" style="font-size:12pt;padding:2px 8px;">1503</span></li>
+  <li><strong>4.</strong> Prueba 4 — Código Oculto UV · Laboratorio de Análisis · Código <span class="code-box" style="font-size:12pt;padding:2px 8px;">UVK</span></li>
+  <li><strong>5.</strong> Prueba 5 — La Radio de Marina · Sala de Control · Frecuencia <span class="code-box" style="font-size:12pt;padding:2px 8px;">104.5 MHz</span></li>
+  <li><strong>6.</strong> Prueba 6 — Detener el Sabotaje · Sala de Control · App Panel de Control (tablet) · Código <span class="code-box" style="font-size:12pt;padding:2px 8px;">AV1P</span> + 3 sistemas restaurados</li>
+</ul>
+
+<div class="quote-block">
+  <strong>Cómo usar este documento:</strong> Este es el manual de preparación del GM. Contiene el texto literal de CADA documento in-game, listo para imprimir. No necesitas leer los JSON. Busca la prueba, imprime los documentos marcados como "DOCUMENTO IN-GAME" y colócalos según las instrucciones de Setup.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- PRUEBA 1 — EL ARCHIVO DE ALERTAS                                             -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<h2 class="page-break">1. Prueba 1 — El Archivo de Alertas</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Archivo de Alertas</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 2/10</span>
+      <span class="proof-badge">~6 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">AIR</span> Centro de Operaciones</div>
+
+      <div class="proof-meta-item">Exploración visual</div>
+      <div class="proof-meta-item">Código: <span class="code-box">2030</span></div>
+      <div class="proof-meta-item">Candado: 4 dígitos</div>
+    </div>
+
+        <!-- SECCIÓN GM: Diseño de la prueba -->
+    <div class="section-gm">
+      <h4>Diseño de la prueba</h4>
+
+<!-- NARRATIVA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa — Texto para el GM</div>
+      <div class="quote-block">
+        "Entrad al Centro de Operaciones. La directora dejó su despacho revuelto — documentos, mapas, notas por todas partes. Algo grave está pasando con la Red. Revisad todo y encontrad el código de seguridad del archivador. Depende de vosotros."
+      </div>
+      <p>Los jugadores entran en una habitación tipo oficina. Encuentran un escritorio con papeles desparramados, un archivador cerrado con candado de 4 dígitos, un mapa del sistema ecológico en la pared con puntos de colores, y un panel informativo con datos ambientales reales.</p>
+    </div>
+
+    <!-- MECÁNICA DETALLADA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Explorar la habitación</strong> — documentos desparramados en el escritorio, mapa en la pared, panel informativo</li>
+        <li><strong>Observar el mapa de la pared</strong> — 3 puntos de monitoreo: AIRE (rojo), AGUA (amarillo), ENERGÍA (verde)</li>
+        <li><strong>Leer la nota junto al mapa:</strong> "Los puntos rojos indican el primer sistema que falló. La fecha lo dice todo."</li>
+        <li><strong>Encontrar el Informe de Calidad del Aire</strong> entre los documentos del escritorio — fecha Octubre 2030, CO2 subió de 415 a 520 ppm en 48h</li>
+        <li><strong>Deducir el código:</strong> AIRE fue el primer fallo → fecha del informe → <strong>2030</strong></li>
+        <li><strong>Introducir 2030 en el candado</strong> del archivador — se abre</li>
+      </ol>
+    </div><!-- close section-gm -->
+  </div><!-- close proof-body -->
+</div><!-- close proof-card -->
+
+    <!-- SECCIÓN IN-GAME: Documentos para imprimir -->
+    <div class="section-player">
+      <h4>Documentos para imprimir</h4>
+
+<!-- DOCUMENTOS IN-GAME PRUEBA 1 -->
+<h3>Documentos In-Game — Prueba 1</h3>
+
+<!-- DOC 1: Informe Calidad del Aire -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #1</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Informe técnico A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Informe de Calidad del Aire</div>
+    <div class="doc-text">Análisis de los niveles de CO2 y partículas en suspensión (PM2.5). Datos recopilados durante octubre de 2030.
+
+Se detectaron anomalías significativas: el CO2 subió de 415 a 520 ppm en 48 horas. Las partículas PM2.5 alcanzaron 95 µg/m³ cuando el límite seguro de la OMS es 15 µg/m³.
+
+Fuente sospechosa: modificación no autorizada de los sensores de la Estación NUBE.</div>
+    <div class="doc-meta">Formato sugerido: Papel A4, estilo informe técnico con logo de la Red Verda. Tipografía formal. Imprimir en papel normal.</div>
+  </div>
+</div>
+
+<!-- DOC 2: Recorte de prensa -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #2</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Recorte de periódico A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Recorte de prensa</div>
+    <div class="doc-text">El Independiente Verde — Marzo 2029<br>Dr. Pardo propone privatización de servicios ecológicos de la ciudad. 'La Red consume 2,3 millones de litros de agua al día purificando el suministro municipal', señala Pardo para justificar recortes. La Red Verda protege el agua de 180.000 habitantes.</div>
+    <div class="doc-meta">Formato sugerido: Diseñar como recorte de periódico real — columnas, tipo de letra serif, márgenes irregulares. Imprimir en papel normal o periódico viejo.</div>
+  </div>
+</div>
+
+<!-- DOC 3: Nota de la Dra. Soler -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #3</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Nota manuscrita A5/A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Nota de la Dra. Soler</div>
+    <div class="doc-text">Nota interna — Febrero 2031<br>No permitiremos que destruyan lo que hemos construido. Nuestros paneles solares generan suficiente energía limpia para 12.000 hogares. Cada árbol del bosque urbano absorbe 22 kg de CO2 al año. Esto no es solo infraestructura, es el futuro de la ciudad.</div>
+    <div class="doc-meta">Formato sugerido: Manuscrito en tarjetón o cartulina, tipografía que imite escritura a mano. Firmado "M.S."</div>
+  </div>
+</div>
+
+<!-- DOC 4: Nota junto al mapa -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #4</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Nota adhesiva (Post-it)</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Nota junto al mapa</div>
+    <div class="doc-text">Los puntos rojos indican el primer sistema que falló. La fecha lo dice todo.</div>
+    <div class="doc-meta">Formato sugerido: Post-it amarillo pegado al lado del mapa. Letra manuscrita. Imprimir en papel amarillo o usar Post-it real.</div>
+  </div>
+</div>
+
+<!-- DOC 5: Panel informativo -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #5</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Cartel A3 en pared</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">RED ECOLÓGICA VERDA — DATOS EN TIEMPO REAL</div>
+    <div class="doc-text">🌡️ Temperatura media: +1,2°C desde 1900 (el objetivo del Acuerdo de París es limitar a +1,5°C)
+
+🌊 Nivel del mar: sube 3,6 mm al año. Si todo el hielo del planeta se derritiera, el mar subiría 70 metros
+
+🌲 Bosques de CyL: 1,8 millones de hectáreas (el 35% del territorio). Absorben 8 millones de toneladas de CO2 al año
+
+🔋 Energía renovable en España: ya supera el 50% de la electricidad generada. En 2000 era menos del 15%
+
+🦅 Lince ibérico: de 94 individuos en 2002 a más de 2.000 en 2024. La mayor recuperación de un felino en la historia
+
+♻️ Un español genera 460 kg de residuos urbanos al año. El 30% no se recicla correctamente</div>
+    <div class="doc-meta">Formato sugerido: Cartel grande A3 con fondo verde claro, bordes con iconos ecológicos. Imprimir en cartulina o papel grueso y colgar en la pared. Es decorativo — los jugadores lo leen mientras buscan.</div>
+  </div>
+</div>
+
+<!-- DOC 6: Mapa del sistema ecológico -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #6</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Mapa A3 en pared</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Mapa del Sistema Ecológico — Red Verda</div>
+    <div class="doc-text">Mapa esquemático con 3 puntos de monitoreo:
+
+🔴 AIRE — Marcado en rojo (SISTEMA EN ALERTA)
+🟡 AGUA — Marcado en amarillo (PRECAUCIÓN)
+🟢 ENERGÍA — Marcado en verde (ESTABLE)</div>
+    <div class="doc-meta">Formato sugerido: Mapa A3 con diseño tipo red de tuberías/cables. Los 3 puntos deben ser grandes y visibles. Pegar en la pared. La nota del Post-it (#4) va pegada al lado.</div>
+  </div>
+</div>
+
+<!-- DOC 7: Expediente Dra. Soler (dentro del archivador) -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #7 (dentro del archivador)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Expediente en carpeta A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Expediente de la Dra. Marina Soler</div>
+    <div class="doc-text">Dra. Marina Soler — Directora de la Red Ecológica Verda
+
+MENSAJE SOS:
+"Si estás leyendo esto, algo ha salido mal. He activado el Protocolo Alerta Verde. Los códigos de seguridad están ocultos por todo el edificio. Confío en la UPA para restaurar la Red. El tiempo se acaba."
+
+— M. Soler, Directora</div>
+    <div class="doc-meta">Formato sugerido: Carpeta beige con "CONFIDENCIAL" en rojo. Contiene el mensaje SOS. Colocar DENTRO del archivador junto con la llave metálica y los 2 cables (rojo, verde).</div>
+  </div>
+</div>
+
+<!-- SECCIÓN GM: Referencia del GM -->
+    </div><!-- /section-player -->
+<div class="section-gm">
+<!-- PISTAS GM -->
+</div>
+</div>
+</div>
+
+<!-- SOLUCIÓN -->
+<div class="solution-box">
+  <div class="sol-label">Solución Completa</div>
+  <p><strong>Código:</strong> <span class="code-box">2030</span></p>
+  <p><strong>Pasos:</strong> El mapa marca AIRE en rojo como primer fallo → La nota junto al mapa dice "La fecha lo dice todo" → El Informe de Calidad del Aire tiene fecha Octubre <strong>2030</strong> → El código es <strong>2030</strong>.</p>
+  <p><strong>Recompensa:</strong> Expediente Dra. Soler (lectura narrativa) + <strong>Llave metálica</strong> que abre la puerta de la siguiente zona.</p>
+</div>
+
+<!-- SETUP GM -->
+<div class="setup-box">
+  <div class="setup-box-title">Setup para el GM — Prueba 1</div>
+  <ol class="step-list">
+    <li><strong>Pared:</strong> Colgar el Mapa del Sistema Ecológico (A3) con los 3 puntos de colores (AIRE rojo, AGUA amarillo, ENERGÍA verde)</li>
+    <li><strong>Pared:</strong> Colgar el Panel Informativo "Datos en Tiempo Real" (A3)</li>
+    <li><strong>Pared (junto al mapa):</strong> Pegar la nota Post-it: "Los puntos rojos indican el primer sistema que falló. La fecha lo dice todo."</li>
+    <li><strong>Escritorio (desparramados):</strong> Informe de Calidad del Aire, Recorte de prensa, Nota de la Dra. Soler — esparcir como si alguien hubiera buscado algo con prisa</li>
+    <li><strong>Archivador:</strong> Poner candado de 4 dígitos (código: 2030). Dentro: Expediente Dra. Soler + Llave metálica para la siguiente zona</li>
+    <li><strong>Verificar:</strong> Candado funciona con 2030, llave de la siguiente zona dentro</li>
+  </ol>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- PRUEBA 2 — FRECUENCIAS CRUZADAS                                            -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<h2 class="page-break">2. Prueba 2 — Frecuencias Cruzadas</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>Frecuencias Cruzadas</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 3/10</span>
+      <span class="proof-badge">~7 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">FRQ</span> Mesa de comunicaciones</div>
+
+      <div class="proof-meta-item">Emparejamiento de texto</div>
+      <div class="proof-meta-item">Código: <span class="code-box">1038</span></div>
+      <div class="proof-meta-item">Cierre: Candado 4 dígitos (1038)</div>
+    </div>
+
+        <!-- SECCIÓN GM: Diseño de la prueba -->
+    </div><!-- /section-gm -->
+    <div class="section-gm">
+      <h4>Diseño de la prueba</h4>
+
+<!-- NARRATIVA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa — Texto para el GM</div>
+      <div class="quote-block">
+        "Pardo saboteó el sistema de comunicaciones cruzando las frecuencias de las estaciones. Los mensajes están llegando a frecuencias equivocadas. Tenéis el Plan de Frecuencias Oficial en la pared — usadlo para restaurar cada mensaje a su estación correcta. La estación que funciona con normalidad es la que necesitáis para avanzar."
+      </div>
+      <p>En la mesa de comunicaciones hay 6 tarjetas de mensajes interceptados, cada una con una frecuencia errónea en la cabecera. Un <strong>Plan de Frecuencias Oficial</strong> en la pared muestra la frecuencia correcta de cada estación. La <strong>Hoja de Protocolo</strong> indica: "La frecuencia de la estación que opera con normalidad es la que necesitáis para avanzar." La caja está cerrada con <strong>cerradura de llave</strong> — la llave está dentro del archivador de P1.</p>
+    </div>
+
+    <!-- MECÁNICA DETALLADA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Leer las 6 tarjetas de mensajes interceptados</strong> — cada una muestra una frecuencia en la cabecera</li>
+        <li><strong>Comparar con el Plan de Frecuencias</strong> en la pared — las cabeceras NO coinciden con los temas</li>
+        <li><strong>Identificar el tema de cada mensaje</strong> (aire/CO2, agua, suelo, ventilación, energía solar, normalidad)</li>
+        <li><strong>Emparejar cada mensaje con su estación correcta</strong> usando la temática y el Plan de Frecuencias</li>
+        <li><strong>Descubrir que VIDA es la estación OK</strong> — el mensaje marcado 1038 kHz dice "Sistema OK" → estación VIDA</li>
+        <li><strong>La frecuencia de VIDA = 1038</strong> → introducir 1038 en el candado de la caja</li>
+      </ol>
+    </div><!-- close section-gm -->
+  </div><!-- close proof-body -->
+</div><!-- close proof-card -->
+
+    <!-- SECCIÓN IN-GAME: Documentos para imprimir -->
+    <div class="section-player">
+      <h4>Documentos para imprimir</h4>
+
+<!-- DOCUMENTOS IN-GAME PRUEBA 2 -->
+<h3>Documentos In-Game — Prueba 2</h3>
+
+<!-- Plan de Frecuencias Oficial (cartel en pared) -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #1</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Cartel A3 en pared</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">PLAN DE FRECUENCIAS OFICIAL — RED VERDA</div>
+    <div class="doc-text">Cada estación de monitoreo tiene asignada una frecuencia de radio exclusiva:
+
+☁️ Estación NUBE — 0895 kHz
+💧 Estación RÍO — 1023 kHz
+☀️ Estación SOL — 0917 kHz
+💨 Estación VIENTO — 0872 kHz
+🌱 Estación TIERRA — 0954 kHz
+🦅 Estación VIDA — 1038 kHz</div>
+    <div class="doc-meta">Formato sugerido: Cartel A3 con fondo verde claro, tipo tabla oficial. Imprimir en cartulina o papel grueso y colgar en la pared, cerca de la mesa de comunicaciones.</div>
+  </div>
+</div>
+
+<!-- Hoja de Protocolo -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #2</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Hoja oficial A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">PROTOCOLO DE COMUNICACIONES — UPA</div>
+    <div class="doc-text">Pardo cruzó las frecuencias de las estaciones. Restaurad cada mensaje a su estación correcta. La estación que opera con normalidad es la que necesitáis para avanzar.</div>
+    <div class="doc-meta">Formato sugerido: Papel A4 con membrete oficial "UPA — Unidad de Protección Ambiental". Tipografía formal, borde verde. Colocar sobre la mesa de comunicaciones.</div>
+  </div>
+</div>
+
+<!-- Los 6 mensajes de radio interceptados -->
+<h4>6 Mensajes Interceptados (tarjetas individuales con frecuencia en cabecera)</h4>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📡 MENSAJE INTERCEPTADO #1</span>
+    <span><span class="doc-qty">×1 por grupo</span> Frecuencia en cabecera: 1023 kHz</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-text">⚠️ ALERTA AIRE — Niveles de CO2 duplicados en las últimas 24h. Pasamos de 415 a 830 ppm. A ese nivel, empieza a doler la cabeza y disminuye la concentración.</div>
+    <div class="doc-meta"><div class="gm-only">GM: Estación correcta = NUBE → frecuencia correcta = 0895 kHz (cruzada con RÍO)</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📡 MENSAJE INTERCEPTADO #2</span>
+    <span><span class="doc-qty">×1 por grupo</span> Frecuencia en cabecera: 0895 kHz</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-text">⚠️ ALERTA AGUA — Filtro principal: presión anormal en sector 7. Perdemos 8.000 litros por hora por la fuga. Eso es como vaciar 40 bañeras cada hora.</div>
+    <div class="doc-meta"><div class="gm-only">GM: Estación correcta = RÍO → frecuencia correcta = 1023 kHz (cruzada con NUBE)</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📡 MENSAJE INTERCEPTADO #3</span>
+    <span><span class="doc-qty">×1 por grupo</span> Frecuencia en cabecera: 0872 kHz</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-text">⚠️ ALERTA SUELO — Sector industrial activo. Detectamos metales pesados en el suelo: plomo a 450 ppm cuando el máximo seguro son 50 ppm. Avisad a la población.</div>
+    <div class="doc-meta"><div class="gm-only">GM: Estación correcta = TIERRA → frecuencia correcta = 0954 kHz (cruzada con VIENTO)</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📡 MENSAJE INTERCEPTADO #4</span>
+    <span><span class="doc-qty">×1 por grupo</span> Frecuencia en cabecera: 0917 kHz</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-text">⚠️ ALERTA VENTILACIÓN — Ventilación bloqueada en túnel. Los niveles de NO2 llegan a 200 µg/m³. El límite legal es 40. Avisad al hospital más cercano.</div>
+    <div class="doc-meta"><div class="gm-only">GM: Estación correcta = VIENTO → frecuencia correcta = 0872 kHz (cruzada con TIERRA)</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📡 MENSAJE INTERCEPTADO #5</span>
+    <span><span class="doc-qty">×1 por grupo</span> Frecuencia en cabecera: 0954 kHz</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-text">⚠️ ALERTA ENERGÍA — Panel solar 4: rendimiento al 12%, esperado 85%. Estamos perdiendo 478 kWh al día. Con esa energía se podrían cargar 16.000 móviles.</div>
+    <div class="doc-meta"><div class="gm-only">GM: Estación correcta = SOL → frecuencia correcta = 0917 kHz (cruzada con TIERRA)</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📡 MENSAJE INTERCEPTADO #6</span>
+    <span><span class="doc-qty">×1 por grupo</span> Frecuencia en cabecera: 1038 kHz</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-text">✅ SISTEMA OK — Todo funciona con normalidad. Los sensores de biodiversidad registraron 3 nuevas especies de aves este mes. El lince ibérico fue avistado por segunda vez.</div>
+    <div class="doc-meta"><div class="gm-only">⬆️ ESTE ES EL MENSAJE CLAVE — Estación VIDA, frecuencia 1038 kHz (NO cruzada, Pardo no la saboteó). El código del candado es 1038.</div></div>
+  </div>
+</div>
+
+    </div><!-- /section-player -->
+<div class="section-gm">
+<!-- Tabla resumen cruce de frecuencias -->
+<h4>Tabla de Cruce de Frecuencias — Referencia del GM</h4>
+<table>
+  <tr><th>Frecuencia en cabecera</th><th>Contenido del mensaje</th><th>Estación correcta</th><th>Frecuencia correcta</th><th>Estado</th></tr>
+  <tr><td>1023 kHz</td><td>CO2 duplicado (415→830 ppm)</td><td>NUBE ☁️</td><td>0895 kHz</td><td>🔴 CRUZADA</td></tr>
+  <tr><td>0895 kHz</td><td>Filtro de agua: 8.000 L/h</td><td>RÍO 💧</td><td>1023 kHz</td><td>🔴 CRUZADA</td></tr>
+  <tr><td>0872 kHz</td><td>Metales pesados, plomo 450 ppm</td><td>TIERRA 🌱</td><td>0954 kHz</td><td>🔴 CRUZADA</td></tr>
+  <tr><td>0917 kHz</td><td>Ventilación bloqueada, NO2 200 µg/m³</td><td>VIENTO 💨</td><td>0872 kHz</td><td>🔴 CRUZADA</td></tr>
+  <tr><td>0954 kHz</td><td>Panel solar al 12%</td><td>SOL ☀️</td><td>0917 kHz</td><td>🔴 CRUZADA</td></tr>
+  <tr><td><strong>1038 kHz</strong></td><td><strong>Sistema OK. 3 nuevas especies aves.</strong></td><td><strong>VIDA 🦅</strong></td><td><strong>1038 kHz</strong></td><td><strong>✅ CORRECTA</strong></td></tr>
+</table>
+</div>
+
+<!-- Documentos dentro de la caja -->
+<h4>Contenido dentro de la caja (recompensa)</h4>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME (dentro de la caja)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Diagrama A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Diagrama del Sabotaje</div>
+    <div class="doc-text">Esquema de los 3 sistemas de la Red Verda conectados:
+
+AIRE ← saboteado → AGUA ← saboteado → ENERGÍA
+       ↓                    ↓                    ↓
+   CO2 ×2             Fuga 8.000L/h       Paneles al 12%
+
+Los tres sistemas fueron atacados en secuencia. Alguien con acceso administrativo manipuló cada uno por separado.</div>
+    <div class="doc-meta">Formato sugerido: Diagrama visual en A4 con iconos y flechas. Estilo técnico. Colocar DENTRO de la caja de comunicaciones.</div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME (dentro de la caja)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Llave metálica</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Llave — Acceso a la siguiente zona</div>
+    <div class="doc-text">Llave metálica etiquetada "P3".
+
+Abre la puerta de la siguiente zona (Laboratorio de Análisis).
+
+Recompensa de la Prueba 2. Colocar DENTRO de la caja.</div>
+    <div class="doc-meta"><div class="gm-only">Formato sugerido: Llave metálica real con etiqueta "P3" o colgante. Colocar DENTRO de la caja de la Prueba 2.</div></div>
+  </div>
+</div>
+
+<!-- SECCIÓN GM: Referencia del GM -->
+    </div><!-- /section-gm -->
+<div class="section-gm">
+<!-- PISTAS GM -->
+</div>
+</div>
+</div>
+
+<!-- SOLUCIÓN -->
+<div class="solution-box">
+  <div class="sol-label">Solución Completa</div>
+  <p><strong>Código:</strong> <span class="code-box">1038</strong> (frecuencia de VIDA)</p>
+  <p><strong>Pasos:</strong> Leer los 6 mensajes → Comparar frecuencias con el Plan en la pared → Identificar que 5 están cruzadas → Solo VIDA (1038 kHz) reporta normalidad → Usar la <strong>llave del archivador de P1</strong> para abrir la cerradura de la caja.</p>
+  <p><strong>Recompensa:</strong> <strong>Llave a la siguiente zona</strong> (llave física, necesaria para avanzar) + <strong>2 cables (azul, amarillo)</strong></p>
+</div>
+
+<!-- SETUP GM -->
+<div class="setup-box">
+  <div class="setup-box-title">Setup para el GM — Prueba 2</div>
+  <ol class="step-list">
+    <li><strong>Pared (cerca de la mesa):</strong> Colgar el Plan de Frecuencias Oficial (A3) con la tabla estación-frecuencia</li>
+    <li><strong>Mesa de comunicaciones:</strong> Colocar las 6 tarjetas de mensajes interceptados (revueltas, no en orden)</li>
+    <li><strong>Mesa:</strong> Colocar la Hoja de Protocolo de Comunicaciones (instrucción autocontenida)</li>
+    <li><strong>Caja:</strong> Cerradura de llave. Dentro: Llave a la siguiente zona + 2 cables (azul, amarillo)</li>
+    <li><strong>Verificar:</strong> Cerradura funciona con la llave del archivador de P1, tarjetas visibles con frecuencia en cabecera</li>
+  </ol>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- PRUEBA 3 — EL TABLÓN DEL INVESTIGADOR                                      -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<h2 class="page-break">3. Prueba 3 — El Tablón del Investigador</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Tablón del Investigador</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~7 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">TABLÓN</span> Laboratorio de Análisis</div>
+
+      <div class="proof-meta-item">Deducción + conexión visual</div>
+      <div class="proof-meta-item">Código: <span class="code-box">1503</span></div>
+      <div class="proof-meta-item">Candado: 4 dígitos</div>
+    </div>
+
+        <!-- SECCIÓN GM: Diseño de la prueba -->
+    </div><!-- /section-gm -->
+    <div class="section-gm">
+      <h4>Diseño de la prueba</h4>
+
+<!-- NARRATIVA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa — Texto para el GM</div>
+      <div class="quote-block">
+        "Bienvenidos al Laboratorio de Análisis. En la pared hay una pizarra convertida en tablón de investigación. Tomás Vega dejó ahí 5 fotos y 5 tarjetas de datos — todo desordenado. Encontrad las conexiones, ordenad por fecha y descubrid quién está detrás del sabotaje."
+      </div>
+      <p><strong>Este es el GIRO NARRATIVO PRINCIPAL del juego:</strong> al montar el tablón en orden cronológico, los jugadores descubren que el <strong>Dr. Héctor Pardo, consejero ambiental, es el saboteador</strong>. Manipuló los sistemas para justificar la privatización de la Red y venderla a Energía Corp por 200 millones de euros.</p>
+    </div>
+
+    <!-- MECÁNICA DETALLADA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Encontrar la pizarra</strong> con 5 fotos polaroid sueltas, 5 tarjetas de datos y el post-it de Tomás</li>
+        <li><strong>Emparejar cada foto con su tarjeta</strong> — cada foto tiene un símbolo en el dorso que coincide con una tarjeta (💨💧⚡🌿)</li>
+        <li><strong>Ordenar las 5 parejas cronológicamente:</strong> 15/03 → 22/03 → 03/04 → 14/04 → 01/05</li>
+        <li><strong>Al leer en orden,</strong> descubrir la progresión del sabotaje y que <strong>Pardo es el culpable</strong></li>
+        <li><strong>El mensaje final</strong> dice: "Buscad la fecha del primer incidente" → 15 de marzo → <strong>1503</strong></li>
+        <li><strong>Introducir 1503 en el candado</strong> de 4 dígitos — se abre</li>
+      </ol>
+    </div><!-- close section-gm -->
+  </div><!-- close proof-body -->
+</div><!-- close proof-card -->
+
+    <!-- SECCIÓN IN-GAME: Documentos para imprimir -->
+    <div class="section-player">
+      <h4>Documentos para imprimir</h4>
+
+<!-- DOCUMENTOS IN-GAME PRUEBA 3 -->
+<h3>Documentos In-Game — Prueba 3</h3>
+
+<!-- Post-it central de Tomás -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📌 POST-IT CENTRAL (en la pizarra)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Post-it grande</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Nota de Tomás — Instrucciones</div>
+    <div class="doc-text">Seguí la pista. 5 sabotajes. Ordenadlos por fecha y encontrareis quién es. — T.</div>
+    <div class="doc-meta">Formato sugerido: Post-it grande (tipo Post-it Super Sticky) pegado en el centro de la pizarra. Letra manuscrita.</div>
+  </div>
+</div>
+
+<!-- Foto 1 + Tarjeta 1 -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📷 FOTO POLAROID #1 + 📋 TARJETA 💨</span>
+    <span><span class="doc-qty">×1 por grupo</span> Emparejar por símbolo</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Foto: Nube gris y roja</div>
+    <div class="doc-text">Dorso de la foto: icono de 💨
+
+Tarjeta 💨 — AIRE
+📅 15 de marzo
+Los sensores del aire marcan el doble de CO₂. Alguien cambió los filtros por unos peores a propósito. Es el primer fallo que se detecta.</div>
+    <div class="doc-meta"><div class="gm-only">Fecha real: 15/03 · Es el PRIMER incidente → contiene el código 1503</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📷 FOTO POLAROID #2 + 📋 TARJETA 💧</span>
+    <span><span class="doc-qty">×1 por grupo</span> Emparejar por símbolo</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Foto: Grifo seco con manchas</div>
+    <div class="doc-text">Dorso de la foto: icono de 💧
+
+Tarjeta 💧 — AGUA
+📅 22 de marzo
+Una semana después, el agua también falla. Se pierden miles de litros. Pardo pidió acceso total "para una auditoría".</div>
+    <div class="doc-meta"><div class="gm-only">Fecha real: 22/03</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📷 FOTO POLAROID #3 + 📋 TARJETA ⚡</span>
+    <span><span class="doc-qty">×1 por grupo</span> Emparejar por símbolo</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Foto: Paneles solares apagados</div>
+    <div class="doc-text">Dorso de la foto: icono de ⚡
+
+Tarjeta ⚡ — ENERGÍA
+📅 3 de abril
+Un programa oculto apaga los paneles solares. Millares de hogares sin luz. La firma digital es de Pardo.</div>
+    <div class="doc-meta"><div class="gm-only">Fecha real: 03/04</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📷 FOTO POLAROID #4 + 📋 TARJETA 🌿</span>
+    <span><span class="doc-qty">×1 por grupo</span> Emparejar por símbolo</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Foto: Bosque con árboles tachados</div>
+    <div class="doc-text">Dorso de la foto: icono de 🌿
+
+Tarjeta 🌿 — BIODIVERSIDAD
+📅 14 de abril
+Marina descubrió que alguien quiere destruir el bosque urbano. Intentó bloquear el acceso de Pardo... y desapareció.</div>
+    <div class="doc-meta"><div class="gm-only">Fecha real: 14/04</div></div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📷 FOTO POLAROID #5 ⚠️ CLAVE + 📋 MENSAJE FINAL</span>
+    <span><span class="doc-qty">×1 por grupo</span> Contiene el código</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Foto: Pantalla de ordenador con un mensaje (WhatsApp)</div>
+    <div class="doc-text">La foto muestra un WhatsApp entre Tomás y Marina. Solo se ve la última línea:
+
+📅 1 de mayo ⚠️
+"Si estáis leyendo esto, ya sabéis quién es. Todo empezó aquel día. Buscad la fecha del primer incidente — sin ella, el sistema de emergencia no se activa."</div>
+    <div class="doc-meta"><div class="gm-only">Fecha real: 01/05 · CONTIENE EL CÓDIGO: fecha del primer incidente = 15 de marzo → 1503</div></div>
+  </div>
+</div>
+
+    </div><!-- /section-player -->
+<div class="section-gm">
+<!-- Tabla cronológica referencia GM -->
+<h4>Tabla Cronológica — Referencia del GM</h4>
+<table>
+  <tr><th>Orden real</th><th>Fecha</th><th>Símbolo</th><th>Contenido</th></tr>
+  <tr><td>1ª</td><td>15/03</td><td>💨</td><td>AIRE falla. CO₂ al doble. Alguien cambió los filtros.</td></tr>
+  <tr><td>2ª</td><td>22/03</td><td>💧</td><td>AGUA falla. Miles de litros perdidos. Pardo pide acceso.</td></tr>
+  <tr><td>3ª</td><td>03/04</td><td>⚡</td><td>ENERGÍA falla. Programa oculto apaga paneles. Firma: PARDO.</td></tr>
+  <tr><td>4ª</td><td>14/04</td><td>🌿</td><td>Marina descubre plan. Intenta bloquear a Pardo y desaparece.</td></tr>
+  <tr><td>5ª</td><td>01/05</td><td>—</td><td>⚠️ MENSAJE: "Buscad la fecha del primer incidente." → 15/03 → 1503</td></tr>
+</table>
+</div>
+
+<!-- Documentos dentro de la caja -->
+<h4>Contenido dentro de la caja (recompensa)</h4>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME (dentro de la caja)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Post-it</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Post-it de Marina</div>
+    <div class="doc-text">Si encontráis esto... id a la zona UV. Allí dejé la última prueba. ¡Buena suerte!</div>
+    <div class="doc-meta">Formato sugerido: Post-it en cartulina verde o amarilla, letra manuscrita. Colocar DENTRO de la caja junto a la linterna UV y la llave.</div>
+  </div>
+</div>
+
+<!-- SECCIÓN GM: Referencia del GM -->
+    </div><!-- /section-gm -->
+<div class="section-gm">
+<!-- PISTAS GM -->
+</div>
+</div>
+</div>
+
+<!-- SOLUCIÓN -->
+<div class="solution-box">
+  <div class="sol-label">Solución Completa</div>
+  <p><strong>Código:</strong> <span class="code-box">1503</span></p>
+  <p><strong>Pasos:</strong> Emparejar fotos con tarjetas por símbolo (💨💧⚡🌿) → Ordenar por fecha (15/03, 22/03, 03/04, 14/04, 01/05) → El mensaje final dice "Buscad la fecha del primer incidente" → 15 de marzo → <strong>1503</strong>.</p>
+  <p><strong>Recompensa:</strong> <strong>Linterna UV</strong> (herramienta reutilizable para P4) + Post-it de Marina (lectura narrativa) + <strong>Llave de acceso a la zona UV</strong> (Prueba 4).</p>
+</div>
+
+<!-- SETUP GM -->
+<div class="setup-box">
+  <div class="setup-box-title">Setup para el GM — Prueba 3</div>
+  <ol class="step-list">
+    <li><strong>Pared:</strong> Colocar la pizarra blanca o corcho. Pegar el post-it central de Tomás en medio</li>
+    <li><strong>Pizarra (desordenados):</strong> Colocar las 5 fotos polaroid y las 5 tarjetas de datos REVUELTAS alrededor del post-it. NO en orden</li>
+    <li><strong>Pizarra:</strong> Dejar un rotulador rojo en el borde (decorativo, para que parezca un tablón de investigación real)</li>
+    <li><strong>Caja con candado:</strong> Candado de 4 dígitos (código: 1503). Dentro: Linterna UV + Post-it de Marina + Llave zona UV + Cable negro</li>
+    <li><strong>Zona UV (para P4):</strong> Preparar el mapa UV en la pared con los 4 números en tinta invisible (ver setup P4)</li>
+    <li><strong>Verificar:</strong> Candado funciona con 1503, linterna UV tiene pilas, símbolos en dorso de fotos coinciden con tarjetas</li>
+  </ol>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- PRUEBA 4 — CÓDIGO OCULTO UV                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<h2 class="page-break">4. Prueba 4 — Código Oculto UV</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>Código Oculto UV</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~7 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">UV</span> Laboratorio — zona UV</div>
+
+      <div class="proof-meta-item">Exploración visual</div>
+      <div class="proof-meta-item">Código: <span class="code-box">UVK</span></div>
+      <div class="proof-meta-item">Candado: 3 letras</div>
+    </div>
+
+        <!-- SECCIÓN GM: Diseño de la prueba -->
+    </div><!-- /section-gm -->
+    <div class="section-gm">
+      <h4>Diseño de la prueba</h4>
+
+<!-- NARRATIVA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa — Texto para el GM</div>
+      <div class="quote-block">
+        "La linterna UV que habéis encontrado no es casualidad. Tomás la dejó a propósito. Usadla para explorar la zona restringida del laboratorio. Hay cosas que solo se ven con luz ultravioleta — letras ocultas, pistas en sitios insospechados. Cuidado con las trampas."
+      </div>
+      <p><em>Este es el "momento wow" del juego — la linterna UV siempre emociona a los jóvenes.</em> Las pistas poéticas del marco de puerta añaden una capa de descifrado que eleva la dificultad a 4/10.</p>
+    </div>
+
+    <!-- MECÁNICA DETALLADA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Usar la linterna UV</strong> (obtenida en P3) para explorar diferentes superficies: mapa, marcos, vasos...</li>
+        <li><strong>Encontrar 5 letras en el mapa</strong> cerca de las estaciones: SOL→<strong>U</strong>, RÍO→<strong>V</strong>, NUBE→<strong>K</strong>, Energía→<strong>X</strong> (señuelo), TIERRA→<strong>Z</strong> (señuelo)</li>
+        <li><strong>Encontrar texto UV en el marco de la puerta:</strong> "Luz que da vida, la que bebes, la que respiras. Ignora el resto."</li>
+        <li><strong>Encontrar marca UV en el vaso de laboratorio:</strong> "Solo tres"</li>
+        <li><strong>Encontrar marca UV en la base de la linterna:</strong> "A-R-R-I-B-A" (pista de orden)</li>
+        <li><strong>Descifrar las pistas poéticas:</strong> SOL(luz vida)→U, AGUA(bebes)→V, AIRE(respiras)→K. Descartar X y Z</li>
+        <li><strong>Introducir UVK</strong> en el candado de 3 letras — se abre</li>
+      </ol>
+    </div><!-- close section-gm -->
+  </div><!-- close proof-body -->
+</div><!-- close proof-card -->
+
+    <!-- SECCIÓN IN-GAME: Documentos para imprimir -->
+    <div class="section-player">
+      <h4>Documentos para imprimir</h4>
+
+<!-- DOCUMENTOS IN-GAME PRUEBA 4 -->
+<h3>Documentos In-Game — Prueba 4</h3>
+
+<!-- Mapa UV (preparado por GM) -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #1 (requiere preparación con tinta UV)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Mapa A3 en pared/mesa</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Mapa de la Red con Marcas UV Invisibles</div>
+    <div class="doc-meta"><div class="gm-only">EL GM DEBE ESCRIBIR LAS SIGUIENTES LETRAS CON TINTA UV EN EL MAPA:
+
+📍 Cerca de Estación SOL → escribir la letra "U"
+📍 Cerca de Estación RÍO (agua) → escribir la letra "V"
+📍 Cerca de Estación NUBE (aire) → escribir la letra "K"
+📍 Cerca del logo de energía renovable → escribir la letra "X" (SEÑUELO)
+📍 Cerca de Estación TIERRA → escribir la letra "Z" (SEÑUELO)
+
+Las letras solo se ven con la linterna UV. Deben ser lo suficientemente grandes para leerlas fácilmente (al menos 2-3 cm de altura). Las letras X y Z son señuelos deliberados — los jugadores deben deducir cuáles son relevantes.
+
+ESCRIBIR TAMBIÉN EN EL BORDE DEL MAPA CON TINTA UV:
+"Las estaciones nombradas guardan su secreto."
+
+Esta pista conecta las pistas poéticas del marco ("luz que da vida", "la que bebes", "la que respiras") con las letras junto a las estaciones en el mapa. No revela cuáles ni en qué orden.</div></div>
+    <div class="doc-meta">Formato sugerido: Mapa A3 (puede ser el mismo mapa de P3 o uno nuevo). Escribir las 5 letras + la frase del borde con tinta UV antes del juego. Colocar en la pared o mesa de la zona UV.</div>
+  </div>
+</div>
+
+<!-- Texto UV en marco de puerta -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #2 (requiere preparación con tinta UV)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Texto en marco de puerta</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Instrucción UV en el Marco de la Puerta</div>
+    <div class="doc-meta"><div class="gm-only">EL GM DEBE ESCRIBIR CON TINTA UV EN EL MARCO DE LA PUERTA:
+
+"Luz que da vida, la que bebes, la que respiras. Ignora el resto."
+
+Escribir en un lugar visible del marco, a la altura de los ojos de los jugadores. Solo se ve con la linterna UV. Las pistas poéticas se refieren a: SOL (luz que da vida), AGUA (la que bebes), AIRE (la que respiras). "Ignora el resto" indica que hay señuelos.</div></div>
+    <div class="doc-meta"><div class="gm-only">Preparación: Usar tinta UV de buena calidad. Probar con la linterna antes del juego. El texto debe ser claro y legible bajo luz UV.</div></div>
+  </div>
+</div>
+
+<!-- Marca UV en vaso -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #3 (requiere preparación con tinta UV)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Texto en vaso de laboratorio</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Marca UV en Vaso de Laboratorio</div>
+    <div class="doc-meta"><div class="gm-only">EL GM DEBE ESCRIBIR CON TINTA UV EN UN VASO DE LABORATORIO (o superficie similar):
+
+"Solo tres"
+
+Nota: Esta pista indica que solo 3 de las 5 letras del mapa son relevantes. Los jugadores deben descartar los señuelos.</div></div>
+    <div class="doc-meta"><div class="gm-only">Preparación: Usar un vaso de plástico transparente de laboratorio o un matraz de juguete. Escribir con tinta UV en la base o lateral.</div></div>
+  </div>
+</div>
+
+    </div><!-- /section-player -->
+<div class="section-gm">
+<!-- Tabla de marcas UV -->
+<h4>Tabla de Marcas UV — Referencia del GM</h4>
+<table>
+  <tr><th>Ubicación en el mapa</th><th>Letra UV</th><th>Significado ambiental</th><th>¿Relevante?</th></tr>
+  <tr><td>Cerca de Estación SOL</td><td><strong>U</strong></td><td>**U**ltravioleta — radiación que emite el sol</td><td>✅ Sí (1er carácter)</td></tr>
+  <tr><td>Cerca de Estación RÍO (agua)</td><td><strong>V</strong></td><td>**V**ital — el agua es el recurso más vital</td><td>✅ Sí (2º carácter)</td></tr>
+  <tr><td>Cerca de Estación NUBE (aire)</td><td><strong>K</strong></td><td>**K**ioto — protocolo contra el cambio climático</td><td>✅ Sí (3er carácter)</td></tr>
+  <tr><td>Cerca del logo energía renovable</td><td><strong>X</strong></td><td>Señuelo</td><td>❌ No</td></tr>
+  <tr><td>Cerca de Estación TIERRA</td><td><strong>Z</strong></td><td>Señuelo</td><td>❌ No</td></tr>
+</table>
+</div>
+
+<!-- Documentos dentro del candado -->
+<h4>Contenido detrás del candado (recompensa)</h4>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME (recompensa)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Nota narrativa</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Fragmento del Plan de Pardo</div>
+    <div class="doc-text">"A las 14:00 se activará el protocolo de apagado total. Solo el código maestro puede detenerlo."</div>
+    <div class="doc-meta"><div class="gm-only">Lectura narrativa. Junto con la <strong>llave de acceso a la siguiente zona</strong> (llave física).</div></div>
+  </div>
+</div>
+
+<!-- SECCIÓN GM: Referencia del GM -->
+    </div><!-- /section-gm -->
+<div class="section-gm">
+<!-- PISTAS GM -->
+</div>
+</div>
+</div>
+
+<!-- SOLUCIÓN -->
+<div class="solution-box">
+  <div class="sol-label">Solución Completa</div>
+  <p><strong>Código:</strong> <span class="code-box">UVK</span></p>
+  <p><strong>Pasos:</strong> Usar linterna UV en el mapa → Encontrar 5 letras (U junto a SOL, V junto a RÍO/agua, K junto a NUBE/aire, X y Z señuelos) + frase en el borde: "Las estaciones nombradas guardan su secreto" → Leer instrucción UV en marco de puerta: "Luz que da vida, la que bebes, la que respiras. Ignora el resto." → Descifrar: SOL→U, AGUA→V, AIRE→K → Vaso confirma "Solo tres" → Código: <strong>UVK</strong>.</p>
+  <p><strong>Recompensa:</strong> <strong>Llave de acceso a la siguiente zona</strong> (llave física) + Fragmento del plan de Pardo (lectura narrativa).</p>
+</div>
+
+<!-- SETUP GM -->
+<div class="setup-box">
+  <div class="setup-box-title">Setup para el GM — Prueba 4</div>
+  <ol class="step-list">
+    <li><strong>Mapa UV en pared/mesa:</strong> Usar tinta UV para escribir las 5 letras (U, V, K, X, Z) cerca de las estaciones correspondientes del mapa</li>
+    <li><strong>Marco de puerta:</strong> Escribir con tinta UV: "Luz que da vida, la que bebes, la que respiras. Ignora el resto."</li>
+    <li><strong>Vaso de laboratorio:</strong> Escribir con tinta UV: "Solo tres"</li>
+    <li><strong>Base de la linterna UV:</strong> Escribir con tinta UV: "A-R-R-I-B-A"</li>
+    <li><strong>Candado de 3 letras</strong> (código: UVK) — adjunto al mapa o en una caja pequeña</li>
+    <li><strong>Detrás del candado:</strong> Llave acceso a la siguiente zona + Fragmento plan de Pardo</li>
+    <li><strong>PROBAR antes del juego:</strong> Usar la linterna UV para verificar que todas las marcas son visibles y legibles</li>
+  </ol>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- PRUEBA 5 — CÓDIGO MAESTRO                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<div class="plant-divider">SALA DE CONTROL</div>
+
+<h2 class="page-page">5. Prueba 5 — La Radio de Marina</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>La Radio de Marina</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 7/10</span>
+      <span class="proof-badge">~15 MIN</span>
+      <span class="proof-badge">ENIGMA + MONTAJE</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">RADIO</span> Sala de Control</div>
+      <div class="proof-meta-item">3 puzzles encadenados + montaje físico</div>
+      <div class="proof-meta-item">Emisor FM</div>
+    </div>
+
+    <!-- SECCIÓN GM: Diseño de la prueba -->
+    </div><!-- /section-gm -->
+    <div class="section-gm">
+      <h4>Diseño de la prueba</h4>
+
+      <!-- NARRATIVA -->
+      <div class="proof-section">
+        <div class="proof-section-title">Narrativa — Texto para el GM</div>
+        <div class="quote-block">
+          "Esta es la Sala de Control. Hay una máquina de radio con 5 puertos de cable vacíos y un panel de interruptores. En la pared hay un diagrama de circuitos y un informe técnico. Si lográis reconstruir las conexiones correctas, podréis escuchar un mensaje de emergencia de la Dra. Marina Soler."
+        </div>
+        <p><strong>Requiere los 5 cables acumulados</strong> de las pruebas anteriores: rojo + verde (P1), azul + amarillo (P2), negro (P3). Si les falta algún cable, dar repuesto — no debe bloquear la prueba.</p>
+      </div>
+
+      <!-- VISIÓN GENERAL DE LOS 3 PUZZLES -->
+      <div class="proof-section">
+        <div class="proof-section-title">Estructura — 3 puzzles encadenados</div>
+        <p>La P5 tiene <strong>3 enigmas independientes</strong> que los jugadores deben resolver para activar el emisor FM:</p>
+        <ol>
+          <li><strong>🧩 Puzzle A — Laberinto de Conexiones:</strong> Descubrir qué color de cable va en cada puerto (1-5) trazando el camino correcto a través del circuito.</li>
+          <li><strong>🧩 Puzzle B — Código de Interruptores:</strong> Descifrar la posición de los 6 interruptores (4 ON/OFF + 2 posicionales) usando el Informe de Calibración.</li>
+          <li><strong>🧩 Puzzle C — Frecuencia Oculta:</strong> Encontrar la frecuencia FM correcta (104.5 MHz) oculta en el Laberinto de Conexiones.</li>
+        </ol>
+        <p><strong>Los 3 puzzles se resuelven en paralelo</strong> — los jugadores pueden trabajar en varios a la vez. No hay orden obligatorio.</p>
+      </div>
+
+      <!-- MECÁNICA DETALLADA -->
+      <div class="proof-section">
+        <div class="proof-section-title">Mecánica — Paso a paso</div>
+        <ol class="step-list">
+          <li><strong>Reunir los 5 cables</strong> acumulados de pruebas anteriores (rojo, verde, azul, amarillo, negro)</li>
+          <li><strong>Examinar los 2 documentos</strong> en la pared: Laberinto de Conexiones + Informe de Calibración</li>
+          <li><strong>Puzzle A:</strong> Trazar el camino en el Laberinto → obtener orden: verde(1), azul(2), negro(3), amarillo(4), rojo(5)</li>
+          <li><strong>Puzzle B:</strong> Interpretar el Informe de Calibración (2 tablas, una por aparato) → obtener interruptores para cada aparato</li>
+          <li><strong>Puzzle C:</strong> Encontrar "104.5" oculto en el Laberinto → sintonizar radio FM</li>
+          <li><strong>Conectar los 5 cables</strong> en los puertos según el Puzzle A</li>
+          <li><strong>Configurar los interruptores</strong> de cada aparato según el Puzzle B (verificar qué tabla corresponde a cada aparato por número de serie)</li>
+          <li><strong>Sintonizar la radio FM</strong> en 104.5 MHz</li>
+          <li><strong>Escuchar el mensaje de la Dra. Marina Soler</strong> con pistas veladas del Código Maestro</li>
+        </ol>
+      </div>
+
+      <!-- DETALLE PUZZLE A -->
+      <div class="proof-section">
+        <div class="proof-section-title">Puzzle A — Laberinto de Conexiones (detalle)</div>
+        <p><strong>Documento:</strong> "MAPA DE CIRCUITOS — EMISOR FM" (A3 en pared).</p>
+        <p><strong>Mecánica:</strong> El diagrama muestra 5 puertos numerados (1-5) en la izquierda y 5 colores en la derecha, conectados por un laberinto de líneas/caminos. Los jugadores deben trazar con el dedo (o boli) desde cada puerto hasta su color correspondiente.</p>
+        <p><strong>Trampas:</strong> Hay caminos falsos que llevan a dead-ends o se cruzan. Solo hay un camino válido por cada par.</p>
+        <p><strong>Dato oculto (Puzzle C):</strong> En el laberinto, los 4 caminos falsos tienen marcados números pequeños que forman "1-0-4-5" si se leen en orden de recorrido. Los jugadores atentos lo notarán al trazar los caminos.</p>
+        <p><strong>Solución:</strong> Puerto 1→Verde, Puerto 2→Azul, Puerto 3→Negro, Puerto 4→Amarillo, Puerto 5→Rojo.</p>
+      </div>
+
+      <!-- DETALLE PUZZLE B -->
+      <div class="proof-section">
+        <div class="proof-section-title">Puzzle B — Código de Interruptores (detalle)</div>
+        <p><strong>Importante:</strong> Hay <strong>2 aparatos</strong> en la sala. Ambos comparten los mismos cables (Puzzle A) y la misma frecuencia (Puzzle C), pero tienen <strong>configuraciones de interruptores diferentes</strong>. Los jugadores deben determinar cuál va en cada aparato.</p>
+        
+        <p><strong>Aparato A (Emisor Principal):</strong></p>
+        <ul>
+          <li>Interruptores ON/OFF (4): OFF — ON — OFF — ON</li>
+          <li>Selectores posicionales (2, formato reloj): 3:00 y 7:00</li>
+        </ul>
+        
+        <p><strong>Aparato B (Emisor Secundario):</strong></p>
+        <ul>
+          <li>Interruptores ON/OFF (4): OFF — OFF — ON — ON</li>
+          <li>Selectores posicionales (2, formato reloj): 3:00 y 4:00</li>
+        </ul>
+
+        <p><strong>Documento:</strong> "INFORME DE CALIBRACIÓN #0047" — contiene dos tablas, una por aparato. Los jugadores deben identificar qué tabla corresponde a cada aparato físico (por etiquetas o número de serie coincidente).</p>
+        <p><strong>Lógica:</strong> "ACTIVO" = ON, "INACTIVO" = OFF. Los selectores posicionales usan formato de reloj (horas). Los jugadores leen las horas directamente del informe.</p>
+        <p><strong>Solución Aparato A:</strong> OFF-ON-OFF-ON + 3:00-7:00</p>
+        <p><strong>Solución Aparato B:</strong> OFF-OFF-ON-ON + 3:00-4:00</p>
+      </div>
+
+      <!-- MENSAJE FM -->
+      <div class="proof-section">
+        <div class="proof-section-title">Mensaje FM — Texto completo (para grabar o leer en vivo)</div>
+        <div class="quote-block">
+          "Agentes de la UPA, aquí la Doctora Marina Soler. Si escucháis esto, el Protocolo Alerta Verde funciona. El código maestro tiene cuatro caracteres: la primera letra del sistema que cayó primero, la letra de la estación que nunca fue tocada, el primer dígito del código de emergencia de Tomás, y la inicial del hombre que lo hizo todo. Tienen que ser rápidos. No fallen."
+        </div>
+        <p><strong>Nota GM:</strong> El mensaje da <strong>pistas veladas</strong>, no el código directamente. Los jugadores deben deducir AV1P cruzando lo que escucharon con los documentos de la sala (Prueba 6).</p>
+      </div><!-- close section-gm -->
+    </div><!-- close proof-body -->
+  </div><!-- close proof-card -->
+
+    <!-- SECCIÓN IN-GAME: Documentos para imprimir -->
+    <div class="section-player">
+      <h4>Documentos para imprimir</h4>
+
+      <!-- DOCUMENTOS IN-GAME PRUEBA 5 -->
+      <h3>Documentos In-Game — Prueba 5</h3>
+
+      <!-- DOC 1: LABERINTO DE CONEXIONES -->
+      <div class="ingame-doc">
+        <div class="ingame-doc-header">
+          <span>📄 DOCUMENTO IN-GAME — Mapa de Circuitos (en la pared)</span>
+          <span><span class="doc-qty">×1 por grupo</span> Formato: A3 en pared</span>
+        </div>
+        <div class="ingame-doc-body">
+          <div class="doc-title">MAPA DE CIRCUITOS — EMISOR FM</div>
+          <div class="doc-text">
+          <p style="text-align:center;margin-bottom:8px;"><strong>MAPA DE CONEXIONES — EMISOR FM</strong><br>Ref: CIR-0047-REV.3 | Clasificación: INTERNO</p>
+          <p style="text-align:center;"><img src="laberinto-conexiones.png" alt="Laberinto de Conexiones" style="max-width:60%;border:2px solid #333;border-radius:4px;"></p>
+          <p style="text-align:center;margin-top:8px;font-size:9pt;">⚠ Trazar con cuidado desde cada puerto (1-5) hasta su color. Solo hay UN camino correcto por cada par.</p>
+          </div>
+          <div class="doc-meta"><strong>Para el GM — Notas de impresión:</strong> Imprimir en A3. Los caminos correctos son: Puerto 1→🟢Verde, Puerto 2→🔵Azul, Puerto 3→⚫Negro, Puerto 4→🟡Amarillo, Puerto 5→🔴Rojo. Los caminos a Nodo D y Nodo F son falsos (dead ends). Dibujar el diagrama con líneas claras y cruces que confundan. Los números "1-0-4-5" pueden estar escritos pequeños junto a los caminos descartados si se desean como pista de la frecuencia.</div>
+        </div>
+      </div>
+
+      <!-- DOC 2: INFORME DE CALIBRACIÓN -->
+      <div class="ingame-doc">
+        <div class="ingame-doc-header">
+          <span>📄 DOCUMENTO IN-GAME — Informe de Calibración (en la pared)</span>
+          <span><span class="doc-qty">×1 por grupo</span> Formato: A4 en pared</span>
+        </div>
+        <div class="ingame-doc-body">
+          <div class="doc-title">INFORME DE CALIBRACIÓN #0047 — PANEL DE CONTROL EMISOR</div>
+          <div class="doc-text">
+<div style="text-align:center;margin-bottom:12px;"><strong>INFORME DE CALIBRACIÓN #0047 — PANEL DE CONTROL EMISOR</strong></div>
+<div style="text-align:center;margin-bottom:12px;font-size:9pt;">Técnico responsable: ____________ | Fecha: ____________ | Ref: CAL-0047</div>
+
+<table style="width:100%;border-collapse:collapse;margin:12px 0;">
+  <tr style="background:#1a3a5c;color:#fff;">
+    <th style="padding:6px 8px;border:1px solid #2a5a8c;text-align:left;">Canal</th>
+    <th style="padding:6px 8px;border:1px solid #2a5a8c;">APARATO A<br><span style="font-weight:normal;font-size:8pt;">FM-0047-A | 3:00 — 7:00</span></th>
+    <th style="padding:6px 8px;border:1px solid #2a5a8c;">APARATO B<br><span style="font-weight:normal;font-size:8pt;">FM-0047-B | 3:00 — 4:00</span></th>
+  </tr>
+  <tr>
+    <td style="padding:6px 8px;border:1px solid #ccc;">CH-1 — Alimentación</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">❌ OFF</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">❌ OFF</td>
+  </tr>
+  <tr>
+    <td style="padding:6px 8px;border:1px solid #ccc;">CH-2 — Modulación</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">✅ ON</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">❌ OFF</td>
+  </tr>
+  <tr>
+    <td style="padding:6px 8px;border:1px solid #ccc;">CH-3 — Amplificación</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">❌ OFF</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">✅ ON</td>
+  </tr>
+  <tr>
+    <td style="padding:6px 8px;border:1px solid #ccc;">CH-4 — Antena</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">✅ ON</td>
+    <td style="padding:6px 8px;border:1px solid #ccc;text-align:center;">✅ ON</td>
+  </tr>
+</table>
+
+<p style="text-align:center;font-size:8pt;margin-top:8px;">⚠ Verificar número de serie del aparato antes de configurar. Frecuencia: consultar mapa de circuitos (CIR-0047-REV.3).</p>
+</div>
+          <div class="doc-meta">Formato sugerido: Imprimir en A4. Los aparatos físicos deben tener los números de serie FM-0047-A y FM-0047-B visibles para que los jugadores emparejen cada columna con su aparato. Las filas SEL-1 y SEL-2 son selectores tipo reloj (las horas se leen directamente).</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN GM: Referencia del GM -->
+    </div><!-- /section-player -->
+    <div class="section-gm">
+      <!-- PISTAS GM -->
+</div>
+</div>
+</div>
+
+      <!-- SOLUCIÓN -->
+      <div class="solution-box">
+        <div class="sol-label">Solución Completa</div>
+        <p><strong>Puzzle A (Cables):</strong> Puerto 1→Verde, 2→Azul, 3→Negro, 4→Amarillo, 5→Rojo</p>
+        <p><strong>Puzzle B (Interruptores):</strong> Aparato A = OFF-ON-OFF-ON + 3:00/7:00 | Aparato B = OFF-OFF-ON-ON + 3:00/4:00</p>
+        <p><strong>Puzzle C (Frecuencia):</strong> 104.5 MHz (números junto a caminos descartados)</p>
+        <p><strong>Recompensa:</strong> <strong>Mensaje FM de Marina</strong> con pistas veladas del Código Maestro → Acceso a la Prueba 6.</p>
+      </div>
+
+      <!-- SETUP GM -->
+      <div class="setup-box">
+        <div class="setup-box-title">Setup para el GM — Prueba 5</div>
+        <ol class="step-list">
+          <li><strong>Aparatos de radio (×2):</strong> Colocar los 2 emisores FM con los 5 puertos de cable vacíos cada uno. <strong>Pegar etiquetas con número de serie:</strong> Aparato A = "FM-0047-A", Aparato B = "FM-0047-B"</li>
+          <li><strong>Pared:</strong> Pegar el Mapa de Circuitos (A3) y el Informe de Calibración (A4)</li>
+          <li><strong>Paneles de interruptores:</strong> 4 interruptores ON/OFF + 2 selectores tipo reloj por aparato, en posición inicial (todo OFF/12:00)</li>
+          <li><strong>Radio FM portátil:</strong> Preparada para sintonizar, a volumen suficiente</li>
+          <li><strong>Verificar:</strong> El mensaje FM de Marina está grabado/listo para reproducir o leer en vivo</li>
+          <li><strong>Números de serie:</strong> CRÍTICO — los aparatos deben tener sus números de serie visibles (FM-0047-A y FM-0047-B) para que los jugadores emparejen con el informe</li>
+        </ol>
+        <p><strong>Configuración correcta:</strong></p>
+        <ul>
+          <li><strong>Aparato A (FM-0047-A):</strong> Cables 1→V, 2→A, 3→N, 4→Am, 5→R | OFF-ON-OFF-ON | Selectores 3:00 y 7:00</li>
+          <li><strong>Aparato B (FM-0047-B):</strong> Cables 1→V, 2→A, 3→N, 4→Am, 5→R | OFF-OFF-ON-ON | Selectores 3:00 y 4:00</li>
+        </ul>
+      </div>
+    </div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- PRUEBA 6 — DETENER EL SABOTAJE                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<h2 class="page-break">6. Prueba 6 — Detener el Sabotaje</h2>
+
+<div class="proof-card">
+  <div class="proof-header" style="background: linear-gradient(135deg, #0a3d1a 0%, #1a7a3a 50%, #0a3d1a 100%);">
+    <h3>Detener el Sabotaje — Código Maestro</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~7 MIN</span>
+      <span class="proof-badge">META-PRUEBA</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">MAESTRO</span> Sala de Control</div>
+      <div class="proof-meta-item">Investigación de texto</div>
+      <div class="proof-meta-item">Código autorización: <span class="code-box">AV1P</span> + 3 sistemas: CO2=415, Caudal=12000, Rendimiento=95%, Causa+Fuga+Código emergencia</div>
+      <div class="proof-meta-item">Cierre: App Panel de Control (tablet)</div>
+    </div>
+
+        <!-- SECCIÓN GM: Diseño de la prueba -->
+    </div><!-- /section-gm -->
+    <div class="section-gm">
+      <h4>Diseño de la prueba</h4>
+
+<!-- NARRATIVA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa — Texto para el GM</div>
+      <div class="quote-block">
+        "Acabáis de escuchar el mensaje de la Dra. Marina Soler. Ella os ha dado pistas para deducir los parámetros del sistema y el código maestro. Toda la información que necesitáis está en los documentos de ESTA sala. Usad la tablet con el panel de control para restaurar los sistemas. El tiempo se acaba."
+      </div>
+      <p><strong>Prueba interactiva con tablet</strong> — los jugadores deben encontrar los 4 documentos (2 están escondidos), deducir las respuestas, e introducirlas en la <strong>app de panel de control</strong> en la tablet. Cada sistema muestra sliders y campos de texto que deben ajustar con los valores correctos. Al hacerlo, los sistemas cambian de rojo a verde. Finalmente, introducen el código de autorización y pulsan RESTAURAR RED.</p>
+    </div>
+
+    <!-- MECÁNICA DETALLADA -->
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Recordar el mensaje FM</strong> de Marina (Prueba 5) — cada pista corresponde a un documento</li>
+        <li><strong>Buscar los 4 documentos</strong> distribuidos por la Sala de Control</li>
+        <li><strong>Encontrar el Doc 5 (Manual del Operador)</strong> en la estantería — contiene los valores normales de los 3 sistemas necesarios para ajustar la app</li>
+        <li><strong>Pista 1:</strong> "primera letra del sistema que cayó primero" → Doc 1 (mesa): AIRE → <strong>A</strong></li>
+        <li><strong>Pista 2:</strong> "letra de la estación que nunca fue tocada" → Doc 3 (carpeta): VIDA → <strong>V</strong></li>
+        <li><strong>Pista 3:</strong> "primer dígito del código de emergencia de Tomás" → Doc 4 (detrás del panel): 1503 → <strong>1</strong></li>
+        <li><strong>Pista 4:</strong> "inicial del hombre que lo hizo todo" → Doc 2 (cajón): PARDO → <strong>P</strong></li>
+        <li><strong>Formar el código:</strong> A + V + 1 + P = <strong>AV1P</strong></li>
+        <li><strong>Ajustar los 3 sistemas en la app</strong> de la tablet: AIRE (CO2=415 ppm, causa="Contaminación industrial"), AGUA (caudal=12000 L/h, fuga="Tubería principal"), ENERGÍA (rendimiento=95%, código emergencia=1503)</li>
+        <li><strong>Introducir AV1P</strong> en el código de autorización de la app y pulsar <strong>RESTAURAR RED</strong> — los sistemas se ponen verdes</li>
+      </ol>
+    </div>
+
+    <!-- TABLA DE PISTAS FM -->
+    <div class="proof-section">
+      <div class="proof-section-title">Las 4 pistas del mensaje FM → Parámetros de la App</div>
+      <table>
+        <tr><th>#</th><th>Pista del mensaje FM</th><th>Respuesta</th><th>Fuente en la sala</th><th>Uso en la app</th></tr>
+        <tr><td>1</td><td>"primera letra del sistema que cayó primero"</td><td>AIRE → <strong>A</strong></td><td>Doc 1: Informe de Incidentes (mesa)</td><td>Código autorización (A) + Sistema AIRE: CO2=415, causa del fallo</td></tr>
+        <tr><td>2</td><td>"letra de la estación que nunca fue tocada"</td><td>VIDA → <strong>V</strong></td><td>Doc 3: Informe de Biodiversidad (carpeta)</td><td>Código autorización (V)</td></tr>
+        <tr><td>3</td><td>"primer dígito del código de emergencia de Tomás"</td><td>1503 → <strong>1</strong></td><td>Doc 4: Nota de Tomás (detrás del panel)</td><td>Código autorización (1) + Sistema ENERGÍA: código emergencia=1503</td></tr>
+        <tr><td>4</td><td>"inicial del hombre que lo hizo todo"</td><td>PARDO → <strong>P</strong></td><td>Doc 2: Correo filtrado (cajón abierto)</td><td>Código autorización (P)</td></tr>
+      </table>
+    </div><!-- close section-gm -->
+  </div><!-- close proof-body -->
+</div><!-- close proof-card -->
+
+    <!-- SECCIÓN IN-GAME: Documentos para imprimir -->
+    <div class="section-player">
+      <h4>Documentos para imprimir</h4>
+
+<!-- DOCUMENTOS IN-GAME PRUEBA 6 -->
+<h3>Documentos In-Game — Prueba 6</h3>
+
+<!-- Sobre de instrucciones -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #0 — Instrucciones (pegado a la pared)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Sobre A4 pegado a pared</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">PROTOCOLO DE EMERGENCIA — CÓDIGO MAESTRO</div>
+    <div class="doc-text">Para detener el sabotaje, deben introducir el Código Maestro en el panel de control.
+
+El Código Maestro tiene 4 caracteres. Toda la información necesaria para deducirlo está en los documentos de ESTA sala. Buscad, leed y deducid.
+
+PREGUNTA 1: ¿Cuál fue el PRIMER sistema en fallar? Buscad el informe de incidentes. Tomad la PRIMERA LETRA.
+
+PREGUNTA 2: ¿Qué estación funciona con NORMALIDAD? Buscad el informe de biodiversidad. Tomad la PRIMERA LETRA.
+
+PREGUNTA 3: ¿Cuál es el CÓDIGO DE EMERGENCIA de Tomás? Buscad la nota manuscrita. Tomad el PRIMER DÍGITO.
+
+PREGUNTA 4: ¿Quién ORQUESTÓ el sabotaje? Buscad el correo filtrado. Tomad la PRIMERA LETRA del apellido.</div>
+    <div class="doc-meta">Formato sugerido: Sobre grande pegado a la pared con cinta, etiquetado "MÁXIMA SEGURIDAD — UPA" en rojo. Los jugadores lo abren al entrar. Imprimir en cartulina o papel grueso.</div>
+  </div>
+</div>
+
+<!-- Doc 1: Informe de incidentes -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #1 — Sobre la mesa</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Informe técnico A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Informe de Incidentes del Sistema — Red Verda</div>
+    <div class="doc-text">RESUMEN DE INCIDENTES
+
+Los tres sistemas de la Red Verda presentan anomalías:
+
+1. SISTEMA AIRE — Primera alerta registrada el 15/10/2030. Sensores de la Estación NUBE detectaron CO2 a 520 ppm (doble del normal). Fue el PRIMER sistema en fallar.
+
+2. SISTEMA AGUA — Fuga detectada el 22/10/2030. Pérdida de 8.000 litros/hora en la Estación RÍO.
+
+3. SISTEMA ENERGÍA — Paneles solares al 12% de rendimiento desde el 03/11/2030. Estación SOL.
+
+Conclusión: El sabotaje comenzó por el AIRE y se extendió a los demás sistemas.</div>
+    <div class="doc-meta">Formato sugerido: Informe técnico A4 con membrete de la Red Verda. Tipografía formal. Colocar SOBRE LA MESA de control, visible.</div><div class="doc-meta"><div class="gm-only">Respuesta a Pregunta 1: AIRE → <strong>A</strong></div></div>
+  </div>
+</div>
+
+<!-- Doc 2: Correo filtrado -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #2 — Escondido (debajo del teclado del panel o bajo la mesa)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Correo electrónico impreso A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Correo filtrado — Héctor Pardo a Energía Corp</div>
+    <div class="doc-text">De: h.pardo@consejeria-verda.gob
+Para: direccion@energiacorp.es
+Asunto: Operación Apagado Total
+
+Señores:
+
+El sabotaje avanza según lo planeado. Primero neutralizamos el AIRE, luego el AGUA, y finalmente la ENERGÍA. En 48 horas, la Red Verda será historia.
+
+Mi nombre no aparecerá en ningún registro — he usado credenciales de nivel 3 que nadie revisa. Tomás Vega sospecha, pero es solo un becario. Nadie le cree.
+
+Recuerden: 200 millones de euros por el contrato de gestión. Mi comisión del 5% como acordamos.
+
+H.P.</div>
+    <div class="doc-meta">Formato sugerido: Imprimir como captura de pantalla de correo electrónico (con campos De/Para/Asunto). Colocar **ESCONDIDO** debajo del teclado del panel de control o pegado debajo de la mesa. Los jugadores deben registrar la sala a fondo.</div><div class="doc-meta"><div class="gm-only">Respuesta a Pregunta 4: PARDO → <strong>P</strong></div></div>
+  </div>
+</div>
+
+<!-- Doc 3: Informe biodiversidad -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #3 — En carpeta archivadora</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Informe técnico A4 en carpeta</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Informe de Biodiversidad — Estación VIDA</div>
+    <div class="doc-text">ESTACIÓN VIDA — INFORME MENSUAL
+
+Sistema: OPERATIVO ✅
+Estado: Todas las especies monitoreadas dentro de parámetros normales.
+
+Avistamientos destacados este mes:
+- Lince ibérico: 3er avistamiento consecutivo (de 94 individuos en 2002 a más de 2.000 en 2024)
+- 3 nuevas especies de aves detectadas en el bosque urbano
+- El bosque urbano protegido absorbe 440 toneladas de CO2 al año
+
+Nota: Mientras las demás estaciones reportan fallos, VIDA sigue funcionando con normalidad. Es la única estación que no ha sido manipulada.</div>
+    <div class="doc-meta">Formato sugerido: Informe en carpeta archivadora (tipo carpeta de plástico con el título en el lomo). Colocar EN LA ESTANTERÍA de la Sala de Control.</div><div class="doc-meta"><div class="gm-only">Respuesta a Pregunta 2: VIDA → <strong>V</strong></div></div>
+  </div>
+</div>
+
+<!-- Doc 4: Nota manuscrita de Tomás -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #4 — Detrás del panel (escondida)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Nota manuscrita</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Nota manuscrita de Tomás</div>
+    <div class="doc-text">Si alguien lee esto, me han bloqueado el acceso al sistema.
+
+Dejé un código de emergencia por si todo sale mal: la fecha en que detecté el primer problema con el AIRE fue el 15 de marzo. 15-03.
+
+Ese código puede detener el protocolo de apagado si lo introducen en el panel maestro.
+
+Marina, si sigues viva, el culpable es Pardo. Tiene las credenciales de nivel 3.
+
+— Tomás</div>
+    <div class="doc-meta">Formato sugerido: Nota manuscrita en papel arrugado, pegada DETRÁS del panel de control con cinta adhesiva. NO debe ser visible al entrar — los jugadores deben buscarla.</div><div class="doc-meta"><div class="gm-only">Respuesta a Pregunta 3: 1503 → primer dígito <strong>1</strong></div></div>
+  </div>
+</div>
+
+<!-- Doc 5: Manual del Operador -->
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME #5 — En estantería junto a la carpeta</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Manual A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Manual del Operador — Valores de Referencia del Sistema</div>
+    <div class="doc-text">RED ECOLÓGICA VERDA — PARÁMETROS NORMALES DE OPERACIÓN
+
+Este manual contiene los valores de referencia para el correcto funcionamiento de cada estación. En caso de alerta, ajustar los sistemas a estos valores.
+
+ESTACIÓN NUBE — SISTEMA AIRE
+- CO2 atmosférico normal: 415 ppm
+- Umbral de alerta: 450 ppm
+- Estado actual: ALERTA — CO2 detectado a 520 ppm
+- Causa probable: Contaminación industrial por sabotaje en sensores
+
+ESTACIÓN RÍO — SISTEMA AGUA
+- Caudal normal: 12.000 litros/hora
+- Umbral de alerta: < 10.000 L/h
+- Estado actual: ALERTA — Pérdida de 8.000 L/h
+- Ubicación de la fuga: Tubería principal, sector Válvula 3B
+
+ESTACIÓN SOL — SISTEMA ENERGÍA
+- Rendimiento normal: 95%
+- Umbral de alerta: < 80%
+- Estado actual: CRÍTICO — Paneles al 12%
+- Nota: El código de emergencia del becario Tomás puede reiniciar el sistema</div>
+    <div class="doc-meta">Formato sugerido: Manual técnico A4 con tabla de parámetros, estilo documento interno de la UPA. Colocar EN LA ESTANTERÍA junto a la carpeta archivadora del Doc 3.</div><div class="doc-meta"><div class="gm-only">Contiene todos los valores necesarios para la app: CO2=415, Caudal=12000, Rendimiento=95%, Causa="Contaminación industrial", Fuga="Tubería principal / Válvula 3B"</div></div>
+  </div>
+</div>
+
+<h3>Documentos In-Game — Prueba 6 (continuación)</h3>
+
+    </div><!-- /section-player -->
+<div class="section-gm">
+<!-- Tabla resumen preguntas -->
+<h4>Tabla de Preguntas y Respuestas — Referencia del GM</h4>
+<table>
+  <tr><th>#</th><th>Pregunta</th><th>Respuesta</th><th>Carácter</th><th>Fuente</th><th>Ubicación en sala</th></tr>
+  <tr><td>1</td><td>¿Primer sistema en fallar?</td><td>AIRE → <strong>A</strong></td><td>Primera letra</td><td>Doc 1: Informe de incidentes</td><td>Sobre la mesa</td></tr>
+  <tr><td>2</td><td>¿Estación con normalidad?</td><td>VIDA → <strong>V</strong></td><td>Primera letra</td><td>Doc 3: Informe biodiversidad</td><td>Carpeta archivadora</td></tr>
+  <tr><td>3</td><td>¿Código de emergencia?</td><td>1503 → <strong>1</strong></td><td>Primer dígito</td><td>Doc 4: Nota de Tomás</td><td>Detrás del panel</td></tr>
+  <tr><td>4</td><td>¿Quién orquestó el sabotaje?</td><td>PARDO → <strong>P</strong></td><td>Primera letra apellido</td><td>Doc 2: Correo filtrado</td><td>Escondido</td></tr>
+</table>
+</div>
+
+<!-- Contenido dentro del panel -->
+<h4>Contenido dentro del Panel de Control (recompensa final)</h4>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME (premio final)</span>
+    <span><span class="doc-qty">×1 por grupo + 1 por jugador</span> Formato: Certificado A4</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Certificado Oficial — Unidad de Protección Ambiental</div>
+    <div class="doc-text">CERTIFICADO OFICIAL
+
+Por la presente se certifica que el equipo [NOMBRE DEL EQUIPO] ha completado con éxito el Protocolo Alerta Verde y restaurado los sistemas de la Red Ecológica Verda.
+
+El sabotaje ha sido neutralizado. El Dr. Héctor Pardo ha sido identificado como el responsable.
+
+La Red Verda sigue protegiendo:
+🌍 El aire que respiran 180.000 personas
+💧 El agua potable de la ciudad
+⚡ La energía limpia para 12.000 hogares
+🦅 23 especies de aves en el bosque urbano
+
+Fecha: _______________
+Firma: Dra. Marina Soler, Directora</div>
+    <div class="doc-meta">Formato sugerido: Certificado en cartulina verde con borde decorativo. Imprimir 1 por grupo + 1 extra por jugador como recuerdo. Colocar DENTRO del panel de control.</div>
+  </div>
+</div>
+
+<div class="ingame-doc">
+  <div class="ingame-doc-header">
+    <span>📄 DOCUMENTO IN-GAME (mensaje final)</span>
+    <span><span class="doc-qty">×1 por grupo</span> Formato: Nota en sobre</span>
+  </div>
+  <div class="ingame-doc-body">
+    <div class="doc-title">Mensaje de la Dra. Soler</div>
+    <div class="doc-text">"Gracias. La Red está en buenas manos."
+
+— Dra. Marina Soler</div>
+    <div class="doc-meta">Formato sugerido: Nota breve en papel elegante o tarjetón. Colocar DENTRO del panel junto al botón RESTAURAR y el certificado. Se lee en voz alta al final.</div>
+  </div>
+</div>
+
+<!-- SECCIÓN GM: Referencia del GM -->
+    </div><!-- /section-gm -->
+<div class="section-gm">
+<!-- PISTAS GM PRUEBA 6 -->
+</div>
+</div>
+</div>
+
+<!-- SOLUCIÓN -->
+<div class="solution-box">
+  <div class="sol-label">Solución Completa</div>
+  <p><strong>Código autorización:</strong> <span class="code-box">AV1P</span></p>
+  <p><strong>Valores para la app (Doc 5 — Manual del Operador):</strong></p>
+  <p>· AIRE: CO2 → <strong>415</strong> ppm · Causa → <strong>Contaminación industrial</strong></p>
+  <p>· AGUA: Caudal → <strong>12.000</strong> L/h · Fuga → <strong>Tubería principal / Válvula 3B</strong></p>
+  <p>· ENERGÍA: Rendimiento → <strong>95%</strong> · Código emergencia → <strong>1503</strong></p>
+  <p><strong>Pasos:</strong> Recordar mensaje FM → Doc 1 (mesa): AIRE = <strong>A</strong> → Doc 3 (carpeta): VIDA = <strong>V</strong> → Doc 4 (detrás del panel): 1503 = <strong>1</strong> → Doc 2 (cajón): PARDO = <strong>P</strong> → Doc 5 (estantería): valores sliders → Ajustar 3 sistemas en la app (se ponen verdes) → Introducir <strong>AV1P</strong> → Pulsar <strong>RESTAURAR RED</strong>.</p>
+  <p><strong>Recompensa:</strong> Sistemas restaurados en la app (verde) + <strong>Certificado oficial UPA</strong> + <strong>Mensaje de la Dra. Soler</strong>: "Gracias. La Red está en buenas manos."</p>
+</div>
+
+<!-- SETUP GM -->
+<div class="setup-box">
+  <div class="setup-box-title">Setup para el GM — Prueba 6</div>
+  <ol class="step-list">
+    <li><strong>Pared:</strong> Pegar el sobre "MÁXIMA SEGURIDAD — UPA" con las 4 preguntas del protocolo</li>
+    <li><strong>Mesa de control:</strong> Colocar el Doc 1 (Informe de Incidentes) visible sobre la mesa</li>
+    <li><strong>Debajo del teclado del panel (o bajo la mesa):</strong> Colocar el Doc 2 (Correo filtrado de Pardo) ESCONDIDO — no visible al entrar</li>
+    <li><strong>Estantería/carpeta:</strong> Colocar el Doc 3 (Informe de Biodiversidad) en una carpeta archivadora</li>
+    <li><strong>Detrás del panel de control:</strong> Pegar el Doc 4 (Nota de Tomás) con cinta adhesiva — NO visible al entrar, hay que buscarla</li>
+    <li><strong>Dentro del panel (caja grande):</strong> Colocar el botón "RESTAURAR RED" + Certificados + Mensaje de la Dra. Soler</li>
+    <li><strong>Tablet:</strong> App panel de control (<strong>app-panel-control.html</strong>) cargada en Chrome/Safari. Verificar que la tablet tiene batería suficiente (≥50%)</li>
+    <li><strong>Verificar:</strong> App funciona correctamente, todos los parámetros responden a los valores correctos, código AV1P activa RESTAURAR RED, todos los documentos en su lugar, certificados listos</li>
+  </ol>
+</div>
+</div><!-- /section-gm -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════ -->
+<!-- CHECKLIST DE IMPRESIÓN                                                       -->
+<!-- FOOTER -->
+<p style="text-align:center; font-family:Georgia,'Times New Roman',serif; font-size:10pt; color:#5aad6e; font-style:italic; margin-top:24px;">
+  "La Red está en buenas manos."
+</p>
+
+<p style="text-align:center; font-size:8pt; color:#bbb; margin-top:8px;">
+  Protocolo Alerta Verde · Libro de Pruebas · v7.0 · Abril 2026<br>
+  Documento Complementario al Diseño del Juego
+</p>
+
+</body>
+</html>

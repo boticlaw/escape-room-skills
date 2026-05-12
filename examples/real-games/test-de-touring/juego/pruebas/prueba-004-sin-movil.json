@@ -1,0 +1,179 @@
+{
+  "id": "touring_004_sin_movil",
+  "nombre": "Sin Móvil",
+  "descripcion": "Los jugadores deben resolver 5 retos analógicos cooperativos sin tecnología: navegar con mapa, calcular a mano, buscar en enciclopedia, escribir sin autocorrector, y descifrar un código César. Los retos 1-3 están disponibles simultáneamente para que 2-3 jugadores trabajen en paralelo. Sus resultados combinados desbloquean los retos 4-5. El último revela el código de un candado numérico.",
+  "juego": "Test de Touring",
+  "version": 3,
+  "espacio": 4,
+  "sala": "Zona Analógica",
+  "tema_educativo": "Dependencia tecnológica",
+  "skill_primario": "prueba-cooperacion",
+  "skills_secundarios": [
+    "prueba-logica-secuencial",
+    "prueba-comunicacion-mensajes"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 5,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+
+  "configuracion": {
+    "mecanica_principal": "5 retos analógicos en sobres con estructura ramificada. Los retos 1-3 están disponibles simultáneamente y se pueden resolver en paralelo por equipos de 2 jugadores. Sus resultados combinados desbloquean los retos 4 y 5. El último (código César) descifra un mensaje que revela el código de 4 dígitos: 2007 (año del lanzamiento del primer iPhone, cuando la dependencia móvil comenzó). El candado numérico cierra la caja con la recompensa.",
+    "elementos_necesarios": [
+      "1 caja de madera etiquetada KIT DE EMERGENCIA — SIN RED",
+      "5 sobres numerados con retos",
+      "1 mapa de papel de ciudad en la pared",
+      "1 libro de enciclopedia con pestañas de colores en páginas",
+      "1 hoja con operaciones matemáticas",
+      "1 frase para dictado con faltas de ortografía intencionadas",
+      "1 mensaje cifrado en código César (+3)",
+      "1 candado numérico de 4 dígitos (código: 2007) en la caja de recompensa",
+      "Material de escritura (bolígrafos, papel)"
+    ],
+    "distribucion_roles": {
+      "equipo_navegacion": "2 jugadores: traza ruta en mapa (reto 1A) → luego escribe dictado (reto 4B)",
+      "equipo_calculo": "2 jugadores: resuelve operaciones (reto 2A) → luego busca en enciclopedia (reto 3A)",
+      "equipo_descifrado": "2 jugadores: espera resultado de página (reto 3A) → descifra código César (reto 5B)",
+      "nota": "Los equipos de navegación y cálculo trabajan EN PARALELO desde el inicio. El equipo de descifrado coopera con ambos para obtener el número de página. Máxima participación simultánea."
+    },
+    "retos_interconectados": [
+      {
+        "sobre": "1A",
+        "disponible": "desde el inicio (en paralelo con 2A y 3A)",
+        "nombre": "Navega sin GPS",
+        "descripcion": "Mapa de ciudad en la pared + tarjeta con dirección. Trazar ruta a pie y contar calles que cruzan.",
+        "resultado": "Número de calles = 7. Este número se suma al del reto 2A para obtener la página de la enciclopedia",
+        "solucion": 7,
+        "jugadores": "2 jugadores trabajan juntos"
+      },
+      {
+        "sobre": "2A",
+        "disponible": "desde el inicio (en paralelo con 1A y 3A)",
+        "nombre": "Calcula sin calculadora",
+        "descripcion": "4 operaciones matemáticas escritas a mano. La respuesta es un número de 3 cifras.",
+        "resultado": "Número: 240. Se suma al resultado del reto 1A (7 + 240 = 247 = página de la enciclopedia)",
+        "solucion": 240,
+        "jugadores": "2 jugadores trabajan juntos"
+      },
+      {
+        "sobre": "3A",
+        "disponible": "desde el inicio (en paralelo con 1A y 2A)",
+        "nombre": "Busca sin Google",
+        "descripcion": "Libro de enciclopedia en la estantería. Una nota de EVA-9 dice: 'La página la dan los que navegan y los que calculan'. Los jugadores deben ESPERAR a que los equipos A y B terminen y les den el número de página.",
+        "resultado": "La respuesta en la página 247 es 'Turing' (¿Quién propuso el Test de Turing?)",
+        "solucion": "Turing",
+        "jugadores": "1-2 jugadores, pero necesitan resultado de 1A+2A"
+      },
+      {
+        "sobre": "4B",
+        "disponible": "tras completar reto 3A (respuesta = 'Turing')",
+        "nombre": "Escribe sin autocorrector",
+        "descripcion": "Dictar una frase con faltas de ortografía intencionadas. Escribirla correctamente. Las letras corregidas dan la pista del desplazamiento César.",
+        "resultado": "Letras corregidas: H-A-C-E. La C confirma que el código César del reto 5B usa desplazamiento +3 (C=3).",
+        "solucion": "La frase tiene faltas en las letras H, A, C, E. La C confirma desplazamiento César +3.",
+        "jugadores": "2 jugadores (uno dicta, otro escribe)"
+      },
+      {
+        "sobre": "5B",
+        "disponible": "tras completar reto 4B",
+        "nombre": "Comunícate sin WhatsApp",
+        "descripcion": "Mensaje cifrado en código César (desplazamiento +3). Descifrar y transmitir verbalmente al resto del equipo que lo escribe.",
+        "resultado": "El mensaje descifrado dice: 'TODO EMPEZO EN 2007'. El código del candado es 2007.",
+        "solucion": "Código César +3 descifrado: 'TODO EMPEZO EN 2007'. El candado se abre con 2007 (año del lanzamiento del primer iPhone — cuando la dependencia móvil comenzó).",
+        "mensaje_cifrado": "WRGR HPSHCR HQ 2007",
+        "jugadores": "2 jugadores (uno descifra, otro escucha y escribe)"
+      }
+    ],
+    "mecanismo_barrera": "Candado numérico de 4 dígitos. Código: 2007."
+  },
+
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Los primeros 3 sobres (1A, 2A, 3A) se abren a la vez. Dos equipos pueden trabajar en paralelo. Comunicad los resultados entre equipos."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "El equipo de cálculo suma su resultado (240) con el de navegación (7) = 247. Esa es la página de la enciclopedia. El reto 3A busca en esa página. Luego el dictado confirma que el César es +3."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Página 247 → 'Turing'. Dictado → letras H,A,C,E → César +3. Mensaje cifrado: 'WRGR HPSHCR HQ 2007'. Descifrado: 'TODO EMPEZO EN 2007'. El código del candado es 2007."
+    }
+  ],
+
+  "solucion": {
+    "descripcion": "1) Abrir caja KIT EMERGENCIA. 2) Resolver 5 retos en orden ramificado. 3) Cada resultado desbloquea el siguiente. 4) Último reto descifra código César → 2007. 5) Abrir candado.",
+    "verificacion": "El candado se abre con 2007.",
+    "pasos_detallados": [
+      "Paso 1: Abrir la caja de madera KIT DE EMERGENCIA",
+      "Paso 2: Abrir sobres 1A, 2A, 3A — disponibles simultáneamente",
+      "Paso 3 (PARALELO): Equipo navegación resuelve reto 1A → 7 calles",
+      "Paso 4 (PARALELO): Equipo cálculo resuelve reto 2A → 240",
+      "Paso 5: Compartir resultados: 7 + 240 = 247 (página enciclopedia)",
+      "Paso 6: Equipo descifrado busca en enciclopedia página 247 → 'Turing'",
+      "Paso 7: Abrir sobre 4B → Escribe sin autocorrector → letras H,A,C,E → César +3",
+      "Paso 8: Abrir sobre 5B → Descifrar código César → 'TODO EMPEZO EN 2007'",
+      "Paso 9: Introducir 2007 en el candado numérico",
+      "Paso 10: Abrir la caja y obtener letra I + nota Dra. Torres"
+    ],
+    "recompensa": {
+      "carta": "Nota de la Dra. Torres: 'El núcleo de EVA-9 está al final. Buscad el CEREBRO. La I de Individuo — lo que ningún algoritmo puede ser. Cuarta posición.'",
+      "nota_posicional": "La I de Individuo — lo que ningún algoritmo puede ser → I es la 4ª letra",
+      "letra": "I",
+      "siguiente_espacio": "Núcleo de EVA (símbolo: CEREBRO)"
+    }
+  },
+
+  "hilo_conductor": {
+    "letra": "I",
+    "significado": "Individuo — lo que ningún algoritmo puede ser",
+    "posicion": 4
+  },
+
+  "barrera_fisica": {
+    "tipo": "Candado numérico de 4 dígitos",
+    "ubicacion": "En la caja de recompensa (sobre la mesa de la zona analógica)",
+    "codigo": "2007",
+    "origen_codigo": "Mensaje descifrado por código César (+3): 'TODO EMPEZO EN 2007'. El 2007 es el año del lanzamiento del primer iPhone — inicio de la dependencia móvil.",
+    "montaje_minutos": 5
+  },
+
+  "materiales": {
+    "impresion": [
+      "5 sobres con retos impresos dentro",
+      "1 tarjeta con dirección para mapa",
+      "1 hoja con 4 operaciones matemáticas",
+      "1 frase para dictado con faltas",
+      "1 mensaje cifrado (código César +3): 'WRGR HPSHCR HQ 2007'",
+      "1 nota manuscrita Dra. Torres (→ CEREBRO)",
+      "1 tarjeta con letra I"
+    ],
+    "mobiliario": [
+      "1 caja de madera (KIT DE EMERGENCIA, abierta)",
+      "1 caja pequeña con candado numérico (recompensa)",
+      "1 mapa de ciudad (A2) en la pared",
+      "1 libro de enciclopedia con pestañas de colores",
+      "Mesa con sillas"
+    ],
+    "extras": [
+      "1 candado numérico de 4 dígitos (código: 2007)",
+      "Bolígrafos y papel",
+      "Objetos decorativos vintage"
+    ]
+  },
+
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-04-07",
+    "version": 3,
+    "testado": false,
+    "notas": "REDESIGN v3: Cambio de llave física a candado numérico 2007. El último reto (código César) descifra el mensaje 'TODO EMPEZO EN 2007' en vez de revelar la ubicación de una llave. El código 2007 es el año del lanzamiento del primer iPhone — temáticamente coherente con la dependencia tecnológica. Se elimina el sobre sellado con lacre y la llave escondida en la enciclopedia. La caja de madera ahora está abierta (contiene los retos) y hay una caja pequeña separada con candado para la recompensa."
+  }
+}

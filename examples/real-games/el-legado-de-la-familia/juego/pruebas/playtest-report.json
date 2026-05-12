@@ -1,0 +1,222 @@
+{
+  "juego": "el-legado-de-la-familia",
+  "jugadores": 6,
+  "equipo": [
+    {
+      "nombre": "Cristina",
+      "rol": "líder",
+      "energia_final": 70.0,
+      "frustracion_final": 0,
+      "motivacion_final": 100,
+      "pistas_pedidas": 2,
+      "puzzles_resueltos": 6,
+      "aportes": 6,
+      "diversion": 80.0
+    },
+    {
+      "nombre": "Sergio",
+      "rol": "analítico",
+      "energia_final": 60.0,
+      "frustracion_final": 0,
+      "motivacion_final": 100,
+      "pistas_pedidas": 4,
+      "puzzles_resueltos": 6,
+      "aportes": 0,
+      "diversion": 80.0
+    },
+    {
+      "nombre": "Pedro",
+      "rol": "impaciente",
+      "energia_final": 53.0,
+      "frustracion_final": 0,
+      "motivacion_final": 98,
+      "pistas_pedidas": 0,
+      "puzzles_resueltos": 6,
+      "aportes": 0,
+      "diversion": 80.0
+    },
+    {
+      "nombre": "Sara",
+      "rol": "creativo",
+      "energia_final": 51.0,
+      "frustracion_final": 5,
+      "motivacion_final": 94,
+      "pistas_pedidas": 3,
+      "puzzles_resueltos": 6,
+      "aportes": 1,
+      "diversion": 80.0
+    },
+    {
+      "nombre": "Álvaro",
+      "rol": "creativo",
+      "energia_final": 54.0,
+      "frustracion_final": 0,
+      "motivacion_final": 84,
+      "pistas_pedidas": 0,
+      "puzzles_resueltos": 6,
+      "aportes": 1,
+      "diversion": 80.0
+    },
+    {
+      "nombre": "Miguel",
+      "rol": "impaciente",
+      "energia_final": 74.0,
+      "frustracion_final": 0,
+      "motivacion_final": 71,
+      "pistas_pedidas": 2,
+      "puzzles_resueltos": 6,
+      "aportes": 0,
+      "diversion": 80.0
+    }
+  ],
+  "tiempo_total_estimado": 50,
+  "tiempo_total_simulado": 44.9,
+  "diferencia_pct": -10.2,
+  "pistas_por_nivel": {
+    "N1": 4,
+    "N2": 3,
+    "N3": 4
+  },
+  "pruebas": [
+    {
+      "id": "legado_001_diario_secreto",
+      "nombre": "El Diario Secreto",
+      "tiempo_estimado": 8,
+      "tiempo_simulado": 6.1,
+      "diferencia": -1.9,
+      "pistas_usadas": [
+        "N1"
+      ],
+      "frustracion_equipo": "baja",
+      "eventos": [
+        "Cristina tomó el mando y repartió tareas",
+        "Sergio leyó cada detalle antes de actuar",
+        "🔍 Sergio pidió una pista sutil (N1)",
+        "Álvaro propuso una solución que nadie esperaba"
+      ],
+      "contribuciones": {
+        "Cristina": 1,
+        "Álvaro": 1
+      }
+    },
+    {
+      "id": "legado_002_cartas_desordenadas",
+      "nombre": "Las Cartas Desordenadas",
+      "tiempo_estimado": 7,
+      "tiempo_simulado": 5.4,
+      "diferencia": -1.6,
+      "pistas_usadas": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "frustracion_equipo": "baja",
+      "eventos": [
+        "Cristina coordinó al equipo desde el centro de la sala",
+        "Sergio leyó cada detalle antes de actuar",
+        "🔍 Sergio pidió una pista sutil (N1)",
+        "😤 Sara pidió pista nivel 2",
+        "😤 Miguel pidió pista nivel 3"
+      ],
+      "contribuciones": {
+        "Cristina": 1
+      }
+    },
+    {
+      "id": "legado_003_fotos_recuerdos",
+      "nombre": "Las Fotos y los Recuerdos",
+      "tiempo_estimado": 8,
+      "tiempo_simulado": 7.4,
+      "diferencia": -0.6,
+      "pistas_usadas": [
+        "N2",
+        "N3"
+      ],
+      "frustracion_equipo": "baja",
+      "eventos": [
+        "Cristina tomó el mando y repartió tareas",
+        "Sergio encontró la clave que todos pasaron por alto",
+        "😤 Cristina pidió pista nivel 2",
+        "😤 Sara pidió pista nivel 3"
+      ],
+      "contribuciones": {
+        "Cristina": 1
+      }
+    },
+    {
+      "id": "legado_004_linea_temporal",
+      "nombre": "La Linea Temporal Familiar",
+      "tiempo_estimado": 8,
+      "tiempo_simulado": 7.6,
+      "diferencia": -0.4,
+      "pistas_usadas": [
+        "N2"
+      ],
+      "frustracion_equipo": "baja",
+      "eventos": [
+        "Cristina tomó el mando y repartió tareas",
+        "Sergio leyó cada detalle antes de actuar",
+        "😤 Cristina pidió pista nivel 2"
+      ],
+      "contribuciones": {
+        "Cristina": 1
+      }
+    },
+    {
+      "id": "legado_005_mensaje_dividido",
+      "nombre": "El Mensaje Dividido",
+      "tiempo_estimado": 9,
+      "tiempo_simulado": 8.8,
+      "diferencia": -0.2,
+      "pistas_usadas": [
+        "N1",
+        "N3"
+      ],
+      "frustracion_equipo": "baja",
+      "eventos": [
+        "Cristina tomó el mando y repartió tareas",
+        "Sergio encontró la clave que todos pasaron por alto",
+        "🔍 Sergio pidió una pista sutil (N1)",
+        "😤 Miguel pidió pista nivel 3",
+        "Sara tuvo una idea brillante pero le costó explicarla"
+      ],
+      "contribuciones": {
+        "Cristina": 1,
+        "Sara": 1
+      }
+    },
+    {
+      "id": "legado_006_cofre_legado",
+      "nombre": "El Cofre del Legado",
+      "tiempo_estimado": 10,
+      "tiempo_simulado": 9.6,
+      "diferencia": -0.4,
+      "pistas_usadas": [
+        "N1",
+        "N3"
+      ],
+      "frustracion_equipo": "baja",
+      "eventos": [
+        "Cristina tomó el mando y repartió tareas",
+        "Sergio encontró la clave que todos pasaron por alto",
+        "🔍 Sergio pidió una pista sutil (N1)",
+        "😤 Sara pidió pista nivel 3"
+      ],
+      "contribuciones": {
+        "Cristina": 1
+      }
+    }
+  ],
+  "problemas_detectados": [
+    "P2 (Las Cartas Desordenadas): 3 pistas pedidas (N1, N2, N3) → pista N2 o superior sugiere confusión en la mecánica",
+    "P2 (Las Cartas Desordenadas): solo Cristina contribuyó activamente → desbalance",
+    "P3 (Las Fotos y los Recuerdos): 2 pistas pedidas (N2, N3) → pista N2 o superior sugiere confusión en la mecánica",
+    "P3 (Las Fotos y los Recuerdos): solo Cristina contribuyó activamente → desbalance",
+    "P4 (La Linea Temporal Familiar): solo Cristina contribuyó activamente → desbalance",
+    "P5 (El Mensaje Dividido): 2 pistas pedidas (N1, N3) → pista N2 o superior sugiere confusión en la mecánica",
+    "P6 (El Cofre del Legado): 2 pistas pedidas (N1, N3) → pista N2 o superior sugiere confusión en la mecánica",
+    "P6 (El Cofre del Legado): solo Cristina contribuyó activamente → desbalance"
+  ],
+  "jugador_mas_frustrado": "Sara",
+  "jugador_mas_util": "Cristina"
+}

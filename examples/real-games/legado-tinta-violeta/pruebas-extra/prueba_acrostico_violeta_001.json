@@ -1,0 +1,104 @@
+{
+  "id": "prueba_acrostico_violeta_001",
+  "nombre": "El Acróstico Violeta",
+  "descripcion": "En la Sala de Trabajo hay 6 marcos con fragmentos de obras de las escritoras colgados en la pared. Cada fragmento tiene la primera letra escrita en tinta violeta. Los jugadores deben encontrar los 6 marcos, leer los fragmentos y usar las primeras letras en orden (de izquierda a derecha según la disposición en la pared) para formar una palabra que indica el número: NUEVE → 9.",
+  "skill_primario": "prueba-acrostico-ubicacion",
+  "skills_secundarios": ["prueba-exploracion-visual"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 10,
+  "configuracion": {
+    "numero_fragmentos": 6,
+    "tipo_acrostico": "primera_letra",
+    "formato_respuesta": "numero",
+    "respuesta_correcta": 9,
+    "fragmentos": [
+      {
+        "posicion": 1,
+        "letra": "N",
+        "autor": "Elena de la Fuente",
+        "fragmento": "Nunca pensé que las palabras pudieran cambiar el mundo, pero ellas me cambiaron a mí."
+      },
+      {
+        "posicion": 2,
+        "letra": "U",
+        "autor": "Ana María Vega",
+        "fragmento": "Un secreto bien guardado es como una semilla que espera su momento de florecer."
+      },
+      {
+        "posicion": 3,
+        "letra": "E",
+        "autor": "Isabel del Campo",
+        "fragmento": "En las noches de invierno, cuando el fuego crepita, es cuando las historias cobran vida."
+      },
+      {
+        "posicion": 4,
+        "letra": "V",
+        "autor": "Rosa Montero Palencia",
+        "fragmento": "Voces de mujeres que el tiempo silenció, hoy resuenan en estas páginas."
+      },
+      {
+        "posicion": 5,
+        "letra": "E",
+        "autor": "Carmen de la Peña",
+        "fragmento": "El amanecer trae siempre una nueva oportunidad para escribir nuestra verdad."
+      },
+      {
+        "posicion": 6,
+        "letra": "S",
+        "autor": "Teresa de Silva",
+        "fragmento": "Solo quienes han conocido el silencio pueden apreciar verdaderamente el poder de las palabras."
+      }
+    ],
+    "palabra_formada": "NUEVES",
+    "interpretacion": "NUEVES = NUEVE + S (plural) → El número es NUEVE = 9",
+    "mensaje_exito": "¡El acróstico revela 'NUEVES'! El número que buscáis es: 9"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "texto": "Los marcos de la pared contienen fragmentos de las obras de las escritoras. Observad las primeras letras."
+    },
+    {
+      "nivel": 2,
+      "texto": "Cada fragmento comienza con una letra especial en violeta. ¿Forman alguna palabra?"
+    },
+    {
+      "nivel": 3,
+      "texto": "Leed los marcos de izquierda a derecha, como si leyerais un libro. Las primeras letras en violeta forman una palabra."
+    },
+    {
+      "nivel": 4,
+      "texto": "Las letras son N-U-E-V-E-S. La palabra es 'NUEVES', que significa el número 9 en plural."
+    },
+    {
+      "nivel": 5,
+      "texto": "La respuesta es 9. El acróstico forma NUEVES."
+    }
+  ],
+  "solucion": {
+    "mecanica": "Exploración + extracción de acróstico + interpretación numérica",
+    "explicacion": "Los 6 marcos, leídos de izquierda a derecha, tienen primeras letras N-U-E-V-E-S. La palabra indica el número 9.",
+    "respuesta": 9,
+    "resultado": "Cuarto dígito del código final obtenido"
+  },
+  "adaptaciones": {
+    "edad_recomendada": "12+",
+    "espacio": "hall_escape",
+    "jugadores_minimos": 2,
+    "jugadores_maximos": 5,
+    "notas_espacio": "Marcos colgados a altura accesible. Buena iluminación. Considerar versión con marcos en mesa para accesibilidad."
+  },
+  "assets": {
+    "marcos_pared": "TODO: 6 marcos con fragmentos impresos en papel envejecido",
+    "disposicion": "Lineal, de izquierda a derecha, a 1.5m del suelo"
+  },
+  "metadata": {
+    "creado": "2026-03-16",
+    "version": "1.0",
+    "autor": "escapeitor",
+    "testeado": false,
+    "tags": ["hall_escape", "acrostico", "ubicacion", "visual", "escritoras", "obras"],
+    "proyecto": "legado_tinta_violeta",
+    "juego": "legado_tinta_violeta"
+  }
+}

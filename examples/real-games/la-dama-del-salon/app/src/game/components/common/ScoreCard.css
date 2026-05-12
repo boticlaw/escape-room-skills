@@ -1,0 +1,35 @@
+.score-card {
+  border: 2px solid;
+  border-radius: 8px;
+  height: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.score-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.score-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.score-card-icon {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.score-card-label {
+  color: #666;
+  font-size: 14px;
+}
+
+.score-card-score {
+  font-size: 24px;
+  font-weight: bold;
+} 

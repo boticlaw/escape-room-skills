@@ -1,0 +1,125 @@
+{
+  "id": "prueba_tablon_investigador_001",
+  "nombre": "El Tablón del Investigador",
+  "juego": "protocolo-alerta-verde",
+  "descripcion": "Los jugadores entran al Laboratorio y ven una pizarra blanca convertida en tablón de investigación con 5 polaroids sueltas, 5 tarjetas de datos y un post-it de Tomás. Deben emparejar cada foto con su tarjeta por símbolo, ordenar cronológicamente y obtener el código del primer incidente. Esta prueba contiene el giro narrativo principal: el Dr. Pardo es el saboteador.",
+  "skill_primario": "prueba-deduccion-visual",
+  "skills_secundarios": ["prueba-logica-secuencial"],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 8,
+  "ubicacion": "Planta 2 — Laboratorio de Análisis",
+  "configuracion": {
+    "espacio": "Laboratorio con pizarra blanca o corcho como tablón de investigación",
+    "elementos_fisicos": [
+      "Pizarra blanca o corcho (tablón de investigación)",
+      "5 fotos polaroid sueltas (con símbolo en el dorso)",
+      "5 tarjetas de datos (con símbolo + fecha + texto)",
+      "Rotulador rojo en el borde de la pizarra",
+      "Post-it de Tomás en el centro: 'Seguí la pista. 5 sabotajes. Ordenadlos por fecha y encontrareis quién es. — T.'",
+      "Caja con candado de 4 dígitos (código: 1503)"
+    ],
+    "elementos_tablon": [
+      {
+        "id": "elemento_1",
+        "foto": "Polaroid de una nube gris y roja",
+        "simbolo": "💨",
+        "tarjeta_titulo": "AIRE",
+        "fecha": "15/03",
+        "contenido": "Los sensores del aire marcan el doble de CO₂. Alguien cambió los filtros por unos peores a propósito. Es el primer fallo que se detecta."
+      },
+      {
+        "id": "elemento_2",
+        "foto": "Polaroid de un grifo seco con manchas",
+        "simbolo": "💧",
+        "tarjeta_titulo": "AGUA",
+        "fecha": "22/03",
+        "contenido": "Una semana después, el agua también falla. Se pierden miles de litros. Pardo pidió acceso total 'para una auditoría'."
+      },
+      {
+        "id": "elemento_3",
+        "foto": "Polaroid de paneles solares apagados",
+        "simbolo": "⚡",
+        "tarjeta_titulo": "ENERGÍA",
+        "fecha": "03/04",
+        "contenido": "Un programa oculto apaga los paneles solares. Millares de hogares sin luz. La firma digital es de Pardo."
+      },
+      {
+        "id": "elemento_4",
+        "foto": "Polaroid de un bosque con árboles tachados",
+        "simbolo": "🌿",
+        "tarjeta_titulo": "BIODIVERSIDAD",
+        "fecha": "14/04",
+        "contenido": "Marina descubrió que alguien quiere destruir el bosque urbano. Intentó bloquear el acceso de Pardo... y desapareció."
+      },
+      {
+        "id": "elemento_5",
+        "foto": "Pantalla de ordenador con WhatsApp entre Tomás y Marina",
+        "simbolo": null,
+        "tarjeta_titulo": "MENSAJE FINAL",
+        "fecha": "01/05",
+        "contenido": "Si estáis leyendo esto, ya sabéis quién es. Todo empezó aquel día. Buscad la fecha del primer incidente — sin ella, el sistema de emergencia no se activa."
+      }
+    ],
+    "revelacion_narrativa": "El Dr. Héctor Pardo es el saboteador. Marina intentó pararlo y desapareció. La línea temporal del tablón revela la progresión del sabotaje."
+  },
+  "solucion": {
+    "pasos": [
+      "1. Emparejar cada foto con su tarjeta por símbolo (💨💧⚡🌿)",
+      "2. Ordenar las 5 parejas cronológicamente por fecha",
+      "3. Orden correcto: 15/03 → 22/03 → 03/04 → 14/04 → 01/05",
+      "4. La tarjeta del 15/03 es 'el primer incidente'",
+      "5. Convertir fecha a 4 dígitos: 15/03 → 1503",
+      "6. Probar 1503 en el candado"
+    ],
+    "codigo_recompensa": "1503",
+    "tipo_cierre": "candado_4_digitos",
+    "giro_narrativo": "Pardo es el saboteador, Marina desapareció al intentar pararlo"
+  },
+  "recompensa": {
+    "al_abrir": [
+      "Llave a habitación P4 (llave física, necesaria para avanzar)",
+      "Linterna UV (herramienta física reutilizable para Prueba 4)"
+    ],
+    "desbloquea": "Habitación P4 — Código Oculto UV"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "timing": "3 min sin progreso",
+      "texto": "Cada foto tiene un dibujo en el dorso. Encontrad la tarjeta que tenga el mismo símbolo.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 2,
+      "timing": "6 min sin progreso",
+      "texto": "Ahora que tenéis las parejas, ¿qué pasa si las ponéis en orden de fecha? ¿Cuál es la más antigua?",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 3,
+      "timing": "8 min sin progreso",
+      "texto": "El mensaje del 15 de marzo habla de 'la fecha del primer incidente'. Esa fecha es 15 de marzo... ¿cómo la escribiríais en 4 dígitos?",
+      "da_solucion": true
+    }
+  ],
+  "adaptaciones": {
+    "edad": {
+      "12-14": "Los símbolos facilitan el emparejamiento, las fechas son claras",
+      "15-18": "Puede que lo resuelvan muy rápido, la revelación narrativa compensa"
+    },
+    "espacio": "Funciona en cualquier pizarra o corcho, portable",
+    "n_jugadores": {
+      "2-3": "Se turnan para buscar símbolos y ordenar",
+      "4-6": "Ideal, se reparten las fotos y tarjetas entre varios"
+    }
+  },
+  "notas_gm": "Esta prueba es táctil y visual — los jugadores tocan fotos, buscan símbolos, montan el tablón. La narrativa emerge al ver la línea temporal. El momento '¡Pardo es el culpable!' debería ser natural, no forzado. Si se atascan, señalar el post-it de Tomás en el centro de la pizarra. No revelar el código directamente.",
+  "metadata": {
+    "autor": "escapeitor",
+    "version": "5.0",
+    "fecha_creacion": "2026-03-27",
+    "fecha_actualizacion": "2026-04-06",
+    "testeado": false,
+    "cambio_v6": "Recompensa actualizada: llave física a habitación P4 en vez de llave a zona UV. Flujo lineal con llaves. Eliminado post-it de Marina redundante."
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "id": "legado_006_viajes",
+  "nombre": "Los Viajes de Tess",
+  "descripcion": "Los equipos encuentran un gran mapa de la provincia de Palencia en la pared y 6 tarjetas con descripciones de lugares reales que las escritoras visitaban. Cada tarjeta describe un lugar y lo asocia a una escritora. Los jugadores deben ubicar cada lugar en el mapa, colocar los marcadores y contar los 4 lugares que quedan alineados de norte a sur. La suma de sus números es 14, así que el código del candado es 0-0-1-4.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 1,
+  "espacio": 6,
+  "planta": 2,
+  "escritora": "Tess Curtis",
+  "skill_primario": "prueba-investigacion-cooperativa",
+  "skills_secundarios": [
+    "prueba-logica-emparejamiento",
+    "prueba-visual"
+  ],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 6,
+  "jugadores_min": 3,
+  "jugadores_max": 6,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Leer las 6 tarjetas de viaje, ubicar cada lugar en el mapa de Palencia, colocar los marcadores y descubrir los 4 lugares alineados de norte a sur. Sumar sus números para obtener el código 0-0-1-4.",
+    "elementos_necesarios": [
+      "1 mapa grande de la provincia de Palencia (A2 o mural en pared) con ubicaciones marcadas",
+      "6 tarjetas de viaje (cada una describe un lugar + lo asocia a una escritora)",
+      "6 marcadores/fichas de colores con los nombres de las escritoras",
+      "1 panel o zona junto al mapa para colocar los marcadores",
+      "1 caja con candado de 4 dígitos"
+    ],
+    "lugares": [
+      {
+        "escritora": "Casilda Ordóñez",
+        "lugar": "Catedral de Palencia",
+        "descripcion": "La catedral que mira al norte",
+        "coordenada_mapa": "Norte de la ciudad de Palencia",
+        "numero_marcador": 2,
+        "alineacion_ns": true,
+        "posicion_ns": 1
+      },
+      {
+        "escritora": "Carmen Arroyo",
+        "lugar": "Puente sobre el río Carrión",
+        "descripcion": "El puente sobre el Carrión",
+        "coordenada_mapa": "Ciudad de Palencia, paso del río",
+        "numero_marcador": 4,
+        "alineacion_ns": true,
+        "posicion_ns": 2
+      },
+      {
+        "escritora": "Enriqueta Antolín",
+        "lugar": "Plaza Mayor de Palencia",
+        "descripcion": "La plaza mayor donde bailé",
+        "coordenada_mapa": "Centro de la ciudad de Palencia",
+        "numero_marcador": 7,
+        "alineacion_ns": true,
+        "posicion_ns": 3
+      },
+      {
+        "escritora": "Noemí Villamuza",
+        "lugar": "Convento de las Claras",
+        "descripcion": "El convento de las clarisas",
+        "coordenada_mapa": "Sur de la ciudad de Palencia",
+        "numero_marcador": 1,
+        "alineacion_ns": true,
+        "posicion_ns": 4
+      },
+      {
+        "escritora": "Amalia Iglesias",
+        "lugar": "Biblioteca Municipal",
+        "descripcion": "La biblioteca municipal",
+        "coordenada_mapa": "Ciudad de Palencia (no alineada N-S)",
+        "numero_marcador": null,
+        "alineacion_ns": false
+      },
+      {
+        "escritora": "Tess Curtis",
+        "lugar": "Cerro del atardecer",
+        "descripcion": "El cerro donde veía el atardecer",
+        "coordenada_mapa": "Fuera de la ciudad, cerro al oeste",
+        "numero_marcador": null,
+        "alineacion_ns": false
+      }
+    ],
+    "distribucion_roles": {
+      "lectores": "2-3 jugadores leen las tarjetas de viaje y comunican las descripciones",
+      "cartografos": "2-3 jugadores buscan los lugares en el mapa y colocan los marcadores",
+      "calculador": "1 jugador cuenta los lugares alineados y suma los números"
+    },
+    "codigo_candado": "0-0-1-4",
+    "mecanismo_codigo": "Los 4 lugares alineados de norte a sur tienen marcadores numerados: 2 + 4 + 7 + 1 = 14 → código 0-0-1-4",
+    "mecanismo_barrera": "Caja con candado de combinación de 4 dígitos. El código se obtiene al identificar los 4 lugares en línea N→S y sumar sus marcadores."
+  },
+  "control_movimiento": {
+    "problema_potencial": "Ninguno - todos en misma habitación",
+    "solucion_implementada": "No requiere - prueba en habitación única",
+    "tipo_solucion": "no_requerido",
+    "prioridad": "baja"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Tess viajaba por Palencia con sus amigas escritoras. Leed las tarjetas y ubicad cada lugar en el mapa. ¿Hay alguna ruta que conecte varios de ellos?"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Colocad los 6 marcadores en sus lugares. Fijaos en cuáles quedan alineados de norte a sur (son 4). Sumad los números de esos marcadores: 2 + 4 + 7 + 1 = 14."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Los 4 lugares alineados de norte a sur son: Catedral (2), Puente Carrión (4), Plaza Mayor (7) y Convento de las Claras (1). Suma: 14. Código: 0-0-1-4."
+    }
+  ],
+  "solucion": {
+    "descripcion": "1) Leer las 6 tarjetas de viaje y asociar cada lugar con su escritora. 2) Ubicar los 6 lugares en el mapa de Palencia. 3) Colocar los marcadores. 4) Identificar los 4 lugares que quedan alineados de norte a sur (Catedral, Puente Carrión, Plaza Mayor, Convento de las Claras). 5) Sumar los números de sus marcadores: 2 + 4 + 7 + 1 = 14. 6) Introducir 0-0-1-4 en el candado. 7) Abrir la caja.",
+    "verificacion": "La caja se abre con 0-0-1-4, revelando su contenido.",
+    "pasos_detallados": [
+      "Paso 1: Repartir las 6 tarjetas de viaje entre el equipo",
+      "Paso 2: Leer las descripciones y asociar cada lugar a una escritora",
+      "Paso 3: Buscar cada lugar en el mapa de Palencia",
+      "Paso 4: Colocar los 6 marcadores en el mapa",
+      "Paso 5: Observar que 4 lugares quedan alineados de norte a sur",
+      "Paso 6: Leer los números de los 4 marcadores alineados: 2, 4, 7, 1",
+      "Paso 7: Sumar: 2 + 4 + 7 + 1 = 14",
+      "Paso 8: Introducir 0-0-1-4 en el candado de la caja",
+      "Paso 9: Abrir la caja y obtener la recompensa"
+    ],
+    "recompensa": {
+      "carta": "Carta de Tess: 'El legado aguarda en el vestíbulo. Solo un equipo puede reclamarlo. ¡Volved al inicio!'",
+      "parte_cartel": "Símbolo de CABRA",
+      "silaba": "TO",
+      "siguiente_espacio": "Vestíbulo Final (Planta 0) - anuncio del ganador"
+    }
+  },
+  "misterio_secundario": {
+    "silaba": "TO",
+    "nombre_completo": "CATALINA VALENTO",
+    "posicion": 6,
+    "simbolo_visual": "Cabra"
+  },
+  "barrera_fisica": {
+    "tipo": "Caja con candado de combinación de 4 dígitos",
+    "ubicacion": "Sobre mesa o estante, visible desde el inicio",
+    "codigo": "0-0-1-4",
+    "origen_codigo": "4 lugares alineados N→S con marcadores 2, 4, 7, 1 → suma = 14 → 0-0-1-4",
+    "montaje_minutos": 5,
+    "materiales": [
+      "1 candado de combinación de 4 dígitos (~8€)",
+      "1 caja de madera (~5€)"
+    ]
+  },
+  "adaptaciones": {
+    "mas_facil": {
+      "descripcion": "Marcadores más grandes y números más visibles en el mapa",
+      "implementacion": "Numerar los puntos del mapa directamente con colores llamativos"
+    },
+    "mas_dificil": {
+      "descripcion": "Sin números en los marcadores, deben medir distancias",
+      "implementacion": "Escala del mapa + regla para calcular distancias entre puntos"
+    },
+    "sin_mapa_mural": {
+      "descripcion": "Usar mapa impreso A3 en mesa en lugar de mural en pared",
+      "implementacion": "Imprimir mapa A3 con los puntos marcados y usar fichas pequeñas"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "1 mapa de la provincia de Palencia (A2 o mural) con ubicaciones de los 6 lugares marcadas (×2 equipos)",
+      "6 tarjetas de viaje (A6, papel envejecido) con descripción + escritora (×2)",
+      "6 marcadores/fichas de colores con números (2, 4, 7, 1 + 2 sin número) (×2)",
+      "1 carta de Tess (papel tipo carta de viaje, ×2)",
+      "1 parte del cartel del juego con símbolo de CABRA (×2)",
+      "1 sílaba 'TO' en etiqueta de cuero (×2)"
+    ],
+    "mobiliario": [
+      "Mapa de Palencia en pared o en soporte grande",
+      "1 caja con candado de 4 dígitos"
+    ],
+    "extras": [
+      "Chinchetas o velcro para fijar marcadores en el mapa",
+      "Elemento decorativo: foto o ilustración de Tess Curtis"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-24",
+    "fecha_actualizacion": "2026-03-24",
+    "version": 1,
+    "testado": false,
+    "notas": "Reemplaza la prueba antigua del Rancho de Wyoming (prueba-rancho.json). Ahora el mapa es de la provincia de Palencia con lugares reales. Los 4 lugares alineados N→S tienen marcadores numerados que suman 14. El símbolo de Tess es CABRA (no BOTA). Dificultad 4/10 como recompensa rápida antes del final.",
+    "cambios_version_1": "CREACIÓN: ficha nueva 'Los Viajes de Tess' reemplazando 'El Rancho de los Secretos'. Mapa de Palencia (no Wyoming), símbolo CABRA (no BOTA), código 0-0-1-4 (no 2-4-7-1), dificultad 4/10 (no 5/10). 6 tarjetas de viaje con lugares reales de la provincia. 4 lugares alineados N→S con marcadores que suman 14."
+  }
+}

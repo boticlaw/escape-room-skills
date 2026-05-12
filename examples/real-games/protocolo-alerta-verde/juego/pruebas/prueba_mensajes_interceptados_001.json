@@ -1,0 +1,172 @@
+{
+  "id": "prueba_mensajes_interceptados_001",
+  "nombre": "Frecuencias Cruzadas",
+  "juego": "protocolo-alerta-verde",
+  "descripcion": "Pardo saboteó el sistema de comunicaciones cruzando las frecuencias de las estaciones. Los jugadores tienen 6 tarjetas de mensajes interceptados con frecuencias equivocadas en la cabecera. Deben emparejar cada mensaje con su estación correcta usando el Plan de Frecuencias Oficial. La frecuencia de la estación que opera con normalidad (VIDA = 1038 kHz) es el código del candado de 4 dígitos.",
+  "skill_primario": "prueba-emparejamiento-texto",
+  "skills_secundarios": ["prueba-comunicacion-mensajes"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "ubicacion": "Planta 1 — Centro de Operaciones (mesa de comunicaciones)",
+  "configuracion": {
+    "espacio": "Mesa de comunicaciones en el mismo Centro de Operaciones",
+    "elementos_fisicos": [
+      "6 tarjetas de mensajes interceptados (cada una con frecuencia ERRÓNEA en cabecera)",
+      "Plan de Frecuencias Oficial (cartel en la pared)",
+      "Hoja de Protocolo (instrucción autocontenida)",
+      "Caja con candado de 4 dígitos (código: 1038)"
+    ],
+    "plan_frecuencias": {
+      "titulo": "PLAN DE FRECUENCIAS OFICIAL — RED VERDA",
+      "contenido": "Cada estación de monitoreo tiene asignada una frecuencia de radio exclusiva:",
+      "frecuencias": [
+        { "estacion": "NUBE", "frecuencia": "0895 kHz", "icono": "☁️" },
+        { "estacion": "RÍO", "frecuencia": "1023 kHz", "icono": "💧" },
+        { "estacion": "SOL", "frecuencia": "0917 kHz", "icono": "☀️" },
+        { "estacion": "VIENTO", "frecuencia": "0872 kHz", "icono": "💨" },
+        { "estacion": "TIERRA", "frecuencia": "0954 kHz", "icono": "🌱" },
+        { "estacion": "VIDA", "frecuencia": "1038 kHz", "icono": "🦅" }
+      ]
+    },
+    "hoja_protocolo": {
+      "titulo": "PROTOCOLO DE COMUNICACIONES — UPA",
+      "contenido": "Pardo cruzó las frecuencias de las estaciones. Restaurad cada mensaje a su estación correcta. La frecuencia de la estación que opera con normalidad es el código de acceso.",
+      "funcion": "Instrucción autocontenida. Los jugadores saben que deben restaurar las frecuencias cruzadas y que la estación normal revela el código."
+    },
+    "mensajes": [
+      {
+        "id": "msg_1",
+        "frecuencia_cabecera": "1023 kHz",
+        "texto": "⚠️ ALERTA AIRE — Niveles de CO2 duplicados en las últimas 24h. Pasamos de 415 a 830 ppm. A ese nivel, empieza a doler la cabeza y disminuye la concentración.",
+        "estacion_correcta": "NUBE",
+        "frecuencia_correcta": "0895 kHz",
+        "tematica": "Aire/CO2",
+        "dato_ambiental": "A 1000 ppm de CO2 se reduce la capacidad cognitiva. Actualmente estamos en ~420 ppm globales."
+      },
+      {
+        "id": "msg_2",
+        "frecuencia_cabecera": "0895 kHz",
+        "texto": "⚠️ ALERTA AGUA — Filtro principal: presión anormal en sector 7. Perdemos 8.000 litros por hora por la fuga. Eso es como vaciar 40 bañeras cada hora.",
+        "estacion_correcta": "RÍO",
+        "frecuencia_correcta": "1023 kHz",
+        "tematica": "Agua",
+        "dato_ambiental": "Una bañera estándar usa unos 200 litros. 8.000 L/h = 40 bañeras/hora."
+      },
+      {
+        "id": "msg_3",
+        "frecuencia_cabecera": "0872 kHz",
+        "texto": "⚠️ ALERTA SUELO — Sector industrial activo. Detectamos metales pesados en el suelo: plomo a 450 ppm cuando el máximo seguro son 50 ppm. Avisad a la población.",
+        "estacion_correcta": "TIERRA",
+        "frecuencia_correcta": "0954 kHz",
+        "tematica": "Suelo/Contaminación",
+        "dato_ambiental": "El plomo es tóxico a partir de 50 ppm en suelo. Afecta especialmente al desarrollo cerebral infantil."
+      },
+      {
+        "id": "msg_4",
+        "frecuencia_cabecera": "0917 kHz",
+        "texto": "⚠️ ALERTA VENTILACIÓN — Ventilación bloqueada en túnel. Los niveles de NO2 llegan a 200 µg/m³. El límite legal es 40. Avisad al hospital más cercano.",
+        "estacion_correcta": "VIENTO",
+        "frecuencia_correcta": "0872 kHz",
+        "tematica": "Aire/Ventilación",
+        "dato_ambiental": "El NO2 (dióxido de nitrógeno) proviene principalmente del tráfico. El límite legal UE es 40 µg/m³ anuales."
+      },
+      {
+        "id": "msg_5",
+        "frecuencia_cabecera": "0954 kHz",
+        "texto": "⚠️ ALERTA ENERGÍA — Panel solar 4: rendimiento al 12%, esperado 85%. Estamos perdiendo 478 kWh al día. Con esa energía se podrían cargar 16.000 móviles.",
+        "estacion_correcta": "SOL",
+        "frecuencia_correcta": "0917 kHz",
+        "tematica": "Energía solar",
+        "dato_ambiental": "Un móvil se carga con ~0,03 kWh. 478 kWh = ~16.000 cargas de móvil."
+      },
+      {
+        "id": "msg_6",
+        "frecuencia_cabecera": "1038 kHz",
+        "texto": "✅ SISTEMA OK — Todo funciona con normalidad. Los sensores de biodiversidad registraron 3 nuevas especies de aves este mes. El lince ibérico fue avistado por segunda vez.",
+        "estacion_correcta": "VIDA",
+        "frecuencia_correcta": "1038 kHz",
+        "tematica": "Normalidad (pista clave)",
+        "dato_ambiental": "El lince ibérico pasó de 94 individuos en 2002 a más de 2.000 en 2024. Uno de los mayores éxitos de conservación europeos.",
+        "nota": "Esta estación NO fue cruzada por Pardo — frecuencia correcta coincide con el Plan"
+      }
+    ],
+    "cruce_frecuencias": {
+      "descripcion": "Pardo cruzó las frecuencias de 5 estaciones. La estación VIDA quedó intacta.",
+      "mapeo": {
+        "1023 kHz (cabecera)": "→ Mensaje de NUBE (aire/CO2) → frecuencia correcta: 0895 kHz",
+        "0895 kHz (cabecera)": "→ Mensaje de RÍO (agua) → frecuencia correcta: 1023 kHz",
+        "0872 kHz (cabecera)": "→ Mensaje de TIERRA (suelo/plomo) → frecuencia correcta: 0954 kHz",
+        "0917 kHz (cabecera)": "→ Mensaje de VIENTO (ventilación/NO2) → frecuencia correcta: 0872 kHz",
+        "0954 kHz (cabecera)": "→ Mensaje de SOL (energía solar) → frecuencia correcta: 0917 kHz",
+        "1038 kHz (cabecera)": "→ Mensaje de VIDA (Sistema OK) → frecuencia correcta: 1038 kHz (sin cambio)"
+      }
+    }
+  },
+  "solucion": {
+    "pasos": [
+      "1. Leer los 6 mensajes interceptados y notar que cada uno tiene una frecuencia en la cabecera",
+      "2. Comparar la cabecera de cada tarjeta con el Plan de Frecuencias Oficial de la pared",
+      "3. Identificar el tema de cada mensaje (CO2, agua, suelo, ventilación, energía solar, normalidad)",
+      "4. Emparejar cada mensaje con su estación correcta usando la temática y el Plan",
+      "5. Descubrir que 5 frecuencias están cruzadas, pero la tarjeta marcada 1038 kHz habla de 'Sistema OK' → estación VIDA",
+      "6. La frecuencia de VIDA = 1038 → código del candado de 4 dígitos"
+    ],
+    "emparejamiento": {
+      "Tarjeta 1023 kHz": "NUBE (CO2/aire) → correcta: 0895 kHz",
+      "Tarjeta 0895 kHz": "RÍO (agua) → correcta: 1023 kHz",
+      "Tarjeta 0872 kHz": "TIERRA (suelo/plomo) → correcta: 0954 kHz",
+      "Tarjeta 0917 kHz": "VIENTO (ventilación/NO2) → correcta: 0872 kHz",
+      "Tarjeta 0954 kHz": "SOL (energía solar) → correcta: 0917 kHz",
+      "Tarjeta 1038 kHz": "VIDA (Sistema OK) → correcta: 1038 kHz (sin cruzar)"
+    },
+    "codigo_recompensa": "1038",
+    "tipo_cierre": "candado_4_digitos",
+    "razonamiento": "La Hoja de Protocolo dice: 'La frecuencia de la estación que opera con normalidad es el código de acceso'. VIDA es la estación normal (Sistema OK) y su frecuencia es 1038 kHz."
+  },
+  "recompensa": {
+    "al_abrir": [
+      "Llave a habitación P3 (llave física, necesaria para avanzar)"
+    ],
+    "desbloquea": "Habitación P3 — Laboratorio de Análisis"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "timing": "4 min sin progreso",
+      "texto": "Fijaos en la frecuencia que marca cada tarjeta y comparadla con el Plan de Frecuencias de la pared.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 2,
+      "timing": "7 min sin progreso",
+      "texto": "Pardo cruzó las frecuencias. Buscad qué mensaje habla de qué tema y emparejadlo con la estación correcta.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 3,
+      "timing": "10 min sin progreso",
+      "texto": "El mensaje que dice 'Sistema OK' está en la frecuencia 1038 kHz. Probad 1038.",
+      "da_solucion": true
+    }
+  ],
+  "adaptaciones": {
+    "edad": {
+      "12-14": "El emparejamiento por temática es muy accesible (CO2=NUBE, agua=RÍO). El cruce de frecuencias añade una capa de deducción sin aumentar la frustración.",
+      "15-18": "Se resuelve rápido, mantener ritmo. El concepto de frecuencias cruzadas les resulta familiar (estilo cifrado)."
+    },
+    "espacio": "Solo necesita una mesa + cartel en pared, portable",
+    "n_jugadores": {
+      "2-3": "Cada uno lee 2-3 mensajes, discuten el emparejamiento juntos",
+      "4-6": "Ideal, se reparten mensajes entre todos y comparan con el Plan de Frecuencias"
+    }
+  },
+  "notas_gm": "El cartel del Plan de Frecuencias debe estar bien visible en la pared, cerca de la mesa. Las tarjetas de mensajes deben parecer transmisiones de radio interceptadas con cabecera de frecuencia. La estación VIDA (1038 kHz) NO está cruzada — el mensaje de 'Sistema OK' llega con su frecuencia correcta, lo que refuerza que es la estación que Pardo no saboteó. La llave dentro de la caja abre la puerta a la habitación P3.",
+  "metadata": {
+    "autor": "escapeitor",
+    "version": "6.0",
+    "fecha_creacion": "2026-03-27",
+    "fecha_actualizacion": "2026-04-06",
+    "testeado": false,
+    "cambio_v6": "Recompensa actualizada: llave física a habitación P3 en vez de tarjeta de acceso a Planta 2 (código 1847). Flujo lineal con llaves."
+  }
+}

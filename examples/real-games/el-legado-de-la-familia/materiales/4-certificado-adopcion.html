@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@page { size: A4 portrait; margin: 0; }
+body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+.certificado {
+  width: 186mm; min-height: 267mm; padding: 20mm 25mm;
+  background: #faf0e6; font-family: 'EB Garamond', serif;
+  color: #3d2b1f; position: relative; box-sizing: border-box;
+}
+.certificado::before {
+  content: ''; position: absolute;
+  top: 8mm; left: 8mm; right: 8mm; bottom: 8mm;
+  border: 2px solid #8b7355; pointer-events: none;
+}
+.certificado::after {
+  content: ''; position: absolute;
+  top: 11mm; left: 11mm; right: 11mm; bottom: 11mm;
+  border: 1px solid #c4a882; pointer-events: none;
+}
+.cert-title {
+  text-align: center; font-size: 18pt; font-weight: 700;
+  margin-bottom: 10mm; letter-spacing: 3px; text-transform: uppercase;
+  color: #3d2b1f;
+}
+.cert-body { font-size: 11pt; line-height: 1.8; text-align: justify; }
+.cert-body p { margin-bottom: 5mm; }
+.cert-firma { margin-top: 12mm; font-style: italic; font-size: 10pt; color: #6b5a48; }
+.cert-nota {
+  margin-top: 10mm; padding: 5mm 6mm;
+  border-top: 1px dashed #c4a882; font-size: 9.5pt;
+  font-style: italic; color: #6b5a48; line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<div class="certificado">
+  <div class="cert-title">Registro Reservado</div>
+  <div class="cert-body">
+    <p>Por acuerdo familiar y recomendación legal, el menor Miguel quedará bajo tutela de don Álvaro, hermano de la madre, quien lo criará como propio bajo el apellido Álvarez.</p>
+    <p>La filiación de origen no se destruye: se custodia.</p>
+    <div class="cert-firma">Firmado: Elena, Notario Público.</div>
+  </div>
+  <div class="cert-nota">
+    Escrito a mano en el margen con tinta descolorida:<br>
+    "Rodrigo cortó el hilo. Yo lo guardé para volver a atarlo algún día. El hombre que salvó a mi hijo le dio su nombre y su amor."
+  </div>
+</div>
+
+</body>
+</html>

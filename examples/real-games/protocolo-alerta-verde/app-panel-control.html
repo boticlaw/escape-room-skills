@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Panel de Control — Red Ecológica Verda</title>
+<style>
+/* ========== CONFIGURABLE ========== */
+:root {
+  --bg: #1a2332;
+  --bg-card: #1e2a3a;
+  --bg-card-border: #2a3a4e;
+  --green: #4CAF50;
+  --red: #f44336;
+  --yellow: #FFC107;
+  --text: #c8d6e5;
+  --text-bright: #ecf0f1;
+  --text-dim: #6b7d8e;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* HEADER */
+.header {
+  padding: 12px 24px;
+  background: linear-gradient(180deg, #151d2a 0%, var(--bg) 100%);
+  border-bottom: 2px solid #2a3a4e;
+  text-align: center;
+  flex-shrink: 0;
+}
+.alert-badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: pulse-red 2s infinite;
+}
+@keyframes pulse-red {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.header h1 {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--text-bright);
+  margin-top: 8px;
+  letter-spacing: 3px;
+}
+.timer {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  color: var(--red);
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+.timer.hidden { display: none; }
+
+/* MAIN */
+.main {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+/* CARDS */
+.card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+.card.operativo {
+  border-color: var(--green);
+  box-shadow: 0 0 20px rgba(76,175,80,0.15);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-icon { font-size: 28px; }
+.card-title {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-bright);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.card-status {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-left: auto;
+  letter-spacing: 1px;
+}
+.card-status.saboteado { background: rgba(244,67,54,0.15); color: var(--red); }
+.card-status.operativo { background: rgba(76,175,80,0.15); color: var(--green); }
+
+/* SLIDERS */
+.param-group { display: flex; flex-direction: column; gap: 6px; }
+.param-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.param-value {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  color: var(--text-bright);
+  text-align: center;
+  transition: color 0.3s;
+}
+.param-value.correct { color: var(--green); }
+.slider-wrap {
+  position: relative;
+  padding: 10px 0;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+  background: #2a3a4e;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4a6a8a;
+  border: 3px solid #5a8ab0;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  background: #5a8ab0;
+}
+input[type="range"].correct::-webkit-slider-thumb {
+  background: var(--green);
+  border-color: #66BB6A;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4a6a8a;
+  border: 3px solid #5a8ab0;
+  cursor: pointer;
+}
+input[type="range"].correct::-moz-range-thumb {
+  background: var(--green);
+  border-color: #66BB6A;
+}
+
+/* TEXT INPUTS */
+.text-input-wrap { display: flex; flex-direction: column; gap: 6px; }
+.text-input {
+  background: #0d1520;
+  border: 1px solid #2a3a4e;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--text-bright);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+}
+.text-input:focus { border-color: #5a8ab0; }
+.text-input.correct {
+  border-color: var(--green);
+  box-shadow: 0 0 10px rgba(76,175,80,0.2);
+}
+
+/* FOOTER */
+.footer {
+  flex-shrink: 0;
+  padding: 16px 24px 20px;
+  background: linear-gradient(0deg, #151d2a 0%, var(--bg) 100%);
+  border-top: 2px solid #2a3a4e;
+  text-align: center;
+}
+.auth-title {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.auth-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.auth-char {
+  width: 60px;
+  height: 70px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  background: #0d1520;
+  border: 2px solid #2a3a4e;
+  border-radius: 8px;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  caret-color: var(--green);
+}
+.auth-char:focus { border-color: #5a8ab0; }
+.auth-char.correct {
+  border-color: var(--green);
+  box-shadow: 0 0 10px rgba(76,175,80,0.2);
+}
+.btn-restore {
+  background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 2px solid #388E3C;
+  border-radius: 8px;
+  padding: 18px 60px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 60px;
+}
+.btn-restore:active { transform: scale(0.97); }
+.btn-restore.success {
+  background: linear-gradient(180deg, #43A047 0%, #2E7D32 100%);
+  box-shadow: 0 0 30px rgba(76,175,80,0.4);
+  border-color: #4CAF50;
+}
+.error-msg {
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  margin-top: 10px;
+  min-height: 20px;
+  letter-spacing: 1px;
+}
+.success-msg {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  margin-top: 10px;
+  min-height: 20px;
+  letter-spacing: 1px;
+  animation: pulse-green 1.5s infinite;
+}
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+.shake { animation: shake 0.5s; }
+
+/* Confetti */
+.confetti-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confetti-fall linear forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main { flex-direction: column; overflow-y: auto; }
+  .card { min-height: auto; }
+  body { overflow: auto; }
+}
+@media (min-width: 1200px) {
+  .header h1 { font-size: 26px; }
+  .card { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== CONFIGURACIÓN GM ==================== -->
+<script>
+// ===== VALORES CORRECTOS — EDITABLES POR EL GM =====
+const CONFIG = {
+  aire: {
+    sliderCorrect: 415,
+    sliderMin: 300,
+    sliderMax: 600,
+    textAnswers: ["contaminacion industrial", "contaminación industrial", "pardo"],
+    sliderTolerance: 3
+  },
+  agua: {
+    sliderCorrect: 12000,
+    sliderMin: 0,
+    sliderMax: 20000,
+    textAnswers: ["tuberia principal", "tubería principal", "valvula 3b", "válvula 3b"],
+    sliderTolerance: 100
+  },
+  energia: {
+    sliderCorrect: 95,
+    sliderMin: 0,
+    sliderMax: 100,
+    textAnswers: ["1503"],
+    sliderTolerance: 2
+  },
+  authCode: "AV1P",
+  timerMinutes: 0  // 0 = sin temporizador
+};
+</script>
+
+<!-- ==================== UI ==================== -->
+
+<div class="header">
+  <div class="alert-badge" id="alertBadge">🔴 Sistema en Alerta</div>
+  <h1>PANEL DE CONTROL — RED ECOLÓGICA VERDA</h1>
+  <div class="timer hidden" id="timer">00:00</div>
+</div>
+
+<div class="main">
+  <!-- AIRE -->
+  <div class="card" id="cardAire">
+    <div class="card-header">
+      <span class="card-icon">💨</span>
+      <span class="card-title">Estación Nube — Aire</span>
+      <span class="card-status saboteado" id="statusAire">SABOTEADO</span>
+    </div>
+    <div class="param-group">
+      <div class="param-label">Nivel CO2 (ppm)</div>
+      <div class="param-value" id="aireVal">---</div>
+      <div class="slider-wrap">
+        <input type="range" id="aireSlider" min="300" max="600" value="500">
+      </div>
+    </div>
+    <div class="text-input-wrap">
+      <div class="param-label">Causa del fallo</div>
+      <input type="text" class="text-input" id="aireText" placeholder="Introducir causa..." autocomplete="off" autocorrect="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- AGUA -->
+  <div class="card" id="cardAgua">
+    <div class="card-header">
+      <span class="card-icon">💧</span>
+      <span class="card-title">Estación Río — Agua</span>
+      <span class="card-status saboteado" id="statusAgua">SABOTEADO</span>
+    </div>
+    <div class="param-group">
+      <div class="param-label">Caudal (L/h)</div>
+      <div class="param-value" id="aguaVal">---</div>
+      <div class="slider-wrap">
+        <input type="range" id="aguaSlider" min="0" max="20000" value="5000" step="100">
+      </div>
+    </div>
+    <div class="text-input-wrap">
+      <div class="param-label">Fuga en</div>
+      <input type="text" class="text-input" id="aguaText" placeholder="Introducir ubicación..." autocomplete="off" autocorrect="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- ENERGÍA -->
+  <div class="card" id="cardEnergia">
+    <div class="card-header">
+      <span class="card-icon">⚡</span>
+      <span class="card-title">Estación Sol — Energía</span>
+      <span class="card-status saboteado" id="statusEnergia">SABOTEADO</span>
+    </div>
+    <div class="param-group">
+      <div class="param-label">Rendimiento (%)</div>
+      <div class="param-value" id="energiaVal">---</div>
+      <div class="slider-wrap">
+        <input type="range" id="energiaSlider" min="0" max="100" value="40">
+      </div>
+    </div>
+    <div class="text-input-wrap">
+      <div class="param-label">Código de emergencia</div>
+      <input type="text" class="text-input" id="energiaText" placeholder="Introducir código..." inputmode="numeric" autocomplete="off">
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="auth-title">Código de Autorización</div>
+  <div class="auth-inputs">
+    <input type="text" class="auth-char" id="auth0" maxlength="1" autocomplete="off">
+    <input type="text" class="auth-char" id="auth1" maxlength="1" autocomplete="off">
+    <input type="text" class="auth-char" id="auth2" maxlength="1" autocomplete="off">
+    <input type="text" class="auth-char" id="auth3" maxlength="1" autocomplete="off">
+  </div>
+  <button class="btn-restore" id="btnRestore" onclick="restaurarRed()">RESTAURAR RED</button>
+  <div class="error-msg" id="errorMsg"></div>
+</div>
+
+<div class="confetti-container" id="confetti"></div>
+
+<script>
+// State
+let solved = false;
+
+// Timer
+const timerEl = document.getElementById('timer');
+if (CONFIG.timerMinutes > 0) {
+  timerEl.classList.remove('hidden');
+  let seconds = CONFIG.timerMinutes * 60;
+  const tick = setInterval(() => {
+    if (solved) { clearInterval(tick); return; }
+    seconds--;
+    if (seconds <= 0) { clearInterval(tick); seconds = 0; }
+    const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    timerEl.textContent = m + ':' + s;
+  }, 1000);
+}
+
+// Slider events
+document.getElementById('aireSlider').addEventListener('input', e => {
+  document.getElementById('aireVal').textContent = e.target.value;
+  validateAll();
+});
+document.getElementById('aguaSlider').addEventListener('input', e => {
+  document.getElementById('aguaVal').textContent = e.target.value;
+  validateAll();
+});
+document.getElementById('energiaSlider').addEventListener('input', e => {
+  document.getElementById('energiaVal').textContent = e.target.value;
+  validateAll();
+});
+
+// Text input events
+document.getElementById('aireText').addEventListener('input', validateAll);
+document.getElementById('aguaText').addEventListener('input', validateAll);
+document.getElementById('energiaText').addEventListener('input', validateAll);
+
+// Auth char navigation
+const authFields = [0,1,2,3].map(i => document.getElementById('auth' + i));
+authFields.forEach((f, i) => {
+  f.addEventListener('input', e => {
+    e.target.value = e.target.value.toUpperCase();
+    if (e.target.value.length === 1 && i < 3) authFields[i+1].focus();
+    validateAll();
+  });
+  f.addEventListener('keydown', e => {
+    if (e.key === 'Backspace' && !e.target.value && i > 0) {
+      authFields[i-1].focus();
+    }
+  });
+  f.addEventListener('focus', e => e.target.select());
+});
+
+function checkSlider(id, config) {
+  const val = parseInt(document.getElementById(id + 'Slider').value);
+  return Math.abs(val - config.sliderCorrect) <= config.sliderTolerance;
+}
+
+function checkText(id, config) {
+  const val = document.getElementById(id + 'Text').value.trim().toLowerCase();
+  return config.textAnswers.includes(val);
+}
+
+function isSystemOk(id, config) {
+  return checkSlider(id, config) && checkText(id, config);
+}
+
+function validateAll() {
+  if (solved) return;
+
+  const systems = [
+    { id: 'aire', key: 'Aire', config: CONFIG.aire },
+    { id: 'agua', key: 'Agua', config: CONFIG.agua },
+    { id: 'energia', key: 'Energia', config: CONFIG.energia }
+  ];
+
+  systems.forEach(sys => {
+    const sliderOk = checkSlider(sys.id, sys.config);
+    const textOk = checkText(sys.id, sys.config);
+    const allOk = sliderOk && textOk;
+
+    const card = document.getElementById('card' + sys.key);
+    const status = document.getElementById('status' + sys.key);
+    const slider = document.getElementById(sys.id + 'Slider');
+    const textInput = document.getElementById(sys.id + 'Text');
+    const paramVal = document.getElementById(sys.id + 'Val');
+
+    if (allOk) {
+      card.classList.add('operativo');
+      status.textContent = 'OPERATIVO';
+      status.className = 'card-status operativo';
+      slider.classList.add('correct');
+      textInput.classList.add('correct');
+      paramVal.classList.add('correct');
+    } else {
+      card.classList.remove('operativo');
+      status.textContent = 'SABOTEADO';
+      status.className = 'card-status saboteado';
+      slider.classList.remove('correct');
+      textInput.classList.remove('correct');
+      paramVal.classList.remove('correct');
+    }
+  });
+
+  // Auth fields feedback
+  const authCode = authFields.map(f => f.value.toUpperCase()).join('');
+  authFields.forEach((f, i) => {
+    if (f.value && f.value.toUpperCase() === CONFIG.authCode[i]) {
+      f.classList.add('correct');
+    } else {
+      f.classList.remove('correct');
+    }
+  });
+}
+
+function restaurarRed() {
+  if (solved) return;
+
+  const allSystemsOk = isSystemOk('aire', CONFIG.aire) &&
+                        isSystemOk('agua', CONFIG.agua) &&
+                        isSystemOk('energia', CONFIG.energia);
+  const authCode = authFields.map(f => f.value.toUpperCase()).join('');
+  const authOk = authCode === CONFIG.authCode;
+
+  if (allSystemsOk && authOk) {
+    solved = true;
+    document.getElementById('errorMsg').className = 'success-msg';
+    document.getElementById('errorMsg').textContent = '✅ SISTEMA RESTAURADO — RED VERDA OPERATIVA';
+    document.getElementById('btnRestore').classList.add('success');
+    document.getElementById('alertBadge').textContent = '🟢 Sistema Operativo';
+    document.getElementById('alertBadge').style.background = 'var(--green)';
+    document.getElementById('alertBadge').style.animation = 'none';
+    launchConfetti();
+  } else {
+    const btn = document.getElementById('btnRestore');
+    btn.classList.add('shake');
+    setTimeout(() => btn.classList.remove('shake'), 500);
+    document.getElementById('errorMsg').className = 'error-msg';
+    if (!allSystemsOk && !authOk) {
+      document.getElementById('errorMsg').textContent = '❌ ERROR — Sistemas y código incorrectos. Revisad todo.';
+    } else if (!allSystemsOk) {
+      document.getElementById('errorMsg').textContent = '❌ ERROR — Parámetros incorrectos. Revisad los sistemas.';
+    } else {
+      document.getElementById('errorMsg').textContent = '❌ ERROR — Código de autorización incorrecto.';
+    }
+  }
+}
+
+function launchConfetti() {
+  const container = document.getElementById('confetti');
+  const colors = ['#4CAF50','#f44336','#FFC107','#2196F3','#9C27B0','#FF9800','#00BCD4'];
+  for (let i = 0; i < 100; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+    piece.style.animationDelay = Math.random() * 2 + 's';
+    piece.style.width = (6 + Math.random() * 8) + 'px';
+    piece.style.height = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    container.appendChild(piece);
+  }
+  setTimeout(() => container.innerHTML = '', 6000);
+}
+
+// Init slider values display
+document.getElementById('aireVal').textContent = document.getElementById('aireSlider').value;
+document.getElementById('aguaVal').textContent = document.getElementById('aguaSlider').value;
+document.getElementById('energiaVal').textContent = document.getElementById('energiaSlider').value;
+</script>
+
+</body>
+</html>

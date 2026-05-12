@@ -1,0 +1,155 @@
+{
+  "id": "legado_002_cartas_desordenadas",
+  "nombre": "Las Cartas Desordenadas",
+  "descripcion": "En el cajon del escritorio, los jugadores encuentran 8 cartas mezcladas, unidas por un hilo rojo. Son correspondencia entre la Abuela Elena y sus tres hijos (Marcos, Carmen, Luis). Deben emparejar cada carta con su remitente correcto usando pistas internas del texto (ciudades, profesiones, nombres). Una vez emparejadas, deben buscar una palabra clave oculta en el texto de una de las cartas que les da el codigo del candado de 3 letras.",
+  "juego": "el-legado-de-la-familia",
+  "version": 1,
+  "espacio": 1,
+  "sala": "El Despacho de la Abuela",
+  "skill_primario": "prueba-emparejamiento-texto",
+  "skills_secundarios": [
+    "prueba-logica-secuencial"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "jugadores_min": 2,
+  "jugadores_max": 8,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "paralelo",
+  "configuracion": {
+    "mecanica_principal": "Emparejamiento de cartas con remitentes. Las cartas no tienen firma visible pero contienen pistas contextuales (menciones a ciudades, profesiones, eventos) que permiten identificar quien escribio cada una.",
+    "mecanismo_barrera": "Candado de 3 letras. La pista para el codigo esta oculta en una de las cartas: una palabra enfatica que, leida con atencion, esconde las iniciales de tres nietos mencionados en el texto.",
+    "elementos_necesarios": [
+      "8 cartas impresas en estilo vintage sepia (DIN-A5, bordes envejecidos, papel amarillento)",
+      "Guia de remitentes con fotos breves de los 3 hijos (tono sepia, estilo retrato clasico)",
+      "Caja con candado de 3 letras"
+    ],
+    "distribucion_roles": {
+      "descripcion": "Repartir las 8 cartas entre TODOS los jugadores (1-2 cartas cada uno). Cada jugador DEBE leer sus cartas en voz alta. Asignar 3 roles: IDENTIFICADORES (dicen quien escribio cada carta), CRONOLOGISTAS (ordenan por fecha), y DETECTIVES (buscan la palabra clave entre todas las cartas).",
+      "colaboracion": "OBLIGATORIO: cada jugador lee al menos 1 carta en voz alta. La pista de SOL esta en la carta 8 de Carmen pero no se puede encontrar sin haber leido TODAS las cartas antes."
+    }
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "timing": "3 min sin progreso",
+      "texto": "Repartid las cartas entre todos y leedlas en voz alta. Buscad en cada carta la ciudad, la profesion y cualquier nombre mencionado. Prestad atencion a las frases enfaticas o emotivas."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "timing": "6 min sin resolver",
+      "texto": "Marcos es medico y vive en Madrid. Carmen es profesora y vive en Sevilla. Luis es arquitecto y vive en Barcelona. Emparejad cada carta segun estos datos. Despues, leed las cartas de Carmen buscando una frase donde menciona a sus nietos — ahi esta el codigo del candado de 3 letras."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "timing": "10 min sin resolver",
+      "texto": "La carta 8 de Carmen (2005) dice: Mis nietos Sebastian, Olivia y Leo son el Sol de mi vida. SOL = Sebastian, Olivia, Leo. El codigo del candado es SOL."
+    }
+  ],
+  "solucion": {
+    "descripcion": "Los jugadores emparejan 8 cartas con 3 remitentes y las ordenan cronologicamente. La cuarta carta (de Luis, 1996) menciona una caja 'bajo el tercer escalon del salon'. El candado de la caja se abre con SOL (iniciales de los nietos: Sebastian, Olivia, Leo).",
+    "verificacion": "El candado de 3 letras se abre con S-O-L.",
+    "pasos_detallados": [
+      "Los jugadores leen las 8 cartas mezcladas",
+      "Identifican que cada carta menciona ciudades, profesiones o situaciones que la vinculan a un remitente",
+      "Emparejan: cartas de Marcos (medico, Madrid), Carmen (profesora, Sevilla), Luis (arquitecto, Barcelona)",
+      "Ordenan las cartas por fecha (las fechas estan en el texto o en el sobre)",
+      "La carta de Luis de 1996 menciona 'el tercer escalon del salon guarda algo especial'",
+      "En la caja bajo el tercer escalon (simulado con una caja en el salon), encuentran un candado de 3 letras",
+      "La pista para SOL esta en la ultima carta de Carmen (2005) que dice: 'Mis nietos Sebastian, Olivia y Leo son el Sol de mi vida'",
+      "Introducen SOL en el candado"
+    ],
+    "recompensa": {
+      "letra": "E",
+      "carta": "Dentro de la caja hay una foto vieja con una dedicatoria y la letra E. La foto muestra a una mujer joven con un bebe que no corresponde a ningun hijo conocido.",
+      "siguiente_espacio": "La pista en la foto indica que busquen en el salon familiar"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "8 cartas familiares en papel vintage DIN-A5",
+      "Ficha con datos de los 3 hijos (nombre, profesion, ciudad)"
+    ],
+    "mobiliario": [],
+    "extras": [
+      "Candado de 3 letras (codigo: SOL)",
+      "Caja pequena (simula 'tercer escalon del salon')"
+    ]
+  },
+  "documentos_in_game": [
+    {
+      "titulo": "Carta 1 - Madrid, 1990",
+      "texto": "<p>Querida mama:</p><p>Te escribo desde el hospital. Hoy he operado a un nino de apendicitis y me ha recordado cuando yo me enfermaba de nino y tu me cuidabas toda la noche. Los turnos aqui en Madrid son largos, pero cuando salgo del hospital y veo el cielo de la ciudad, pienso en ti.</p><p>Un abrazo, tu hijo mayor.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (medico, Madrid, hijo mayor). Su esposa Lucia y su hijo Sebastian son los del cartel. Fecha: 1990."
+    },
+    {
+      "titulo": "Carta 2 - Sevilla, 1992",
+      "texto": "<p>Mama querida:</p><p>Los alumnos de mi clase me han preparado una sorpresa por el dia del profesor. Me han dado un dibujo donde todos aparecen juntos. Me hizo llorar de emocion. Sevilla esta preciosa en primavera, los naranjos estan en flor. Ojala pudieras venir a visitarme mas a menudo.</p><p>Te quiere, tu hija.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen (profesora, Sevilla). Fecha: 1992."
+    },
+    {
+      "titulo": "Carta 3 - Madrid, 1995",
+      "texto": "<p>Mama:</p><p>Perdon por no haber ido en Navidad. El hospital no me dejo salir. Lucia y los ninos te mandan muchos besos. Sebastian ya dice 'abuela' y no para de repetirlo. Me preocupa que papa no este bien de salud, pero el no quiere que hablemos de eso.</p><p>Un abrazo fuerte.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (hospital, esposa Lucia, hijo Sebastian = nieto del cartel). Fecha: 1995."
+    },
+    {
+      "titulo": "Carta 4 - Barcelona, 1996",
+      "texto": "<p>Querida Elena:</p><p>Se que no te escribo mucho. Barcelona me ha cambiado, supongo. El estudio de arquitectura va bien, pero echo de menos la casa familiar. Ese ruido que hacia la puerta del salon, el tercer escalon que siempre rechinaba, los atardeceres en el jardin... A veces pienso que deberia volver.</p><p>Perdon por ser el que siempre se marcha. Papa siempre dijo que yo era el mas debil de los tres, pero quizas el debil era el que se quedaba quieto mientras otros movian los hilos.</p><p>Luis.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Luis (arquitecto, Barcelona). PISTA CLAVE: menciona 'tercer escalon del salon'. Fecha: 1996."
+    },
+    {
+      "titulo": "Carta 5 - Sevilla, 1998",
+      "texto": "<p>Mama:</p><p>No puedo dejar de pensar en lo que me contaste la ultima vez que vine. Esa historia sobre tu juventud... Necesito saber mas. Prometiste que me contarias toda la verdad algun dia. Los ninos de mi clase me preguntan por que tengo tantas fotos antiguas en casa, y yo les digo que las fotos guardan secretos que solo los valientes pueden leer.</p><p>Espero tu respuesta.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen (profesora, curiosidad por el secreto). Fecha: 1998."
+    },
+    {
+      "titulo": "Carta 6 - Madrid, 2000",
+      "texto": "<p>Mama:</p><p>He visto a papa en el hospital. No quiere que te lo diga, pero su coracion esta debil. Dice que ya es hora de que la familia se reuna. Yo creo que tiene miedo de que su secreto - el vuestro - salga a la luz despues de tanto tiempo. Se que ocultais algo, pero confio en vosotros.</p><p>Tu hijo, que siempre estara ahi.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (medico, confirma que hay un secreto). Fecha: 2000."
+    },
+    {
+      "titulo": "Carta 7 - Barcelona, 2003",
+      "texto": "<p>Elena:</p><p>He terminado la reforma del edificio que te conte. Los arquitectos decimos que las casas tienen alma, que guardan la historia de quienes las habitan. La nuestra, la de nuestra familia, debe tener mil historias que nunca nos contaron. A veces pienso en volver y reconstruirla entera, escalon a escalon. Como una marioneta a la que hay que volver a ensartar los hilos.</p><p>Tu hijo ausente.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Luis (arquitecto, Barcelona, tono distante). Fecha: 2003."
+    },
+    {
+      "titulo": "Carta 8 - Sevilla, 2005",
+      "texto": "<p>Mama querida:</p><p>He ido a visitar tu casa y he encontrado una foto que no habia visto nunca. Quien es esa mujer joven con un bebe en brazos? Detras pone '1963' pero no se parece a ningun bebe de la familia que yo conozca. Mis nietos Sebastian, Olivia y Leo son el Sol de mi vida, y quiero que ellos tambien conozcan toda la verdad, como me prometiste.</p><p>Es hora, mama. Es hora.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen. PISTA CLAVE: 'Sebastian, Olivia y Leo son el Sol de mi vida' = SOL. Tambien menciona la foto misteriosa. Fecha: 2005."
+    }
+  ],
+  "barrera_fisica": {
+    "tipo": "Candado de letras",
+    "ubicacion": "Caja en el salon (simula el 'tercer escalon')",
+    "codigo": "SOL",
+    "origen_codigo": "Iniciales de los nietos: Sebastian, Olivia, Leo, mencionados como 'el Sol de mi vida' en la carta 8",
+    "montaje_minutos": 3
+  },
+  "hilo_conductor": {
+    "letra": "E",
+    "significado": "Empatia - la capacidad de entender y compartir los sentimientos de los demas, como Carmen que siempre quizo comprender el secreto de su madre",
+    "posicion": 2
+  },
+  "control_movimiento": {
+    "problema_potencial": "Los jugadores pueden tener dificultades para emparejar todas las cartas antes de ordenarlas",
+    "solucion_implementada": "La ficha con datos de los hijos da suficiente contexto. Las cartas tienen pistas claras (profesiones, ciudades). La carta 4 ya esta firmada por Luis como ejemplo."
+  },
+  "metadata": {
+    "fecha_creacion": "2026-05-01",
+    "proyecto": "viernes-de-escape",
+    "adaptado_de": "prueba_emparejamiento_columnas_001",
+    "nueva": true
+  }
+}

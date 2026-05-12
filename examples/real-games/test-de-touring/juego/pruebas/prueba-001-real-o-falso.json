@@ -1,0 +1,160 @@
+{
+  "id": "touring_001_real_o_falso",
+  "nombre": "Real o Falso",
+  "descripcion": "Los jugadores encuentran 12 tarjetas con contenido multimedia (fotos, titulares, chats) que deben clasificar como reales o generados por IA. Las tarjetas de IA peligrosa (suplantación de identidad) tienen un borde rojo visible y letras en el reverso que forman FRAUDE. EVA-9 avisa en sus instrucciones que las IA que suplantan identidades 'llevan su marca'.",
+  "juego": "Test de Touring",
+  "version": 3,
+  "espacio": 1,
+  "sala": "Laboratorio de EVA",
+  "tema_educativo": "Deepfakes y manipulación multimedia",
+  "skill_primario": "prueba-clasificacion",
+  "skills_secundarios": [
+    "prueba-cooperacion",
+    "prueba-logica-deducccion"
+  ],
+  "dificultad": 2,
+  "duracion_estimada_minutos": 6,
+  "jugadores_min": 4,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+
+  "configuracion": {
+    "mecanica_principal": "Clasificar 12 tarjetas como REAL o GENERADO POR IA. EVA-9 advierte en sus instrucciones que las IA que suplantan identidades llevan 'su marca' (borde rojo). Las 6 tarjetas con borde rojo (IA peligrosa) tienen letras en el reverso que forman FRAUDE. Las letras se ordenan por tipo de tarjeta: Fotos (F,R) → Titulares (A,U) → Chats (D,E).",
+    "elementos_necesarios": [
+      "12 tarjetas físicas 10×15 cm (4 fotos + 4 titulares + 4 chats). Las 6 de IA peligrosa tienen BORDE ROJO; las 6 reales sin borde especial",
+      "2 cajas etiquetadas REAL y GENERADO POR IA",
+      "1 carpeta negra etiquetada CLASIFICADO — MUESTRA EVA-9",
+      "1 documento impreso con instrucciones de EVA-9 (incluye pista sobre borde rojo de suplantación)",
+      "1 cryptex de 6 letras (código: FRAUDE)"
+    ],
+    "distribucion_roles": {
+      "clasificador_fotos": "2 jugadores clasifican las 4 tarjetas de fotos",
+      "clasificador_textos": "2 jugadores clasifican los 4 titulares",
+      "clasificador_chats": "1-2 jugadores clasifican las 4 capturas de chat",
+      "deductor": "Todos juntos leen los reversos y deducen la palabra"
+    },
+    "fase_1_clasificacion": {
+      "descripcion": "Los jugadores clasifican las 12 tarjetas en 2 montones. Las instrucciones de EVA-9 dicen: 'Demuéstrame que sabéis distinguir la realidad de mis creaciones. Clasificad cada tarjeta. Las creaciones que más me preocupan — las que suplantan identidades ajenas — llevan mi marca roja. Esas son las verdaderamente peligrosas.'",
+      "duracion_minutos": 3,
+      "instrucciones_eva9": "Demuéstrame que sabéis distinguir la realidad de mis creaciones. Clasificad cada tarjeta. Las creaciones que más me preocupan — las que suplantan identidades ajenas — llevan mi marca roja. Esas son las verdaderamente peligrosas.",
+      "tarjetas": {
+        "fotos": [
+          {"id": "F1", "contenido": "Foto real de paisaje", "tipo": "real", "borde": "sin borde especial"},
+          {"id": "F2", "contenido": "Foto real de grupo de personas", "tipo": "real", "borde": "sin borde especial"},
+          {"id": "F3", "contenido": "Rostro generado por IA (ThisPersonDoesNotExist)", "tipo": "ia_peligrosa", "borde": "rojo", "letra_reverso": "F"},
+          {"id": "F4", "contenido": "Foto de persona real manipulada con IA (deepfake)", "tipo": "ia_peligrosa", "borde": "rojo", "letra_reverso": "R"}
+        ],
+        "titulares": [
+          {"id": "T1", "contenido": "Titular real de periódico", "tipo": "real", "borde": "sin borde especial"},
+          {"id": "T2", "contenido": "Titular real de periódico", "tipo": "real", "borde": "sin borde especial"},
+          {"id": "T3", "contenido": "Noticia falsa generada por IA sobre persona real", "tipo": "ia_peligrosa", "borde": "rojo", "letra_reverso": "A"},
+          {"id": "T4", "contenido": "Titular falso con IA suplantando a político", "tipo": "ia_peligrosa", "borde": "rojo", "letra_reverso": "U"}
+        ],
+        "chats": [
+          {"id": "C1", "contenido": "Captura de chat real", "tipo": "real", "borde": "sin borde especial"},
+          {"id": "C2", "contenido": "Captura de chat real", "tipo": "real", "borde": "sin borde especial"},
+          {"id": "C3", "contenido": "Chat generado por IA suplantando a alguien", "tipo": "ia_peligrosa", "borde": "rojo", "letra_reverso": "D"},
+          {"id": "C4", "contenido": "Captura de clonación de voz usada para engaño", "tipo": "ia_peligrosa", "borde": "rojo", "letra_reverso": "E"}
+        ]
+      }
+    },
+    "fase_2_doble_descubrimiento": {
+      "descripcion": "Las tarjetas clasificadas como IA tienen letras en el reverso. EVA-9 dejó la pista en las instrucciones: 'las que suplantan identidades llevan mi marca roja'. Los jugadores identifican las 6 con borde rojo y sus letras, ordenadas por tipo de tarjeta (Fotos primero, luego Titulares, luego Chats), forman FRAUDE.",
+      "duracion_minutos": 3,
+      "codigo_candado": "FRAUDE",
+      "mecanismo_codigo": "Las letras del reverso de las 6 tarjetas de IA peligrosa con borde rojo, ordenadas por tipo: Fotos (F3=F, F4=R), Titulares (T3=A, T4=U), Chats (C3=D, C4=E) forman la palabra FRAUDE."
+    },
+    "mecanismo_barrera": "Cryptex de 6 letras. Código: FRAUDE."
+  },
+
+  "control_movimiento": {
+    "problema_potencial": "Ninguno - todos los jugadores en misma habitación",
+    "solucion_implementada": "No requiere",
+    "tipo_solucion": "no_requerido"
+  },
+
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "¿Han mirado bien los ojos y las manos en las fotos? ¿Y los titulares son demasiado perfectos? Volved a leer las instrucciones de EVA-9 — dijo algo sobre una marca..."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "EVA-9 dijo que las IA que suplantan identidades llevan su marca roja. Fijaos solo en las tarjetas con borde rojo y mirad el reverso. Ordenad las letras por tipo de tarjeta: fotos primero, luego titulares, luego chats."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Las 6 tarjetas con borde rojo (IA que suplanta identidades) tienen letras: F, R (fotos), A, U (titulares), D, E (chats). El código es FRAUDE."
+    }
+  ],
+
+  "solucion": {
+    "descripcion": "1) Abrir carpeta CLASIFICADO. 2) Leer instrucciones de EVA-9 (detectar pista del borde rojo). 3) Clasificar 12 tarjetas. 4) Mirar reverso de tarjetas con borde rojo. 5) Ordenar letras por tipo: Fotos(F,R) → Titulares(A,U) → Chats(D,E). 6) Deducir FRAUDE. 7) Introducir en cryptex de 6 letras.",
+    "verificacion": "El cryptex se abre con FRAUDE.",
+    "pasos_detallados": [
+      "Paso 1: Abrir carpeta negra CLASIFICADO",
+      "Paso 2: Leer instrucciones impresas de EVA-9 (detectar pista: 'las que suplantan identidades llevan mi marca roja')",
+      "Paso 3: Clasificar 12 tarjetas en REAL / GENERADO POR IA",
+      "Paso 4: Mirar el reverso de las tarjetas con borde rojo (6 tarjetas de IA peligrosa)",
+      "Paso 5: Identificar las 6 con borde rojo y sus letras: F, R, A, U, D, E",
+      "Paso 6: Ordenar las letras por tipo de tarjeta: Fotos(F,R) → Titulares(A,U) → Chats(D,E) = F-R-A-U-D-E",
+      "Paso 7: Introducir FRAUDE en el cryptex de 6 letras",
+      "Paso 8: Abrir el cryptex y obtener la recompensa"
+    ],
+    "recompensa": {
+      "carta": "Nota de la Dra. Torres: 'Los expedientes de datos están en el archivo. Buscad la puerta con la HUELLA digital. La F fue vuestra primera victoria — recordadlo para el final.'",
+      "nota_posicional": "La F fue vuestra primera victoria — recordadlo para el final. → F es la 1ª letra",
+      "letra": "F",
+      "siguiente_espacio": "Archivo de Datos (símbolo: HUELLA)"
+    }
+  },
+
+  "hilo_conductor": {
+    "letra": "F",
+    "significado": "Falsedad — la falsedad que debéis aprender a detectar",
+    "posicion": 1
+  },
+
+  "barrera_fisica": {
+    "tipo": "Cryptex de 6 letras",
+    "ubicacion": "Sobre la mesa del laboratorio",
+    "codigo": "FRAUDE",
+    "origen_codigo": "Letras del reverso de las 6 tarjetas de IA peligrosa (borde rojo), ordenadas por tipo",
+    "montaje_minutos": 3
+  },
+
+  "materiales": {
+    "impresion": [
+      "12 tarjetas 10×15 cm: 6 con BORDE ROJO (IA peligrosa, 2 por tipo), 6 sin borde especial (reales, 2 por tipo). Todas las rojas con letras en reverso.",
+      "2 etiquetas para cajas: REAL y GENERADO POR IA",
+      "1 portada de carpeta negra: CLASIFICADO — MUESTRA EVA-9",
+      "1 hoja con instrucciones de EVA-9 (incluye frase sobre marca roja de suplantación)",
+      "1 nota manuscrita Dra. Torres (→ HUELLA)",
+      "1 tarjeta con letra F"
+    ],
+    "mobiliario": [
+      "Mesa blanca",
+      "2 cajas para clasificar",
+      "Cryptex de 6 letras"
+    ],
+    "extras": [
+      "Carpeta negra A4",
+      "Lápices para anotaciones",
+      "Rotulador rojo para bordes de tarjetas peligrosas"
+    ]
+  },
+
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-04-07",
+    "fecha_actualizacion": "2026-04-13",
+    "version": 3,
+    "testado": false,
+    "notas": "v3: Cryptex cambiado de 4 letras (FAKE) a 6 letras (FRAUDE). Ahora hay 6 tarjetas de IA peligrosa (2 por tipo) con letras F,R,A,U,D,E. Se ordenan por tipo de tarjeta para formar el código. Eliminadas tarjetas de IA neutral (distractores X)."
+  }
+}

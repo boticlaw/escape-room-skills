@@ -1,0 +1,136 @@
+{
+  "id": "legado_005_poesia",
+  "nombre": "El Poema en Llamas",
+  "descripcion": "El equipo usa linternas UV para revelar texto oculto en las paredes de la habitación. Los versos están dispersos y deben ordenarse según rima y métrica. Al completar el soneto, cuentan: 14 versos de 11 sílabas. Código del candado: 1-4-1-1.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 4,
+  "espacio": 5,
+  "planta": 2,
+  "escritora": "Amalia Iglesias Serna",
+  "skill_primario": "prueba-cooperacion-uv",
+  "skills_secundarios": ["prueba-literaria", "prueba-visual"],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 3,
+  "jugadores_max": 5,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Usar linterna UV para revelar versos ocultos en las paredes, luego ordenarlos según rima y métrica",
+    "elementos_necesarios": [
+      "Paredes con versos escritos en tinta UV invisible",
+      "2-3 linternas UV compartidas",
+      "Pizarra magnética: Tablero donde colocar versos en orden correcto",
+      "Versos magnéticos sueltos para ordenar",
+      "Nota: 'La poesía tiene estructura. ¿Cuántos versos? ¿Cuántas sílabas?'",
+      "CAJA CON CANDADO DE COMBINACIÓN de 4 dígitos"
+    ],
+    "distribucion_roles": {
+      "exploradores": "2-3 jugadores con linternas UV buscando versos en paredes",
+      "ordenador": "Coloca versos en la pizarra magnética según rima y métrica",
+      "contador": "Cuenta versos y sílabas al completar"
+    },
+    "poema_estructura": {
+      "tipo": "Soneto",
+      "versos": 14,
+      "tipo_verso": "Endecasílabo",
+      "silabas_por_verso": 11
+    },
+    "codigo_candado": "1-4-1-1",
+    "mecanismo_codigo": "14 versos (soneto) + 11 sílabas (endecasílabo) = 1-4-1-1",
+    "mecanismo_barrera": "Caja con candado de combinación de 4 dígitos. Código: 1-4-1-1"
+  },
+  "control_movimiento": {
+    "problema_potencial": "Ninguno - todos en misma habitación",
+    "solucion_implementada": "No requiere - prueba en habitación única",
+    "tipo_solucion": "no_requerido",
+    "prioridad": "baja"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Amalia escribe sobre el fuego, pero hay palabras que arden en violeta. La poesía tiene estructura: ¿cuántos versos? ¿cuántas sílabas?"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Usad las linternas UV para encontrar los versos ocultos en las paredes. Un soneto tiene 14 versos. Cada verso endecasílabo tiene 11 sílabas."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "El poema es un soneto: 14 versos de 11 sílabas cada uno. El código de la caja es 1-4-1-1."
+    }
+  ],
+  "solucion": {
+    "descripcion": "Usar linternas UV para revelar versos en paredes. Ordenar según rima y métrica. Contar: 14 versos, 11 sílabas. Código: 1-4-1-1.",
+    "verificacion": "La caja se abre con 1-4-1-1, revelando el contenido.",
+    "recompensa": {
+      "carta": "Carta de Amalia: 'Tess, la vaquera de las letras, espera en el despacho del oeste. Buscad la puerta con la BOTA.'",
+      "parte_cartel": "Símbolo de LLAMA",
+      "silaba": "LI",
+      "siguiente_espacio": "Rancho (símbolo: Bota)"
+    }
+  },
+  "misterio_secundario": {
+    "silaba": "LI",
+    "nombre_completo": "CATALINA VALENTO",
+    "posicion": 5,
+    "simbolo_visual": "Llama estilizada"
+  },
+  "barrera_fisica": {
+    "tipo": "Caja con candado de combinación de 4 dígitos",
+    "ubicacion": "Sobre mesa, visible desde el inicio",
+    "codigo": "1-4-1-1",
+    "origen_codigo": "14 versos (soneto) + 11 sílabas (endecasílabo)",
+    "montaje_minutos": 10,
+    "materiales": [
+      "1 candado de combinación de 4 dígitos (~8€)",
+      "1 caja pequeña (~3€)",
+      "Tinta UV invisible (~5€)"
+    ]
+  },
+  "adaptaciones": {
+    "mas_facil": {
+      "descripcion": "Versos ya numerados",
+      "implementacion": "Cada verso tiene su número de orden visible con UV"
+    },
+    "mas_dificil": {
+      "descripcion": "Versos sin orden lógico aparente",
+      "implementacion": "Sin pistas de rima, deben deducir por métrica únicamente"
+    },
+    "sin_uv": {
+      "descripcion": "Usar luz normal con versos en papel",
+      "implementacion": "Versos en tarjetas de papel, sin UV"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "Versos en tinta UV en paredes (14 versos)",
+      "Versos magnéticos para la pizarra",
+      "1 nota: 'La poesía tiene estructura. ¿Cuántos versos? ¿Cuántas sílabas?'",
+      "1 carta de Amalia (papel poético con bordes quemados)",
+      "1 parte del cartel del juego con símbolo de LLAMA",
+      "1 sílaba 'LI' (letras en pergamino dorado)"
+    ],
+    "mobiliario": [
+      "Pizarra magnética",
+      "Caja con candado de 4 dígitos"
+    ],
+    "extras": [
+      "2-3 linternas UV potentes",
+      "Velas LED adicionales para ambiente (opcional)"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-16",
+    "fecha_actualizacion": "2026-03-18",
+    "version": 4,
+    "testado": false,
+    "cambios_version_4": "SIMPLIFICADA: Eliminada zona penumbra con cortina. Ahora habitación normal con linternas UV. Más fácil de montar. Formato competitivo.",
+    "notas": "Aplicar tinta UV invisible a los versos en las paredes. Verificar visibilidad con linterna UV. Puede apagar luz principal para mejor efecto."
+  }
+}

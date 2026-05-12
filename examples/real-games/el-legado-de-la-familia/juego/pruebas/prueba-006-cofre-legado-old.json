@@ -1,0 +1,120 @@
+{
+  "id": "legado_006_cofre_legado",
+  "nombre": "El Cofre del Legado",
+  "descripcion": "Prueba final. Los jugadores tienen el cofre del legado con un candado de 6 letras. Han obtenido 5 letras en las pruebas anteriores (L, E, G, A, D) y la prueba 5 les ha revelado como obtener la sexta (O). Deben formar la palabra LEGADO para abrir el cofre y descubrir el contenido: la carta de despedida de la Abuela Elena y el medallon con la foto del hijo que nunca conocieron.",
+  "juego": "el-legado-de-la-familia",
+  "version": 1,
+  "espacio": 3,
+  "sala": "El Desvan",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": [
+    "prueba-puzzle-ensamblaje"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 10,
+  "jugadores_min": 2,
+  "jugadores_max": 8,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+  "configuracion": {
+    "mecanica_principal": "Puzzle de integracion final. Los jugadores deben: (1) verificar que tienen las 5 letras obtenidas, (2) usar la pista del mensaje dividido para deducir la sexta letra O, (3) determinar el orden correcto de las letras para formar LEGADO usando las pistas de cada prueba (cada letra viene con su posicion numerada), y (4) abrir el candado.",
+    "mecanismo_barrera": "Candado de 6 letras (codigo: LEGADO). El cofre contiene la carta final y el medallon.",
+    "elementos_necesarios": [
+      "Cofre grande de madera oscura con candado de 6 letras",
+      "5 fichas con letras obtenidas (L, E, G, A, D) - ya las tienen los jugadores",
+      "Carta de despedida de la Abuela Elena (DIN-A4)",
+      "Medallon con foto del cuarto hijo"
+    ],
+    "distribucion_roles": {
+      "descripcion": "Cada jugador tiene 1 ficha de letra y es el UNICO responsable de esa letra. Debe comunicar al grupo su posicion y significado. Un jugador coordina pero NO coloca letras de otros.",
+      "colaboracion": "OBLIGATORIO: cada jugador coloca su propia ficha en el candado. El grupo debe descubrir la palabra completa juntos antes de que nadie toque el candado."
+    }
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "timing": "3 min sin resolver",
+      "texto": "Teneis 5 letras obtenidas en las pruebas anteriores. La pista del mensaje dividido os revelo la sexta. Pensad en lo que define a todo lo que la Abuela Elena quizo dejaros."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "timing": "6 min sin resolver",
+      "texto": "Las 6 letras forman una sola palabra. Es la palabra que da nombre al juego y que representa lo mas importante que Elena os dejo. L-E-G-A-D-O."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "timing": "8 min sin resolver",
+      "texto": "Las letras son L(1)-E(2)-G(3)-A(4)-D(5)-O(6). La sexta letra es O de Orgullo. El codigo del candado es LEGADO."
+    }
+  ],
+  "solucion": {
+    "descripcion": "Los jugadores usan las 5 letras obtenidas y deducen la sexta (O) a partir de la pista del mensaje dividido. Forman LEGADO en el candado.",
+    "verificacion": "El candado de 6 letras se abre con L-E-G-A-D-O.",
+    "pasos_detallados": [
+      "Los jugadores revisan las letras obtenidas: L(1), E(2), G(3), A(4), D(5)",
+      "Del mensaje dividido, saben que la sexta letra es O (Marzo de 1963, O de Orgullo)",
+      "Cada ficha de letra indica su posicion numerica",
+      "Ordenan las letras: posicion 1=L, 2=E, 3=G, 4=A, 5=D, 6=O",
+      "Forman la palabra LEGADO",
+      "Introducen L-E-G-A-D-O en el candado del cofre",
+      "El cofre se abre",
+      "Dentro encuentran:",
+      "  - La carta de despedida de la Abuela Elena",
+      "  - Un medallon con la foto de un bebe (el cuarto hijo)",
+      "  - Una nota: 'Buscar a Miguel De la Vega, nacido el 14 de marzo de 1963. Hijo de Elena y Rodrigo. Hermano de Marcos, Carmen y Luis. Entregado en adopcion por proteccion. Que la familia se reuna por fin.'"
+    ],
+    "recompensa": {
+      "letra": "O",
+      "carta": "El contenido del cofre: la carta final, el medallon y la verdad completa.",
+      "siguiente_espacio": "Final del juego - el GM lee la carta en voz alta"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "Carta de despedida de la Abuela Elena (DIN-A4, estilo manuscrito sepia, bordes quemados)",
+      "Nota con los datos del cuarto hijo (DIN-A5, papel envejecido)"
+    ],
+    "mobiliario": [],
+    "extras": [
+      "Candado de 6 letras (codigo: LEGADO)",
+      "Cofre de madera o carton grande",
+      "Medallon con foto (colgante simple con foto impresa sepia)",
+      "6 fichas con letras (incluidas en las recompensas de cada prueba)",
+      "Marioneta de madera pequena con hilos rojos (simboliza la familia, dentro del cofre)"
+    ]
+  },
+  "documentos_in_game": [
+    {
+      "titulo": "Carta de despedida de la Abuela Elena",
+      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estais leyendo esta carta, significa que habeis seguido todos los hilos que deje para vosotros. Y eso quiere decir que estais listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nacio el 14 de marzo de 1963, cuando apenas tenia 19 anos. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movia los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que el habia construido.</p><p>Rodrigo decidio que Miguel debia desaparecer. Como quien corta un hilo de marioneta, lo arranco de nuestra vida. Pero yo nunca deje de pensar en el, nunca deje de buscarlo, y siempre supe que algun dia la verdad saldria a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movio permanece para siempre.</p><p>Marcos, vuestro padre, heredo la firmeza de Rodrigo y tambien su silencio. Lucia, vuestra madre, siempre sospecho algo pero me respetaba demasiado para preguntar. Carmen nunca dejo de buscar. Y Luis... Luis fue el unico que se atrevio a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastian, con tu mirada seria y tu corazon fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofia, abrazados siempre en la inocencia que yo protegi — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi ultimo deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompio con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegi a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conserveis: <strong>L</strong>ealtad, <strong>E</strong>mpatia, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sreed libres.</p>",
+      "cantidad": 1,
+      "gm_notas": "El GM lee esta carta en voz alta al abrir el cofre. Es el momento emocional del juego. Debe leerse con calma y sentimiento."
+    }
+  ],
+  "barrera_fisica": {
+    "tipo": "Candado de letras",
+    "ubicacion": "Cofre grande del desvan",
+    "codigo": "LEGADO",
+    "origen_codigo": "Las 6 letras obtenidas en las pruebas, formando la palabra que es tanto el codigo como el significado del juego",
+    "montaje_minutos": 2
+  },
+  "hilo_conductor": {
+    "letra": "O",
+    "significado": "Orgullo - el orgullo de pertenecer a una familia que, a pesar de sus secretos y errores, se mantiene unida por amor",
+    "posicion": 6
+  },
+  "control_movimiento": {
+    "problema_potencial": "Los jugadores pueden tener todas las letras pero no saber el orden correcto",
+    "solucion_implementada": "Cada ficha de letra tiene su posicion numerada (1-6). Si aun asi dudan, el titulo del juego ('El LEGADO de la familia') es la mayor pista."
+  },
+  "metadata": {
+    "fecha_creacion": "2026-05-01",
+    "proyecto": "viernes-de-escape",
+    "adaptado_de": null,
+    "nueva": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "el-legado-de-la-familia",
+  "version": "1.0.0",
+  "description": "Escape room familiar · 2-6 jugadores · ~60 min · 3 salas",
+  "main": "generate-pdf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.43.1"
+  }
+}

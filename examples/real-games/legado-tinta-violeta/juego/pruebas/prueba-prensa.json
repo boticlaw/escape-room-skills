@@ -1,0 +1,136 @@
+{
+  "id": "legado_002_prensa",
+  "nombre": "El Archivo del Jueves",
+  "descripcion": "Los jugadores trabajan en una sala de redacción. Un grupo tiene las portadas de periódicos; otro tiene las fechas. Deben comunicarse verbalmente o por notas para emparejarlas y reconstruir la cronología. El código del candado son los DÍAS de los artículos: 15-22-08-03 → 1-5-2-2.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 4,
+  "espacio": 2,
+  "planta": 1,
+  "escritora": "Carmen Arroyo Rodríguez",
+  "skill_primario": "prueba-comunicacion-mensajes",
+  "skills_secundarios": ["prueba-logica-emparejamiento", "prueba-temporal"],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 3,
+  "jugadores_max": 5,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Comunicación verbal o por notas para emparejar portadas con fechas y reconstruir cronología",
+    "elementos_necesarios": [
+      "Set A: 4 portadas de periódicos antiguos (sin fecha visible)",
+      "Set B: 4 fichas con fechas completas (sin portada)",
+      "Tablero cronológico con 4 huecos para ordenar",
+      "Calendario de 1968-1971 visible en pared",
+      "Bloc de notas pequeñas para mensajes (opcional)",
+      "CAJA/ARCHIVADOR con CANDADO DE COMBINACIÓN de 4 dígitos"
+    ],
+    "distribucion_roles": {
+      "portadistas": "2 jugadores con portadas, describen contenido",
+      "fechadores": "2 jugadores con fechas, buscan correspondencia",
+      "cronologista": "Ordena las fichas en el tablero cronológico"
+    },
+    "articulos_especificos": [
+      {"periodico": "El Norte de Castilla", "fecha": "15 marzo 1968", "dia": 15, "titulo": "Casilda Ordóñez presenta poemario"},
+      {"periodico": "El Día de Palencia", "fecha": "22 junio 1969", "dia": 22, "titulo": "Académica recibe homenaje"},
+      {"periodico": "El Norte de Castilla", "fecha": "08 septiembre 1970", "dia": 8, "titulo": "Escritoras palentinas se unen"},
+      {"periodico": "El Día de Palencia", "fecha": "03 marzo 1971", "dia": 3, "titulo": "Pacto de la Tinta Violeta"}
+    ],
+    "codigo_candado": "1-5-2-2",
+    "mecanismo_codigo": "Los primeros dígitos de cada día forman el código: 15-22-8-3 → 1-5-2-2",
+    "mecanismo_barrera": "Caja con candado de combinación de 4 dígitos. Código: 1-5-2-2"
+  },
+  "control_movimiento": {
+    "problema_potencial": "Ninguno - todos en misma habitación con información dividida",
+    "solucion_implementada": "Información dividida por defecto - cada grupo tiene lo que el otro necesita",
+    "tipo_solucion": "diseño_resistente",
+    "prioridad": "baja"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Carmen era cronista: las fechas son su oficio. Comunicad bien lo que veis, el otro grupo tiene lo que falta."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Emparejad las portadas con las fechas correctas. Ordenadlas cronológicamente. Los DÍAS de las fechas son la clave."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Los días de los artículos son: 15, 22, 8, 3. El código es 1-5-2-2."
+    }
+  ],
+  "solucion": {
+    "descripcion": "Comunicar portadas y fechas entre subgrupos. Emparejar correctamente. Ordenar cronológicamente. Leer los DÍAS: 15-22-8-3. Código: 1-5-2-2.",
+    "verificacion": "La caja se abre con 1-5-2-2, revelando el contenido.",
+    "recompensa": {
+      "carta": "Carta de Carmen: 'Enriqueta teje historias con hilos de fantasía. Buscad la puerta con el LIBRO ALADO.'",
+      "parte_cartel": "Símbolo de PRENSA",
+      "silaba": "NA",
+      "siguiente_espacio": "Taller (símbolo: Libro Alado)"
+    }
+  },
+  "misterio_secundario": {
+    "silaba": "NA",
+    "nombre_completo": "CATALINA VALENTO",
+    "posicion": 2,
+    "simbolo_visual": "Prensa antigua"
+  },
+  "barrera_fisica": {
+    "tipo": "Caja/archivador con candado de combinación de 4 dígitos",
+    "ubicacion": "Sobre mesa de redacción, visible desde el inicio",
+    "codigo": "1-5-2-2",
+    "origen_codigo": "Días de los artículos (15, 22, 8, 3) → primeros dígitos",
+    "montaje_minutos": 5,
+    "materiales": [
+      "1 candado de combinación de 4 dígitos (~8€)",
+      "1 caja o archivador pequeño (~5€)"
+    ]
+  },
+  "adaptaciones": {
+    "mas_facil": {
+      "descripcion": "Mostrar día resaltado en cada fecha",
+      "implementacion": "Día en rojo o subrayado"
+    },
+    "mas_dificil": {
+      "descripcion": "Añadir fechas distractoras y portadas falsas",
+      "implementacion": "2 fechas y 1 portada extra que no corresponden"
+    },
+    "sin_separacion": {
+      "descripcion": "Todos pueden ver todo",
+      "implementacion": "Portadas y fechas en mesa común"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "4 portadas de periódicos antiguos (Set A)",
+      "4 fichas con fechas completas (Set B)",
+      "1 tablero cronológico con 4 huecos",
+      "1 calendario de pared 1968-1971",
+      "1 carta de Carmen (hoja de periódico envejecida)",
+      "1 parte del cartel del juego con símbolo de PRENSA",
+      "1 sílaba 'NA' (letras tipo imprenta)"
+    ],
+    "mobiliario": [
+      "Mesa de redacción",
+      "Caja con candado de 4 dígitos"
+    ],
+    "extras": [
+      "Bloc de notas pequeñas (opcional)",
+      "Máquina de escribir decorativa"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-16",
+    "fecha_actualizacion": "2026-03-18",
+    "version": 4,
+    "testado": false,
+    "cambios_version_4": "ELIMINADO tubo neumático. Ahora comunicación verbal directa o por notas. Formato competitivo - mismo espacio para ambos equipos con sets paralelos.",
+    "notas": "Preparar fichas con fechas completas. El tubo neumático era complejo y caro."
+  }
+}

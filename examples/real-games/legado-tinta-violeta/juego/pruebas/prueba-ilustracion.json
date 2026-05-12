@@ -1,0 +1,174 @@
+{
+  "id": "legado_004_ilustracion",
+  "nombre": "Las Portadas de Noemí",
+  "descripcion": "Los jugadores encuentran portadas de los libros ilustrados de Noemí. Algunas portadas están dentro de la pecera del estudio y otras fuera. Los jugadores de cada lado se tienen que comunicar por escrito (pizarras) para encontrar las diferencias entre las versiones. Cada ilustración tiene un NÚMERO DIFERENTE de diferencias, así que cada portada les da un número. Luego ordenan las portadas utilizando un listado de libros publicados por la autora (orden cronológico). Ese orden les da la secuencia de números que es el código del candado.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 5,
+  "espacio": 4,
+  "planta": 2,
+  "escritora": "Noemí Villamuza",
+  "skill_primario": "prueba-visual-cooperativo",
+  "skills_secundarios": [
+    "prueba-comunicacion",
+    "prueba-logica"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 3,
+  "jugadores_max": 5,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Encontrar diferencias entre versiones de portadas separadas por la pecera (dentro vs fuera). Cada portada tiene un número distinto de diferencias. Ordenar las portadas cronológicamente usando un listado de la bibliografía de Noemí. La secuencia de números de diferencias en orden cronológico es el código.",
+    "elementos_necesarios": [
+      "ESTUDIO DE GRABACIÓN con cristal de pecera (ya existe en el espacio)",
+      "6 portadas de libros ilustrados de Noemí (3 dentro del estudio, 3 fuera) - cada una con versión diferente entre ambos lados",
+      "1 listado/bibliografía de libros publicados por Noemí con año de publicación (para ordenar cronológicamente)",
+      "2 pizarras pequeñas con rotuladores (una dentro, una fuera)",
+      "CAJA CON CANDADO de 4 dígitos"
+    ],
+    "distribucion_roles": {
+      "grupo_pecera_interior": "2-3 jugadores DENTRO del estudio, observan 3 portadas",
+      "grupo_pecera_exterior": "2-3 jugadores FUERA del estudio, observan las otras 3 portadas",
+      "cronologo": "1 jugador consulta la bibliografía y ordena las portadas"
+    },
+    "restriccion_comunicacion": {
+      "tipo": "Física - cristal de pecera",
+      "descripcion": "El cristal del estudio permite verse pero NO escucharse. Solo pueden comunicarse por escrito (pizarras).",
+      "justificacion_narrativa": "Noemí creó versiones diferentes de sus portadas para distintas ediciones. Solo comparando ambas versiones se descubre cuántas diferencias hay en cada una."
+    },
+    "codigo_candado": "3-7-2-5",
+    "mecanismo_codigo": "4 portadas ordenadas cronológicamente (2003, 2005, 2008, 2012). Cada una tiene un número distinto de diferencias: 3, 7, 2, 5. Código: 3-7-2-5.",
+    "mecanismo_barrera": "Caja con candado de combinación de 4 dígitos. Código: 3-7-2-5.",
+    "portadas": [
+      {
+        "libro": "La casa de la abuela",
+        "anio": 2003,
+        "diferencias": 3,
+        "ubicacion": "Fuera del estudio"
+      },
+      {
+        "libro": "El patito feo no era tan feo",
+        "anio": 2005,
+        "diferencias": 7,
+        "ubicacion": "Dentro del estudio"
+      },
+      {
+        "libro": "Olivia y la lluvia",
+        "anio": 2008,
+        "diferencias": 2,
+        "ubicacion": "Fuera del estudio"
+      },
+      {
+        "libro": "El monstruo de colores",
+        "anio": 2012,
+        "diferencias": 5,
+        "ubicacion": "Dentro del estudio"
+      }
+    ]
+  },
+  "control_movimiento": {
+    "problema_potencial": "Jugadores podrían intentar salir/entrar del estudio para ver ambas ilustraciones",
+    "solucion_implementada": "Puerta del estudio con llave - GM cierra con grupo dentro al inicio, abre al completar",
+    "tipo_solucion": "restriccion_fisica",
+    "prioridad": "critica"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Noemí hizo versiones diferentes de sus portadas para distintas ediciones. Comparad las que veis desde cada lado del cristal. ¿Cuántas diferencias hay en cada una? Luego buscad el orden correcto."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Cada portada tiene un número DISTINTO de diferencias. Anotad cuántas diferencias tiene cada una. Usad el listado de libros publicados por Noemí para ordenar las portadas cronológicamente. El código es la secuencia de números en ese orden."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Las 4 portadas ordenadas por año de publicación: La casa de la abuela (2003, 3 diferencias), El patito feo no era tan feo (2005, 7 diferencias), Olivia y la lluvia (2008, 2 diferencias), El monstruo de colores (2012, 5 diferencias). Código: 3-7-2-5."
+    }
+  ],
+  "solucion": {
+    "descripcion": "1) Comunicar por escrito a través del cristal de la pecera para comparar versiones de portadas. 2) Contar las diferencias de cada portada. 3) Ordenar las 4 portadas cronológicamente usando el listado bibliográfico de Noemí. 4) Obtener la secuencia: 3, 7, 2, 5. 5) Introducir 3-7-2-5 en el candado.",
+    "verificacion": "La caja se abre con 3-7-2-5, revelando su contenido.",
+    "pasos_detallados": [
+      "Paso 1: Repartirse entre dentro y fuera del estudio de grabación",
+      "Paso 2: Observar las portadas desde cada lado del cristal",
+      "Paso 3: Comunicarse por pizarras para comparar versiones",
+      "Paso 4: Contar las diferencias de cada portada: 3, 7, 2, 5",
+      "Paso 5: Consultar el listado de libros de Noemí con años de publicación",
+      "Paso 6: Ordenar las portadas cronológicamente: 2003, 2005, 2008, 2012",
+      "Paso 7: Obtener la secuencia de números: 3-7-2-5",
+      "Paso 8: Introducir 3-7-2-5 en el candado de 4 dígitos",
+      "Paso 9: Abrir la caja y obtener la recompensa"
+    ],
+    "recompensa": {
+      "carta": "Carta de Noemí: 'Amalia guarda el fuego de la poesía en el rincón más alto. Buscad la puerta con la LLAMA.'",
+      "parte_cartel": "Símbolo de PINCEL",
+      "silaba": "VA",
+      "siguiente_espacio": "Poesía (símbolo: Llama)"
+    }
+  },
+  "misterio_secundario": {
+    "silaba": "VA",
+    "nombre_completo": "CATALINA VALENTO",
+    "posicion": 4,
+    "simbolo_visual": "Pincel cruzado"
+  },
+  "barrera_fisica": {
+    "tipo": "Caja con candado de combinación de 4 dígitos",
+    "ubicacion": "Fuera del estudio, sobre mesa",
+    "codigo": "3-7-2-5",
+    "origen_codigo": "Diferencias por portada en orden cronológico: 3-7-2-5",
+    "montaje_minutos": 5,
+    "materiales": [
+      "1 candado de combinación de 4 dígitos (~8€)",
+      "1 caja pequeña (~5€)"
+    ]
+  },
+  "adaptaciones": {
+    "mas_facil": {
+      "descripcion": "Reducir a 3 portadas (código de 3 dígitos)",
+      "implementacion": "Eliminar una portada, usar candado de 3 dígitos"
+    },
+    "mas_dificil": {
+      "descripcion": "Añadir portadas distractores que no forman parte del código",
+      "implementacion": "2 portadas extra con diferencias pero que no están en la bibliografía oficial"
+    },
+    "sin_pecera": {
+      "descripcion": "Usar dos habitaciones separadas con tablets para videollamada",
+      "implementacion": "Tablets con app de videollamada (sin audio, solo video)"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "6 portadas de libros ilustrados de Noemí (3 dentro, 3 fuera, versiones diferentes) (×2 equipos = 12)",
+      "1 listado bibliográfico de Noemí con años de publicación (×2)",
+      "1 carta de Noemí (hoja de dibujo con boceto, ×2)",
+      "1 parte del cartel del juego con símbolo de PINCEL (×2)",
+      "1 sílaba 'NA' (letras caligrafiadas, ×2)"
+    ],
+    "mobiliario": [
+      "ESTUDIO DE GRABACIÓN con cristal de pecera",
+      "2 pizarras pequeñas con rotuladores",
+      "Caja con candado de 4 dígitos"
+    ],
+    "extras": [
+      "Rotuladores para pizarras",
+      "Paleta de colores decorativa"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-16",
+    "fecha_actualizacion": "2026-03-24",
+    "version": 5,
+    "testado": false,
+    "cambios_version_4": "USA LA PECERA DEL ESTUDIO DE GRABACIÓN (ventaja del espacio). Eliminado biombo caro/complejo. Separación natural por cristal con comunicación escrita. Formato competitivo.",
+    "notas": "REFACTOR v5: Mecánica cambiada de '7 diferencias + 3 comunes = 7-3' a 'portadas con distinto nº de diferencias + orden cronológico = 3-7-2-5'. Ahora usa portadas reales de Noemí. Cada portada tiene diferente nº de diferencias. El orden cronológico da la secuencia del código. Candado de 4 dígitos (no 2). Duplicada para ambos equipos.",
+    "cambios_version_5": "REFACTOR completa. Antes: 7 diferencias + 3 comunes = código 7-3 (candado 2 dígitos). Ahora: 4 portadas con diferente nº de diferencias, ordenadas cronológicamente = 3-7-2-5 (candado 4 dígitos). Usa portadas de libros ilustrados de Noemí. Lista bibliográfica para ordenar. Más coherente con la autora real."
+  }
+}

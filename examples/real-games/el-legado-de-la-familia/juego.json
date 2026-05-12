@@ -1,0 +1,147 @@
+{
+  "nombre": "El Legado de la Familia",
+  "subtitulo": "Un misterio familiar que espera ser descubierto",
+  "tipo": "violeta",
+  "version": "5.1",
+  "fecha": "Mayo 2026",
+
+  "meta": [
+    {"label": "Programa", "value": "Viernes de Escape"},
+    {"label": "Fecha", "value": "15 de mayo de 2026"},
+    {"label": "Jugadores", "value": "2-6 (óptimo: 4)"},
+    {"label": "Duración", "value": "50 minutos"},
+    {"label": "Dificultad", "value": "4/10"},
+    {"label": "Edad mínima", "value": "12 años"},
+    {"label": "Tipo", "value": "Investigación / Thriller familiar cinematográfico cooperativo"},
+    {"label": "Presupuesto", "value": "~130 EUR"}
+  ],
+  "duracion_minutos": 49,
+  "jugadores": {"min": 2, "max": 6, "optimo": 4},
+  "dificultad": {"media": 4.2, "escala": "1-10", "curva": [4, 3, 4, 6, 5, 3]},
+  "edad_minima": 12,
+  "presupuesto_estimado": "130€",
+  "hilo_conductor": "LEGADO — cada letra = un valor familiar (L=Lealtad/P1-Tablero, E=Empatía/P2-Retrato, G=Generosidad, A=Amor, D=Dignidad, O=Orgullo)",
+  "materiales": {
+    "coste_total_estimado": "121€",
+    "desglose": {
+      "P1_Tablero": "~20€ (tablero plegable, fichas, candado 3 dígitos, sobres, cartas vintage)",
+      "P2_Retrato": "~25€ (marco con doble fondo + imanes ocultos, papel ferromagnético verde, retrato base, diario)",
+      "P3_Album": "~15€ (álbum vintage, 8 tarjetas foto con capa oculta raspable, candado 4dígitos)",
+      "P4_Arbol": "~30€ (póster A2, 10 tarjetas, cryptex 5 letras, tubo cartón, certificado)",
+      "P5_Mensaje": "~12€ (12 fragmentos carta rasgada, sobre lacrado, cera roja)",
+      "P6_Ceremonia": "~25€ (árbol madera/cartón, 6 letras, marioneta, tijeras doradas, foto Miguel)"
+    }
+  },
+  "simbolos_puertas": {
+    "despacho": {
+      "simbolo": "🧵",
+      "nombre": "HILO ROJO",
+      "razon": "Relacionado con los hilos de marioneta que conectan pruebas en el despacho (P1, P2)"
+    },
+    "salon": {
+      "simbolo": "🎭",
+      "nombre": "MARIONETA",
+      "razon": "Símbolo central del juego; el salón revela la verdad oculta tras el árbol genealógico (P3, P4)"
+    },
+    "desvan": {
+      "simbolo": "✂️",
+      "nombre": "TIJERAS",
+      "razon": "Donde se cortan los hilos: el desván acoge la ceremonia final de liberación (P5, P6)"
+    }
+  },
+  "secciones": [
+    {
+      "titulo": "Sinopsis",
+      "contenido_html": "<p>La Abuela Elena ha fallecido. En su testamento ha dejado un legado oculto que solo los nietos pueden descubrir. A través de 6 pruebas repartidas por su casa (Despacho, Salón, Desván), los jugadores reconstruyen la historia familiar y descubren un secreto guardado durante generaciones: la existencia de un cuarto hijo dado en adopción.</p><p>El hilo conductor es la palabra <strong>LEGADO</strong>, formada por las letras obtenidas en cada prueba, cada una representando un valor familiar: Lealtad, Empatía, Generosidad, Amor, Dignidad y Orgullo.</p><p><strong>Símbolo central: Las Marionetas.</strong> Una mano invisible ha movido los hilos de esta familia durante décadas. El abuelo Rodrigo, como patriarca fundador, tomó decisiones que alteraron el destino de todos. Sus hilos conectan generaciones, secretos y verdades ocultas. Cada prueba revela un hilo más de la marioneta familiar. Al final, los jugadores cortan todos los hilos.</p>"
+    },
+    {
+      "titulo": "Personajes (3 Generaciones)",
+      "contenido_html": "<p><strong>GENERACIÓN 1 — Los Fundadores:</strong></p><p><strong>Abuelo Rodrigo</strong> — Patriarca fundador. Pelo blanco, rostro amable pero firme, traje oscuro elegante. El que movía los hilos de la familia. Tomó la decisión de dar al cuarto hijo en adopción por 'proteger a la familia'. Su sombra domina toda la historia.</p><p><strong>Abuela Elena</strong> — Matriarca fallecida. Elegante, peinado clásico, collar de perlas, sonrisa suave. Ocultó la existencia de un cuarto hijo durante décadas para protegerlo. Su testamento desencadena la investigación.</p><p><strong>GENERACIÓN 2 — Los Herederos:</strong></p><p><strong>Padre Marcos</strong> — Hijo mayor. Traje oscuro y corbata, apariencia limpia y seria. La figura más dominante, postura firme, mirada directa. Heredero del legado y de los secretos. Siempre supo que había un secreto pero respetó el silencio.</p><p><strong>Madre Lucía</strong> — Esposa de Marcos. Elegante, cabello oscuro, vestido negro, collar discreto. Sofisticada, tranquila. Protege a sus hijos y conoce más de lo que dice.</p><p><strong>Tía Carmen</strong> — Hija mediana, profesora. Siempre quiso descubrir la verdad y encontró pistas prohibidas.</p><p><strong>Tío Luis</strong> — Hijo menor. El que se marchó y nunca quiso hablar del pasado.</p><p><strong>GENERACIÓN 3 — Los Nietos (JUGADORES):</strong></p><p><strong>Sebastián</strong> — Adolescente, polo oscuro, mirada segura. Heredero silencioso del drama familiar.</p><p><strong>Olivia</strong> — Adolescente, vestido claro, gesto dulce. Humanidad y cercanía emocional.</p><p><strong>Leo</strong> — Niño pequeño, chaleco elegante, sonrisa leve.</p><p><strong>Sofía</strong> — Niña pequeña, pelo rubio ondulado, gesto cariñoso. Inocencia absoluta.</p><p><strong>Miguel</strong> — El cuarto hijo, dado en adopción en 1963. El secreto que Elena protegió toda su vida. Nunca apareció en las fotos familiares. Tuvo un nombre protegido: M. Á. (Miguel Álvarez).</p>"
+    },
+    {
+      "titulo": "Flujo del Juego",
+      "contenido_html": "<p><strong>Fase 1: Briefing Self-Service (3 min)</strong> — Los jugadores encuentran un sobre lacrado en la puerta del despacho con el testamento de Elena impreso, una llave y una nota: 'Alguien ha estado moviendo los hilos de esta familia durante décadas. Hoy vosotros, los nietos, tenéis la oportunidad de cortarlos.' El GM solo abre la puerta del espacio al inicio y ya no interviene.</p><p><strong>Fase 2: El Despacho (17 min)</strong> — Pruebas 1 y 2. Los jugadores descubren el tablero lógico de presencias con testimonios cruzados y un candado de 3 dígitos. Luego encuentran el retrato familiar con capas ferromagnéticas que revelan un niño borrado. El diario de Elena y las cartas familiares proporcionan contexto narrativo. Los hilos rojos conectan las pruebas.</p><p><strong>Fase 3: El Salón (16 min)</strong> — Pruebas 3 y 4. Emparejamiento cooperativo de fotos del álbum (todos ven todas las tarjetas, buscan conexiones sensoriales; los dígitos están bajo capa raspable que solo se raspa al confirmar pareja) y luego el árbol genealógico con cryptex. Aparece la figura de Miguel con identidad protegida. Los hilos rojos siguen conectando pruebas.</p><p><strong>Fase 4: El Desván (14 min)</strong> — Pruebas 5 y 6. Reconstrucción de carta rasgada de Elena (fragmentos con bordes irregulares que encajan como puzzle físico) para encontrar la ubicación del sobre oculto. Luego ceremonia final: colocan LEGADO en las ramas del Árbol del Reencuentro, la raíz se abre, un jugador lee la carta de Elena, colocan la foto de Miguel y cortan el último hilo de la marioneta.</p>"
+    },
+    {
+      "titulo": "Hilo Conductor",
+      "contenido_html": "<p>Cada prueba otorga una letra que forma la palabra <strong>LEGADO</strong>. Cada letra está conectada por un hilo de marioneta literal (cinta roja fina) que va de prueba en prueba:</p><p><strong>L</strong> — Lealtad (Prueba 1: El Tablero de las Presencias)</p><p><strong>E</strong> — Empatía (Prueba 2: El Retrato que Miente)</p><p><strong>G</strong> — Generosidad (Prueba 3: Las Voces que No se Muestran)</p><p><strong>A</strong> — Amor (Prueba 4: El Árbol que Faltaba)</p><p><strong>D</strong> — Dignidad (Prueba 5: El Mensaje Dividido)</p><p><strong>O</strong> — Orgullo (Prueba 6: El Árbol del Reencuentro)</p><p>Los hilos representan cómo el Abuelo Rodrigo manipuló el destino de la familia. Al completar cada prueba, los jugadores 'cortan' un hilo de la marioneta. En la prueba final, cortan el último hilo.</p>"
+    }
+  ],
+  "pruebas": [
+    {"id": "prueba-001", "archivo": "prueba-001-tablero.json", "nombre": "El Tablero de las Presencias", "mecanica": "Deducción lógica tipo Zebra con candado de 3 dígitos (315)"},
+    {"id": "prueba-002", "archivo": "prueba-002-retrato.json", "nombre": "El Retrato que Miente", "mecanica": "Detección magnética con código numérico (5-2-8) y candado real de 3 dígitos"},
+    {"id": "prueba-003", "archivo": "prueba-003-fotos-recuerdos.json", "nombre": "Las Voces que No se Muestran", "mecanica": "Emparejamiento cooperativo de fotos con capas ocultas"},
+    {"id": "prueba-004", "archivo": "prueba-004-linea-temporal.json", "nombre": "El Árbol que Faltaba", "mecanica": "Árbol genealógico con cryptex"},
+    {"id": "prueba-005", "archivo": "prueba-005-mensaje-dividido.json", "nombre": "El Mensaje Rasgado", "mecanica": "Reconstrucción física de carta rasgada"},
+    {"id": "prueba-006", "archivo": "prueba-006-cofre-legado.json", "nombre": "El Árbol del Reencuentro", "mecanica": "Ordenación ceremonial cooperativa"}
+  ],
+  "roles_sistema": {
+    "descripcion": "Sistema de roles con auto-selección para maximizar la participación de todos los jugadores. Sin imposición, sin GM.",
+    "roles_por_prueba": {
+      "prueba_001": ["Guardianes de testimonio (1 por jugador)", "Colocador rotativo", "Abogado del diablo", "Archivista"],
+      "prueba_002": ["Explorador magnético", "Marcador de puntos", "Observador lateral", "Cronista", "Custodio del marco"],
+      "prueba_003": ["Lector de fotos", "Emparejador", "Anotador", "Raspador"],
+      "prueba_004": ["Lectores de hoja (1-2 por jugador)", "Cartógrafo", "Verificador de ramas", "Guardián del cryptex"],
+      "prueba_005": ["Buscador de bordes", "Lector de fragmentos", "Ensamblador", "Verificador"],
+      "prueba_006": ["Portadores de valor (1 por jugador)", "Lector de raíz", "Guardián de memoria", "Restaurador final", "Director de orden"]
+    },
+    "reglas_rotacion": [
+      "Nadie repite el mismo rol en pruebas consecutivas",
+      "El Colocador/Coordinador de una prueba NO puede ser Colocador/Coordinador en la siguiente",
+      "SUGERENCIA impresa en cada prueba: 'Si ya fuiste X en la prueba anterior, prueba ser Y ahora'",
+      "Nadie puede anunciar un código hasta que todos los elementos físicos estén colocados",
+      "Cada testimonio/tarjeta lo lee su dueño, no otro jugador"
+    ],
+    "consejo_familiar_in_game": "CONSEJO DE LA FAMILIA:\nNadie coloca hasta que todas las voces hayan hablado.\nNadie anuncia un código hasta que todas las fichas estén en su sitio.\nCada testimonio lo lee su dueño, no otro."
+  },
+  "historial_versiones": [
+    {
+      "version": "1.0",
+      "fecha": "2026-05-01",
+      "tipo": "minor",
+      "descripcion": "Versión inicial del juego El legado de la familia para Viernes de Escape"
+    },
+    {
+      "version": "2.0",
+      "fecha": "2026-05-02",
+      "tipo": "major",
+      "descripcion": "Adaptación completa al cartel: 3 generaciones (Abuelo Rodrigo, Abuela Elena / Padre Marcos, Madre Lucía / Nietos), marionetas como símbolo central, tono cinematográfico Godfather, materiales sepia/vintage, elementos de niebla/siluetas/fuego en narrativa"
+    },
+    {
+      "version": "3.0",
+      "fecha": "2026-05-10",
+      "tipo": "major",
+      "descripcion": "Merge con Legado Familia Sandoval v3.1 — mecánicas más cooperativas y ricas. P1: Retrato con acetatos (exploración visual), P2: Tablero Zebra (deducción cruzada), P3: Emparejamiento verbal, P4: Árbol genealógico con cryptex, P5: Mensaje Dividido (mantenida), P6: Árbol del Reencuentro con ceremonia cooperativa. Sistema de roles con rotación obligatoria."
+    },
+    {
+      "version": "3.1",
+      "fecha": "2026-05-10",
+      "tipo": "patch",
+      "descripcion": "Correcciones tras juicio v3.0: Curva de dificultad ajustada (3→4→4→6→5→3). P4 subida a dificultad 6 con giro narrativo de Miguel (cuarto hijo secreto, Álvaro como padre adoptivo, ALVAR explicado). P5 barrera física redefinida (sobre lacrado rojo bajo tercera tabla). P6 bajada a dificultad 3 (ceremonia simple). Cartas de navegación entre pruebas. Campos estructurados en juego.json (duración, jugadores, dificultad, presupuesto). Símbolos en puertas. Presupuesto estimado a 120€."
+    },
+    {
+      "version": "4.0",
+      "fecha": "2026-05-11",
+      "tipo": "major",
+      "descripcion": "ZERO GM + ANTI-TRAMPA: Briefing self-service (sobre lacrado en puerta, sin GM como Abogado). Roles auto-selección (sin rotación impuesta por GM). P1: Papel ferromagnético verde + imanes en marco (detección magnética cooperativa). P2: Candado 4 dígitos + código no-obvio (3154). P3: Capas ocultas raspables en sellos (barrera física real). P5: Cajas auto-equipo (sin GM divide). P6: Carta leída por jugador, tijeras en sobre P5. P4: ALVAR deducido de Álvaro (no explícito). Debriefing impreso como carta de cierre."
+    },
+    {
+      "version": "5.0",
+      "fecha": "2026-05-11",
+      "tipo": "major",
+      "descripcion": "REDISEÑO 2-6 JUGADORES SIN EQUIPOS. Jugadores 2-6 (óptimo 4). P3 rediseñada: emparejamiento cooperativo sin equipos (todos ven todas las fotos). P5 rediseñada: reconstrucción física de carta rasgada (sin cajas auto-equipo). Eliminada toda mecánica de división en equipos. Todas las pruebas adaptadas a rango 2-6 jugadores. Presupuesto ajustado a ~121€."
+    },
+    {
+      "version": "5.1",
+      "fecha": "2026-05-12",
+      "tipo": "patch",
+      "descripcion": "Reorden P1↔P2: Tablero de las Presencias pasa a P1 (L-Lealtad, candado 315), Retrato que Miente pasa a P2 (E-Empatía, candado 5-2-8). Curva ajustada [4,3,4,6,5,3]. Materiales renombrados con prefijo numérico."
+    }
+  ],
+  "secciones_final": [
+    {
+      "titulo": "Debriefing",
+      "contenido_html": "<p><strong>Última carta de Elena</strong> (impresa junto al árbol, para leer al final):</p><p>La Abuela Elena confió en vosotros para descubrir la verdad. No siempre los secretos se ocultan por maldad, a veces se ocultan por amor. Lo importante es que, cuando la verdad sale a la luz, la familia se mantiene unida. Vosotros habéis cortado los hilos de las marionetas. Ahora sois libres de escribir vuestra propia historia.</p><p><strong>Preguntas para el grupo:</strong></p><p>1. ¿Cómo os habéis sentido al descubrir los secretos de la familia?</p><p>2. ¿En qué momento creísteis que no ibais a lograrlo?</p><p>3. ¿Quién aportó la idea clave en cada prueba?</p><p>4. ¿Si fueseis la Abuela Elena, habríais ocultado el secreto?</p><p>5. ¿Qué significa para vosotros la palabra LEGADO?</p><p>6. ¿Quién creéis que movía los hilos de la familia? ¿Era Rodrigo, o todos eran marionetas de las circunstancias?</p>"
+    }
+  ]
+}

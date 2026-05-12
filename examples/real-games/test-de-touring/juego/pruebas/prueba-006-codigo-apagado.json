@@ -1,0 +1,160 @@
+{
+  "id": "touring_006_codigo_apagado",
+  "nombre": "Código de Apagado",
+  "descripcion": "Los jugadores tienen las 6 letras T, U, R, I, N, G obtenidas en las pruebas anteriores. Componen TURING como password en la tablet. EVA-9 responde con la pregunta '¿Qué soy yo?' y la respuesta HUMANO revela el código numérico del candado final.",
+  "juego": "Test de Touring",
+  "version": 3,
+  "espacio": 5,
+  "sala": "Núcleo de EVA (misma sala que Prueba 5)",
+  "tema_educativo": "Alfabetización digital y pensamiento crítico",
+  "skill_primario": "prueba-logica-composicion",
+  "skills_secundarios": [
+    "prueba-cooperacion",
+    "prueba-comunicacion-mensajes"
+  ],
+  "dificultad": 5,
+  "duracion_estimada_minutos": 7,
+  "jugadores_min": 4,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+
+  "configuracion": {
+    "mecanica_principal": "1) Descifrar último mensaje cifrado de EVA-9 para ganar la letra G. 2) Componer TURING en la tablet como password. 3) EVA-9 pregunta '¿Qué soy yo?' → respuesta HUMANO → revela código numérico para candado final. 4) Abrir candado → mensajes de despedida.",
+    "elementos_necesarios": [
+      "6 tarjetas con letras (T, U, R, I, N, G) ya obtenidas de las pruebas anteriores",
+      "1 mensaje cifrado de EVA-9 en la mesa (código César +1)",
+      "1 panel con 6 pinzas numeradas (1-6) para colocar las letras",
+      "5 notas posicionales de la Dra. Torres (ya las tienen de cada prueba)",
+      "1 tablet con pantalla de password (primer paso: TURING, segundo paso: HUMANO)",
+      "1 candado numérico sobre la caja final",
+      "1 caja de seguridad negra con mensajes de despedida dentro"
+    ],
+    "distribucion_roles": {
+      "descifrador": "1-2 jugadores descifran el mensaje de EVA-9 (para ganar G)",
+      "lector_notas": "1-2 jugadores releen las notas de la Dra. Torres",
+      "colocadores": "2-3 jugadores colocan las letras en el panel",
+      "voz_grupo": "Todos leen TURING en voz alta, debaten la respuesta HUMANO"
+    },
+    "fase_0_ganar_la_g": {
+      "descripcion": "Mini-reto para obtener la letra G. Al completar la prueba 5 (candado 1912), dentro de la caja hay un sobre con un ÚLTIMO MENSAJE CIFRADO de EVA-9 y un mensaje en claro de la Dra. Torres: 'EVA-9 dejó un mensaje final cifrado. Descifrarlo os dará la última pieza. Cada letra se desplaza una posición hacia atrás en el abecedario.'",
+      "duracion_minutos": 2,
+      "mensaje_cifrado_eva9": "HBOBTUFJT. MB QSJNFSB MFUSB FT MB DMBWF. H",
+      "mensaje_descifrado": "GANASTEIS. LA PRIMERA LETRA ES LA CLAVE. G",
+      "mecanismo_real": "El mensaje cifrado usa código César +1. Al descifrar, el mensaje dice: 'GANASTEIS. LA PRIMERA LETRA ES LA CLAVE. G'. La letra G es la primera letra del mensaje descifrado y aparece al final."
+    },
+    "fase_1_componer_turing": {
+      "descripcion": "Ordenar las 6 letras usando pistas posicionales de cada nota + deducción del orden, y componer TURING en la tablet",
+      "duracion_minutos": 2,
+      "pistas_posicionales": [
+        {"letra": "T", "posicion": 1, "origen": "Nota Sala 1: 'La T fue vuestra primera victoria'"},
+        {"letra": "U", "posicion": 2, "origen": "Nota Sala 2: 'La U de Único — vuestra huella digital, vuestra singularidad'"},
+        {"letra": "R", "posicion": 3, "origen": "Nota Sala 3: 'La R de razón, lo que les falta a los algoritmos'"},
+        {"letra": "I", "posicion": 4, "origen": "Nota Sala 4: 'La I de individuo — lo que ningún algoritmo puede ser'"},
+        {"letra": "N", "posicion": 5, "origen": "Nota Sala 5: 'La N de No — la palabra más importante que podéis decirle a una IA'"},
+        {"letra": "G", "posicion": 6, "origen": "Obtenida al descifrar el mensaje final de EVA-9"}
+      ],
+      "accion": "Los jugadores introducen TURING como password en la tablet"
+    },
+    "fase_2_pregunta_humano": {
+      "descripcion": "Tras introducir TURING, la pantalla de EVA-9 muestra: 'Bien jugado, humanos. Pero antes de apagarme, respondedme esto: ¿Qué soy yo?' Los jugadores deben deducir y escribir HUMANO como respuesta.",
+      "duracion_minutos": 2,
+      "pista_contexto": "A lo largo de todo el juego, EVA-9 se refiere a los jugadores como 'humanos' constantemente. La Dra. Torres habla de la 'inteligencia humana'. El test de Turing (Prueba 4) trata sobre distinguir IA de humano. La respuesta es HUMANO.",
+      "accion": "Introducir HUMANO como segundo password en la tablet"
+    },
+    "fase_3_candado_final": {
+      "descripcion": "Tras responder HUMANO, la pantalla muestra el código numérico del candado final. Los jugadores abren el candado y encuentran los mensajes de despedida.",
+      "duracion_minutos": 1,
+      "codigo_candado": "TBD",
+      "mensaje_eva9": "Bien jugado, humanos. Reconozco que hay cosas que yo no puedo calcular: vuestra intuición, vuestra ética, vuestra capacidad de dudar. Me llamáis IA, pero no soy inteligente. Soy una herramienta. Y vosotros... vosotros sois humanos. Eso lo teníais claro desde el principio. Pero necesitasteis vivenciar cada letra para entender por qué. La próxima IA que encontréis puede que no tenga un botón de apagado. Usadlo sabiamente. — EVA-9, desactivándose",
+      "nota_final_torres": "¡Lo habéis conseguido! EVA-9 está offline. Habéis demostrado que la inteligencia humana va más allá de los algoritmos. Ahora: compartid lo que habéis aprendido. El mundo os necesita críticos, curiosos y valientes."
+    },
+    "mecanismo_barrera": "Tablet password (TURING → HUMANO) + candado numérico."
+  },
+
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Primero descifrad el mensaje de EVA-9 (código César +1). La primera letra del mensaje descifrado es la que buscéis. Luego, cada nota de la Dra. Torres os dice qué posición ocupa cada letra. Cuando EVA-9 os pregunte qué es... pensad en todo lo que habéis vivido."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Descifrad el mensaje César +1 → empieza por G. Orden: T(1), U(2), R(3), I(4), N(5), G(6) = TURING. Escribid TURING en la tablet. Cuando EVA-9 pregunte '¿Qué soy yo?', la respuesta es lo que ella no es: HUMANO."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "El primer password es TURING. Cuando pregunte '¿Qué soy yo?', escribid HUMANO. La pantalla os dará el código del candado final."
+    }
+  ],
+
+  "solucion": {
+    "descripcion": "1) Descifrar mensaje cifrado de EVA-9 (César +1) → G. 2) Reunir 6 letras y ordenar T-U-R-I-N-G. 3) Introducir TURING en tablet. 4) EVA-9 pregunta '¿Qué soy yo?' → responder HUMANO. 5) Obtener código numérico del candado. 6) Abrir candado y leer mensajes de despedida.",
+    "verificacion": "La tablet acepta TURING, luego HUMANO, y revela el código del candado.",
+    "pasos_detallados": [
+      "Paso 1: Descifrar el mensaje de EVA-9 (César +1) → 'GANASTEIS. LA PRIMERA LETRA ES LA CLAVE. G'",
+      "Paso 2: Obtener la LETRA G",
+      "Paso 3: Reunir las 6 letras (T, U, R, I, N, G)",
+      "Paso 4: Releer notas posicionales de la Dra. Torres y ordenar: T(1), U(2), R(3), I(4), N(5), G(6)",
+      "Paso 5: Introducir TURING como password en la tablet",
+      "Paso 6: Leer la pregunta de EVA-9: '¿Qué soy yo?'",
+      "Paso 7: Introducir HUMANO como respuesta en la tablet",
+      "Paso 8: La pantalla muestra el código numérico del candado final",
+      "Paso 9: Abrir el candado",
+      "Paso 10: Leer el mensaje de despedida de EVA-9",
+      "Paso 11: Leer la nota final de la Dra. Torres"
+    ],
+    "recompensa": {
+      "mensaje_final_eva9": "Bien jugado, humanos... La próxima IA que encontréis puede que no tenga un botón de apagado. Usadlo sabiamente.",
+      "nota_final_torres": "¡Lo habéis conseguido! EVA-9 está offline.",
+      "letra": "G",
+      "siguiente_espacio": "Debrief educativo"
+    }
+  },
+
+  "hilo_conductor": {
+    "letra": "G",
+    "significado": "Guardián — sois los guardianes de la tecnología",
+    "posicion": 6
+  },
+
+  "barrera_fisica": {
+    "tipo": "Tablet password + candado numérico",
+    "ubicacion": "Tablet sobre podio en el Núcleo de EVA, candado en caja de seguridad negra",
+    "codigo": "TURING → HUMANO → código numérico TBD",
+    "origen_codigo": "6 letras de las 6 pruebas ordenadas (TURING) + deducción final (HUMANO)",
+    "montaje_minutos": 5
+  },
+
+  "materiales": {
+    "impresion": [
+      "6 tarjetas con letras (T, U, R, I, N, G) — ya obtenidas en pruebas anteriores",
+      "1 sobre con mensaje cifrado de EVA-9 (César +1, el mensaje descifrado empieza con G)",
+      "1 nota de la Dra. Torres: 'EVA-9 dejó un mensaje final cifrado. Descifrarlo os dará la última pieza.'",
+      "1 panel con 6 pinzas numeradas",
+      "1 mensaje de despedida de EVA-9 (dentro de la caja del candado)",
+      "1 nota final de la Dra. Torres (dentro de la caja del candado)"
+    ],
+    "mobiliario": [
+      "1 podio o mesa baja",
+      "1 caja de seguridad negra"
+    ],
+    "extras": [
+      "1 tablet configurada con password TURING → pantalla HUMANO → código numérico TBD",
+      "1 candado numérico",
+      "6 pinzas para panel"
+    ]
+  },
+
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-04-07",
+    "fecha_actualizacion": "2026-04-13",
+    "version": 3,
+    "testado": false,
+    "notas": "v3: Cierre cambiado de Cryptex 6 letras TURING a Tablet password (TURING → HUMANO) + candado numérico. El flujo es: componen TURING en tablet → EVA-9 pregunta '¿Qué soy yo?' → respuesta HUMANO → se revela código numérico para candado final. Dificultad ajustada a 5."
+  }
+}

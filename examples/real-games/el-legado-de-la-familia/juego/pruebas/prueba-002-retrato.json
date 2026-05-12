@@ -1,0 +1,247 @@
+{
+  "id": "legado_002_retrato_magnetico",
+  "nombre": "El Retrato que Miente",
+  "descripcion": "Los jugadores descubren un retrato familiar enmarcado en el despacho de Elena. El retrato muestra a la familia completa, pero algo falta: un niño fue borrado de la imagen. En un cajón del escritorio hay una carpeta de restauración que contiene una hoja de papel ferromagnético verde (detector de magnetismo) y una nota de Elena. Al descolgar el retrato para examinarlo, encuentran en su reverso una inscripción manuscrita de Elena. Detrás del panel trasero del marco, imanes neodimio ocultos forman un CÓDIGO NUMÉRICO de 3 dígitos (5-2-8). Al pasar el papel verde por la parte trasera del marco, los imanes se revelan como puntos agrupados en 3 columnas: 5 puntos | 2 puntos | 8 puntos. Con ese código abren un candado de combinación de 3 dígitos que cierra una caja de madera vintage en el escritorio. Dentro de la caja encuentran la letra L física y un sobre sellado con el fragmento de carta de Elena y la carta de navegación. Un hilo rojo de marioneta conecta el marco con el diario del escritorio.",
+  "juego": "el-legado-de-la-familia",
+  "version": 16,
+  "espacio": 2,
+  "sala": "El Despacho de la Abuela",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": [
+    "prueba-investigacion-texto"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 8,
+  "jugadores_min": 2,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "paralelo",
+  "configuracion": {
+    "mecanica_principal": "Detección magnética cooperativa con código numérico. Los jugadores usan una hoja de papel ferromagnético verde (detector de magnetismo) para escanear la parte trasera del marco del retrato familiar. Imanes neodimio ocultos detrás del panel trasero del marco están organizados en 3 columnas con 5, 2 y 8 imanes respectivamente. El papel verde reacciona al magnetismo, revelando puntos oscuros. Los jugadores deben contar los puntos de cada columna para obtener el código 5-2-8. Con ese código abren un candado de combinación de 3 dígitos que cierra una caja de madera vintage en el escritorio.",
+    "mecanismo_barrera": "CANDADO REAL de combinación de 3 dígitos (código 5-2-8) que cierra una caja de madera vintage. El código solo se obtiene escaneando el reverso del marco con el papel verde y contando los imanes de cada columna. Sin papel verde = sin código = sin apertura. El candado es tangible, metálico, con ruedas numéricas. Feedback inmediato: se abre o no se abre.",
+    "construccion_mecanismo": {
+      "que_lo_abre": "Candado de combinación de 3 dígitos, código 5-2-8",
+      "como_se_construye": "1) Comprar un marco de fotos A3 de madera con panel trasero desmontable (pestañas metálicas). 2) Pegar 15 imanes neodimio pequeños (5mm) en la cara interna del panel trasero del marco, organizados en 3 columnas: columna izquierda = 5 imanes en línea vertical, columna central = 2 imanes, columna derecha = 8 imanes. Usar pegamento epoxi para fijación permanente. 3) Separar las columnas con al menos 3cm de distancia entre ellas para que los puntos no se solapen. 4) Recolocar el panel trasero. 5) El retrato va en la parte frontal. 6) Comprar un candado de combinación de 3 dígitos y una caja de madera vintage con cierre para candado (~20x15cm). 7) Poner la letra L + sobre dentro de la caja, cerrar con el candado en combinación 5-2-8.",
+      "feedback_al_jugador": "El papel verde muestra puntos oscuros donde hay imanes. Al contar por columnas obtienen 5-2-8. Al poner 5-2-8 en el candado y tirar, se abre con un clic satisfactorio. Si el código es incorrecto, el candado no abre — feedback negativo inmediato.",
+      "presupuesto_aproximado": "Marco A3 madera: ~8€ | 15 imanes neodimio 5mm: ~3€ | Papel ferromagnético verde (ya existente): 0€ | Candado combinación 3 dígitos: ~3€ | Caja madera vintage: ~5€ | Total: ~19€"
+    },
+    "elementos_necesarios": [
+      "Marco A3 madera con panel trasero desmontable (pestañas metálicas estándar)",
+      "15 imanes neodimio pequeños (5mm) pegados en el panel trasero en 3 columnas: 5 | 2 | 8",
+      "1 hoja de papel ferromagnético verde (detector de magnetismo, tamaño A5 aprox.)",
+      "Retrato familiar impreso en papel mate (estética sepia cinematográfica, familia con espacio vacío donde alguien fue borrado)",
+      "Reverso del retrato con inscripción manuscrita de Elena (visible al descolgarlo)",
+      "Caja de madera vintage con cierre para candado (~20x15cm)",
+      "Candado de combinación de 3 dígitos (código: 5-2-8)",
+      "Carpeta de restauración con etiqueta in-game",
+      "Diario de la Abuela Elena (3 páginas, contexto narrativo en escritorio)",
+      "Letra física L en madera/cartón grueso",
+      "Sobre P1 con fragmento de carta y carta de navegación",
+      "Cinta roja fina (hilo de marioneta) del marco al diario"
+    ],
+    "distribucion_roles": {
+      "explorador_magnetico": "Pasa el papel verde por la parte trasera del marco para detectar los imanes ocultos.",
+      "marcador": "Marca con lápiz o notas adhesivas las posiciones donde el papel verde reacciona.",
+      "contador": "Cuenta los imanes detectados en cada columna y anota los 3 números del código.",
+      "cronista": "Lee el diario de Elena y la inscripción del reverso del retrato.",
+      "custodio_marco": "Sostiene el marco estable sobre la mesa (lado trasero hacia arriba) mientras los otros escanean."
+    },
+    "rotacion_obligatoria": "SUGERENCIA impresa: 'Si fuisteis Explorador o Marcador en esta prueba, probad otros roles en la siguiente.'"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "La etiqueta de la carpeta dice que Elena usaba el papel verde para ver lo que los ojos no pueden. Descolgad el retrato y pasad el papel verde por la parte de atrás, despacio.",
+      "timing": "Tras 3 minutos sin progreso"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "El papel verde reacciona donde hay imanes ocultos. Escanead todo el reverso del marco y marcad cada punto. Los imanes están agrupados en columnas. Contad cuántos puntos hay en cada columna: esos son los números del código del candado.",
+      "timing": "Tras 5 minutos sin progreso o petición de pista"
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Los imanes detrás del marco están en 3 columnas verticales. Pasad el papel verde por cada zona, contad los puntos de cada columna de izquierda a derecha. El resultado es un código de 3 cifras para el candado de la caja.",
+      "timing": "Tras 7 minutos o petición explícita"
+    }
+  ],
+  "solucion": {
+    "descripcion": "Los jugadores encuentran la carpeta de restauración con el papel ferromagnético verde. Descuelgan el retrato y encuentran la inscripción de Elena en el reverso. Escanean la parte trasera del marco con el papel verde, detectando imanes agrupados en 3 columnas (5, 2 y 8 imanes). Con el código 5-2-8 abren el candado de la caja de madera vintage. Dentro encuentran la letra L física y un sobre sellado.",
+    "verificacion": "El candado se abre con el código 5-2-8. Auto-validación física: el candado se abre o no.",
+    "pasos_detallados": [
+      "Encontrar la carpeta de restauración en el cajón abierto del escritorio.",
+      "Dentro hay una hoja de papel ferromagnético verde y una nota de Elena.",
+      "Leer la etiqueta de la carpeta: 'El papel verde revela lo que los ojos no pueden ver.'",
+      "Notar el retrato familiar en la pared. La cinta roja (hilo de marioneta) lo conecta con el diario.",
+      "Descolgar el retrato. En el reverso hay una inscripción manuscrita de Elena sobre un 'ausente' y una instrucción: 'Mirad donde los ojos no llegan.'",
+      "Un jugador (Explorador Magnético) pasa el papel verde despacio por la parte trasera del marco.",
+      "El papel verde reacciona (se oscurece) donde hay imanes — aparecen puntos en 3 columnas verticales.",
+      "Otros jugadores marcan cada punto de reacción.",
+      "Un jugador (Contador) cuenta los imanes de cada columna: 5, 2, 8.",
+      "Probar el código 5-2-8 en el candado de la caja de madera vintage del escritorio.",
+      "El candado se abre. Dentro: la letra L física + sobre sellado.",
+      "Leer el fragmento de carta de Elena (E = Empatía) y la carta de navegación hacia P3.",
+      "Opcional: mirar el retrato desde ángulo oblicuo para notar la silueta borrada de un niño.",
+      "El diario de Elena proporciona contexto narrativo sobre la lealtad y los hilos de la marioneta."
+    ],
+    "recompensa": {
+      "letra": "E",
+      "valor": "Empatía",
+      "carta": "Fragmento de Elena sobre la empatía de escribir dos nombres para un mismo niño.",
+      "carta_navegacion": "Fragmento de carta de Elena: \"No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan. Id al salón.\"",
+      "siguiente_espacio": "Salón Familiar (P3)",
+      "revelacion_narrativa": "Un niño fue pintado encima en el retrato: existe un ausente en la familia. Rodrigo movió los hilos para borrarlo. Elena guardó el secreto por empatía, protegiendo dos nombres para un mismo niño."
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "1 retrato familiar A3 en papel mate (estética sepia cinematográfica, familia con espacio vacío donde alguien fue pintado encima)",
+      "1 reverso del retrato con inscripción manuscrita de Elena: 'Este retrato miente. Hubo uno más entre nosotros. Rodrigo lo borró con la misma mano con la que movía nuestros hilos. Yo guardé su recuerdo donde los ojos no llegan. — E.'",
+      "1 hoja de papel ferromagnético verde (detector de magnetismo, tamaño A5 aprox.)",
+      "1 etiqueta de carpeta de restauración: 'Restauración del retrato familiar. Elena insistió: usad el papel verde para ver lo que el marco oculta. Pasadlo por DETRÁS, despacio.'",
+      "1 sobre con fragmento de carta de Elena (Empatía)",
+      "1 carta de navegación: \"No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan. Id al salón.\"",
+      "Diario de la Abuela Elena — 3 páginas DIN-A4 estilo sepia manuscrito, bordes quemados"
+    ],
+    "mobiliario": [
+      "1 marco A3 madera envejecido sepia con panel trasero desmontable (pestañas metálicas estándar)",
+      "15 imanes neodimio 5mm fijados con epoxi en la cara interna del panel trasero en 3 columnas: 5 | 2 | 8 (separación mínima 3cm entre columnas)",
+      "1 caja de madera vintage (~20x15cm) con cierre para candado, cerrada con candado combinación 3 dígitos (5-2-8)",
+      "1 escritorio con cajón (donde encontrar la carpeta de restauración y el diario)"
+    ],
+    "extras": [
+      "1 pieza física letra L en madera/cartón grueso",
+      "1 duplicado GM de letra L",
+      "1 copia GM reducida del retrato completo (con el niño visible)",
+      "Cinta roja fina (hilo de marioneta) del marco al diario",
+      "Notas adhesivas pequeñas o lápiz para que los jugadores marquen puntos"
+    ]
+  },
+  "documentos_in_game": [
+    {
+      "titulo": "Inscripción en el Reverso del Retrato",
+      "texto": "Este retrato miente. Hubo uno más entre nosotros.\n\nRodrigo lo borró con la misma mano con la que movía nuestros hilos. Yo guardé su recuerdo donde los ojos no llegan.\n\nMirad detrás. Usad el papel verde.\n\n— E.",
+      "cantidad": 1,
+      "gm_notas": "Escrita a mano (o impresa en estilo manuscrito) en el reverso del retrato. Solo visible al descolgar el marco. Momento revelación."
+    },
+    {
+      "titulo": "Etiqueta de la Carpeta de Restauración",
+      "texto": "Restauración del retrato familiar.\n\nDentro encontraréis una hoja verde de detección magnética. Elena escribió: 'El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'",
+      "cantidad": 1,
+      "gm_notas": "Pegada en la carpeta que contiene la hoja de papel ferromagnético verde. Encontrada en el cajón del escritorio."
+    },
+    {
+      "titulo": "Fragmento de Carta de Elena (P2)",
+      "texto": "Empatía fue escribir dos nombres para un mismo niño y confiar en que algún día ninguno de los dos le pesaría. Si encontráis una ausencia en esta casa, no la acuséis todavía. Preguntad primero a los lugares donde todos estuvimos presentes.\n\nRodrigo movía los hilos de esta familia con mano firme. Pero ni él pudo cortar del todo el hilo que nos unía a quien faltaba.",
+      "cantidad": 1,
+      "gm_notas": "Dentro de la caja de madera. Referencia a Rodrigo y los hilos de marioneta."
+    },
+    {
+      "titulo": "Carta de Navegación (P2 → P3)",
+      "texto": "Bajo el retrato, Elena anotó: \"No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan. Id al salón.\"",
+      "cantidad": 1,
+      "gm_notas": "En el mismo sobre. Guía al Salón Familiar para P3."
+    },
+    {
+      "titulo": "Diario de la Abuela Elena - Página 1 (Entrada de 1962)",
+      "texto": "<p><strong>Primavera de 1962</strong></p><p>Hoy he cumplido 18 años. Mi madre me preparó un pastel de limón, el mismo que hacía su abuela. La cocina olía a azúcar y a recuerdos felices. Pensé que la vida sería siempre así, sencilla y luminosa.</p><p>&#9733; <em>Las mañanas en esta casa siempre me recordaron lo afortunada que fui de nacer rodeada de amor. No todos pueden decir lo mismo.</em></p><p>&#9733; <em>En el jardín, las rosas que plantó mi abuela siguen floreciendo cada año. Es como si el tiempo se detuviera en este rincón del mundo.</em></p><p>Papi me regaló un collar de perlas que perteneció a su madre. Dijo que las perlas son lágrimas de alegría convertidas en joya. Lo guardaré siempre.</p><p>&#9733; <em>El rosal trepador que cubre la fachada de nuestra casa fue plantado el día que nací. Mamá siempre dijo que crecería conmigo.</em></p><p>&#9733; <em>Recuerdo haber leído en algún sitio que las familias son como los árboles: las raíces pueden ser invisibles, pero sostienen todo.</em></p>",
+      "cantidad": 1,
+      "gm_notas": "El diario es DOCUMENTO COMPLEMENTARIO. Las estrellas marcan párrafos del acróstico (L-E-E-R) como guiño a versión anterior."
+    },
+    {
+      "titulo": "Diario de la Abuela Elena - Página 2 (Entrada de 1985)",
+      "texto": "<p><strong>Octubre de 1985</strong></p><p>El tiempo pasa y los hijos crecen. A veces miro a Marcos, Carmen y Luis durmiendo y me pregunto si estaré haciendo lo correcto. La maternidad no viene con instrucciones.</p><p>Marcos ya tiene 10 años y es tan responsable como su padre. Se pone corbata para ir al colegio y mira al mundo con la misma firmeza que Rodrigo. Carmen, con 7, no para de hacer preguntas. Y el pequeño Luis, apenas tiene 3 años y ya sonríe a todo el mundo.</p><p>Rodrigo trabajó hasta tarde otra vez. La casa está en silencio y yo escribo para no pensar demasiado. A veces el silencio duele más que las palabras. Rodrigo dice que las familias fuertes no necesitan explicaciones, solo obediencia. Yo digo que las familias fuertes necesitan verdad.</p><p>Guardo un secreto que pesa como una montaña. Hay noches en las que me despierto sobresaltada, pensando en el día en que todo tendrá que salir a la luz. Pero no hoy. Hoy protejo.</p>",
+      "cantidad": 1,
+      "gm_notas": "Contexto narrativo. Referencia a Rodrigo como figura dominante."
+    },
+    {
+      "titulo": "Diario de la Abuela Elena - Página 3 (Entrada de 2005)",
+      "texto": "<p><strong>Marzo de 2005</strong></p><p>Los nietos ya están creciendo. Ayer vino a visitarme Lucía con los niños. Sebastián, con su polo oscuro y mirada seria, me recuerda a Marcos cuando era joven. Olivia inclinó la cabeza y me dio un beso en la mejilla, tan dulce. El pequeño Leo y Sofía jugaban abrazados en el jardín. Los vi desde la ventana y pensé: esta es la inocencia que yo protegí.</p><p>Si alguno de mis nietos lee esto algún día, quiero que sepa que todo lo que hice fue por amor. No siempre se puede proteger a quien uno quiere de la forma más honesta.</p><p>He escondido pistas por toda la casa. Si alguien es lo suficientemente paciente y trabajador para seguirlas, encontrará la verdad que dejé preparada.</p><p>El reloj del salón marca siempre la misma hora: las tres y cuarto. Ese fue el momento en que todo cambió. Nunca lo olvidó.</p><p>A veces, la única forma de proteger es callar. Pero el silencio tiene fecha de caducidad.</p>",
+      "cantidad": 1,
+      "gm_notas": "Referencia directa a los nietos: Sebastián, Olivia, Leo y Sofía. Lucía = Madre del cartel."
+    }
+  ],
+  "barrera_fisica": {
+    "tipo": "CANDADO DE COMBINACIÓN de 3 dígitos (código 5-2-8)",
+    "ubicacion": "Caja de madera vintage en el escritorio del despacho",
+    "codigo": "5-2-8",
+    "origen_codigo": "15 imanes neodimio pegados en 3 columnas en la cara interna del panel trasero del marco: col. izquierda = 5 imanes, col. central = 2 imanes, col. derecha = 8 imanes. Solo detectables con papel ferromagnético verde.",
+    "construccion_fisica": {
+      "paso_1": "Marco fotos A3 madera con panel trasero desmontable (pestañas metálicas estándar). ~8€",
+      "paso_2": "Pegar 15 imanes neodimio 5mm con epoxi en cara interna del panel trasero en 3 columnas (separación >=3cm): col1=5 imanes vertical, col2=2 imanes, col3=8 imanes. ~3€",
+      "paso_3": "Imprimir retrato sepia A3, colocar en marco (cara frontal). Imprimir inscripción Elena en reverso.",
+      "paso_4": "Candado combinación 3 dígitos + caja madera vintage con cierre. Poner código 5-2-8. ~8€ total",
+      "paso_5": "Colocar letra L + sobre sellado dentro de la caja. Cerrar con candado.",
+      "paso_6": "Colgar retrato en pared. Dejar caja en escritorio. Carpeta con papel verde en cajón.",
+      "presupuesto_total": "~19€"
+    },
+    "montaje_minutos": 10
+  },
+  "hilo_conductor": {
+    "letra": "E",
+    "significado": "Empatía",
+    "posicion": 2
+  },
+  "control_movimiento": {
+    "problema_potencial": "Los jugadores podrían intentar forzar la caja, adivinar el código por fuerza bruta, o manipular el marco sin resolver el puzzle.",
+    "solucion_implementada": "1) Candado 3 dígitos = 1000 combinaciones, fuerza bruta inviable en 8 min. 2) Caja resistente. 3) Sin papel verde imposible detectar imanes (dentro del marco). 4) Sticker in-game: 'Elena selló esta caja. Quien intente abrirla sin su permiso destruirá lo que hay dentro.' 5) Imanes fijos dentro — no visibles sin papel.",
+    "tipo_solucion": "prevencion"
+  },
+  "metadata": {
+    "fecha_creacion": "2026-05-10",
+    "fecha_redesenho": "2026-05-11",
+    "proyecto": "viernes-de-escape",
+    "adaptado_de": "legado-familia/prueba-001-diario-estrellas.json (Sandoval v3.1) → v5.0 ferromagnético → v6.0 MECANISMO REAL",
+    "version": "6.0",
+    "testado": false,
+    "notas": "v6.0 → P2 (intercambiado desde P1). Candado 3 dígitos (5-2-8). Ahora es prueba 2: El Retrato que Miente. Empatía."
+  },
+  "ingame_docs": [
+    {
+      "titulo": "Inscripción en el Reverso del Retrato",
+      "texto": "Este retrato miente. Hubo uno más entre nosotros.\n\nRodrigo lo borró con la misma mano con la que movía nuestros hilos. Yo guardé su recuerdo donde los ojos no llegan.\n\nMirad detrás. Usad el papel verde.\n\n— E.",
+      "cantidad": 1,
+      "gm_notas": "Escrita a mano (o impresa en estilo manuscrito) en el reverso del retrato. Solo visible al descolgar el marco. Momento revelación."
+    },
+    {
+      "titulo": "Etiqueta de la Carpeta de Restauración",
+      "texto": "Restauración del retrato familiar.\n\nDentro encontraréis una hoja verde de detección magnética. Elena escribió: 'El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'",
+      "cantidad": 1,
+      "gm_notas": "Pegada en la carpeta que contiene la hoja de papel ferromagnético verde. Encontrada en el cajón del escritorio."
+    },
+    {
+      "titulo": "Fragmento de Carta de Elena (P2)",
+      "texto": "Empatía fue escribir dos nombres para un mismo niño y confiar en que algún día ninguno de los dos le pesaría. Si encontráis una ausencia en esta casa, no la acuséis todavía. Preguntad primero a los lugares donde todos estuvimos presentes.\n\nRodrigo movía los hilos de esta familia con mano firme. Pero ni él pudo cortar del todo el hilo que nos unía a quien faltaba.",
+      "cantidad": 1,
+      "gm_notas": "Dentro de la caja de madera. Referencia a Rodrigo y los hilos de marioneta."
+    },
+    {
+      "titulo": "Carta de Navegación (P2 → P3)",
+      "texto": "Bajo el retrato, Elena anotó: \"No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan. Id al salón.\"",
+      "cantidad": 1,
+      "gm_notas": "En el mismo sobre. Guía al Salón Familiar para P3."
+    },
+    {
+      "titulo": "Diario de la Abuela Elena - Página 1 (Entrada de 1962)",
+      "texto": "<p><strong>Primavera de 1962</strong></p><p>Hoy he cumplido 18 años. Mi madre me preparó un pastel de limón, el mismo que hacía su abuela. La cocina olía a azúcar y a recuerdos felices. Pensé que la vida sería siempre así, sencilla y luminosa.</p><p>&#9733; <em>Las mañanas en esta casa siempre me recordaron lo afortunada que fui de nacer rodeada de amor. No todos pueden decir lo mismo.</em></p><p>&#9733; <em>En el jardín, las rosas que plantó mi abuela siguen floreciendo cada año. Es como si el tiempo se detuviera en este rincón del mundo.</em></p><p>Papi me regaló un collar de perlas que perteneció a su madre. Dijo que las perlas son lágrimas de alegría convertidas en joya. Lo guardaré siempre.</p><p>&#9733; <em>El rosal trepador que cubre la fachada de nuestra casa fue plantado el día que nací. Mamá siempre dijo que crecería conmigo.</em></p><p>&#9733; <em>Recuerdo haber leído en algún sitio que las familias son como los árboles: las raíces pueden ser invisibles, pero sostienen todo.</em></p>",
+      "cantidad": 1,
+      "gm_notas": "El diario es DOCUMENTO COMPLEMENTARIO. Las estrellas marcan párrafos del acróstico (L-E-E-R) como guiño a versión anterior."
+    },
+    {
+      "titulo": "Diario de la Abuela Elena - Página 2 (Entrada de 1985)",
+      "texto": "<p><strong>Octubre de 1985</strong></p><p>El tiempo pasa y los hijos crecen. A veces miro a Marcos, Carmen y Luis durmiendo y me pregunto si estaré haciendo lo correcto. La maternidad no viene con instrucciones.</p><p>Marcos ya tiene 10 años y es tan responsable como su padre. Se pone corbata para ir al colegio y mira al mundo con la misma firmeza que Rodrigo. Carmen, con 7, no para de hacer preguntas. Y el pequeño Luis, apenas tiene 3 años y ya sonríe a todo el mundo.</p><p>Rodrigo trabajó hasta tarde otra vez. La casa está en silencio y yo escribo para no pensar demasiado. A veces el silencio duele más que las palabras. Rodrigo dice que las familias fuertes no necesitan explicaciones, solo obediencia. Yo digo que las familias fuertes necesitan verdad.</p><p>Guardo un secreto que pesa como una montaña. Hay noches en las que me despierto sobresaltada, pensando en el día en que todo tendrá que salir a la luz. Pero no hoy. Hoy protejo.</p>",
+      "cantidad": 1,
+      "gm_notas": "Contexto narrativo. Referencia a Rodrigo como figura dominante."
+    },
+    {
+      "titulo": "Diario de la Abuela Elena - Página 3 (Entrada de 2005)",
+      "texto": "<p><strong>Marzo de 2005</strong></p><p>Los nietos ya están creciendo. Ayer vino a visitarme Lucía con los niños. Sebastián, con su polo oscuro y mirada seria, me recuerda a Marcos cuando era joven. Olivia inclinó la cabeza y me dio un beso en la mejilla, tan dulce. El pequeño Leo y Sofía jugaban abrazados en el jardín. Los vi desde la ventana y pensé: esta es la inocencia que yo protegí.</p><p>Si alguno de mis nietos lee esto algún día, quiero que sepa que todo lo que hice fue por amor. No siempre se puede proteger a quien uno quiere de la forma más honesta.</p><p>He escondido pistas por toda la casa. Si alguien es lo suficientemente paciente y trabajador para seguirlas, encontrará la verdad que dejé preparada.</p><p>El reloj del salón marca siempre la misma hora: las tres y cuarto. Ese fue el momento en que todo cambió. Nunca lo olvidó.</p><p>A veces, la única forma de proteger es callar. Pero el silencio tiene fecha de caducidad.</p>",
+      "cantidad": 1,
+      "gm_notas": "Referencia directa a los nietos: Sebastián, Olivia, Leo y Sofía. Lucía = Madre del cartel."
+    }
+  ]
+}

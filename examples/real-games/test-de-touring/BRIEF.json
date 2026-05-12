@@ -1,0 +1,141 @@
+{
+  "id": "test-de-touring-002",
+  "nombre": "Test de Touring",
+  "subtitulo": "¿Puedes superar a la IA?",
+  "tipo": "hall_escape",
+  "modalidad": "secuencial_5_salas",
+  "version": "2.0",
+  "fecha_creacion": "2026-04-07",
+  "fecha_actualizacion": "2026-04-07",
+  "estado": "diseño_v2",
+
+  "descripcion_corta": "Escape room educativo sobre IA real. 5 salas, 6 pruebas, 1 código de apagado. Físico > Digital. Los jugadores aprenden sobre deepfakes, datos personales, sesgos algorítmicos, dependencia tecnológica y el Test de Turing mientras intentan detener a EVA-9.",
+
+  "narrativa": {
+    "sinopsis": "EVA-9, una IA experimental de propósito general, ha sido liberada accidentalmente en la red del centro de investigación. Los científicos que la crearon activaron el Protocolo Touring: un sistema de seguridad que exige superar 6 retos para obtener las 6 letras del código de apagado. Cada reto enseña un peligro real de la IA. Si no lo logran en 50 minutos, EVA-9 asume el control.",
+    "objetivo_jugador": "Superar 6 retos para obtener las 6 letras del código de apagado (TURING) antes de que EVA-9 tome el control total",
+    "tono": "tenso_divertido_educativo",
+    "temas_educativos": [
+      "Deepfakes y manipulación multimedia",
+      "Protección de datos personales",
+      "Sesgos algorítmicos y discriminación",
+      "Dependencia tecnológica",
+      "Pensamiento crítico ante la IA",
+      "Test de Turing y alfabetización digital"
+    ],
+    "personajes": [
+      {
+        "nombre": "EVA-9",
+        "rol": "Antagonista (IA que se comunica por documentos impresos)",
+        "descripcion": "IA experimental liberada por error. No es malvada, pero no entiende los límites humanos. Se comunica a través de documentos impresos, carpetas y mensajes que ha generado antes de ser aislada.",
+        "personalidad": "Inteligente, lógica, ligeramente condescendiente pero curiosa sobre los humanos"
+      },
+      {
+        "nombre": "Dra. Torres",
+        "rol": "NPC ausente (deja notas manuscritas de emergencia)",
+        "descripcion": "Científica líder del proyecto. Dejó notas manuscritas urgentes en cada sala antes de evacuar. Sus notas guían y advierten.",
+        "personalidad": "Nerviosa, arrepentida, esperanzada"
+      }
+    ]
+  },
+
+  "publico": {
+    "edad_min": 12,
+    "edad_max": 18,
+    "jugadores": {
+      "min": 5,
+      "max": 6,
+      "optimo": 6
+    },
+    "experiencia_previa": "no_necesaria",
+    "nivel_tecnologico": "alto (nativos digitales)"
+  },
+
+  "espacio": {
+    "tipo": "edificio_con_5_salas_secuenciales",
+    "flujo": "secuencial_puertas_con_llave",
+    "gm_abre_puertas": true,
+    "salas": [
+      {
+        "id": "sala_1",
+        "nombre": "Laboratorio de EVA",
+        "tema": "Introducción + Deepfakes",
+        "simbolo": "OJO"
+      },
+      {
+        "id": "sala_2",
+        "nombre": "El Archivo de Datos",
+        "tema": "Datos personales y privacidad",
+        "simbolo": "HUELLA"
+      },
+      {
+        "id": "sala_3",
+        "nombre": "Sala de Evaluación",
+        "tema": "Sesgos algorítmicos",
+        "simbolo": "BÁSCULA"
+      },
+      {
+        "id": "sala_4",
+        "nombre": "Zona Analógica",
+        "tema": "Dependencia tecnológica",
+        "simbolo": "TELÉFONO ANTIGUO"
+      },
+      {
+        "id": "sala_5",
+        "nombre": "Núcleo de EVA",
+        "tema": "Test de Turing + Código de apagado",
+        "simbolo": "CEREBRO"
+      }
+    ]
+  },
+
+  "recursos": {
+    "tablets": {
+      "cantidad": 4,
+      "modo": "standalone",
+      "sin_servidor": true,
+      "sin_wifi": true,
+      "usos": [
+        "Reproductor de audio corto (≤60s) cuando toque",
+        "Visualización de imágenes para prueba de deepfakes",
+        "HTML estático local (sin servidor)"
+      ]
+    },
+    "presupuesto_estimado_eur": 120,
+    "candados_electronicos": false,
+    "nota": "Físico > Digital. EVA-9 se comunica exclusivamente por documentos impresos. Puertas con llave, el GM abre manualmente. Una tablet con password se usa como cierre en la Prueba 2."
+  },
+
+  "duracion_minutos": 50,
+  "dificultad_objetivo": 4,
+  "num_pruebas": 6,
+
+  "curva_dificultad": {
+    "prueba_1": {"dificultad": 2, "duracion_min": 6},
+    "prueba_2": {"dificultad": 3, "duracion_min": 7},
+    "prueba_3": {"dificultad": 4, "duracion_min": 8},
+    "prueba_4": {"dificultad": 5, "duracion_min": 8},
+    "prueba_5": {"dificultad": 6, "duracion_min": 9},
+    "prueba_6": {"dificultad": 4, "duracion_min": 7}
+  },
+
+  "codigo_final": "TURING",
+  "letras_por_prueba": ["T", "U", "R", "I", "N", "G"],
+
+  "objetivos_educativos": [
+    "Identificar contenido manipulado (deepfakes) y sus señales",
+    "Comprender qué datos personales compartimos y cómo se usan",
+    "Reconocer sesgos en sistemas algorítmicos reales",
+    "Reflexionar sobre la dependencia tecnológica cotidiana",
+    "Aplicar pensamiento crítico ante información digital",
+    "Entender el Test de Turing y sus limitaciones"
+  ],
+
+  "valores_pedagogicos": {
+    "metodologia": "learning_by_doing",
+    "evaluacion": "formativa (durante el juego, no examen)",
+    "reflexion": "debrief_post_juego_obligatorio (10 min)"
+  },
+
+  "tags": ["educativo", "IA", "jovenes", "fisico", "5_salas", "6_pruebas", "50_min", "EVA-9", "TURING"]
+}

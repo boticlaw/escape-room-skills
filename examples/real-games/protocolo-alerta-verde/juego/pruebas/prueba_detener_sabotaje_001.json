@@ -1,0 +1,95 @@
+{
+  "id": "prueba_detener_sabotaje_001",
+  "nombre": "Detener el Sabotaje",
+  "juego": "protocolo-alerta-verde",
+  "descripcion": "Meta-prueba final en la Sala de Control (Planta 3). Tras escuchar el mensaje FM de Marina en la Prueba 5, los jugadores reciben un Informe de Estado de la Red Verda que resume todo lo ocurrido durante el juego. Deben extraer de ese documento las respuestas a las 4 preguntas que formuló Marina en la radio para deducir el Código Maestro AV1P.",
+  "skill_primario": "prueba-investigacion-texto",
+  "skills_secundarios": ["prueba-logica-posiciones", "prueba-comunicacion-mensajes"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 5,
+  "ubicacion": "Planta 3 — Sala de Control (misma sala que Prueba 5)",
+  "configuracion": {
+    "espacio": "Sala de Control, última planta, ambiente de urgencia",
+    "elementos_fisicos": [
+      "Tablet con app de panel de control",
+      "1 Informe de Estado de la Red Verda (A4, sobre la mesa de control)"
+    ],
+    "mensaje_fm_pista": {
+      "texto": "la primera letra del sistema que cayó primero, la letra de la estación que nunca fue tocada, el primer dígito del código de emergencia de Tomás, y la inicial del hombre que lo hizo todo",
+      "decodificacion": [
+        {"pista": "sistema que cayó primero", "respuesta": "AIRE", "caracter": "A"},
+        {"pista": "estación que nunca fue tocada", "respuesta": "VIDA", "caracter": "V"},
+        {"pista": "primer dígito del código de emergencia de Tomás", "respuesta": "1503", "caracter": "1"},
+        {"pista": "inicial del hombre que lo hizo todo", "respuesta": "PARDO", "caracter": "P"}
+      ]
+    },
+    "informe_estado": {
+      "nombre": "Informe de Estado de la Red Verda — 08/11/2026",
+      "ubicacion": "Sobre la mesa de control",
+      "tipo": "informe_tecnico",
+      "contenido": "════════════════════════════════════════\nINFORME DE ESTADO — RED VERDA\nFecha: 8 de noviembre de 2026\nElaborado por: Unidad de Protección Ambiental\nClasificación: INTERNO\n═══════════════════════════════════════\n\n1. ESTADO DE LOS SISTEMAS\n\n1.1 SISTEMA AIRE — ❌ CRÍTICO\nPrimera alerta registrada el 15/10/2026. Sensores de la Estación NUBE detectaron CO2 a 520 ppm (doble del normal). Fue el PRIMER sistema en fallar. Causa probable: manipulación de sensores.\n\n1.2 SISTEMA AGUA — ❌ CRÍTICO\nFuga detectada el 22/10/2026. Pérdida de 8.000 litros/hora en la Estación RÍO.\n\n1.3 SISTEMA ENERGÍA — ❌ CRÍTICO\nPaneles solares al 12% de rendimiento desde el 03/11/2026. Estación SOL.\n\n1.4 ESTACIÓN VIDA — ✅ OPERATIVO\nTodas las especies monitoreadas dentro de parámetros normales. Es la única estación que NO ha sido manipulada. Funciona con normalidad.\n\nConclusión: El sabotaje comenzó por el AIRE y se extendió a los demás sistemas.\n\n2. INVESTIGACIÓN EN CURSO\n\n2.1 Personal sospechoso: Héctor Pardo (técnico de nivel 3). Ha sido identificado como autor intelectual del sabotaje. Usó credenciales de acceso no autorizadas.\n\n2.2 Testigo clave: Tomás Vega (becario). Fue quien detectó las anomalías. Ha sido bloqueado del sistema.\n\n3. MEDIDAS DE EMERGENCIA\n\n3.1 Código de emergencia: Tomás Vega dejó un código de seguridad por si la situación se agravaba. El código lo creó el 15 de marzo (1503) y puede detener el protocolo de apagado si se introduce en el panel maestro.\n\n3.2 Contacto: Marina Herrera (operadora de radio) ha intentado contactar con las autoridades. Su última transmisión FM fue interceptada.\n\n4. DATOS AMBIENTALES\n\n4.1 CO2 actual: 520 ppm (límite OMS: 400 ppm)\n4.2 PM2.5: 95 µg/m³ (límite OMS: 15 µg/m³)\n4.3 Pérdida de agua: 8.000 litros/hora\n4.4 Energía solar: 12% del rendimiento habitual\n\n5. NOTA DEL SUPERVISOR (Dra. Soler)\n\nSi están leyendo esto, ya saben lo que hay que hacer. Usen el panel maestro y sigan las instrucciones de Marina por radio. El código tiene 4 caracteres.\n\n— Dra. Carmen Soler, Directora Red Verda",
+      "funcion": "Contiene todas las respuestas a las preguntas de Marina, mezcladas con datos técnicos. Los jugadores deben leer, comprender y extraer.",
+      "dato_ambiental": "El CO2 normal es ~415 ppm. A 520 ppm se pierden capacidades cognitivas."
+    }
+  },
+  "solucion": {
+    "pasos": [
+      "1. Recordar las 4 preguntas del mensaje FM de Marina",
+      "2. Leer el Informe de Estado buscando cada respuesta:",
+      "   a. 'Sistema que cayó primero' → Sección 1.1: AIRE fue el PRIMER sistema en fallar → A",
+      "   b. 'Estación que nunca fue tocada' → Sección 1.4: VIDA es la única NO manipulada → V",
+      "   c. 'Primer dígito del código de emergencia de Tomás' → Sección 3.1: Código 1503 → 1",
+      "   d. 'Inicial del hombre que lo hizo todo' → Sección 2.1: Héctor Pardo → P",
+      "3. Formar el código: AV1P",
+      "4. Introducir AV1P en el candado de 4 letras"
+    ],
+    "codigo_recompensa": "AV1P",
+    "tipo_cierre": "candado_4_letras",
+    "es_meta_prueba": true
+  },
+  "recompensa": {
+    "al_abrir": "La tablet muestra la pantalla de victoria: certificado oficial de la Unidad de Protección Ambiental + mensaje de la Dra. Soler: 'Gracias. La Red está en buenas manos.' + botón RESTAURAR RED.",
+    "nota": "La recompensa llega VÍA TABLET al introducir AV1P. No hay recompensa física dentro del candado/panel. El GM entrega certificado y mensaje impresos como recuerdo.",
+    "desbloquea": "Fin del juego — Cierre y celebración"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "timing": "2 min sin progreso",
+      "texto": "Cada pregunta de Marina tiene su respuesta en una sección distinta del informe. Buscad por palabras clave: 'primero', 'nunca', 'código', 'sospechoso'.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 2,
+      "timing": "4 min sin progreso",
+      "texto": "AIRE cayó primero (sección 1.1), VIDA nunca fue tocada (sección 1.4), código de Tomás es 1503 → 1 (sección 3.1), Pardo es el sospechoso (sección 2.1). A-V-1-P.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 3,
+      "timing": "5 min sin progreso",
+      "texto": "A de AIRE, V de VIDA, 1 de 1503, P de PARDO. El código es AV1P.",
+      "da_solucion": true
+    }
+  ],
+  "adaptaciones": {
+    "edad": {
+      "12-14": "El informe tiene 5 secciones claras. Si se pierden, orientarles a buscar por secciones.",
+      "15-18": "Pueden escanear el informe rápidamente y extraer las 4 respuestas."
+    },
+    "espacio": "Misma Sala de Control que la Prueba 5",
+    "n_jugadores": {
+      "2-3": "Se pasan el informe entre ellos",
+      "4-6": "Uno lee en voz alta mientras los demás buscan las respuestas"
+    }
+  },
+  "notas_gm": "Esta prueba usa UN SOLO documento (Informe de Estado) en lugar de 4 documentos separados. Los jugadores deben escuchar las preguntas de Marina en la P5 y luego EXTRAER las respuestas del informe. Ventajas: no repiten pistas ya vistas, simula leer un informe real, más desafiante. Si quedan <5 minutos de juego total, dar la pista nivel 2 directamente.",
+  "metadata": {
+    "autor": "escapeitor + boti",
+    "version": "6.0",
+    "fecha_creacion": "2026-04-06",
+    "fecha_actualizacion": "2026-04-09",
+    "testeado": false,
+    "cambio_v6": "Eliminados los 4 documentos individuales. Sustituidos por 1 Informe de Estado de la Red Verda que resume todo el juego. Los jugadores deben extraer las respuestas a las preguntas de la radio de este único documento. Más elegante y desafiante."
+  }
+}

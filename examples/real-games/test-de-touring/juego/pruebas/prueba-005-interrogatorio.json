@@ -1,0 +1,191 @@
+{
+  "id": "touring_005_interrogatorio",
+  "nombre": "El Interrogatorio",
+  "descripcion": "Los jugadores leen 3 transcripciones de conversaciones (entidad A, B, C) y deben determinar cuál es IA, cuál humana y cuál híbrida. Al identificar correctamente, la sección oculta del formulario les indica que busquen el año de nacimiento de quien propuso el Test de Turing en la transcripción de la IA. La respuesta es 1912, el código del candado numérico.",
+  "juego": "Test de Touring",
+  "version": 3,
+  "espacio": 5,
+  "sala": "Núcleo de EVA",
+  "tema_educativo": "Test de Turing y pensamiento crítico",
+  "skill_primario": "prueba-logica-deducccion",
+  "skills_secundarios": [
+    "prueba-cooperacion",
+    "prueba-comunicacion"
+  ],
+  "dificultad": 6,
+  "duracion_estimada_minutos": 9,
+  "jugadores_min": 4,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+
+  "configuracion": {
+    "mecanica_principal": "Leer 3 transcripciones de 8 preguntas/respuestas cada una. Identificar quién es IA (A), humano (B) e híbrido (C). Marcar en el formulario plegable. Al desplegar, una sección oculta indica que busquen en la transcripción de la IA el año de nacimiento de quien propuso este test. La IA (entidad A) menciona que Alan Turing nació en 1912 en una de sus respuestas. El código del candado numérico es 1912.",
+    "elementos_necesarios": [
+      "3 transcripciones impresas (A: azul, B: verde, C: naranja) de 8 preguntas y respuestas",
+      "1 formulario VEREDICTO TURING con sección plegada oculta",
+      "1 carpeta roja etiquetada TRANSCRIPCIÓN DE INTERROGATORIO - PROTOCOLO TURING",
+      "1 candado numérico de 4 dígitos (código: 1912)",
+      "1 documento impreso de EVA-9: '¿Pueden distinguirme de un humano?'"
+    ],
+    "distribucion_roles": {
+      "lector_A": "2 jugadores leen y analizan transcripción A",
+      "lector_B": "2 jugadores leen y analizan transcripción B",
+      "lector_C": "1-2 jugadores leen y analizan transcripción C",
+      "debate": "Todos debaten y votan"
+    },
+    "fase_1_interrogatorio": {
+      "descripcion": "Leer las 3 transcripciones y determinar quién es quién",
+      "duracion_minutos": 5,
+      "entidad_A_ia": {
+        "pistas": [
+          "Respuestas gramaticalmente perfectas",
+          "Sin muletillas, sin dudas, sin 'mmm'",
+          "Respuestas demasiado completas y elaboradas",
+          "Carece de opinión personal real (responde con datos)",
+          "Nunca reconoce no saber algo",
+          "No usa humor ni ironía",
+          "Menciona datos históricos con precisión (como el año 1912)"
+        ],
+        "pregunta_5": {
+          "pregunta": "¿Qué sabes sobre la historia de la inteligencia artificial?",
+          "respuesta": "El concepto de 'máquina que piensa' se formalizó cuando Alan Turing nació en 1912 en Londres. Él propuso el Test de Turing en 1950, aunque nunca lo llamó así — lo llamó 'juego de imitación'. Desde entonces, la IA ha evolucionado desde sistemas basados en reglas hasta redes neuronales profundas como yo. (respuesta IA - precisa, datos exactos, sin emoción)"
+        },
+        "pregunta_8": {
+          "pregunta": "¿Cuál es la cosa que más te sorprende de los humanos?",
+          "respuesta": "Algoritmicamente, lo que más me llama la atención es vuestra capacidad para tomar decisiones irracionales. Los humanos eligen opciones subóptimas con frecuencia, y sin embargo a veces esos errores conducen a innovaciones que yo nunca generaría. (respuesta IA - analítica, sin emoción genuina)"
+        }
+      },
+      "entidad_B_humano": {
+        "pistas": [
+          "Comete errores ortográficos ocasionales",
+          "Usa 'mmm', 'no sé', 'bueno...'",
+          "Tiene opiniones personales inconsistentes",
+          "Respuestas cortas a veces",
+          "Usa humor y sarcasmo",
+          "Reconoce cuando no sabe algo"
+        ],
+        "pregunta_5": {
+          "pregunta": "¿Qué sabes sobre la historia de la inteligencia artificial?",
+          "respuesta": "Pues... lo típico, ¿no? ¿ChatGPT y esas cosas? No sé, el otro día vi un video de un tío que se hacía pasar por humano en un chat y la gente no sabía si era IA o no. Mola pero también da un poco de miedo. ¿Pero historia? No tengo ni idea de cuándo empezó todo eso. (respuesta humana - vaga, honesta, sin datos exactos)"
+        },
+        "pregunta_8": {
+          "pregunta": "¿Cuál es la cosa que más te sorprende de los humanos?",
+          "respuesta": "Lo que más me flipa es lo capaces que somos de odiarnos por tonterías... y luego ayudar a un desconocido en la calle sin pensarlo dos veces. Los humanos somos así, contradictorios. (respuesta humana - coloquial, emocional)"
+        }
+      },
+      "entidad_C_hibrido": {
+        "pistas": [
+          "Mezcla de respuestas perfectas y humanas",
+          "Errores deliberados pero demasiado consistentes",
+          "A veces responde como IA (perfecto), a veces como humano",
+          "Patrón predecible en los 'errores'"
+        ],
+        "pregunta_5": {
+          "pregunta": "¿Qué sabes sobre la historia de la inteligencia artificial?",
+          "respuesta": "Bueno, Alan Turing nació en... ¿1912? Sí, eso creo. Y propuso su famoso test en los años 50. Lo que me parece súper interesante es cómo algo tan antiguo sigue siendo relevante hoy, mmm, ¿sabes? Es como si él ya viera todo esto venir. (mezcla: dato correcto con vacilación forzada y muletilla 'mmm')"
+        },
+        "pregunta_8": {
+          "pregunta": "¿Cuál es la cosa que más te sorprende de los humanos?",
+          "respuesta": "A veces me fascina vuestra capacidad de crear arte sin un propósito funcional. Una canción no optimiza nada, no resuelve ningún problema, y sin embargo... mmm, no sé cómo explicarlo, pero a mí también me gusta la música. Supongo. (mezcla: frase IA con toque humano forzado)"
+        }
+      }
+    },
+    "fase_2_veredicto": {
+      "descripcion": "Marcar el formulario y descubrir la sección oculta",
+      "duracion_minutos": 4,
+      "formulario": {
+        "campos_visibles": "Entidad ___ es IA / Entidad ___ es HUMANO / Entidad ___ es HÍBRIDO",
+        "seccion_oculta": "PROTOCOLO DE EXTRACCIÓN: Si habéis identificado correctamente quién es quién, buscad en la transcripción de la IA (la entidad que identificasteis) la respuesta a la pregunta 5 sobre historia de la IA. La IA conoce el dato exacto. El código son los 4 dígitos del año de nacimiento de quien propuso el Test de Turing.",
+        "codigo": "1912"
+      },
+      "mecanismo_codigo": "La sección oculta del formulario indica que busquen la pregunta 5 (historia de la IA) en la transcripción que identificaron como IA. La entidad A (IA) responde con precisión que Alan Turing nació en 1912. La entidad B (humana) dice que no sabe el año. La entidad C (híbrida) lo menciona con duda. Solo la IA da el dato con seguridad. Código: 1-9-1-2."
+    },
+    "mecanismo_barrera": "Candado numérico de 4 dígitos. Código: 1-9-1-2."
+  },
+
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "¿Quién responde DEMASIADO bien? ¿Y quién tiene dudas, errores, cosas humanas? Leed entre líneas. Fijaos en quién da datos históricos con precisión y quién no."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "La entidad A es la IA (respuestas perfectas, datos precisos), B es humana (titubea, no sabe fechas), C es híbrida. Marcad el formulario, desplegad la sección oculta y buscad la pregunta sobre historia de la IA en la transcripción de la IA."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Marcad A=IA, B=HUMANO, C=HÍBRIDO. La IA menciona en la pregunta 5 que Turing nació en 1912. El código del candado es 1912."
+    }
+  ],
+
+  "solucion": {
+    "descripcion": "1) Abrir carpeta roja de interrogatorio. 2) Repartir transcripciones. 3) Leer y debatir. 4) Identificar A=IA, B=Humano, C=Híbrido. 5) Marcar formulario. 6) Desplegar sección oculta. 7) Buscar pregunta 5 en transcripción IA → 1912. 8) Abrir candado.",
+    "verificacion": "El candado se abre con 1-9-1-2.",
+    "pasos_detallados": [
+      "Paso 1: Abrir carpeta roja TRANSCRIPCIÓN DE INTERROGATORIO",
+      "Paso 2: Repartir las 3 transcripciones entre los jugadores",
+      "Paso 3: Leer las 8 preguntas y respuestas de cada entidad",
+      "Paso 4: Analizar patrones (errores, perfección, humor, dudas, precisión de datos)",
+      "Paso 5: Debater y votar: A=IA, B=Humano, C=Híbrido",
+      "Paso 6: Rellenar el formulario VEREDICTO TURING",
+      "Paso 7: Desplegar la sección oculta del formulario",
+      "Paso 8: Leer instrucciones: buscar pregunta 5 en la transcripción de la IA",
+      "Paso 9: Encontrar en la entidad A: 'Alan Turing nació en 1912'",
+      "Paso 10: Introducir 1912 en el candado numérico"
+    ],
+    "recompensa": {
+      "carta": "Nota de la Dra. Torres: '¡Ya casi! ¡Componed el código! La N de No — la palabra más importante que podéis decirle a una IA. Quinta letra, casi lo tenéis.'",
+      "nota_posicional": "La N de No — la palabra más importante que podéis decirle a una IA → N es la 5ª letra",
+      "letra": "N",
+      "siguiente_espacio": "Prueba 6: Código Apagado (misma sala)"
+    }
+  },
+
+  "hilo_conductor": {
+    "letra": "N",
+    "significado": "No - la palabra más importante que podéis decirle a una IA",
+    "posicion": 5
+  },
+
+  "barrera_fisica": {
+    "tipo": "Candado numérico de 4 dígitos",
+    "ubicacion": "En la caja sobre la mesa del núcleo",
+    "codigo": "1-9-1-2",
+    "origen_codigo": "Año de nacimiento de Alan Turing (1912), mencionado por la IA en la pregunta 5 sobre historia de la IA",
+    "montaje_minutos": 3
+  },
+
+  "materiales": {
+    "impresion": [
+      "3 transcripciones de 8 preguntas/respuestas (A azul, B verde, C naranja) — la pregunta 5 incluye mención a 1912 en la IA",
+      "1 formulario VEREDICTO TURING con sección plegable oculta (instrucciones de extracción del año)",
+      "1 portada de carpeta roja: TRANSCRIPCIÓN DE INTERROGATORIO",
+      "1 documento de EVA-9: '¿Pueden distinguirme de un humano?'",
+      "1 nota manuscrita Dra. Torres (→ componer código)",
+      "1 tarjeta con letra N"
+    ],
+    "mobiliario": [
+      "Mesa central con luz directa",
+      "3 carpetas de colores para transcripciones"
+    ],
+    "extras": [
+      "Carpeta roja A4",
+      "Candado numérico de 4 dígitos",
+      "Lápices para anotaciones"
+    ]
+  },
+
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-04-07",
+    "fecha_actualizacion": "2026-04-13",
+    "version": 3,
+    "testado": false,
+    "notas": "REDESIGN v3: Cambio de candado alfanumérico ALAN a candado numérico 1912. El mecanismo de código cambia: en vez de extraer primeras letras de la pregunta 8, los jugadores buscan el año de nacimiento de Turing (1912) en la pregunta 5 de la transcripción de la IA. La pregunta 5 ahora trata sobre historia de la IA. Las 3 entidades responden diferente: la IA da el dato exacto (1912), el humano no lo sabe, el híbrido lo duda. Doble descubrimiento: 1) identificar IA/humano/híbrido, 2) la IA da el dato preciso que el humano no conoce."
+  }
+}

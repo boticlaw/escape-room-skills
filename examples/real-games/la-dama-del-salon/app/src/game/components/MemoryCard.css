@@ -1,0 +1,72 @@
+/* Estilos para el componente MemoryCard */
+
+/* Estilo para la carta volteada */
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Perspectiva para el efecto 3D */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Animación para voltear cartas */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+/* Escala al hacer hover */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para el tablero */
+.grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* Animación para cuando se completan todas las parejas */
+@keyframes reveal {
+  0% {
+    transform: scale(0.8) rotateY(180deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1) rotateY(180deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
+    opacity: 1;
+  }
+}
+
+/* Animaciones para MemoryCard */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Clase de animación para pulso */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+} 

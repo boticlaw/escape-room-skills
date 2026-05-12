@@ -1,0 +1,190 @@
+{
+  "id": "legado_006_arbol_reencuentro",
+  "nombre": "El Árbol del Reencuentro",
+  "descripcion": "Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) y el sobre lacrado de P5 al Árbol del Reencuentro en el Desván. La letra O está en una etiqueta colgante de la raíz. Las letras llegan DESORDENADAS con números romanos que no coinciden con el orden LEGADO — Elena los numeró 'en el orden en que quiso que sus nietos descubrieran cada valor'. Usando el cartel de valores de la base, deducen el orden correcto. Al completar LEGADO y presionar durante 3 segundos, los imanes liberan la raíz: contiene la marioneta con hilos cortados y una foto de Miguel adulto. Un JUGADOR lee la carta de Elena en voz alta. La acción final: colocar la foto de Miguel en el hueco del árbol y cortar el último hilo con las tijeras doradas del sobre de P5.",
+  "juego": "el-legado-de-la-familia",
+  "version": 14,
+  "espacio": 3,
+  "sala": "El Desván",
+  "skill_primario": "prueba-mecanismo",
+  "skills_secundarios": [
+    "prueba-logica-secuencial"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "jugadores_min": 2,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+  "configuracion": {
+    "mecanica_principal": "Ceremonia de ordenación cooperativa. Los jugadores llevan las 6 letras LEGADO al Árbol del Reencuentro. La letra O está en una etiqueta colgante de la raíz. Cada letra tiene una forma/tamaño único que SOLO ENCAJA en su rama correcta del árbol (ranuras con silueta diferenciada). Los jugadores usan el cartel de valores de la base para saber QUÉ valor va en qué rama (rama I=Lealtad, rama II=Empatía...). Al colocar las 6 letras en las ramas correctas, la raíz se desliza y se abre.",
+    "mecanismo_barrera": "Mecanismo de madera con imanes ocultos en la raíz. Solo se abre cuando las 6 letras están colocadas en el orden correcto (LEGADO) y todos presionan simultáneamente durante 3 segundos.",
+    "elementos_necesarios": [
+      "Árbol de madera/cartón pluma con 6 ramas numeradas I-VI y raíz abatible",
+      "6 ranuras con silueta ÚNICA por letra (cada letra solo encaja en su rama)",
+      "6 letras físicas L, E, G, A, D, O con forma/contorno ligeramente diferente",
+      "Letra O adicional en etiqueta colgante de la raíz",
+      "Cartel de valores en la base del árbol con orden de pruebas",
+      "Carta completa de Elena en papel envejecido",
+      "Foto de Miguel adulto",
+      "Marioneta de madera pequeña con hilos rojos (dentro de la raíz)",
+      "Hueco en el árbol para insertar la foto de Miguel",
+      "Tijeras doradas para cortar el último hilo (del sobre de P5)"
+    ],
+    "distribucion_roles": {
+      "portadores_valor": "Cada jugador sostiene una letra y busca la rana donde encaja por forma.",
+      "lector_raiz": "Lee el cartel e instrucción de la base del árbol.",
+      "guardian_memoria": "Recuerda el orden de las pruebas y ayuda a ordenar.",
+      "restaurador_final": "Coloca la foto de Miguel en el hueco del árbol y corta el último hilo de la marioneta con las tijeras doradas.",
+      "director_orden": "Coordina la ordenación. Idealmente quien menos haya coordinado en las pruebas anteriores."
+    },
+    "rotacion_obligatoria": "SUGERENCIA impresa: 'El Director de orden debería ser quien menos haya coordinado en las pruebas anteriores.'"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Cada letra solo encaja en una rama. Probad cada letra en las ranuras — el cartel de la base os dice qué valor va en cada rama.",
+      "timing": "Si los jugadores no se dan cuenta del desorden en 2 minutos"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "El orden es el de las pruebas: Lealtad fue la primera (P1), Empatía la segunda (P2)... y así hasta Orgullo (P6).",
+      "timing": "Si piden pista o tras 3 minutos"
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Las letras encajan por forma. Rama I=Lealtad, II=Empatía, etc. Si no encaja, no es su rama.",
+      "timing": "Si piden pista explícita o tras 5 minutos"
+    }
+  ],
+  "solucion": {
+    "descripcion": "Los jugadores descubren que sus letras tienen números romanos que no corresponden al orden LEGADO. Elena los numeró en el orden en que quiso que sus nietos los descubrieran. Deben usar el cartel de valores de la base del árbol (que lista los valores en orden de prueba) para colocar cada letra en la rama correcta. Al presionar simultáneamente durante 3 segundos, los imanes liberan la raíz. Un jugador lee la carta de Elena en voz alta al grupo.",
+    "verificacion": "La raíz del árbol se abre al presionar simultáneamente con LEGADO completo en las ramas correctas. Contiene los elementos de la recompensa final.",
+    "pasos_detallados": [
+      "Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) al Árbol del Reencuentro.",
+      "Encuentran la letra O en una etiqueta colgante de la raíz del árbol.",
+      "Leer el cartel de la base: los valores se ganaron en orden (1.Lealtad, 2.Empatía, 3.Generosidad, 4.Amor, 5.Dignidad, 6.Orgullo).",
+      "Cada jugador coge una letra e intenta colocarla en las ramas. Cada letra SOLO ENCAJA en su rama correcta.",
+      "Colocar L→rama I, E→rama II, G→rama III, A→rama IV, D→rama V, O→rama VI.",
+      "La instrucción dice: 'Que nadie suelte su rama hasta que la raíz responda.'",
+      "Al tener las 6 letras encajadas, la raíz se desliza y se abre.",
+      "Dentro: carta completa de Elena, foto de Miguel adulto, marioneta con hilos cortados.",
+      "Un jugador lee la carta en voz alta al grupo.",
+      "Acción final: colocar la foto de Miguel en el hueco del árbol.",
+      "Acción ceremonial: cortar el último hilo rojo de la marioneta con las tijeras doradas.",
+      "Mensaje final: 'No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció.'"
+    ],
+    "recompensa": {
+      "letra": "LEGADO completo",
+      "valor": "Reencuentro familiar",
+      "carta": "Carta completa de Elena revelando el pacto de amor.",
+      "carta_navegacion": "FIN DEL JUEGO. El mensaje de recompensa final cierra la experiencia: 'No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.'",
+      "siguiente_espacio": "FIN DEL JUEGO",
+      "revelacion_narrativa": "La verdad completa: Miguel fue protegido por amor y la familia puede reincorporarlo simbólicamente al árbol. Los hilos de la marioneta finalmente cortados: la familia es libre."
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "1 cartel de valores para la base del árbol (con orden de pruebas)",
+      "1 instrucción final: 'Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.'",
+      "1 carta completa de Elena en papel envejecido (viene del sobre de P5)",
+      "1 mensaje de recompensa final",
+      "6 letras físicas L, E, G, A, D, O con forma/contorno diferenciado para encaje único"
+    ],
+    "mobiliario": [
+      "1 árbol de madera/cartón pluma con 6 ramas numeradas (I-VI) y raíz abatible",
+      "6 ranuras con imanes/velcro/pestañas",
+      "1 hueco en el árbol para insertar la foto"
+    ],
+    "extras": [
+      "6 duplicados GM de las letras",
+      "1 foto ficticia/ilustrada de Miguel adulto",
+      "1 marioneta de madera pequeña con hilos rojos (dentro de la raíz, hilos cortados)",
+      "1 par de tijeras doradas decorativas (viene del sobre de P5)",
+      "1 semilla, llave simbólica o medallón de legado",
+      "6 letras con forma única (plantilla de contorno para cortar)"
+    ]
+  },
+  "documentos_in_game": [
+    {
+      "titulo": "Cartel de la Raíz",
+      "texto": "Los valores se ganaron en orden:\nRama I — Lealtad\nRama II — Empatía\nRama III — Generosidad\nRama IV — Amor\nRama V — Dignidad\nRama VI — Orgullo\n\nCada letra tiene su lugar. Buscad donde encaja.",
+      "cantidad": 1,
+      "gm_notas": "Grabado o impreso en la base del árbol. Visible desde el inicio. Incluye justificación narrativa de los números romanos desordenados: Elena los numeró por orden de descubrimiento, no por orden de la palabra."
+    },
+    {
+      "titulo": "Instrucción Final",
+      "texto": "Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.\n\nCuando la raíz se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
+      "cantidad": 1,
+      "gm_notas": "En una tarjeta junto al árbol. Especifica que un JUGADOR lee la carta, no el GM."
+    },
+    {
+      "titulo": "Carta de Despedida de la Abuela Elena",
+      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1963, cuando apenas tenía 19 años. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p><p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre suve que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p><p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastián, con tu mirada seria y tu corazón fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofía, abrazados siempre en la inocencia que yo protegí — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>",
+      "cantidad": 1,
+      "gm_notas": "La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de raíz o voluntario) la lee con calma."
+    },
+    {
+      "titulo": "Mensaje de Recompensa Final",
+      "texto": "No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.",
+      "cantidad": 1,
+      "gm_notas": "Impreso junto a la carta o en el reverso de la foto de Miguel."
+    }
+  ],
+  "barrera_fisica": {
+    "tipo": "Cerrojo de raíz abatible",
+    "ubicacion": "Raíz del Árbol del Reencuentro",
+    "codigo": "LEGADO (cada letra encaja solo en su rama por forma única)",
+    "origen_codigo": "Las letras tienen siluetas diferentes que solo encajan en la rama correcta. El cartel de la base indica qué valor va en cada rama.",
+    "montaje_minutos": 15,
+    "construccion": "Cortar cada ranura del árbol con la silueta exacta de su letra. La raíz se mantiene cerrada por un cerrojo/pin que se libera cuando las 6 letras presionan sus pestillas simultáneamente. Budget: ~20€ en cartón pluma + cola + imán pequeño para cerrojo."
+  },
+  "hilo_conductor": {
+    "letra": "O",
+    "significado": "Orgullo",
+    "posicion": 6
+  },
+  "control_movimiento": {
+    "problema_potencial": "Los jugadores podrían decir 'LEGADO' y colocar las letras sin usar el cartel. O podrían no presionar simultáneamente.",
+    "solucion_implementada": "Las letras tienen números romanos desordenados que NO coinciden con el orden LEGADO, forzando la deducción. Las ramas están numeradas I-VI y solo encajan cuando las letras están en orden correcto. La instrucción es clara: 'Que nadie suelte su rama hasta que la raíz responda.' El mecanismo puede abrirse manualmente por GM solo como backup técnico (imanes fallan), no como intervención de juego.",
+    "tipo_solucion": "prevencion"
+  },
+  "metadata": {
+    "fecha_creacion": "2026-05-10",
+    "proyecto": "viernes-de-escape",
+    "adaptado_de": "legado-familia/prueba-006-cofre-reencuentro.json (Sandoval v3.1)",
+    "version": "4.0",
+    "testado": false,
+    "notas": "v4.0: GM ya NO lee la carta — la lee un JUGADOR. Tijeras doradas dentro del sobre de P5 (no entregadas por GM). Justificación narrativa de números romanos desordenados (Elena los numeró por orden de descubrimiento). Instrucción final impresa con paso de lectura por jugador. Debriefing impreso como 'Última carta de Elena' (no mensaje GM)."
+  },
+  "ingame_docs": [
+    {
+      "titulo": "Cartel de la Raíz",
+      "texto": "Los valores se ganaron en orden:\n1.ª prueba — Lealtad\n2.ª prueba — Empatía\n3.ª prueba — Generosidad\n4.ª prueba — Amor\n5.ª prueba — Dignidad\n6.ª prueba — Orgullo\n\nElena numeró las letras en el orden en que quiso que sus nietos descubrieran cada valor, no en el orden de la palabra. Buscad el orden correcto.\n\nUNA RAMA SOLA NO ABRE UNA RAÍZ.",
+      "cantidad": 1,
+      "gm_notas": "Grabado o impreso en la base del árbol. Visible desde el inicio. Incluye justificación narrativa de los números romanos desordenados: Elena los numeró por orden de descubrimiento, no por orden de la palabra."
+    },
+    {
+      "titulo": "Instrucción Final",
+      "texto": "Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.\n\nCuando la raíz se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
+      "cantidad": 1,
+      "gm_notas": "En una tarjeta junto al árbol. Especifica que un JUGADOR lee la carta, no el GM."
+    },
+    {
+      "titulo": "Carta de Despedida de la Abuela Elena",
+      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1963, cuando apenas tenía 19 años. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p><p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre suve que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p><p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastián, con tu mirada seria y tu corazón fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofía, abrazados siempre en la inocencia que yo protegí — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>",
+      "cantidad": 1,
+      "gm_notas": "La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de raíz o voluntario) la lee con calma."
+    },
+    {
+      "titulo": "Mensaje de Recompensa Final",
+      "texto": "No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.",
+      "cantidad": 1,
+      "gm_notas": "Impreso junto a la carta o en el reverso de la foto de Miguel."
+    }
+  ]
+}

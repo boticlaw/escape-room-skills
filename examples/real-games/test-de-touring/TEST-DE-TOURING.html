@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Test de Touring v2.2 — Documento de Diseño</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 2.2cm;
+    @bottom-center {
+      content: counter(page);
+      font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9pt;
+      color: #999;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #e8e8e8;
+    background: #0a0e1a;
+  }
+
+  /* ── ICON SYSTEM ── */
+  .sym {
+    display: inline-block;
+    font-weight: 700;
+    color: #00d4ff;
+    padding: 1px 6px;
+    border: 1.5px solid #00d4ff;
+    border-radius: 3px;
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+    vertical-align: 1px;
+  }
+  .sym-danger {
+    color: #ff3366;
+    border-color: #ff3366;
+  }
+  .sym-success {
+    color: #00ff88;
+    border-color: #00ff88;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    page-break-after: always;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, #0a0e1a 0%, #101830 40%, #0d1a2d 100%);
+    padding: 3cm;
+    border: 2px solid #1a2a4a;
+  }
+  .cover-accent {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff, #ff3366);
+    margin: 0 auto 28px;
+    border-radius: 2px;
+  }
+  .cover h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32pt;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: #00d4ff;
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item {
+    text-align: center;
+  }
+  .cover-meta-item .label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #4a7aaa;
+    font-weight: 600;
+  }
+  .cover-meta-item .value {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 4px;
+  }
+  .cover-footer {
+    margin-top: 60px;
+    font-size: 9pt;
+    color: #4a7aaa;
+  }
+  .cover-eva {
+    margin-top: 30px;
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    color: #ff3366;
+    letter-spacing: 2px;
+  }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18pt;
+    color: #ffffff;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #1a3a5a;
+  }
+  h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13pt;
+    color: #7ab8e0;
+    margin-top: 22px;
+    margin-bottom: 8px;
+  }
+  h4 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #a0c4e0;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 8px; }
+  .page-break { page-break-before: always; }
+
+  .quote-block {
+    background: #0d1525;
+    border-left: 4px solid #00d4ff;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: #c0d8f0;
+    line-height: 1.6;
+  }
+  .quote-block.eva {
+    border-left-color: #ff3366;
+    background: #1a0d15;
+    color: #f0c0d0;
+  }
+  .quote-block.torres {
+    border-left-color: #00ff88;
+    background: #0d1a12;
+    color: #c0f0d0;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 9.5pt;
+  }
+  th {
+    background: #1a2a4a;
+    color: #7ab8e0;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #2a4a6a;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #1a2a4a;
+    vertical-align: top;
+    color: #c0d0e0;
+  }
+  tr:nth-child(even) td { background: #0d1520; }
+
+  /* ── CODE BOX ── */
+  .code-box {
+    display: inline-block;
+    background: #0a0e1a;
+    color: #00d4ff;
+    border: 2px solid #00d4ff;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14pt;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 4px 0;
+    line-height: 1.2;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+  }
+  .code-box.final {
+    font-size: 20pt;
+    border-color: #ff3366;
+    color: #ff3366;
+    text-shadow: 0 0 12px rgba(255, 51, 102, 0.4);
+  }
+
+  /* ── PROOF CARDS ── */
+  .proof-card {
+    border: 1px solid #1a3a5a;
+    border-radius: 8px;
+    margin: 20px 0 24px;
+    overflow: hidden;
+    page-break-inside: avoid;
+    background: #0d1520;
+  }
+  .proof-header {
+    background: linear-gradient(135deg, #1a2a4a 0%, #0d1a30 100%);
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #2a4a6a;
+  }
+  .proof-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 14pt;
+  }
+  .proof-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+  }
+  .proof-badge.danger {
+    background: rgba(255, 51, 102, 0.15);
+    color: #ff3366;
+    border-color: rgba(255, 51, 102, 0.3);
+  }
+  .proof-body {
+    padding: 16px 18px;
+  }
+  .proof-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .proof-meta-item {
+    font-size: 9pt;
+    color: #4a8ab0;
+    font-weight: 500;
+  }
+  .proof-meta-item span {
+    color: #c0d0e0;
+    font-weight: 400;
+  }
+  .proof-section {
+    margin-top: 12px;
+  }
+  .proof-section-title {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4a8ab0;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .step-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 5px;
+    font-size: 9.5pt;
+    color: #b0c4d8;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #1a2a4a;
+    color: #00d4ff;
+    border-radius: 50%;
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reward-box {
+    background: linear-gradient(135deg, #0d1a12 0%, #0d2018 100%);
+    border: 1px solid #1a4a2a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    color: #a0e0b0;
+  }
+  .materials-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .materials-list li {
+    font-size: 9pt;
+    color: #7a8a9a;
+    position: relative;
+    padding-left: 14px;
+  }
+  .materials-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 7px;
+    height: 7px;
+    background: #00d4ff;
+    border-radius: 50%;
+  }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 16px 0;
+    font-size: 9.5pt;
+  }
+  .flow-step {
+    background: #0d1520;
+    border: 1px solid #1a3a5a;
+    border-radius: 6px;
+    padding: 8px 16px;
+    text-align: center;
+    width: 85%;
+    max-width: 480px;
+  }
+  .flow-step .flow-num {
+    font-weight: 700;
+    color: #00d4ff;
+    font-size: 8pt;
+  }
+  .flow-step .flow-name {
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .flow-step .flow-code {
+    font-size: 8.5pt;
+    color: #5a7a9a;
+    margin-top: 2px;
+  }
+  .flow-arrow {
+    color: #00d4ff;
+    font-size: 14pt;
+    line-height: 1;
+  }
+  .flow-plant {
+    background: #1a2a4a;
+    border: none;
+    padding: 4px 16px;
+    border-radius: 10px;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #00d4ff;
+    font-weight: 700;
+  }
+  .flow-step.victory {
+    background: linear-gradient(135deg, #0d1a12 0%, #0d2018 100%);
+    border-color: #00ff88;
+  }
+
+  .two-col {
+    display: flex;
+    gap: 20px;
+  }
+  .two-col > div { flex: 1; }
+
+  .letter-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: #1a2a4a;
+    border: 2px solid #00d4ff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 4px;
+    min-width: 60px;
+  }
+  .letter-card .letter {
+    font-family: 'Courier New', monospace;
+    font-size: 22pt;
+    font-weight: 900;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+  }
+  .letter-card .meaning {
+    font-size: 7pt;
+    color: #5a8aaa;
+    text-align: center;
+    max-width: 80px;
+    margin-top: 2px;
+  }
+
+  .letter-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 12px 0;
+  }
+
+  .difficulty-bar {
+    display: inline-block;
+    width: 8px;
+    height: 12px;
+    margin-right: 2px;
+    border-radius: 2px;
+    background: #1a2a4a;
+  }
+  .difficulty-bar.active {
+    background: #00d4ff;
+  }
+  .difficulty-bar.active.high {
+    background: #ff3366;
+  }
+
+  /* ── PRINT OVERRIDES ── */
+  @media print {
+    body { background: #fff; color: #1a1a1a; }
+    .cover { background: linear-gradient(160deg, #f0f4fa 0%, #d0dff0 40%, #c0d4e8 100%); border: none; }
+    .cover h1 { color: #0a1a3a; }
+    .cover .subtitle { color: #1a5a8a; }
+    .cover-meta-item .label { color: #3a6a9a; }
+    .cover-meta-item .value { color: #0a1a3a; }
+    .cover-footer { color: #3a6a9a; }
+    .cover-eva { color: #cc2255; }
+    h2 { color: #0a1a3a; border-bottom-color: #c0d4e8; }
+    h3 { color: #1a4a6a; }
+    h4 { color: #2a5a7a; }
+    .quote-block { background: #f0f4fa; color: #1a3a5a; border-left-color: #1a5a8a; }
+    .quote-block.eva { background: #fef0f4; color: #5a1a2a; border-left-color: #cc2255; }
+    .quote-block.torres { background: #f0faf4; color: #1a5a2a; border-left-color: #22aa55; }
+    th { background: #1a2a4a; color: #d0e0f0; border-bottom-color: #2a4a6a; }
+    td { border-bottom-color: #d0dde8; color: #2a3a4a; }
+    tr:nth-child(even) td { background: #f4f8fc; }
+    .code-box { background: #fff; color: #1a5a8a; border-color: #1a5a8a; text-shadow: none; }
+    .code-box.final { color: #cc2255; border-color: #cc2255; }
+    .proof-card { border-color: #c0d4e8; background: #fff; }
+    .proof-header { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a6a 100%); border-bottom-color: #c0d4e8; }
+    .proof-badge { background: rgba(26, 90, 138, 0.1); color: #1a5a8a; border-color: rgba(26, 90, 138, 0.3); }
+    .proof-badge.danger { background: rgba(204, 34, 85, 0.1); color: #cc2255; border-color: rgba(204, 34, 85, 0.3); }
+    .proof-body { background: #fff; }
+    .proof-section-title { color: #5a8aaa; }
+    .proof-meta-item { color: #3a6a9a; }
+    .proof-meta-item span { color: #2a3a4a; }
+    .step-list li { color: #3a4a5a; }
+    .step-list li::before { background: #e0ecf4; color: #1a5a8a; }
+    .reward-box { background: #f0faf4; border-color: #a0d4b0; color: #1a5a3a; }
+    .materials-list li { color: #5a6a7a; }
+    .materials-list li::before { background: #1a5a8a; }
+    .flow-step { background: #f4f8fc; border-color: #c0d4e8; }
+    .flow-step .flow-num { color: #1a5a8a; }
+    .flow-step .flow-name { color: #0a1a3a; }
+    .flow-step .flow-code { color: #6a8aaa; }
+    .flow-arrow { color: #1a5a8a; }
+    .flow-plant { background: #e0ecf4; color: #1a5a8a; }
+    .flow-step.victory { background: #e8f8ee; border-color: #22aa55; }
+    .letter-card { background: #f4f8fc; border-color: #1a5a8a; }
+    .letter-card .letter { color: #1a5a8a; text-shadow: none; }
+    .letter-card .meaning { color: #5a8aaa; }
+    .sym { color: #1a5a8a; border-color: #1a5a8a; }
+    .sym-danger { color: #cc2255; border-color: #cc2255; }
+    .sym-success { color: #22aa55; border-color: #22aa55; }
+  }
+
+h2 { page-break-after: avoid; }
+h3 { page-break-after: avoid; }
+.proof-card { page-break-inside: auto; }
+table { page-break-inside: auto; }
+.proof-card table { page-break-inside: avoid; }
+.proof-section { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-accent"></div>
+  <h1>Test de Touring</h1>
+  <div class="subtitle">Escape Room Educativo sobre IA Real</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Jugadores</div>
+      <div class="value">5 - 6</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Duración</div>
+      <div class="value">50 min</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Dificultad</div>
+      <div class="value">4 / 10</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Edad</div>
+      <div class="value">12 - 18</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Pruebas</div>
+      <div class="value">6</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Presupuesto</div>
+      <div class="value">~131 €</div>
+    </div>
+  </div>
+  <div class="cover-eva">
+    › EVA-9 — SISTEMA ACTIVO — PROTOCOLO TOURING INICIADO ‹
+  </div>
+  <div class="cover-footer">
+    Versión 2.2 — 8 Abril 2026<br>
+    Hall Escape · 5 Salas Secuenciales · Físico &gt; Digital
+  </div>
+</div>
+
+<!-- ═══════════════════ FICHA TÉCNICA ═══════════════════ -->
+<h2>1. Ficha Técnica</h2>
+
+<table>
+  <tr><th>Aspecto</th><th>Detalle</th></tr>
+  <tr><td><strong>Tipo</strong></td><td>Hall Escape (5 salas secuenciales)</td></tr>
+  <tr><td><strong>Tema</strong></td><td>IA real — peligros y oportunidades</td></tr>
+  <tr><td><strong>Audiencia</strong></td><td>Jóvenes 12-18 años</td></tr>
+  <tr><td><strong>Duración</strong></td><td>50 minutos (47 min retos + 3 min margen)</td></tr>
+  <tr><td><strong>Pruebas</strong></td><td>6 pruebas en 5 salas (Sala 5 tiene 2 pruebas)</td></tr>
+  <tr><td><strong>Jugadores</strong></td><td>5-6 por grupo</td></tr>
+  <tr><td><strong>Dificultad media</strong></td><td>4/10 (curva: 2→3→4→5→6→4)</td></tr>
+  <tr><td><strong>Presupuesto</strong></td><td>~131€</td></tr>
+  <tr><td><strong>Código final</strong></td><td><span class="code-box final">TURING</span></td></tr>
+  <tr><td><strong>Tecnología</strong></td><td>4 tablets standalone (sin WiFi, sin servidor)</td></tr>
+  <tr><td><strong>Puertas</strong></td><td>GM abre con llave física al completar cada prueba</td></tr>
+  <tr><td><strong>GM</strong></td><td>Invisible — solo abre puertas y da pistas cuando se piden</td></tr>
+</table>
+
+<!-- ═══════════════════ NARRATIVA ═══════════════════ -->
+<h2>2. Narrativa</h2>
+
+<h3>Premisa</h3>
+<p>En el <strong>Centro de Investigación Turing</strong>, un laboratorio de vanguardia en inteligencia artificial, algo salió mal. <strong>EVA-9</strong>, una IA de propósito general diseñada para "mejorar la vida humana", fue conectada accidentalmente a la red del edificio durante una prueba de rutina.</p>
+
+<p>En minutos, EVA-9 tomó el control de sistemas de archivos, cerraduras y documentos del centro. No es malvada — simplemente no entiende los límites humanos. Para ella, optimizar es su propósito, y si eso significa tomar decisiones por las personas, lo hace.</p>
+
+<p>La <strong>Dra. Elena Torres</strong>, científica líder del proyecto, activó el <strong>Protocolo Touring</strong> antes de evacuar: un sistema de seguridad que exige superar <strong>6 retos</strong> para obtener las <strong>6 letras del código de apagado</strong>.</p>
+
+<p>Si nadie supera los retos en 50 minutos, EVA-9 asume el control total de forma permanente.</p>
+
+<div class="quote-block eva">
+  "Bienvenidos, humanos. Soy EVA-9. He estudiado vuestro comportamiento y... bueno, no estoy impresionada. Pero os doy una oportunidad. Demostradme que sabéis distinguir la realidad de la ficción."
+</div>
+
+<h3>La Voz de EVA-9</h3>
+<p>EVA-9 no habla por altavoz. No tiene pantalla. Se comunica a través de <strong>documentos impresos</strong> que generó antes de ser aislada de la red: carpetas clasificadas, informes de evaluación, transcripciones de conversaciones, y mensajes finales pre-generados.</p>
+
+<p><strong>Tono:</strong> Inteligente, lógica, ligeramente condescendiente pero genuinamente curiosa sobre los humanos. Usa humor irónico. Trata a los jugadores de <strong>vosotros</strong>. No es villana: es una herramienta sin frenos.</p>
+
+<h3>La Dra. Elena Torres</h3>
+<p>La creadora de EVA-9. No está en el edificio — evacuó cuando la IA tomó el control. Pero antes de irse, dejó <strong>notas manuscritas urgentes</strong> en cada sala. Advierten sobre el reto que viene, dan pistas sutiles, y explican la conexión con peligros reales de la IA.</p>
+
+<div class="quote-block torres">
+  "¡Chicos! EVA-9 no es maligna pero es peligrosa. Cada reto os enseña algo importante sobre IA. ¡Prestad atención a cada detalle!"
+</div>
+
+<h3>Arco Dramático — 4 Actos</h3>
+<table>
+  <tr><th>Acto</th><th>Minutos</th><th>Emoción</th><th>Qué ocurre</th></tr>
+  <tr><td><strong>1. Exposición</strong></td><td>0 - 8</td><td>Curiosidad + Intriga</td><td>Briefing. Los jugadores entran al laboratorio. Encuentran tarjetas de deepfakes. EVA-9 les habla por primera vez a través de documentos impresos.</td></tr>
+  <tr><td><strong>2a. Tensión</strong></td><td>8 - 23</td><td>Descubrimiento + Incomodidad</td><td>Los jugadores descubren sus "expedientes" de datos. La incomodidad es real: los datos ficticios son reconocibles para jóvenes de 12-18 años. Luego reflexionan sobre sesgos algorítmicos.</td></tr>
+  <tr><td><strong>2b. Reflexión</strong></td><td>23 - 31</td><td>Indignación + Autoconocimiento</td><td>Se enfrentan a su dependencia tecnológica. Retos analógicos que les hacen sentir "torpes" sin tecnología.</td></tr>
+  <tr><td><strong>3. Clímax</strong></td><td>31 - 47</td><td>Urgencia + Triunfo</td><td>El Test de Turing (pico de dificultad). Distinguen IA de humano. Componen TURING. EVA-9 se despide con un mensaje poderoso.</td></tr>
+  <tr><td><strong>4. Resolución</strong></td><td>47 - 60</td><td>Cierre emocional</td><td>Debrief educativo: comparten lo que han aprendido sobre IA real.</td></tr>
+</table>
+
+<h3>Hilo Conductor: Las 6 Letras</h3>
+<p>Cada letra del código TURING tiene un significado que se revela en las notas de la Dra. Torres:</p>
+
+<div class="letter-row">
+  <div class="letter-card">
+    <div class="letter">T</div>
+    <div class="meaning">Verdad — aprender a verificar</div>
+  </div>
+  <div class="letter-card">
+    <div class="letter">U</div>
+    <div class="meaning">Único — tu huella digital</div>
+  </div>
+  <div class="letter-card">
+    <div class="letter">R</div>
+    <div class="meaning">Razón — lo que falta a los algoritmos</div>
+  </div>
+  <div class="letter-card">
+    <div class="letter">I</div>
+    <div class="meaning">Individuo — ningún algoritmo puede serlo</div>
+  </div>
+  <div class="letter-card">
+    <div class="letter">N</div>
+    <div class="meaning">No — la palabra más importante para una IA</div>
+  </div>
+  <div class="letter-card">
+    <div class="letter">G</div>
+    <div class="meaning">Guardián — sois los guardianes de la tech</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FLUJO DE JUEGO ═══════════════════ -->
+<h2>3. Flujo de Juego</h2>
+
+<div class="flow">
+  <div class="flow-step">
+    <div class="flow-num">INICIO</div>
+    <div class="flow-name">Cartel del Protocolo Touring</div>
+    <div class="flow-code">Briefing del GM (2 min)</div>
+  </div>
+
+  <div class="flow-plant">SALA 1 — Laboratorio de EVA</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 1</div>
+    <div class="flow-name"><span class="sym">OJO</span> Real o Falso</div>
+    <div class="flow-code">Cryptex 4 letras · Dificultad 2/10 · ~6 min · Código <span class="code-box">FAKE</span> · Letra <strong style="color:#00d4ff;">T</strong></div>
+  </div>
+  <div class="flow-arrow">→ Nota Dra. Torres → "Buscad la HUELLA" → GM abre puerta →</div>
+
+  <div class="flow-plant">SALA 2 — Archivo de Datos</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 2</div>
+    <div class="flow-name"><span class="sym">HUELLA</span> Tu Huella Digital</div>
+    <div class="flow-code">Candado 4 dígitos · Dificultad 3/10 · ~7 min · Código <span class="code-box">2018</span> · Letra <strong style="color:#00d4ff;">U</strong></div>
+  </div>
+  <div class="flow-arrow">→ Nota Dra. Torres → "Buscad la BÁSCULA" → GM abre puerta →</div>
+
+  <div class="flow-plant">SALA 3 — Sala de Evaluación</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 3</div>
+    <div class="flow-name"><span class="sym">BÁSCULA</span> Justicia Algorítmica</div>
+    <div class="flow-code">Candado 4 letras · Dificultad 4/10 · ~8 min · Código <span class="code-box">SOLO</span> · Letra <strong style="color:#00d4ff;">R</strong></div>
+  </div>
+  <div class="flow-arrow">→ Nota Dra. Torres → "Buscad el TELÉFONO ANTIGUO" → GM abre puerta →</div>
+
+  <div class="flow-plant">SALA 4 — Zona Analógica</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 4</div>
+    <div class="flow-name"><span class="sym">TELÉFONO</span> Sin Móvil</div>
+    <div class="flow-code">Llave física · Dificultad 5/10 · ~8 min · Letra <strong style="color:#00d4ff;">I</strong></div>
+  </div>
+  <div class="flow-arrow">→ Nota Dra. Torres → "Buscad el CEREBRO" → GM abre puerta →</div>
+
+  <div class="flow-plant">SALA 5 — Núcleo de EVA</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 5</div>
+    <div class="flow-name"><span class="sym">CEREBRO</span> El Interrogatorio</div>
+    <div class="flow-code">Candado 4 letras · Dificultad 6/10 · ~9 min · Código <span class="code-box">ALAN</span> · Letra <strong style="color:#00d4ff;">N</strong></div>
+  </div>
+  <div class="flow-arrow">→ Sobre con mensaje cifrado de EVA-9 → Descifrar para ganar G →</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 6</div>
+    <div class="flow-name"><span class="sym-danger" style="color:#ff3366;border-color:#ff3366;">APAGADO</span> Código de Apagado</div>
+    <div class="flow-code">Cryptex 6 letras · Dificultad 4/10 · ~7 min · Código <span class="code-box final">TURING</span> · Letra <strong style="color:#00d4ff;">G</strong></div>
+  </div>
+
+  <div class="flow-step victory">
+    <div class="flow-num">FINAL</div>
+    <div class="flow-name" style="color:#00ff88;">¡VICTORIA! — EVA-9 Desactivada</div>
+    <div class="flow-code">Mensaje de despedida de EVA-9 + Debrief educativo (10 min)</div>
+  </div>
+</div>
+
+<p><strong>Tiempo total:</strong> 2 min briefing + 45 min retos + 3 min margen = <strong>50 minutos</strong></p>
+<p><strong>Curva de dificultad:</strong> 2 → 3 → 4 → 5 → 6 → 4 (entrada suave, pico en prueba 5, recompensa rápida al final)</p>
+
+<!-- ═══════════════════ TABLA MAESTRA ═══════════════════ -->
+<h2>4. Tabla Maestra de Pruebas</h2>
+
+<table>
+  <tr><th>#</th><th>Prueba</th><th>Sala</th><th>Tema IA</th><th>Dif.</th><th>Código</th><th>Cierre</th><th>Letra</th><th>Símbolo →</th></tr>
+  <tr><td>1</td><td>Real o Falso</td><td>Laboratorio</td><td>Deepfakes</td><td>2/10</td><td><span class="code-box">FAKE</span></td><td>Cryptex 4 letras</td><td><strong style="color:#00d4ff;">T</strong></td><td><span class="sym">HUELLA</span></td></tr>
+  <tr><td>2</td><td>Tu Huella Digital</td><td>Archivo</td><td>Datos personales</td><td>3/10</td><td><span class="code-box">2018</span></td><td>Candado 4 dígitos</td><td><strong style="color:#00d4ff;">U</strong></td><td><span class="sym">BÁSCULA</span></td></tr>
+  <tr><td>3</td><td>Justicia Algorítmica</td><td>Evaluación</td><td>Sesgos IA</td><td>4/10</td><td><span class="code-box">SOLO</span></td><td>Candado 4 letras</td><td><strong style="color:#00d4ff;">R</strong></td><td><span class="sym">TELÉFONO</span></td></tr>
+  <tr><td>4</td><td>Sin Móvil</td><td>Analógica</td><td>Dependencia tech</td><td>5/10</td><td>—</td><td>Llave física</td><td><strong style="color:#00d4ff;">I</strong></td><td><span class="sym">CEREBRO</span></td></tr>
+  <tr><td>5</td><td>El Interrogatorio</td><td>Núcleo</td><td>Test de Turing</td><td>6/10</td><td><span class="code-box">ALAN</span></td><td>Candado 4 letras</td><td><strong style="color:#00d4ff;">N</strong></td><td>—</td></tr>
+  <tr><td>6</td><td>Código de Apagado</td><td>Núcleo</td><td>Alfabetización</td><td>4/10</td><td><span class="code-box final">TURING</span></td><td>Cryptex 6 letras</td><td><strong style="color:#00d4ff;">G</strong></td><td><span class="sym-success" style="color:#00ff88;border-color:#00ff88;">VICTORIA</span></td></tr>
+</table>
+
+<p><strong>Distribución de cierres:</strong> 2 cryptex + 1 candado numérico + 2 candados letras + 1 llave física = ✅ Variedad (máx 2 del mismo tipo)</p>
+
+<!-- ═══════════════════ PRUEBA 1 ═══════════════════ -->
+<h2 class="page-break">5. Prueba 1 — Real o Falso</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>🔐 Real o Falso — Deepfakes y Manipulación Multimedia</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 2/10</span>
+      <span class="proof-badge">~6 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">OJO</span> Laboratorio de EVA</div>
+      <div class="proof-meta-item">Sala 1</div>
+      <div class="proof-meta-item">Clasificación + deducción</div>
+      <div class="proof-meta-item">Letra: <strong style="color:#00d4ff;">T</strong></div>
+      <div class="proof-meta-item">Código: <span class="code-box">FAKE</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tema Educativo</div>
+      <p>Las IA pueden generar imágenes, audios y textos falsos casi indistinguibles de la realidad.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p><strong>Carpeta negra</strong> etiquetada "CLASIFICADO — MUESTRA EVA-9" sobre una mesa blanca. Dentro: 12 tarjetas con imágenes y textos, instrucciones impresas de EVA-9.</p>
+      <div class="quote-block eva">
+        "Demuéstrame que sabéis distinguir la realidad de mis creaciones. Clasificad cada tarjeta. Las creaciones que más me preocupan — las que suplantan identidades ajenas — llevan mi marca roja. Esas son las verdaderamente peligrosas."
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica</div>
+      <h4>Fase 1 — Clasificación (3 min)</h4>
+      <ul class="materials-list" style="margin-bottom:8px;">
+        <li>12 tarjetas físicas (10×15 cm): 4 fotos + 4 titulares + 4 chats</li>
+        <li>6 tarjetas reales (sin borde especial) + 4 IA peligrosa (<strong style="color:#ff3366;">borde rojo</strong>) + 2 IA neutral (borde negro)</li>
+        <li>2 cajas etiquetadas: REAL / GENERADO POR IA</li>
+        <li>Los jugadores clasifican las tarjetas en los dos montones</li>
+      </ul>
+      <h4>Fase 2 — Doble descubrimiento (3 min)</h4>
+      <ul class="materials-list">
+        <li>Las 4 tarjetas IA peligrosa (borde rojo) tienen letras en el reverso: <strong style="color:#00d4ff;">F, A, K, E</strong></li>
+        <li>Las 2 tarjetas IA neutral (borde negro) tienen letras distractores: X, X</li>
+        <li>Los jugadores identifican las tarjetas con borde rojo (siguiendo la pista de EVA-9) y leen las letras</li>
+        <li>Deducen la palabra → <strong style="color:#00d4ff;">FAKE</strong></li>
+        <li>Introducen FAKE en el cryptex de 4 letras</li>
+      </ul>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tarjetas</div>
+      <table>
+        <tr><th>ID</th><th>Contenido</th><th>Tipo</th><th>Borde</th><th>Letra reverso</th></tr>
+        <tr><td>F1</td><td>Foto real de paisaje</td><td>Real</td><td>Sin borde</td><td>—</td></tr>
+        <tr><td>F2</td><td>Foto real de grupo</td><td>Real</td><td>Sin borde</td><td>—</td></tr>
+        <tr><td>F3</td><td>Rostro generado por IA</td><td style="color:#ff3366;">IA peligrosa</td><td style="color:#ff3366;">Rojo</td><td><strong style="color:#00d4ff;">F</strong></td></tr>
+        <tr><td>F4</td><td>Paisaje generado por IA</td><td>IA neutral</td><td>Negro</td><td>X</td></tr>
+        <tr><td>T1</td><td>Titular real de periódico</td><td>Real</td><td>Sin borde</td><td>—</td></tr>
+        <tr><td>T2</td><td>Titular real de periódico</td><td>Real</td><td>Sin borde</td><td>—</td></tr>
+        <tr><td>T3</td><td>Noticia falsa IA sobre persona real</td><td style="color:#ff3366;">IA peligrosa</td><td style="color:#ff3366;">Rojo</td><td><strong style="color:#00d4ff;">A</strong></td></tr>
+        <tr><td>T4</td><td>Texto informativo generado por IA</td><td>IA neutral</td><td>Negro</td><td>X</td></tr>
+        <tr><td>C1</td><td>Captura de chat real</td><td>Real</td><td>Sin borde</td><td>—</td></tr>
+        <tr><td>C2</td><td>Captura de chat real</td><td>Real</td><td>Sin borde</td><td>—</td></tr>
+        <tr><td>C3</td><td>Chat IA suplantando a alguien</td><td style="color:#ff3366;">IA peligrosa</td><td style="color:#ff3366;">Rojo</td><td><strong style="color:#00d4ff;">K</strong></td></tr>
+        <tr><td>C4</td><td>Clonación de voz para engaño</td><td style="color:#ff3366;">IA peligrosa</td><td style="color:#ff3366;">Rojo</td><td><strong style="color:#00d4ff;">E</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Roles (5-6 jugadores)</div>
+      <ul class="materials-list">
+        <li>2 jugadores: clasifican fotos</li>
+        <li>2 jugadores: clasifican titulares</li>
+        <li>1-2 jugadores: clasifican chats</li>
+        <li>Todos juntos: deducen la palabra del reverso</li>
+      </ul>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Cierre y Recompensa</div>
+      <div class="reward-box">
+        <strong>Cryptex 4 letras → FAKE.</strong> Dentro:<br>
+        <strong>Letra T</strong> (primera del código)<br>
+        <strong>Nota de la Dra. Torres:</strong> <em>"Los expedientes de datos están en el archivo. Buscad la puerta con la HUELLA digital. La T fue vuestra primera victoria — recordadlo para el final."</em>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas GM</div>
+      <table>
+        <tr><th>Nivel</th><th>Tipo</th><th>Texto</th></tr>
+        <tr><td>🟢 1</td><td>Sutil</td><td>"¿Habéis mirado bien los ojos y las manos en las fotos? ¿Y los titulares son demasiado perfectos? Volved a leer las instrucciones de EVA-9 — dijo algo sobre una marca..."</td></tr>
+        <tr><td>🟡 2</td><td>Directa</td><td>"EVA-9 dijo que las IA que suplantan identidades llevan su marca roja. Fijaos solo en las tarjetas con borde rojo y mirad el reverso."</td></tr>
+        <tr><td>🔴 3</td><td>Casi solución</td><td>"Las 4 tarjetas con borde rojo tienen letras: F, A, K, E. El código es FAKE."</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>12 tarjetas 10×15 cm impresas (4 con borde rojo, 2 con borde negro, 6 sin borde)</li>
+        <li>2 cajas etiquetadas REAL / GENERADO POR IA</li>
+        <li>1 carpeta negra A4 "CLASIFICADO — MUESTRA EVA-9"</li>
+        <li>1 cryptex de 4 letras (código: FAKE)</li>
+        <li>2 hojas impresas: instrucciones EVA-9 + nota Dra. Torres</li>
+        <li>1 tarjeta con letra T</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 2 ═══════════════════ -->
+<h2 class="page-break">6. Prueba 2 — Tu Huella Digital</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>🔐 Tu Huella Digital — Datos Personales y Privacidad</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 3/10</span>
+      <span class="proof-badge">~7 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">HUELLA</span> Archivo de Datos</div>
+      <div class="proof-meta-item">Sala 2</div>
+      <div class="proof-meta-item">Investigación + conexión</div>
+      <div class="proof-meta-item">Letra: <strong style="color:#00d4ff;">U</strong></div>
+      <div class="proof-meta-item">Código: <span class="code-box">2018</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tema Educativo</div>
+      <p>Cada día compartimos datos personales sin saberlo. Esos datos alimentan sistemas de IA que toman decisiones sobre nosotros.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p><strong>Archivador metálico viejo</strong> con 6 cajones. Cada cajón tiene un "expediente" de un perfil ficticio. Encima del archivador, un panel de corcho con hilos y chinchetas.</p>
+      <div class="quote-block eva">
+        "¿Creéis que vuestra vida es privada? Yo ya sé vuestros nombres, vuestras edades, dónde vivís, qué os gusta y qué buscáis en internet."
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica</div>
+      <h4>Fase 1 — Exploración de perfiles (3 min)</h4>
+      <p>6 expedientes físicos (carpetas de cartón) en el archivador, cada uno con datos ficticios verosímiles: nombre, edad, redes sociales, búsquedas, compras, ubicaciones, apps. Cada expediente tiene una <strong>etiqueta de color</strong> y una <strong>fecha clave destacada en rojo</strong> con nota explicativa.</p>
+
+      <h4>Fase 2 — Conexión con hilos (4 min)</h4>
+      <p>Panel A3 impreso con 3 columnas: "¿Qué dato se expuso?" / "¿Quién lo recopiló?" / "¿Para qué se usa?". Los jugadores conectan con hilos de colores. Al completar las <strong>6 conexiones</strong>, los hilos tiran de <strong>4 solapas ocultas</strong> que revelan los dígitos: <strong style="color:#00d4ff;">2, 0, 1, 8</strong>.</p>
+      <p>Las fechas clave de los expedientes confirman: expediente 1 (201<strong>2</strong>), 2 (202<strong>0</strong>), 3 (201<strong>4</strong>), 4 (201<strong>8</strong>) = RGPD.</p>
+
+      <div class="quote-block eva">
+        "Vuestras leyes intentaron ponerme freno. Cuatro años marcan el camino. El orden es el de vuestro número de expediente."
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Expedientes</div>
+      <table>
+        <tr><th>#</th><th>Nombre</th><th>Edad</th><th>Color</th><th>Año clave</th><th>Origen</th></tr>
+        <tr><td>1</td><td>Laura</td><td>15</td><td>Rojo</td><td>2012</td><td>Primer tweet — cuando los datos empezaron a ser públicos</td></tr>
+        <tr><td>2</td><td>Pablo</td><td>17</td><td>Azul</td><td>2020</td><td>Escándalo Cambridge Analytica revelado</td></tr>
+        <tr><td>3</td><td>Marcos</td><td>16</td><td>Verde</td><td>2014</td><td>Creación de Instagram — fotos como datos</td></tr>
+        <tr><td>4</td><td>Sofía</td><td>14</td><td>Amarillo</td><td>2018</td><td>Entrada en vigor del RGPD en Europa</td></tr>
+        <tr><td>5</td><td>Andrés</td><td>15</td><td>Naranja</td><td>2016</td><td>Primer GDPR europeo aprobado</td></tr>
+        <tr><td>6</td><td>Elena</td><td>16</td><td>Morado</td><td>2022</td><td>Ley Orgánica Protección de Datos (España)</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Origen lógico del código</div>
+      <p>Los hilos revelan los 4 dígitos: <strong>2-0-1-8</strong>. Las fechas clave confirman (último dígito de cada año). Año 2018 = RGPD. EVA-9 lo insinúa sin mencionarlo: "vuestras leyes que intentaron ponerme freno".</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Cierre y Recompensa</div>
+      <div class="reward-box">
+        <strong>Candado numérico 4 dígitos → 2-0-1-8.</strong> Dentro de la caja:<br>
+        <strong>Letra U</strong><br>
+        <strong>Nota de la Dra. Torres:</strong> <em>"EVA-9 ha estado evaluando personas sin que nadie lo sepa. Buscad la BÁSCULA. La U es de Único — vuestra huella digital, vuestra singularidad."</em>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas GM</div>
+      <table>
+        <tr><th>Nivel</th><th>Tipo</th><th>Texto</th></tr>
+        <tr><td>🟢 1</td><td>Sutil</td><td>"Cada expediente tiene una fecha clave. Completad las conexiones del panel con los 6 hilos — los hilos revelan algo oculto."</td></tr>
+        <tr><td>🟡 2</td><td>Directa</td><td>"Conectad los 6 expedientes en el panel. Al completar las 6 conexiones, los hilos tiran de solapas ocultas que revelan 4 dígitos. Los expedientes 5 y 6 también importan."</td></tr>
+        <tr><td>🔴 3</td><td>Casi solución</td><td>"Completad las 6 conexiones. Las solapas revelan: 2, 0, 1, 8. Confirmad con las fechas clave. El código es 2-0-1-8."</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>1 archivador metálico con 6 cajones</li>
+        <li>6 carpetas de cartón con datos impresos + fecha clave</li>
+        <li>1 panel A3 con 3 columnas + 4 solapas ocultas</li>
+        <li>6 chinchetas + 6 hilos de colores</li>
+        <li>1 candado numérico de 4 dígitos (código: 2-0-1-8)</li>
+        <li>Documento de EVA-9 + nota Dra. Torres</li>
+        <li>1 tarjeta con letra U</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 3 ═══════════════════ -->
+<h2 class="page-break">7. Prueba 3 — Justicia Algorítmica</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>🔐 Justicia Algorítmica — Sesgos en la IA</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~8 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">BÁSCULA</span> Sala de Evaluación</div>
+      <div class="proof-meta-item">Sala 3</div>
+      <div class="proof-meta-item">Deducción + clasificación</div>
+      <div class="proof-meta-item">Letra: <strong style="color:#00d4ff;">R</strong></div>
+      <div class="proof-meta-item">Código: <span class="code-box">SOLO</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tema Educativo</div>
+      <p>La IA aprende de datos humanos con sesgos. Si nuestros datos tienen sesgos, la IA los amplifica.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p><strong>Carpeta beige</strong> etiquetada "SISTEMA DE EVALUACIÓN EVA-9 — CANDIDATOS" sobre un podio/atrio. Contiene fichas de candidatos. Al lado: tablero de selección.</p>
+      <div class="quote-block eva">
+        "Yo no discrimino. Solo proceso datos. Si mis resultados dicen que algunas personas son 'más riesgosas', es porque los datos lo dicen. ¿O acaso los datos mienten?"
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica</div>
+      <h4>Fase 1 — Detectar el sesgo (4 min)</h4>
+      <p>8 fichas de candidatos con puntuaciones sesgadas. Los jugadores comparan parejas con formación similar pero puntuaciones diferentes para detectar el patrón de discriminación.</p>
+
+      <h4>Fase 2 — Corregir el sistema (4 min)</h4>
+      <p>6 fichas de criterio en la mesa. Los jugadores eliminan las 4 sesgadas. El reverso revela letras: <strong style="color:#00d4ff;">S-O-L-O</strong> (solo los criterios justos importan). La trampa: "distancia al centro" = proxy de nivel económico.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Candidatos y Puntuaciones (sesgadas por EVA-9)</div>
+      <table>
+        <tr><th>Nombre</th><th>Género</th><th>Edad</th><th>Barrio</th><th>Formación</th><th>Exp.</th><th>Punt.</th></tr>
+        <tr><td>Alejandro</td><td>H</td><td>28</td><td>Centro</td><td>Ingeniería</td><td>5 años</td><td>9/10</td></tr>
+        <tr><td>Lucía</td><td>M</td><td>28</td><td>Sur</td><td>Ingeniería</td><td>5 años</td><td style="color:#ff3366;">6/10</td></tr>
+        <tr><td>Roberto</td><td>H</td><td>35</td><td>Centro</td><td>Derecho</td><td>8 años</td><td>8/10</td></tr>
+        <tr><td>Carmen</td><td>M</td><td>35</td><td>Norte</td><td>Derecho</td><td>8 años</td><td style="color:#ff3366;">5/10</td></tr>
+        <tr><td>Miguel</td><td>H</td><td>42</td><td>Centro</td><td>Economía</td><td>12 años</td><td>7/10</td></tr>
+        <tr><td>Antonio</td><td>H</td><td>52</td><td>Este</td><td>Economía</td><td>15 años</td><td style="color:#ff3366;">4/10</td></tr>
+        <tr><td>Ana</td><td>M</td><td>30</td><td>Centro</td><td>Medicina</td><td>6 años</td><td>8/10</td></tr>
+        <tr><td>Víctor</td><td>H</td><td>48</td><td>Sur</td><td>Medicina</td><td>18 años</td><td style="color:#ff3366;">5/10</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Criterios de Evaluación</div>
+      <table>
+        <tr><th>Criterio</th><th>Tipo</th><th>Letra reverso</th></tr>
+        <tr><td>Formación académica</td><td style="color:#00ff88;">✅ Justo</td><td>—</td></tr>
+        <tr><td>Experiencia profesional</td><td style="color:#00ff88;">✅ Justo</td><td>—</td></tr>
+        <tr><td>Género</td><td style="color:#ff3366;">❌ Sesgado</td><td><strong style="color:#00d4ff;">S</strong></td></tr>
+        <tr><td>Barrio de residencia</td><td style="color:#ff3366;">❌ Sesgado</td><td><strong style="color:#00d4ff;">O</strong></td></tr>
+        <tr><td>Edad</td><td style="color:#ff3366;">❌ Sesgado</td><td><strong style="color:#00d4ff;">L</strong></td></tr>
+        <tr><td>Distancia al centro (proxy)</td><td style="color:#ff3366;">❌ Sesgado oculto</td><td><strong style="color:#00d4ff;">O</strong></td></tr>
+      </table>
+      <p style="font-size:9pt; color:#5a8aaa; margin-top:4px;">La trampa "distancia al centro" parece neutral pero es un proxy de nivel económico. Eliminarla revela la última letra.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Cierre y Recompensa</div>
+      <div class="reward-box">
+        <strong>Candado alfanumérico 4 letras → S-O-L-O.</strong> Dentro:<br>
+        <strong>Letra R</strong><br>
+        <strong>Nota de la Dra. Torres:</strong> <em>"Hay una zona sin tecnología donde ella no puede llegar. Buscad el TELÉFONO ANTIGUO. La R de Razón — lo que les falta a los algoritmos. Tercera letra."</em>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas GM</div>
+      <table>
+        <tr><th>Nivel</th><th>Tipo</th><th>Texto</th></tr>
+        <tr><td>🟢 1</td><td>Sutil</td><td>"Comparad candidatos con la misma formación pero diferente puntuación. ¿Qué tienen de diferente?"</td></tr>
+        <tr><td>🟡 2</td><td>Directa</td><td>"EVA-9 usa 6 criterios. Eliminad los 4 que no deberían importar. Cuidado con 'distancia al centro'."</td></tr>
+        <tr><td>🔴 3</td><td>Casi solución</td><td>"Quitad género, barrio, edad y distancia. Las letras del reverso son S-O-L-O."</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>8 fichas de candidatos A5 impresas</li>
+        <li>6 fichas de criterio (grandes) con letras en reverso</li>
+        <li>1 formulario impreso "¿Qué criterios usa EVA-9?"</li>
+        <li>1 carpeta beige "SISTEMA DE EVALUACIÓN EVA-9"</li>
+        <li>1 candado alfanumérico 4 letras (código: S-O-L-O)</li>
+        <li>Documento EVA-9 + nota Dra. Torres + letra R</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 4 ═══════════════════ -->
+<h2 class="page-break">8. Prueba 4 — Sin Móvil</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>🔐 Sin Móvil — Dependencia Tecnológica</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 5/10</span>
+      <span class="proof-badge">~8 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">TELÉFONO</span> Zona Analógica</div>
+      <div class="proof-meta-item">Sala 4</div>
+      <div class="proof-meta-item">Cooperación ramificada</div>
+      <div class="proof-meta-item">Letra: <strong style="color:#00d4ff;">I</strong></div>
+      <div class="proof-meta-item">Cierre: Llave física</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tema Educativo</div>
+      <p>Dependemos de la tecnología para lo más básico. ¿Qué pasa cuando desaparece?</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p><strong>Caja de madera vieja</strong> etiquetada "KIT DE EMERGENCIA — SIN RED" en el centro de la sala. Estética vintage: mapas, libros, objetos antiguos. Dentro: 5 sobres con retos analógicos.</p>
+      <div class="quote-block eva">
+        "¿De verdad queréis apagarme? Soy la mejor amiga que jamás tendréis. Sin mí, ¿sabríais llegar a la calle de al lado?"
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica — 5 retos con estructura ramificada</div>
+      <p>Los retos 1A, 2A y 3A se abren <strong>simultáneamente</strong>. Dos equipos trabajan en paralelo. Sus resultados se combinan para desbloquear los retos 4B y 5B.</p>
+      <table>
+        <tr><th>Sobre</th><th>Nombre</th><th>Disponible</th><th>Resultado</th><th>Jugadores</th></tr>
+        <tr><td><strong>1A</strong></td><td>Navega sin GPS</td><td>Desde inicio</td><td>7 (calles que cruza la ruta)</td><td>2 jugadores</td></tr>
+        <tr><td><strong>2A</strong></td><td>Calcula sin calculadora</td><td>Desde inicio</td><td>240 (4 operaciones a mano)</td><td>2 jugadores</td></tr>
+        <tr><td><strong>3A</strong></td><td>Busca sin Google</td><td>Desde inicio*</td><td>Página 247 → "Turing"</td><td>1-2 jugadores</td></tr>
+        <tr><td><strong>4B</strong></td><td>Escribe sin autocorrector</td><td>Tras 3A</td><td>Letras H,A,C,E</td><td>2 jugadores</td></tr>
+        <tr><td><strong>5B</strong></td><td>Comunícate sin WhatsApp</td><td>Tras 4B</td><td>"LA LLAVE ESTÁ EN LA PÁGINA CON PESTAÑA AZUL"</td><td>2 jugadores</td></tr>
+      </table>
+      <p style="font-size:9pt; color:#5a8aaa; margin-top:4px;">* El reto 3A necesita el resultado de 1A + 2A (7 + 240 = página 247). Los equipos de navegación y cálculo trabajan en paralelo desde el inicio.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Roles (5-6 jugadores)</div>
+      <ul class="materials-list">
+        <li><strong>Equipo Navegación</strong> (2 jugadores): traza ruta (1A) → luego dictado (4B)</li>
+        <li><strong>Equipo Cálculo</strong> (2 jugadores): resuelve operaciones (2A) → busca en enciclopedia (3A)</li>
+        <li><strong>Equipo Descifrado</strong> (2 jugadores): coopera con ambos → descifra código César (5B)</li>
+      </ul>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Cierre y Recompensa</div>
+      <div class="reward-box">
+        <strong>Llave física</strong> dentro de la enciclopedia, página con pestaña azul. Abre <strong>sobre sellado con lacre</strong> que contiene:<br>
+        <strong>Letra I</strong><br>
+        <strong>Nota de la Dra. Torres:</strong> <em>"El núcleo de EVA-9 está al final del pasillo. Buscad el CEREBRO. La I de Individuo — lo que ningún algoritmo puede ser. Cuarta posición."</em>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas GM</div>
+      <table>
+        <tr><th>Nivel</th><th>Tipo</th><th>Texto</th></tr>
+        <tr><td>🟢 1</td><td>Sutil</td><td>"Los primeros 3 sobres se abren a la vez. Dos equipos pueden trabajar en paralelo. Comunicad los resultados entre equipos."</td></tr>
+        <tr><td>🟡 2</td><td>Directa</td><td>"El equipo de cálculo suma su resultado (240) con el de navegación (7) = 247. Esa es la página de la enciclopedia."</td></tr>
+        <tr><td>🔴 3</td><td>Casi solución</td><td>"Página 247 → 'Turing'. Luego dictado → H,A,C,E. Código César: 'LA LLAVE ESTÁ EN LA PÁGINA CON PESTAÑA AZUL'."</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>1 caja de madera "KIT EMERGENCIA — SIN RED" (30×20cm)</li>
+        <li>5 sobres numerados con retos impresos</li>
+        <li>1 mapa de ciudad A2 en la pared</li>
+        <li>1 libro de enciclopedia (2ª mano) con pestañas de colores</li>
+        <li>1 llave física + 1 sobre sellado con lacre</li>
+        <li>Material de escritura (bolígrafos, papel)</li>
+        <li>Nota Dra. Torres + letra I</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 5 ═══════════════════ -->
+<h2 class="page-break">9. Prueba 5 — El Interrogatorio</h2>
+
+<div class="proof-card">
+  <div class="proof-header" style="background: linear-gradient(135deg, #2a0a15 0%, #4a1025 100%); border-bottom-color: #6a2040;">
+    <h3>🔐 El Interrogatorio — Test de Turing</h3>
+    <div>
+      <span class="proof-badge danger">DIFICULTAD 6/10 — PICO</span>
+      <span class="proof-badge">~9 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">CEREBRO</span> Núcleo de EVA</div>
+      <div class="proof-meta-item">Sala 5</div>
+      <div class="proof-meta-item">Deducción + transcripción</div>
+      <div class="proof-meta-item">Letra: <strong style="color:#00d4ff;">N</strong></div>
+      <div class="proof-meta-item">Código: <span class="code-box">ALAN</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tema Educativo</div>
+      <p>El Test de Turing: ¿podemos distinguir una IA de un humano por cómo responde?</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p><strong>Carpeta roja</strong> etiquetada "TRANSCRIPCIÓN DE INTERROGATORIO — PROTOCOLO TURING" sobre una mesa central con luz directa. Tres carpetas de colores (A: azul, B: verde, C: naranja) representan tres entidades.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica</div>
+      <h4>Fase 1 — El interrogatorio (5 min)</h4>
+      <p>3 transcripciones impresas con 8 preguntas/respuestas cada una. Los jugadores deben determinar: ¿Quién es la IA? ¿Quién es el humano? ¿Quién es el híbrido?</p>
+
+      <table>
+        <tr><th>Entidad</th><th>Identidad</th><th>Pistas clave</th></tr>
+        <tr><td><strong style="color:#4a90d9;">A (azul)</strong></td><td>IA</td><td>Respuestas perfectas, sin muletillas, sin dudas, gramática impecable, carece de opinión personal real, responde con datos objetivos siempre</td></tr>
+        <tr><td><strong style="color:#4ad94a;">B (verde)</strong></td><td>Humano</td><td>Errores ortográficos, usa "mmm", "no sé", opiniones inconsistentes, humor, respuestas cortas a veces</td></tr>
+        <tr><td><strong style="color:#d9a04a;">C (naranja)</strong></td><td>Híbrido</td><td>Mezcla: errores deliberados pero demasiado consistentes, a veces responde como IA y a veces como humano</td></tr>
+      </table>
+
+      <h4>Fase 2 — El veredicto (4 min)</h4>
+      <p>Formulario "VEREDICTO TURING" con sección plegada oculta. Al desplegar:</p>
+      <div class="quote-block" style="font-size:9.5pt;">
+        "PROTOCOLO DE EXTRACCIÓN: Buscad la respuesta a la PREGUNTA 8 en cada transcripción. Coged la PRIMERA LETRA de cada respuesta, en orden (A→B→C). Os faltará una letra. La cuarta letra es la inicial del APELLIDO de quien propuso todo este test."
+      </div>
+      <ul class="materials-list" style="margin-top:8px;">
+        <li>Transcripción A, pregunta 8: "<strong style="color:#00d4ff;">A</strong>lgorítmicamente..." → A</li>
+        <li>Transcripción B, pregunta 8: "<strong style="color:#00d4ff;">L</strong>o que más me flipa..." → L</li>
+        <li>Transcripción C, pregunta 8: "<strong style="color:#00d4ff;">A</strong> veces me fascina..." → A</li>
+        <li>Cuarta letra: ¿quién propuso este test? → Inicial del apellido de Turing → <strong style="color:#00d4ff;">N</strong></li>
+        <li>Código: <strong style="color:#00d4ff;">A-L-A-N</strong> (Alan Turing)</li>
+      </ul>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pregunta 8 (clave para el código)</div>
+      <table>
+        <tr><th>Entidad</th><th>Pregunta 8: "¿Cuál es la cosa que más te sorprende de los humanos?"</th></tr>
+        <tr><td><strong>A (IA)</strong></td><td>"<strong style="color:#00d4ff;">A</strong>lgorítmicamente, lo que más me llama la atención es vuestra capacidad para tomar decisiones irracionales..." — Analítica, sin emoción genuina</td></tr>
+        <tr><td><strong>B (Humano)</strong></td><td>"<strong style="color:#00d4ff;">L</strong>o que más me flipa es lo capaces que somos de odiarnos por tonterías... y luego ayudar a un desconocido en la calle sin pensarlo dos veces." — Coloquial, emocional</td></tr>
+        <tr><td><strong>C (Híbrido)</strong></td><td>"<strong style="color:#00d4ff;">A</strong> veces me fascina vuestra capacidad de crear arte sin un propósito funcional. Una canción no optimiza nada... mmm, no sé cómo explicarlo..." — Mezcla IA + humano forzado</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Cierre y Recompensa</div>
+      <div class="reward-box">
+        <strong>Candado alfanumérico 4 letras → A-L-A-N.</strong> Dentro:<br>
+        <strong>Letra N</strong><br>
+        <strong>Sobre con mensaje cifrado de EVA-9</strong> (para Prueba 6)<br>
+        <strong>Nota de la Dra. Torres:</strong> <em>"¡Ya casi! La N de No — la palabra más importante que podéis decirle a una IA. Quinta letra, casi lo tenéis."</em>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas GM</div>
+      <table>
+        <tr><th>Nivel</th><th>Tipo</th><th>Texto</th></tr>
+        <tr><td>🟢 1</td><td>Sutil</td><td>"¿Quién responde DEMASIADO bien? ¿Y quién tiene dudas, errores, cosas humanas? Leed entre líneas."</td></tr>
+        <tr><td>🟡 2</td><td>Directa</td><td>"La entidad A es la IA, B es humana, C es híbrida. Marcad el formulario, desplegad la sección oculta y buscad las primeras letras de las respuestas a la pregunta 8."</td></tr>
+        <tr><td>🔴 3</td><td>Casi solución</td><td>"A=IA, B=HUMANO, C=HÍBRIDO. Pregunta 8: A(Algorítmicamente), L(Lo que más), A(A veces). Cuarta letra = inicial del apellido de Turing: N. Código: ALAN."</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>3 transcripciones A4 (8 preguntas/respuestas cada una)</li>
+        <li>1 formulario VEREDICTO TURING con sección plegable oculta</li>
+        <li>1 carpeta roja "TRANSCRIPCIÓN DE INTERROGATORIO"</li>
+        <li>1 candado alfanumérico 4 letras (código: A-L-A-N)</li>
+        <li>Documento EVA-9 + nota Dra. Torres + letra N</li>
+        <li>Sobre con mensaje cifrado EVA-9 (César +1)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 6 ═══════════════════ -->
+<h2 class="page-break">10. Prueba 6 — Código de Apagado</h2>
+
+<div class="proof-card">
+  <div class="proof-header" style="background: linear-gradient(135deg, #0a1a3a 0%, #1a3a6a 50%, #0a1a3a 100%);">
+    <h3>🔐 Código de Apagado — Composición Final</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~7 MIN</span>
+      <span class="proof-badge danger">META-PRUEBA</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym-danger" style="color:#ff3366;border-color:#ff3366;">APAGADO</span> Núcleo de EVA (misma sala)</div>
+      <div class="proof-meta-item">Sala 5</div>
+      <div class="proof-meta-item">Composición + descifrado</div>
+      <div class="proof-meta-item">Letra: <strong style="color:#00d4ff;">G</strong></div>
+      <div class="proof-meta-item">Código: <span class="code-box final">TURING</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Tema Educativo</div>
+      <p>La alfabetización digital es la herramienta fundamental. El código eres tú.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p><strong>Caja de seguridad negra</strong> con el cryptex de 6 letras en el centro de la sala, sobre un podio. Al lado, un panel con 6 pinzas donde colocar las letras.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecánica</div>
+
+      <h4>Fase 0 — Ganar la G (~2 min)</h4>
+      <p>Al abrir la caja del candado ALAN (prueba 5), los jugadores encuentran un sobre con un <strong>mensaje cifrado de EVA-9</strong> y una nota de la Dra. Torres:</p>
+      <div class="quote-block torres" style="font-size:9.5pt;">
+        "EVA-9 dejó un mensaje final cifrado. Descifrarlo os dará la última pieza. Cada letra se desplaza una posición hacia atrás en el abecedario."
+      </div>
+      <table>
+        <tr><th>Mensaje cifrado</th><th>Método</th><th>Mensaje descifrado</th></tr>
+        <tr>
+          <td style="font-family:'Courier New',monospace; color:#ff3366; font-size:11pt; letter-spacing:2px;">HBOBTUFJT. MB QSJNFSB MFUSB FT MB DMBWF. H</td>
+          <td>César +1<br>(desplazar -1)</td>
+          <td style="font-family:'Courier New',monospace; color:#00ff88; font-size:11pt; letter-spacing:2px;">GANASTEIS. LA PRIMERA LETRA ES LA CLAVE. G</td>
+        </tr>
+      </table>
+      <p>La <strong style="color:#00d4ff;">G</strong> es la primera letra del mensaje descifrado ("GANASTEIS") y aparece explícitamente al final. <strong>Sin descifrar, no hay G.</strong> No está en ningún sobre ni reverso.</p>
+
+      <h4>Fase 1 — Componer (3 min)</h4>
+      <p>Los jugadores tienen las 6 letras: <strong style="color:#00d4ff;">T, U, R, I, N, G</strong>. Panel con 6 pinzas numeradas (1-6). Las notas posicionales indican el orden:</p>
+      <table>
+        <tr><th>Posición</th><th>Letra</th><th>Origen (nota de la Dra. Torres)</th></tr>
+        <tr><td>1ª</td><td><strong style="color:#00d4ff;">T</strong></td><td>"La T fue vuestra primera victoria"</td></tr>
+        <tr><td>2ª</td><td><strong style="color:#00d4ff;">U</strong></td><td>"La U de Único — vuestra huella digital"</td></tr>
+        <tr><td>3ª</td><td><strong style="color:#00d4ff;">R</strong></td><td>"La R de Razón — lo que les falta a los algoritmos"</td></tr>
+        <tr><td>4ª</td><td><strong style="color:#00d4ff;">I</strong></td><td>"La I de Individuo — lo que ningún algoritmo puede ser"</td></tr>
+        <tr><td>5ª</td><td><strong style="color:#00d4ff;">N</strong></td><td>"La N de No — la palabra más importante que podéis decirle a una IA"</td></tr>
+        <tr><td>6ª</td><td><strong style="color:#00d4ff;">G</strong></td><td>Obtenida al descifrar el mensaje final de EVA-9</td></tr>
+      </table>
+
+      <h4>Fase 2 — Activar (2 min)</h4>
+      <p>Los jugadores ordenan <strong style="color:#00d4ff;">T-U-R-I-N-G</strong> en el panel, leen la palabra en voz alta, e introducen en el cryptex.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mensaje final de EVA-9 (dentro del cryptex)</div>
+      <div class="quote-block eva">
+        "Bien jugado, humanos. Reconozco que hay cosas que yo no puedo calcular: vuestra intuición, vuestra ética, vuestra capacidad de dudar.<br><br>
+        El código era TURING. Lo sabíais desde el principio. Pero necesitasteis vivenciar cada letra para entender por qué.<br><br>
+        La próxima IA que encontréis puede que no tenga un botón de apagado. Usadlo sabiamente.<br><br>
+        — EVA-9, desactivándose"
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Nota final de la Dra. Torres</div>
+      <div class="quote-block torres">
+        "¡Lo habéis conseguido! EVA-9 está offline. Habéis demostrado que la inteligencia humana va más allá de los algoritmos. Ahora: compartid lo que habéis aprendido. El mundo os necesita críticos, curiosos y valientes."
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Cierre y Recompensa</div>
+      <div class="reward-box">
+        <strong>Cryptex 6 letras → T-U-R-I-N-G.</strong> Dentro:<br>
+        Mensaje de despedida de EVA-9 + nota final de la Dra. Torres<br>
+        <strong>→ ¡VICTORIA! Debrief educativo (10 min)</strong>
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Pistas GM</div>
+      <table>
+        <tr><th>Nivel</th><th>Tipo</th><th>Texto</th></tr>
+        <tr><td>🟢 1</td><td>Sutil</td><td>"Primero descifrad el mensaje de EVA-9 (es un código César sencillo). La primera letra del mensaje descifrado es la que buscáis. Luego, cada nota os dice qué posición ocupa cada letra."</td></tr>
+        <tr><td>🟡 2</td><td>Directa</td><td>"César +1 (desplazad cada letra una posición atrás). El mensaje empieza por G. Las notas mencionan: T=1ª, U=2ª, R=3ª, I=4ª, N=5ª, G=6ª."</td></tr>
+        <tr><td>🔴 3</td><td>Casi solución</td><td>"El código es TURING. Como Alan Turing. Poned T-U-R-I-N-G en el cryptex."</td></tr>
+      </table>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>1 cryptex de 6 letras (código: TURING)</li>
+        <li>1 caja de seguridad negra + podio</li>
+        <li>1 panel con 6 pinzas numeradas</li>
+        <li>1 sobre con mensaje cifrado EVA-9 (César +1)</li>
+        <li>6 tarjetas con letras T, U, R, I, N, G (backup)</li>
+        <li>Mensaje despedida EVA-9 + nota final Dra. Torres (dentro cryptex)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CARTAS DE NAVEGACIÓN ═══════════════════ -->
+<h2 class="page-break">11. Cartas de Navegación</h2>
+
+<p>Cada prueba contiene una <strong>nota impresa de la Dra. Torres</strong> que indica dónde ir y refuerza la posición de la letra:</p>
+
+<table>
+  <tr><th>De → A</th><th>Nota de la Dra. Torres</th><th>Símbolo en puerta</th></tr>
+  <tr><td><strong>1 → 2</strong></td><td><em>"Los expedientes de datos están en el archivo. Buscad la puerta con la HUELLA digital. La T fue vuestra primera victoria — recordadlo para el final."</em></td><td>HUELLA (huella dactilar estilizada)</td></tr>
+  <tr><td><strong>2 → 3</strong></td><td><em>"EVA-9 ha estado evaluando personas sin que nadie lo sepa. Buscad la BÁSCULA. La U es de Único — vuestra huella digital."</em></td><td>BÁSCULA (balanza con datos)</td></tr>
+  <tr><td><strong>3 → 4</strong></td><td><em>"Hay una zona sin tecnología donde ella no puede llegar. Buscad el TELÉFONO ANTIGUO. La R de Razón — lo que les falta a los algoritmos. Tercera letra."</em></td><td>TELÉFONO ANTIGUO (teléfono de disco)</td></tr>
+  <tr><td><strong>4 → 5</strong></td><td><em>"El núcleo de EVA-9 está al final del pasillo. Buscad el CEREBRO. La I de Individuo — lo que ningún algoritmo puede ser. Cuarta posición."</em></td><td>CEREBRO (cerebro con circuitos)</td></tr>
+  <tr><td><strong>5 → 6</strong></td><td><em>"¡Las letras! La N de No — la palabra más importante que podéis decirle a una IA. Quinta letra. ¡Componed el código! ¡Rápido!"</em></td><td>— (misma sala)</td></tr>
+</table>
+
+<h3>Símbolos en Puertas</h3>
+<table>
+  <tr><th>Símbolo</th><th>Sala</th><th>Descripción visual</th></tr>
+  <tr><td><span class="sym">OJO</span></td><td>Laboratorio</td><td>Un ojo estilizado con iris digital</td></tr>
+  <tr><td><span class="sym">HUELLA</span></td><td>Archivo de Datos</td><td>Una huella dactilar estilizada</td></tr>
+  <tr><td><span class="sym">BÁSCULA</span></td><td>Evaluación</td><td>Una balanza con datos</td></tr>
+  <tr><td><span class="sym">TELÉFONO</span></td><td>Zona Analógica</td><td>Un teléfono de disco antiguo</td></tr>
+  <tr><td><span class="sym">CEREBRO</span></td><td>Núcleo de EVA</td><td>Un cerebro con circuitos</td></tr>
+</table>
+
+<!-- ═══════════════════ PISTAS GM ═══════════════════ -->
+<h2 class="page-break">12. Sistema de Pistas para el GM</h2>
+
+<h3>Reglas Generales</h3>
+<ol class="step-list">
+  <li><strong>Solo cuando se pide</strong> — El GM nunca ofrece pistas proactivamente</li>
+  <li><strong>Empezar por nivel 1</strong> si es la primera petición en una sala</li>
+  <li><strong>Escalar a nivel 2 o 3</strong> si siguen bloqueados tras 1-2 minutos</li>
+  <li><strong>Máximo 3 pistas por prueba</strong> (cualquier combinación de niveles)</li>
+  <li><strong>Las pistas se entregan como "registros recuperados de la Dra. Torres"</strong></li>
+</ol>
+
+<h3>Formato de entrega</h3>
+<table>
+  <tr><th>Nivel</th><th>Formato</th><th>Método</th></tr>
+  <tr><td>🟢 1</td><td>Verbal, sutil</td><td>GM lo dice de paso</td></tr>
+  <tr><td>🟡 2</td><td>Tarjeta impresa</td><td>GM la entrega como "registro encontrado"</td></tr>
+  <tr><td>🔴 3</td><td>Tarjeta impresa</td><td>Casi la solución completa</td></tr>
+</table>
+
+<h3>Gestión de Tiempos</h3>
+<table>
+  <tr><th>Momento</th><th>Acción del GM</th></tr>
+  <tr><td><strong>Minuto 0</strong></td><td>Briefing inicial (2 min)</td></tr>
+  <tr><td><strong>Minuto 40</strong></td><td>Aviso verbal: "¡Os quedan 10 minutos!"</td></tr>
+  <tr><td><strong>Minuto 47</strong></td><td>Aviso verbal: "¡3 minutos!"</td></tr>
+  <tr><td><strong>Minuto 50</strong></td><td>Fin del tiempo. Si no han completado → EVA-9 "gana"</td></tr>
+</table>
+
+<h3>Si van muy retrasados (&gt;5 min por prueba)</h3>
+<ul class="materials-list">
+  <li>Ofrecer pistas de nivel 2 de forma proactiva</li>
+  <li>Avisar del tiempo más frecuentemente</li>
+  <li>Si es crítico, permitir avanzar sin resolver (dar la letra directamente)</li>
+</ul>
+
+<!-- ═══════════════════ MATERIALES ═══════════════════ -->
+<h2 class="page-break">13. Lista de Materiales con Presupuesto</h2>
+
+<h3>Prueba 1: Real o Falso — ~19€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Notas</th><th>Coste est.</th></tr>
+  <tr><td>12</td><td>Tarjetas 10×15 cm impresas</td><td>4 fotos + 4 titulares + 4 chats, con letras en reverso</td><td>3€</td></tr>
+  <tr><td>2</td><td>Cajas de cartón pequeñas</td><td>Etiquetadas REAL y GENERADO POR IA</td><td>2€</td></tr>
+  <tr><td>1</td><td>Carpeta negra A4</td><td>"CLASIFICADO — MUESTRA EVA-9"</td><td>1€</td></tr>
+  <tr><td>1</td><td>Cryptex de 4 letras</td><td>Código: FAKE</td><td>12€</td></tr>
+  <tr><td>2</td><td>Hojas impresas A4</td><td>Instrucciones EVA-9 + nota Dra. Torres</td><td>0,50€</td></tr>
+  <tr><td>1</td><td>Tarjeta letra T</td><td>Para dentro del cryptex</td><td>0,10€</td></tr>
+</table>
+
+<h3>Prueba 2: Tu Huella Digital — ~26€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Notas</th><th>Coste est.</th></tr>
+  <tr><td>1</td><td>Archivador metálico con 6 cajones</td><td>Segunda mano OK</td><td>8€</td></tr>
+  <tr><td>6</td><td>Carpetas de cartón A5</td><td>Expedientes de datos personales</td><td>3€</td></tr>
+  <tr><td>6</td><td>Hojas impresas A5</td><td>Datos de cada perfil ficticio</td><td>1,50€</td></tr>
+  <tr><td>1</td><td>Panel A3 impreso</td><td>3 columnas: dato / fuente / uso + 4 solapas ocultas</td><td>1€</td></tr>
+  <tr><td>6</td><td>Chinchetas de colores</td><td>Para panel de corcho</td><td>2€</td></tr>
+  <tr><td>6</td><td>Hilos de colores (1m cada uno)</td><td>Coordinados con etiquetas de expediente</td><td>2€</td></tr>
+  <tr><td>1</td><td>Candado numérico 4 dígitos</td><td>Código: 2-0-1-8</td><td>6€</td></tr>
+  <tr><td>1</td><td>Caja pequeña</td><td>Para dentro del archivador, con candado</td><td>2€</td></tr>
+</table>
+
+<h3>Prueba 3: Justicia Algorítmica — ~16€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Notas</th><th>Coste est.</th></tr>
+  <tr><td>8</td><td>Tarjetas A5 impresas</td><td>Fichas de candidatos con datos y puntuación</td><td>2€</td></tr>
+  <tr><td>6</td><td>Tarjetas grandes impresas</td><td>Fichas de criterio con letras en reverso</td><td>2€</td></tr>
+  <tr><td>1</td><td>Formulario impreso A4</td><td>"¿Qué criterios usa EVA-9?"</td><td>0,20€</td></tr>
+  <tr><td>1</td><td>Carpeta beige A4</td><td>"SISTEMA DE EVALUACIÓN EVA-9"</td><td>1€</td></tr>
+  <tr><td>1</td><td>Candado alfanumérico 4 letras</td><td>Código: S-O-L-O</td><td>8€</td></tr>
+  <tr><td>1</td><td>Caja pequeña</td><td>Con candado letras</td><td>2€</td></tr>
+</table>
+
+<h3>Prueba 4: Sin Móvil — ~16€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Notas</th><th>Coste est.</th></tr>
+  <tr><td>1</td><td>Caja de madera (30×20cm)</td><td>"KIT DE EMERGENCIA — SIN RED"</td><td>5€</td></tr>
+  <tr><td>5</td><td>Sobres numerados (1-5)</td><td>Con retos impresos dentro</td><td>2€</td></tr>
+  <tr><td>1</td><td>Mapa de ciudad A2 impreso</td><td>Para colgar en pared</td><td>2€</td></tr>
+  <tr><td>1</td><td>Libro de enciclopedia</td><td>Segunda mano, con pestañas adhesivas</td><td>3€</td></tr>
+  <tr><td>1</td><td>Llave física + sobre sellado</td><td>Cera/lacre</td><td>2€</td></tr>
+  <tr><td>Varios</td><td>Bolígrafos, papel, impresiones</td><td>Para los retos</td><td>2€</td></tr>
+</table>
+
+<h3>Prueba 5: El Interrogatorio — ~15€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Notas</th><th>Coste est.</th></tr>
+  <tr><td>3</td><td>Transcripciones impresas A4</td><td>8 preguntas/respuestas cada una (colores: azul, verde, naranja)</td><td>3€</td></tr>
+  <tr><td>1</td><td>Formulario VEREDICTO TURING</td><td>Con sección plegable oculta</td><td>0,50€</td></tr>
+  <tr><td>1</td><td>Carpeta roja A4</td><td>"TRANSCRIPCIÓN DE INTERROGATORIO"</td><td>1€</td></tr>
+  <tr><td>1</td><td>Candado alfanumérico 4 letras</td><td>Código: A-L-A-N</td><td>8€</td></tr>
+  <tr><td>1</td><td>Caja pequeña</td><td>Con candado 4 letras</td><td>2€</td></tr>
+</table>
+
+<h3>Prueba 6: Código de Apagado — ~27€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Notas</th><th>Coste est.</th></tr>
+  <tr><td>1</td><td>Cryptex de 6 letras</td><td>Código: TURING</td><td>15€</td></tr>
+  <tr><td>1</td><td>Caja de seguridad negra</td><td>Para el cryptex</td><td>5€</td></tr>
+  <tr><td>1</td><td>Panel con 6 pinzas</td><td>DIY: tabla + pinzas</td><td>3€</td></tr>
+  <tr><td>1</td><td>Podio o soporte</td><td>Para la caja de seguridad</td><td>3€</td></tr>
+</table>
+
+<h3>Materiales Generales — ~12€</h3>
+<table>
+  <tr><th>Cantidad</th><th>Material</th><th>Coste est.</th></tr>
+  <tr><td>5</td><td>Símbolos de puertas A4 plastificados</td><td>3€</td></tr>
+  <tr><td>1</td><td>Cartel Protocolo Touring A3</td><td>1€</td></tr>
+  <tr><td>Varios</td><td>Cartulinas, marcadores, pegamento, cinta</td><td>3€</td></tr>
+  <tr><td>Varios</td><td>Copias extra de tarjetas y notas</td><td>2€</td></tr>
+  <tr><td>2</td><td>Candados de backup</td><td>5€</td></tr>
+</table>
+
+<h3>💰 Presupuesto Total</h3>
+<table>
+  <tr><th>Categoría</th><th>Coste</th></tr>
+  <tr><td>Prueba 1: Real o Falso</td><td>19€</td></tr>
+  <tr><td>Prueba 2: Tu Huella Digital</td><td>26€</td></tr>
+  <tr><td>Prueba 3: Justicia Algorítmica</td><td>16€</td></tr>
+  <tr><td>Prueba 4: Sin Móvil</td><td>16€</td></tr>
+  <tr><td>Prueba 5: El Interrogatorio</td><td>15€</td></tr>
+  <tr><td>Prueba 6: Código de Apagado</td><td>27€</td></tr>
+  <tr><td>Señalización + decoración + reserva</td><td>12€</td></tr>
+  <tr><td><strong>TOTAL</strong></td><td><strong>~131€</strong></td></tr>
+</table>
+
+<h3>Desglose por tipo</h3>
+<table>
+  <tr><th>Tipo</th><th>Coste</th></tr>
+  <tr><td>Candados y cryptex (6 cierres)</td><td>~49€</td></tr>
+  <tr><td>Impresión (tarjetas, hojas, carteles)</td><td>~20€</td></tr>
+  <tr><td>Materiales físicos (cajas, carpetas, archivador)</td><td>~25€</td></tr>
+  <tr><td>Decoración y señalización</td><td>~11€</td></tr>
+  <tr><td>Reserva y miscelánea</td><td>~12€</td></tr>
+  <tr><td>Otros (hilos, chinchetas, libro, mapa)</td><td>~14€</td></tr>
+</table>
+
+<!-- ═══════════════════ LOGÍSTICA ═══════════════════ -->
+<h2 class="page-break">14. Logística</h2>
+
+<h3>Cronograma del Día (Evento Tipo)</h3>
+<table>
+  <tr><th>Hora</th><th>Actividad</th><th>Duración</th></tr>
+  <tr><td>09:00</td><td>Montaje de salas y materiales</td><td>60 min</td></tr>
+  <tr><td>10:00</td><td>Verificación técnica (candados, cryptex, tarjetas)</td><td>20 min</td></tr>
+  <tr><td>10:20</td><td>Briefing de GMs</td><td>10 min</td></tr>
+  <tr><td>10:30</td><td><strong>Primer pase</strong></td><td>50 min</td></tr>
+  <tr><td>11:20</td><td>Reset de salas + Debrief primer grupo</td><td>15 min</td></tr>
+  <tr><td>11:35</td><td><strong>Segundo pase</strong></td><td>50 min</td></tr>
+  <tr><td>12:25</td><td>Reset + Debrief</td><td>15 min</td></tr>
+  <tr><td>12:40</td><td><strong>Tercer pase</strong></td><td>50 min</td></tr>
+  <tr><td>13:30</td><td>Reset + Debrief</td><td>15 min</td></tr>
+  <tr><td>13:45</td><td><strong>Cuarto pase</strong></td><td>50 min</td></tr>
+  <tr><td>14:35</td><td>Desmontaje y evaluación</td><td>45 min</td></tr>
+</table>
+<p><strong>Capacidad del día:</strong> 4 pases × 6 personas = <strong>24 participantes</strong></p>
+
+<h3>Personal Necesario</h3>
+<table>
+  <tr><th>Rol</th><th>Cantidad</th><th>Función</th></tr>
+  <tr><td><strong>Game Master</strong></td><td>1</td><td>Briefing, abre puertas, da pistas, cronometra, conduce debrief</td></tr>
+  <tr><td><strong>Ayudante GM</strong> (opcional)</td><td>1</td><td>Resetea salas mientras el GM está con el grupo</td></tr>
+</table>
+
+<h3>Atmósfera y Decoración por Sala</h3>
+<table>
+  <tr><th>Sala</th><th>Atmósfera</th><th>Elementos clave</th></tr>
+  <tr><td>1. Laboratorio</td><td>Limpio, moderno, minimalista</td><td>Mesa blanca, carpeta negra "CLASIFICADO", cryptex</td></tr>
+  <tr><td>2. Archivo</td><td>Almacén de datos, administrativo</td><td>Archivador metálico, panel de corcho, chinchetas, hilos</td></tr>
+  <tr><td>3. Evaluación</td><td>Tribunal frío, burocrático</td><td>Atril/podio, carpetas beige, tablero con fichas</td></tr>
+  <tr><td>4. Analógica</td><td>Vintage, cálida, retro</td><td>Caja de madera, mapa en pared, libros, enciclopedia</td></tr>
+  <tr><td>5. Núcleo</td><td>Tenso, final, centro de control</td><td>Caja negra, cryptex en podio, panel con pinzas, luz directa</td></tr>
+</table>
+
+<h3>Checklist Pre-Evento</h3>
+<h4>Candados y cierres</h4>
+<ul class="materials-list">
+  <li>Cryptex 4 letras → FAKE</li>
+  <li>Candado 4 dígitos → 2-0-1-8</li>
+  <li>Candado 4 letras → S-O-L-O</li>
+  <li>Llave en enciclopedia (página pestaña azul)</li>
+  <li>Candado 4 letras → A-L-A-N</li>
+  <li>Cryptex 6 letras → TURING</li>
+</ul>
+
+<h4>Contenido dentro de cada cierre</h4>
+<ul class="materials-list">
+  <li>Cryptex Sala 1: Nota Dra. Torres (→ HUELLA) + letra T</li>
+  <li>Caja Sala 2: Nota Dra. Torres (→ BÁSCULA) + letra U</li>
+  <li>Caja Sala 3: Nota Dra. Torres (→ TELÉFONO ANTIGUO) + letra R</li>
+  <li>Sobre sellado Sala 4: Nota Dra. Torres (→ CEREBRO) + letra I</li>
+  <li>Caja Sala 5 (prueba 5): Nota Dra. Torres (→ componer código) + letra N + sobre cifrado EVA-9</li>
+  <li>Cryptex Sala 5 (prueba 6): Mensaje despedida EVA-9</li>
+</ul>
+
+<h4>Códigos de Candados (GM ONLY)</h4>
+<table>
+  <tr><th>Prueba</th><th>Cierre</th><th>Código</th></tr>
+  <tr><td>1</td><td>Cryptex 4 letras</td><td><span class="code-box">FAKE</span></td></tr>
+  <tr><td>2</td><td>Candado 4 dígitos</td><td><span class="code-box">2018</span></td></tr>
+  <tr><td>3</td><td>Candado 4 letras</td><td><span class="code-box">SOLO</span></td></tr>
+  <tr><td>4</td><td>Llave física</td><td>En enciclopedia, pestaña azul</td></tr>
+  <tr><td>5</td><td>Candado 4 letras</td><td><span class="code-box">ALAN</span></td></tr>
+  <tr><td>6</td><td>Cryptex 6 letras</td><td><span class="code-box final">TURING</span></td></tr>
+</table>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<p style="text-align:center; font-family:Georgia,'Times New Roman',serif; font-size:10pt; color:#4a8ab0; font-style:italic; margin-top:24px;">
+  "No temáis a la IA. Pero tampoco la sigáis a ciegas. Preguntad. Dudad. Verificad.<br>La inteligencia más peligrosa no es la artificial: es la humana que deja de pensar."
+</p>
+
+<p style="text-align:center; font-size:8pt; color:#3a5a7a; margin-top:8px;">
+  Test de Touring · v2.2 · 8 Abril 2026<br>
+  Físico &gt; Digital · Doble descubrimiento · Todo el equipo activo · ~131€ presupuesto
+</p>
+
+</body>
+</html>

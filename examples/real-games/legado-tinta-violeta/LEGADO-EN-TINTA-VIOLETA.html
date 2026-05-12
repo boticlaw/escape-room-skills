@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>El Legado en Tinta Violeta — Documento de Diseño</title>
+<style>
+  /* Using system fonts for reliable PDF rendering */
+
+  @page {
+    size: A4;
+    margin: 2cm 2.2cm;
+    @bottom-center {
+      content: counter(page);
+      font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9pt;
+      color: #999;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #2c2c2c;
+    background: #fff;
+  }
+
+  /* ── ICON SYSTEM ── */
+  .icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: -3px;
+    margin-right: 2px;
+  }
+  .icon-lg {
+    width: 22px;
+    height: 22px;
+    vertical-align: -4px;
+  }
+  .sym {
+    display: inline-block;
+    font-weight: 700;
+    color: #7b2d8e;
+    padding: 1px 6px;
+    border: 1.5px solid #7b2d8e;
+    border-radius: 3px;
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+    vertical-align: 1px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    page-break-after: always;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, #f8f0ff 0%, #ede0f7 40%, #d4b8e8 100%);
+    padding: 3cm;
+  }
+  .cover-accent {
+    width: 80px;
+    height: 3px;
+    background: #7b2d8e;
+    margin: 0 auto 28px;
+    border-radius: 2px;
+  }
+  .cover h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32pt;
+    font-weight: 700;
+    color: #4a1262;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14pt;
+    font-style: italic;
+    color: #7b2d8e;
+    margin-bottom: 36px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item {
+    text-align: center;
+  }
+  .cover-meta-item .label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #9b6daf;
+    font-weight: 600;
+  }
+  .cover-meta-item .value {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #4a1262;
+    margin-top: 4px;
+  }
+  .cover-footer {
+    margin-top: 60px;
+    font-size: 9pt;
+    color: #9b6daf;
+  }
+
+  /* ── HEADINGS ── */
+  h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18pt;
+    color: #4a1262;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #d4b8e8;
+  }
+  h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13pt;
+    color: #6b2d8b;
+    margin-top: 22px;
+    margin-bottom: 8px;
+  }
+  h4 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #4a1262;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 8px; }
+  .page-break { page-break-before: always; }
+
+  .quote-block {
+    background: #f8f0ff;
+    border-left: 4px solid #7b2d8e;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: #4a1262;
+    line-height: 1.6;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 9.5pt;
+  }
+  th {
+    background: #7b2d8e;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e8d8f0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #faf6fc; }
+
+  /* ── CODE BOX (bulletproof) ── */
+  .code-box { font-size: 10px; padding: 2px 6px;
+    display: inline-block;
+    background: #ffffff;
+    color: #1a0a24;
+    border: 3px solid #000000;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18pt;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 6px 0;
+    line-height: 1.2;
+  }
+  .proof-body .code-box,
+  .proof-card .code-box,
+  .proof-header .code-box,
+  table .code-box,
+  table tr .code-box,
+  table tr td .code-box { font-size: 10px; padding: 2px 6px;
+    background: #ffffff;
+    color: #1a0a24;
+    border: 3px solid #000000;
+    font-size: 18pt;
+    font-weight: 900;
+  }
+
+  /* ── PROOF CARDS ── */
+  .proof-card {
+    border: 1px solid #d4b8e8;
+    border-radius: 8px;
+    margin: 20px 0 24px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .proof-header {
+    background: linear-gradient(135deg, #7b2d8e 0%, #5c1a73 100%);
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .proof-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 14pt;
+  }
+  .proof-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .proof-body {
+    padding: 16px 18px;
+  }
+  .proof-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .proof-meta-item {
+    font-size: 9pt;
+    color: #7b2d8e;
+    font-weight: 500;
+  }
+  .proof-meta-item span {
+    color: #2c2c2c;
+    font-weight: 400;
+  }
+  .proof-section {
+    margin-top: 12px;
+  }
+  .proof-section-title {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9b6daf;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .step-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 5px;
+    font-size: 9.5pt;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #ede0f7;
+    color: #4a1262;
+    border-radius: 50%;
+    font-size: 8.5pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reward-box {
+    background: linear-gradient(135deg, #f8f0ff 0%, #ede0f7 100%);
+    border: 1px solid #d4b8e8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+  .materials-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .materials-list li {
+    font-size: 9pt;
+    color: #555;
+    position: relative;
+    padding-left: 14px;
+  }
+  .materials-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 7px;
+    height: 7px;
+    background: #7b2d8e;
+    border-radius: 50%;
+  }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 16px 0;
+    font-size: 9.5pt;
+  }
+  .flow-step {
+    background: #f8f0ff;
+    border: 1px solid #d4b8e8;
+    border-radius: 6px;
+    padding: 8px 16px;
+    text-align: center;
+    width: 85%;
+    max-width: 420px;
+  }
+  .flow-step .flow-num {
+    font-weight: 700;
+    color: #7b2d8e;
+    font-size: 8pt;
+  }
+  .flow-step .flow-name {
+    font-weight: 600;
+    color: #4a1262;
+  }
+  .flow-step .flow-code {
+    font-size: 8.5pt;
+    color: #888;
+    margin-top: 2px;
+  }
+  .flow-arrow {
+    color: #7b2d8e;
+    font-size: 14pt;
+    line-height: 1;
+  }
+  .flow-plant {
+    background: #ede0f7;
+    border: none;
+    padding: 4px 16px;
+    border-radius: 10px;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4a1262;
+    font-weight: 700;
+  }
+
+  .two-col {
+    display: flex;
+    gap: 20px;
+  }
+  .two-col > div { flex: 1; }
+
+  .toc {
+    margin: 16px 0;
+  }
+  .toc li {
+    padding: 4px 0;
+    border-bottom: 1px dotted #d4b8e8;
+    font-size: 10pt;
+  }
+
+h2 { page-break-after: avoid; }
+h3 { page-break-after: avoid; }
+.proof-card { page-break-inside: auto; }
+table { page-break-inside: auto; }
+.proof-card table { page-break-inside: avoid; }
+.proof-section { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-accent"></div>
+  <h1>El Legado en Tinta Violeta</h1>
+  <div class="subtitle">Escape Room Competitivo sobre Escritoras Palentinas</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Jugadores</div>
+      <div class="value">10 - 12</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Equipos</div>
+      <div class="value">2 x 5-6</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Duracion</div>
+      <div class="value">~50 min</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Dificultad</div>
+      <div class="value">4.5 / 10</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Edad</div>
+      <div class="value">14 - 25</div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    Version 4.1 — Marzo 2026<br>
+    Formato Competitivo
+  </div>
+</div>
+<!-- ═══════════════════ SINOPSIS ═══════════════════ -->
+<h2>1. Sinopsis e Historia</h2>
+
+<div class="quote-block">
+  "En 1971, seis escritoras palentinas sellaron un pacto: su legado solo puede ser reclamado por UN equipo. Dos equipos de investigadores competirán por descubrir el secreto. El primer equipo en completar las seis pruebas ganara el legado. Solo hay un legado. Solo un equipo puede reclamarlo. Que gane el mejor!"
+</div>
+
+<h3>Las Seis Escritoras</h3>
+<table>
+  <tr><th>Escritora</th><th>Periodo</th><th>Rol</th><th>Simbolo</th></tr>
+  <tr><td><strong>Casilda Ordonez</strong></td><td>1931-2009</td><td>Primera academica (1971)</td><td><span class="sym">PLUMA</span></td></tr>
+  <tr><td><strong>Carmen Arroyo</strong></td><td>1943-</td><td>Periodista local</td><td><span class="sym">PRENSA</span></td></tr>
+  <tr><td><strong>Enriqueta Antolin</strong></td><td>1941-2013</td><td>Novelista, Premio Tigre Juan</td><td><span class="sym">LIBRO ALADO</span></td></tr>
+  <tr><td><strong>Noemi Villamuza</strong></td><td>1971-</td><td>Ilustradora, Premio Nacional</td><td><span class="sym">PINCEL</span></td></tr>
+  <tr><td><strong>Amalia Iglesias</strong></td><td>1962-</td><td>Poetisa, Premio Adonais</td><td><span class="sym">LLAMA</span></td></tr>
+  <tr><td><strong>Tess Curtis</strong></td><td>Activa</td><td>Novela romantica, 100.000+ libros</td><td><span class="sym">CABRA</span></td></tr>
+</table>
+
+<h3>El Misterio Secundario</h3>
+<p>Cada prueba revela una silaba del nombre de una <strong>septima escritora olvidada</strong>:</p>
+<p style="text-align:center; font-size:14pt; font-weight:700; color:#4a1262; letter-spacing:3px; margin:12px 0;">
+  CA · TA · LI · NA · VA · TO
+</p>
+<p style="text-align:center; font-size:12pt; color:#7b2d8e; font-family:'Playfair Display',serif;">
+  = CATALINA VALENTO
+</p>
+
+<!-- ═══════════════════ ESTRUCTURA ═══════════════════ -->
+<h2>2. Estructura del Juego</h2>
+
+  <div>
+  </div>
+</div>
+
+<h3>Distribucion de Cierres</h3>
+<table>
+  <tr><th>Tipo de cierre</th><th>Prueba</th><th>Codigo</th></tr>
+  <tr><td>Cryptex de 6 letras</td><td>Biblioteca (Casilda)</td><td><span class="code-box">LEGADO</span></td></tr>
+  <tr><td>Candado 4 digitos</td><td>Prensa (Carmen)</td><td><span class="code-box">5-2-1-8</span></td></tr>
+  <tr><td>Llave fisica (cofre)</td><td>Taller (Enriqueta)</td><td><span class="code-box">LLAVE</span></td></tr>
+  <tr><td>Candado 4 digitos</td><td>Ilustracion (Noemi)</td><td><span class="code-box">4-5-3-6</span></td></tr>
+  <tr><td>Candado 4 digitos</td><td>Poesia (Amalia)</td><td><span class="code-box">6-3-0-8</span></td></tr>
+  <tr><td>Candado 4 digitos</td><td>Viajes (Tess)</td><td><span class="code-box">2-8-3-5</span></td></tr>
+</table>
+
+<!-- ═══════════════════ FLUJO ═══════════════════ -->
+<h2>3. Flujo de Pruebas</h2>
+
+<div class="flow">
+  <div class="flow-step">
+    <div class="flow-num">INICIO</div>
+    <div class="flow-name">Vestibulo</div>
+    <div class="flow-code">Explicacion + separacion de equipos (5 min)</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 1</div>
+    <div class="flow-name"><span class="sym">PLUMA</span> Biblioteca de Casilda</div>
+    <div class="flow-code">Cryptex · Dificultad 3/10 · ~6 min</div>
+  </div>
+  <div class="flow-arrow">→ PRENSA →</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 2</div>
+    <div class="flow-name"><span class="sym">PRENSA</span> Prensa de Carmen</div>
+    <div class="flow-code">Candado 4 digitos · Dificultad 4/10 · ~7 min</div>
+  </div>
+  <div class="flow-arrow">→ LIBRO ALADO →</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 3</div>
+    <div class="flow-name"><span class="sym">LIBRO ALADO</span> Taller de Enriqueta</div>
+    <div class="flow-code">Llave fisica · Dificultad 5/10 · ~8 min</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 4</div>
+    <div class="flow-name"><span class="sym">PINCEL</span> Ilustracion de Noemi</div>
+    <div class="flow-code">Candado 4 digitos · Dificultad 5/10 · ~8 min</div>
+  </div>
+  <div class="flow-arrow">→ LLAMA →</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 5</div>
+    <div class="flow-name"><span class="sym">LLAMA</span> Poesia de Amalia</div>
+    <div class="flow-code">Candado 4 digitos · Dificultad 6/10 · ~9 min</div>
+  </div>
+  <div class="flow-arrow">→ CABRA →</div>
+  <div class="flow-step">
+    <div class="flow-num">PRUEBA 6</div>
+    <div class="flow-name"><span class="sym">CABRA</span> Viajes de Tess</div>
+    <div class="flow-code">Candado 4 digitos · Dificultad 4/10 · ~6 min</div>
+  </div>
+  <div class="flow-step" style="background:#ede0f7;">
+    <div class="flow-num">FINAL</div>
+    <div class="flow-name">Vestibulo — CATALINA VALENTO</div>
+    <div class="flow-code">Armar cartel + luz violeta + legado (4 min)</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 1 ═══════════════════ -->
+<h2>4. Prueba 1 — La Biblioteca de Casilda</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>Las Palabras Magneticas de Casilda</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 3/10</span>
+      <span class="proof-badge">~6 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">PLUMA</span> Biblioteca</div>
+      <div class="proof-meta-item">Casilda Ordonez (1931-2009)</div>
+      <div class="proof-meta-item">Cryptex de 6 letras</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">LEGADO</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p>Casilda fue la primera mujer academica de Palencia. En su biblioteca dejo un soneto codificado que solo se revela cuando las palabras correctas encuentran su lugar.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Observar el marco del soneto</strong> enmarcado — descubren la fecha <strong>1947</strong></li>
+        <li><strong>Encender la tablet</strong> — pide contrasena, introducen 1947</li>
+        <li><strong>Escuchar audio (60 s)</strong> — Casilda recita las <strong>14 palabras clave</strong> del soneto</li>
+        <li><strong>Buscar las palabras</strong> entre las 30+ piezas magneticas sueltas</li>
+        <li><strong>Ordenar las 14 palabras</strong> en el tablero magnetico segun el orden del poema</li>
+        <li><strong>Leer las letras del reverso</strong> de cada palabra en orden — forman <strong>LEGADO</strong></li>
+        <li><strong>Introducir LEGADO en el cryptex</strong> — se abre</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Carta:</strong> "Carmen guardaba los periodicos en la sala de prensa. Buscad la puerta con la PRENSA."<br>
+        <strong>Parte del cartel:</strong> Simbolo de PLUMA · <strong>silaba:</strong> CA
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>Marco dorado con soneto (fecha 1947)</li>
+        <li>Tablet con audio 60s</li>
+        <li>30+ palabras magneticas (con letra en el reverso)</li>
+        <li>Tablero magnetico con 14 lineas numeradas</li>
+        <li>Cryptex de 6 letras (palabra: LEGADO)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 2 ═══════════════════ -->
+<h2>5. Prueba 2 — El Archivo del Jueves</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Archivo del Jueves</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~7 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">PRENSA</span> Sala de Prensa</div>
+      <div class="proof-meta-item">Carmen Arroyo (1943-)</div>
+      <div class="proof-meta-item">Candado 4 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">5-2-1-8</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p>Carmen Arroyo fue periodista del <em>El Norte de Castilla</em>. Encontrar sus portadas es solo el primer paso — un calendario personal revela con quien quedaba, que compraba... y que dia de la semana realmente escribía.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Encontrar 8 portadas</strong> de periodico (4 correctas + 4 distractores)</li>
+        <li><strong>Identificar las 4 correctas</strong> — son de la misma semana</li>
+        <li><strong>Encontrar el calendario personal</strong> de Carmen entre sus papeles, con anotaciones: quedadas, compras, reuniones...</li>
+        <li><strong>Deducir que escribía los viernes:</strong> ninguna anotación los viernes (dia libre de otras actividades) → dia de escritura</li>
+        <li><strong>Ordenar las portadas por los viernes</strong> — las fechas revelan el codigo
+        <li><strong>Introducir 5-2-1-8</strong> en el candado — la caja se abre</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Carta:</strong> "Enriqueta guardaba sus secretos en una maleta del taller. Buscad la puerta con el LIBRO ALADO."<br>
+        <strong>Parte del cartel:</strong> Simbolo de PRENSA · <strong>silaba:</strong> TA
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>8 portadas de periodico (4 correctas + 4 distractores)</li>
+        <li>Tablero con 4 huecos numerados</li>
+        <li>4 fichas con fechas completas</li>
+        <li>Caja con candado de 4 digitos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 3 ═══════════════════ -->
+<h2>6. Prueba 3 — La Maleta del Taller</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>La Maleta del Taller</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 5/10</span>
+      <span class="proof-badge">~8 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">LIBRO ALADO</span> Taller</div>
+      <div class="proof-meta-item">Enriqueta Antolin (1941-2013)</div>
+      <div class="proof-meta-item">Llave fisica (cofre)</div>
+      <div class="proof-meta-item">Resultado: <span class="code-box">LLAVE FISICA</span> (no hay codigo numerico)</div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p>Enriqueta Antolin guardaba sus secretos en una maleta vieja del taller. Dentro hay un plano del taller y unas laminas transparentes con rayas extranas. Solo superponiendolas se revela el camino del sol.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Encontrar la maleta vieja</strong> en el taller y abrirla</li>
+        <li><strong>Revisar los materiales:</strong> plumas, papel antiguo, tintas decorativas</li>
+        <li><strong>Sacar el plano del taller</strong> (A3, papel sepia) con la mesa dibujada en el centro</li>
+        <li><strong>Sacar los 3 acetatos transparentes</strong> con rayas extranas</li>
+        <li><strong>Superponer los 3 acetatos</strong> sobre el plano</li>
+        <li><strong>Las rayas forman la palabra</strong> <strong>MESA</strong> y se lee <strong>"Abajo"</strong></li>
+        <li><strong>Mirar debajo de la mesa real</strong> del taller — encontrar la <strong>llave con simbolo de sol</strong> (cinta washi)</li>
+        <li><strong>Abrir el cofre</strong> con la llave</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Carta:</strong> "Noemi dibuja mundos con su lapiz magico. Subid a la planta de arriba y buscad la puerta con el PINCEL."<br>
+        <strong>Parte del cartel:</strong> Simbolo de LIBRO ALADO · <strong>silaba:</strong> LI
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>Maleta antigua/vintage con materiales decorativos</li>
+        <li>Plano A3 del taller (papel sepia)</li>
+        <li>3 acetatos transparentes A4 con rayas</li>
+        <li>Cofre con cerradura</li>
+        <li>Llave con simbolo de sol (bajo la mesa, cinta washi)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 4 ═══════════════════ -->
+<h2>7. Prueba 4 — Las Portadas de Noemi</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>Las Portadas de Noemi</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 5/10</span>
+      <span class="proof-badge">~8 MIN</span>
+      <span class="proof-badge">DUPLICADA</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">PINCEL</span> Estudio de Grabacion (pecera)</div>
+      <div class="proof-meta-item">Noemi Villamuza (1971-)</div>
+      <div class="proof-meta-item">Candado 4 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">4-5-3-6</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p>Noemi creo versiones diferentes de sus portadas para distintas ediciones. Solo comparando ambas versiones a traves del cristal del estudio se descubre el orden secreto.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Dividirse:</strong> 2-3 jugadores dentro del estudio (pecera), 2-3 fuera</li>
+        <li><strong>Observar las portadas:</strong> algunos libros ilustrados estan dentro, otros fuera</li>
+        <li><strong>Comunicarse por pizarras</strong> (no se pueden oir a traves del cristal)</li>
+        <li><strong>Comparar versiones</strong> y contar las diferencias de cada portada</li>
+        <li><strong>Cada portada tiene diferente numero de diferencias:</strong> 3, 7, 2, 5</li>
+        <li><strong>Consultar la bibliografia</strong> de Noemi — ordenar portadas cronologicamente</li>
+        <li><strong>Secuencia en orden cronologico:</strong> 2003→4, 2005→5, 2008→3, 2012→6</li>
+        <li><strong>Introducir 4-5-3-6</strong> en el candado — la caja se abre</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Carta:</strong> "Amalia escribia poemas que solo el fuego revela. Buscad la puerta con la LLAMA."<br>
+        <strong>Parte del cartel:</strong> Simbolo de PINCEL · <strong>silaba:</strong> NA
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>Estudio de grabacion con cristal de pecera (x2, duplicada)</li>
+        <li>6 portadas de libros ilustrados (versiones diferentes)</li>
+        <li>2 pizarras pequenas con rotuladores</li>
+        <li>Listado bibliografico de Noemi con anos de publicacion</li>
+        <li>Caja con candado de 4 digitos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 5 ═══════════════════ -->
+<h2>8. Prueba 5 — El Poema en Llamas</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>El Poema en Llamas</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 6/10</span>
+      <span class="proof-badge">~9 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">LLAMA</span> Sala de Poesia</div>
+      <div class="proof-meta-item">Amalia Iglesias (1962-)</div>
+      <div class="proof-meta-item">Candado 4 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">6-3-0-8</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p>Amalia escribia poemas donde cada palabra escondia un secreto en su ultima letra. Cuatro poemas, cuatro numeros ocultos, un orden que solo los atentos descubririan.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Encontrar 4 poemas enmarcados</strong> en las paredes de la habitacion</li>
+        <li><strong>Leer con atencion cada poema</strong> — 2-3 jugadores, cada uno se encarga de uno</li>
+        <li><strong>Descubrir el patron oculto:</strong> la ultima letra de cada linea de un parrafo concreto de cada poema forma un numero</li>
+        <li><strong>Poema 1:</strong> el parrafo seleccionado forma el numero <strong>6</strong></li>
+        <li><strong>Poema 2:</strong> el parrafo seleccionado forma el numero <strong>3</strong></li>
+        <li><strong>Poema 3:</strong> el parrafo seleccionado forma el numero <strong>0</strong></li>
+        <li><strong>Poema 4:</strong> el parrafo seleccionado forma el numero <strong>8</strong></li>
+        <li><strong>Ordenar los 4 numeros por el parrafo</strong> que los forma &rarr; <strong>6-3-0-8</strong></li>
+        <li><strong>Introducir 6-3-0-8</strong> en el candado — la caja se abre</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Carta:</strong> "Tess conocia los caminos secretos de nuestras letras. Buscad la puerta con la CABRA."<br>
+        <strong>Parte del cartel:</strong> Simbolo de LLAMA · <strong>silaba:</strong> VA
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>4 poemas enmarcados en las paredes (con tinta UV oculta)</li>
+        <li>2 linternas de luz UV</li>
+        <li>Cuaderno con 4 paginas en blanco para anotar</li>
+        <li>Caja con candado de 4 digitos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PRUEBA 6 ═══════════════════ -->
+<h2>9. Prueba 6 — Los Viajes de Tess</h2>
+
+<div class="proof-card">
+  <div class="proof-header">
+    <h3>Los Viajes de Tess</h3>
+    <div>
+      <span class="proof-badge">DIFICULTAD 4/10</span>
+      <span class="proof-badge">~6 MIN</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-meta">
+      <div class="proof-meta-item"><span class="sym">CABRA</span> Espacio de Viajes</div>
+      <div class="proof-meta-item">Tess Curtis (activa)</div>
+      <div class="proof-meta-item">Candado 4 digitos</div>
+      <div class="proof-meta-item">Codigo: <span class="code-box">2-8-3-5</span></div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Narrativa</div>
+      <p>Tess viajaba por Palencia con sus amigas escritoras, dejando huellas en cada rincon. Tess no tenia rancho en Wyoming — Tess recorria los caminos de nuestra tierra. Una brujula guia sus pasos.</p>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Mecanica — Paso a paso</div>
+      <ol class="step-list">
+        <li><strong>Encontrar el mapa</strong> de la provincia de Palencia en la pared</li>
+        <li><strong>Leer las tarjetas de viaje</strong> — cada una describe un lugar real con un numero asociado</li>
+        <li><strong>Ubicar los lugares en el mapa</strong> trabajando en parejas</li>
+        <li><strong>Encontrar la brujula</strong> entre los materiales de Tess</li>
+        <li><strong>La brujula indica el orden:</strong> la orientacion de la brujula en cada tarjeta determina la posicion del numero en el codigo</li>
+        <li><strong>Ordenar los 4 numeros segun la brujula</strong> &rarr; <strong>2-8-3-5</strong></li>
+        <li><strong>Introducir 2-8-3-5</strong> en el candado — la caja se abre</li>
+      </ol>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Recompensa</div>
+      <div class="reward-box">
+        <strong>Carta:</strong> "Lo habeis logrado. Bajad al vestibulo y anunciad vuestro triunfo. El legado os espera."<br>
+        <strong>Parte del cartel:</strong> Simbolo de CABRA · <strong>silaba:</strong> TO
+      </div>
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Materiales principales</div>
+      <ul class="materials-list">
+        <li>Mapa grande de la provincia de Palencia (A2 o mural)</li>
+        <li>Tarjetas de viaje con descripciones de lugares y orientaciones de brujula</li>
+        <li>Marcadores/fichas de colores</li>
+        <li>Brujula (puede ser decorativa/prop)</li>
+        <li>Caja con candado de 4 digitos</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FINAL ═══════════════════ -->
+<h2>10. Final — El Legado Reclamado</h2>
+
+<div class="proof-card">
+  <div class="proof-header" style="background: linear-gradient(135deg, #4a1262 0%, #7b2d8e 50%, #4a1262 100%);">
+    <h3>El Legado Reclamado</h3>
+    <div>
+      <span class="proof-badge">~4 MIN</span>
+      <span class="proof-badge">Vestibulo</span>
+    </div>
+  </div>
+  <div class="proof-body">
+    <div class="proof-section">
+      <div class="proof-section-title">Que pasa</div>
+      <ol class="step-list">
+        <li>El primer equipo en completar las 6 pruebas <strong>baja corriendo al vestibulo</strong></li>
+        <li>El GM <strong>enciende la luz violeta LED</strong> — momento de energia</li>
+        <li>El equipo saca sus <strong>6 partes del cartel del juego</strong> (CA, TA, LI, NA, VA, TO)</li>
+        <li>Las arman en la mesa bajo la luz violeta — <strong>el cartel se completa</strong></li>
+        <li>Descubren el nombre: <strong>CATALINA VALENTO</strong></li>
+        <li>El mensaje final de Catalina esta escrito directamente en el cartel con tinta UV — <strong>la linterna lo revela</strong>:</li>
+      </ol>
+    </div>
+
+    <div class="quote-block">
+      "Yo fui la septima. Mi nombre fue olvidado porque elegi desaparecer. Solo quienes aman la literatura merecen recordarme. Ustedes son ahora mis Guardianes."
+    </div>
+
+    <div class="quote-block" style="background:#ede0f7;">
+      "La tinta violeta nunca se borra. La memoria de las escritoras vive en quienes las leen."
+    </div>
+
+    <div class="proof-section">
+      <div class="proof-section-title">Premios</div>
+      <p><strong>Equipo ganador:</strong> Libro del legado con dedicatoria · Diplomas de Guardianes del Legado · Foto grupal con efecto violeta</p>
+      <p><strong>Equipo perdedor:</strong> Diplomas de Investigadores del Legado — "Aunque no fuisteis los primeros, habeis descubierto el secreto."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ RESUMEN ═══════════════════ -->
+<h2 style="page-break-before:always;">11. Hoja del Game Master</h2><h3>Hoja del Game Master</h3>
+<table style="font-size:9px;">
+  <tr><th>#</th><th>Prueba</th><th>Cierre</th><th>Codigo</th><th>Contenedor</th><th>Carta → Siguiente</th></tr>
+  <tr><td>1</td><td>Biblioteca</td><td>Cryptex 6 letras</td><td><span class="code-box">LEGADO</span></td><td>—</td><td>"...Buscad la puerta con la <strong>PRENSA</strong>"</td></tr>
+  <tr><td>2</td><td>Prensa</td><td>Candado 4 dig.</td><td><span class="code-box">5-2-1-8</span></td><td>Caja</td><td>"...Buscad la puerta con el <strong>LIBRO ALADO</strong>"</td></tr>
+  <tr><td>3</td><td>Taller</td><td>Llave fisica</td><td><span class="code-box">LLAVE</span></td><td>Cofre (maleta)</td><td>"...buscad la puerta con el <strong>PINCEL</strong>"</td></tr>
+  <tr><td>4</td><td>Ilustracion</td><td>Candado 4 dig.</td><td><span class="code-box">4-5-3-6</span></td><td>Caja</td><td>"...Buscad la puerta con la <strong>LLAMA</strong>"</td></tr>
+  <tr><td>5</td><td>Poesia</td><td>Candado 4 dig.</td><td><span class="code-box">6-3-0-8</span></td><td>Caja</td><td>"...Buscad la puerta con la <strong>CABRA</strong>"</td></tr>
+  <tr><td>6</td><td>Viajes</td><td>Candado 4 dig.</td><td><span class="code-box">2-8-3-5</span></td><td>Caja</td><td>"...Bajad al vestibulo. El legado os espera."</td></tr>
+</table>
+<p style="font-size:8.5px;margin-top:6px;"><strong>Inventario:</strong> 1 cryptex + 4 candados 4 dig. + 1 candado de llave + 1 llave (sol) + 4 cajas + 1 maleta + 1 cofre</p>
+
+</div>
+<p style="text-align:center; font-family:'Playfair Display',serif; font-size:10pt; color:#9b6daf; font-style:italic;">
+  "Las palabras de las mujeres de Palencia son raices, alas y fuego. Escribid."
+</p>
+
+<p style="text-align:center; font-size:8pt; color:#bbb; margin-top:8px;">
+  El Legado en Tinta Violeta · v4.1 · Marzo 2026
+</p>
+
+</body>
+</html>

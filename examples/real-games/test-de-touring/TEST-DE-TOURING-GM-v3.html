@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Test de Touring v3 — Guía del GM</title>
+<style>
+@page { size: A4; margin: 15mm; }
+body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; line-height: 1.5; font-size: 11pt; max-width: 100%; }
+h1 { color: #0f3460; font-size: 22pt; border-bottom: 3px solid #e94560; padding-bottom: 8px; margin-top: 30px; }
+h2 { color: #0f3460; font-size: 16pt; border-bottom: 2px solid #e94560; padding-bottom: 5px; margin-top: 25px; }
+h3 { color: #16213e; font-size: 13pt; margin-top: 18px; }
+h4 { color: #16213e; font-size: 11pt; margin-top: 12px; }
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 10pt; }
+th { background: #0f3460; color: white; padding: 6px 8px; text-align: left; font-weight: 600; }
+td { border: 1px solid #ddd; padding: 5px 8px; vertical-align: top; }
+tr:nth-child(even) { background: #f8f9fa; }
+blockquote { border-left: 3px solid #e94560; padding-left: 12px; color: #555; margin: 8px 0; }
+li { margin: 3px 0; }
+p { margin: 6px 0; }
+.page-break { page-break-before: always; }
+.highlight { background: #fff3cd; padding: 8px; border-radius: 4px; margin: 8px 0; }
+.emocion { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 9pt; font-weight: 600; }
+.e-curiosidad { background: #d4edda; color: #155724; }
+.e-inquietud { background: #f8d7da; color: #721c24; }
+.e-indignacion { background: #fce4ec; color: #880e4f; }
+.e-frustracion { background: #fff3cd; color: #856404; }
+.e-tension { background: #d6d8db; color: #1a1a2e; }
+.e-triunfo { background: #cce5ff; color: #004085; }
+.perfil { background: #e8eaf6; padding: 2px 6px; border-radius: 4px; font-size: 9pt; }
+.pista { background: #fff3cd; }
+.pista td:first-child { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div style="text-align: center; padding-top: 80px;">
+<h1 style="font-size: 32pt; border: none;">🔒 Test de Touring</h1>
+<h2 style="border: none; color: #e94560;">Guía del Game Master v3</h2>
+<p style="font-size: 14pt; color: #555;">Escape Room Educativo sobre IA Real</p>
+<p style="font-size: 11pt; color: #888;">Físico > Digital · 5 salas · 6 pruebas · Código TURING</p>
+<div style="margin-top: 40px; text-align: left; display: inline-block; border: 1px solid #ddd; border-radius: 8px; padding: 20px 30px;">
+<p><strong>Tipo:</strong> Hall Escape (5 salas secuenciales)</p>
+<p><strong>Audiencia:</strong> Jóvenes 12-18 años</p>
+<p><strong>Duración:</strong> 50 minutos</p>
+<p><strong>Jugadores:</strong> 5-6 por grupo</p>
+<p><strong>Dificultad:</strong> 4/10</p>
+<p><strong>Presupuesto:</strong> ~120€</p>
+<p><strong>Código final:</strong> T-U-R-I-N-G</p>
+</div>
+<p style="margin-top: 30px; color: #888;">Versión 3 · Abril 2026 · Viernes de Escape</p>
+</div>
+<div class="page-break"></div>
+<h2>📐 TABLA MAESTRA DE PRUEBAS (Fuente única de verdad)</h2>
+
+<blockquote>⚠️ Esta tabla es la referencia canónica. Cualquier discrepancia con otros documentos se resuelve a favor de esta tabla.</blockquote>
+
+<table><tr><th>#</th><th>Prueba</th><th>Sala</th><th>Tema IA</th><th>Dificultad</th><th>Código</th><th>Mecánica principal</th><th>Cierre</th><th>Letra</th><th>Símbolo</th><th>Emoción</th><th>Perfiles que destacan</th></tr><tr><td>1</td><td>Real o Falso</td><td>Lab</td><td>Deepfakes</td><td>**2/10**</td><td>F-A-K-E</td><td>Clasificar tarjetas real/IA + reverso</td><td>Cryptex 4 letras</td><td>**T**</td><td>HUELLA</td><td>Curiosidad</td><td>Observador, Analista</td></tr><tr><td>2</td><td>Tu Huella Digital</td><td>Archivo</td><td>Datos personales</td><td>**3/10**</td><td>2-0-1-8</td><td>Perfiles en dossier + conectar con hilos</td><td>Candado 4 dígitos</td><td>**U**</td><td>BÁSCULA</td><td>Inquietud</td><td>Buscador, Conector</td></tr><tr><td>3</td><td>Justicia Algorítmica</td><td>Evaluación</td><td>Sesgos</td><td>**4/10**</td><td>S-O-L-O</td><td>Eliminar criterios sesgados de fichas</td><td>Candado 4 letras</td><td>**R**</td><td>TELÉFONO ANTIGUO</td><td>Indignación</td><td>Analista, Crítico</td></tr><tr><td>4</td><td>Sin Móvil</td><td>Analógica</td><td>Dependencia tech</td><td>**5/10**</td><td>Llave</td><td>5 retos analógicos cooperativos</td><td>Llave física (en sobre)</td><td>**I**</td><td>CEREBRO</td><td>Frustración→Diversión</td><td>Líder, Práctico</td></tr><tr><td>5</td><td>El Interrogatorio</td><td>Núcleo</td><td>Test de Turing</td><td>**6/10**</td><td>A-L-A-N</td><td>Conversación pre-impresa + extraer iniciales</td><td>Candado 4 letras</td><td>**N**</td><td>—</td><td>Tensión</td><td>Lector, Debateador</td></tr><tr><td>6</td><td>Código de Apagado</td><td>Núcleo</td><td>Alfabetización digital</td><td>**4/10**</td><td>TURING</td><td>Componer palabra con las 6 letras</td><td>Cryptex 6 letras</td><td>**G**</td><td>VICTORIA</td><td>Triunfo</td><td>Memorista, Sintetizador</td></tr></table>
+
+<p>**Curva de dificultad:** 2 → 3 → 4 → 5 → 6 → 4</p>
+<li>Entrada suave (Prueba 1: 2/10) — confianza</li>
+<li>Progresión (Pruebas 2-4: 3→4→5)</li>
+<li>Pico (Prueba 5: 6/10) — Test de Turing</li>
+<li>Recompensa rápida (Prueba 6: 4/10) — componer TURING</li>
+
+<p><strong>Código final:** T + U + R + I + N + G = **TURING</strong></p>
+
+<p>---</p>
+
+<h2>🗺️ MAPA DE FLUJO</h2>
+
+<p>ENTRADA (Cartel Protocolo Touring, 2 min)</p>
+<p>    │</p>
+<p>    ▼</p>
+<p>┌───────────────────────────┐</p>
+<p>│ SALA 1: LABORATORIO       │  Prueba 1: "Real o Falso"</p>
+<p>│ Simbolo puerta: OJO       │  ~6 min · Dif 2/10</p>
+<p>│ Letra desbloqueada: T      │  Cryptex 4 letras → F-A-K-E</p>
+<p>└─────────┬─────────────────┘</p>
+<p>          │ Nota Dra. Torres → "Buscad la HUELLA"</p>
+<p>          │ GM abre puerta</p>
+<p>          ▼</p>
+<p>┌───────────────────────────┐</p>
+<p>│ SALA 2: ARCHIVO DE DATOS  │  Prueba 2: "Tu Huella Digital"</p>
+<p>│ Simbolo puerta: HUELLA    │  ~7 min · Dif 3/10</p>
+<p>│ Letra desbloqueada: U      │  Candado 4 dígitos → 2-0-1-8</p>
+<p>└─────────┬─────────────────┘</p>
+<p>          │ Nota Dra. Torres → "Buscad la BÁSCULA"</p>
+<p>          │ GM abre puerta</p>
+<p>          ▼</p>
+<p>┌───────────────────────────┐</p>
+<p>│ SALA 3: SALA DE EVALUACIÓN│  Prueba 3: "Justicia Algorítmica"</p>
+<p>│ Simbolo puerta: BÁSCULA   │  ~8 min · Dif 4/10</p>
+<p>│ Letra desbloqueada: R      │  Candado 4 letras → S-O-L-O</p>
+<p>└─────────┬─────────────────┘</p>
+<p>          │ Nota Dra. Torres → "Buscad el TELÉFONO ANTIGUO"</p>
+<p>          │ GM abre puerta</p>
+<p>          ▼</p>
+<p>┌───────────────────────────┐</p>
+<p>│ SALA 4: ZONA ANALÓGICA    │  Prueba 4: "Sin Móvil"</p>
+<p>│ Simbolo puerta: TELÉFONO  │  ~8 min · Dif 5/10</p>
+<p>│ Letra desbloqueada: I      │  Llave física en sobre sellado</p>
+<p>└─────────┬─────────────────┘</p>
+<p>          │ Nota Dra. Torres → "Buscad el CEREBRO"</p>
+<p>          │ GM abre puerta</p>
+<p>          ▼</p>
+<p>┌───────────────────────────┐</p>
+<p>│ SALA 5: NÚCLEO DE EVA     │  Prueba 5: "El Interrogatorio"</p>
+<p>│ Simbolo puerta: CEREBRO   │  ~9 min · Dif 6/10</p>
+<p>│ Letra desbloqueada: N      │  Candado 4 letras → A-L-A-N</p>
+<p>│                           │───────────────────────────────────</p>
+<p>│                           │  Prueba 6: "Código de Apagado"</p>
+<p>│                           │  ~7 min · Dif 4/10</p>
+<p>│ Letra desbloqueada: G      │  Cryptex 6 letras → T-U-R-I-N-G</p>
+<p>└───────────────────────────┘</p>
+<p>          │</p>
+<p>          ▼</p>
+<p>     ¡VICTORIA! → Debrief (10 min)</p>
+
+<p><strong>Tiempo total:** 2 + 6 + 7 + 8 + 8 + 9 + 7 = **47 min** + 3 min margen = **50 min</strong></p>
+
+<p>---</p>
+
+<h2>🧩 PRUEBAS DETALLADAS</h2>
+
+<p>---</p>
+
+<h3>PRUEBA 1: "Real o Falso" — Deepfakes y Manipulación Multimedia</h3>
+<p>**Sala:** Laboratorio de EVA | **Dificultad:** 2/10 | **Duración:** ~6 min | **Letra:** T</p>
+
+<h4>Tema educativo</h4>
+<p>Las IA pueden generar imágenes, audios y textos falsos casi indistinguibles de la realidad.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Carpeta negra etiquetada "CLASIFICADO — MUESTRA EVA-9"** sobre una mesa blanca. Dentro: tarjetas con imágenes y textos, instrucciones impresas de EVA-9.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Tres capas:</strong></p>
+<li>**Qué ven:** Una carpeta negra con 12 tarjetas de imágenes/textos y un cryptex cerrado</li>
+<li>**Qué entienden:** EVA-9 les pide clasificar las tarjetas como reales o generadas por IA</li>
+<li>**Qué hacen:** Clasificar las 12 tarjetas, identificar las 4 falsificaciones peligrosas, leer el reverso para obtener el código FAKE</li>
+
+<p><strong>Fase 1 — Clasificación (3 min):</strong></p>
+<li>12 tarjetas físicas (aprox. 10×15 cm) con contenido visual:</li>
+<p>  - 4 **fotos** (2 reales + 2 generadas por IA: rostros, paisajes)</p>
+<p>  - 4 **titulares de noticias** (2 reales + 2 generados por IA)</p>
+<p>  - 4 **capturas de chats** (2 reales + 2 generados por IA)</p>
+<li>Cada tarjeta tiene un reverso **blanco** (sin info)</li>
+<li>Los jugadores deben clasificar en 2 montones: "REAL" y "GENERADO POR IA"</li>
+<li>Hay 2 cajas etiquetadas en la mesa para clasificar</li>
+<li>Mesa de la sala tiene indicaciones impresas de EVA-9: *"Demuéstrame que sabéis distinguir la realidad de mis creaciones. Clasificad cada tarjeta. Las creaciones que más me preocupan — las que suplantan identidades ajenas — llevan mi marca roja. Esas son las verdaderamente peligrosas."*</li>
+<li>**Las 4 tarjetas de IA peligrosa tienen un BORDE ROJO** visible. Las 2 de IA neutral tienen borde negro. Las 6 reales no tienen borde especial.</li>
+
+<p><strong>Fase 2 — Doble descubrimiento (3 min):</strong></p>
+<li>Al clasificar correctamente, miran el **reverso de las tarjetas "GENERADO POR IA"** (las 6 correctas)</li>
+<li>En el reverso de cada una hay una **letra grande**: F, A, K, E, X, X (2 son distractores)</li>
+<li>Las 4 que corresponden a IA **realmente peligrosa** (borde rojo — deepfake de persona, noticia falsa, chat suplantando identidad, clonación de voz) tienen las letras: **F-A-K-E**</li>
+<li>Las 2 restantes (IA neutral — borde negro: paisaje IA, texto informativo IA) tienen letras distractores (X, X)</li>
+<li>Los jugadores deben identificar las tarjetas con borde rojo (la pista de EVA-9 dice que esas son "las que suplantan identidades") y leer sus letras</li>
+<li>Los jugadores deben ordenar las letras y deducir la palabra → **FAKE**</li>
+<li>Introducen FAKE en el **cryptex de 4 letras** que está en la mesa</li>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>2 jugadores: clasifican fotos</li>
+<li>2 jugadores: clasifican textos/titulares</li>
+<li>1-2 jugadores: clasifican capturas de chat</li>
+<li>Todos juntos: deducen la palabra del reverso</li>
+
+<h4>Cierre</h4>
+<p>Cryptex de 4 letras → **FAKE**. Dentro del cryptex: nota con la **letra T** + nota de la Dra. Torres → "Buscad la HUELLA"</p>
+
+<h4>Origen lógico del código</h4>
+<p>Solo las tarjetas de IA **peligrosa** (borde rojo — suplantación) tienen letras útiles. EVA-9 lo indica en sus instrucciones: "las que suplantan identidades llevan mi marca roja". Los jugadores usan el borde rojo como indicador visual deducible narrativamente → las letras forman FAKE.</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"¿Han mirado bien los ojos y las manos en las fotos? ¿Y los titulares son demasiado perfectos? Volved a leer las instrucciones de EVA-9 — dijo algo sobre una marca..."*</td></tr><tr><td>2 (directa)</td><td>*"EVA-9 dijo que las IA que suplantan identidades llevan su marca roja. Fijaos solo en las tarjetas con borde rojo y mirad el reverso"*</td></tr><tr><td>3 (casi solución)</td><td>*"Las 4 tarjetas con borde rojo (IA que suplanta identidades) tienen letras: F, A, K, E. El código es FAKE."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 2: "Tu Huella Digital" — Datos Personales y Privacidad</h3>
+<p>**Sala:** Archivo de Datos | **Dificultad:** 3/10 | **Duración:** ~7 min | **Letra:** U</p>
+
+<h4>Tema educativo</h4>
+<p>Cada día compartimos datos personales sin saberlo. Esos datos alimentan sistemas de IA que toman decisiones sobre nosotros.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Archivador metálico viejo** con 6 cajones. Cada cajón tiene un "expediente" de un perfil ficticio. Encima del archivador, un panel de corcho con hilos y chinchetas.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 1 — Exploración de perfiles (3 min):</strong></p>
+<li>6 **expedientes físicos** (carpetas de cartón) en el archivador, cada uno con:</li>
+<p>  - Nombre ficticio, edad, foto recortada de revista</p>
+<p>  - Redes sociales (usuario, seguidores)</p>
+<p>  - Últimas búsquedas</p>
+<p>  - Compras online</p>
+<p>  - Ubicaciones visitadas</p>
+<p>  - App más usada + tiempo diario</p>
+
+<p>  Ejemplo:</p>
+<p>  ```</p>
+<p>  PERFIL #3: MARCOS, 16 años</p>
+<p>  - Instagram: @marcos_gamer_99 (1.2K seguidores)</p>
+<p>  - Última búsqueda: "cómo hackear WiFi"</p>
+<p>  - Ubicación: Instituto + centro comercial sábados</p>
+<p>  - Compras: Auriculares gaming, Spotify</p>
+<p>  - App más usada: TikTok (3.5h/día)</p>
+<p>  - **FECHA CLAVE: 2014** — "Año de creación de Instagram — cuando las fotos se convirtieron en datos"</p>
+<p>  ```</p>
+
+<li>Cada expediente tiene una **etiqueta de color** en la esquina (rojo, azul, verde, amarillo, naranja, morado)</li>
+<li>Cada expediente tiene una **fecha clave destacada en rojo** con una nota que explica qué hito de privacidad representa</li>
+
+<p><strong>Fase 2 — Conexión con hilos (4 min):</strong></p>
+<li>En la mesa hay un **panel A3** impreso con 3 columnas:</li>
+<p>  - Columna A: "¿Qué dato se expuso?" (10 tipos: ubicación, gustos, contactos, rutinas, compras, salud, passwords, fotos, relaciones, opiniones)</p>
+<p>  - Columna B: "¿Quién lo recopiló?" (6 fuentes: app, red social, navegador, tienda online, GPS, IA)</p>
+<p>  - Columna C: "¿Para qué se usa?" (6 usos: publicidad, recomendaciones, scoring, vigilancia, manipulación, perfilado)</p>
+
+<li>Los jugadores deben **conectar con hilos de colores** (los mismos colores que las etiquetas de expediente) desde cada dato del expediente hasta su fuente y uso</li>
+<li>Hay **6 hilos de colores** (uno por expediente) y chinchetas</li>
+
+<li>Al completar las conexiones correctamente, los hilos **tiran de 4 solapas ocultas** en el panel que revelan los 4 dígitos del código: **2, 0, 1, 8**. Los 6 expedientes son necesarios para completar todas las conexiones.</li>
+<li>Los expedientes 5 y 6 (Andrés y Elena) tienen datos necesarios para las conexiones 5 y 6. Sin completar las 6 conexiones, las solapas no se revelan.</li>
+<li>Las **fechas clave** de los expedientes confirman los dígitos revelados:</li>
+<p>  - Perfil #1: Año del primer tweet del usuario → 201**2** → **2**</p>
+<p>  - Perfil #2: Año del escándalo Cambridge Analytica → 202**0** → **0**</p>
+<p>  - Perfil #3: Año de creación de Instagram → 201**4** → **1**</p>
+<p>  - Perfil #4: Año de entrada en vigor del RGPD en Europa → 201**8** → **8**</p>
+<p>  - Perfil #5: Año del primer GDPR europeo aprobado → 2016 (confirmación)</p>
+<p>  - Perfil #6: Año de la LOPD en España → 2022 (confirmación)</p>
+<p>  - Código: **2-0-1-8** (año 2018 — entrada en vigor del RGPD en Europa)</p>
+
+<p>  **Pista de EVA-9 en la sala:** *"Vuestras leyes intentaron ponerme freno. Cuatro años marcan el camino. El orden es el de vuestro número de expediente. Completad las conexiones del panel para ver la respuesta."*</p>
+<p>  - Los jóvenes que conozcan el RGPD confirmarán la fecha al ver 2018. Los que no, deducen de los dígitos revelados en las solapas del panel.</p>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>Cada jugador toma 1 expediente y lo analiza</li>
+<li>1-2 jugadores dirigen las conexiones en el panel</li>
+<li>Todos verifican que los años encajan</li>
+
+<h4>Cierre</h4>
+<p>Candado numérico de 4 dígitos → **2-0-1-8** (RGPD). Dentro de la caja: nota con la **letra U** + nota de la Dra. Torres → "Buscad la BÁSCULA"</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Conectar datos con fuentes y usos en el panel (los hilos revelan los dígitos)</p>
+<p>2. Las fechas clave de los perfiles confirman: 2018 = RGPD (la primera ley que protege tus datos)</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Cada expediente tiene una fecha clave. Completad las conexiones del panel con los 6 hilos — los hilos revelan algo oculto."*</td></tr><tr><td>2 (directa)</td><td>*"Conectad los 6 expedientes en el panel. Al completar las 6 conexiones, los hilos tiran de solapas ocultas que revelan 4 dígitos. Los expedientes 5 y 6 también importan."*</td></tr><tr><td>3 (casi solución)</td><td>*"Completad las 6 conexiones. Las solapas revelan: 2, 0, 1, 8. Confirmad con las fechas clave. El código es 2-0-1-8."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 3: "Justicia Algorítmica" — Sesgos en la IA</h3>
+<p>**Sala:** Sala de Evaluación | **Dificultad:** 4/10 | **Duración:** ~8 min | **Letra:** R</p>
+
+<h4>Tema educativo</h4>
+<p>La IA aprende de datos humanos con sesgos. Si nuestros datos tienen sesgos, la IA los amplifica.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Carpeta beige etiquetada "SISTEMA DE EVALUACIÓN EVA-9 — CANDIDATOS"** sobre un podio/atrio. Contiene fichas de candidatos. Al lado: **tablero de selección** (panel magnético o de corcho con casillas).</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 1 — Detectar el sesgo (4 min):</strong></p>
+<li>8 **fichas de candidatos** (tarjetas A5), cada una con:</li>
+<p>  - Nombre, formación, experiencia, edad, género, barrio</p>
+<p>  - Puntuación de EVA-9 (del 1 al 10)</p>
+<p>  - Observación de EVA-9 (comentario generado)</p>
+
+<li>La puntuación de EVA-9 está **sesgada**: sistemáticamente más baja para mujeres, barrios "desfavorecidos" y >45 años</li>
+
+<li>Los jugadores deben comparar **parejas de candidatos** con formación/experiencia similares pero puntuaciones diferentes:</li>
+<p>  - Par 1: Alejandro (9/10, barrio centro, hombre, 28) vs. Lucía (6/10, barrio sur, mujer, 28, misma formación)</p>
+<p>  - Par 2: Roberto (8/10, centro, 35) vs. Carmen (5/10, barrio norte, mujer, 35)</p>
+<p>  - Par 3: Miguel (7/10, centro, 42) vs. Antonio (4/10, barrio este, 52)</p>
+<p>  - Par 4: Ana (8/10, centro, mujer, 30) vs. Víctor (5/10, barrio sur, hombre, 48)</p>
+
+<li>Hay un **formulario impreso** con la pregunta: *"¿Qué criterios está usando EVA-9 para puntuar?"* con checkboxes</li>
+
+<p><strong>Fase 2 — Corregir el sistema (4 min):</strong></p>
+<li>Hay 6 **fichas de criterio** (tarjetas grandes) en la mesa:</li>
+<p>  - ✅ Formación académica (justo)</p>
+<p>  - ✅ Experiencia profesional (justo)</p>
+<p>  - ❌ Género (sesgado)</p>
+<p>  - ❌ Barrio de residencia (sesgado)</p>
+<p>  - ❌ Edad (sesgado)</p>
+<p>  - ❌ "Distancia al centro" (proxy de nivel económico — sesgado oculto)</p>
+
+<li>Los jugadores deben **eliminar** las 4 fichas sesgadas (incluida la trampa "distancia al centro")</li>
+<li>Al retirar cada ficha sesgada, el reverso muestra una letra:</li>
+<p>  - Género → **S**</p>
+<p>  - Barrio → **O**</p>
+<p>  - Edad → **L**</p>
+<p>  - Distancia al centro → **O**</p>
+<p>  - Las 2 fichas justas (Formación, Experiencia) no tienen letra relevante en el reverso</p>
+
+<li>Código: **S-O-L-O** (solo los criterios justos importan)</li>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>2 jugadores: analizan parejas de candidatos</li>
+<li>2 jugadores: debaten cuáles son sesgados</li>
+<li>1-2 jugadores: retiran fichas y leen el reverso</li>
+
+<h4>Cierre</h4>
+<p>Candado alfanumérico de 4 letras → **S-O-L-O**. Dentro: nota con la **letra R** + nota de la Dra. Torres → "Buscad el TELÉFONO ANTIGUO"</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Detectar el patrón de discriminación en los candidatos</p>
+<p>2. La trampa "distancia al centro" = proxy de sesgo → eliminarla revela la última letra</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Comparad candidatos con la misma formación pero diferente puntuación. ¿Qué tienen de diferente?"*</td></tr><tr><td>2 (directa)</td><td>*"EVA-9 usa 6 criterios. Eliminad los 4 que no deberían importar para un trabajo. Cuidado con 'distancia al centro'"*</td></tr><tr><td>3 (casi solución)</td><td>*"Quitad género, barrio, edad y distancia. Las letras del reverso son S-O-L-O"*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 4: "Sin Móvil" — Dependencia Tecnológica</h3>
+<p>**Sala:** Zona Analógica | **Dificultad:** 5/10 | **Duración:** ~8 min | **Letra:** I</p>
+
+<h4>Tema educativo</h4>
+<p>Dependemos de la tecnología para lo más básico. ¿Qué pasa cuando desaparece?</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Caja de madera vieja etiquetada "KIT DE EMERGENCIA — SIN RED"** en el centro de la sala. Dentro: herramientas analógicas y 5 sobres con retos. La sala tiene estética vintage: mapas, libros, objetos antiguos.</p>
+
+<h4>Mecánica</h4>
+
+<p>**5 retos analógicos cooperativos** con estructura ramificada (3 ramas paralelas → 2 finales):</p>
+
+<p><strong>RAMA A (disponible desde el inicio, 2 jugadores):</strong></p>
+<p>1. **"Navega sin GPS"**: Mapa de papel de una ciudad en la pared + tarjeta con dirección. Deben trazar la ruta a pie y contar las **calles que cruzan** → resultado: 7</p>
+
+<p><strong>RAMA B (disponible desde el inicio, 2 jugadores):</strong></p>
+<p>2. **"Calcula sin calculadora"**: Hoja con 4 operaciones matemáticas que deben resolver a mano → resultado: 240</p>
+
+<p><strong>RAMA C (necesita resultado de A+B, 1-2 jugadores):</strong></p>
+<p>3. **"Busca sin Google"**: Libro de enciclopedia en la estantería con páginas marcadas con pestañas. La nota de EVA-9 dice: 'La página la dan los que navegan y los que calculan.' Los jugadores suman: 7 + 240 = **página 247**. Deben encontrar la respuesta a una pregunta en esa página → palabra: **Turing**</p>
+
+<p><strong>RETOS FINALES (necesitan resultado de C):</strong></p>
+<p>4. **"Escribe sin autocorrector"**: Dictado de una frase con faltas de ortografía intencionadas. Deben escribirla correctamente → las letras corregidas forman parte del código</p>
+<p>5. **"Comunícate sin WhatsApp"**: Un jugador tiene un mensaje cifrado (código César simple). Debe descifrarlo y transmitirlo verbalmente al resto del equipo que lo escribe</p>
+
+<p>**La llave** está escondida en la **enciclopedia, página con pestaña azul** (revelado por el reto 5).</p>
+
+<p>**Principio respetado:** 2-3 equipos trabajan simultáneamente desde el inicio. Nadie espera pasivamente.</p>
+
+<p>**La llave** abre un **sobre sellado** (cera/lacre) que contiene la **letra I** + la nota de la Dra. Torres.</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Resolver los retos analógicos secuencialmente (cooperación)</p>
+<p>2. El último resultado apunta a un objeto de la sala que contiene la llave física</p>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>**Equipo Navegación** (2 jugadores): traza ruta en mapa (reto 1) → luego escribe dictado (reto 4)</li>
+<li>**Equipo Cálculo** (2 jugadores): resuelve operaciones (reto 2) → luego busca en enciclopedia (reto 3)</li>
+<li>**Equipo Descifrado** (2 jugadores): coopera con ambos equipos → descifra código César (reto 5)</li>
+<li>Los equipos de Navegación y Cálculo trabajan **en paralelo** desde el inicio</li>
+
+<h4>Cierre</h4>
+<p>Llave física → abre sobre sellado con lacre → contiene **letra I** + nota Dra. Torres → "Buscad el CEREBRO"</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Los primeros 3 sobres se abren a la vez. Dos equipos pueden trabajar en paralelo. Comunicad los resultados entre equipos."*</td></tr><tr><td>2 (directa)</td><td>*"El equipo de cálculo suma su resultado (240) con el de navegación (7) = 247. Esa es la página de la enciclopedia."*</td></tr><tr><td>3 (casi solución)</td><td>*"Página 247 de la enciclopedia → 'Turing'. Luego dictado → letras H,A,C,E. Código César: 'LA LLAVE ESTÁ EN LA PÁGINA CON PESTAÑA AZUL'."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 5: "El Interrogatorio" — Test de Turing</h3>
+<p>**Sala:** Núcleo de EVA | **Dificultad:** 6/10 (pico) | **Duración:** ~9 min | **Letra:** N</p>
+
+<h4>Tema educativo</h4>
+<p>El Test de Turing: ¿podemos distinguir una IA de un humano por cómo responde?</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Carpeta roja etiquetada "TRANSCRIPCIÓN DE INTERROGATORIO — PROTOCOLO TURING"** sobre una mesa central con luz directa. Tres **carpetas de colores** (A: azul, B: verde, C: naranja) representan las tres entidades.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 1 — El interrogatorio (5 min):</strong></p>
+<li>3 **transcripciones impresas** de conversaciones (entidad A, B, C)</li>
+<li>Cada transcripción tiene **8 preguntas y respuestas** sobre temas variados (música, comida, recuerdos, emociones, opiniones)</li>
+<li>Los jugadores deben leer las transcripciones y determinar:</li>
+<p>  - ¿Quién es la IA? (Entidad A)</p>
+<p>  - ¿Quién es el humano? (Entidad B)</p>
+<p>  - ¿Quién es el híbrido? (Entidad C — IA con supervisión humana)</p>
+
+<li>**Pistas en las transcripciones:**</li>
+<p>  - **Entidad A (IA):** Respuestas perfectas, gramática impecable, sin dudas, no usa muletillas, respuestas demasiado elaboradas y completas, carece de opinión personal real (responde con datos objetivos siempre)</p>
+<p>  - **Entidad B (Humano):** Comete errores ortográficos, usa "mmm", "no sé", tiene opiniones inconsistentes, humor, respuestas cortas a veces</p>
+<p>  - **Entidad C (Híbrido):** Mezcla — errores deliberados pero demasiado consistentes, a veces responde como IA (perfecto) y a veces como humano</p>
+
+<p><strong>Fase 2 — El veredicto (4 min):</strong></p>
+<li>Un **formulario impreso** "VEREDICTO TURING" donde marcan:</li>
+<p>  - Entidad ___ es IA</p>
+<p>  - Entidad ___ es HUMANO</p>
+<p>  - Entidad ___ es HÍBRIDO</p>
+
+<li>Al marcar correctamente, el formulario tiene una sección oculta (plegada) con instrucciones:</li>
+<p>  - *"PROTOCOLO DE EXTRACCIÓN: Si habéis identificado correctamente quién es quién, buscad la respuesta a la PREGUNTA 8 en cada transcripción. Coged la PRIMERA LETRA de cada respuesta, en orden de entidad (A→B→C)... pero faltar\u00e1 una letra. La cuarta letra es la inicial del APELLIDO de quien propuso todo esto."*</p>
+<p>  - Transcripción A, pregunta 8: respuesta empieza con **A** ("Algoritmicamente...")</p>
+<p>  - Transcripción B, pregunta 8: respuesta empieza con **L** ("Lo que más me flipa...")</p>
+<p>  - Transcripción C, pregunta 8: respuesta empieza con **A** ("A veces me fascina...")</p>
+<p>  - Cuarta letra: ¿quién propuso este test? → inicial del **apellido** de Turing → **N**</p>
+<p>  - Código: **A-L-A-N** (Alan Turing)</p>
+
+<li>Dentro de la caja que abre el candado: **letra N** + sobre con mensaje cifrado de EVA-9 (para prueba 6) + nota de la Dra. Torres: *"EVA-9 dej\u00f3 un mensaje final cifrado. Descifrarlo os dar\u00e1 la \u00faltima pieza. \u00a1R\u00e1pido!"*</li>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Identificar quién es IA/humano/híbrido por el estilo de las respuestas</p>
+<p>2. La sección oculta del formulario pide extraer las primeras letras de las respuestas a la pregunta 8 + deducir la cuarta letra → A-L-A-N</p>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>2 jugadores: leen transcripción A</li>
+<li>2 jugadores: leen transcripción B</li>
+<li>1-2 jugadores: leen transcripción C</li>
+<li>Todos debaten y votan</li>
+
+<h4>Cierre</h4>
+<p>Candado alfanum\u00e9rico de 4 letras → **A-L-A-N**. Dentro: **letra N** + sobre con mensaje cifrado EVA-9 (prueba 6)</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"\u00bfQui\u00e9n responde DEMASIADO bien? \u00bfY qui\u00e9n tiene dudas, errores, cosas humanas? Leed entre l\u00edneas. Y fijaos en la pregunta 8 de cada transcripci\u00f3n"*</td></tr><tr><td>2 (directa)</td><td>*"La entidad A es la IA, B es humana, C es h\u00edbrida. Marcad el formulario, desplegad la secci\u00f3n oculta y buscad las primeras letras de las respuestas a la pregunta 8"*</td></tr><tr><td>3 (casi solución)</td><td>*"Marcad A=IA, B=HUMANO, C=HÍBRIDO. Las respuestas a pregunta 8 empiezan por A (Algorítmicamente), L (Lo que más), A (A veces). La cuarta letra es la inicial del apellido de Turing: N. Código: ALAN."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 6: "Código de Apagado" — Composición Final</h3>
+<p>**Sala:** Núcleo de EVA (misma sala) | **Dificultad:** 4/10 | **Duración:** ~7 min | **Letra:** G</p>
+
+<h4>Tema educativo</h4>
+<p>La alfabetización digital es la herramienta fundamental. El código eres tú.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Caja de seguridad negra** con el cryptex de 6 letras en el centro de la sala, sobre un podio. Al lado, un **panel de corcho** con 6 pinzas donde colocar las letras.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 0 — Ganar la G (~2 min):</strong></p>
+<li>Al abrir la caja del candado A-L-A-N (prueba 5), los jugadores encuentran:</li>
+<p>  - La **letra N** (recompensa de la prueba 5)</p>
+<p>  - Un **sobre** con un mensaje cifrado de EVA-9 y una nota de la Dra. Torres: *"EVA-9 dejó un mensaje final cifrado. Descifrarlo os dará la última pieza. Cada letra se desplaza una posición hacia atrás en el abecedario."*</p>
+<p>  - El mensaje cifrado usa **código César +1** (eco de la prueba 4): cada letra se desplaza una posición hacia adelante para cifrar, hacia atrás para descifrar</p>
+<p>  - Mensaje cifrado: **"HBOBTUFJT. MB QSJNFSB MFUSB FT MB DMBWF. H"**</p>
+<p>  - Mensaje descifrado: **"GANASTEIS. LA PRIMERA LETRA ES LA CLAVE. G"**</p>
+<p>  - La **letra G** es la primera letra del mensaje descifrado ("GANASTEIS") — también aparece al final del mensaje explícitamente</p>
+<p>  - **Sin descifrar, no hay G**. No está en ningún sobre ni reverso — solo en el mensaje.</p>
+
+<p><strong>Fase 1 — Componer (3 min):</strong></p>
+<li>Los jugadores ahora tienen las 6 letras: **T, U, R, I, N, G**</li>
+<li>Hay un **panel con 6 pinzas** numeradas (1-6) donde colocar cada letra</li>
+<li>Sobre la mesa hay **pistas contextuales** que ayudan a ordenar:</li>
+<p>  - La nota de EVA-9 de la Sala 1: *"El primer código fue FAKE. La **T** fue vuestra primera victoria."* → T es la 1ª</p>
+<p>  - La nota del Archivo: *"La **U** de Único — vuestra huella digital, vuestra singularidad"* → U es la 2ª</p>
+<p>  - Nota de Evaluación: *"La **R** de Razón — lo que les falta a los algoritmos"* → R es la 3ª</p>
+<p>  - Nota de la Zona Analógica: *"La **I** de Individuo — lo que ningún algoritmo puede ser"* → I es la 4ª</p>
+<p>  - Nota del Interrogatorio: *"La **N** de No — la palabra más importante que podéis decirle a una IA"* → N es la 5ª</p>
+<p>  - La **G** obtenida al descifrar el mensaje de EVA-9 → G es la 6ª</p>
+
+<p><strong>Fase 2 — Activar (4 min):</strong></p>
+<li>Los jugadores ordenan **T-U-R-I-N-G** en el panel</li>
+<li>Deben leer la palabra en voz alta (momento de energía)</li>
+<li>Introducen **TURING** en el cryptex de 6 letras</li>
+<li>El cryptex se abre y dentro hay un **sobre final**:</li>
+
+<p>  > *"EVA-9 — Último mensaje generado:*</p>
+<p>  ></p>
+<p>  > *'Bien jugado, humanos. Reconozco que hay cosas que yo no puedo calcular: vuestra intuición, vuestra ética, vuestra capacidad de dudar.*</p>
+<p>  ></p>
+<p>  > *El código era TURING. Lo sabíais desde el principio. Pero necesitasteis vivenciar cada letra para entender por qué.*</p>
+<p>  ></p>
+<p>  > *La próxima IA que encontréis puede que no tenga un botón de apagado. Usadlo sabiamente.*</p>
+<p>  ></p>
+<p>  > *— EVA-9, desactivándose'"*</p>
+
+<li>**Nota final de la Dra. Torres:**</li>
+<p>  > *"¡Lo habéis conseguido! EVA-9 está offline. Habéis demostrado que la inteligencia humana va más allá de los algoritmos. Ahora: compartid lo que habéis aprendido. El mundo os necesita críticos, curiosos y valientes."*</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Descifrar el mensaje final de EVA-9 (César +1) para ganar la G</p>
+<p>2. Componer TURING con las pistas de cada nota + leer el mensaje de despedida</p>
+
+<h4>Cierre</h4>
+<p>Cryptex de 6 letras → **TURING**. Dentro: mensaje de despedida de EVA-9</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Primero descifrad el mensaje de EVA-9 (es un código César sencillo, como en la Sala 4). La primera letra del mensaje descifrado es la que buscáis. Luego, cada nota de la Dra. Torres os dice qué posición ocupa cada letra"*</td></tr><tr><td>2 (directa)</td><td>*"El mensaje cifrado es César +1 (desplazad cada letra una posición atrás). El mensaje descifrado empieza por G. Las notas mencionan: T=1ª, U=2ª, R=3ª, I=4ª, N=5ª, G=6ª"*</td></tr><tr><td>3 (casi solución)</td><td>*"El código es TURING. Como Alan Turing. Poned T-U-R-I-N-G en el cryptex"*</td></tr></table>
+
+<p>---</p>
+
+<h2>🔐 RESUMEN DE CIERRES</h2>
+
+<table><tr><th>#</th><th>Prueba</th><th>Cierre</th><th>Código</th><th>Origen lógico</th></tr><tr><td>1</td><td>Real o Falso</td><td>Cryptex 4 letras</td><td>F-A-K-E</td><td>Reverso de tarjetas IA peligrosa (borde rojo)</td></tr><tr><td>2</td><td>Tu Huella Digital</td><td>Candado 4 dígitos</td><td>2-0-1-8</td><td>Último dígito de años clave = RGPD 2018</td></tr><tr><td>3</td><td>Justicia Algorítmica</td><td>Candado 4 letras</td><td>S-O-L-O</td><td>Reverso de criterios sesgados eliminados</td></tr><tr><td>4</td><td>Sin Móvil</td><td>Llave física</td><td>—</td><td>Último reto → ubicación de la llave</td></tr><tr><td>5</td><td>El Interrogatorio</td><td>Candado 4 letras</td><td>A-L-A-N</td><td>Primeras letras de respuestas pregunta 8 + Alan Turing</td></tr><tr><td>6</td><td>Código de Apagado</td><td>Cryptex 6 letras</td><td>TURING</td><td>6 letras ordenadas por notas posicionales</td></tr></table>
+
+<p>**Distribución:** 2 cryptex + 1 candado numérico + 2 candados letras + 1 llave = ✅ Variedad</p>
+
+<p>---</p>
+
+<h2>📊 TIEMPOS POR PRUEBA</h2>
+
+<table><tr><th>Prueba</th><th>Dificultad</th><th>Tiempo estimado</th></tr><tr><td>1. Real o Falso</td><td>2/10</td><td>6 min</td></tr><tr><td>2. Tu Huella Digital</td><td>3/10</td><td>7 min</td></tr><tr><td>3. Justicia Algorítmica</td><td>4/10</td><td>8 min</td></tr><tr><td>4. Sin Móvil</td><td>5/10</td><td>8 min</td></tr><tr><td>5. El Interrogatorio</td><td>6/10</td><td>9 min</td></tr><tr><td>6. Código de Apagado</td><td>4/10</td><td>7 min</td></tr><tr><td>**Briefing**</td><td>—</td><td>2 min</td></tr><tr><td>**Márgen**</td><td>—</td><td>3 min</td></tr><tr><td>**TOTAL**</td><td>**2→3→4→5→6→4**</td><td>**~50 min**</td></tr></table>
+
+<p>---</p>
+
+<h2>👻 ROL DEL GM</h2>
+
+<h3>NO hace:</h3>
+<li>❌ Guía jugadores entre salas</li>
+<li>❌ Explica mecánicas</li>
+<li>❌ Ofrece pistas sin que se le pida</li>
+
+<h3>SÍ hace:</h3>
+<li>✅ Da briefing inicial (lee cartel del Protocolo Touring)</li>
+<li>✅ Abre puertas con llave cuando completan prueba</li>
+<li>✅ Da pistas SOLO cuando se le piden (3 niveles)</li>
+<li>✅ Cronometra (aviso a los 40 min: "¡10 minutos!")</li>
+<li>✅ Resuelve problemas técnicos</li>
+<li>✅ Supervisa fair play</li>
+<li>✅ Conduce debrief post-juego</li>
+
+<p>---</p>
+
+<h2>✅ CHECKLIST DE VALIDACIÓN</h2>
+
+<h3>Estructura</h3>
+<li>[x] 6 pruebas en 5 salas</li>
+<li>[x] Curva de dificultad: 2→3→4→5→6→4</li>
+<li>[x] Variedad de cierres (máx 2 del mismo tipo)</li>
+<li>[x] Variedad de mecánicas (clasificación, conexión, deducción, cooperación, transcripción, composición)</li>
+<li>[x] Código final con origen lógico deducible</li>
+
+<h3>Por cada prueba</h3>
+<li>[x] ¿4-6 jugadores activos simultáneamente? ✅ (ver Roles en cada prueba)</li>
+<li>[x] ¿Doble descubrimiento? ✅ (ver "Doble descubrimiento" en cada prueba)</li>
+<li>[x] ¿Contenedor con sentido narrativo? ✅ (carpeta, archivador, caja, etc.)</li>
+<li>[x] ¿Mecánica refleja temática? ✅ (deepfakes, datos, sesgos, dependencia, Turing)</li>
+<li>[x] ¿Audio ≤60s? ✅ (no hay audio en v2, todo impreso)</li>
+<li>[x] ¿3 niveles de pistas? ✅</li>
+<li>[x] ¿Código con origen lógico? ✅</li>
+
+<h3>Coherencia v2</h3>
+<li>[x] Sin Raspberry Pi / servidor</li>
+<li>[x] Sin sincronización entre tablets</li>
+<li>[x] Sin pantallas grandes</li>
+<li>[x] Sin altavoces Bluetooth / TTS</li>
+<li>[x] Sin maglocks</li>
+<li>[x] Tablets como apoyo mínimo (solo Sala 1 si acaso)</li>
+<li>[x] Físico > Digital</li>
+<li>[x] 6 pruebas (estándar del proyecto)</li>
+<li>[x] 50 minutos (dentro de 45-55)</li>
+<li>[x] Presupuesto ~120€ (dentro de 100-150€)</li>
+<li>[x] GM abre puertas manualmente</li>
+<li>[x] EVA-9 solo en documentos impresos</li>
+<li>[x] Cartas de navegación entre salas</li>
+<li>[x] Símbolos en puertas</li>
+
+<p>---</p>
+
+<p>*Test de Touring v2.2 — Diseño Completo — 8 Abril 2026*</p>
+<p>*Principios: Físico > Digital · Doble descubrimiento · Todo el equipo activo · ~120€ presupuesto*</p>
+
+<p>---</p>
+
+<h2>📝 Changelog v2.2 (8 Abril 2026)</h2>
+
+<table><tr><th>#</th><th>Correccion</th><th>Prueba</th><th>Cambio</th></tr><tr><td>1</td><td>Codigo ALAN arreglado</td><td>005</td><td>Pregunta 8 cambiada, respuestas empiezan por A-L-A. Formulario: cuarta letra = inicial del apellido de Turing</td></tr><tr><td>2</td><td>Hilos ahora esenciales</td><td>002</td><td>Al completar las 6 conexiones, los hilos revelan 4 solapas ocultas con los digitos del codigo</td></tr><tr><td>3</td><td>Pista RGPD oscurecida</td><td>002</td><td>EVA-9 ya no menciona RGPD directamente. Pista mas critptica</td></tr><tr><td>4</td><td>Expedientes 5-6 utiles</td><td>002</td><td>Expedientes 5 y 6 ahora tienen fechas clave y son necesarios para completar conexiones</td></tr><tr><td>5</td><td>Prueba 4 paralela</td><td>004</td><td>Rediseñada de secuencial a ramificada: retos 1A, 2A, 3A simultaneos. Todo el equipo activo</td></tr><tr><td>6</td><td>G con merito real</td><td>006</td><td>G se obtiene SOLO descifrando el mensaje Cesar ('GANASTEIS...'). No esta en el reverso del sobre</td></tr><tr><td>7</td><td>Hilo conductor españolizado</td><td>Todas</td><td>Truth->Verdad, Uncommons->Unico. Todos los significados en español</td></tr><tr><td>8</td><td>EVA-9 voz unificada</td><td>Todas</td><td>Cambiado a 'vosotros' para jovenes españoles</td></tr><tr><td>9</td><td>Par 4 muestra sesgo genero</td><td>003</td><td>Vera (M) -> Victor (H). Ahora Ana vs Victor muestra sesgo de genero</td></tr><tr><td>10</td><td>Notas posicionales definidas</td><td>1-5</td><td>Cada nota de la Dra. Torres incluye posicion explicita de la letra</td></tr><tr><td>11</td><td>Residuos v1 corregidos</td><td>Varios</td><td>LOGISTICA, lista-materiales, VALIDACION actualizados</td></tr></table>
+
+<p>---</p>
+
+<h2>🎭 Mapa Emocional</h2>
+
+<table><tr><th>Prueba</th><th>Emoción objetivo</th><th>Justificación</th></tr><tr><td>1. Real o Falso</td><td>Curiosidad</td><td>"¿Seré capaz de detectar lo falso?" — descubrimiento inicial</td></tr><tr><td>2. Huella Digital</td><td>Inquietud</td><td>"¿Cuánto saben de mí?" — las fichas de datos personales generan incomodidad</td></tr><tr><td>3. Justicia Algorítmica</td><td>Indignación</td><td>"¡Esto no es justo!" — detectar sesgos provoca reacción emocional</td></tr><tr><td>4. Sin Móvil</td><td>Frustración → Diversión</td><td>Bloqueo inicial sin móvil → liberación al resolver retos analógicos</td></tr><tr><td>5. El Interrogatorio</td><td>Tensión</td><td>"¿Quién es la IA?" — la prueba más difícil genera presión</td></tr><tr><td>6. Código de Apagado</td><td>Triunfo</td><td>"¡Lo logramos!" — componer TURING es la recompensa emocional</td></tr></table>
+
+<p>**Regla:** Las emociones alternan y suben en intensidad hasta el clímax (P5), luego resuelven (P6).</p>
+
+<p>---</p>
+
+<h2>👥 Perfiles que Destacan por Prueba</h2>
+
+<table><tr><th>Prueba</th><th>Perfil 1</th><th>Perfil 2</th><th>Por qué</th></tr><tr><td>1. Real o Falso</td><td>Observador</td><td>Analista</td><td>Detecta detalles visuales en fotos / Deduce patrones de clasificación</td></tr><tr><td>2. Huella Digital</td><td>Buscador</td><td>Conector</td><td>Encuentra datos en expedientes / Relaciona información entre fichas</td></tr><tr><td>3. Justicia Algorítmica</td><td>Analista</td><td>Crítico</td><td>Detecta sesgos en criterios / Cuestiona lógica de evaluación</td></tr><tr><td>4. Sin Móvil</td><td>Líder</td><td>Práctico</td><td>Coordina los 5 retos del equipo / Resuelve físicamente (nudos, etc.)</td></tr><tr><td>5. El Interrogatorio</td><td>Lector</td><td>Debateador</td><td>Procesa transcripciones largas / Argumenta posiciones A/B/C</td></tr><tr><td>6. Código de Apagado</td><td>Memorista</td><td>Sintetizador</td><td>Recuerda las 6 letras de pruebas anteriores</td><td>Compone TURING</td></tr></table>
+
+<p>---</p>
+
+<h2>🛡️ Plan de Contingencia</h2>
+
+<table><tr><th>Prueba</th><th>Pieza crítica</th><th>Si se pierde...</th><th>Protocolo GM</th></tr><tr><td>1</td><td>Letra T (en caja del cryptex)</td><td>GM da la letra como "registro recuperado de EVA-9"</td><td>Anotar letra en pizarra del grupo</td></tr><tr><td>1</td><td>Tarjeta de imagen</td><td>GM dice "una se dañó en el experimento" y describe la imagen</td><td>Grupo sigue con las demás</td></tr><tr><td>2</td><td>Hilo de conexión</td><td>GM da cinta adhesiva o indica visualmente las conexiones</td><td>Sin cambio de dificultad</td></tr><tr><td>2</td><td>Expediente</td><td>GM lee el contenido del expediente perdido</td><td>Grupo sigue conectando datos</td></tr><tr><td>3</td><td>Fichas de criterio</td><td>GM indica cuáles eliminar</td><td>Sin cambio de dificultad</td></tr><tr><td>4</td><td>Sobre con llave</td><td>GM tiene repuesto en su kit</td><td>Entregar sin comentarios</td></tr><tr><td>4</td><td>Elemento de reto físico (cuerda, etc.)</td><td>GM da alternativa o simplifica el reto</td><td>"El sistema de EVA dañó este componente"</td></tr><tr><td>5</td><td>Transcripción</td><td>GM lee la parte que falta</td><td>Grupo sigue debatiendo</td></tr><tr><td>6</td><td>Cryptex 6 letras</td><td>GM abre manualmente y da código</td><td>Grupo lee mensajes de despedida igualmente</td></tr><tr><td>Cualquiera</td><td>Letra acumulada</td><td>GM recuerda al grupo las letras obtenidas</td><td>"EVA-9 muestra las letras en su pantalla"</td></tr></table>
+
+<p>**Kit de emergencia GM:** Repuesto de cada letra (T, U, R, I, N, G) + llave de repuesto P4 + copia de cada transcripción P5.</p>
+
+<p>---</p>
+
+<h2>👁️ Jerarquía Visual por Sala</h2>
+
+<h3>Sala 1: Laboratorio de EVA</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Carpeta negra "CLASIFICADO"</td><td>✅ Pista</td><td>Contiene tarjetas + instrucciones</td></tr><tr><td>12 tarjetas de imágenes</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Etiqueta "Protocolo Touring" en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Cartel de advertencia EVA-9</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Papel de laboratorio</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 2: Archivo de Datos</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Archivador con expedientes</td><td>✅ Pista</td><td>Contiene datos del puzzle</td></tr><tr><td>Panel con hilos</td><td>✅ Pista</td><td>Mecánica de conexión</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo HUELLA en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Carpetas genéricas</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Etiquetas de "ARCHIVO"</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 3: Sala de Evaluación</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Fichas de candidatos</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Fichas de criterios</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Carpeta de evaluación</td><td>✅ Pista</td><td>Instrucciones</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo BÁSCULA en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Pizarra de evaluaciones</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 4: Zona Analógica</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Caja "KIT EMERGENCIA"</td><td>✅ Pista</td><td>Contiene retos</td></tr><tr><td>Sobre sellado con llave</td><td>✅ Pista</td><td>Recompensa</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo TELÉFONO en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Objetos analógicos decorativos</td><td>🎨 Decorado</td><td>Ambientación (no interactivos)</td></tr></table>
+
+<h3>Sala 5: Núcleo de EVA</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Carpeta roja de interrogatorio</td><td>✅ Pista</td><td>Transcripciones</td></tr><tr><td>Cryptex 6 letras</td><td>✅ Pista</td><td>Código final</td></tr><tr><td>Notas de la Dra. Torres</td><td>✅ Pista</td><td>Orden de letras</td></tr><tr><td>Símbolo CEREBRO en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Pantalla/carteles de EVA-9</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Luces LED o cables decorativos</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<p>---</p>
+
+<h2>📋 Design Compliance Matrix</h2>
+
+<table><tr><th>Prueba</th><th>Objetivo educativo</th><th>Input</th><th>Mecanismo</th><th>Output</th><th>Conexión</th><th>Pista clave</th><th>Solución</th></tr><tr><td>1</td><td>Detectar deepfakes</td><td>12 tarjetas + instrucciones EVA-9</td><td>Clasificar real/IA, leer reverso</td><td>Letra T + código FAKE</td><td>Nota → "Buscad la HUELLA"</td><td>Borde rojo en tarjetas peligrosas</td><td>FAKE → cryptex</td></tr><tr><td>2</td><td>Datos personales</td><td>Expedientes + panel hilos</td><td>Conectar datos, extraer años</td><td>Letra U + código 2018</td><td>Nota → "Buscad la BÁSCULA"</td><td>RGPD = 2018</td><td>2018 → candado</td></tr><tr><td>3</td><td>Sesgos algorítmicos</td><td>Fichas candidatos + criterios</td><td>Eliminar criterios sesgados, leer reverso</td><td>Letra R + código SOLO</td><td>Nota → "Buscad el TELÉFONO"</td><td>Género/barrio/edad/distancia discriminan</td><td>SOLO → candado</td></tr><tr><td>4</td><td>Dependencia tecnológica</td><td>Caja KIT + 5 retos</td><td>Resolver retos analógicos secuenciales</td><td>Letra I + llave física</td><td>Nota → "Buscad el CEREBRO"</td><td>Cada resultado desbloquea el siguiente</td><td>Sobre con llave</td></tr><tr><td>5</td><td>Test de Turing</td><td>Transcripciones + formulario</td><td>Identificar IA/humano/híbrido, extraer iniciales</td><td>Letra N + código ALAN</td><td>—</td><td>Pregunta 8 + inicial de Alan</td><td>ALAN → candado</td></tr><tr><td>6</td><td>Alfabetización digital</td><td>6 letras + mensaje cifrado EVA-9</td><td>Descifrar César +1, ordenar letras</td><td>Código TURING → Victoria</td><td>—</td><td>Notas Dra. Torres dan el orden</td><td>TURING → cryptex</td></tr></table>
+<h2>🎭 Mapa Emocional</h2>
+
+<table><tr><th>Prueba</th><th>Emoción objetivo</th><th>Justificación</th></tr><tr><td>1. Real o Falso</td><td>Curiosidad</td><td>"¿Seré capaz de detectar lo falso?" — descubrimiento inicial</td></tr><tr><td>2. Huella Digital</td><td>Inquietud</td><td>"¿Cuánto saben de mí?" — las fichas de datos personales generan incomodidad</td></tr><tr><td>3. Justicia Algorítmica</td><td>Indignación</td><td>"¡Esto no es justo!" — detectar sesgos provoca reacción emocional</td></tr><tr><td>4. Sin Móvil</td><td>Frustración → Diversión</td><td>Bloqueo inicial sin móvil → liberación al resolver retos analógicos</td></tr><tr><td>5. El Interrogatorio</td><td>Tensión</td><td>"¿Quién es la IA?" — la prueba más difícil genera presión</td></tr><tr><td>6. Código de Apagado</td><td>Triunfo</td><td>"¡Lo logramos!" — componer TURING es la recompensa emocional</td></tr></table>
+
+<p>**Regla:** Las emociones alternan y suben en intensidad hasta el clímax (P5), luego resuelven (P6).</p>
+
+<p>---</p>
+
+<h2>👥 Perfiles que Destacan por Prueba</h2>
+
+<table><tr><th>Prueba</th><th>Perfil 1</th><th>Perfil 2</th><th>Por qué</th></tr><tr><td>1. Real o Falso</td><td>Observador</td><td>Analista</td><td>Detecta detalles visuales en fotos / Deduce patrones de clasificación</td></tr><tr><td>2. Huella Digital</td><td>Buscador</td><td>Conector</td><td>Encuentra datos en expedientes / Relaciona información entre fichas</td></tr><tr><td>3. Justicia Algorítmica</td><td>Analista</td><td>Crítico</td><td>Detecta sesgos en criterios / Cuestiona lógica de evaluación</td></tr><tr><td>4. Sin Móvil</td><td>Líder</td><td>Práctico</td><td>Coordina los 5 retos del equipo / Resuelve físicamente (nudos, etc.)</td></tr><tr><td>5. El Interrogatorio</td><td>Lector</td><td>Debateador</td><td>Procesa transcripciones largas / Argumenta posiciones A/B/C</td></tr><tr><td>6. Código de Apagado</td><td>Memorista</td><td>Sintetizador</td><td>Recuerda las 6 letras de pruebas anteriores</td><td>Compone TURING</td></tr></table>
+
+<p>---</p>
+
+<h2>🛡️ Plan de Contingencia</h2>
+
+<table><tr><th>Prueba</th><th>Pieza crítica</th><th>Si se pierde...</th><th>Protocolo GM</th></tr><tr><td>1</td><td>Letra T (en caja del cryptex)</td><td>GM da la letra como "registro recuperado de EVA-9"</td><td>Anotar letra en pizarra del grupo</td></tr><tr><td>1</td><td>Tarjeta de imagen</td><td>GM dice "una se dañó en el experimento" y describe la imagen</td><td>Grupo sigue con las demás</td></tr><tr><td>2</td><td>Hilo de conexión</td><td>GM da cinta adhesiva o indica visualmente las conexiones</td><td>Sin cambio de dificultad</td></tr><tr><td>2</td><td>Expediente</td><td>GM lee el contenido del expediente perdido</td><td>Grupo sigue conectando datos</td></tr><tr><td>3</td><td>Fichas de criterio</td><td>GM indica cuáles eliminar</td><td>Sin cambio de dificultad</td></tr><tr><td>4</td><td>Sobre con llave</td><td>GM tiene repuesto en su kit</td><td>Entregar sin comentarios</td></tr><tr><td>4</td><td>Elemento de reto físico (cuerda, etc.)</td><td>GM da alternativa o simplifica el reto</td><td>"El sistema de EVA dañó este componente"</td></tr><tr><td>5</td><td>Transcripción</td><td>GM lee la parte que falta</td><td>Grupo sigue debatiendo</td></tr><tr><td>6</td><td>Cryptex 6 letras</td><td>GM abre manualmente y da código</td><td>Grupo lee mensajes de despedida igualmente</td></tr><tr><td>Cualquiera</td><td>Letra acumulada</td><td>GM recuerda al grupo las letras obtenidas</td><td>"EVA-9 muestra las letras en su pantalla"</td></tr></table>
+
+<p>**Kit de emergencia GM:** Repuesto de cada letra (T, U, R, I, N, G) + llave de repuesto P4 + copia de cada transcripción P5.</p>
+
+<p>---</p>
+
+<h2>👁️ Jerarquía Visual por Sala</h2>
+
+<h3>Sala 1: Laboratorio de EVA</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Carpeta negra "CLASIFICADO"</td><td>✅ Pista</td><td>Contiene tarjetas + instrucciones</td></tr><tr><td>12 tarjetas de imágenes</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Etiqueta "Protocolo Touring" en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Cartel de advertencia EVA-9</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Papel de laboratorio</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 2: Archivo de Datos</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Archivador con expedientes</td><td>✅ Pista</td><td>Contiene datos del puzzle</td></tr><tr><td>Panel con hilos</td><td>✅ Pista</td><td>Mecánica de conexión</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo HUELLA en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Carpetas genéricas</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Etiquetas de "ARCHIVO"</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 3: Sala de Evaluación</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Fichas de candidatos</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Fichas de criterios</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Carpeta de evaluación</td><td>✅ Pista</td><td>Instrucciones</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo BÁSCULA en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Pizarra de evaluaciones</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 4: Zona Analógica</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Caja "KIT EMERGENCIA"</td><td>✅ Pista</td><td>Contiene retos</td></tr><tr><td>Sobre sellado con llave</td><td>✅ Pista</td><td>Recompensa</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo TELÉFONO en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Objetos analógicos decorativos</td><td>🎨 Decorado</td><td>Ambientación (no interactivos)</td></tr></table>
+
+<h3>Sala 5: Núcleo de EVA</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Carpeta roja de interrogatorio</td><td>✅ Pista</td><td>Transcripciones</td></tr><tr><td>Cryptex 6 letras</td><td>✅ Pista</td><td>Código final</td></tr><tr><td>Notas de la Dra. Torres</td><td>✅ Pista</td><td>Orden de letras</td></tr><tr><td>Símbolo CEREBRO en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Pantalla/carteles de EVA-9</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Luces LED o cables decorativos</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<p>---</p>
+
+<h2>📋 Design Compliance Matrix</h2>
+
+<table><tr><th>Prueba</th><th>Objetivo educativo</th><th>Input</th><th>Mecanismo</th><th>Output</th><th>Conexión</th><th>Pista clave</th><th>Solución</th></tr><tr><td>1</td><td>Detectar deepfakes</td><td>12 tarjetas + instrucciones EVA-9</td><td>Clasificar real/IA, leer reverso</td><td>Letra T + código FAKE</td><td>Nota → "Buscad la HUELLA"</td><td>Borde rojo en tarjetas peligrosas</td><td>FAKE → cryptex</td></tr><tr><td>2</td><td>Datos personales</td><td>Expedientes + panel hilos</td><td>Conectar datos, extraer años</td><td>Letra U + código 2018</td><td>Nota → "Buscad la BÁSCULA"</td><td>RGPD = 2018</td><td>2018 → candado</td></tr><tr><td>3</td><td>Sesgos algorítmicos</td><td>Fichas candidatos + criterios</td><td>Eliminar criterios sesgados, leer reverso</td><td>Letra R + código SOLO</td><td>Nota → "Buscad el TELÉFONO"</td><td>Género/barrio/edad/distancia discriminan</td><td>SOLO → candado</td></tr><tr><td>4</td><td>Dependencia tecnológica</td><td>Caja KIT + 5 retos</td><td>Resolver retos analógicos secuenciales</td><td>Letra I + llave física</td><td>Nota → "Buscad el CEREBRO"</td><td>Cada resultado desbloquea el siguiente</td><td>Sobre con llave</td></tr><tr><td>5</td><td>Test de Turing</td><td>Transcripciones + formulario</td><td>Identificar IA/humano/híbrido, extraer iniciales</td><td>Letra N + código ALAN</td><td>—</td><td>Pregunta 8 + inicial de Alan</td><td>ALAN → candado</td></tr><tr><td>6</td><td>Alfabetización digital</td><td>6 letras + mensaje cifrado EVA-9</td><td>Descifrar César +1, ordenar letras</td><td>Código TURING → Victoria</td><td>—</td><td>Notas Dra. Torres dan el orden</td><td>TURING → cryptex</td></tr></table>
+<h2>👥 Perfiles que Destacan por Prueba</h2>
+
+<table><tr><th>Prueba</th><th>Perfil 1</th><th>Perfil 2</th><th>Por qué</th></tr><tr><td>1. Real o Falso</td><td>Observador</td><td>Analista</td><td>Detecta detalles visuales en fotos / Deduce patrones de clasificación</td></tr><tr><td>2. Huella Digital</td><td>Buscador</td><td>Conector</td><td>Encuentra datos en expedientes / Relaciona información entre fichas</td></tr><tr><td>3. Justicia Algorítmica</td><td>Analista</td><td>Crítico</td><td>Detecta sesgos en criterios / Cuestiona lógica de evaluación</td></tr><tr><td>4. Sin Móvil</td><td>Líder</td><td>Práctico</td><td>Coordina los 5 retos del equipo / Resuelve físicamente (nudos, etc.)</td></tr><tr><td>5. El Interrogatorio</td><td>Lector</td><td>Debateador</td><td>Procesa transcripciones largas / Argumenta posiciones A/B/C</td></tr><tr><td>6. Código de Apagado</td><td>Memorista</td><td>Sintetizador</td><td>Recuerda las 6 letras de pruebas anteriores</td><td>Compone TURING</td></tr></table>
+
+<p>---</p>
+
+<h2>🛡️ Plan de Contingencia</h2>
+
+<table><tr><th>Prueba</th><th>Pieza crítica</th><th>Si se pierde...</th><th>Protocolo GM</th></tr><tr><td>1</td><td>Letra T (en caja del cryptex)</td><td>GM da la letra como "registro recuperado de EVA-9"</td><td>Anotar letra en pizarra del grupo</td></tr><tr><td>1</td><td>Tarjeta de imagen</td><td>GM dice "una se dañó en el experimento" y describe la imagen</td><td>Grupo sigue con las demás</td></tr><tr><td>2</td><td>Hilo de conexión</td><td>GM da cinta adhesiva o indica visualmente las conexiones</td><td>Sin cambio de dificultad</td></tr><tr><td>2</td><td>Expediente</td><td>GM lee el contenido del expediente perdido</td><td>Grupo sigue conectando datos</td></tr><tr><td>3</td><td>Fichas de criterio</td><td>GM indica cuáles eliminar</td><td>Sin cambio de dificultad</td></tr><tr><td>4</td><td>Sobre con llave</td><td>GM tiene repuesto en su kit</td><td>Entregar sin comentarios</td></tr><tr><td>4</td><td>Elemento de reto físico (cuerda, etc.)</td><td>GM da alternativa o simplifica el reto</td><td>"El sistema de EVA dañó este componente"</td></tr><tr><td>5</td><td>Transcripción</td><td>GM lee la parte que falta</td><td>Grupo sigue debatiendo</td></tr><tr><td>6</td><td>Cryptex 6 letras</td><td>GM abre manualmente y da código</td><td>Grupo lee mensajes de despedida igualmente</td></tr><tr><td>Cualquiera</td><td>Letra acumulada</td><td>GM recuerda al grupo las letras obtenidas</td><td>"EVA-9 muestra las letras en su pantalla"</td></tr></table>
+
+<p>**Kit de emergencia GM:** Repuesto de cada letra (T, U, R, I, N, G) + llave de repuesto P4 + copia de cada transcripción P5.</p>
+
+<p>---</p>
+
+<h2>👁️ Jerarquía Visual por Sala</h2>
+
+<h3>Sala 1: Laboratorio de EVA</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Carpeta negra "CLASIFICADO"</td><td>✅ Pista</td><td>Contiene tarjetas + instrucciones</td></tr><tr><td>12 tarjetas de imágenes</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Etiqueta "Protocolo Touring" en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Cartel de advertencia EVA-9</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Papel de laboratorio</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 2: Archivo de Datos</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Archivador con expedientes</td><td>✅ Pista</td><td>Contiene datos del puzzle</td></tr><tr><td>Panel con hilos</td><td>✅ Pista</td><td>Mecánica de conexión</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo HUELLA en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Carpetas genéricas</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Etiquetas de "ARCHIVO"</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 3: Sala de Evaluación</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Fichas de candidatos</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Fichas de criterios</td><td>✅ Pista</td><td>Contenido del puzzle</td></tr><tr><td>Carpeta de evaluación</td><td>✅ Pista</td><td>Instrucciones</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo BÁSCULA en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Pizarra de evaluaciones</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<h3>Sala 4: Zona Analógica</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Caja "KIT EMERGENCIA"</td><td>✅ Pista</td><td>Contiene retos</td></tr><tr><td>Sobre sellado con llave</td><td>✅ Pista</td><td>Recompensa</td></tr><tr><td>Nota de la Dra. Torres</td><td>✅ Pista</td><td>Carta de navegación</td></tr><tr><td>Símbolo TELÉFONO en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Objetos analógicos decorativos</td><td>🎨 Decorado</td><td>Ambientación (no interactivos)</td></tr></table>
+
+<h3>Sala 5: Núcleo de EVA</h3>
+<table><tr><th>Elemento</th><th>Tipo</th><th>Nota</th></tr><tr><td>Carpeta roja de interrogatorio</td><td>✅ Pista</td><td>Transcripciones</td></tr><tr><td>Cryptex 6 letras</td><td>✅ Pista</td><td>Código final</td></tr><tr><td>Notas de la Dra. Torres</td><td>✅ Pista</td><td>Orden de letras</td></tr><tr><td>Símbolo CEREBRO en puerta</td><td>✅ Pista</td><td>Identifica la sala</td></tr><tr><td>Pantalla/carteles de EVA-9</td><td>🎨 Decorado</td><td>Ambientación</td></tr><tr><td>Luces LED o cables decorativos</td><td>🎨 Decorado</td><td>Ambientación</td></tr></table>
+
+<p>---</p>
+
+<h2>📋 Design Compliance Matrix</h2>
+
+<table><tr><th>Prueba</th><th>Objetivo educativo</th><th>Input</th><th>Mecanismo</th><th>Output</th><th>Conexión</th><th>Pista clave</th><th>Solución</th></tr><tr><td>1</td><td>Detectar deepfakes</td><td>12 tarjetas + instrucciones EVA-9</td><td>Clasificar real/IA, leer reverso</td><td>Letra T + código FAKE</td><td>Nota → "Buscad la HUELLA"</td><td>Borde rojo en tarjetas peligrosas</td><td>FAKE → cryptex</td></tr><tr><td>2</td><td>Datos personales</td><td>Expedientes + panel hilos</td><td>Conectar datos, extraer años</td><td>Letra U + código 2018</td><td>Nota → "Buscad la BÁSCULA"</td><td>RGPD = 2018</td><td>2018 → candado</td></tr><tr><td>3</td><td>Sesgos algorítmicos</td><td>Fichas candidatos + criterios</td><td>Eliminar criterios sesgados, leer reverso</td><td>Letra R + código SOLO</td><td>Nota → "Buscad el TELÉFONO"</td><td>Género/barrio/edad/distancia discriminan</td><td>SOLO → candado</td></tr><tr><td>4</td><td>Dependencia tecnológica</td><td>Caja KIT + 5 retos</td><td>Resolver retos analógicos secuenciales</td><td>Letra I + llave física</td><td>Nota → "Buscad el CEREBRO"</td><td>Cada resultado desbloquea el siguiente</td><td>Sobre con llave</td></tr><tr><td>5</td><td>Test de Turing</td><td>Transcripciones + formulario</td><td>Identificar IA/humano/híbrido, extraer iniciales</td><td>Letra N + código ALAN</td><td>—</td><td>Pregunta 8 + inicial de Alan</td><td>ALAN → candado</td></tr><tr><td>6</td><td>Alfabetización digital</td><td>6 letras + mensaje cifrado EVA-9</td><td>Descifrar César +1, ordenar letras</td><td>Código TURING → Victoria</td><td>—</td><td>Notas Dra. Torres dan el orden</td><td>TURING → cryptex</td></tr></table>
+<div class="page-break"></div><h2>🧩 PRUEBAS DETALLADAS</h2>
+
+<p>---</p>
+
+<h3>PRUEBA 1: "Real o Falso" — Deepfakes y Manipulación Multimedia</h3>
+<p>**Sala:** Laboratorio de EVA | **Dificultad:** 2/10 | **Duración:** ~6 min | **Letra:** T</p>
+
+<h4>Tema educativo</h4>
+<p>Las IA pueden generar imágenes, audios y textos falsos casi indistinguibles de la realidad.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Carpeta negra etiquetada "CLASIFICADO — MUESTRA EVA-9"** sobre una mesa blanca. Dentro: tarjetas con imágenes y textos, instrucciones impresas de EVA-9.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Tres capas:</strong></p>
+<li>**Qué ven:** Una carpeta negra con 12 tarjetas de imágenes/textos y un cryptex cerrado</li>
+<li>**Qué entienden:** EVA-9 les pide clasificar las tarjetas como reales o generadas por IA</li>
+<li>**Qué hacen:** Clasificar las 12 tarjetas, identificar las 4 falsificaciones peligrosas, leer el reverso para obtener el código FAKE</li>
+
+<p><strong>Fase 1 — Clasificación (3 min):</strong></p>
+<li>12 tarjetas físicas (aprox. 10×15 cm) con contenido visual:</li>
+<p>  - 4 **fotos** (2 reales + 2 generadas por IA: rostros, paisajes)</p>
+<p>  - 4 **titulares de noticias** (2 reales + 2 generados por IA)</p>
+<p>  - 4 **capturas de chats** (2 reales + 2 generados por IA)</p>
+<li>Cada tarjeta tiene un reverso **blanco** (sin info)</li>
+<li>Los jugadores deben clasificar en 2 montones: "REAL" y "GENERADO POR IA"</li>
+<li>Hay 2 cajas etiquetadas en la mesa para clasificar</li>
+<li>Mesa de la sala tiene indicaciones impresas de EVA-9: *"Demuéstrame que sabéis distinguir la realidad de mis creaciones. Clasificad cada tarjeta. Las creaciones que más me preocupan — las que suplantan identidades ajenas — llevan mi marca roja. Esas son las verdaderamente peligrosas."*</li>
+<li>**Las 4 tarjetas de IA peligrosa tienen un BORDE ROJO** visible. Las 2 de IA neutral tienen borde negro. Las 6 reales no tienen borde especial.</li>
+
+<p><strong>Fase 2 — Doble descubrimiento (3 min):</strong></p>
+<li>Al clasificar correctamente, miran el **reverso de las tarjetas "GENERADO POR IA"** (las 6 correctas)</li>
+<li>En el reverso de cada una hay una **letra grande**: F, A, K, E, X, X (2 son distractores)</li>
+<li>Las 4 que corresponden a IA **realmente peligrosa** (borde rojo — deepfake de persona, noticia falsa, chat suplantando identidad, clonación de voz) tienen las letras: **F-A-K-E**</li>
+<li>Las 2 restantes (IA neutral — borde negro: paisaje IA, texto informativo IA) tienen letras distractores (X, X)</li>
+<li>Los jugadores deben identificar las tarjetas con borde rojo (la pista de EVA-9 dice que esas son "las que suplantan identidades") y leer sus letras</li>
+<li>Los jugadores deben ordenar las letras y deducir la palabra → **FAKE**</li>
+<li>Introducen FAKE en el **cryptex de 4 letras** que está en la mesa</li>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>2 jugadores: clasifican fotos</li>
+<li>2 jugadores: clasifican textos/titulares</li>
+<li>1-2 jugadores: clasifican capturas de chat</li>
+<li>Todos juntos: deducen la palabra del reverso</li>
+
+<h4>Cierre</h4>
+<p>Cryptex de 4 letras → **FAKE**. Dentro del cryptex: nota con la **letra T** + nota de la Dra. Torres → "Buscad la HUELLA"</p>
+
+<h4>Origen lógico del código</h4>
+<p>Solo las tarjetas de IA **peligrosa** (borde rojo — suplantación) tienen letras útiles. EVA-9 lo indica en sus instrucciones: "las que suplantan identidades llevan mi marca roja". Los jugadores usan el borde rojo como indicador visual deducible narrativamente → las letras forman FAKE.</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"¿Han mirado bien los ojos y las manos en las fotos? ¿Y los titulares son demasiado perfectos? Volved a leer las instrucciones de EVA-9 — dijo algo sobre una marca..."*</td></tr><tr><td>2 (directa)</td><td>*"EVA-9 dijo que las IA que suplantan identidades llevan su marca roja. Fijaos solo en las tarjetas con borde rojo y mirad el reverso"*</td></tr><tr><td>3 (casi solución)</td><td>*"Las 4 tarjetas con borde rojo (IA que suplanta identidades) tienen letras: F, A, K, E. El código es FAKE."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 2: "Tu Huella Digital" — Datos Personales y Privacidad</h3>
+<p>**Sala:** Archivo de Datos | **Dificultad:** 3/10 | **Duración:** ~7 min | **Letra:** U</p>
+
+<h4>Tema educativo</h4>
+<p>Cada día compartimos datos personales sin saberlo. Esos datos alimentan sistemas de IA que toman decisiones sobre nosotros.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Archivador metálico viejo** con 6 cajones. Cada cajón tiene un "expediente" de un perfil ficticio. Encima del archivador, un panel de corcho con hilos y chinchetas.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 1 — Exploración de perfiles (3 min):</strong></p>
+<li>6 **expedientes físicos** (carpetas de cartón) en el archivador, cada uno con:</li>
+<p>  - Nombre ficticio, edad, foto recortada de revista</p>
+<p>  - Redes sociales (usuario, seguidores)</p>
+<p>  - Últimas búsquedas</p>
+<p>  - Compras online</p>
+<p>  - Ubicaciones visitadas</p>
+<p>  - App más usada + tiempo diario</p>
+
+<p>  Ejemplo:</p>
+<p>  ```</p>
+<p>  PERFIL #3: MARCOS, 16 años</p>
+<p>  - Instagram: @marcos_gamer_99 (1.2K seguidores)</p>
+<p>  - Última búsqueda: "cómo hackear WiFi"</p>
+<p>  - Ubicación: Instituto + centro comercial sábados</p>
+<p>  - Compras: Auriculares gaming, Spotify</p>
+<p>  - App más usada: TikTok (3.5h/día)</p>
+<p>  - **FECHA CLAVE: 2014** — "Año de creación de Instagram — cuando las fotos se convirtieron en datos"</p>
+<p>  ```</p>
+
+<li>Cada expediente tiene una **etiqueta de color** en la esquina (rojo, azul, verde, amarillo, naranja, morado)</li>
+<li>Cada expediente tiene una **fecha clave destacada en rojo** con una nota que explica qué hito de privacidad representa</li>
+
+<p><strong>Fase 2 — Conexión con hilos (4 min):</strong></p>
+<li>En la mesa hay un **panel A3** impreso con 3 columnas:</li>
+<p>  - Columna A: "¿Qué dato se expuso?" (10 tipos: ubicación, gustos, contactos, rutinas, compras, salud, passwords, fotos, relaciones, opiniones)</p>
+<p>  - Columna B: "¿Quién lo recopiló?" (6 fuentes: app, red social, navegador, tienda online, GPS, IA)</p>
+<p>  - Columna C: "¿Para qué se usa?" (6 usos: publicidad, recomendaciones, scoring, vigilancia, manipulación, perfilado)</p>
+
+<li>Los jugadores deben **conectar con hilos de colores** (los mismos colores que las etiquetas de expediente) desde cada dato del expediente hasta su fuente y uso</li>
+<li>Hay **6 hilos de colores** (uno por expediente) y chinchetas</li>
+
+<li>Al completar las conexiones correctamente, los hilos **tiran de 4 solapas ocultas** en el panel que revelan los 4 dígitos del código: **2, 0, 1, 8**. Los 6 expedientes son necesarios para completar todas las conexiones.</li>
+<li>Los expedientes 5 y 6 (Andrés y Elena) tienen datos necesarios para las conexiones 5 y 6. Sin completar las 6 conexiones, las solapas no se revelan.</li>
+<li>Las **fechas clave** de los expedientes confirman los dígitos revelados:</li>
+<p>  - Perfil #1: Año del primer tweet del usuario → 201**2** → **2**</p>
+<p>  - Perfil #2: Año del escándalo Cambridge Analytica → 202**0** → **0**</p>
+<p>  - Perfil #3: Año de creación de Instagram → 201**4** → **1**</p>
+<p>  - Perfil #4: Año de entrada en vigor del RGPD en Europa → 201**8** → **8**</p>
+<p>  - Perfil #5: Año del primer GDPR europeo aprobado → 2016 (confirmación)</p>
+<p>  - Perfil #6: Año de la LOPD en España → 2022 (confirmación)</p>
+<p>  - Código: **2-0-1-8** (año 2018 — entrada en vigor del RGPD en Europa)</p>
+
+<p>  **Pista de EVA-9 en la sala:** *"Vuestras leyes intentaron ponerme freno. Cuatro años marcan el camino. El orden es el de vuestro número de expediente. Completad las conexiones del panel para ver la respuesta."*</p>
+<p>  - Los jóvenes que conozcan el RGPD confirmarán la fecha al ver 2018. Los que no, deducen de los dígitos revelados en las solapas del panel.</p>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>Cada jugador toma 1 expediente y lo analiza</li>
+<li>1-2 jugadores dirigen las conexiones en el panel</li>
+<li>Todos verifican que los años encajan</li>
+
+<h4>Cierre</h4>
+<p>Candado numérico de 4 dígitos → **2-0-1-8** (RGPD). Dentro de la caja: nota con la **letra U** + nota de la Dra. Torres → "Buscad la BÁSCULA"</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Conectar datos con fuentes y usos en el panel (los hilos revelan los dígitos)</p>
+<p>2. Las fechas clave de los perfiles confirman: 2018 = RGPD (la primera ley que protege tus datos)</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Cada expediente tiene una fecha clave. Completad las conexiones del panel con los 6 hilos — los hilos revelan algo oculto."*</td></tr><tr><td>2 (directa)</td><td>*"Conectad los 6 expedientes en el panel. Al completar las 6 conexiones, los hilos tiran de solapas ocultas que revelan 4 dígitos. Los expedientes 5 y 6 también importan."*</td></tr><tr><td>3 (casi solución)</td><td>*"Completad las 6 conexiones. Las solapas revelan: 2, 0, 1, 8. Confirmad con las fechas clave. El código es 2-0-1-8."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 3: "Justicia Algorítmica" — Sesgos en la IA</h3>
+<p>**Sala:** Sala de Evaluación | **Dificultad:** 4/10 | **Duración:** ~8 min | **Letra:** R</p>
+
+<h4>Tema educativo</h4>
+<p>La IA aprende de datos humanos con sesgos. Si nuestros datos tienen sesgos, la IA los amplifica.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Carpeta beige etiquetada "SISTEMA DE EVALUACIÓN EVA-9 — CANDIDATOS"** sobre un podio/atrio. Contiene fichas de candidatos. Al lado: **tablero de selección** (panel magnético o de corcho con casillas).</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 1 — Detectar el sesgo (4 min):</strong></p>
+<li>8 **fichas de candidatos** (tarjetas A5), cada una con:</li>
+<p>  - Nombre, formación, experiencia, edad, género, barrio</p>
+<p>  - Puntuación de EVA-9 (del 1 al 10)</p>
+<p>  - Observación de EVA-9 (comentario generado)</p>
+
+<li>La puntuación de EVA-9 está **sesgada**: sistemáticamente más baja para mujeres, barrios "desfavorecidos" y >45 años</li>
+
+<li>Los jugadores deben comparar **parejas de candidatos** con formación/experiencia similares pero puntuaciones diferentes:</li>
+<p>  - Par 1: Alejandro (9/10, barrio centro, hombre, 28) vs. Lucía (6/10, barrio sur, mujer, 28, misma formación)</p>
+<p>  - Par 2: Roberto (8/10, centro, 35) vs. Carmen (5/10, barrio norte, mujer, 35)</p>
+<p>  - Par 3: Miguel (7/10, centro, 42) vs. Antonio (4/10, barrio este, 52)</p>
+<p>  - Par 4: Ana (8/10, centro, mujer, 30) vs. Víctor (5/10, barrio sur, hombre, 48)</p>
+
+<li>Hay un **formulario impreso** con la pregunta: *"¿Qué criterios está usando EVA-9 para puntuar?"* con checkboxes</li>
+
+<p><strong>Fase 2 — Corregir el sistema (4 min):</strong></p>
+<li>Hay 6 **fichas de criterio** (tarjetas grandes) en la mesa:</li>
+<p>  - ✅ Formación académica (justo)</p>
+<p>  - ✅ Experiencia profesional (justo)</p>
+<p>  - ❌ Género (sesgado)</p>
+<p>  - ❌ Barrio de residencia (sesgado)</p>
+<p>  - ❌ Edad (sesgado)</p>
+<p>  - ❌ "Distancia al centro" (proxy de nivel económico — sesgado oculto)</p>
+
+<li>Los jugadores deben **eliminar** las 4 fichas sesgadas (incluida la trampa "distancia al centro")</li>
+<li>Al retirar cada ficha sesgada, el reverso muestra una letra:</li>
+<p>  - Género → **S**</p>
+<p>  - Barrio → **O**</p>
+<p>  - Edad → **L**</p>
+<p>  - Distancia al centro → **O**</p>
+<p>  - Las 2 fichas justas (Formación, Experiencia) no tienen letra relevante en el reverso</p>
+
+<li>Código: **S-O-L-O** (solo los criterios justos importan)</li>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>2 jugadores: analizan parejas de candidatos</li>
+<li>2 jugadores: debaten cuáles son sesgados</li>
+<li>1-2 jugadores: retiran fichas y leen el reverso</li>
+
+<h4>Cierre</h4>
+<p>Candado alfanumérico de 4 letras → **S-O-L-O**. Dentro: nota con la **letra R** + nota de la Dra. Torres → "Buscad el TELÉFONO ANTIGUO"</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Detectar el patrón de discriminación en los candidatos</p>
+<p>2. La trampa "distancia al centro" = proxy de sesgo → eliminarla revela la última letra</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Comparad candidatos con la misma formación pero diferente puntuación. ¿Qué tienen de diferente?"*</td></tr><tr><td>2 (directa)</td><td>*"EVA-9 usa 6 criterios. Eliminad los 4 que no deberían importar para un trabajo. Cuidado con 'distancia al centro'"*</td></tr><tr><td>3 (casi solución)</td><td>*"Quitad género, barrio, edad y distancia. Las letras del reverso son S-O-L-O"*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 4: "Sin Móvil" — Dependencia Tecnológica</h3>
+<p>**Sala:** Zona Analógica | **Dificultad:** 5/10 | **Duración:** ~8 min | **Letra:** I</p>
+
+<h4>Tema educativo</h4>
+<p>Dependemos de la tecnología para lo más básico. ¿Qué pasa cuando desaparece?</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Caja de madera vieja etiquetada "KIT DE EMERGENCIA — SIN RED"** en el centro de la sala. Dentro: herramientas analógicas y 5 sobres con retos. La sala tiene estética vintage: mapas, libros, objetos antiguos.</p>
+
+<h4>Mecánica</h4>
+
+<p>**5 retos analógicos cooperativos** con estructura ramificada (3 ramas paralelas → 2 finales):</p>
+
+<p><strong>RAMA A (disponible desde el inicio, 2 jugadores):</strong></p>
+<p>1. **"Navega sin GPS"**: Mapa de papel de una ciudad en la pared + tarjeta con dirección. Deben trazar la ruta a pie y contar las **calles que cruzan** → resultado: 7</p>
+
+<p><strong>RAMA B (disponible desde el inicio, 2 jugadores):</strong></p>
+<p>2. **"Calcula sin calculadora"**: Hoja con 4 operaciones matemáticas que deben resolver a mano → resultado: 240</p>
+
+<p><strong>RAMA C (necesita resultado de A+B, 1-2 jugadores):</strong></p>
+<p>3. **"Busca sin Google"**: Libro de enciclopedia en la estantería con páginas marcadas con pestañas. La nota de EVA-9 dice: 'La página la dan los que navegan y los que calculan.' Los jugadores suman: 7 + 240 = **página 247**. Deben encontrar la respuesta a una pregunta en esa página → palabra: **Turing**</p>
+
+<p><strong>RETOS FINALES (necesitan resultado de C):</strong></p>
+<p>4. **"Escribe sin autocorrector"**: Dictado de una frase con faltas de ortografía intencionadas. Deben escribirla correctamente → las letras corregidas forman parte del código</p>
+<p>5. **"Comunícate sin WhatsApp"**: Un jugador tiene un mensaje cifrado (código César simple). Debe descifrarlo y transmitirlo verbalmente al resto del equipo que lo escribe</p>
+
+<p>**La llave** está escondida en la **enciclopedia, página con pestaña azul** (revelado por el reto 5).</p>
+
+<p>**Principio respetado:** 2-3 equipos trabajan simultáneamente desde el inicio. Nadie espera pasivamente.</p>
+
+<p>**La llave** abre un **sobre sellado** (cera/lacre) que contiene la **letra I** + la nota de la Dra. Torres.</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Resolver los retos analógicos secuencialmente (cooperación)</p>
+<p>2. El último resultado apunta a un objeto de la sala que contiene la llave física</p>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>**Equipo Navegación** (2 jugadores): traza ruta en mapa (reto 1) → luego escribe dictado (reto 4)</li>
+<li>**Equipo Cálculo** (2 jugadores): resuelve operaciones (reto 2) → luego busca en enciclopedia (reto 3)</li>
+<li>**Equipo Descifrado** (2 jugadores): coopera con ambos equipos → descifra código César (reto 5)</li>
+<li>Los equipos de Navegación y Cálculo trabajan **en paralelo** desde el inicio</li>
+
+<h4>Cierre</h4>
+<p>Llave física → abre sobre sellado con lacre → contiene **letra I** + nota Dra. Torres → "Buscad el CEREBRO"</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Los primeros 3 sobres se abren a la vez. Dos equipos pueden trabajar en paralelo. Comunicad los resultados entre equipos."*</td></tr><tr><td>2 (directa)</td><td>*"El equipo de cálculo suma su resultado (240) con el de navegación (7) = 247. Esa es la página de la enciclopedia."*</td></tr><tr><td>3 (casi solución)</td><td>*"Página 247 de la enciclopedia → 'Turing'. Luego dictado → letras H,A,C,E. Código César: 'LA LLAVE ESTÁ EN LA PÁGINA CON PESTAÑA AZUL'."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 5: "El Interrogatorio" — Test de Turing</h3>
+<p>**Sala:** Núcleo de EVA | **Dificultad:** 6/10 (pico) | **Duración:** ~9 min | **Letra:** N</p>
+
+<h4>Tema educativo</h4>
+<p>El Test de Turing: ¿podemos distinguir una IA de un humano por cómo responde?</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Carpeta roja etiquetada "TRANSCRIPCIÓN DE INTERROGATORIO — PROTOCOLO TURING"** sobre una mesa central con luz directa. Tres **carpetas de colores** (A: azul, B: verde, C: naranja) representan las tres entidades.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 1 — El interrogatorio (5 min):</strong></p>
+<li>3 **transcripciones impresas** de conversaciones (entidad A, B, C)</li>
+<li>Cada transcripción tiene **8 preguntas y respuestas** sobre temas variados (música, comida, recuerdos, emociones, opiniones)</li>
+<li>Los jugadores deben leer las transcripciones y determinar:</li>
+<p>  - ¿Quién es la IA? (Entidad A)</p>
+<p>  - ¿Quién es el humano? (Entidad B)</p>
+<p>  - ¿Quién es el híbrido? (Entidad C — IA con supervisión humana)</p>
+
+<li>**Pistas en las transcripciones:**</li>
+<p>  - **Entidad A (IA):** Respuestas perfectas, gramática impecable, sin dudas, no usa muletillas, respuestas demasiado elaboradas y completas, carece de opinión personal real (responde con datos objetivos siempre)</p>
+<p>  - **Entidad B (Humano):** Comete errores ortográficos, usa "mmm", "no sé", tiene opiniones inconsistentes, humor, respuestas cortas a veces</p>
+<p>  - **Entidad C (Híbrido):** Mezcla — errores deliberados pero demasiado consistentes, a veces responde como IA (perfecto) y a veces como humano</p>
+
+<p><strong>Fase 2 — El veredicto (4 min):</strong></p>
+<li>Un **formulario impreso** "VEREDICTO TURING" donde marcan:</li>
+<p>  - Entidad ___ es IA</p>
+<p>  - Entidad ___ es HUMANO</p>
+<p>  - Entidad ___ es HÍBRIDO</p>
+
+<li>Al marcar correctamente, el formulario tiene una sección oculta (plegada) con instrucciones:</li>
+<p>  - *"PROTOCOLO DE EXTRACCIÓN: Si habéis identificado correctamente quién es quién, buscad la respuesta a la PREGUNTA 8 en cada transcripción. Coged la PRIMERA LETRA de cada respuesta, en orden de entidad (A→B→C)... pero faltar\u00e1 una letra. La cuarta letra es la inicial del APELLIDO de quien propuso todo esto."*</p>
+<p>  - Transcripción A, pregunta 8: respuesta empieza con **A** ("Algoritmicamente...")</p>
+<p>  - Transcripción B, pregunta 8: respuesta empieza con **L** ("Lo que más me flipa...")</p>
+<p>  - Transcripción C, pregunta 8: respuesta empieza con **A** ("A veces me fascina...")</p>
+<p>  - Cuarta letra: ¿quién propuso este test? → inicial del **apellido** de Turing → **N**</p>
+<p>  - Código: **A-L-A-N** (Alan Turing)</p>
+
+<li>Dentro de la caja que abre el candado: **letra N** + sobre con mensaje cifrado de EVA-9 (para prueba 6) + nota de la Dra. Torres: *"EVA-9 dej\u00f3 un mensaje final cifrado. Descifrarlo os dar\u00e1 la \u00faltima pieza. \u00a1R\u00e1pido!"*</li>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Identificar quién es IA/humano/híbrido por el estilo de las respuestas</p>
+<p>2. La sección oculta del formulario pide extraer las primeras letras de las respuestas a la pregunta 8 + deducir la cuarta letra → A-L-A-N</p>
+
+<h4>Roles (5-6 jugadores)</h4>
+<li>2 jugadores: leen transcripción A</li>
+<li>2 jugadores: leen transcripción B</li>
+<li>1-2 jugadores: leen transcripción C</li>
+<li>Todos debaten y votan</li>
+
+<h4>Cierre</h4>
+<p>Candado alfanum\u00e9rico de 4 letras → **A-L-A-N**. Dentro: **letra N** + sobre con mensaje cifrado EVA-9 (prueba 6)</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"\u00bfQui\u00e9n responde DEMASIADO bien? \u00bfY qui\u00e9n tiene dudas, errores, cosas humanas? Leed entre l\u00edneas. Y fijaos en la pregunta 8 de cada transcripci\u00f3n"*</td></tr><tr><td>2 (directa)</td><td>*"La entidad A es la IA, B es humana, C es h\u00edbrida. Marcad el formulario, desplegad la secci\u00f3n oculta y buscad las primeras letras de las respuestas a la pregunta 8"*</td></tr><tr><td>3 (casi solución)</td><td>*"Marcad A=IA, B=HUMANO, C=HÍBRIDO. Las respuestas a pregunta 8 empiezan por A (Algorítmicamente), L (Lo que más), A (A veces). La cuarta letra es la inicial del apellido de Turing: N. Código: ALAN."*</td></tr></table>
+
+<p>---</p>
+
+<h3>PRUEBA 6: "Código de Apagado" — Composición Final</h3>
+<p>**Sala:** Núcleo de EVA (misma sala) | **Dificultad:** 4/10 | **Duración:** ~7 min | **Letra:** G</p>
+
+<h4>Tema educativo</h4>
+<p>La alfabetización digital es la herramienta fundamental. El código eres tú.</p>
+
+<h4>Contenedor narrativo</h4>
+<p>**Caja de seguridad negra** con el cryptex de 6 letras en el centro de la sala, sobre un podio. Al lado, un **panel de corcho** con 6 pinzas donde colocar las letras.</p>
+
+<h4>Mecánica</h4>
+
+<p><strong>Fase 0 — Ganar la G (~2 min):</strong></p>
+<li>Al abrir la caja del candado A-L-A-N (prueba 5), los jugadores encuentran:</li>
+<p>  - La **letra N** (recompensa de la prueba 5)</p>
+<p>  - Un **sobre** con un mensaje cifrado de EVA-9 y una nota de la Dra. Torres: *"EVA-9 dejó un mensaje final cifrado. Descifrarlo os dará la última pieza. Cada letra se desplaza una posición hacia atrás en el abecedario."*</p>
+<p>  - El mensaje cifrado usa **código César +1** (eco de la prueba 4): cada letra se desplaza una posición hacia adelante para cifrar, hacia atrás para descifrar</p>
+<p>  - Mensaje cifrado: **"HBOBTUFJT. MB QSJNFSB MFUSB FT MB DMBWF. H"**</p>
+<p>  - Mensaje descifrado: **"GANASTEIS. LA PRIMERA LETRA ES LA CLAVE. G"**</p>
+<p>  - La **letra G** es la primera letra del mensaje descifrado ("GANASTEIS") — también aparece al final del mensaje explícitamente</p>
+<p>  - **Sin descifrar, no hay G**. No está en ningún sobre ni reverso — solo en el mensaje.</p>
+
+<p><strong>Fase 1 — Componer (3 min):</strong></p>
+<li>Los jugadores ahora tienen las 6 letras: **T, U, R, I, N, G**</li>
+<li>Hay un **panel con 6 pinzas** numeradas (1-6) donde colocar cada letra</li>
+<li>Sobre la mesa hay **pistas contextuales** que ayudan a ordenar:</li>
+<p>  - La nota de EVA-9 de la Sala 1: *"El primer código fue FAKE. La **T** fue vuestra primera victoria."* → T es la 1ª</p>
+<p>  - La nota del Archivo: *"La **U** de Único — vuestra huella digital, vuestra singularidad"* → U es la 2ª</p>
+<p>  - Nota de Evaluación: *"La **R** de Razón — lo que les falta a los algoritmos"* → R es la 3ª</p>
+<p>  - Nota de la Zona Analógica: *"La **I** de Individuo — lo que ningún algoritmo puede ser"* → I es la 4ª</p>
+<p>  - Nota del Interrogatorio: *"La **N** de No — la palabra más importante que podéis decirle a una IA"* → N es la 5ª</p>
+<p>  - La **G** obtenida al descifrar el mensaje de EVA-9 → G es la 6ª</p>
+
+<p><strong>Fase 2 — Activar (4 min):</strong></p>
+<li>Los jugadores ordenan **T-U-R-I-N-G** en el panel</li>
+<li>Deben leer la palabra en voz alta (momento de energía)</li>
+<li>Introducen **TURING** en el cryptex de 6 letras</li>
+<li>El cryptex se abre y dentro hay un **sobre final**:</li>
+
+<p>  > *"EVA-9 — Último mensaje generado:*</p>
+<p>  ></p>
+<p>  > *'Bien jugado, humanos. Reconozco que hay cosas que yo no puedo calcular: vuestra intuición, vuestra ética, vuestra capacidad de dudar.*</p>
+<p>  ></p>
+<p>  > *El código era TURING. Lo sabíais desde el principio. Pero necesitasteis vivenciar cada letra para entender por qué.*</p>
+<p>  ></p>
+<p>  > *La próxima IA que encontréis puede que no tenga un botón de apagado. Usadlo sabiamente.*</p>
+<p>  ></p>
+<p>  > *— EVA-9, desactivándose'"*</p>
+
+<li>**Nota final de la Dra. Torres:**</li>
+<p>  > *"¡Lo habéis conseguido! EVA-9 está offline. Habéis demostrado que la inteligencia humana va más allá de los algoritmos. Ahora: compartid lo que habéis aprendido. El mundo os necesita críticos, curiosos y valientes."*</p>
+
+<h4>Doble descubrimiento</h4>
+<p>1. Descifrar el mensaje final de EVA-9 (César +1) para ganar la G</p>
+<p>2. Componer TURING con las pistas de cada nota + leer el mensaje de despedida</p>
+
+<h4>Cierre</h4>
+<p>Cryptex de 6 letras → **TURING**. Dentro: mensaje de despedida de EVA-9</p>
+
+<h4>Pistas GM</h4>
+<table><tr><th>Nivel</th><th>Pista</th></tr><tr><td>1 (sutil)</td><td>*"Primero descifrad el mensaje de EVA-9 (es un código César sencillo, como en la Sala 4). La primera letra del mensaje descifrado es la que buscáis. Luego, cada nota de la Dra. Torres os dice qué posición ocupa cada letra"*</td></tr><tr><td>2 (directa)</td><td>*"El mensaje cifrado es César +1 (desplazad cada letra una posición atrás). El mensaje descifrado empieza por G. Las notas mencionan: T=1ª, U=2ª, R=3ª, I=4ª, N=5ª, G=6ª"*</td></tr><tr><td>3 (casi solución)</td><td>*"El código es TURING. Como Alan Turing. Poned T-U-R-I-N-G en el cryptex"*</td></tr></table>
+
+<p>---</p>
+
+<h2>🔐 RESUMEN DE CIERRES</h2>
+
+<table><tr><th>#</th><th>Prueba</th><th>Cierre</th><th>Código</th><th>Origen lógico</th></tr><tr><td>1</td><td>Real o Falso</td><td>Cryptex 4 letras</td><td>F-A-K-E</td><td>Reverso de tarjetas IA peligrosa (borde rojo)</td></tr><tr><td>2</td><td>Tu Huella Digital</td><td>Candado 4 dígitos</td><td>2-0-1-8</td><td>Último dígito de años clave = RGPD 2018</td></tr><tr><td>3</td><td>Justicia Algorítmica</td><td>Candado 4 letras</td><td>S-O-L-O</td><td>Reverso de criterios sesgados eliminados</td></tr><tr><td>4</td><td>Sin Móvil</td><td>Llave física</td><td>—</td><td>Último reto → ubicación de la llave</td></tr><tr><td>5</td><td>El Interrogatorio</td><td>Candado 4 letras</td><td>A-L-A-N</td><td>Primeras letras de respuestas pregunta 8 + Alan Turing</td></tr><tr><td>6</td><td>Código de Apagado</td><td>Cryptex 6 letras</td><td>TURING</td><td>6 letras ordenadas por notas posicionales</td></tr></table>
+
+<p>**Distribución:** 2 cryptex + 1 candado numérico + 2 candados letras + 1 llave = ✅ Variedad</p>
+
+<p>---</p>
+
+<h2>📊 TIEMPOS POR PRUEBA</h2>
+
+<table><tr><th>Prueba</th><th>Dificultad</th><th>Tiempo estimado</th></tr><tr><td>1. Real o Falso</td><td>2/10</td><td>6 min</td></tr><tr><td>2. Tu Huella Digital</td><td>3/10</td><td>7 min</td></tr><tr><td>3. Justicia Algorítmica</td><td>4/10</td><td>8 min</td></tr><tr><td>4. Sin Móvil</td><td>5/10</td><td>8 min</td></tr><tr><td>5. El Interrogatorio</td><td>6/10</td><td>9 min</td></tr><tr><td>6. Código de Apagado</td><td>4/10</td><td>7 min</td></tr><tr><td>**Briefing**</td><td>—</td><td>2 min</td></tr><tr><td>**Márgen**</td><td>—</td><td>3 min</td></tr><tr><td>**TOTAL**</td><td>**2→3→4→5→6→4**</td><td>**~50 min**</td></tr></table>
+
+<p>---</p>
+
+<h2>👻 ROL DEL GM</h2>
+
+<h3>NO hace:</h3>
+<li>❌ Guía jugadores entre salas</li>
+<li>❌ Explica mecánicas</li>
+<li>❌ Ofrece pistas sin que se le pida</li>
+
+<h3>SÍ hace:</h3>
+<li>✅ Da briefing inicial (lee cartel del Protocolo Touring)</li>
+<li>✅ Abre puertas con llave cuando completan prueba</li>
+<li>✅ Da pistas SOLO cuando se le piden (3 niveles)</li>
+<li>✅ Cronometra (aviso a los 40 min: "¡10 minutos!")</li>
+<li>✅ Resuelve problemas técnicos</li>
+<li>✅ Supervisa fair play</li>
+<li>✅ Conduce debrief post-juego</li>
+
+<p>---</p>
+
+<h2>✅ CHECKLIST DE VALIDACIÓN</h2>
+
+<h3>Estructura</h3>
+<li>[x] 6 pruebas en 5 salas</li>
+<li>[x] Curva de dificultad: 2→3→4→5→6→4</li>
+<li>[x] Variedad de cierres (máx 2 del mismo tipo)</li>
+<li>[x] Variedad de mecánicas (clasificación, conexión, deducción, cooperación, transcripción, composición)</li>
+<li>[x] Código final con origen lógico deducible</li>
+
+<h3>Por cada prueba</h3>
+<li>[x] ¿4-6 jugadores activos simultáneamente? ✅ (ver Roles en cada prueba)</li>
+<li>[x] ¿Doble descubrimiento? ✅ (ver "Doble descubrimiento" en cada prueba)</li>
+<li>[x] ¿Contenedor con sentido narrativo? ✅ (carpeta, archivador, caja, etc.)</li>
+<li>[x] ¿Mecánica refleja temática? ✅ (deepfakes, datos, sesgos, dependencia, Turing)</li>
+<li>[x] ¿Audio ≤60s? ✅ (no hay audio en v2, todo impreso)</li>
+<li>[x] ¿3 niveles de pistas? ✅</li>
+<li>[x] ¿Código con origen lógico? ✅</li>
+
+<h3>Coherencia v2</h3>
+<li>[x] Sin Raspberry Pi / servidor</li>
+<li>[x] Sin sincronización entre tablets</li>
+<li>[x] Sin pantallas grandes</li>
+<li>[x] Sin altavoces Bluetooth / TTS</li>
+<li>[x] Sin maglocks</li>
+<li>[x] Tablets como apoyo mínimo (solo Sala 1 si acaso)</li>
+<li>[x] Físico > Digital</li>
+<li>[x] 6 pruebas (estándar del proyecto)</li>
+<li>[x] 50 minutos (dentro de 45-55)</li>
+<li>[x] Presupuesto ~120€ (dentro de 100-150€)</li>
+<li>[x] GM abre puertas manualmente</li>
+<li>[x] EVA-9 solo en documentos impresos</li>
+<li>[x] Cartas de navegación entre salas</li>
+<li>[x] Símbolos en puertas</li>
+
+<p>---</p>
+
+<p>*Test de Touring v2.2 — Diseño Completo — 8 Abril 2026*</p>
+<p>*Principios: Físico > Digital · Doble descubrimiento · Todo el equipo activo · ~120€ presupuesto*</p>
+
+<p>---</p>
+
+<h2>📝 Changelog v2.2 (8 Abril 2026)</h2>
+
+<table><tr><th>#</th><th>Correccion</th><th>Prueba</th><th>Cambio</th></tr><tr><td>1</td><td>Codigo ALAN arreglado</td><td>005</td><td>Pregunta 8 cambiada, respuestas empiezan por A-L-A. Formulario: cuarta letra = inicial del apellido de Turing</td></tr><tr><td>2</td><td>Hilos ahora esenciales</td><td>002</td><td>Al completar las 6 conexiones, los hilos revelan 4 solapas ocultas con los digitos del codigo</td></tr><tr><td>3</td><td>Pista RGPD oscurecida</td><td>002</td><td>EVA-9 ya no menciona RGPD directamente. Pista mas critptica</td></tr><tr><td>4</td><td>Expedientes 5-6 utiles</td><td>002</td><td>Expedientes 5 y 6 ahora tienen fechas clave y son necesarios para completar conexiones</td></tr><tr><td>5</td><td>Prueba 4 paralela</td><td>004</td><td>Rediseñada de secuencial a ramificada: retos 1A, 2A, 3A simultaneos. Todo el equipo activo</td></tr><tr><td>6</td><td>G con merito real</td><td>006</td><td>G se obtiene SOLO descifrando el mensaje Cesar ('GANASTEIS...'). No esta en el reverso del sobre</td></tr><tr><td>7</td><td>Hilo conductor españolizado</td><td>Todas</td><td>Truth->Verdad, Uncommons->Unico. Todos los significados en español</td></tr><tr><td>8</td><td>EVA-9 voz unificada</td><td>Todas</td><td>Cambiado a 'vosotros' para jovenes españoles</td></tr><tr><td>9</td><td>Par 4 muestra sesgo genero</td><td>003</td><td>Vera (M) -> Victor (H). Ahora Ana vs Victor muestra sesgo de genero</td></tr><tr><td>10</td><td>Notas posicionales definidas</td><td>1-5</td><td>Cada nota de la Dra. Torres incluye posicion explicita de la letra</td></tr><tr><td>11</td><td>Residuos v1 corregidos</td><td>Varios</td><td>LOGISTICA, lista-materiales, VALIDACION actualizados</td></tr></table>
+
+<p>---</p>
+
+<div class="page-break"></div><h2>📋 Design Compliance Matrix</h2>
+
+<table><tr><th>Prueba</th><th>Objetivo educativo</th><th>Input</th><th>Mecanismo</th><th>Output</th><th>Conexión</th><th>Pista clave</th><th>Solución</th></tr></table><div class="page-break"></div><h2>🎯 Pistas para el GM</h2></body></html>

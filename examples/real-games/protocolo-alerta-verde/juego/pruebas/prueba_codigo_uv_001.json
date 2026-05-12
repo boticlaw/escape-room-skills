@@ -1,0 +1,110 @@
+{
+  "id": "prueba_codigo_uv_001",
+  "nombre": "Código Oculto UV",
+  "juego": "protocolo-alerta-verde",
+  "descripcion": "Los jugadores usan la linterna UV (encontrada en la prueba anterior) para descubrir números ocultos en el mapa del laboratorio y una instrucción sobre el orden correcto. Deben asignar los números a las 4 estaciones y seguir el orden indicado para obtener el código.",
+  "skill_primario": "prueba-exploracion-visual",
+  "skills_secundarios": ["prueba-logica-posiciones"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "ubicacion": "Planta 2 — Laboratorio de Análisis",
+  "configuracion": {
+    "espacio": "Mismo laboratorio, varias superficies para explorar con UV",
+    "elementos_fisicos": [
+      "Linterna UV (obtenida como recompensa de prueba 3 — herramienta física reutilizable)",
+      "Mapa de la red (A3) con números UV invisibles cerca de estaciones (YA PREPARADO EN LA PARED/MESA)",
+      "Marco de puerta con texto UV: 'EL ORDEN ES: SOL — AGUA — AIRE — ENERGÍA'",
+      "Vaso de laboratorio o superficie con marca UV: 'La suma de los 4 números es la clave'"
+    ],
+    "marcas_uv": [
+      {
+        "ubicacion": "Mapa — cerca de Estación SOL",
+        "numero": 7,
+        "significado_ambiental": "7 horas de sol al día de media en Castilla y León (una de las regiones con más horas de sol de España)",
+        "funcion": "Primer dígito del código"
+      },
+      {
+        "ubicacion": "Mapa — cerca de Estación RÍO (agua)",
+        "numero": 3,
+        "significado_ambiental": "3 litros de agua dulce por persona y día es el mínimo vital según la OMS. En España usamos de media 130 L/día",
+        "funcion": "Segundo dígito del código"
+      },
+      {
+        "ubicacion": "Mapa — cerca de Estación NUBE (aire)",
+        "numero": 9,
+        "significado_ambiental": "9 de cada 10 personas en el mundo respiran aire contaminado según la OMS",
+        "funcion": "Tercer dígito del código"
+      },
+      {
+        "ubicacion": "Mapa — cerca del logo de energía renovable (panel solar)",
+        "numero": 1,
+        "significado_ambiental": "1 sola turbina eólica puede abastecer a 1.500 hogares al año",
+        "funcion": "Cuarto dígito del código"
+      }
+    ],
+    "instruccion_orden": {
+      "ubicacion": "Marco de puerta",
+      "texto_uv": "EL ORDEN ES: SOL — AGUA — AIRE — ENERGÍA",
+      "funcion": "Establecer el orden de los dígitos",
+      "nota_gm": "Los números UV están junto a las estaciones SOL, RÍO y NUBE. El 4º número está junto al logo de energía renovable (no es una estación con nombre, es el panel solar de la Red). La instrucción usa SOL-AGUA-AIRE-ENERGÍA como categorías, no como nombres de estación."
+    }
+  },
+  "solucion": {
+    "pasos": [
+      "1. Usar la linterna UV para explorar la habitación",
+      "2. Encontrar 4 números en el mapa: 7 (SOL), 3 (AGUA), 9 (AIRE), 1 (ENERGÍA)",
+      "3. Encontrar la instrucción en el marco: orden es SOL → AGUA → AIRE → ENERGÍA",
+      "4. Seguir el orden: 7-3-9-1",
+      "5. El código de acceso es 7391"
+    ],
+    "codigo_recompensa": "7391",
+    "tipo_cierre": "candado_4_digitos"
+  },
+  "recompensa": {
+    "al_abrir": [
+      "Llave a habitación P5 — Sala de Control (llave física, necesaria para avanzar)",
+      "Fragmento del plan de Pardo: 'A las 14:00 se activará el protocolo de apagado total. Solo el código maestro puede detenerlo.' (lectura narrativa)"
+    ],
+    "desbloquea": "Habitación P5 — Sala de Control (Prueba 5)"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "timing": "3 min sin progreso",
+      "texto": "¿Habéis probado la linterna en diferentes superficies? Marcos, paredes, vasos...",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 2,
+      "timing": "6 min sin progreso",
+      "texto": "Hay números ocultos en el mapa cerca de cada estación. También hay instrucciones en el marco de la puerta.",
+      "no_da_solucion": true
+    },
+    {
+      "nivel": 3,
+      "timing": "9 min sin progreso",
+      "texto": "Los números son 7, 3, 9 y 1. El orden en la puerta dice: SOL-AGUA-AIRE-ENERGÍA. El código es 7391.",
+      "da_solucion": true
+    }
+  ],
+  "adaptaciones": {
+    "edad": {
+      "12-14": "La linterna UV es muy atractiva para jóvenes, alta motivación intrínseca",
+      "15-18": "Puede resultar fácil pero la satisfacción de descubrir lo oculto compensa"
+    },
+    "espacio": "Necesita superficies donde aplicar tinta UV (mapa, marco, vaso)",
+    "n_jugadores": {
+      "2-3": "Se turnan con la linterna",
+      "4-6": "Ideal, uno maneja la linterna y otros buscan en diferentes zonas"
+    }
+  },
+  "notas_gm": "Asegurar que las marcas UV están bien visibles con la linterna (tinta de buena calidad). El mapa UV debe estar YA preparado en la sala, no viene de otra prueba. La linterna UV viene de P3 como herramienta física reutilizable (esto es correcto y deseado). La llave de Planta 3 es una llave física, no información. Este es el 'momento wow' para los jóvenes — la linterna UV siempre emociona.",
+  "metadata": {
+    "autor": "escapeitor",
+    "version": "4.0",
+    "fecha_creacion": "2026-03-27",
+    "fecha_actualizacion": "2026-03-31",
+    "testeado": false,
+    "cambio_v4": "Sin cambios funcionales respecto a v3. Autocontenida confirmada: solo necesita linterna UV de P3 (herramienta física reutilizable, no dato). Recompensa = llave física de Planta 3. CERO papeles viajan."
+  }
+}

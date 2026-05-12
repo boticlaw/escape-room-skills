@@ -1,0 +1,327 @@
+{
+  "id": "legado_001_tablero_presencias",
+  "nombre": "El Tablero de las Presencias",
+  "descripcion": "La carta de navegación de P1 lleva a una caja de notario con un tablero plegable de 6 casillas numeradas (eventos familiares) y 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel y M. Á. Cada jugador recibe un sobre de testimonio con una restricción lógica única (dentro de la caja). Compartiendo en voz alta sus restricciones, el grupo debe deducir la posición correcta de cada persona en cada evento. Las posiciones de los 4 hijos (Marcos=3, Carmen=1, Luis=5, Miguel=4) forman el código de un candado de 4 dígitos (3154) en orden de edad. Dentro de la caja están la plantilla, el Consejo Familiar y las cartas familiares — todo self-service.",
+  "juego": "el-legado-de-la-familia",
+  "version": 14,
+  "espacio": 1,
+  "sala": "El Despacho de la Abuela",
+  "skill_primario": "prueba-logica-posiciones",
+  "skills_secundarios": [],
+  "dificultad": 4,
+  "duracion_estimada_minutos": 9,
+  "jugadores_min": 2,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "paralelo",
+  "configuracion": {
+    "mecanica_principal": "Tablero lógico tipo Zebra simplificado con información distribuida. Cada jugador tiene una restricción única que debe compartir en voz alta. Deducción cruzada entre todos los miembros para colocar las 6 fichas en las 6 casillas correctamente.",
+    "mecanismo_barrera": "Candado de 4 dígitos. Las posiciones correctas de los 4 hijos en orden de edad (Marcos=3, Carmen=1, Luis=5, Miguel=4) forman el código 3154. No es un año obvio ni relacionado con fechas familiares.",
+    "elementos_necesarios": [
+      "KIT DE RESOLUCIÓN (sobre la mesa, FUERA de la caja):",
+      "  - Tablero plegable con 6 casillas/eventos numerados 1-6",
+      "  - 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel, M. Á.",
+      "  - 6 sobres de testimonio con restricciones únicas",
+      "  - Plantilla de tabla para restricciones",
+      "  - 8 cartas familiares en sobre etiquetado 'Leer después'",
+      "RECOMPENSA (DENTRO de la caja CERRADA):",
+      "  - Caja de notario con candado de 4 dígitos (3154)",
+      "  - Fotografía de bebé con dorso parcialmente tachado 'Miguel A.'",
+      "  - Letra física E",
+      "  - Fragmento de carta de Elena + carta de navegación",
+      "Cinta roja fina (hilo de marioneta) del tablero a la caja"
+    ],
+    "distribucion_roles": {
+      "guardianes_testimonio": "Cada jugador guarda 1 testimonio exclusivo y lo comparte en voz alta.",
+      "colocador_rotativo": "Mueve fichas solo por consenso del grupo.",
+      "abogado_diablo": "Verifica que cada colocación cumple TODAS las restricciones.",
+      "archivista": "Anota posiciones finales y extrae el código del candado."
+    },
+    "rotacion_obligatoria": "SUGERENCIA impresa en la caja: 'Si fuiste Colocador en la prueba anterior, dejad que otro lo sea hoy.'"
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "La caja no se resuelve mirando: se resuelve escuchando. Que cada testimonio se lea en alto.",
+      "timing": "Tras 3 minutos sin progreso"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Empezad por las restricciones con 'no', 'antes/después' e 'inmediatamente'. Fijan posiciones más rápido. El código son las posiciones de los 4 hijos en orden de edad.",
+      "timing": "Tras 5 minutos sin progreso o petición de pista"
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "La solución completa: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M.Á.=6. El código del candado son las posiciones de los 4 hijos en orden de edad: Marcos=3, Carmen=1, Luis=5, Miguel=4 → 3154.",
+      "timing": "Tras 7 minutos o petición explícita"
+    }
+  ],
+  "solucion": {
+    "descripcion": "Los jugadores comparten sus 6 restricciones en voz alta y, por deducción cruzada, colocan las 6 fichas en las casillas correctas del tablero. La solución única es: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. Á.=6. Las posiciones de los 4 hijos en orden de edad forman el código: Marcos(3), Carmen(1), Luis(5), Miguel(4) → 3154.",
+    "verificacion": "El candado de 4 dígitos se abre con 3154. Dentro de la caja hay una foto de bebé con el dorso tachado 'Miguel A.' y la letra E.",
+    "pasos_detallados": [
+      "Encontrar la zona del escritorio con: tablero plegable, fichas, 6 sobres de testimonio, plantilla de tabla, y una caja de notario CERRADA con candado.",
+      "La instrucción impresa junto al tablero dice: COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.",
+      "Cada jugador coge un sobre de testimonio y lo lee en voz alta. Si son menos de 6, los sobres sobrantes se abren y se leen también.",
+      "Por deducción cruzada de las 6 restricciones, colocar las fichas en las casillas correctas del tablero:",
+      "  - Carmen = 1 (La tarde de la tormenta)",
+      "  - Elena = 2 (La visita al médico)",
+      "  - Marcos = 3 (La firma ante el notario)",
+      "  - Miguel = 4 (La foto sin rostro)",
+      "  - Luis = 5 (El cumpleaños aplazado)",
+      "  - M. Á. = 6 (La despedida en la estación)",
+      "La tarjeta Consejo Familiar recuerda: del mayor al menor de los cuatro hijos de Rodrigo y Elena.",
+      "Extraer código de posiciones de los 4 hijos en orden de edad (mayor a menor): Marcos=3, Carmen=1, Luis=5, Miguel=4 → 3154.",
+      "Introducir 3154 en el candado de la caja de notario.",
+      "Dentro de la caja encontrar: fotografía de bebé con dorso parcialmente tachado \"Miguel A.\", la letra E y el fragmento de carta de Elena.",
+      "Miguel y M. Á. son la misma persona — el cuarto hijo oculto.",
+      "Recoger la letra E y el fragmento de carta de Elena."
+    ],
+    "recompensa": {
+      "letra": "L",
+      "valor": "Lealtad",
+      "carta": "Fragmento de Elena sobre la lealtad de guardar un secreto por protección.",
+      "carta_navegacion": "Carta de Elena: \"Buscad el retrato familiar que cuelga en la pared del despacho. Hay quien fue borrado de la imagen, pero no de la memoria. Elena dejó un papel verde para ver lo que los ojos no pueden.\"",
+      "siguiente_espacio": "Retrato del despacho (P2)",
+      "revelacion_narrativa": "Miguel tuvo un nombre protegido (M. Á.); la duplicidad era protección, no borrado. Rodrigo movió los hilos para cambiarle la identidad."
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "1 tablero plegable con 6 casillas numeradas y nombres de eventos",
+      "6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel, M. Á.",
+      "6 sobres de testimonio con las restricciones impresas",
+      "1 instrucción del tablero: 'COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.'",
+      "1 lista de eventos del tablero",
+      "1 foto de bebé ficticia con dorso tachado 'Miguel A.'",
+      "1 sobre con fragmento de carta de Elena",
+      "1 carta de navegación: \"No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.\"",
+      "1 plantilla de tabla para restricciones (DENTRO de la caja)",
+      "1 tarjeta Consejo Familiar (DENTRO de la caja)",
+      "8 cartas familiares en papel vintage DIN-A5 sepia (documentos in-game complementarios, DENTRO de la caja)"
+    ],
+    "mobiliario": [
+      "1 caja de notario o carpeta rígida",
+      "1 candado de 4 dígitos configurado a 3154"
+    ],
+    "extras": [
+      "1 pieza física letra E",
+      "1 hoja GM con solución completa y restricciones de backup",
+      "1 llave maestra GM para el candado",
+      "Cinta roja fina (hilo de marioneta) del tablero a las cartas"
+    ]
+  },
+  "documentos_in_game": [
+    {
+      "titulo": "Instrucción del Tablero",
+      "texto": "COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.\n\nLAS POSICIONES DE LOS CUATRO HIJOS DE RODRIGO Y ELENA, DEL MAYOR AL MENOR, ABREN EL CAMINO.\n\nCONSEJO DE LA FAMILIA:\nNadie coloca hasta que todas las voces hayan hablado.\nCada testimonio lo lee su dueño, no otro.",
+      "cantidad": 1,
+      "gm_notas": "Impresa en GRANDE en el tablero plegable. Incluye dirección del código (mayor a menor) y anti-monopolio. Todo lo que necesitan está fuera de la caja."
+    },
+    {
+      "titulo": "Eventos del Tablero",
+      "texto": "1. La tarde de la tormenta\n2. La visita al médico\n3. La firma ante el notario\n4. La foto sin rostro\n5. El cumpleaños aplazado\n6. La despedida en la estación",
+      "cantidad": 1,
+      "gm_notas": "Impresos en las 6 casillas del tablero."
+    },
+    {
+      "titulo": "Restricciones de los Testimonios",
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis no estuvo antes que Miguel.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
+      "cantidad": 6,
+      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Si hay menos de 6 jugadores, algunos reciben 2 sobres (se comparten restricciones)."
+    },
+    {
+      "titulo": "Fragmento de Carta de Elena (P1)",
+      "texto": "Mis queridos niños:\n\nLealtad no fue callar por miedo, sino guardar una vida hasta que pudiera ser nombrada sin peligro. Si veis una ausencia en esta casa, no la acuséis todavía. Preguntad primero a los lugares donde todos estuvimos presentes.\n\nRodrigo movía los hilos de esta familia con mano firme. Pero ni él pudo cortar del todo el hilo que nos unía a quien faltaba.",
+      "cantidad": 1,
+      "gm_notas": "Dentro de la caja de notario, junto a la foto de bebé. Referencia a los hilos de marioneta."
+    },
+    {
+      "titulo": "Carta de Navegación (P1 → P2)",
+      "texto": "La caja deja al fondo una tarjeta: \"No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.\"",
+      "cantidad": 1,
+      "gm_notas": "En el fondo de la caja de notario. Guía al retrato para P2."
+    },
+    {
+      "titulo": "Consejo Familiar (anti-monopolio)",
+      "texto": "CONSEJO DE LA FAMILIA:\nNadie coloca hasta que todas las voces hayan hablado.\nNadie anuncia un código hasta que todas las fichas estén en su sitio.\nCada testimonio lo lee su dueño, no otro.",
+      "cantidad": 1,
+      "gm_notas": "DENTRO de la caja de notario, visible al abrirla. No entregada por GM. Refuerza anti-monopolio de forma diegética."
+    },
+    {
+      "titulo": "Plantilla de Tabla para Restricciones",
+      "texto": "Tabla de 6 columnas (eventos) x 6 filas (personajes) para anotar SÍ/NO según las restricciones compartidas. Encabezado: La tarde de la tormenta | La visita al médico | La firma ante el notario | La foto sin rostro | El cumpleaños aplazado | La despedida en la estación. Filas: Elena | Marcos | Carmen | Luis | Miguel | M.Á.",
+      "cantidad": 1,
+      "gm_notas": "Hoja impresa con tabla vacía. DENTRO de la caja de notario, junto al tablero. Ayuda a descargar cognitivamente y evita monopolio."
+    },
+    {
+      "titulo": "Carta 1 - Madrid, 1990 (Documento in-game complementario)",
+      "texto": "<p>Querida mamá:</p><p>Te escribo desde el hospital. Hoy he operado a un niño de apendicitis y me ha recordado cuando yo me enfermaba de niño y tú me cuidabas toda la noche. Los turnos aquí en Madrid son largos, pero cuando salgo del hospital y veo el cielo de la ciudad, pienso en ti.</p><p>Un abrazo, tu hijo mayor.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (médico, Madrid, hijo mayor). Las cartas son documentos in-game que dan contexto narrativo. No son la prueba principal."
+    },
+    {
+      "titulo": "Carta 2 - Sevilla, 1992 (Documento in-game complementario)",
+      "texto": "<p>Mamá querida:</p><p>Los alumnos de mi clase me han preparado una sorpresa por el día del profesor. Me han dado un dibujo donde todos aparecen juntos. Me hizo llorar de emoción. Sevilla está preciosa en primavera, los naranjos están en flor. Ojalá pudieras venir a visitarme más a menudo.</p><p>Te quiere, tu hija.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen (profesora, Sevilla)."
+    },
+    {
+      "titulo": "Carta 3 - Madrid, 1995 (Documento in-game complementario)",
+      "texto": "<p>Mamá:</p><p>Perdón por no haber ido en Navidad. El hospital no me dejó salir. Lucía y los niños te mandan muchos besos. Sebastián ya dice 'abuela' y no para de repetirlo. Me preocupa que papá no esté bien de salud, pero él no quiere que hablemos de eso.</p><p>Un abrazo fuerte.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (hospital, esposa Lucía, hijo Sebastián)."
+    },
+    {
+      "titulo": "Carta 4 - Barcelona, 1996 (Documento in-game complementario)",
+      "texto": "<p>Querida Elena:</p><p>Sé que no te escribo mucho. Barcelona me ha cambiado, supongo. El estudio de arquitectura va bien, pero echo de menos la casa familiar. Ese ruido que hacía la puerta del salón, el tercer escalón que siempre rechinaba, los atardeceres en el jardín... A veces pienso que debería volver.</p><p>Perdón por ser el que siempre se marcha. Papá siempre dijo que yo era el más débil de los tres, pero quizás el débil era el que se quedaba quieto mientras otros movían los hilos.</p><p>Luis.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Luis (arquitecto, Barcelona). Referencia a 'movían los hilos' = tema de marionetas."
+    },
+    {
+      "titulo": "Carta 5 - Sevilla, 1998 (Documento in-game complementario)",
+      "texto": "<p>Mamá:</p><p>No puedo dejar de pensar en lo que me contaste la última vez que vine. Esa historia sobre tu juventud... Necesito saber más. Prometiste que me contarías toda la verdad algún día. Los niños de mi clase me preguntan por qué tengo tantas fotos antiguas en casa, y yo les digo que las fotos guardan secretos que solo los valientes pueden leer.</p><p>Espero tu respuesta.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen (profesora, curiosidad por el secreto)."
+    },
+    {
+      "titulo": "Carta 6 - Madrid, 2000 (Documento in-game complementario)",
+      "texto": "<p>Mamá:</p><p>He visto a papá en el hospital. No quiere que te lo diga, pero su corazón está débil. Dice que ya es hora de que la familia se reúne. Yo creo que tiene miedo de que su secreto — el vuestro — salga a la luz después de tanto tiempo. Sé que ocultáis algo, pero confío en vosotros.</p><p>Tu hijo, que siempre estará ahí.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (médico, confirma que hay un secreto)."
+    },
+    {
+      "titulo": "Carta 7 - Barcelona, 2003 (Documento in-game complementario)",
+      "texto": "<p>Elena:</p><p>He terminado la reforma del edificio que te conté. Los arquitectos decimos que las casas tienen alma, que guardan la historia de quienes las habitan. La nuestra, la de nuestra familia, debe tener mil historias que nunca nos contaron. A veces pienso en volver y reconstruirla entera, escalón a escalón. Como una marioneta a la que hay que volver a ensartar los hilos.</p><p>Tu hijo ausente.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Luis (arquitecto, Barcelona, tono distante). Referencia a marionetas."
+    },
+    {
+      "titulo": "Carta 8 - Sevilla, 2005 (Documento in-game complementario)",
+      "texto": "<p>Mamá querida:</p><p>He ido a visitar tu casa y he encontrado una foto que no había visto nunca. ¿Quién es esa mujer joven con un bebé en brazos? Detrás pone '1963' pero no se parece a ningún bebé de la familia que yo conozca. Mis nietos Sebastián, Olivia y Leo son el SOL de mi vida, y quiero que ellos también conozcan toda la verdad, como me prometiste.</p><p>Es hora, mamá. Es hora.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen. Referencia a nietos del cartel (Sebastián, Olivia, Leo). Menciona la foto misteriosa."
+    }
+  ],
+  "barrera_fisica": {
+    "tipo": "Candado de 4 dígitos",
+    "ubicacion": "Caja de notario CERRADA (recompensa: foto, letra E, carta). Los materiales para resolver (tablero, fichas, testimonios) están FUERA de la caja.",
+    "codigo": "3154",
+    "origen_codigo": "Posiciones correctas de los 4 hijos en orden de edad: Marcos(3), Carmen(1), Luis(5), Miguel(4). El código es no-obvio (no es un año, no es una fecha familiar).",
+    "montaje_minutos": 5
+  },
+  "hilo_conductor": {
+    "letra": "L",
+    "significado": "Lealtad",
+    "posicion": 1
+  },
+  "control_movimiento": {
+    "problema_potencial": "Alguien podría intentar fuerza bruta en el candado de 4 dígitos o monopolizar la deducción.",
+    "solucion_implementada": "Candado de 4 dígitos (10.000 combinaciones) — no es viable fuerza bruta en tiempo razonable. La información está distribuida: nadie tiene todas las restricciones. La regla 'nadie coloca hasta que todas las voces hayan hablado' está IMPRESA en la caja (Consejo Familiar), no requiere GM. REGLA ESTRUCTURAL: nadie puede anunciar un código hasta que las 6 fichas estén colocadas FÍSICAMENTE en el tablero.",
+    "tipo_solucion": "prevencion"
+  },
+  "metadata": {
+    "fecha_creacion": "2026-05-10",
+    "proyecto": "viernes-de-escape",
+    "adaptado_de": "legado-familia/prueba-002-cuadro-sospechosos.json (Sandoval v3.1)",
+    "version": "4.0",
+    "testado": false,
+    "notas": "v4.0 → P1 (intercambiado desde P2). Candado 4 dígitos (3154). Ahora es prueba 1: Tablero de las Presencias. Lealtad."
+  },
+  "ingame_docs": [
+    {
+      "titulo": "Instrucción del Tablero",
+      "texto": "COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.\n\nEl código del candado: las posiciones de los cuatro hijos, en orden de edad.",
+      "cantidad": 1,
+      "gm_notas": "Impresa en la tapa interior de la caja de notario. Visible al abrirla. La segunda frase es la clave para saber cómo formar el código."
+    },
+    {
+      "titulo": "Eventos del Tablero",
+      "texto": "1. La tarde de la tormenta\n2. La visita al médico\n3. La firma ante el notario\n4. La foto sin rostro\n5. El cumpleaños aplazado\n6. La despedida en la estación",
+      "cantidad": 1,
+      "gm_notas": "Impresos en las 6 casillas del tablero."
+    },
+    {
+      "titulo": "Restricciones de los Testimonios",
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis no estuvo antes que Miguel.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
+      "cantidad": 6,
+      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Si hay menos de 6 jugadores, algunos reciben 2 sobres (se comparten restricciones)."
+    },
+    {
+      "titulo": "Fragmento de Carta de Elena (P1)",
+      "texto": "Mis queridos niños:\n\nLealtad no fue callar por miedo, sino guardar una vida hasta que pudiera ser nombrada sin peligro. Si veis una ausencia en esta casa, no la acuséis todavía. Preguntad primero a los lugares donde todos estuvimos presentes.\n\nRodrigo movía los hilos de esta familia con mano firme. Pero ni él pudo cortar del todo el hilo que nos unía a quien faltaba.",
+      "cantidad": 1,
+      "gm_notas": "Dentro de la caja de notario. Referencia a Rodrigo y los hilos de marioneta."
+    },
+    {
+      "titulo": "Carta de Navegación (P1 → P2)",
+      "texto": "La caja deja al fondo una tarjeta: \"No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.\"",
+      "cantidad": 1,
+      "gm_notas": "En el fondo de la caja de notario. Guía al retrato para P2."
+    },
+    {
+      "titulo": "Consejo Familiar (anti-monopolio)",
+      "texto": "CONSEJO DE LA FAMILIA:\nNadie coloca hasta que todas las voces hayan hablado.\nNadie anuncia un código hasta que todas las fichas estén en su sitio.\nCada testimonio lo lee su dueño, no otro.",
+      "cantidad": 1,
+      "gm_notas": "DENTRO de la caja de notario, visible al abrirla. No entregada por GM. Refuerza anti-monopolio de forma diegética."
+    },
+    {
+      "titulo": "Plantilla de Tabla para Restricciones",
+      "texto": "Tabla de 6 columnas (eventos) x 6 filas (personajes) para anotar SÍ/NO según las restricciones compartidas. Encabezado: La tarde de la tormenta | La visita al médico | La firma ante el notario | La foto sin rostro | El cumpleaños aplazado | La despedida en la estación. Filas: Elena | Marcos | Carmen | Luis | Miguel | M.Á.",
+      "cantidad": 1,
+      "gm_notas": "Hoja impresa con tabla vacía. DENTRO de la caja de notario, junto al tablero. Ayuda a descargar cognitivamente y evita monopolio."
+    },
+    {
+      "titulo": "Carta 1 - Madrid, 1990 (Documento in-game complementario)",
+      "texto": "<p>Querida mamá:</p><p>Te escribo desde el hospital. Hoy he operado a un niño de apendicitis y me ha recordado cuando yo me enfermaba de niño y tú me cuidabas toda la noche. Los turnos aquí en Madrid son largos, pero cuando salgo del hospital y veo el cielo de la ciudad, pienso en ti.</p><p>Un abrazo, tu hijo mayor.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (médico, Madrid, hijo mayor). Las cartas son documentos in-game que dan contexto narrativo. No son la prueba principal."
+    },
+    {
+      "titulo": "Carta 2 - Sevilla, 1992 (Documento in-game complementario)",
+      "texto": "<p>Mamá querida:</p><p>Los alumnos de mi clase me han preparado una sorpresa por el día del profesor. Me han dado un dibujo donde todos aparecen juntos. Me hizo llorar de emoción. Sevilla está preciosa en primavera, los naranjos están en flor. Ojalá pudieras venir a visitarme más a menudo.</p><p>Te quiere, tu hija.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen (profesora, Sevilla)."
+    },
+    {
+      "titulo": "Carta 3 - Madrid, 1995 (Documento in-game complementario)",
+      "texto": "<p>Mamá:</p><p>Perdón por no haber ido en Navidad. El hospital no me dejó salir. Lucía y los niños te mandan muchos besos. Sebastián ya dice 'abuela' y no para de repetirlo. Me preocupa que papá no esté bien de salud, pero él no quiere que hablemos de eso.</p><p>Un abrazo fuerte.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (hospital, esposa Lucía, hijo Sebastián)."
+    },
+    {
+      "titulo": "Carta 4 - Barcelona, 1996 (Documento in-game complementario)",
+      "texto": "<p>Querida Elena:</p><p>Sé que no te escribo mucho. Barcelona me ha cambiado, supongo. El estudio de arquitectura va bien, pero echo de menos la casa familiar. Ese ruido que hacía la puerta del salón, el tercer escalón que siempre rechinaba, los atardeceres en el jardín... A veces pienso que debería volver.</p><p>Perdón por ser el que siempre se marcha. Papá siempre dijo que yo era el más débil de los tres, pero quizás el débil era el que se quedaba quieto mientras otros movían los hilos.</p><p>Luis.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Luis (arquitecto, Barcelona). Referencia a 'movían los hilos' = tema de marionetas."
+    },
+    {
+      "titulo": "Carta 5 - Sevilla, 1998 (Documento in-game complementario)",
+      "texto": "<p>Mamá:</p><p>No puedo dejar de pensar en lo que me contaste la última vez que vine. Esa historia sobre tu juventud... Necesito saber más. Prometiste que me contarías toda la verdad algún día. Los niños de mi clase me preguntan por qué tengo tantas fotos antiguas en casa, y yo les digo que las fotos guardan secretos que solo los valientes pueden leer.</p><p>Espero tu respuesta.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen (profesora, curiosidad por el secreto)."
+    },
+    {
+      "titulo": "Carta 6 - Madrid, 2000 (Documento in-game complementario)",
+      "texto": "<p>Mamá:</p><p>He visto a papá en el hospital. No quiere que te lo diga, pero su corazón está débil. Dice que ya es hora de que la familia se reúne. Yo creo que tiene miedo de que su secreto — el vuestro — salga a la luz después de tanto tiempo. Sé que ocultáis algo, pero confío en vosotros.</p><p>Tu hijo, que siempre estará ahí.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Marcos (médico, confirma que hay un secreto)."
+    },
+    {
+      "titulo": "Carta 7 - Barcelona, 2003 (Documento in-game complementario)",
+      "texto": "<p>Elena:</p><p>He terminado la reforma del edificio que te conté. Los arquitectos decimos que las casas tienen alma, que guardan la historia de quienes las habitan. La nuestra, la de nuestra familia, debe tener mil historias que nunca nos contaron. A veces pienso en volver y reconstruirla entera, escalón a escalón. Como una marioneta a la que hay que volver a ensartar los hilos.</p><p>Tu hijo ausente.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Luis (arquitecto, Barcelona, tono distante). Referencia a marionetas."
+    },
+    {
+      "titulo": "Carta 8 - Sevilla, 2005 (Documento in-game complementario)",
+      "texto": "<p>Mamá querida:</p><p>He ido a visitar tu casa y he encontrado una foto que no había visto nunca. ¿Quién es esa mujer joven con un bebé en brazos? Detrás pone '1963' pero no se parece a ningún bebé de la familia que yo conozca. Mis nietos Sebastián, Olivia y Leo son el SOL de mi vida, y quiero que ellos también conozcan toda la verdad, como me prometiste.</p><p>Es hora, mamá. Es hora.</p>",
+      "cantidad": 1,
+      "gm_notas": "Remitente: Carmen. Referencia a nietos del cartel (Sebastián, Olivia, Leo). Menciona la foto misteriosa."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "legado_007_desenlace_final",
+  "nombre": "El Legado Reclamado",
+  "descripcion": "El primer equipo en completar las 6 pruebas llega al vestíbulo final. Arman su cartel del juego con las 6 piezas y descubren el nombre de la séptima escritora: CATALINA VALENTO. El GM anuncia al equipo ganador y entrega el legado.",
+  "juego": "El Legado en Tinta Violeta",
+  "version": 4,
+  "espacio": "vestibulo_final",
+  "planta": 0,
+  "escritora": "CATALINA VALENTO (la séptima)",
+  "skill_primario": "prueba-cooperacion-grupal",
+  "skills_secundarios": ["prueba-puzzle"],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 4,
+  "jugadores_min": 3,
+  "jugadores_max": 5,
+  "edad_minima": 14,
+  "cooperacion_obligatoria": true,
+  "formato": "competitivo",
+  "configuracion": {
+    "mecanica_principal": "Armar cartel del juego con las 6 piezas obtenidas y descubrir el nombre de Catalina Valento",
+    "elementos_necesarios": [
+      "6 partes del cartel del juego del equipo (obtenidas en las pruebas)",
+      "6 sílabas del equipo (CA-TA-LI o NA-VA-TO según camino)",
+      "Mesa para armar puzzle",
+      "Cartel: 'El primer equipo en completar el legado gana'",
+      "Libro del legado (premio físico)",
+      "Diplomas de Guardianes del Legado"
+    ],
+    "fase_1_llegada": {
+      "descripcion": "El primer equipo en completar las 6 pruebas llega al vestíbulo",
+      "accion": "GM anuncia: '¡El Equipo X ha completado todas las pruebas!'"
+    },
+    "fase_2_puzzle": {
+      "descripcion": "El equipo arma su cartel del juego con las 6 piezas",
+      "forma_puzzle": "Hexágono con 6 piezas que encajan",
+      "mensaje_revelado": "CATALINA VALENTO - La séptima escritora olvidada"
+    },
+    "fase_3_victoria": {
+      "descripcion": "El GM entrega el legado al equipo ganador",
+      "premio": [
+        "Libro del legado con dedicatoria",
+        "Diplomas de Guardián del Legado",
+        "Foto grupal con efecto violeta"
+      ],
+      "efecto_especial": "Luz violeta + música triunfal"
+    },
+    "nota_segundo_equipo": {
+      "descripcion": "El segundo equipo también completa y arma su puzzle",
+      "premio_consolidacion": "Diplomas de Investigadores del Legado",
+      "mensaje": "Aunque no fuisteis los primeros, habéis descubierto el secreto."
+    }
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "El legado tiene siete voces, pero solo seis han hablado. ¿Quién es la séptima?"
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Ordenad vuestras 6 sílabas para descubrir el nombre completo. Luego ensamblad las partes del cartel del juego."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "El nombre es CATALINA VALENTO. Ordenad las piezas: CA-TA-LI-NA-VA-TO."
+    }
+  ],
+  "solucion": {
+    "descripcion": "Armar cartel del juego. Ordenar sílabas: CATALINA VALENTO. El GM entrega el legado.",
+    "verificacion": "El cartel se completa con el nombre revelado.",
+    "recompensa": {
+      "equipo_ganador": {
+        "libro": "Libro del legado con dedicatoria",
+        "diplomas": "Diplomas de Guardián del Legado",
+        "foto": "Foto grupal con efecto violeta"
+      },
+      "equipo_perdedor": {
+        "diplomas": "Diplomas de Investigadores del Legado"
+      }
+    }
+  },
+  "misterio_secundario_resuelto": {
+    "nombre_septima_escritora": "Catalina Valento",
+    "historia": "Escritora palentina olvidada. Las seis escritoras del pacto dejaron pistas sobre su nombre en cada espacio.",
+    "sílabas_totales": ["CA", "TA", "LI", "NA", "VA", "TO"],
+    "distribucion": {
+      "cada_equipo_obtiene": "6 sílabas (de sus 6 pruebas)"
+    }
+  },
+  "adaptaciones": {
+    "sin_puzzle": {
+      "descripcion": "Solo ordenar sílabas",
+      "implementacion": "Sin partes del cartel del juego, solo tarjetas con sílabas"
+    },
+    "empate": {
+      "descripcion": "Si ambos equipos llegan a la vez",
+      "implementacion": "Desempate por tiempo total o prueba adicional rápida"
+    },
+    "sin_efectos": {
+      "descripcion": "Revelación simple sin luces",
+      "implementacion": "Solo entrega del libro"
+    }
+  },
+  "materiales": {
+    "impresion": [
+      "6 partes del cartel del juego por equipo (12 total)",
+      "Sílabas en cada pieza",
+      "1 libro decorativo con dedicatoria",
+      "10 diplomas de Guardián del Legado",
+      "10 diplomas de Investigadores del Legado"
+    ],
+    "mobiliario": [
+      "Mesa para armar puzzle",
+      "Cartel de instrucciones"
+    ],
+    "extras": [
+      "Luces LED violetas",
+      "Altavoz para música triunfal"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-03-16",
+    "fecha_actualizacion": "2026-03-18",
+    "version": 5,
+    "testado": false,
+    "cambios_version_5": "VALIDADO como competitivo de velocidad pura. El primer equipo en completar las 6 pruebas gana automáticamente. Sin puntuación adicional, sin segundos intentos.",
+    "cambios_version_4": "FORMATO COMPETITIVO: El primer equipo en completar gana. Eliminada reunión de grupos. Cada equipo tiene sus propias 6 sílabas. Premio diferenciado para ganador y perdedor.",
+    "notas": "El equipo ganador recibe el libro físico. El segundo equipo recibe diplomas de consolación. Victoria por velocidad pura - no hay puntos ni calificaciones."
+  }
+}

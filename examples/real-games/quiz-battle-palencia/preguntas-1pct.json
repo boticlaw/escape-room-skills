@@ -1,0 +1,990 @@
+[
+  {
+    "id": 1,
+    "pct": 90,
+    "pregunta": "Si en Palencia llueve a las 3 de la tarde, ¿puede llover a las 3:01?",
+    "opciones": [
+      "No, no puede llover dos veces tan cerca",
+      "Sí, por supuesto",
+      "Solo si hace frío",
+      "Depende del barrio"
+    ],
+    "correcta": "B",
+    "explicacion": "No hay ninguna regla que impida que llueva un minuto después. Trampa mental de patrones."
+  },
+  {
+    "id": 2,
+    "pct": 90,
+    "pregunta": "¿Cuántos cumpleaños tiene de media una persona que vive en Palencia?",
+    "opciones": [
+      "Uno por año",
+      "Uno, el día que nació",
+      "75-80",
+      "Depende del mes"
+    ],
+    "correcta": "A",
+    "explicacion": "Cada persona cumple años una vez al año. Si tiene 40 años, ha celebrado 40 cumpleaños."
+  },
+  {
+    "id": 3,
+    "pct": 90,
+    "pregunta": "En el Canal de Castilla hay 49 esclusas. Si cierras todas menos una, ¿cuántas quedan cerradas?",
+    "opciones": [
+      "1",
+      "48",
+      "49",
+      "Ninguna"
+    ],
+    "correcta": "B",
+    "explicacion": "Si cierras todas (49) menos una, quedan 48 cerradas y 1 abierta."
+  },
+  {
+    "id": 4,
+    "pct": 90,
+    "pregunta": "¿Qué pesa más: un kilo de lechazo palentino o un kilo de morcilla de Palencia?",
+    "opciones": [
+      "El lechazo",
+      "La morcilla",
+      "Pesan lo mismo",
+      "Depende del restaurante"
+    ],
+    "correcta": "C",
+    "explicacion": "Un kilo es un kilo. Pesa exactamente lo mismo."
+  },
+  {
+    "id": 5,
+    "pct": 85,
+    "pregunta": "Si un palentino sale de su casa caminando hacia el sur, gira a la izquierda y luego a la izquierda otra vez, ¿hacia dónde mira?",
+    "opciones": [
+      "Norte",
+      "Sur",
+      "Este",
+      "Oeste"
+    ],
+    "correcta": "A",
+    "explicacion": "Sur → izquierda (este) → izquierda (norte). Dos giros a la izquierda = media vuelta."
+  },
+  {
+    "id": 6,
+    "pct": 85,
+    "pregunta": "En un partido del CF Palencia, el marcador es 2-0. ¿Cuántos equipos han marcado?",
+    "opciones": [
+      "Dos",
+      "Uno",
+      "Ninguno",
+      "No se puede saber"
+    ],
+    "correcta": "D",
+    "explicacion": "No sabemos cuántos equipos han marcado. Podría ser 2-0 de un solo equipo o 1-1 que cambió. El marcador final no dice quién marcó."
+  },
+  {
+    "id": 7,
+    "pct": 85,
+    "pregunta": "Si vas caminando desde la plaza mayor de Palencia hasta el Cristo del Otero y luego vuelves, ¿cuántos kilómetros has recorrido?",
+    "opciones": [
+      "La distancia al Cristo",
+      "El doble de la distancia al Cristo",
+      "Cero",
+      "Depende de la velocidad"
+    ],
+    "correcta": "B",
+    "explicacion": "Ida y vuelta = doble de la distancia de ida. Trampa: muchos piensan solo en la ida."
+  },
+  {
+    "id": 8,
+    "pct": 80,
+    "pregunta": "¿Cuántas lunas llenas caben en un mes de febrero en un año bisiesto?",
+    "opciones": [
+      "Una",
+      "Dos",
+      "Tres",
+      "Ninguna"
+    ],
+    "correcta": "A",
+    "explicacion": "Un ciclo lunar dura ~29.5 días. En 29 días solo cabe una luna llena."
+  },
+  {
+    "id": 9,
+    "pct": 80,
+    "pregunta": "En el mercado de Palencia venden naranjas a 2€ el kilo. Si compras 2 kilos con un billete de 5€, ¿cuánto te devuelven?",
+    "opciones": [
+      "1€",
+      "2€",
+      "3€",
+      "No te alcanza"
+    ],
+    "correcta": "A",
+    "explicacion": "2 kilos × 2€ = 4€. 5€ - 4€ = 1€ de cambio."
+  },
+  {
+    "id": 10,
+    "pct": 80,
+    "pregunta": "Si un palentino tiene 3 vacas tudancas y se le muere una, ¿cuántas vacas tiene?",
+    "opciones": [
+      "Dos",
+      "Tres",
+      "Una",
+      "Ninguna, porque las tudancas están en la Montaña"
+    ],
+    "correcta": "A",
+    "explicacion": "3 - 1 = 2. La última opción es una distracción graciosa."
+  },
+  {
+    "id": 11,
+    "pct": 75,
+    "pregunta": "¿Cuántos meses del año tienen 28 días en Palencia?",
+    "opciones": [
+      "Uno (febrero)",
+      "Todos",
+      "Seis",
+      "Ninguno"
+    ],
+    "correcta": "B",
+    "explicacion": "TODOS los meses tienen al menos 28 días. Febrero tiene 28, pero los demás también tienen esos 28."
+  },
+  {
+    "id": 12,
+    "pct": 75,
+    "pregunta": "Si estás en la Catedral de Palencia y sales por la puerta principal, ¿a qué lado de la puerta estás al salir?",
+    "opciones": [
+      "Fuera",
+      "Dentro",
+      "A la derecha",
+      "No se puede saber"
+    ],
+    "correcta": "A",
+    "explicacion": "Si sales, estás fuera. Es una pregunta trampa de lenguaje."
+  },
+  {
+    "id": 13,
+    "pct": 70,
+    "pregunta": "Un pastor de la Montaña Palentina tiene 17 ovejas. Todas se escapan menos 9. ¿Cuántas le quedan?",
+    "opciones": [
+      "8",
+      "9",
+      "17",
+      "Ninguna"
+    ],
+    "correcta": "B",
+    "explicacion": "'Todas se escapan MENOS 9' = le quedan 9. Es un juego de palabras."
+  },
+  {
+    "id": 14,
+    "pct": 70,
+    "pregunta": "¿Qué tiene más letras: 'CANAL DE CASTILLA' o 'RÍO CARRIÓN'?",
+    "opciones": [
+      "Canal de Castilla",
+      "Río Carrión",
+      "Tienen las mismas",
+      "Depende de si cuentas espacios"
+    ],
+    "correcta": "A",
+    "explicacion": "CANAL DE CASTILLA = 14 letras (C-A-N-A-L-D-E-C-A-S-T-I-L-L-A). RÍO CARRIÓN = 10 letras (R-Í-O-C-A-R-R-I-Ó-N). Canal tiene más letras. Trampa visual:不少人 piensan que Río es más largo por 'Carrión'."
+  },
+  {
+    "id": 15,
+    "pct": 70,
+    "pregunta": "Si divides 30 palentinos en 5 grupos iguales para un juego, ¿cuántos grupos hay?",
+    "opciones": [
+      "5",
+      "6",
+      "30",
+      "150"
+    ],
+    "correcta": "A",
+    "explicacion": "La pregunta pregunta cuántos GRUPOS hay, no cuántos en cada grupo. Divides EN 5 grupos = 5 grupos."
+  },
+  {
+    "id": 16,
+    "pct": 70,
+    "pregunta": "¿Cuál es el último día del siglo XXI en Palencia?",
+    "opciones": [
+      "31 de diciembre de 2099",
+      "31 de diciembre de 2100",
+      "1 de enero de 2101",
+      "No se puede saber"
+    ],
+    "correcta": "B",
+    "explicacion": "El siglo XXI va del 2001 al 2100. Su último día es 31/12/2100. Trampa: muchos piensan que acaba en 2099."
+  },
+  {
+    "id": 17,
+    "pct": 55,
+    "pregunta": "En un bar de Palencia hay 3 palentinos, 2 vallisoletanos y 1 leonés. ¿Cuántos hay en total que NO son de Palencia?",
+    "opciones": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correcta": "A",
+    "explicacion": "3 no palentinos: 2 vallisoletanos + 1 leonés. Trampa: la mente suma todos y olvida la negación."
+  },
+  {
+    "id": 18,
+    "pct": 55,
+    "pregunta": "Si el Cristo del Otero mide 20 metros y a su pie hay una placa de 1 metro, ¿qué altura alcanza si te subes a la placa?",
+    "opciones": [
+      "20 metros",
+      "21 metros",
+      "19 metros",
+      "Sigue siendo 20 metros"
+    ],
+    "correcta": "D",
+    "explicacion": "El Cristo mide 20 metros. Subirte a la placa no cambia la altura del Cristo. La pregunta pregunta por la altura DEL CRISTO, no tu altura."
+  },
+  {
+    "id": 19,
+    "pct": 50,
+    "pregunta": "Un palentino dice: 'El día después de mañana será jueves'. ¿Qué día es hoy?",
+    "opciones": [
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Domingo"
+    ],
+    "correcta": "B",
+    "explicacion": "Día después de mañana = jueves → mañana = miércoles → hoy = martes."
+  },
+  {
+    "id": 20,
+    "pct": 50,
+    "pregunta": "¿Cuántos huevos puedes comer estando en ayunas?",
+    "opciones": [
+      "Uno",
+      "Tres",
+      "Todos los que quieras",
+      "Ninguno"
+    ],
+    "correcta": "C",
+    "explicacion": "Puedes comer todos los que quieras. Después del primero ya no estás en ayunas... pero la pregunta no pone límite."
+  },
+  {
+    "id": 21,
+    "pct": 50,
+    "pregunta": "Si en la provincia de Palencia hay 191 municipios y uno se divide en dos, ¿cuántos municipios hay?",
+    "opciones": [
+      "192",
+      "191",
+      "190",
+      "Depende de la ley"
+    ],
+    "correcta": "A",
+    "explicacion": "191 + 1 = 192. Si uno se divide en dos, hay uno nuevo."
+  },
+  {
+    "id": 22,
+    "pct": 50,
+    "pregunta": "Un agricultor de Tierra de Campos tiene un campo rectangular de 100m × 200m. ¿Cuántos metros de valla necesita para cercar todo el perímetro?",
+    "opciones": [
+      "300 metros",
+      "20.000 metros",
+      "600 metros",
+      "400 metros"
+    ],
+    "correcta": "C",
+    "explicacion": "Perímetro = 2×(100+200) = 600 metros. Trampa: muchos calculan el área (20.000)."
+  },
+  {
+    "id": 23,
+    "pct": 50,
+    "pregunta": "Si vas en coche de Palencia a Cervera de Pisuerga (100 km) a 50 km/h de media, ¿cuánto tardas?",
+    "opciones": [
+      "1 hora",
+      "2 horas",
+      "50 minutos",
+      "100 minutos"
+    ],
+    "correcta": "B",
+    "explicacion": "100 km / 50 km/h = 2 horas."
+  },
+  {
+    "id": 24,
+    "pct": 50,
+    "pregunta": "En el archivo de Palencia hay una carpeta dentro de otra carpeta dentro de otra. Si abres todas, ¿cuántas carpetas ves?",
+    "opciones": [
+      "Tres",
+      "Una",
+      "Dos",
+      "Ninguna, ves archivos"
+    ],
+    "correcta": "A",
+    "explicacion": "Tres carpetas. Una dentro de otra dentro de otra = 3 carpetas."
+  },
+  {
+    "id": 25,
+    "pct": 45,
+    "pregunta": "¿Cuántos triángulos hay en un triángulo?",
+    "opciones": [
+      "Uno",
+      "Tres",
+      "Cuatro",
+      "Infinitos"
+    ],
+    "correcta": "A",
+    "explicacion": "Un triángulo tiene un triángulo. Trampa: la mente busca complicarlo."
+  },
+  {
+    "id": 26,
+    "pct": 45,
+    "pregunta": "Si lanzas un dado en Palencia y sale 6, ¿cuál es la probabilidad de que al lanzarlo otra vez salga 6?",
+    "opciones": [
+      "1 de 6",
+      "1 de 36",
+      "1 de 12",
+      "6 de 6"
+    ],
+    "correcta": "A",
+    "explicacion": "Cada lanzamiento es independiente. La probabilidad siempre es 1/6."
+  },
+  {
+    "id": 27,
+    "pct": 45,
+    "pregunta": "Un reloj de la Catedral de Palencia da las 3. ¿Cuántas veces han coincidido la aguja horaria y la minutera desde las 12?",
+    "opciones": [
+      "Cero",
+      "Una",
+      "Dos",
+      "Tres"
+    ],
+    "correcta": "D",
+    "explicacion": "Coinciden aproximadamente a las 12:00, ~1:05, ~2:10 y ~3:16. A las 3 ya han coincidido 3 veces (están a punto de coincidir la 4ª pero aún no)."
+  },
+  {
+    "id": 28,
+    "pct": 45,
+    "pregunta": "Si un palentino gasta la mitad de su sueldo en alquiler, un tercio en comida y el resto en ocio, ¿qué fracción gasta en ocio?",
+    "opciones": [
+      "Un sexto",
+      "Un tercio",
+      "La mitad",
+      "Un cuarto"
+    ],
+    "correcta": "A",
+    "explicacion": "1/2 + 1/3 = 3/6 + 2/6 = 5/6. Resto = 1/6."
+  },
+  {
+    "id": 29,
+    "pct": 40,
+    "pregunta": "¿Qué número va después de esta serie: 2, 6, 12, 20, 30, ?",
+    "opciones": [
+      "36",
+      "40",
+      "42",
+      "44"
+    ],
+    "correcta": "C",
+    "explicacion": "Diferencias: 4, 6, 8, 10... siguiente diferencia = 12. 30+12=42. O visto al revés: 1×2, 2×3, 3×4, 4×5, 5×6, 6×7=42."
+  },
+  {
+    "id": 30,
+    "pct": 40,
+    "pregunta": "En el puente sobre el Carrión de Palencia, si cuentas los coches que pasan de izquierda a derecha y los que pasan de derecha a izquierda durante 1 minuto, ¿cuál será mayor?",
+    "opciones": [
+      "Izquierda a derecha",
+      "Derecha a izquierda",
+      "Iguales",
+      "No se puede saber"
+    ],
+    "correcta": "D",
+    "explicacion": "No hay información suficiente. Depende del tráfico en ese momento."
+  },
+  {
+    "id": 31,
+    "pct": 40,
+    "pregunta": "Si un palentino nació el 29 de febrero de 2000, ¿cuántos cumpleaños ha celebrado hasta 2026?",
+    "opciones": [
+      "6",
+      "7",
+      "26",
+      "No se puede saber si no es bisiesto"
+    ],
+    "correcta": "B",
+    "explicacion": "Años bisiestos entre 2000 y 2026: 2000, 2004, 2008, 2012, 2016, 2020, 2024 = 7 cumpleaños."
+  },
+  {
+    "id": 32,
+    "pct": 35,
+    "pregunta": "¿Cuántas veces puedes restar 10 de 100?",
+    "opciones": [
+      "10 veces",
+      "9 veces",
+      "1 vez",
+      "Infinitas"
+    ],
+    "correcta": "C",
+    "explicacion": "Solo una. Después de restar 10 de 100, tienes 90. La siguiente vez restas de 90, no de 100."
+  },
+  {
+    "id": 33,
+    "pct": 35,
+    "pregunta": "Un palentino tiene 5 hijos varones y cada hijo tiene una hermana. ¿Cuántos hijos tiene en total?",
+    "opciones": [
+      "10",
+      "6",
+      "5",
+      "11"
+    ],
+    "correcta": "B",
+    "explicacion": "Los 5 hijos comparten la misma hermana. Total: 5 varones + 1 mujer = 6 hijos."
+  },
+  {
+    "id": 34,
+    "pct": 35,
+    "pregunta": "Si metes la mano en un bolsillo y sacas 2 monedas que suman 30 céntimos, y una de ellas NO es de 20 céntimos, ¿cuáles son?",
+    "opciones": [
+      "10 y 20 céntimos",
+      "5 y 25 céntimos",
+      "15 y 15 céntimos",
+      "10 y 10 céntimos"
+    ],
+    "correcta": "A",
+    "explicacion": "Si UNA no es de 20, la OTRA sí lo es. Entonces: una de 10 y una de 20 = 30 céntimos."
+  },
+  {
+    "id": 35,
+    "pct": 35,
+    "pregunta": "En una fila para entrar al Museo de Palencia estás en el puesto 14 por detrás. Se van 3 personas de delante de ti y se cuelan 2 por detrás. ¿En qué puesto estás?",
+    "opciones": [
+      "14",
+      "11",
+      "12",
+      "15"
+    ],
+    "correcta": "B",
+    "explicacion": "Se van 3 de delante → avanzas 3 puestos → puesto 11. Los que se cuelan detrás no te afectan."
+  },
+  {
+    "id": 36,
+    "pct": 30,
+    "pregunta": "¿Qué es más grande: la sombra del Cristo del Otero al mediodía o a las 6 de la tarde en verano?",
+    "opciones": [
+      "Al mediodía",
+      "A las 6 de la tarde",
+      "Son iguales",
+      "No tiene sombra de noche"
+    ],
+    "correcta": "B",
+    "explicacion": "A las 6 de la tarde el sol está más bajo, la sombra es más larga. Al mediodía el sol está alto, sombra corta."
+  },
+  {
+    "id": 37,
+    "pct": 30,
+    "pregunta": "Si un palentino dice 'Mañana es el día que si fuera ayer, hoy sería viernes', ¿qué día es hoy?",
+    "opciones": [
+      "Domingo",
+      "Lunes",
+      "Miércoles",
+      "Jueves"
+    ],
+    "correcta": "C",
+    "explicacion": "'Mañana' = M. Si M fuera ayer, entonces hoy = M + 1. 'Hoy sería viernes' → M + 1 = viernes → M = jueves. Mañana es jueves → hoy es miércoles."
+  },
+  {
+    "id": 38,
+    "pct": 30,
+    "pregunta": "Un grupo de palentinos cenan juntos. Si cada uno saluda a todos los demás con un apretón de manos y se dan 45 apretones en total, ¿cuántos son?",
+    "opciones": [
+      "9",
+      "10",
+      "45",
+      "15"
+    ],
+    "correcta": "B",
+    "explicacion": "n(n-1)/2 = 45 → n(n-1) = 90 → n = 10. Fórmula de combinaciones de 2."
+  },
+  {
+    "id": 39,
+    "pct": 30,
+    "pregunta": "Tienes una jarra de 5 litros y otra de 3 litros en el Canal de Castilla. ¿Cómo medir exactamente 4 litros?",
+    "opciones": [
+      "Llena la de 5, vierte en la de 3, quedan 2 en la de 5. Vacía la de 3, pon los 2 en la de 3, llena la de 5, vierte 1 litro en la de 3 (que ya tiene 2). Quedan 4 en la de 5",
+      "No se puede",
+      "Llena las dos y mezcla",
+      "Vierte la de 3 en la de 5 dos veces"
+    ],
+    "correcta": "A",
+    "explicacion": "Es el clásico problema de Die Hard con jarras. 5→3 (quedan 2), 3→vacía, 2→3, 5→3 (viertes 1, quedan 4)."
+  },
+  {
+    "id": 40,
+    "pct": 30,
+    "pregunta": "Si es cierto que 'todos los palentinos aman el lechazo', y Juan es palentino, ¿qué podemos afirmar con certeza?",
+    "opciones": [
+      "Juan ama el lechazo",
+      "Juan ama la morcilla",
+      "Juan vive en Palencia",
+      "No se puede afirmar nada"
+    ],
+    "correcta": "D",
+    "explicacion": "El enunciado dice 'si es cierto', pero no lo garantiza. Es un silogismo hipotético. Además, no sabemos si la premisa es verdadera."
+  },
+  {
+    "id": 41,
+    "pct": 30,
+    "pregunta": "¿Cuántos palos hay en una docena de docenas?",
+    "opciones": [
+      "24",
+      "144",
+      "156",
+      "12"
+    ],
+    "correcta": "B",
+    "explicacion": "Una docena de docenas = 12 × 12 = 144. No es 24 (2 docenas)."
+  },
+  {
+    "id": 42,
+    "pct": 25,
+    "pregunta": "En un estanco de Palencia, un paquete de tabaco cuesta 5€. Si tienes 20€ y compras 3 paquetes, ¿cuánto te sobra?",
+    "opciones": [
+      "5€",
+      "4€",
+      "3€",
+      "No puedes comprar 3 porque el estanco solo vende a mayores de 18"
+    ],
+    "correcta": "A",
+    "explicacion": "3 × 5 = 15. 20 - 15 = 5€. La distracción de la edad es irrelevante matemáticamente."
+  },
+  {
+    "id": 43,
+    "pct": 25,
+    "pregunta": "Un palentino corre la Maratón de Palencia (21 km) y a la mitad del recorrido separa a un amigo que iba con él. ¿Cuántos kilómetros ha corrido el amigo?",
+    "opciones": [
+      "10.5 km",
+      "21 km",
+      "No se puede saber",
+      "La mitad de los que el palentino"
+    ],
+    "correcta": "C",
+    "explicacion": "No sabemos cuánto ha corrido el amigo. 'Separa' no significa que haya corrido la misma distancia."
+  },
+  {
+    "id": 44,
+    "pct": 25,
+    "pregunta": "Un granjero de la Montaña Palentina tiene 100 ovejas. Se le mueren todas menos 7. ¿Cuántas le quedan?",
+    "opciones": [
+      "93",
+      "7",
+      "100",
+      "0"
+    ],
+    "correcta": "B",
+    "explicacion": "'Se le mueren todas MENOS 7' = le quedan 7. Mismo juego de palabras que antes pero con números grandes."
+  },
+  {
+    "id": 45,
+    "pct": 20,
+    "pregunta": "Si un palentino te dice: 'El hermano de mi padre es el único hijo de mi abuelo que no es mi padre', ¿quién es?",
+    "opciones": [
+      "Su tío",
+      "Su hermano",
+      "Su primo",
+      "No existe esa persona"
+    ],
+    "correcta": "D",
+    "explicacion": "Si el hermano de su padre es el ÚNICO hijo que NO es su padre, significa que su padre NO es hijo de su abuelo, lo cual es contradictorio. El enunciado es imposible."
+  },
+  {
+    "id": 46,
+    "pct": 15,
+    "pregunta": "Si un reloj da las 6, la aguja horaria apunta al 6 y la minutera al 12. ¿Cuántos grados forman entre sí?",
+    "opciones": [
+      "90°",
+      "180°",
+      "150°",
+      "270°"
+    ],
+    "correcta": "B",
+    "explicacion": "12 y 6 son diametralmente opuestos = 180°. Un reloj tiene 360°, cada número = 30°. De 12 a 6 = 6 × 30 = 180°."
+  },
+  {
+    "id": 47,
+    "pct": 15,
+    "pregunta": "Un palentino tiene una escalera de 10 escalones. Si sube 2 y baja 1 en cada movimiento, ¿cuántos movimientos necesita para llegar arriba?",
+    "opciones": [
+      "9",
+      "8",
+      "10",
+      "7"
+    ],
+    "correcta": "A",
+    "explicacion": "Cada movimiento neto = +1 escalón. Pero el último movimiento: está en el 8, sube 2 → llega al 10. Movimientos: 8 movimientos de (+2-1=+1) para llegar al 8 + 1 movimiento final de +2 = 9 movimientos."
+  },
+  {
+    "id": 48,
+    "pct": 15,
+    "pregunta": "¿Cuántos cuadrados hay en un tablero de ajedrez de 8×8?",
+    "opciones": [
+      "64",
+      "204",
+      "128",
+      "256"
+    ],
+    "correcta": "B",
+    "explicacion": "No solo los 64 de 1×1. Hay cuadrados de 1×1 (64), 2×2 (49), 3×3 (36), 4×4 (25), 5×5 (16), 6×6 (9), 7×7 (4), 8×8 (1) = 64+49+36+25+16+9+4+1 = 204."
+  },
+  {
+    "id": 49,
+    "pct": 15,
+    "pregunta": "Si en Palencia se instalan 3 farolas nuevas y cada farola ilumina un radio de 50m, ¿cuántos metros de calle iluminan en total si están en línea recta separadas 100m?",
+    "opciones": [
+      "150m",
+      "300m",
+      "50m",
+      "200m"
+    ],
+    "correcta": "B",
+    "explicacion": "Cada farola ilumina 50m a cada lado = 100m por farola. 3 × 100m = 300m. Aunque haya solapamiento, el total de metros iluminados (contando solapamiento una vez) es: 50 + 100 + 100 + 50 = 300m."
+  },
+  {
+    "id": 50,
+    "pct": 15,
+    "pregunta": "Un palentino escribe 'VIERNES' en un papel. ¿Cuántas letras tiene la palabra 'VIERNES'?",
+    "opciones": [
+      "7",
+      "6",
+      "Depende de si cuentas la N",
+      "La pregunta es una trampa y la respuesta no es 7"
+    ],
+    "correcta": "A",
+    "explicacion": "V-I-E-R-N-E-S = 7 letras. La trampa está en hacerte dudar de una respuesta obvia."
+  },
+  {
+    "id": 51,
+    "pct": 15,
+    "pregunta": "Si tienes una vela y una caja de cerillas en una habitación sin luz en Palencia, ¿qué enciendes primero?",
+    "opciones": [
+      "La vela",
+      "La cerilla",
+      "La habitación",
+      "Nada, no hay oxígeno"
+    ],
+    "correcta": "B",
+    "explicacion": "Enciendes la cerilla primero para luego encender la vela."
+  },
+  {
+    "id": 52,
+    "pct": 10,
+    "pregunta": "¿Cuántas veces aparece el número 9 si escribes todos los números del 1 al 100?",
+    "opciones": [
+      "10",
+      "19",
+      "20",
+      "11"
+    ],
+    "correcta": "C",
+    "explicacion": "En las unidades: 9, 19, 29, 39, 49, 59, 69, 79, 89, 99 = 10 veces en las unidades (el 99 tiene dos 9s). En las decenas: 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 = 10 veces en las decenas. Pero el 99 se cuenta en ambos. Total: 9 en unidades (1-100 sin contar decenas) + 10 en decenas + el segundo 9 del 99 = 20."
+  },
+  {
+    "id": 53,
+    "pct": 10,
+    "pregunta": "Un palentino tiene 3 cajas etiquetadas 'Lechazo', 'Morcilla' y 'Mixto', pero TODAS las etiquetas están mal puestas. Si solo puedes sacar UN producto de UNA caja y está bien etiquetado, ¿cuál caja abres?",
+    "opciones": [
+      "La de Mixto",
+      "La de Lechazo",
+      "La de Morcilla",
+      "Cualquiera"
+    ],
+    "correcta": "A",
+    "explicacion": "Abres la de 'Mixto'. Como todas las etiquetas están mal, lo que saques te dice qué hay realmente. Si sacas lechazo, esa es la caja de lechazo. La caja etiquetada 'Morcilla' no puede ser morcilla (está mal) ni lechazo (ya asignada), así que es Mixto. Y la restante es Morcilla."
+  },
+  {
+    "id": 54,
+    "pct": 10,
+    "pregunta": "Si un palentino corre el doble de rápido que camina, y camina a 5 km/h, ¿cuánto tarda en recorrer 15 km si corre la mitad y camina la mitad?",
+    "opciones": [
+      "3 horas",
+      "2 horas",
+      "2 horas y 15 minutos",
+      "2 horas y 30 minutos"
+    ],
+    "correcta": "C",
+    "explicacion": "Corre a 10 km/h, camina a 5 km/h. Mitad = 7.5 km corriendo (7.5/10 = 0.75h = 45min) + 7.5 km caminando (7.5/5 = 1.5h = 90min) = 2h 15min."
+  },
+  {
+    "id": 55,
+    "pct": 10,
+    "pregunta": "¿Cuál es el número más pequeño que se puede escribir con las letras P-A-L-E-N-C-I-A (una vez cada una, formando un número romano)?",
+    "opciones": [
+      "I (1)",
+      "C (100)",
+      "L (50)",
+      "No se puede formar ningún número"
+    ],
+    "correcta": "A",
+    "explicacion": "Las letras P, A, L, E, N, C, I, A contienen: C=100, L=50, I=1. El número más pequeño es I=1."
+  },
+  {
+    "id": 56,
+    "pct": 10,
+    "pregunta": "Un palentino te dice: 'Tengo el doble de edad que tú tenías cuando yo tenía la edad que tú tienes'. Si el palentino tiene 40 años y tú tienes 30, ¿cuántos años tenía él cuando tú tenías 20?",
+    "opciones": [
+      "20",
+      "25",
+      "30",
+      "No se puede calcular"
+    ],
+    "correcta": "C",
+    "explicacion": "Verificación: 'cuando yo tenía la edad que tú tienes' = cuando él tenía 30. 'Tú tenías' entonces 30 - (40-30) = 20. 'El doble' de 20 = 40. ¡Coincide con su edad actual! Cuando él tenía 30, tú tenías 20. Cuando tú tenías 20, él tenía 30."
+  },
+  {
+    "id": 57,
+    "pct": 10,
+    "pregunta": "En un parking de Palencia hay 3 coches: uno rojo, uno azul y uno verde. ¿Cuál es la probabilidad de que los tres estén en el mismo orden (rojo-azul-verde) si se van y vuelven a aparcar aleatoriamente?",
+    "opciones": [
+      "1 de 6",
+      "1 de 3",
+      "1 de 9",
+      "1 de 2"
+    ],
+    "correcta": "A",
+    "explicacion": "3! = 6 permutaciones posibles. Solo 1 es rojo-azul-verde. Probabilidad = 1/6."
+  },
+  {
+    "id": 58,
+    "pct": 5,
+    "pregunta": "Si el Canal de Castilla tiene 49 esclusas y el agua tarda 2 horas en pasar por cada una, ¿cuántas esclusas pasa el agua en 24 horas?",
+    "opciones": [
+      "49",
+      "12",
+      "24",
+      "No se puede saber cuántas esclusas pasan"
+    ],
+    "correcta": "D",
+    "explicacion": "No sabemos cuántas esclusas hay en el tramo que recorre el agua en 24 horas. El dato de 49 es el total del canal, no necesariamente consecutivas en un tramo."
+  },
+  {
+    "id": 59,
+    "pct": 5,
+    "pregunta": "¿Cuántas veces puedes plegar un folio de papel (tamaño A4) por la mitad?",
+    "opciones": [
+      "7 veces",
+      "10 veces",
+      "Infinitas",
+      "5 veces"
+    ],
+    "correcta": "A",
+    "explicacion": "Con cada pliegue el grosor se duplica. 7 pliegues = 128 capas. Físicamente es prácticamente imposible más de 7 con un folio A4 normal."
+  },
+  {
+    "id": 60,
+    "pct": 5,
+    "pregunta": "Un palentino dice: 'Soy el hijo de tu madre pero no soy tu hermano'. ¿Quién es?",
+    "opciones": [
+      "Su padre",
+      "Su hermana",
+      "Su primo",
+      "Es una contradicción"
+    ],
+    "correcta": "B",
+    "explicacion": "Hijo de tu madre que no es tu hermano = tu hermana (o tú mismo si hablas en tercera persona)."
+  },
+  {
+    "id": 61,
+    "pct": 5,
+    "pregunta": "Si un escaparate de Palencia muestra un reloj que marca las 3:15, ¿cuál es el ángulo entre las dos agujas?",
+    "opciones": [
+      "0°",
+      "7.5°",
+      "15°",
+      "22.5°"
+    ],
+    "correcta": "B",
+    "explicacion": "A las 3:15, la minutera está en el 3 = 90°. La aguja horaria avanza 0.5° por minuto: en 15 min avanza 7.5° desde las 3 = 90° + 7.5° = 97.5°. Ángulo entre ambas = 97.5° - 90° = 7.5°."
+  },
+  {
+    "id": 62,
+    "pct": 5,
+    "pregunta": "¿Cuántos ladrillos necesitas para construir una pared de 10 metros de largo, 3 metros de alto, si cada ladrillo mide 20cm × 10cm?",
+    "opciones": [
+      "150",
+      "1500",
+      "15000",
+      "No se puede saber sin el espesor"
+    ],
+    "correcta": "D",
+    "explicacion": "Falta el dato del espesor del ladrillo y de la pared. Con largo × alto solo tienes la superficie, pero no el volumen."
+  },
+  {
+    "id": 63,
+    "pct": 5,
+    "pregunta": "¿Qué número sigue en esta serie: 1, 1, 2, 3, 5, 8, 13, ?",
+    "opciones": [
+      "18",
+      "20",
+      "21",
+      "26"
+    ],
+    "correcta": "C",
+    "explicacion": "Fibonacci: cada número es la suma de los dos anteriores. 8 + 13 = 21."
+  },
+  {
+    "id": 64,
+    "pct": 5,
+    "pregunta": "Si en una habitación oscura de Palencia hay 3 interruptores y en otra habitación hay 3 bombillas, ¿cuántas visitas necesitas para saber qué interruptor controla qué bombilla?",
+    "opciones": [
+      "3",
+      "2",
+      "1",
+      "0"
+    ],
+    "correcta": "C",
+    "explicacion": "Enciendes el 1, esperas 5 minutos, lo apagas. Enciendes el 2 y vas a la otra habitación. La encendida = interruptor 2. La apagada pero caliente = interruptor 1. La fría y apagada = interruptor 3. Solo 1 visita."
+  },
+  {
+    "id": 65,
+    "pct": 5,
+    "pregunta": "Si hoy es martes y hace exactamente 1.000 días, ¿qué día de la semana será?",
+    "opciones": [
+      "Lunes",
+      "Domingo",
+      "Martes",
+      "Miércoles"
+    ],
+    "correcta": "A",
+    "explicacion": "1.000 ÷ 7 = 142 semanas y 6 días sobrantes. martes + 6 = lunes."
+  },
+  {
+    "id": 66,
+    "pct": 5,
+    "pregunta": "¿Cuántas veces puedes dividir un número par por 2 antes de que sea impar?",
+    "opciones": [
+      "Una vez",
+      "Depende del número",
+      "Infinitas veces",
+      "Nunca"
+    ],
+    "correcta": "B",
+    "explicacion": "Depende del número. 4 → 2 → 1 (dos veces). 16 → 8 → 4 → 2 → 1 (cuatro veces). Es el logaritmo en base 2 del número."
+  },
+  {
+    "id": 67,
+    "pct": 1,
+    "pregunta": "¿Cuál es el número más pequeño de personas que necesitas en una habitación para que haya un 50% de probabilidad de que al menos dos cumplan años el mismo día?",
+    "opciones": [
+      "183",
+      "23",
+      "366",
+      "50"
+    ],
+    "correcta": "B",
+    "explicacion": "Paradoja del cumpleaños. Con 23 personas la probabilidad es ~50.7%. Con 70 es ~99.9%. Contraintuitivo."
+  },
+  {
+    "id": 68,
+    "pct": 1,
+    "pregunta": "Si el Cristo del Otero de Palencia se duplica en tamaño cada día y tarda 100 días en cubrir todo el cerro, ¿cuántos días tarda en cubrir la mitad del cerro?",
+    "opciones": [
+      "50 días",
+      "99 días",
+      "75 días",
+      "25 días"
+    ],
+    "correcta": "B",
+    "explicacion": "Si se duplica cada día, el día anterior al último (día 99) cubre la mitad. Al día siguiente se duplica y cubre todo."
+  },
+  {
+    "id": 69,
+    "pct": 1,
+    "pregunta": "Un palentino lanza una moneda 10 veces y sale cara 10 veces. ¿Cuál es la probabilidad de que salga cara en el lanzamiento 11?",
+    "opciones": [
+      "1 de 2 (50%)",
+      "1 de 2048",
+      "Casi seguro cara",
+      "1 de 1024"
+    ],
+    "correcta": "A",
+    "explicacion": "Cada lanzamiento es independiente. La moneda no tiene memoria. Siempre 50%."
+  },
+  {
+    "id": 70,
+    "pct": 1,
+    "pregunta": "¿Cuántos puntos hay en una circunferencia?",
+    "opciones": [
+      "Infinitos",
+      "360",
+      "Pi",
+      "Ninguno, una circunferencia es una línea"
+    ],
+    "correcta": "A",
+    "explicacion": "Una circunferencia tiene infinitos puntos. Es un concepto geométrico continuo."
+  },
+  {
+    "id": 71,
+    "pct": 1,
+    "pregunta": "¿Cuál es el siguiente número: 0, 1, 1, 2, 3, 5, 8, 13, 21, ?",
+    "opciones": [
+      "34",
+      "29",
+      "26",
+      "31"
+    ],
+    "correcta": "A",
+    "explicacion": "Fibonacci. 13 + 21 = 34. Aunque parece igual a la pregunta 66, muchos fallan porque cambió el inicio y buscan otro patrón."
+  },
+  {
+    "id": 72,
+    "pct": 1,
+    "pregunta": "Si un palentino camina 1 metro el primer día, 2 el segundo, 4 el tercero, 8 el cuarto, etc. ¿Al cabo de cuántos días habrá caminado más de 1.000 metros en total?",
+    "opciones": [
+      "10 días",
+      "11 días",
+      "9 días",
+      "1000 días"
+    ],
+    "correcta": "A",
+    "explicacion": "Es una progresión geométrica: 1+2+4+8+16+32+64+128+256+512 = 1023 metros en 10 días."
+  },
+  {
+    "id": 73,
+    "pct": 1,
+    "pregunta": "¿Qué es más probable: que en una familia de 4 hijos sean 2 niños y 2 niñas, o que sean 3 niños y 1 niña?",
+    "opciones": [
+      "2 niños y 2 niñas",
+      "3 niños y 1 niña",
+      "Son igual de probables",
+      "Depende del padre"
+    ],
+    "correcta": "A",
+    "explicacion": "P(2N2M) = C(4,2)×(1/2)^4 = 6/16 = 37.5%. P(3N1M) = C(4,3)×(1/2)^4 = 4/16 = 25%. 2 niños y 2 niñas es más probable."
+  },
+  {
+    "id": 74,
+    "pct": 1,
+    "pregunta": "¿Cuántas veces aparece el número 1 si escribes todos los números del 1 al 1.000?",
+    "opciones": [
+      "100",
+      "200",
+      "300",
+      "301"
+    ],
+    "correcta": "C",
+    "explicacion": "Unidades: 100 veces (1,11,21,...,991). Decenas: 100 veces (10-19,110-119,...,910-919). Centenas: 100 veces (100-199). Total = 300."
+  },
+  {
+    "id": 75,
+    "pct": 1,
+    "pregunta": "Si un cubo de hielo se derrite en un vaso lleno de agua hasta el borde, ¿qué pasa con el nivel del agua?",
+    "opciones": [
+      "Sube",
+      "Baja",
+      "Se mantiene igual",
+      "Se desborda"
+    ],
+    "correcta": "C",
+    "explicacion": "El hielo desplaza exactamente su peso en agua. Al derretirse, ocupa el mismo volumen que desplazaba. El nivel no cambia. Principio de Arquímedes."
+  },
+  {
+    "id": 76,
+    "pct": 1,
+    "pregunta": "¿Cuántas personas necesitas como mínimo para que necesariamente 3 de ellas se conozcan o 3 no se conozcan entre sí? (Teorema de amistad de Palencia)",
+    "opciones": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correcta": "D",
+    "explicacion": "Teorema de Ramsey R(3,3) = 6. Con 6 personas, siempre hay 3 que se conocen mutuamente o 3 que no se conocen entre sí. Con 5 no siempre."
+  }
+]

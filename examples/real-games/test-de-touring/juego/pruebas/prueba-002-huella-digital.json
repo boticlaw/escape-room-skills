@@ -1,0 +1,189 @@
+{
+  "id": "touring_002_huella_digital",
+  "nombre": "Tu Huella Digital",
+  "descripcion": "Los jugadores encuentran 6 expedientes ficticios con datos personales detallados en un archivador. Deben conectar cada tipo de dato con su fuente y uso usando hilos de colores en un panel. Al completar las 6 conexiones correctamente, las letras ocultas bajo las tarjetas de fuente se revelan formando el password PERFIL. Los 6 expedientes son necesarios: sin completar todas las conexiones, las letras no se revelan. Las fechas clave de cada expediente refuerzan el contenido educativo sobre privacidad.",
+  "juego": "Test de Touring",
+  "version": 3,
+  "espacio": 2,
+  "sala": "Archivo de Datos",
+  "tema_educativo": "Datos personales y privacidad",
+  "skill_primario": "prueba-investigacion-cooperativa",
+  "skills_secundarios": [
+    "prueba-cooperacion",
+    "prueba-logica-emparejamiento"
+  ],
+  "dificultad": 3,
+  "duracion_estimada_minutos": 7,
+  "jugadores_min": 4,
+  "jugadores_max": 6,
+  "edad_minima": 12,
+  "cooperacion_obligatoria": true,
+  "formato": "secuencial",
+  "configuracion": {
+    "mecanica_principal": "Analizar 6 expedientes de datos personales. Conectar datos con fuentes y usos mediante hilos de colores en un panel. Los 6 expedientes tienen datos necesarios para las conexiones. Al completar las 6 conexiones correctamente, las letras ocultas bajo las tarjetas de fuente del panel se revelan: P-E-R-F-I-L. Las fechas clave de los expedientes refuerzan el contenido educativo sobre hitos de privacidad (RGPD, Cambridge Analytica, etc.). La pista de EVA-9 es críptica: no menciona el password directamente sino que habla de 'lo que yo construyo con vuestros datos'.",
+    "elementos_necesarios": [
+      "1 archivador metálico con 6 cajones",
+      "6 expedientes en carpetas de cartón con etiqueta de color",
+      "1 panel A3 con 3 columnas (dato/fuente/uso)",
+      "6 tarjetas de fuente con letra oculta en el reverso (P, E, R, F, I, L)",
+      "6 chinchetas de colores",
+      "6 hilos de colores (coordinados con etiquetas de expediente)",
+      "1 tablet con pantalla de password (código: PERFIL)",
+      "1 documento impreso de EVA-9: 'Sus datos son míos'"
+    ],
+    "distribucion_roles": {
+      "analista_perfiles": "Cada jugador analiza 1 expediente",
+      "conector": "1-2 jugadores dirigen las conexiones en el panel",
+      "verificador": "Todos verifican que las conexiones son correctas"
+    },
+    "fase_1_exploracion": {
+      "descripcion": "Los jugadores abren el archivador y leen los 6 expedientes. Cada uno tiene una 'fecha clave' destacada en rojo con una nota que explica qué hito de privacidad representa.",
+      "duracion_minutos": 3,
+      "expedientes": [
+        {
+          "numero": 1,
+          "nombre": "Laura",
+          "edad": 15,
+          "color_etiqueta": "rojo",
+          "año_clave": 2012,
+          "origen_año": "Año del primer tweet — cuando los datos empezaron a ser públicos sin que nadie lo notara",
+          "fuente_conectada": "App móvil",
+          "letra_fuente": "P"
+        },
+        {
+          "numero": 2,
+          "nombre": "Pablo",
+          "edad": 17,
+          "color_etiqueta": "azul",
+          "año_clave": 2020,
+          "origen_año": "Año del escándalo Cambridge Analytica revelado al público",
+          "fuente_conectada": "Navegador",
+          "letra_fuente": "E"
+        },
+        {
+          "numero": 3,
+          "nombre": "Marcos",
+          "edad": 16,
+          "color_etiqueta": "verde",
+          "año_clave": 2014,
+          "origen_año": "Año de creación de Instagram — cuando las fotos se convirtieron en datos",
+          "fuente_conectada": "Red social",
+          "letra_fuente": "R"
+        },
+        {
+          "numero": 4,
+          "nombre": "Sofía",
+          "edad": 14,
+          "color_etiqueta": "amarillo",
+          "año_clave": 2018,
+          "origen_año": "Año de entrada en vigor del RGPD en Europa — la ley que protege tus datos",
+          "fuente_conectada": "Tienda online",
+          "letra_fuente": "F"
+        },
+        {
+          "numero": 5,
+          "nombre": "Andrés",
+          "edad": 15,
+          "color_etiqueta": "naranja",
+          "año_clave": 2016,
+          "origen_año": "Año del primer GDPR europeo aprobado (antecedente directo del RGPD)",
+          "fuente_conectada": "GPS",
+          "letra_fuente": "I"
+        },
+        {
+          "numero": 6,
+          "nombre": "Elena",
+          "edad": 16,
+          "color_etiqueta": "morado",
+          "año_clave": 2022,
+          "origen_año": "Año de la Ley Orgánica de Protección de Datos en España (actualización)",
+          "fuente_conectada": "IA",
+          "letra_fuente": "L"
+        }
+      ]
+    },
+    "fase_2_conexion": {
+      "descripcion": "Conectar datos con fuentes y usos mediante hilos de colores en el panel. Las tarjetas de fuente en la columna central del panel tienen una letra oculta en el reverso. Al colocar correctamente cada tarjeta de fuente y conectarla con el hilo correspondiente, la letra queda visible. Las 6 letras, leídas en orden de expediente (1-6), forman P-E-R-F-I-L. Los expedientes 5 y 6 son necesarios para completar las conexiones 5-6.",
+      "duracion_minutos": 4,
+      "password_tablet": "PERFIL",
+      "mecanismo_codigo": "Las tarjetas de fuente del panel están pre-asignadas a posiciones numeradas 1-6. Cada posición tiene una letra fija debajo: P(1), E(2), R(3), F(4), I(5), L(6). Los jugadores deben conectar cada expediente a la fuente correcta. Al colocar la tarjeta de fuente correcta en cada posición, la letra oculta queda visible. Cuando las 6 conexiones son correctas, todas las letras forman P-E-R-F-I-L leídas en orden."
+    },
+    "mecanismo_barrera": "Tablet con pantalla de password. Código: PERFIL."
+  },
+  "pistas": [
+    {
+      "nivel": 1,
+      "tipo": "sutil",
+      "texto": "Cada expediente tiene una fecha clave. Completad las conexiones del panel con los 6 hilos — las tarjetas de fuente ocultan algo."
+    },
+    {
+      "nivel": 2,
+      "tipo": "directa",
+      "texto": "Tenéis que conectar los 6 expedientes con sus fuentes correctas usando los hilos de colores. Al colocar cada tarjeta de fuente en su posición correcta del panel, una letra queda visible. Leed las 6 letras en orden."
+    },
+    {
+      "nivel": 3,
+      "tipo": "casi_solucion",
+      "texto": "Conectad los 6 expedientes con sus fuentes. Las letras de las tarjetas de fuente, leídas en orden (posición 1 a 6 del panel), forman: P-E-R-F-I-L. El password de la tablet es PERFIL."
+    }
+  ],
+  "solucion": {
+    "descripcion": "1) Abrir archivador. 2) Leer expedientes. 3) Conectar datos en panel con hilos. 4) Colocar tarjetas de fuente correctas. 5) Leer letras ocultas: P-E-R-F-I-L. 6) Introducir PERFIL en la tablet.",
+    "verificacion": "La tablet se desbloquea con PERFIL.",
+    "pasos_detallados": [
+      "Paso 1: Abrir el archivador metálico",
+      "Paso 2: Repartir los 6 expedientes entre los jugadores",
+      "Paso 3: Analizar cada expediente: qué datos se exponen, quién los recopila, para qué",
+      "Paso 4: Conectar en el panel con hilos de colores (los 6 expedientes)",
+      "Paso 5: Al colocar cada tarjeta de fuente correcta, la letra oculta queda visible",
+      "Paso 6: Leer las 6 letras en orden de posición del panel: P-E-R-F-I-L",
+      "Paso 7: Introducir PERFIL en la tablet"
+    ],
+    "recompensa": {
+      "carta": "Nota de la Dra. Torres: 'EVA-9 ha estado evaluando personas sin que nadie lo sepa. Buscad la BÁSCULA. La U es de Único — vuestra huella digital, lo que os hace singulares.'",
+      "nota_posicional": "La U es de Único — vuestra huella digital → U es la 2ª letra",
+      "letra": "U",
+      "siguiente_espacio": "Sala de Evaluación (símbolo: BÁSCULA)"
+    }
+  },
+  "hilo_conductor": {
+    "letra": "U",
+    "significado": "Único — tu huella digital, tu singularidad",
+    "posicion": 2
+  },
+  "barrera_fisica": {
+    "tipo": "Tablet con pantalla de password",
+    "ubicacion": "Sobre la mesa junto al panel",
+    "codigo": "PERFIL",
+    "origen_codigo": "Letras ocultas bajo las 6 tarjetas de fuente del panel, leídas en orden: P-E-R-F-I-L. Cada expediente conectado a su fuente correcta revela una letra.",
+    "montaje_minutos": 5
+  },
+  "materiales": {
+    "impresion": [
+      "6 expedientes (carpetas de cartón A5 con datos impresos + fecha clave destacada en rojo)",
+      "1 panel A3 con 3 columnas (dato/fuente/uso) y posiciones numeradas 1-6",
+      "6 tarjetas de fuente con letra oculta en reverso (P, E, R, F, I, L)",
+      "1 documento de EVA-9: 'Sus datos son míos' (incluye pista críptica)",
+      "1 nota manuscrita Dra. Torres (→ BÁSCULA)",
+      "1 tarjeta con letra U"
+    ],
+    "mobiliario": [
+      "1 archivador metálico con 6 cajones",
+      "1 mesa",
+      "Chinchetas y corcho"
+    ],
+    "extras": [
+      "6 hilos de colores",
+      "6 etiquetas de colores para expedientes",
+      "1 tablet con pantalla de password"
+    ]
+  },
+  "metadata": {
+    "autor": "Escapeitor",
+    "fecha_creacion": "2026-04-07",
+    "fecha_actualizacion": "2026-04-13",
+    "version": 3,
+    "testado": false,
+    "notas": "REDESIGN v3: Cambio de candado numérico 2018 a tablet password PERFIL. El password se deriva de las 6 tarjetas de fuente del panel: al conectar cada expediente con su fuente correcta, las letras ocultas bajo las tarjetas se revelan formando P-E-R-F-I-L. Las fechas clave de los expedientes se mantienen como contenido educativo pero ya no forman el código. Doble descubrimiento: Fase 1 (conexiones) revela las letras, Fase 2 (lectura ordenada) forma la palabra PERFIL."
+  }
+}
