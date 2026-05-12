@@ -11,7 +11,7 @@ description: >
 
 Crea una variante de un juego existente sin empezar de cero. Lee el juego base, identifica qué conservar y qué modificar, y genera una versión nueva que mantiene los patrones probados.
 
-> ⏱️ Tiempo estimado: ~5-10 min (vs 20-30 min del pipeline completo).
+> ⏱️ Tiempo estimado: ~5-10 min (vs 40-60 min del pipeline completo con dual-LLM, playtest y judgment).
 
 ## Cuándo Usar
 

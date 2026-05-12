@@ -171,6 +171,15 @@ h3, h4 { break-after: avoid; }
 - [ ] Accessibility audit template
 - [ ] Sign-off section for tester approval
 
+## Game Type Adaptations
+
+| Game Type | Document Differences |
+|-----------|---------------------|
+| **Hall Escape** | GM Sheet with room setup, station maps, projector cues. Flow diagram with multi-linear branches. Anti-cheat section for team isolation. |
+| **Street Escape** | GPS coordinates per puzzle. Route map section. Weather contingency notes. No anti-cheat (outdoor = can't isolate teams). |
+| **Investigation** | Evidence board layout. Character relationship diagram. Timeline visualization. Accusation protocol section. |
+| **Concurso** | Presenter script instead of GM Sheet. Scoring rubric per round. Mini-game material checklist. Question cards as primary output instead of proof cards. |
+
 ## Zero Dependencies Rule
 
 All generated HTML must:
