@@ -10,23 +10,85 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .carta-page {
   width: 186mm; min-height: 267mm;
-  background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
-  font-family: Georgia, serif; font-size: 10.5pt; line-height: 1.6;
+  background: linear-gradient(135deg, #faf5ee 0%, #f0e8d8 100%);
+  padding: 20mm 22mm 20mm 28mm;
+  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
+  display: flex; flex-direction: column; justify-content: center;
+  box-shadow: inset 0 0 30px 8px rgba(139,115,85,0.08);
 }
-.carta-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+
+.marca-deco {
+  position: absolute;
+  bottom: 20mm; left: 18mm;
+  width: 10mm; height: 10mm;
+  border: 1px solid rgba(139,115,85,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(139,115,85,0.3);
+  font-size: 7pt;
 }
+
+/* Wax seal */
+.sello-lacre {
+  position: absolute;
+  bottom: 25mm; right: 22mm;
+  width: 18mm; height: 18mm;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #b22222 0%, #8b0000 60%, #5c0000 100%);
+  transform: rotate(-8deg);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.3), inset 0 0 6px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+.sello-lacre::before {
+  content: '';
+  position: absolute;
+  top: 2mm; left: 2mm; right: 2mm; bottom: 2mm;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+}
+.sello-lacre span {
+  color: rgba(255,255,255,0.7);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 10pt; font-weight: 700;
+}
+
+/* Coffee stain */
+.mancha-cafe {
+  position: absolute;
+  top: 25mm; left: 20mm;
+  width: 13mm; height: 10mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.08) 0%, rgba(139,90,43,0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Navigation arrow */
+.flecha-nav {
+  position: absolute;
+  bottom: 15mm; right: 15mm;
+  font-size: 14pt;
+  color: rgba(139,115,85,0.25);
+  pointer-events: none;
+  z-index: 1;
+}
+
+p { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
 
 <div class="carta-page">
+  <div class="marca-deco">✦</div>
+  <div class="mancha-cafe"></div>
+  <div class="sello-lacre"><span>E</span></div>
+  <div class="flecha-nav">→</div>
   <p>Los recuerdos tienen raíces. Buscad el árbol que no se atrevió a escribir todos sus nombres.</p>
 </div>
 

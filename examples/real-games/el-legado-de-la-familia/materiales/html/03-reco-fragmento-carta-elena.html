@@ -10,28 +10,78 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .carta-page {
   width: 186mm; min-height: 267mm;
-  background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
-  font-family: Georgia, serif; font-size: 10.5pt; line-height: 1.6;
+  background-color: #faf0e6; padding: 20mm 22mm 20mm 28mm;
+  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
 }
+
 .carta-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  box-shadow: inset 0 0 50px 15px rgba(139,115,85,0.12);
+  pointer-events: none; z-index: 2;
 }
+
+.carta-page::after {
+  content: '';
+  position: absolute; bottom: 30mm; right: 15mm;
+  width: 13mm; height: 10mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.08) 0%, rgba(139,90,43,0.03) 50%, transparent 70%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+}
+
+.mancha-cafe-2 {
+  position: absolute; top: 50mm; left: 35mm;
+  width: 9mm; height: 7mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.05) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+}
+
+.doblece-h {
+  position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none; z-index: 2;
+}
+.doblece-v {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none; z-index: 2;
+}
+
+.drop-cap::first-letter {
+  float: left; font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28pt; line-height: 1; padding-right: 2mm; padding-top: 1mm; color: #8b4513;
+}
+
 .remitente { text-align: right; margin-top: 8mm; font-style: italic; }
+
+.firma-bloque { margin-top: 12mm; text-align: right; padding-right: 5mm; position: relative; z-index: 3; }
+.firma-linea { border-bottom: 1px solid #8b7355; width: 60mm; display: inline-block; margin-bottom: 2mm; }
+.firma-nombre { font-family: 'Playfair Display', serif; font-style: italic; font-size: 12pt; color: #3d2b1f; }
+.firma-fecha { font-size: 8pt; color: #8b7355; font-style: italic; margin-top: 1mm; }
+
+p { position: relative; z-index: 3; }
 </style>
 </head>
 <body>
 
 <div class="carta-page">
-  <p>Mis queridos niños:</p>
+  <div class="mancha-cafe-2"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
+  <p class="drop-cap">Mis queridos niños:</p>
   <p>Generosidad fue la forma más silenciosa de seguir cuidándoos. Si alguna vez os pareció que callaba demasiado, perdonadme: estaba guardando una puerta abierta.</p>
   <p>Rodrigo creía que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.</p>
-  <div class="remitente">Elena</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Elena</div>
+  </div>
 </div>
 
 </body>

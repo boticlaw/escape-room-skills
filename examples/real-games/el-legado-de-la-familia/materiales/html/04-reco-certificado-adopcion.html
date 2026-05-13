@@ -10,40 +10,150 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
-.carta-page {
+
+.cert-page {
   width: 186mm; min-height: 267mm;
-  background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
-  font-family: Georgia, serif; font-size: 10.5pt; line-height: 1.6;
+  background: linear-gradient(135deg, #f5e6c8 0%, #e8d5a8 30%, #efe0c0 50%, #e5d0a0 70%, #f5e6c8 100%);
+  padding: 20mm 25mm 20mm 28mm;
+  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
-  border: double 3px #8b7355;
 }
-.carta-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+
+/* Formal double ornamental border */
+.cert-border-outer {
+  position: absolute;
+  top: 6mm; left: 6mm; right: 6mm; bottom: 6mm;
+  border: 3px double #8b7355;
+  pointer-events: none;
+}
+.cert-border-inner {
+  position: absolute;
+  top: 10mm; left: 10mm; right: 10mm; bottom: 10mm;
+  border: 1px solid rgba(139,115,85,0.5);
+  pointer-events: none;
+}
+
+/* Corner decorations */
+.cert-border-outer::before { content: '✦'; position: absolute; top: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 8pt; background: #e8d5a8; padding: 0 1mm; }
+.cert-border-outer::after { content: '✦'; position: absolute; top: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 8pt; background: #e8d5a8; padding: 0 1mm; }
+.cert-border-inner::before { content: '✦'; position: absolute; bottom: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 8pt; background: #e8d5a8; padding: 0 1mm; }
+.cert-border-inner::after { content: '✦'; position: absolute; bottom: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 8pt; background: #e8d5a8; padding: 0 1mm; }
+
+/* Aging — stronger parchment effect */
+.cert-page::before {
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  box-shadow: inset 0 0 50px 15px rgba(139,115,85,0.15);
+  pointer-events: none;
+  z-index: 2;
 }
+
+/* "DOCUMENTO OFICIAL" header */
+.doc-header {
+  text-align: center;
+  font-size: 7pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8b7355;
+  margin-bottom: 5mm;
+  font-family: 'Playfair Display', Georgia, serif;
+  position: relative; z-index: 3;
+}
+
 .cert-title {
   text-align: center; font-size: 14pt; font-weight: 700;
   letter-spacing: 2px; text-transform: uppercase;
   border-bottom: 2px solid #8b7355; padding-bottom: 3mm;
   margin-bottom: 5mm;
+  position: relative; z-index: 3;
 }
-.firma { text-align: right; margin-top: 8mm; font-style: italic; }
+
+/* "REGISTRADO" stamp effect */
+.sello-registrado {
+  position: absolute;
+  top: 35mm; right: 20mm;
+  border: 2px solid rgba(180,60,60,0.3);
+  padding: 2mm 5mm;
+  transform: rotate(-12deg);
+  font-size: 9pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(180,60,60,0.35);
+  font-weight: 700;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Signature lines */
+.firma-bloque { margin-top: 10mm; text-align: right; padding-right: 10mm; position: relative; z-index: 3; }
+.firma-linea { border-bottom: 1px solid #8b7355; width: 55mm; display: inline-block; margin-bottom: 2mm; }
+.firma-nombre { font-family: 'Playfair Display', serif; font-size: 10pt; color: #3d2b1f; }
+.firma-label { font-size: 7pt; color: #8b7355; text-transform: uppercase; letter-spacing: 1px; margin-top: 1mm; }
+
+.firma-bloque-izq { margin-top: 5mm; text-align: left; padding-left: 10mm; position: relative; z-index: 3; }
+.firma-linea-izq { border-bottom: 1px solid #8b7355; width: 55mm; display: inline-block; margin-bottom: 2mm; }
+
+.firmas-row {
+  display: flex; justify-content: space-between;
+  margin-top: 12mm; padding: 0 10mm;
+  position: relative; z-index: 3;
+}
+
+/* Wax seal */
+.sello-cera {
+  width: 18mm; height: 18mm;
+  background: radial-gradient(circle at 35% 35%, #b22222 0%, #8b0000 40%, #5c0000 75%, #3a0000 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(212,163,115,0.9);
+  font-size: 10pt; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3), inset 0 0 5px rgba(0,0,0,0.2);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transform: rotate(-8deg);
+  position: absolute;
+  bottom: 25mm; right: 25mm;
+  z-index: 5;
+}
+.sello-cera::after {
+  content: '';
+  position: absolute; top: 2mm; left: 2mm; right: 2mm; bottom: 2mm;
+  border: 0.5px solid rgba(212,163,115,0.3);
+  border-radius: 50%;
+}
+
 .nota-margen {
   margin-top: 8mm; padding-top: 4mm; border-top: 1px dashed #c4a882;
   font-style: italic; font-size: 9.5pt; color: #6b5a48;
+  position: relative; z-index: 3;
 }
+
+p { position: relative; z-index: 3; }
 </style>
 </head>
 <body>
 
-<div class="carta-page">
+<div class="cert-page">
+  <div class="cert-border-outer"></div>
+  <div class="cert-border-inner"></div>
+  <div class="sello-registrado">REGISTRADO</div>
+  <div class="doc-header">Documento Oficial</div>
   <div class="cert-title">Registro Reservado</div>
   <p>Por acuerdo familiar y recomendación legal, el menor Miguel quedará bajo tutela de don Álvaro, hermano de la madre, quien lo criará como propio bajo el apellido Álvarez.</p>
   <p style="margin-top: 4mm;">La filiación de origen no se destruye: se custodia.</p>
-  <div class="firma">Firmado: Elena, Notario Público.</div>
+  <div class="firmas-row">
+    <div>
+      <div class="firma-linea-izq"></div><br>
+      <div class="firma-label">Firmado por</div>
+    </div>
+    <div>
+      <div class="firma-linea"></div><br>
+      <div class="firma-label">Testigo</div>
+    </div>
+  </div>
   <div class="nota-margen">Escrito a mano con tinta descolorida: "Rodrigo cortó el hilo. Yo lo guardé para volver a atarlo algún día. El hombre que salvó a mi hijo le dio su nombre y su amor."</div>
+  <div class="sello-cera">E</div>
 </div>
 
 </body>

@@ -10,19 +10,61 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .tablero-page {
   width: 186mm; min-height: 267mm; padding: 15mm 18mm;
   background: #faf0e6; font-family: 'EB Garamond', serif;
   color: #3d2b1f; box-sizing: border-box;
   page-break-inside: auto; page-break-after: always;
+  position: relative;
+  border: 2px solid #8b7355;
 }
+
+/* Ornamental inner border */
+.tablero-page::before {
+  content: '';
+  position: absolute;
+  top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
+  border: 1px solid rgba(139,115,85,0.5);
+  pointer-events: none;
+}
+
+/* Subtle aging */
+.tablero-page::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.06);
+  pointer-events: none;
+}
+
+/* Corner stars */
+.esquina-tl, .esquina-tr, .esquina-bl, .esquina-br {
+  position: absolute; color: #8b7355; font-size: 7pt; z-index: 2;
+}
+.esquina-tl { top: 5mm; left: 5mm; }
+.esquina-tr { top: 5mm; right: 5mm; }
+.esquina-bl { bottom: 5mm; left: 5mm; }
+.esquina-br { bottom: 5mm; right: 5mm; }
+
 .section-title {
   font-size: 14pt; font-weight: 700; text-align: center;
   margin-bottom: 6mm; letter-spacing: 2px; text-transform: uppercase;
   border-bottom: 2px solid #8b7355; padding-bottom: 3mm;
+  position: relative; z-index: 1;
 }
+/* Decorative underline ornaments */
+.section-title::after {
+  content: '─ ✦ ─';
+  display: block;
+  font-size: 8pt;
+  color: #8b7355;
+  margin-top: 2mm;
+  letter-spacing: 2mm;
+}
+
 .eventos-list {
   list-style: none; padding: 0; margin: 0 0 8mm 0;
+  position: relative; z-index: 1;
 }
 .eventos-list li {
   padding: 3mm 4mm; margin-bottom: 2mm; font-size: 11pt;
@@ -30,8 +72,10 @@ body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
   line-height: 1.4;
 }
 .eventos-list .num { font-weight: 700; color: #8b4513; margin-right: 2mm; }
+
 table.restricciones {
   width: 100%; border-collapse: collapse; font-size: 8.5pt;
+  position: relative; z-index: 1;
 }
 table.restricciones th, table.restricciones td {
   border: 1px solid #8b7355; padding: 2mm; text-align: center;
@@ -39,9 +83,20 @@ table.restricciones th, table.restricciones td {
 }
 table.restricciones th {
   background: #8b7355; color: #faf0e6; font-weight: 600;
+  border-top: 3px solid #6b5a3e;
+  position: relative;
+}
+table.restricciones th::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #a8926e 0px, #a8926e 3px, transparent 3px, transparent 6px);
 }
 table.restricciones td {
   background: #fdf5e6;
+}
+table.restricciones tr:nth-child(even) td {
+  background: #f5e6c8;
 }
 table.restricciones .fila-nombre {
   background: #e8dcc8; font-weight: 600; text-align: left;
@@ -51,6 +106,10 @@ table.restricciones .fila-nombre {
 <body>
 
 <div class="tablero-page">
+  <span class="esquina-tl">✦</span>
+  <span class="esquina-tr">✦</span>
+  <span class="esquina-bl">✦</span>
+  <span class="esquina-br">✦</span>
   <div class="section-title">Eventos del Tablero</div>
   <ul class="eventos-list">
     <li><span class="num">1.</span> La tarde de la tormenta</li>

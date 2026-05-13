@@ -10,94 +10,216 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .carta-page {
   width: 186mm; min-height: 267mm;
-  background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
-  font-family: Georgia, serif; font-size: 10.5pt; line-height: 1.6;
+  background-color: #faf0e6; padding: 20mm 22mm 20mm 28mm;
+  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
 }
+
 .carta-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  box-shadow: inset 0 0 50px 15px rgba(139,115,85,0.12);
+  pointer-events: none; z-index: 2;
 }
+
+.carta-page::after {
+  content: '';
+  position: absolute; top: 20mm; right: 15mm;
+  width: 12mm; height: 9mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.06) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+}
+
+.mancha-cafe-2 {
+  position: absolute; bottom: 25mm; left: 30mm;
+  width: 10mm; height: 8mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.05) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+}
+
+.doblece-h {
+  position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none; z-index: 2;
+}
+.doblece-v {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none; z-index: 2;
+}
+
+.drop-cap::first-letter {
+  float: left; font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28pt; line-height: 1; padding-right: 2mm; padding-top: 1mm; color: #3d2b1f;
+}
+
 .fecha-lugar { font-style: italic; color: #8b7355; margin-bottom: 5mm; font-size: 9.5pt; }
-.remitente { text-align: right; margin-top: 8mm; font-style: italic; }
+
+.firma-bloque { margin-top: 10mm; text-align: right; padding-right: 5mm; position: relative; z-index: 3; }
+.firma-linea { border-bottom: 1px solid #8b7355; width: 55mm; display: inline-block; margin-bottom: 2mm; }
+.firma-nombre { font-family: 'Playfair Display', serif; font-style: italic; font-size: 11pt; color: #3d2b1f; }
+.firma-fecha { font-size: 8pt; color: #8b7355; font-style: italic; margin-top: 1mm; }
+
+p { position: relative; z-index: 3; }
+
+/* Tape mark effect for first card */
+.carta-page:first-of-type { position: relative; }
+.carta-page:first-of-type .tape-mark {
+  position: absolute;
+  top: -2mm; left: 30%;
+  width: 40mm; height: 8mm;
+  background: rgba(255,248,220,0.35);
+  border: 0.5px solid rgba(200,190,160,0.3);
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Small decorative border on each card */
+.carta-page .deco-border {
+  position: absolute;
+  top: 5mm; left: 5mm; right: 5mm; bottom: 5mm;
+  border: 1px solid rgba(139,115,85,0.2);
+  pointer-events: none;
+  z-index: 1;
+}
 </style>
 </head>
 <body>
 
 <!-- Carta 1: Madrid, 1990 — Marcos -->
 <div class="carta-page">
+  <div class="tape-mark"></div>
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Madrid, 1990</div>
-  <p>Querida mamá:</p>
+  <p class="drop-cap">Querida mamá:</p>
   <p>Te escribo desde el hospital. Hoy he operado a un niño de apendicitis y me ha recordado cuando yo me enfermaba de niño y tú me cuidabas toda la noche. Los turnos aquí en Madrid son largos, pero cuando salgo del hospital y veo el cielo de la ciudad, pienso en ti.</p>
   <p>Un abrazo, tu hijo mayor.</p>
-  <div class="remitente">Marcos</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Marcos</div>
+  </div>
 </div>
 
 <!-- Carta 2: Sevilla, 1992 — Carmen -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="top: 40mm; left: 20mm; bottom: auto;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Sevilla, 1992</div>
-  <p>Mamá querida:</p>
+  <p class="drop-cap">Mamá querida:</p>
   <p>Los alumnos de mi clase me han preparado una sorpresa por el día del profesor. Me han dado un dibujo donde todos aparecen juntos. Me hizo llorar de emoción. Sevilla está preciosa en primavera, los naranjos están en flor. Ojalá pudieras venir a visitarme más a menudo.</p>
   <p>Te quiere, tu hija.</p>
-  <div class="remitente">Carmen</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Carmen</div>
+  </div>
 </div>
 
 <!-- Carta 3: Madrid, 1995 — Marcos -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="bottom: 35mm; right: 25mm; left: auto;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Madrid, 1995</div>
-  <p>Mamá:</p>
+  <p class="drop-cap">Mamá:</p>
   <p>Perdón por no haber ido en Navidad. El hospital no me dejó salir. Lucía y los niños te mandan muchos besos. Sebastián ya dice 'abuela' y no para de repetirlo. Me preocupa que papá no esté bien de salud, pero él no quiere que hablemos de eso.</p>
   <p>Un abrazo fuerte.</p>
-  <div class="remitente">Marcos</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Marcos</div>
+  </div>
 </div>
 
 <!-- Carta 4: Barcelona, 1996 — Luis -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="top: 30mm; right: 20mm; left: auto; bottom: auto;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Barcelona, 1996</div>
-  <p>Querida Elena:</p>
+  <p class="drop-cap">Querida Elena:</p>
   <p>Sé que no te escribo mucho. Barcelona me ha cambiado, supongo. El estudio de arquitectura va bien, pero echo de menos la casa familiar. Ese ruido que hacía la puerta del salón, el tercer escalón que siempre rechinaba, los atardeceres en el jardín... A veces pienso que debería volver.</p>
   <p>Perdón por ser el que siempre se marcha. Papá siempre dijo que yo era el más débil de los tres, pero quizás el débil era el que se quedaba quieto mientras otros movían los hilos.</p>
-  <div class="remitente">Luis</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Luis</div>
+  </div>
 </div>
 
 <!-- Carta 5: Sevilla, 1998 — Carmen -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="bottom: 45mm; left: 25mm;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Sevilla, 1998</div>
-  <p>Mamá:</p>
+  <p class="drop-cap">Mamá:</p>
   <p>No puedo dejar de pensar en lo que me contaste la última vez que vine. Esa historia sobre tu juventud... Necesito saber más. Prometiste que me contarías toda la verdad algún día. Los niños de mi clase me preguntan por qué tengo tantas fotos antiguas en casa, y yo les digo que las fotos guardan secretos que solo los valientes pueden leer.</p>
   <p>Espero tu respuesta.</p>
-  <div class="remitente">Carmen</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Carmen</div>
+  </div>
 </div>
 
 <!-- Carta 6: Madrid, 2000 — Marcos -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="top: 45mm; right: 18mm; left: auto; bottom: auto;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Madrid, 2000</div>
-  <p>Mamá:</p>
+  <p class="drop-cap">Mamá:</p>
   <p>He visto a papá en el hospital. No quiere que te lo diga, pero su corazón está débil. Dice que ya es hora de que la familia se reúne. Yo creo que tiene miedo de que su secreto — el vuestro — salga a la luz después de tanto tiempo. Sé que ocultáis algo, pero confío en vosotros.</p>
   <p>Tu hijo, que siempre estará ahí.</p>
-  <div class="remitente">Marcos</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Marcos</div>
+  </div>
 </div>
 
 <!-- Carta 7: Barcelona, 2003 — Luis -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="bottom: 30mm; left: 35mm;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Barcelona, 2003</div>
-  <p>Elena:</p>
+  <p class="drop-cap">Elena:</p>
   <p>He terminado la reforma del edificio que te conté. Los arquitectos decimos que las casas tienen alma, que guardan la historia de quienes las habitan. La nuestra, la de nuestra familia, debe tener mil historias que nunca nos contaron. A veces pienso en volver y reconstruirla entera, escalón a escalón. Como una marioneta a la que hay que volver a ensartar los hilos.</p>
   <p>Tu hijo ausente.</p>
-  <div class="remitente">Luis</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Luis</div>
+  </div>
 </div>
 
 <!-- Carta 8: Sevilla, 2005 — Carmen -->
 <div class="carta-page">
+  <div class="deco-border"></div>
+  <div class="mancha-cafe-2" style="top: 35mm; left: 22mm;"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <div class="fecha-lugar">Sevilla, 2005</div>
-  <p>Mamá querida:</p>
+  <p class="drop-cap">Mamá querida:</p>
   <p>He ido a visitar tu casa y he encontrado una foto que no había visto nunca. ¿Quién es esa mujer joven con un bebé en brazos? Detrás pone '1963' pero no se parece a ningún bebé de la familia que yo conozca. Mis nietos Sebastián, Olivia y Leo son el SOL de mi vida, y quiero que ellos también conozcan toda la verdad, como me prometiste.</p>
   <p>Es hora, mamá. Es hora.</p>
-  <div class="remitente">Carmen</div>
+  <div class="firma-bloque">
+    <div class="firma-linea"></div><br>
+    <div class="firma-nombre">Carmen</div>
+  </div>
 </div>
 
 </body>

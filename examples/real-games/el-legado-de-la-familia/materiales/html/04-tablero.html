@@ -12,16 +12,55 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 @page { size: A4 portrait; margin: 0; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { width: 186mm; height: 267mm; background: #faf0e6; }
+
 .page {
-  width: 186mm; min-height: 267mm; padding: 8mm 10mm;
+  width: 186mm; min-height: 267mm; padding: 10mm 13mm;
   font-family: 'EB Garamond', serif; color: #3d2b1f;
-  display: flex; flex-direction: column; gap: 3mm;
+  display: flex; flex-direction: column; gap: 2.5mm;
+  position: relative;
+  border: 3px double #8b7355;
+  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.06);
 }
+
+/* Inner ornamental border */
+.page::before {
+  content: '';
+  position: absolute;
+  top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
+  border: 1px solid rgba(139,115,85,0.5);
+  pointer-events: none;
+}
+
+/* ✦ ✦ ✦ top decoration */
+.page::after {
+  content: '✦  ✦  ✦';
+  position: absolute;
+  top: -2.5mm; left: 50%;
+  transform: translateX(-50%);
+  background: #faf0e6; padding: 0 5mm;
+  color: #8b7355; font-size: 7pt; letter-spacing: 3mm;
+  z-index: 3;
+}
+
+.esquina-tl, .esquina-tr, .esquina-bl, .esquina-br {
+  position: absolute; color: #8b7355; font-size: 7pt; z-index: 2;
+}
+.esquina-tl { top: 5mm; left: 5mm; }
+.esquina-tr { top: 5mm; right: 5mm; }
+.esquina-bl { bottom: 5mm; left: 5mm; }
+.esquina-br { bottom: 5mm; right: 5mm; }
+
 .hueco {
-  background: #fdf5e6; border: 1.5px solid #c4a882; border-radius: 3px;
+  border: 1.5px solid #c4a882; border-radius: 3px;
   padding: 3mm 5mm; font-size: 9.5pt; line-height: 1.4;
   display: flex; align-items: flex-start; gap: 4mm;
+  position: relative; z-index: 1;
 }
+
+/* Alternating rows */
+.hueco:nth-of-type(odd) { background: #fdf5e6; }
+.hueco:nth-of-type(even) { background: #f5e6c8; }
+
 .hueco-num {
   background: #8b7355; color: white;
   width: 7mm; height: 7mm; border-radius: 50%;
@@ -36,9 +75,13 @@ body { width: 186mm; height: 267mm; background: #faf0e6; }
 <body>
 
 <div class="page">
+  <span class="esquina-tl">✦</span>
+  <span class="esquina-tr">✦</span>
+  <span class="esquina-bl">✦</span>
+  <span class="esquina-br">✦</span>
   <div class="hueco">
     <div class="hueco-num">1</div>
-    <div class="hueco-text">Patriarca. Testigo de la firma ante notario y de la promesa familiar. <span class="sello">[SELLO PLATEADO]</span></div>
+    <div class="hueco-text">Patriarca. Testigo de la firma ante notario y de la promesa. <span class="sello">[SELLO PLATEADO]</span></div>
   </div>
   <div class="hueco">
     <div class="hueco-num">2</div>

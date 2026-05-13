@@ -18,147 +18,247 @@ body { width: 186mm; background: #faf0e6; }
   background: #faf0e6; padding: 15mm 18mm;
   font-family: 'EB Garamond', serif; color: #3d2b1f;
   display: flex; flex-direction: column; align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   page-break-after: always;
   position: relative;
   box-sizing: border-box;
 }
 
+/* Aging */
 .foto-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Polaroid frame */
+.foto-polaroid {
+  background: white;
+  padding: 4mm 4mm 15mm 4mm;
+  box-shadow: 2px 3px 8px rgba(0,0,0,0.2), 0 0 3px rgba(0,0,0,0.1);
+  max-width: 140mm;
+  position: relative;
+  z-index: 2;
 }
 
 .foto-title {
-  font-size: 14pt; font-weight: 700; text-align: center;
-  letter-spacing: 2px; text-transform: uppercase;
-  border-bottom: 2px solid #8b7355; padding-bottom: 3mm;
+  font-size: 11pt; font-weight: 700; text-align: center;
+  letter-spacing: 1px;
+  padding-bottom: 3mm;
   width: 100%;
+  margin-bottom: 3mm;
+  color: #4a3728;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-.foto-frame {
-  width: 140mm; height: 150mm;
-  border: 3px solid #8b7355; border-radius: 2px;
-  background: #e8dcc8; display: flex; align-items: center;
-  justify-content: center; position: relative;
-  box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+.foto-contenido {
+  width: 100%;
+  background: linear-gradient(135deg, #e8dcc8 0%, #ddd0b8 100%);
+  min-height: 130mm;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #8b7355;
+  font-size: 10pt;
+  text-align: center;
+  padding: 10mm;
+  line-height: 1.8;
+  position: relative;
 }
 
-.foto-placeholder {
-  font-size: 11pt; color: #8b7355; text-align: center;
-  padding: 10mm; line-height: 1.8; font-style: italic;
+.foto-contenido .placeholder-text {
+  font-size: 6.5pt;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(139,115,85,0.4);
+  margin-bottom: 3mm;
+}
+.foto-contenido .placeholder-icon {
+  font-size: 12pt;
+  color: rgba(139,115,85,0.2);
+  margin-bottom: 1mm;
 }
 
+.foto-caption {
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 9pt;
+  color: #4a3728;
+  margin-top: 3mm;
+  font-style: italic;
+}
+
+/* Date stamp in caption area */
 .foto-date {
-  position: absolute; bottom: 5mm; right: 5mm;
-  font-size: 14pt; font-weight: 700; color: #8b4513;
-  background: #fdf5e6; padding: 2mm 4mm;
-  border: 1px solid #8b7355;
+  position: absolute;
+  bottom: 2mm; right: 5mm;
+  font-size: 10pt; font-weight: 700; color: #8b4513;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
+/* Scratch-off seal — bottom-right */
 .foto-sello {
-  position: absolute; bottom: 5mm; left: 5mm;
-  width: 20mm; height: 12mm;
-  background: #c0c0c0; border: 1px solid #999;
+  position: absolute;
+  bottom: 2mm; right: 5mm;
+  min-width: 20mm;
+  height: 10mm;
+  background: linear-gradient(135deg, #d4d4d4 0%, #a8a8a8 25%, #c8c8c8 50%, #b0b0b0 75%, #d8d8d8 100%);
+  border: 1px solid #888;
   display: flex; align-items: center; justify-content: center;
-  font-size: 7pt; color: #666; letter-spacing: 1px;
+  font-size: 6pt; color: #666; letter-spacing: 1px;
+  padding: 1mm 3mm;
 }
+.foto-sello::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 1px,
+    rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px
+  );
+  pointer-events: none;
+}
+
+/* Coffee stain on specific photos */
+.mancha-cafe {
+  position: absolute;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.08) 0%, rgba(139,90,43,0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Tape mark */
+.cinta-adhesiva {
+  position: absolute;
+  background: rgba(255,248,220,0.35);
+  border: 0.5px solid rgba(200,190,160,0.3);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Rotation classes — unique per photo */
+.rot-1 { transform: rotate(-1.5deg); }
+.rot-2 { transform: rotate(2deg); }
+.rot-3 { transform: rotate(-1deg); }
+.rot-4 { transform: rotate(1.5deg); }
+.rot-5 { transform: rotate(-2deg); }
+.rot-6 { transform: rotate(1deg); }
 </style>
 </head>
 <body>
 
 <!-- Foto 1: Boda 1962 ✓ CORRECTA -->
 <div class="foto-page">
-  <div class="foto-title">Boda en San Pedro</div>
-  <div class="foto-frame">
-    <div class="foto-placeholder">
-      [FOTOGRAFÍA EN SEPIA]<br><br>
+  <div class="foto-polaroid rot-1">
+    <div class="foto-title">Boda en San Pedro</div>
+    <div class="foto-contenido">
+      <div class="placeholder-icon">☉</div>
+      <div class="placeholder-text">Fotografía en sepia</div>
       Pareja joven saliendo de una iglesia bajo la lluvia.<br>
       Arroz pegado al abrigo del novio.<br>
       Campanas sonando al fondo.<br><br>
       El agua manchó todo, pero nadie quiso refugiarse.
     </div>
-    <div class="foto-date">1962</div>
+    <div class="foto-caption">
+      <span class="foto-date">1962</span>
+    </div>
     <div class="foto-sello">RASCAR</div>
   </div>
 </div>
 
 <!-- Foto 2: Verano 1965 ✓ CORRECTA -->
 <div class="foto-page">
-  <div class="foto-title">Primer verano en la casa</div>
-  <div class="foto-frame">
-    <div class="foto-placeholder">
-      [FOTOGRAFÍA EN COLOR DESATURADO]<br><br>
+  <div class="foto-polaroid rot-2">
+    <div class="mancha-cafe" style="top: -5mm; right: -3mm; width: 14mm; height: 11mm;"></div>
+    <div class="foto-title">Primer verano en la casa</div>
+    <div class="foto-contenido">
+      <div class="placeholder-icon">☉</div>
+      <div class="placeholder-text">Fotografía en color desaturado</div>
       Un niño jugando con un tren de madera bajo una mesa.<br>
       Luz dorada de julio entrando por la ventana.<br><br>
       Aquel verano duró una eternidad y un suspiro.
     </div>
-    <div class="foto-date">1965</div>
+    <div class="foto-caption">
+      <span class="foto-date">1965</span>
+    </div>
     <div class="foto-sello">RASCAR</div>
   </div>
 </div>
 
 <!-- Foto 3: Bautizo 1968 ✗ DISTRACTORA -->
 <div class="foto-page">
-  <div class="foto-title">Bautizo del pequeño</div>
-  <div class="foto-frame">
-    <div class="foto-placeholder">
-      [FOTOGRAFÍA EN SEPIA]<br><br>
+  <div class="foto-polaroid rot-3">
+    <div class="foto-title">Bautizo del pequeño</div>
+    <div class="foto-contenido">
+      <div class="placeholder-icon">☉</div>
+      <div class="placeholder-text">Fotografía en sepia</div>
       Fuente bautismal de piedra clara.<br>
       Un mantón blanco bordado con iniciales.<br>
       La madrina sostiene un ramo de azahar.<br><br>
       La familia entera reunida bajo el mismo techo.
     </div>
-    <div class="foto-date">1968</div>
+    <div class="foto-caption">
+      <span class="foto-date">1968</span>
+    </div>
     <div class="foto-sello">RASCAR</div>
   </div>
 </div>
 
 <!-- Foto 4: Fiebre 1970 ✓ CORRECTA -->
 <div class="foto-page">
-  <div class="foto-title">Noche de fiebre</div>
-  <div class="foto-frame">
-    <div class="foto-placeholder">
-      [FOTOGRAFÍA EN SEPIA CÁLIDO]<br><br>
+  <div class="foto-polaroid rot-4">
+    <div class="foto-title">Noche de fiebre</div>
+    <div class="foto-contenido">
+      <div class="placeholder-icon">☉</div>
+      <div class="placeholder-text">Fotografía en sepia cálido</div>
       Plano de una mesita de noche.<br>
       Un pañuelo blanco doblado junto a una taza azul.<br>
       Un termómetro al lado.<br><br>
       Fue la noche más larga y la más tierna.
     </div>
-    <div class="foto-date">1970</div>
+    <div class="foto-caption">
+      <span class="foto-date">1970</span>
+    </div>
     <div class="foto-sello">RASCAR</div>
   </div>
 </div>
 
 <!-- Foto 5: Nochebuena 1973 ✗ DISTRACTORA -->
 <div class="foto-page">
-  <div class="foto-title">Nochebuena en familia</div>
-  <div class="foto-frame">
-    <div class="foto-placeholder">
-      [FOTOGRAFÍA EN COLOR DESATURADO]<br><br>
+  <div class="foto-polaroid rot-5">
+    <div class="cinta-adhesiva" style="top: -2mm; left: 30%; width: 38mm; height: 7mm; transform: rotate(-3deg);"></div>
+    <div class="foto-title">Nochebuena en familia</div>
+    <div class="foto-contenido">
+      <div class="placeholder-icon">☉</div>
+      <div class="placeholder-text">Fotografía en color desaturado</div>
       Un árbol de navidad con luces de colores.<br>
       Mesa con manteles rojos y turrones.<br>
       Niños abriendo regalos junto a la chimenea.<br><br>
       Todos sonreían, aunque no todos con los ojos.
     </div>
-    <div class="foto-date">1973</div>
+    <div class="foto-caption">
+      <span class="foto-date">1973</span>
+    </div>
     <div class="foto-sello">RASCAR</div>
   </div>
 </div>
 
 <!-- Foto 6: Estación 1975 ✓ CORRECTA -->
 <div class="foto-page">
-  <div class="foto-title">Estación del Norte</div>
-  <div class="foto-frame">
-    <div class="foto-placeholder">
-      [FOTOGRAFÍA EN BLANCO Y NEGRO]<br><br>
+  <div class="foto-polaroid rot-6">
+    <div class="foto-title">Estación del Norte</div>
+    <div class="foto-contenido">
+      <div class="placeholder-icon">☉</div>
+      <div class="placeholder-text">Fotografía en blanco y negro</div>
       Un andén vacío con una maleta marrón sola.<br>
       El vapor de un tren que ya partió desvaneciéndose.<br>
       Letrero: ANDÉN 4.<br><br>
       La maleta esperó un tren que nunca volvió.
     </div>
-    <div class="foto-date">1975</div>
+    <div class="foto-caption">
+      <span class="foto-date">1975</span>
+    </div>
     <div class="foto-sello">RASCAR</div>
   </div>
 </div>

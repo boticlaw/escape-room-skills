@@ -12,31 +12,88 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 @page { size: A4 portrait; margin: 0; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { width: 186mm; background: white; }
+
 .page {
   width: 186mm; min-height: 267mm; padding: 6mm;
   display: flex; flex-direction: column; gap: 4mm;
+  position: relative;
 }
+
 .tarjeta {
-  background: #faf5ee; border: 1.5px solid #c4a882; border-radius: 3px;
+  background: linear-gradient(135deg, #faf5ee 0%, #f0e8d8 100%);
+  border: 1.5px solid #c4a882; border-radius: 3px;
   padding: 4mm 6mm; font-family: 'EB Garamond', Georgia, serif;
   font-size: 10pt; line-height: 1.5; color: #3d2b1f;
   display: flex; align-items: flex-start; gap: 4mm;
+  position: relative;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.08), inset 0 0 15px rgba(139,115,85,0.08);
 }
+
+/* Card texture — subtle noise via SVG */
+.tarjeta::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='4' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='rgba(139,115,85,0.03)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
 .tarjeta-num {
   background: #8b7355; color: white;
   width: 7mm; height: 7mm; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 8pt; flex-shrink: 0;
+  position: relative; z-index: 1;
 }
 .tarjeta-num.star { background: #8b4513; }
-.tarjeta-text { flex: 1; }
+.tarjeta-text { flex: 1; position: relative; z-index: 1; }
 .tarjeta-text .nota { font-style: italic; color: #8b7355; font-size: 9pt; margin-top: 1mm; }
+
+/* Tape mark — card 1 */
+.cinta-adhesiva {
+  position: absolute;
+  top: -2mm; left: 35%;
+  width: 30mm; height: 7mm;
+  background: rgba(255,248,220,0.35);
+  border: 0.5px solid rgba(200,190,160,0.3);
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Scratch-off silver seal */
+.raspad {
+  position: absolute;
+  bottom: 2mm; right: 4mm;
+  width: 22mm; height: 5mm;
+  background: linear-gradient(45deg,
+    #d4d4d4 0%, #a8a8a8 20%, #c8c8c8 40%,
+    #b0b0b0 60%, #d8d8d8 80%, #c0c0c0 100%);
+  border-radius: 2px;
+  z-index: 2;
+  box-shadow: 0 0.5px 1px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+/* Stripe overlay */
+.raspad::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1.5px,
+    rgba(0,0,0,0.04) 1.5px,
+    rgba(0,0,0,0.04) 3px
+  );
+  border-radius: inherit;
+}
 </style>
 </head>
 <body>
 
 <div class="page">
   <div class="tarjeta">
+    <div class="cinta-adhesiva"></div>
     <div class="tarjeta-num">1</div>
     <div class="tarjeta-text">El mayor de los hijos. Estudió medicina. Firmó ante notario.</div>
   </div>
@@ -67,21 +124,25 @@ body { width: 186mm; background: white; }
   </div>
 
   <div class="tarjeta">
+    <div class="raspad"></div>
     <div class="tarjeta-num star">★7</div>
     <div class="tarjeta-text">Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.</div>
   </div>
 
   <div class="tarjeta">
+    <div class="raspad"></div>
     <div class="tarjeta-num star">★8</div>
     <div class="tarjeta-text">Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.</div>
   </div>
 
   <div class="tarjeta">
+    <div class="raspad"></div>
     <div class="tarjeta-num star">★9</div>
     <div class="tarjeta-text">Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.</div>
   </div>
 
   <div class="tarjeta">
+    <div class="raspad"></div>
     <div class="tarjeta-num star">★10</div>
     <div class="tarjeta-text">Nota de Elena: <span class="nota">"Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Rascad los sellos y ordenad las Lunas."</span></div>
   </div>

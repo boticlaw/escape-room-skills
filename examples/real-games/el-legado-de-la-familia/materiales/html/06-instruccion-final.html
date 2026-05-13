@@ -10,20 +10,76 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; }
+
 .cartel {
   width: 186mm; height: 267mm; display: flex; flex-direction: column;
   justify-content: center; align-items: center; color: #f5e6c8;
   font-family: 'EB Garamond', serif; padding: 20mm; box-sizing: border-box;
-  text-align: center;
+  text-align: center; position: relative;
 }
-.cartel-text { font-size: 14pt; line-height: 2; }
-.cartel-text strong { font-size: 17pt; display: block; margin-bottom: 5mm; }
-.cartel-sub { font-size: 11pt; line-height: 1.7; margin-top: 8mm; color: #d4c5a9; font-style: italic; }
+
+/* Inner glow — slightly stronger for ceremony */
+.cartel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(139,115,85,0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.20) 100%);
+  pointer-events: none;
+}
+
+/* ✦ ✦ ✦ top decoration — larger for ceremony */
+.cartel::after {
+  content: '✦  ✦  ✦';
+  position: absolute; top: -3mm; left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a; padding: 0 5mm;
+  color: #8b7355; font-size: 10pt; letter-spacing: 4mm;
+}
+
+/* Double ornamental border — outer */
+.marco-outer {
+  position: absolute; top: 8mm; left: 8mm; right: 8mm; bottom: 8mm;
+  border: 2px solid #8b7355; pointer-events: none;
+}
+/* Double ornamental border — inner */
+.marco-inner {
+  position: absolute; top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
+  border: 1px solid rgba(139,115,85,0.5); pointer-events: none;
+}
+/* Larger corner ornaments for ceremonial feel */
+.marco-outer::before { content: '✦'; position: absolute; top: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
+.marco-outer::after { content: '✦'; position: absolute; top: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
+.marco-inner::before { content: '✦'; position: absolute; bottom: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
+.marco-inner::after { content: '✦'; position: absolute; bottom: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
+
+/* Marionette string motif — extended for ceremony */
+.marionette-motif {
+  position: absolute; top: 14mm; left: 20%; right: 20%;
+  text-align: center; color: rgba(139,115,85,0.35);
+  font-size: 9pt; letter-spacing: 5mm; font-family: monospace;
+}
+
+/* Extra ceremonial decorative line above main text */
+.ceremonia-line {
+  width: 40mm;
+  border-top: 1px solid rgba(139,115,85,0.4);
+  margin-bottom: 6mm;
+  position: relative; z-index: 1;
+}
+
+.cartel-text { font-size: 14pt; line-height: 2; position: relative; z-index: 1; }
+.cartel-text strong { font-size: 17pt; display: block; margin-bottom: 5mm; font-family: 'Playfair Display', Georgia, serif; }
+.cartel-sub { font-size: 11pt; line-height: 1.7; margin-top: 8mm; color: #d4c5a9; font-style: italic; position: relative; z-index: 1; }
 </style>
 </head>
 <body>
 
 <div class="cartel">
+  <div class="marco-outer"></div>
+  <div class="marco-inner"></div>
+  <div class="marionette-motif">─ ─ │ │ ─ ─</div>
+  <div class="ceremonia-line"></div>
   <div class="cartel-text">
     <strong>Colocad cada valor donde lo ganasteis.</strong>
     Que nadie suelte su rama hasta que la raíz responda.

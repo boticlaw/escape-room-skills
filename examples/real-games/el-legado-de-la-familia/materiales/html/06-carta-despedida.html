@@ -10,27 +10,140 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .carta-page {
   width: 186mm; min-height: 267mm;
-  background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
+  background: linear-gradient(160deg, #faf5ee 0%, #f5eadb 40%, #f0e2cc 70%, #ece0c8 100%);
+  padding: 20mm 22mm 25mm 28mm;
   font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
 }
+
+/* Pronounced aging — stronger inner shadow */
 .carta-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  box-shadow: inset 0 0 80px 25px rgba(139,115,85,0.18);
+  pointer-events: none; z-index: 2;
 }
+
+/* Card texture — subtle gradient overlay */
+.carta-page::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(180deg, rgba(245,230,210,0.15) 0%, transparent 30%),
+    linear-gradient(0deg, rgba(230,215,195,0.10) 0%, transparent 25%);
+  pointer-events: none; z-index: 1;
+}
+
+/* Coffee stain 1 — upper right area */
+.mancha-cafe-1 {
+  position: absolute;
+  top: 25mm; right: 18mm;
+  width: 16mm; height: 13mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.10) 0%, rgba(139,90,43,0.05) 40%, rgba(139,90,43,0.02) 65%, transparent 78%);
+  border-radius: 50%;
+  pointer-events: none; z-index: 1;
+}
+
+/* Coffee stain 2 — mid-left area */
+.mancha-cafe-2 {
+  position: absolute;
+  bottom: 70mm; left: 20mm;
+  width: 13mm; height: 10mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.07) 0%, rgba(139,90,43,0.03) 50%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none; z-index: 1;
+}
+
+/* Fold creases — horizontal + vertical */
+.doblece-h {
+  position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(139,115,85,0.15) 20%, rgba(139,115,85,0.18) 50%, rgba(139,115,85,0.15) 80%, transparent 95%);
+  pointer-events: none; z-index: 2;
+}
+.doblece-v {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none; z-index: 2;
+}
+
+/* Drop-cap for first letter "S" in "Si estáis leyendo..." */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24pt;
+  line-height: 1;
+  padding-right: 2mm;
+  padding-top: 1mm;
+  color: #8b4513;
+}
+
 .fecha-lugar { font-style: italic; color: #8b7355; margin-bottom: 5mm; font-size: 9.5pt; }
 .remitente { text-align: right; margin-top: 8mm; font-style: italic; }
+
+/* Signature block — elegant, right-aligned */
+.firma-bloque {
+  margin-top: 12mm; text-align: right; padding-right: 5mm;
+  position: relative; z-index: 3;
+}
+.firma-linea {
+  border-bottom: 1px solid #8b7355;
+  width: 60mm; display: inline-block;
+  margin-bottom: 2mm;
+}
+.firma-nombre {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 12pt; color: #3d2b1f;
+  display: block; margin-top: 2mm;
+}
+.firma-fecha {
+  font-size: 8pt; color: #8b7355; font-style: italic; margin-top: 1mm;
+}
+
+/* Wax seal — THE key prop */
+.sello-cera {
+  width: 18mm; height: 18mm;
+  background: radial-gradient(circle at 35% 35%, #c62828 0%, #b22222 20%, #8b0000 50%, #5c0000 80%, #3a0000 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(212,163,115,0.9);
+  font-size: 11pt; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  box-shadow:
+    2px 2px 5px rgba(0,0,0,0.35),
+    inset 0 0 8px rgba(0,0,0,0.25),
+    inset 1px 1px 2px rgba(255,200,150,0.1);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transform: rotate(-8deg);
+  position: absolute;
+  bottom: 22mm; right: 22mm;
+  z-index: 4;
+}
+/* Inner ring on seal */
+.sello-cera::after {
+  content: '';
+  position: absolute; top: 2mm; left: 2mm; right: 2mm; bottom: 2mm;
+  border: 0.5px solid rgba(212,163,115,0.3);
+  border-radius: 50%;
+}
+
+p { position: relative; z-index: 3; }
 </style>
 </head>
 <body>
 
 <div class="carta-page">
+  <div class="mancha-cafe-1"></div>
+  <div class="mancha-cafe-2"></div>
+  <div class="doblece-h"></div>
+  <div class="doblece-v"></div>
   <p><strong>Mis queridos nietos:</strong></p>
-  <p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p>
+  <p class="drop-cap">Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p>
   <p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1963, cuando apenas tenía 19 años. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p>
   <p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre supe que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p>
   <p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p>
@@ -39,8 +152,13 @@ body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
   <p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p>
   <p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p>
   <p>Os quiero con toda mi alma.</p>
-  <p><strong>Abuela Elena</strong></p>
+  <div class="firma-bloque">
+    <span class="firma-linea"></span>
+    <span class="firma-nombre">Abuela Elena</span>
+    <span class="firma-fecha">Invierno de 2019</span>
+  </div>
   <p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>
+  <div class="sello-cera">E</div>
 </div>
 
 </body>

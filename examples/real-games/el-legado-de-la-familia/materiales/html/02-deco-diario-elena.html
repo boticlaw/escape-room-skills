@@ -10,32 +10,94 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .diario-page {
   width: 186mm; min-height: 267mm;
   background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
-  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
+  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 8mm;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
 }
+
+/* Notebook lines */
 .diario-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  background-image: linear-gradient(#b8cfe5 0.5px, transparent 0.5px);
+  background-size: 100% 8mm;
+  background-position: 0 5mm;
+  pointer-events: none;
+  z-index: 0;
 }
+
+/* Stronger aging for diary */
+.diario-page::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 60px 15px rgba(139,115,85,0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Red margin line */
+.linea-margen {
+  position: absolute;
+  left: 12mm; top: 0; bottom: 0;
+  width: 0.5px;
+  background: #e8a0a0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Coffee stain */
+.mancha-cafe-1 {
+  position: absolute;
+  top: 30mm; right: 20mm;
+  width: 14mm; height: 11mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.08) 0%, rgba(139,90,43,0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tape mark on page 1 */
+.cinta-adhesiva {
+  position: absolute;
+  top: -2mm; left: 30%;
+  width: 40mm; height: 8mm;
+  background: rgba(255,248,220,0.35);
+  border: 0.5px solid rgba(200,190,160,0.3);
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
 .page-header {
   text-align: center; font-size: 10pt; font-style: italic; color: #8b7355;
   margin-bottom: 8mm; letter-spacing: 1px;
+  position: relative; z-index: 3;
 }
 .page-divider {
   text-align: center; color: #8b7355; margin: 8mm 0; font-size: 8pt;
   letter-spacing: 5px;
 }
+
+.page-number {
+  position: absolute;
+  bottom: 8mm; right: 15mm;
+  font-size: 8pt; font-style: italic; color: #8b7355;
+  z-index: 3;
+}
+
+p, strong { position: relative; z-index: 3; }
 </style>
 </head>
 <body>
 
 <!-- Página 1: Entrada de 1962 -->
 <div class="diario-page">
+  <div class="linea-margen"></div>
+  <div class="mancha-cafe-1"></div>
   <div class="page-header">Diario de la Abuela Elena</div>
   <p><strong>Primavera de 1962</strong></p>
   <p>Hoy he cumplido 18 años. Mi madre me preparó un pastel de limón, el mismo que hacía su abuela. La cocina olía a azúcar y a recuerdos felices. Pensé que la vida sería siempre así, sencilla y luminosa.</p>
@@ -44,24 +106,30 @@ body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
   <p>Papi me regaló un collar de perlas que perteneció a su madre. Dijo que las perlas son lágrimas de alegría convertidas en joya. Lo guardaré siempre.</p>
   <p>★ <em>El rosal trepador que cubre la fachada de nuestra casa fue plantado el día que nací. Mamá siempre dijo que crecería conmigo.</em></p>
   <p>★ <em>Recuerdo haber leído en algún sitio que las familias son como los árboles: las raíces pueden ser invisibles, pero sostienen todo.</em></p>
+  <div class="page-number">1</div>
 </div>
 
 <div class="page-divider">· · ·</div>
 
 <!-- Página 2: Entrada de 1985 -->
 <div class="diario-page">
+  <div class="linea-margen"></div>
+  <div class="cinta-adhesiva"></div>
   <div class="page-header">Diario de la Abuela Elena</div>
   <p><strong>Octubre de 1985</strong></p>
   <p>El tiempo pasa y los hijos crecen. A veces miro a Marcos, Carmen y Luis durmiendo y me pregunto si estaré haciendo lo correcto. La maternidad no viene con instrucciones.</p>
   <p>Marcos ya tiene 10 años y es tan responsable como su padre. Se pone corbata para ir al colegio y mira al mundo con la misma firmeza que Rodrigo. Carmen, con 7, no para de hacer preguntas. Y el pequeño Luis, apenas tiene 3 años y ya sonríe a todo el mundo.</p>
   <p>Rodrigo trabajó hasta tarde otra vez. La casa está en silencio y yo escribo para no pensar demasiado. A veces el silencio duele más que las palabras. Rodrigo dice que las familias fuertes no necesitan explicaciones, solo obediencia. Yo digo que las familias fuertes necesitan verdad.</p>
   <p>Guardo un secreto que pesa como una montaña. Hay noches en las que me despierto sobresaltada, pensando en el día en que todo tendrá que salir a la luz. Pero no hoy. Hoy protejo.</p>
+  <div class="page-number">2</div>
 </div>
 
 <div class="page-divider">· · ·</div>
 
 <!-- Página 3: Entrada de 2005 -->
 <div class="diario-page">
+  <div class="linea-margen"></div>
+  <div class="mancha-cafe-1" style="top: 45mm; right: 25mm; width: 12mm; height: 10mm;"></div>
   <div class="page-header">Diario de la Abuela Elena</div>
   <p><strong>Marzo de 2005</strong></p>
   <p>Los nietos ya están creciendo. Ayer vino a visitarme Lucía con los niños. Sebastián, con su polo oscuro y mirada seria, me recuerda a Marcos cuando era joven. Olivia inclinó la cabeza y me dio un beso en la mejilla, tan dulce. El pequeño Leo y Sofía jugaban abrazados en el jardín. Los vi desde la ventana y pensé: esta es la inocencia que yo protegí.</p>
@@ -69,6 +137,7 @@ body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
   <p>He escondido pistas por toda la casa. Si alguien es lo suficientemente paciente y trabajador para seguirlas, encontrará la verdad que dejé preparada.</p>
   <p>El reloj del salón marca siempre la misma hora: las tres y cuarto. Ese fue el momento en que todo cambió. Nunca lo olvidó.</p>
   <p>A veces, la única forma de proteger es callar. Pero el silencio tiene fecha de caducidad.</p>
+  <div class="page-number">3</div>
 </div>
 
 </body>

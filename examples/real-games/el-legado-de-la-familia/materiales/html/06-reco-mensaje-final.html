@@ -10,26 +10,127 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; height: 267mm; background-color: #faf0e6; margin: 0; padding: 0; }
+
 .carta-page {
   width: 186mm; min-height: 267mm;
-  background-color: #faf0e6; padding: 20mm 25mm 20mm 28mm;
+  background: linear-gradient(160deg, #faf5ee 0%, #f5eadb 40%, #f0e2cc 70%, #ece0c8 100%);
+  padding: 20mm 22mm 20mm 28mm;
   font-family: 'EB Garamond', Georgia, serif; font-size: 12pt; line-height: 1.7;
   color: #4a3728; page-break-inside: auto; page-break-after: always;
   position: relative; box-sizing: border-box;
   display: flex; flex-direction: column; justify-content: center;
   text-align: center;
 }
+
+/* Aging — pronounced inner shadow */
 .carta-page::before {
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  content: ''; pointer-events: none;
+  box-shadow: inset 0 0 70px 20px rgba(139,115,85,0.15);
+  pointer-events: none; z-index: 2;
 }
+
+/* Card texture overlay */
+.carta-page::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(180deg, rgba(245,230,210,0.12) 0%, transparent 30%),
+    linear-gradient(0deg, rgba(230,215,195,0.08) 0%, transparent 25%);
+  pointer-events: none; z-index: 1;
+}
+
+/* Decorative border with ✦ ornaments */
+.marco-deco {
+  position: absolute;
+  top: 12mm; left: 12mm; right: 12mm; bottom: 12mm;
+  border: 1.5px solid rgba(139,115,85,0.35);
+  pointer-events: none;
+  z-index: 3;
+}
+.marco-deco::before {
+  content: '';
+  position: absolute;
+  top: 2mm; left: 2mm; right: 2mm; bottom: 2mm;
+  border: 0.5px solid rgba(139,115,85,0.20);
+  pointer-events: none;
+}
+
+/* ✦ ornaments at corners and midpoints of the border */
+.marco-deco-top {
+  position: absolute;
+  top: 11mm; left: 50%;
+  transform: translateX(-50%);
+  color: #8b7355;
+  font-size: 7pt;
+  letter-spacing: 8mm;
+  background: #f0e2cc;
+  padding: 0 4mm;
+  z-index: 4;
+}
+.marco-deco-bottom {
+  position: absolute;
+  bottom: 11mm; left: 50%;
+  transform: translateX(-50%);
+  color: #8b7355;
+  font-size: 7pt;
+  letter-spacing: 8mm;
+  background: #f0e2cc;
+  padding: 0 4mm;
+  z-index: 4;
+}
+
+/* Small wax seal */
+.sello-cera {
+  width: 14mm; height: 14mm;
+  background: radial-gradient(circle at 35% 35%, #c62828 0%, #b22222 20%, #8b0000 50%, #5c0000 80%, #3a0000 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(212,163,115,0.9);
+  font-size: 9pt; font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  box-shadow:
+    1px 1px 4px rgba(0,0,0,0.3),
+    inset 0 0 6px rgba(0,0,0,0.2),
+    inset 1px 1px 2px rgba(255,200,150,0.08);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transform: rotate(-8deg);
+  position: absolute;
+  bottom: 18mm; right: 18mm;
+  z-index: 5;
+}
+.sello-cera::after {
+  content: '';
+  position: absolute; top: 1.5mm; left: 1.5mm; right: 1.5mm; bottom: 1.5mm;
+  border: 0.5px solid rgba(212,163,115,0.25);
+  border-radius: 50%;
+}
+
+/* Decorative mark */
+.marca-deco {
+  position: absolute;
+  top: 15mm; right: 15mm;
+  width: 10mm; height: 10mm;
+  border: 1px solid rgba(139,115,85,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(139,115,85,0.3);
+  font-size: 7pt;
+  z-index: 3;
+}
+
+p { position: relative; z-index: 3; padding: 0 8mm; }
 </style>
 </head>
 <body>
 
 <div class="carta-page">
+  <div class="marco-deco"></div>
+  <div class="marca-deco">✦</div>
+  <div class="marco-deco-top">✦  ✦  ✦</div>
+  <div class="marco-deco-bottom">✦  ✦  ✦</div>
   <p>No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.</p>
+  <div class="sello-cera">E</div>
 </div>
 
 </body>

@@ -10,20 +10,60 @@ h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .co
 }
 @page { size: A4 portrait; margin: 0; }
 body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; }
+
 .cartel {
   width: 186mm; height: 267mm; display: flex; flex-direction: column;
   justify-content: center; align-items: center; color: #f5e6c8;
   font-family: 'EB Garamond', serif; padding: 20mm; box-sizing: border-box;
-  text-align: center;
+  text-align: center; position: relative;
 }
-.cartel-text { font-size: 15pt; line-height: 2; }
-.cartel-text strong { font-size: 18pt; display: block; margin-bottom: 5mm; }
-.cartel-sub { font-size: 11pt; line-height: 1.7; margin-top: 8mm; color: #d4c5a9; font-style: italic; }
+
+.cartel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.15) 100%),
+              radial-gradient(ellipse at center, rgba(139,115,85,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cartel::after {
+  content: '✦  ✦  ✦';
+  position: absolute; top: -3mm; left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a; padding: 0 5mm;
+  color: #8b7355; font-size: 8pt; letter-spacing: 3mm;
+}
+
+.marco-outer {
+  position: absolute; top: 8mm; left: 8mm; right: 8mm; bottom: 8mm;
+  border: 2px solid #8b7355; pointer-events: none;
+}
+.marco-inner {
+  position: absolute; top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
+  border: 1px solid rgba(139,115,85,0.5); pointer-events: none;
+}
+.marco-outer::before { content: '✦'; position: absolute; top: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
+.marco-outer::after { content: '✦'; position: absolute; top: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
+.marco-inner::before { content: '✦'; position: absolute; bottom: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
+.marco-inner::after { content: '✦'; position: absolute; bottom: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
+
+.marionette-motif {
+  position: absolute; top: 14mm; left: 25%; right: 25%;
+  text-align: center; color: rgba(139,115,85,0.35);
+  font-size: 8pt; letter-spacing: 4mm; font-family: monospace;
+}
+
+.cartel-text { font-size: 15pt; line-height: 2; position: relative; z-index: 1; }
+.cartel-text strong { font-size: 18pt; display: block; margin-bottom: 5mm; font-family: 'Playfair Display', Georgia, serif; }
+.cartel-sub { font-size: 11pt; line-height: 1.7; margin-top: 8mm; color: #d4c5a9; font-style: italic; position: relative; z-index: 1; }
 </style>
 </head>
 <body>
 
 <div class="cartel">
+  <div class="marco-outer"></div>
+  <div class="marco-inner"></div>
+  <div class="marionette-motif">─ ─ │ │ ─ ─</div>
   <div class="cartel-text">
     <strong>Restauración del retrato familiar.</strong>
     Dentro encontraréis una hoja verde de detección magnética. Elena escribió: 'El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'
