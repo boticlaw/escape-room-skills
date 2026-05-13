@@ -74,6 +74,39 @@ Build `game-tests.html` with: Test Cover, Walkthrough Test (one section per puzz
 
 Create documents from `prueba.documentos_in_game`. Seven types: `diario`, `carta`, `tarjeta`, `etiqueta`, `tablero`, `cartel`, `fragmento`. Each generates HTML snippet + print-ready CSS + cut/fold guides. All materials derive their visual style from `STYLE.json`.
 
+#### Visual Treatment Pipeline (MANDATORY)
+
+For EVERY material generated, follow this pipeline:
+
+1. **Read `STYLE.json.tratamientos_visuales`** — this defines which decorative treatments apply to which material types
+2. **Identify material type** — determine if this document is a cartel, carta, diario, tablero, tarjeta, fragmento, etiqueta, foto, or certificado
+3. **Apply matching treatments** — for each treatment in `tratamientos_visuales` where the material type appears in `aplica_a`, include the corresponding CSS from the recipes in `references/print-design-guide.md`
+4. **Verify prop quality** — if the material looks like it could be an email, spreadsheet, or Word document, it fails Hard Rule #5
+
+#### Treatment Application by Material Type
+
+| Material Type | Required Treatments |
+|---------------|-------------------|
+| **cartel** (sign/poster) | Dark background + ornamental border + marionetta/stage motif + inner glow |
+| **carta** (letter/note) | Sepia paper + aging shadow + coffee stains + fold creases + signature block + drop-cap |
+| **diario** (diary/journal) | Notebook lines + red margin + aging + coffee stains + page numbers + tape marks |
+| **tablero** (board/display) | Ornamental border + decorative title underline + alternating rows + subtle aging |
+| **tarjeta** (card) | Card-textured background + inner shadow + numbered badge + scratch-off seals (if applicable) |
+| **fragmento** (torn piece) | Irregular clip-path edges + heavy aging + coffee stains + fold creases + faint numbering |
+| **etiqueta** (label/tag) | Card-textured background + small decorative border + optional wax seal |
+| **foto** (photo) | Polaroid frame (white border, extra bottom) + drop shadow + slight rotation + date caption + scratch-off seal |
+| **certificado** (certificate) | Formal ornamental border + parchment background + wax seal + signature lines + official stamp |
+
+#### Treatment Intensity
+
+Not every document needs every treatment. Use judgment:
+- **Light treatment**: cartas de navegación, etiquetas simples → aging + subtle shadow
+- **Medium treatment**: cartas de Elena, tarjetas, tableros → aging + stains + decorative borders
+- **Heavy treatment**: diario, fragmentos, certificados, carta de despedida → full treatment with all effects
+- **Special treatment**: carteles de instrucción → dark bg + ornamental (different from sepia docs)
+
+The `STYLE.json.tratamientos_visuales.envejecimiento` section specifies which aging effects are active for which document types.
+
 ### Step 4: Render to PDF
 
 ```bash
