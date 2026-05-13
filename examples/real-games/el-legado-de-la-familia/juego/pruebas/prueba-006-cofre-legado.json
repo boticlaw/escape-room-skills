@@ -126,7 +126,7 @@
     },
     {
       "titulo": "Instrucción Final",
-      "texto": "Solo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión.\nLeed con atención el inicio de cada frase.\nLos cuatro números, en orden, abren el cofre.\n\nCuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
+      "texto": "Solo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión.\nLeed con atención el inicio de cada frase.\nLos cuatro números, en el orden en que ganasteis cada valor (de la 1.ª prueba a la última), abren el cofre.\n\nCuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
       "cantidad": 1,
       "gm_notas": "En una tarjeta junto al cofre. Especifica que un JUGADOR lee la carta, no el GM."
     },
@@ -184,7 +184,7 @@
     },
     {
       "titulo": "Instrucción Final",
-      "texto": "Solo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión.\nLeed con atención el inicio de cada frase.\nLos cuatro números, en orden, abren el cofre.\n\nCuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
+      "texto": "Solo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión.\nLeed con atención el inicio de cada frase.\nLos cuatro números, en el orden en que ganasteis cada valor (de la 1.ª prueba a la última), abren el cofre.\n\nCuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
       "cantidad": 1,
       "gm_notas": "En una tarjeta junto al cofre. Especifica que un JUGADOR lee la carta, no el GM."
     },
