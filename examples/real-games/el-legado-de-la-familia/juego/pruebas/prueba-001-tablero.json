@@ -130,9 +130,9 @@
     },
     {
       "titulo": "Restricciones de los Testimonios",
-      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.\n\nTestimonio 7: Rodrigo y Elena tuvieron cuatro hijos. Los demás nombres del tablero no nacieron de ambos.",
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.\n\nTestimonio 7: M. Á. no lleva la sangre de Rodrigo. Llegó a la familia por otro camino.",
       "cantidad": 7,
-      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 es clave: resuelve la ambigüedad de qué nombres son hijos (excluye a Elena como madre y a M. Á. como no-hijo biológico)."
+      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 descarta directamente a M. Á. como hijo de Rodrigo (llegó por otro camino)."
     },
     {
       "titulo": "Fragmento de Carta de Elena (P1)",
@@ -247,9 +247,9 @@
     },
     {
       "titulo": "Restricciones de los Testimonios",
-      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.\n\nTestimonio 7: Rodrigo y Elena tuvieron cuatro hijos. Los demás nombres del tablero no nacieron de ambos.",
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.\n\nTestimonio 7: M. Á. no lleva la sangre de Rodrigo. Llegó a la familia por otro camino.",
       "cantidad": 7,
-      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 es clave: resuelve la ambigüedad de qué nombres son hijos (excluye a Elena como madre y a M. Á. como no-hijo biológico)."
+      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 descarta directamente a M. Á. como hijo de Rodrigo (llegó por otro camino)."
     },
     {
       "titulo": "Fragmento de Carta de Elena (P1)",
