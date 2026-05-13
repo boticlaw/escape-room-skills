@@ -10,8 +10,8 @@ Todos los skills siguen la [Gentle-AI Skill Style Guide](https://github.com/Gent
 
 | Skill | Función |
 |---|---|
-| **escape-design** | Pipeline maestro — 17 fases resumibles con skills individuales por fase, incluyendo remix |
-| **escape-build** | Generación HTML→PDF con plantillas temáticas y 7 categorías de materiales |
+| **escape-design** | Pipeline maestro — 19 fases resumibles con skills individuales por fase, incluyendo remix |
+| **escape-build** | Generación HTML→PDF con identidad visual desde `STYLE.json`, guía de diseño print y 7 categorías de materiales |
 | **escape-puzzles** | Catálogo de 21 mecánicas de puzzle con archivos SKILL.md individuales por mecánica |
 | **escape-setup** | Configuración del sistema — detección de modelos, validación de providers, jueces dual-LLM |
 
@@ -23,7 +23,7 @@ escape-room-skills/
 │   ├── escape-design/              # Skill maestro — pipeline completo de diseño
 │   │   ├── SKILL.md                # Entrada al pipeline (~400 palabras)
 │   │   ├── references/             # Detalle movido fuera del skill principal
-│   │   └── pipeline/               # 18 skills de fase individuales
+│   │   └── pipeline/               # 20 skills de fase individuales
 │   │       ├── pipeline-orchestrator/  # Orchestrador resumible (~830 palabras)
 │   │       │   └── references/        # Design checks, progress schema, ejemplos
 │   │       ├── pipeline-explore/       # Brief + investigación temática
@@ -31,13 +31,15 @@ escape-room-skills/
 │   │       ├── pipeline-design/        # Puzzles (dual-LLM)
 │   │       ├── pipeline-build/         # Construcción del juego
 │   │       ├── pipeline-verify/        # 18 checks + playtest calibration
+│   │       ├── pipeline-verify-materials/ # ⭐ Verificación de materiales (12 checks)
+│   │       ├── pipeline-fix/           # ⭐ Auto-repair desde reports de validación
 │   │       ├── pipeline-judgment-day/  # Revisión adversarial dual-LLM
 │   │       ├── pipeline-playtest/      # Playtest dual-LLM + calibración real
 │   │       ├── pipeline-remix/         # ⭐ Variantes de juegos existentes
 │   │       └── ...                     # 9 skills más
 │   ├── escape-build/               # Plantillas, CSS, generador de materiales
-│   │   ├── SKILL.md                # (~300 palabras)
-│   │   └── references/             # CSS variables, templates, checklists
+│   │   ├── SKILL.md                # (~300 palabras) + STYLE.json + print design
+│   │   └── references/             # style-schema, css-variables, print-design-guide, templates, checklists
 │   ├── escape-puzzles/             # Catálogo de mecánicas
 │   │   ├── SKILL.md                # Resumen + matriz de compatibilidad (~420 palabras)
 │   │   ├── references/             # Catálogo completo de 21 mecánicas
@@ -84,8 +86,8 @@ escape-room-skills/
 ### Pipeline de Diseño (escape-design)
 
 ```
-RESOLVE → EXPLORE → REGRESSION* → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → PLAYTEST → VERIFY → JUDGMENT
-                                     *solo si existe baseline
+RESOLVE → EXPLORE → REGRESSION* → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → MATERIALS-VERIFY → NARRATIVE-RECHECK → PLAYTEST → VERIFY → JUDGMENT
+                                      *solo si existe baseline
 ```
 
 O atajo vía **REMIX**:
@@ -93,7 +95,51 @@ O atajo vía **REMIX**:
 REMIX: juego_base + modificaciones → plan → ejecutar → verify → REMIX-DIFF.json
 ```
 
+Fase **FIX** (auto-repair) se activa automáticamente cuando cualquier fase de validación (MATERIALS-VERIFY, PLAYTEST, VERIFY, JUDGMENT) produce `fail` o `pass_with_warnings`.
+
 Cada fase es un skill independiente con su propio SKILL.md. El pipeline es **resumible** vía `PROGRESS.json` — si se interrumpe, continúa desde la primera fase incompleta.
+
+### Identidad Visual: STYLE.json
+
+Cada juego tiene un `STYLE.json` que define su identidad visual completa — colores, tipografía, texturas, componentes. Se genera en la fase RESOLVE y se consume en todas las fases de BUILD.
+
+```json
+{
+  "paleta": { "fondo_principal": "#faf0e6", "texto": "#4a3728", ... },
+  "tipografia": { "titulo": "'EB Garamond', Georgia, serif", ... },
+  "componentes": { "cartel": { "fondo": "#1a1a1a", "texto": "#f5e6c8" }, ... },
+  "texturas": { "papel": "sepia aged", "envejecimiento": true, ... }
+}
+```
+
+**Flujo:**
+1. RESOLVE pregunta: "¿Tenés estilo definido o querés que diseñe uno?"
+2. Usuario da referencia → se genera `STYLE.json` desde la descripción
+3. Sin preferencia → se auto-genera desde 8 presets por género (Sepia Vintage, Neon Dark, etc.)
+4. Todos los materiales HTML/PDF derivan su CSS de `STYLE.json` — cero estilos hardcodeados
+
+Ver `skills/escape-build/references/style-schema.md` para el schema completo.
+
+### Guía de Diseño para Impresión
+
+`references/print-design-guide.md` define principios de diseño específicos para materiales impresos de escape room:
+
+- **8 parejas tipográficas** por género (título + cuerpo) con Google Fonts URLs
+- **6 paletas por mood** (papel antiguo, pergamino, noche, bosque, laboratorio, militar)
+- **7 layouts por tipo de documento** (cartel, carta, diario, tarjeta, tablero, fragmento, etiqueta)
+- **Recetas CSS de texturas** (papel envejecido, quemado, sellos de cera, scratch-off)
+- **Escala de espaciado** (xs 1.5mm → 3xl 20mm) y escala tipográfica (8pt → 28pt)
+- **Reglas priorizadas**: 6 obligatorias, 6 recomendadas, 5 opcionales
+
+### Game Guide (Documento de Diseño Estándar)
+
+El output estándar del BUILD es `00-guia-completa-juego.html/pdf` con estructura fija:
+
+1. Cover → Ficha Técnica + Sinopsis → Personajes → Flujo → Hilo Conductor
+2. Pruebas (1 página cada una): mecánica detallada + recompensa + solución + materiales
+3. Resumen de candados y códigos + Inventario de materiales
+
+**No incluye** presupuesto ni debriefing (van en documentos separados).
 
 ### Reglas de Diseño Core
 
@@ -307,7 +353,7 @@ Evento de escape rooms para jóvenes (12-18 años), 5-6 jugadores, 45-55 minutos
 
 | Juego | Temática | Estado | Puzzles |
 |-------|----------|--------|---------|
-| **El Legado de la Familia** | Familiar/misterio | Completo con playtest | 6 pruebas + meta-prueba |
+| **El Legado de la Familia** | Familiar/misterio | v5.1 completo con materiales | 6 pruebas + meta-prueba |
 | **Legado Tinta Violeta** | Escritoras palentinas | v4.1 completo | 7 pruebas + final |
 | **Protocolo Alerta Verde** | Medio ambiente/sabotaje ecológico | Completo | 6 pruebas |
 | **Test de Touring** | IA y sus peligros | En diseño | 6 pruebas |
