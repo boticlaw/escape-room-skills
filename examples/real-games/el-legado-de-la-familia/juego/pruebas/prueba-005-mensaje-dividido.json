@@ -1,7 +1,7 @@
 {
   "id": "legado_005_mensaje_rasgado",
   "nombre": "El Mensaje Rasgado",
-  "descripcion": "En el desván, entre la penumbra y la luz cálida de una lámpara antigua, los jugadores encuentran una mesa con dos montones de fragmentos de papel sepia. Son los restos de una carta que Elena rasgó en 12 fragmentos irregulares para proteger su contenido. Los fragmentos tienen bordes irregulares que encastan como un puzzle físico: cada fragmento solo se une correctamente con su vecino. El grupo trabaja JUNTO: buscan bordes que encajan, leen el texto parcial de cada fragmento, y reconstruyen la carta completa. La carta reconstruida describe un lugar concreto: 'bajo la tercera tabla del suelo del desván'. La tercera tabla tiene una marca de cera roja PERMANENTE. Allí encuentran un sobre lacrado rojo con materiales para P6.",
+  "descripcion": "En el desván, entre la penumbra y la luz cálida de una lámpara antigua, los jugadores encuentran una mesa con dos montones de fragmentos de papel sepia. Son los restos de una carta que Elena rasgó en 12 fragmentos irregulares para proteger su contenido. Los fragmentos tienen bordes irregulares que encastan como un puzzle físico: cada fragmento solo se une correctamente con su vecino. El grupo trabaja JUNTO: buscan bordes que encajan, leen el texto parcial de cada fragmento, y reconstruyen la carta completa. La carta reconstruida describe un lugar concreto: 'bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada'. La tercera tabla tiene una marca de cera roja PERMANENTE. Allí encuentran un sobre lacrado rojo con materiales para P6.",
   "juego": "el-legado-de-la-familia",
   "version": 15,
   "espacio": 3,
@@ -61,13 +61,13 @@
     {
       "nivel": 3,
       "tipo": "casi_solucion",
-      "texto": "El mensaje completo dice: 'Buscad bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'",
+      "texto": "El mensaje completo dice: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'",
       "timing": "Tras 6 minutos o petición explícita"
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores reconstruyen la carta rasgada de Elena encajando los 12 fragmentos por sus bordes irregulares y el contenido textual. La carta reconstruida indica la ubicación de un sobre lacrado rojo bajo la tercera tabla del suelo del desván.",
-    "verificacion": "La carta reconstruida correctamente dice: 'Buscad bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.' Al llegar, encuentran un sobre lacrado rojo con símbolo de marioneta.",
+    "descripcion": "Los jugadores reconstruyen la carta rasgada de Elena encajando los 12 fragmentos por sus bordes irregulares y el contenido textual. La carta reconstruida indica la ubicación de un sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada.
+    "verificacion": "La carta reconstruida correctamente dice: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.' Al llegar, encuentran un sobre lacrado rojo con símbolo de marioneta.",
     "pasos_detallados": [
       "Entrar al desván y encontrar los fragmentos en la mesa.",
       "Leer la tarjeta de instrucciones junto a los fragmentos.",
@@ -75,7 +75,7 @@
       "Buscar bordes irregulares que encajen (como un puzzle).",
       "Leer el texto parcial de cada fragmento para orientar la reconstrucción.",
       "Unir fragmentos por bordes + contenido textual.",
-      "Reconstruir la carta completa: 'Buscad bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'",
+      "Reconstruir la carta completa: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'",
       "Identificar la tercera tabla del suelo (marcada PERMANENTEMENTE con cera roja).",
       "Bajo la tabla encuentran un sobre lacrado rojo con el símbolo de una marioneta.",
       "Rompen el lacre: dentro hay la letra D, las 6 letras LEGADO con números romanos, la carta de despedida de Elena, y las tijeras doradas.",
@@ -118,9 +118,9 @@
     },
     {
       "titulo": "Carta Rasgada de Elena (12 fragmentos)",
-      "texto": "Fragmento 1: 'Buscad'\nFragmento 2: 'bajo la'\nFragmento 3: 'tercera tabla'\nFragmento 4: 'del suelo del'\nFragmento 5: 'desván, la'\nFragmento 6: 'que tiene una marca'\nFragmento 7: 'de cera roja'\nFragmento 8: 'en la esquina.'\nFragmento 9: 'Allí dejé'\nFragmento 10: 'lo que Rodrigo quiso'\nFragmento 11: 'destruir pero yo'\nFragmento 12: 'lo guardé para vosotros.'",
+      "texto": "Fragmento 1: 'Buscad'\nFragmento 2: 'bajo la'\nFragmento 3: 'tercera tabla'\nFragmento 4: 'del suelo del'\nFragmento 5: 'desván, contando'\nFragmento 6: 'desde la puerta'\nFragmento 7: 'de entrada. La que'\nFragmento 8: 'tiene una marca de'\nFragmento 9: 'cera roja'\nFragmento 10: 'en la esquina.'\nFragmento 11: 'Allí dejé lo que Rodrigo quiso'\nFragmento 12: 'destruir pero yo lo guardé para vosotros.'",
       "cantidad": 12,
-      "gm_notas": "Cada fragmento es un trozo irregular de papel sepia con texto parcial. Los bordes son únicos y solo encajan con sus vecinos correctos. El reverso tiene un número discreto para reset GM. Reconstruido: 'Buscad bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'"
+      "gm_notas": "Cada fragmento es un trozo irregular de papel sepia con texto parcial. Los bordes son únicos y solo encajan con sus vecinos correctos. El reverso tiene un número discreto para reset GM. Reconstruido: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'"
     }
   ],
   "barrera_fisica": {
@@ -170,9 +170,9 @@
     },
     {
       "titulo": "Carta Rasgada de Elena (12 fragmentos)",
-      "texto": "Fragmento 1: 'Buscad'\nFragmento 2: 'bajo la'\nFragmento 3: 'tercera tabla'\nFragmento 4: 'del suelo del'\nFragmento 5: 'desván, la'\nFragmento 6: 'que tiene una marca'\nFragmento 7: 'de cera roja'\nFragmento 8: 'en la esquina.'\nFragmento 9: 'Allí dejé'\nFragmento 10: 'lo que Rodrigo quiso'\nFragmento 11: 'destruir pero yo'\nFragmento 12: 'lo guardé para vosotros.'",
+      "texto": "Fragmento 1: 'Buscad'\nFragmento 2: 'bajo la'\nFragmento 3: 'tercera tabla'\nFragmento 4: 'del suelo del'\nFragmento 5: 'desván, contando'\nFragmento 6: 'desde la puerta'\nFragmento 7: 'de entrada. La que'\nFragmento 8: 'tiene una marca de'\nFragmento 9: 'cera roja'\nFragmento 10: 'en la esquina.'\nFragmento 11: 'Allí dejé lo que Rodrigo quiso'\nFragmento 12: 'destruir pero yo lo guardé para vosotros.'",
       "cantidad": 12,
-      "gm_notas": "Cada fragmento es un trozo irregular de papel sepia con texto parcial. Los bordes son únicos y solo encajan con sus vecinos correctos. El reverso tiene un número discreto para reset GM. Reconstruido: 'Buscad bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'"
+      "gm_notas": "Cada fragmento es un trozo irregular de papel sepia con texto parcial. Los bordes son únicos y solo encajan con sus vecinos correctos. El reverso tiene un número discreto para reset GM. Reconstruido: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'"
     }
   ]
 }

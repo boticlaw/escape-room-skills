@@ -112,7 +112,7 @@
   "documentos_in_game": [
     {
       "titulo": "Instrucción del Álbum",
-      "texto": "CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.\n\nPasad las páginas del álbum. Hay más fotos que recuerdos.\n\nLeed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.\n\nLos sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.\n\nNO raspéis hasta que TODOS estéis de acuerdo.\n\nOrdenad los números por fecha, de la más antigua a la más reciente.",
+      "texto": "CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.\n\nPasad las páginas del álbum. Hay más fotos que recuerdos.\n\nLeed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.\n\nLos sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.\n\n⚠ NO raspéis el sello de ninguna tarjeta hasta que TODOS estéis de acuerdo en la pareja. Las capas ocultas son de un solo uso: una vez raspadas, no se pueden volver a usar. Si raspáis una foto incorrecta, perdéis una pista.\n\nOrdenad los números por fecha, de la más antigua a la más reciente.",
       "cantidad": 1,
       "gm_notas": "Impresa en la primera página del álbum. Clave: informa que hay MÁS fotos que recuerdos, y que el sello da feedback automático (dígito = correcto, hoja = incorrecto)."
     },
@@ -179,7 +179,7 @@
   "ingame_docs": [
     {
       "titulo": "Instrucción del Álbum",
-      "texto": "CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.\n\nPasad las páginas del álbum. Hay más fotos que recuerdos.\n\nLeed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.\n\nLos sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.\n\nNO raspéis hasta que TODOS estéis de acuerdo.\n\nOrdenad los números por fecha, de la más antigua a la más reciente.",
+      "texto": "CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.\n\nPasad las páginas del álbum. Hay más fotos que recuerdos.\n\nLeed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.\n\nLos sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.\n\n⚠ NO raspéis el sello de ninguna tarjeta hasta que TODOS estéis de acuerdo en la pareja. Las capas ocultas son de un solo uso: una vez raspadas, no se pueden volver a usar. Si raspáis una foto incorrecta, perdéis una pista.\n\nOrdenad los números por fecha, de la más antigua a la más reciente.",
       "cantidad": 1,
       "gm_notas": "Impresa en la primera página del álbum."
     },

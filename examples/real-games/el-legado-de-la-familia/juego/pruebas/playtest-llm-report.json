@@ -1,331 +1,92 @@
 {
-  "timestamp": "2026-05-01T18:15:05.472359+00:00",
-  "juego": "El legado de la familia",
+  "timestamp": "2026-05-13T21:53:04.118830+00:00",
+  "juego": "El Legado de la Familia",
   "model": "gemini-2.5-flash",
   "pruebas": [
     {
-      "nombre": "El Diario Secreto",
-      "id": "legado_001_diario_secreto",
+      "nombre": "El Tablero de las Presencias",
+      "id": "legado_001_tablero_presencias",
       "resultados": [
         {
           "entiende": true,
           "confusiones": [
-            "No me queda claro si el acróstico se forma con las estrellas de una sola página o de todas las páginas del diario. El diario tiene estrellas en más de una página y eso confunde al intentar formar una palabra."
+            "Al principio, no me quedaba claro si Miguel y M. Á. eran la misma persona o dos distintas, y si ambos eran hijos. El Testimonio 7 ayuda mucho a entenderlo.",
+            "Saber el orden exacto de nacimiento de los cuatro hijos (Marcos, Carmen, Luis, Miguel) para formar el código. Los testimonios dan pistas pero hay que conectarlas bien."
           ],
           "pasos_seguidos": [
-            "Encontrar el diario en el escritorio. Mis amigos y yo lo abrimos y empezamos a leerlo.",
-            "Alguien (o yo) nota las pequeñas estrellas en el margen de algunos párrafos. Decimos: \"¡Mira, estrellitas! ¿Eso significa algo?\".",
-            "Uno de mis amigos, que ya ha jugado a esto, dice: \"¡Hay que coger la primera letra de esos párrafos!\".",
-            "Empezamos a apuntar las primeras letras de *todos* los párrafos con estrella que encontramos, de las tres páginas del diario. Obtenemos: L, E, E, R (de la página 1), luego E, G (de la página 2), y S, E, A (de la página 3).",
-            "Intentamos formar una palabra con la secuencia L-E-E-R-E-G-S-E-A. Decimos: \"LEEREGSEA... ¿qué es eso?\" o \"Esto no tiene sentido, hay demasiadas letras\".",
-            "Nos quedamos mirando las letras, intentando combinarlas de mil maneras, pero no sale nada lógico."
+            "Cogeríamos el tablero, las fichas de los personajes y los sobres de testimonio que están fuera de la caja.",
+            "Leeríamos la instrucción grande del tablero que dice que compartamos en voz alta los testimonios.",
+            "Repartiríamos los 7 sobres de testimonio entre los 4 amigos. Seguramente alguno tendría dos sobres.",
+            "Cada uno leería sus testimonios en voz alta para que todos los escucháramos.",
+            "Buscaríamos la plantilla de tabla para ir anotando las posibilidades y descartando, para no liarnos tanto.",
+            "Empezaríamos a colocar las fichas en el tablero según las restricciones más claras, las que dicen 'estuvo en X' o 'no estuvo en Y'.",
+            "Discutiríamos las restricciones entre todos para ver cómo encajan, especialmente las de 'antes' o 'después' y 'inmediatamente'.",
+            "Una vez que las 6 fichas estén colocadas en el tablero, identificaríamos a los 4 hijos de Rodrigo y Elena (gracias al Testimonio 7, M. Á. no es hijo).",
+            "Intentaríamos descifrar el orden de nacimiento de los hijos (Marcos, Carmen, Luis, Miguel) usando Testimonio 1 ('el hijo mayor') y Testimonio 4 ('Luis, nacido entre Carmen y Miguel').",
+            "Cogeríamos las posiciones de las fichas de los hijos en el tablero, en el orden de nacimiento que hubiéramos deducido.",
+            "Probaríamos el número de 4 dígitos en el candado de la caja."
           ],
-          "atasque_en": "Intentar formar una palabra con las primeras letras de *todos* los párrafos marcados con estrella de las tres páginas del diario, ya que el resultado (L-E-E-R-E-G-S-E-A) no tiene sentido y no sabemos qué letras usar.",
-          "pidio_pista": true,
-          "nivel_pista": 3,
-          "frustracion": 6,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 12,
-          "comentario": "Un poco lío con tantas letras al principio, pero al final, con la pista, lo hemos pillado y mola abrir el candado.",
-          "_perfil": "Estudiante",
-          "_emoji": "🧑‍🎓"
-        },
-        {
-          "entiende": true,
-          "confusiones": [
-            "Al principio, me preguntaría si todas las páginas con estrellas contribuyen al mismo código o si hay varios acrósticos.",
-            "Una vez resuelto el acróstico principal, qué hacer con el resto de las páginas del diario que también tienen estrellas o información narrativa."
-          ],
-          "pasos_seguidos": [
-            "Encontrar el diario en el escritorio del despacho.",
-            "Mi grupo (4 personas) lo cogería. Uno o dos empezarían a leer en voz alta, mientras los otros ojearían las páginas en busca de anomalías visuales.",
-            "Rápidamente, alguien identificaría las pequeñas estrellas en el margen de la primera página.",
-            "Simultáneamente, otro jugador buscaría el candado o mecanismo que debe abrirse con la pista. Veríamos el candado de 4 letras en la caja del escritorio.",
-            "Con el objetivo de un código de 4 letras en mente, extraeríamos las primeras letras de los párrafos marcados con estrella de la primera página: L, E, E, R.",
-            "Formaríamos la palabra 'LEER'.",
-            "Introduciríamos 'LEER' en el candado de la caja del escritorio y se abriría."
-          ],
-          "atasque_en": null,
-          "pidio_pista": false,
-          "nivel_pista": null,
-          "frustracion": 2,
-          "diversion": 6,
-          "tiempo_estimado_minutos": 5,
-          "comentario": "Un clásico de texto bien integrado con la narrativa. Sólido, pero sin grandes sorpresas para un jugador experimentado.",
-          "_perfil": "Experimentado",
-          "_emoji": "🏆"
-        },
-        {
-          "entiende": true,
-          "confusiones": [
-            "Al principio me costó entender que el acróstico para el código de 4 letras solo venía de una página del diario, no de todas las estrellas que encontramos en las tres páginas."
-          ],
-          "pasos_seguidos": [
-            "Entrar en el despacho y distraerme un poco con los objetos, ¡qué chulo todo!",
-            "Uno de mis amigos encuentra el diario abierto en el escritorio y empezamos a leerlo en voz alta.",
-            "Me engancho a la historia de la Abuela Elena, es muy interesante.",
-            "Otro amigo o yo notamos las pequeñas estrellas en los márgenes de los párrafos en la primera página.",
-            "Decidimos extraer la primera letra de cada párrafo marcado con estrella de todas las páginas del diario que encontramos.",
-            "Obtenemos una secuencia de letras (L, E, E, R, E, G, S, E, A) y no sabemos cómo formar una palabra de 4 letras con ellas.",
-            "Vemos el candado de 4 letras en una caja del escritorio y sabemos que necesitamos una palabra corta.",
-            "Intentamos varias combinaciones de 4 letras con las que tenemos, pero no encontramos la correcta y nos frustramos."
-          ],
-          "atasque_en": "Intentar formar una palabra de 4 letras con la secuencia L,E,E,R,E,G,S,E,A, obtenida de todas las páginas del diario, sin darnos cuenta de que solo la primera página era relevante para el acróstico principal.",
-          "pidio_pista": true,
-          "nivel_pista": 3,
-          "frustracion": 7,
-          "diversion": 6,
-          "tiempo_estimado_minutos": 15,
-          "comentario": "Nos liamos muchísimo con las letras de todas las páginas, pero la historia del diario era muy chula. ¡Necesitamos la pista para avanzar!",
-          "_perfil": "Novato",
-          "_emoji": "🐣"
-        }
-      ],
-      "errores": []
-    },
-    {
-      "nombre": "Las Cartas Desordenadas",
-      "id": "legado_002_cartas_desordenadas",
-      "resultados": [
-        {
-          "entiende": true,
-          "confusiones": [
-            "El candado es de 3 letras, pero la instrucción dice que la pista se forma con la primera letra de CADA remitente en orden cronológico, que serían 8 letras. No encaja."
-          ],
-          "pasos_seguidos": [
-            "Buscar las 8 cartas en el cajón del escritorio.",
-            "Repartir las cartas entre los amigos y leerlas en voz alta.",
-            "Usar la guía de remitentes (si la encontramos) para identificar las profesiones y ciudades de Marcos, Carmen y Luis.",
-            "Emparejar cada carta con su remitente basándonos en las pistas del texto (ciudades, profesiones, nombres).",
-            "Ordenar las cartas cronológicamente según las fechas que aparecen en ellas.",
-            "Intentar formar el código del candado con la primera letra de cada remitente en orden cronológico."
-          ],
-          "atasque_en": "Al intentar usar la secuencia de 8 letras de los remitentes en el candado que solo tiene 3 espacios.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 6,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 10,
-          "comentario": "Me gustó leer las cartas, pero lo del código fue muy lioso hasta que nos dieron la pista.",
-          "_perfil": "Estudiante",
-          "_emoji": "🧑‍🎓"
-        },
-        {
-          "entiende": false,
-          "confusiones": [
-            "La descripción inicial del mecanismo de la pista (\"la primera letra de cada remitente en orden cronologico forma una pista\") contradice el tipo de candado (3 letras) y la solución real (una palabra clave 'SOL' encontrada en el texto de una carta específica). Esto es una gran confusión sobre cómo formar el código final.",
-            "Si la pista es la 'primera letra de cada remitente en orden cronológico', y hay 8 cartas, ¿cómo se convierte una secuencia de 8 letras (M, C, L repetidos) en un código de 3 letras para el candado?"
-          ],
-          "pasos_seguidos": [
-            "Distribuir las 8 cartas entre los 4 jugadores del grupo (2 cartas cada uno, siguiendo la sugerencia de distribución de roles).",
-            "Cada jugador lee sus cartas en voz alta, prestando atención a fechas, ciudades, profesiones, nombres mencionados y cualquier detalle que pueda identificar al remitente.",
-            "Usar la 'Guía de remitentes con fotos' para emparejar cada carta con el remitente correcto: Marcos (médico, Madrid), Carmen (profesora, Sevilla) o Luis (arquitecto, Barcelona).",
-            "Ordenar las 8 cartas cronológicamente según las fechas indicadas en el texto o en el sobre de cada una.",
-            "Una vez ordenadas y emparejadas, intentar aplicar la instrucción inicial de 'la primera letra de cada remitente en orden cronológico forma una pista'. Esto nos llevaría a una secuencia de 8 letras (ej. M-C-L-M-C-L-M-C), que no encaja con un candado de 3 letras.",
-            "Al ver la contradicción, re-leeremos las cartas, especialmente las últimas o aquellas que mencionan secretos/pistas, buscando una palabra clave de 3 letras, o iniciales de nombres que encajen con el candado. La mención de 'tercer escalón' en una carta de Luis nos haría buscar algo en el salón."
-          ],
-          "atasque_en": "La derivación del código final para el candado de 3 letras. Habiendo hecho todo el trabajo previo (emparejar y ordenar), las instrucciones sobre cómo obtener el código son contradictorias y no llevarían a la solución real.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 7,
-          "diversion": 6,
-          "tiempo_estimado_minutos": 10,
-          "comentario": "El inicio es colaborativo y claro, pero la pista para el candado está mal explicada y nos haría perder tiempo buscando una solución que no existe según las instrucciones iniciales.",
-          "_perfil": "Experimentado",
-          "_emoji": "🏆"
-        },
-        {
-          "entiende": false,
-          "confusiones": [
-            "La instrucción inicial 'la primera letra de cada remitente en orden cronologico forma una pista' es muy confusa y no lleva al código real del candado de 3 letras. Esperaría una secuencia de 8 letras o no sabría cómo filtrar a 3.",
-            "La ubicación del candado ('tercer escalón del salón') no está directamente relacionada con la instrucción principal de 'ordenar y usar la primera letra', lo que me haría buscar el candado en el mismo cajón de las cartas en lugar de en otro sitio."
-          ],
-          "pasos_seguidos": [
-            "Entrar en la sala y distraerme con los objetos del escritorio.",
-            "Encontrar las 8 cartas en el cajón del escritorio.",
-            "Mis amigos y yo repartirnos las cartas y empezar a leerlas en voz alta, comentando los detalles de cada una.",
-            "Intentar identificar al remitente de cada carta basándonos en las ciudades, profesiones y nombres mencionados (Marcos el médico de Madrid, Carmen la profesora de Sevilla, Luis el arquitecto de Barcelona).",
-            "Una vez identificados los remitentes, intentar ordenar las cartas cronológicamente buscando las fechas en cada una.",
-            "Con las cartas ordenadas, intentar formar una pista con la primera letra de cada remitente, pero no encaja con un candado de 3 letras. Nos frustraríamos.",
-            "Al no encontrar una lógica clara, volveríamos a leer las cartas buscando 'palabras clave' o algo diferente, como sugiere el rol de 'detectives' en las instrucciones de la prueba.",
-            "Si encontramos 'tercer escalón del salón' en la carta de Luis, iríamos a buscar una caja allí.",
-            "Una vez encontrada la caja con el candado de 3 letras, releeríamos las cartas, prestando especial atención a la última de Carmen para encontrar la pista 'SOL'."
-          ],
-          "atasque_en": "Me atascaría en el momento de intentar formar el código del candado, ya que la instrucción inicial 'la primera letra de cada remitente' no coincide con el candado de 3 letras ni con la solución real.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 7,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 15,
-          "comentario": "Las cartas eran interesantes, pero el código final me lió un montón al principio.",
-          "_perfil": "Novato",
-          "_emoji": "🐣"
-        }
-      ],
-      "errores": []
-    },
-    {
-      "nombre": "Las Fotos y los Recuerdos",
-      "id": "legado_003_fotos_recuerdos",
-      "resultados": [
-        {
-          "entiende": true,
-          "confusiones": [
-            "Al principio, la organización de las zonas y el 'secretario' no quedó del todo clara, pero se resolvió rápido al empezar a jugar."
-          ],
-          "pasos_seguidos": [
-            "Nos repartimos las zonas del tablero (uno para cada uno).",
-            "Empezamos a levantar dos tarjetas por turno, intentando recordar dónde estaban las fotos.",
-            "Cuando encontrábamos una pareja, leíamos la información en voz alta.",
-            "Después de la primera pista, nos centramos en buscar y apuntar las fechas que aparecían en algunas parejas.",
-            "Una vez que tuvimos las 4 fechas, las ordenamos de la más antigua a la más reciente.",
-            "Con la segunda pista, cogimos el último dígito de cada fecha para formar el código.",
-            "Probamos el código en el candado del compartimento."
-          ],
-          "atasque_en": "Después de encontrar todas las parejas y tener las 4 fechas clave, no sabíamos cómo usarlas para obtener el código del candado.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 6,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 12,
-          "comentario": "El juego de memoria estuvo bien, pero lo más difícil fue saber qué hacer con las fechas para el código. ¡La recompensa fue guay!",
-          "_perfil": "Estudiante",
-          "_emoji": "🧑‍🎓"
-        },
-        {
-          "entiende": true,
-          "confusiones": [],
-          "pasos_seguidos": [
-            "Localizar el panel con las 24 tarjetas boca abajo y el compartimento con candado numérico.",
-            "Rápidamente, como grupo de 4, dividimos las 24 tarjetas en 4 zonas de 6 tarjetas, asignando una zona a cada jugador.",
-            "Designamos a uno de nosotros como 'secretario' para anotar cualquier fecha o número que aparezca.",
-            "Cada jugador, en su turno, voltea 2 tarjetas de su zona, comunicando en voz alta lo que ve (imágenes y texto).",
-            "Si se encuentra una pareja, se deja boca arriba y se lee toda la información asociada en voz alta al grupo.",
-            "Si la información de una pareja contiene una fecha, el 'secretario' la anota inmediatamente.",
-            "Continuamos este proceso hasta que se hayan encontrado las 12 parejas.",
-            "Una vez que todas las parejas están a la vista, revisamos las 4 fechas que el 'secretario' ha anotado.",
-            "Ordenamos las 4 fechas cronológicamente (de más antigua a más reciente).",
-            "Tomamos el último dígito de cada fecha en el orden cronológico.",
-            "Introducimos el código de 4 dígitos resultante en el candado numérico del compartimento."
-          ],
-          "atasque_en": null,
-          "pidio_pista": false,
-          "nivel_pista": null,
-          "frustracion": 2,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 8,
-          "comentario": "Un clásico bien implementado, ideal para calentar motores y fomentar la comunicación.",
-          "_perfil": "Experimentado",
-          "_emoji": "🏆"
-        },
-        {
-          "entiende": true,
-          "confusiones": [
-            "La instrucción de dividir el tablero en zonas y la comunicación me parece un poco compleja para el principio, al ser novatos podríamos liarnos.",
-            "No tengo claro cómo sabremos qué parejas son las 'cruciales' hasta que no las encontremos y las leamos.",
-            "La parte de 'ordenar cronológicamente y tomar el último dígito' no está explicada en las instrucciones iniciales, podría ser un punto de bloqueo."
-          ],
-          "pasos_seguidos": [
-            "Admirar las fotos de las paredes por un momento (¡qué bonitas!).",
-            "Intentar entender la distribución de las 24 tarjetas boca abajo, probablemente con un amigo.",
-            "Dividir el tablero en 4 zonas, asignando una a cada amigo.",
-            "Empezar a voltear 2 tarjetas por turno, intentando memorizar las ubicaciones en nuestra zona y comunicándolas a los demás.",
-            "Cuando encontramos una pareja, leer lo que pone y dejarla boca arriba.",
-            "Si encontramos una fecha, gritar '¡Fecha!' y pedir que alguien la apunte.",
-            "Una vez todas las parejas encontradas, revisar las fechas que tenemos.",
-            "Intentar ordenar las fechas cronológicamente.",
-            "Buscar un patrón o qué hacer con los números para el candado."
-          ],
-          "atasque_en": "En la fase de comunicación para recordar las ubicaciones de las tarjetas y, sobre todo, al llegar a las fechas, si no recordamos que hay que apuntarlas o qué hacer con ellas para el código.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 6,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 12,
-          "comentario": "¡Qué de fotos! Me costó concentrarme pero la historia de las fotos era interesante. Nos liamos un poco con las fechas al final.",
-          "_perfil": "Novato",
-          "_emoji": "🐣"
-        }
-      ],
-      "errores": []
-    },
-    {
-      "nombre": "La Linea Temporal Familiar",
-      "id": "legado_004_linea_temporal",
-      "resultados": [
-        {
-          "entiende": true,
-          "confusiones": [
-            "No saber cómo deducir las fechas de los eventos 3, 6 y 7 porque no tengo el diario y las cartas que se mencionan como fuentes de información. Sé que tengo que usarlos, pero no los tengo delante."
-          ],
-          "pasos_seguidos": [
-            "Leer todas las tarjetas para entender los eventos.",
-            "Separar las tarjetas que tienen una fecha clara de las que no.",
-            "Colocar las tarjetas con fecha en la línea temporal, ordenándolas de forma cronológica.",
-            "Mirar las tarjetas sin fecha y pensar qué podemos hacer con ellas, recordando que el juego dice que hay que usar el diario y las cartas.",
-            "Buscar el diario y las cartas por la sala para ver si encontramos las fechas que faltan.",
-            "Si encontramos las pistas, intentar relacionarlas con los eventos sin fecha y colocarlos en la línea temporal, discutiendo con mis amigos para ver dónde encajan mejor.",
-            "Prestar atención especial al evento de 'Elena entrega al hijo' porque el juego dice que va en la posición 6 y es clave para avanzar.",
-            "Si no encontramos las pistas o no sabemos cómo usarlas, pedir ayuda."
-          ],
-          "atasque_en": "Los eventos sin fecha (3, 6, 7) por falta de acceso al diario y las cartas mencionadas.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 7,
-          "diversion": 6,
-          "tiempo_estimado_minutos": 10,
-          "comentario": "Me molaría, pero me he quedado pillado enseguida porque no tengo el diario y las cartas para las fechas que faltan.",
-          "_perfil": "Estudiante",
-          "_emoji": "🧑‍🎓"
-        },
-        {
-          "entiende": true,
-          "confusiones": [],
-          "pasos_seguidos": [
-            "Repartir las 10 tarjetas entre los 4 jugadores, asegurándonos de que cada uno tenga sus 'responsabilidades'.",
-            "Cada jugador lee sus tarjetas e identificamos rápidamente las que tienen una fecha explícita.",
-            "Colocamos las tarjetas con fechas explícitas en el panel de la línea temporal para establecer una base clara.",
-            "Identificamos las 3 tarjetas sin fecha (Eventos 3, 6, 7, según las descripciones de las tarjetas).",
-            "Revisamos los documentos anteriores (diario y cartas) que se mencionan, buscando cualquier pista de fechas, nombres o eventos relacionados con los eventos sin fecha, especialmente los que se refieren a los años 60 y finales de los 80/principios de los 90.",
-            "En grupo, intentamos deducir el orden y las fechas aproximadas de los eventos 3 y 6 (nacimiento y adopción) basándonos en la cronología de los hijos ya conocidos (Marcos en 1960, Carmen en 1965) y la edad de Elena, si la tenemos de alguna pista anterior.",
-            "De forma similar, intentamos situar el Evento 7 (Rodrigo descubre la verdad, casa vendida) usando las referencias de las cartas/diario.",
-            "Una vez que tenemos un orden consensuado para todos los eventos, los colocamos en el panel.",
-            "Verificamos que el evento clave 'Elena entrega a alguien muy querido' quede en la posición 6 para intentar activar el mecanismo."
-          ],
-          "atasque_en": "La deducción de las fechas exactas para los eventos 3, 6 y 7 (nacimiento, adopción y descubrimiento de Rodrigo) a partir de la información dispersa en el diario y las cartas. Si la clave de la edad de Elena en 1962 no es obvia de los documentos previos, nos costaría mucho situar los eventos de los 60.",
-          "pidio_pista": true,
-          "nivel_pista": 2,
-          "frustracion": 6,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 12,
-          "comentario": "Buena mezcla de ordenación y deducción, pero si las pistas previas no son claras, te atascas fácil en las fechas exactas.",
-          "_perfil": "Experimentado",
-          "_emoji": "🏆"
-        },
-        {
-          "entiende": true,
-          "confusiones": [
-            "¿Dónde están las 'pruebas anteriores (diario y cartas)'? ¿Las hemos visto ya? ¿Están en esta sala?",
-            "¿Cómo de precisas deben ser las fechas de los eventos sin fecha? ¿Basta con la década o necesitamos el año exacto?",
-            "La relación exacta entre 'Elena da a luz a un cuarto hijo' y 'Elena entrega a alguien muy querido' es confusa, ¿cuál va primero o son el mismo año?"
-          ],
-          "pasos_seguidos": [
-            "¡Qué bonito el panel y las tarjetas! (Distracción inicial por los decorados).",
-            "Repartir las 10 tarjetas entre los 4 amigos y leerlas en voz alta.",
-            "Identificar las tarjetas con fechas explícitas y colocarlas en el panel en orden obvio (1959, 1960, 1965, 1967, 1995, 2005, 2026).",
-            "Identificar las 3 tarjetas sin fecha (Eventos 3, 6, 7).",
-            "Intentar colocar las tarjetas sin fecha por lógica relativa a las que sí tienen fecha.",
-            "Buscar activamente en la sala el 'diario y las cartas' mencionadas en la descripción de la prueba, ya que son clave para las fechas ocultas. 'Chicos, ¿alguien ha visto un diario o unas cartas por aquí?'",
-            "Si encontramos el diario y las cartas, intentar deducir las fechas de los eventos 3, 6 y 7, relacionando la información.",
-            "Ajustar el orden de las tarjetas en el panel con la información obtenida y discutirlo en grupo."
-          ],
-          "atasque_en": "La deducción de las fechas exactas para los Eventos 3, 6 y 7 sin tener el 'diario y las cartas' a mano o sin saber cómo interpretar su información para obtener las fechas precisas.",
+          "atasque_en": "El orden exacto de nacimiento de los cuatro hijos (Marcos, Carmen, Luis, Miguel) a partir de los testimonios para formar el código. Es fácil saber quién es el mayor, pero lo de 'Luis, nacido entre Carmen y Miguel' puede ser un poco lioso para saber si va Carmen-Luis-Miguel o Miguel-Luis-Carmen.",
           "pidio_pista": true,
           "nivel_pista": 2,
           "frustracion": 6,
           "diversion": 8,
+          "tiempo_estimado_minutos": 18,
+          "comentario": "Me gustó mucho la idea de que todos tuviéramos información y tuviéramos que hablar para resolverlo. Lo de las edades fue lo que más nos costó.",
+          "_perfil": "Estudiante",
+          "_emoji": "🧑‍🎓"
+        },
+        {
+          "entiende": true,
+          "confusiones": [
+            "La plantilla para anotar restricciones está dentro de la caja cerrada, lo que dificulta la organización inicial de la información. Esto es un fallo de diseño. También, la diferenciación entre Miguel y M.Á. para el código y el orden exacto de nacimiento de los hijos requiere atención."
+          ],
+          "pasos_seguidos": [
+            "Escanear la zona para identificar todos los elementos: tablero, fichas, sobres de testimonio, caja cerrada con candado.",
+            "Leer las instrucciones del tablero: \"COMPARTID EN VOZ ALTA...\", \"POSICIONES DE LOS CUATRO HIJOS... DEL MAYOR AL MENOR...\"",
+            "Repartir los 7 sobres de testimonio entre los 4 jugadores (algunos tendrán 2).",
+            "Cada jugador lee en voz alta sus testimonios.",
+            "Tomar notas de las restricciones en un papel improvisado (al no tener la plantilla a mano).",
+            "Identificar restricciones directas: M. Á.=6 (Testimonio 3), Carmen=1 (Testimonio 5), Marcos=3 (Testimonio 1).",
+            "Usar restricciones relativas para colocar Elena: Marcos inmediatamente después de Elena -> Elena=2 (Testimonio 6).",
+            "Usar restricciones relativas y descarte para Miguel y Luis: Carmen < Elena < Miguel (Testimonio 2), Luis no antes que Miguel (Testimonio 4). Con 1,2,3,6 ocupados, quedan 4,5. Miguel=4, Luis=5.",
+            "Confirmar posiciones: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M.Á.=6.",
+            "Identificar a los 4 hijos de Rodrigo y Elena: Marcos, Carmen, Luis, Miguel (Testimonio 7 excluye a M.Á. de ser hijo de Rodrigo).",
+            "Deducir el orden de nacimiento (mayor a menor): Marcos (Testimonio 1), Carmen (Testimonio 4 indica Luis entre Carmen y Miguel), Luis (Testimonio 4), Miguel (Testimonio 4). -> Marcos > Carmen > Luis > Miguel.",
+            "Extraer el código: Marcos(3), Carmen(1), Luis(5), Miguel(4) -> 3154.",
+            "Introducir 3154 en el candado."
+          ],
+          "atasque_en": "La falta de una plantilla de tabla para organizar las restricciones inicialmente. Luego, la deducción del orden de edad de los hijos y la exclusión de M.Á. para el código.",
+          "pidio_pista": true,
+          "nivel_pista": 2,
+          "frustracion": 6,
+          "diversion": 7,
+          "tiempo_estimado_minutos": 10,
+          "comentario": "Un buen puzle de lógica, pero la plantilla dentro de la caja es una faena. La distinción de M.Á. y el orden de edad son claves.",
+          "_perfil": "Experimentado",
+          "_emoji": "🏆"
+        },
+        {
+          "entiende": false,
+          "confusiones": [
+            "La descripción dice que la plantilla de tabla para restricciones está 'dentro de la caja', pero la caja está cerrada por un candado que hay que abrir con la solución. Esto hace imposible usar la plantilla para resolver el puzzle, que es una prueba de lógica compleja.",
+            "El orden de los hijos (nacimiento) se deduce de los testimonios, pero no está explícitamente dado en un solo sitio, lo que añade otra capa de dificultad para principiantes."
+          ],
+          "pasos_seguidos": [
+            "Entrar en la sala y echar un vistazo a los decorados por un momento.",
+            "Localizar el tablero plegable, las fichas y los sobres de testimonio.",
+            "Leer la instrucción del tablero: 'COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA'.",
+            "Mis amigos y yo repartimos los 7 sobres de testimonio (alguno tendrá más de uno) y los leemos en voz alta.",
+            "Intentamos organizar las restricciones lógicas en nuestra cabeza o en algún papel improvisado, ya que la plantilla de tabla no está disponible.",
+            "Intentamos colocar las fichas en el tablero basándonos en las restricciones leídas, discutiendo cada posible posición."
+          ],
+          "atasque_en": "Organizar las 7 restricciones lógicas sin la plantilla de tabla. Es muy difícil mantener toda la información en la cabeza y hacer deducciones cruzadas con 4 personas hablando a la vez y sin una herramienta visual de apoyo.",
+          "pidio_pista": true,
+          "nivel_pista": 2,
+          "frustracion": 8,
+          "diversion": 6,
           "tiempo_estimado_minutos": 15,
-          "comentario": "Me gusta ordenar la historia, ¡pero las fechas ocultas necesitan más que intuición!",
+          "comentario": "¡Demasiada información en la cabeza sin algo para apuntar! Me distraje con las estanterías de libros al principio.",
           "_perfil": "Novato",
           "_emoji": "🐣"
         }
@@ -333,29 +94,37 @@
       "errores": []
     },
     {
-      "nombre": "El Mensaje Dividido",
-      "id": "legado_005_mensaje_dividido",
+      "nombre": "El Retrato que Miente",
+      "id": "legado_002_retrato_magnetico",
       "resultados": [
         {
           "entiende": true,
           "confusiones": [
-            "Al principio, no saber si los dibujos de los bordes de las tarjetas eran importantes o solo decoración. También, si la parte final del mensaje con la fecha y la 'O' era un puzle aparte o parte de la solución de este."
+            "El hilo rojo que conecta el marco con el diario, ¿para qué sirve? ¿Hay que seguirlo o es solo decoración?",
+            "El diario de Elena, ¿es importante para este puzzle o es solo historia? Me daría un poco de pereza leerlo entero si no me da la pista."
           ],
           "pasos_seguidos": [
-            "Nos dividimos en dos equipos de dos personas, como somos 4 amigos.",
-            "Cada equipo mira sus tarjetas y empezamos a describir lo que vemos, palabra por palabra, intentando encontrar dónde encajan.",
-            "Nos damos cuenta de que los bordes de las tarjetas tienen dibujos o patrones que pueden encajar, así que intentamos usarlos para juntar las piezas más rápido.",
-            "Vamos escribiendo el mensaje en una pizarra o papel a medida que lo vamos reconstruyendo, para no perdernos.",
-            "Una vez tenemos el mensaje completo, lo leemos para encontrar dónde está el cofre y la letra D.",
-            "Buscamos el espejo ovalado en el desván, tal como dice el mensaje."
+            "Entramos y miramos la sala. Vemos el escritorio, el retrato en la pared y una caja con candado en el escritorio.",
+            "Un amigo intenta abrir la caja, pero está cerrada con un candado de números. '¡Hay que encontrar el código!'",
+            "Veo el retrato en la pared y el hilo rojo que va al diario. '¡Qué raro!'",
+            "Abro el cajón del escritorio y encuentro una carpeta. La cojo.",
+            "Leo la etiqueta de la carpeta: 'Restauración del retrato familiar. Elena escribió: El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'",
+            "Saco el papel verde de la carpeta. '¡Ah, es para el retrato!'",
+            "Descolgamos el retrato de la pared. Lo giramos y vemos que tiene algo escrito detrás.",
+            "Leo la inscripción: 'Este retrato miente... Usad el papel verde.'",
+            "Uno de mis amigos sujeta el marco y yo paso el papel verde por la parte de atrás, despacio, como dice la nota. '¡Guau! ¡Mira! ¡Salen puntos!'",
+            "Vemos que los puntos están en tres columnas. Otro amigo dice: '¡Hay que contarlos!'",
+            "Contamos los puntos: 5 en la primera columna, 2 en la del medio y 8 en la última. '¡5-2-8!'",
+            "Vamos corriendo a la caja, metemos el código 5-2-8 en el candado. ¡Clic! ¡Se abre!",
+            "Dentro encontramos la letra 'E' y un sobre. Abrimos el sobre y leemos la carta y la pista para la siguiente sala."
           ],
-          "atasque_en": "Al principio, intentando ordenar las tarjetas solo por las palabras, sin fijarnos en los patrones de los bordes. También, la segunda parte del mensaje es muy larga y cuesta encajarla bien, sobre todo la frase con la fecha y la 'O'.",
-          "pidio_pista": true,
-          "nivel_pista": 1,
-          "frustracion": 5,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 5,
-          "comentario": "¡Uf, al principio un lío, pero luego lo de los bordes ayudó un montón! ¡A buscar el espejo!",
+          "atasque_en": null,
+          "pidio_pista": false,
+          "nivel_pista": 0,
+          "frustracion": 2,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 7,
+          "comentario": "¡Mola mucho lo del papel verde! Me sentiría como un detective.",
           "_perfil": "Estudiante",
           "_emoji": "🧑‍🎓"
         },
@@ -363,48 +132,312 @@
           "entiende": true,
           "confusiones": [],
           "pasos_seguidos": [
-            "Organizar nuestras 6 tarjetas y buscar patrones en los bordes y palabras clave.",
-            "Establecer un protocolo de comunicación verbal claro: describir palabra por palabra y el patrón del borde de cada tarjeta.",
-            "Comunicar los fragmentos de texto y los patrones de borde con el otro equipo para ir encajando las piezas.",
-            "Anotar el mensaje reconstruido en la pizarra o papel.",
-            "Identificar la ubicación del cofre ('espejo ovalado') y la pista para la letra 'O'.",
-            "Buscar el espejo ovalado en la sala para encontrar el cofre y la letra D."
+            "Dividir el grupo: uno(s) explora(n) el escritorio y cajones, otro(s) examina(n) el retrato en la pared y su conexión con el diario.",
+            "Encontrar la carpeta de restauración en el cajón del escritorio.",
+            "Leer la etiqueta de la carpeta que contiene el papel ferromagnético: las instrucciones son claras sobre usarlo detrás del marco, despacio.",
+            "Simultáneamente, otro jugador descolgará el retrato y encontrará la inscripción manuscrita de Elena en el reverso, que también indica 'Mirad detrás. Usad el papel verde.'",
+            "Asociar el papel ferromagnético verde con el reverso del retrato, siguiendo ambas instrucciones.",
+            "Colocar el retrato boca abajo sobre el escritorio o una superficie estable.",
+            "Un jugador pasará el papel verde despacio por la parte trasera del marco, mientras otro lo observa atentamente.",
+            "Observar los puntos oscuros que aparecen en el papel, identificando claramente las 3 columnas de imanes.",
+            "Un jugador contará los puntos en cada columna de izquierda a derecha para obtener el código numérico (5, 2, 8).",
+            "Comunicar el código 5-2-8 al jugador que esté con la caja de madera vintage en el escritorio.",
+            "Introducir el código 5-2-8 en el candado de combinación de la caja.",
+            "Abrir la caja, recuperar la letra física 'E' y el sobre sellado con el fragmento de carta y la carta de navegación.",
+            "Mientras se leen los documentos clave, otro jugador podría revisar el diario para el contexto narrativo adicional."
+          ],
+          "atasque_en": null,
+          "pidio_pista": false,
+          "nivel_pista": 0,
+          "frustracion": 2,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 5,
+          "comentario": "Un puzzle muy chulo con una mecánica física satisfactoria y buenas pistas in-game. ¡A por la E!",
+          "_perfil": "Experimentado",
+          "_emoji": "🏆"
+        },
+        {
+          "entiende": true,
+          "confusiones": [
+            "Al principio, cómo usar exactamente el 'papel ferromagnético verde' sin haberlo visto antes. Puede que nos cueste un poco discernir las columnas de imanes al escanear por primera vez, y discutiríamos sobre el número exacto de puntos."
+          ],
+          "pasos_seguidos": [
+            "Explorar el despacho, notando el retrato y su peculiaridad (el niño borrado).",
+            "Distraerme un poco con los detalles del retrato y la habitación.",
+            "Buscar en el escritorio, encontrar el cajón y la carpeta de restauración.",
+            "Leer la etiqueta de la carpeta y sacar el papel verde.",
+            "Descolgar el retrato y leer la inscripción en el reverso que indica usar el papel verde detrás.",
+            "Juntar la información: 'papel verde' + 'detrás del marco' + 'ver lo que los ojos no pueden'.",
+            "Un jugador sostiene el marco, otro pasa el papel verde por la parte trasera, viendo los puntos.",
+            "Intentar contar los puntos por columnas (posiblemente con discusión entre los amigos).",
+            "Si logramos contar, obtener el código 5-2-8.",
+            "Buscar la caja con candado de 3 dígitos en el escritorio.",
+            "Introducir el código 5-2-8 en el candado y abrirlo.",
+            "Recoger la letra E y el sobre con la carta. Quizás leer un poco el diario por curiosidad del hilo rojo."
+          ],
+          "atasque_en": "Contar correctamente los puntos agrupados en columnas al escanear con el papel verde, especialmente el de 8 imanes.",
+          "pidio_pista": true,
+          "nivel_pista": 2,
+          "frustracion": 5,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 7,
+          "comentario": "¡Qué pasada lo del papel verde! Al principio nos costó contar los puntitos, pero cuando se abrió, ¡qué emoción!",
+          "_perfil": "Novato",
+          "_emoji": "🐣"
+        }
+      ],
+      "errores": []
+    },
+    {
+      "nombre": "Las Voces que No se Muestran",
+      "id": "legado_003_voces_no_se_muestran",
+      "resultados": [
+        {
+          "entiende": true,
+          "confusiones": [],
+          "pasos_seguidos": [
+            "Coger el álbum y el sobre con las tarjetas de recuerdos.",
+            "Leer las instrucciones en la primera página del álbum: 'Más fotos que recuerdos', 'buscar detalles que conecten', 'sello da número o una hoja', 'no raspar hasta estar todos de acuerdo', 'ordenar por fecha'.",
+            "Sacar las 4 tarjetas de recuerdos y extenderlas sobre la mesa.",
+            "Uno de nosotros pasa las fotos del álbum, leyendo las fechas y lo que se ve en cada una, mientras otro lee los recuerdos.",
+            "Emparejar el recuerdo 'M' (lluvia) con la foto de 1962 (boda con lluvia). Todos estamos de acuerdo. Raspar el sello y apuntar el dígito (7) y la fecha.",
+            "Emparejar el recuerdo 'R' (tren) con la foto de 1965 (niño con tren de madera). Todos estamos de acuerdo. Raspar el sello y apuntar el dígito (3) y la fecha.",
+            "Intentar emparejar la foto de 1968 (bautizo) con el recuerdo 'A' (pañuelo), porque el mantón parece un pañuelo. Raspar el sello de la foto de 1968 y obtener una HOJA con 'Sigue buscando'.",
+            "Pedir pista de Nivel 1 porque nos hemos atascado y la hoja nos ha despistado un poco.",
+            "Con la pista, reenfocar la búsqueda en los detalles exactos. Emparejar el recuerdo 'A' (pañuelo) con la foto de 1970 (mesita con pañuelo). Raspar el sello y apuntar el dígito (9) y la fecha.",
+            "Emparejar el recuerdo 'O' (maleta) con la foto de 1975 (andén con maleta). Raspar el sello y apuntar el dígito (1) y la fecha.",
+            "Confirmar que las fotos de 1968 y 1973 son las que sobran y no tienen recuerdo.",
+            "Ordenar los dígitos obtenidos por fecha cronológica: 1962 (7), 1965 (3), 1970 (9), 1975 (1). Formar el código 7391.",
+            "Probar el código 7391 en el candado del bolsillo lateral del álbum."
+          ],
+          "atasque_en": "Intentar emparejar una foto distractora (1968) con un recuerdo y obtener la hoja 'Sigue buscando', lo que nos hace dudar.",
+          "pidio_pista": true,
+          "nivel_pista": 1,
+          "frustracion": 4,
+          "diversion": 7,
+          "tiempo_estimado_minutos": 12,
+          "comentario": "Mola rascar y ver si aciertas, aunque al principio nos rayamos con las fotos que no tenían recuerdo.",
+          "_perfil": "Estudiante",
+          "_emoji": "🧑‍🎓"
+        },
+        {
+          "entiende": true,
+          "confusiones": [],
+          "pasos_seguidos": [
+            "Localizar el álbum de terciopelo y el sobre con las tarjetas de recuerdos.",
+            "Leer las instrucciones de la primera página del álbum: hay 6 fotos, 4 recuerdos, raspar sellos para feedback (dígito o hoja), ordenar dígitos por fecha.",
+            "Una persona (albumista) pasa las páginas del álbum, leyendo las fechas y describiendo las 6 fotos.",
+            "Otra persona (lector_recuerdos) lee las 4 tarjetas de recuerdos en voz alta.",
+            "El grupo (emparejador) discute y busca las conexiones claras entre los detalles sensoriales de los recuerdos (lluvia, tren, pañuelo, maleta) y las fotos. Este paso se hará con los cuatro jugadores en el rol de 'emparejador' discutiendo.",
+            "Identificar las 4 fotos que claramente conectan: 1962 (lluvia), 1965 (tren), 1970 (pañuelo), 1975 (maleta).",
+            "Confirmar las 2 fotos que no tienen conexión: 1968 (bautizo), 1973 (Nochebuena).",
+            "Proceder a raspar los sellos de las 4 fotos identificadas como correctas, uno a uno, confirmando el dígito.",
+            "Anotar los 4 dígitos obtenidos (7, 3, 9, 1) junto a sus fechas.",
+            "Ordenar los dígitos por fecha cronológica: 1962 (7), 1965 (3), 1970 (9), 1975 (1) para formar el código 7391.",
+            "Introducir el código 7391 en el candado del bolsillo lateral del álbum.",
+            "Abrir el bolsillo y recoger la letra G y la carta de navegación."
+          ],
+          "atasque_en": null,
+          "pidio_pista": false,
+          "nivel_pista": 0,
+          "frustracion": 2,
+          "diversion": 7,
+          "tiempo_estimado_minutos": 6,
+          "comentario": "Un puzzle clásico de emparejamiento bien ejecutado, el feedback es clave.",
+          "_perfil": "Experimentado",
+          "_emoji": "🏆"
+        },
+        {
+          "entiende": true,
+          "confusiones": [
+            "Aunque las instrucciones dicen que hay más fotos que recuerdos, al principio podría dudar qué buscar exactamente en las fotos.",
+            "Algunos detalles sensoriales en las fotos (como la lluvia en una foto antigua o un tren de juguete pequeño) podrían ser sutiles y difíciles de identificar de inmediato.",
+            "Me distraería con la cinta roja fina (hilo de marioneta) entre las páginas del álbum, preguntándome si es parte del puzle o solo decoración."
+          ],
+          "pasos_seguidos": [
+            "Entraría en la sala y, como me distraigo fácilmente, me fijaría en la funda de terciopelo sepia del álbum.",
+            "Junto con mis amigos, encontraríamos el álbum y el sobre con las tarjetas de Recuerdos.",
+            "Alguien leería en voz alta la 'Instrucción del Álbum' de la primera página, prestando atención a que 'hay más fotos que recuerdos' y que los sellos dan 'números… o algo distinto' (hojas).",
+            "Un amigo pasaría las páginas del álbum, leyendo las fechas de las 6 fotografías fijas.",
+            "Otro amigo leería las 4 tarjetas de Recuerdo en voz alta, identificando los detalles clave (lluvia, tren, pañuelo, maleta).",
+            "Intentaríamos emparejar cada Recuerdo con una Foto, buscando activamente esos detalles sensoriales mencionados en los recuerdos.",
+            "Una vez que el grupo estuviera de acuerdo en una posible pareja, rasparíamos el sello plateado de la foto elegida.",
+            "Si aparece un dígito, lo anotaríamos junto a la fecha de la foto. Si aparece una hoja con 'Sigue buscando', sabríamos que esa foto es un distractor y que el recuerdo debe ir con otra foto.",
+            "Repetiríamos el proceso hasta encontrar los 4 dígitos correspondientes a las 4 fotos correctas.",
+            "Ordenaríamos los 4 dígitos obtenidos cronológicamente, de la fecha más antigua a la más reciente.",
+            "Introduciríamos el código de 4 dígitos en el candado del bolsillo lateral del álbum para abrirlo."
+          ],
+          "atasque_en": "Me atascaría un poco al principio buscando los detalles sensoriales en las fotos, y en la primera foto distractora que raspáramos antes de entender bien el patrón.",
+          "pidio_pista": true,
+          "nivel_pista": 1,
+          "frustracion": 5,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 12,
+          "comentario": "¡Me encantó rascar los sellos y ver si habíamos acertado, aunque al principio nos costó ver la lluvia en la foto!",
+          "_perfil": "Novato",
+          "_emoji": "🐣"
+        }
+      ],
+      "errores": []
+    },
+    {
+      "nombre": "El Árbol que Faltaba",
+      "id": "legado_004_arbol_que_faltaba",
+      "resultados": [
+        {
+          "entiende": true,
+          "confusiones": [],
+          "pasos_seguidos": [
+            "Encontrar el tubo de cartón 'Ramas pendientes' y desenrollar el póster del árbol genealógico.",
+            "Repartir las 10 tarjetas-hoja entre mis amigos y yo.",
+            "Leer las instrucciones del póster, que dicen que hay que emparejar las descripciones con los huecos y que las letras con Lunas forman un código.",
+            "Empezar a leer las descripciones de las tarjetas y de los huecos del póster para ver cuáles coinciden.",
+            "Cuando un hueco y una tarjeta coinciden, colocar la tarjeta en su sitio y mirar la letra o la 'HOJA' que aparece en el hueco. Anotar las letras con sus números de Luna.",
+            "Prestar atención a los huecos con '★', que parecen importantes para la historia.",
+            "Una vez que todas las tarjetas están puestas y las letras anotadas (①A, ②L, ③V, ④A, ⑤R, ⑥O), intentar descifrar la palabra.",
+            "Probar la palabra descifrada en el cryptex."
+          ],
+          "atasque_en": "Ordenar las letras por los números de Luna para formar la palabra final.",
+          "pidio_pista": true,
+          "nivel_pista": 2,
+          "frustracion": 3,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 8,
+          "comentario": "Mola el misterio del niño secreto y abrir el cryptex para ver qué hay dentro.",
+          "_perfil": "Estudiante",
+          "_emoji": "🧑‍🎓"
+        },
+        {
+          "entiende": true,
+          "confusiones": [],
+          "pasos_seguidos": [
+            "Encontrar el tubo 'Ramas pendientes' y sacar su contenido (póster, tarjetas, cryptex).",
+            "Un jugador lee en voz alta las instrucciones impresas en el póster: emparejar descripciones de tarjetas con huecos, leer las letras/Lunas o Hojas de cada hueco, ordenar las letras por número de Luna.",
+            "Repartimos las 10 tarjetas entre el grupo (2-3 por persona) para que cada uno lea sus descripciones.",
+            "Un jugador sostiene el póster y lee las descripciones de los huecos.",
+            "Empezamos a emparejar las tarjetas con los huecos basándonos en las descripciones unívocas (ej. 'médico' con 'estudió medicina', 'maestra' con 'se hizo maestra', 'patriarca' con 'patriarca').",
+            "Cada vez que confirmamos un emparejamiento, leemos la letra y el número de Luna (o la HOJA) del hueco. Un jugador anota las letras con su número de Luna (1=A, 2=L, etc.).",
+            "Al llegar a los huecos con '★', el grupo comenta el giro narrativo del hijo secreto y el salvador, lo que añade interés pero no cambia la mecánica de emparejamiento.",
+            "Una vez emparejadas todas las tarjetas y anotadas las 6 letras con sus Lunas, ordenamos las letras por el número de Luna para formar la palabra (ALVARO).",
+            "Introducimos el código ALVARO en el cryptex y lo abrimos.",
+            "Recogemos los objetos de dentro del cryptex (certificado, carta de Elena, letra A, carta de navegación)."
+          ],
+          "atasque_en": null,
+          "pidio_pista": false,
+          "nivel_pista": null,
+          "frustracion": 2,
+          "diversion": 7,
+          "tiempo_estimado_minutos": 6,
+          "comentario": "Un puzzle de emparejamiento clásico y bien resuelto. La historia del hijo secreto es un buen toque, añade inmersión.",
+          "_perfil": "Experimentado",
+          "_emoji": "🏆"
+        },
+        {
+          "entiende": true,
+          "confusiones": [
+            "Al principio, hay mucha información y tantas descripciones en las tarjetas y en los huecos del póster. No sé por dónde empezar.",
+            "¿Qué es eso de la Luna? Ah, un número. ¿Y las hojas significan algo o no valen para el código? Hay que fijarse bien."
+          ],
+          "pasos_seguidos": [
+            "Encontrar el tubo de cartón con la etiqueta 'Ramas pendientes' (¡qué curiosa!).",
+            "Desenrollar el póster del árbol genealógico y sacar las 10 tarjetas-hoja. Uf, qué grande el póster.",
+            "Alguien (seguramente uno de mis amigos, yo me distraigo con los dibujitos de las hojas) lee la instrucción del póster: 'Emparejad las descripciones con los huecos... Las letras forman el código. Ordenad las letras por número de Luna'.",
+            "Repartimos las 10 tarjetas entre los cuatro.",
+            "Cada uno lee sus descripciones en voz alta. Yo me fijo en si las tarjetas tienen dibujitos chulos.",
+            "Intentamos emparejar las descripciones de las tarjetas con las pistas de los huecos del póster (ej: 'médico' con 'hijo mayor. médico').",
+            "Cuando creemos que una tarjeta va en un hueco, la ponemos. ¡Ah, con velcro, qué práctico!",
+            "Leemos lo que aparece en el hueco: si es una LETRA con un número de Luna o una HOJA. Anotamos las letras y sus números.",
+            "Seguimos emparejando, prestando atención a las estrellas que indican el 'hijo secreto'.",
+            "Una vez que tenemos todas las letras con sus números de Luna, las ordenamos del 1 al 6.",
+            "Formamos la palabra con las letras ordenadas (ALVARO).",
+            "Introducimos la palabra en el cryptex.",
+            "¡Abrimos el cryptex y vemos qué hay dentro!"
+          ],
+          "atasque_en": "Al principio, al intentar emparejar las tarjetas con los huecos del póster. Hay mucha información y cuesta ver las conexiones claras si no lees todo bien primero. Nos costaría un poco coordinarnos para saber qué pistas son las más importantes.",
+          "pidio_pista": true,
+          "nivel_pista": 1,
+          "frustracion": 5,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 12,
+          "comentario": "¡Qué chulo el árbol! Un poco lío al principio con tantas descripciones, pero cuando le pillas el truco es divertido ver cómo encaja todo y la historia es emocionante.",
+          "_perfil": "Novato",
+          "_emoji": "🐣"
+        }
+      ],
+      "errores": []
+    },
+    {
+      "nombre": "El Mensaje Rasgado",
+      "id": "legado_005_mensaje_rasgado",
+      "resultados": [
+        {
+          "entiende": true,
+          "confusiones": [],
+          "pasos_seguidos": [
+            "Lo primero, leeríamos la tarjeta de instrucciones que hay junto a los papeles.",
+            "Luego, mis amigos y yo extenderíamos todos los fragmentos de papel sepia sobre la mesa para verlos bien.",
+            "Empezaríamos a buscar los bordes que encajan, como si fuera un puzzle normal. Uno busca bordes, otro lee el texto.",
+            "A medida que unimos fragmentos, leeríamos el texto para asegurarnos de que tiene sentido y nos ayuda a encontrar la siguiente pieza.",
+            "Una vez que la carta esté completa, la leeríamos entera en voz alta para entender el mensaje.",
+            "El mensaje dice de buscar bajo la 'tercera tabla del suelo' con una 'marca de cera roja'. Así que nos pondríamos a buscar esa tabla específica en el desván.",
+            "Cuando la encontremos, levantaríamos la tabla y cogeríamos el sobre lacrado."
           ],
           "atasque_en": null,
           "pidio_pista": false,
           "nivel_pista": null,
           "frustracion": 3,
           "diversion": 8,
-          "tiempo_estimado_minutos": 7,
-          "comentario": "Un clásico de comunicación, los bordes ayudan mucho. La parte de la 'O' es un buen gancho para el futuro.",
+          "tiempo_estimado_minutos": 10,
+          "comentario": "¡Mola un montón cuando las piezas encajan y luego encuentras el escondite secreto!",
+          "_perfil": "Estudiante",
+          "_emoji": "🧑‍🎓"
+        },
+        {
+          "entiende": true,
+          "confusiones": [],
+          "pasos_seguidos": [
+            "Reunir todos los fragmentos de papel en la mesa y extenderlos para tener una visión general.",
+            "Leer en voz alta la 'Tarjeta de Instrucciones' para confirmar la tarea: reconstruir la carta y encontrar un lugar.",
+            "Dividirnos en el grupo de 4: dos personas se enfocarán en buscar bordes físicos que encajen, mientras las otras dos leerán el texto de los fragmentos para identificar palabras clave, frases y la secuencia lógica.",
+            "Comenzar a ensamblar los fragmentos, usando tanto la forma de los bordes como la coherencia del texto para guiar la reconstrucción.",
+            "Una vez que la carta esté completa, leerla en voz alta para confirmar el mensaje y la ubicación clara: 'bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina'.",
+            "Proceder a buscar activamente esa tabla específica en el suelo del desván, prestando atención a la marca de cera roja.",
+            "Levantar la tabla identificada y recuperar el sobre lacrado rojo.",
+            "Abrir el sobre y examinar su contenido para ver qué elemento o pista nos proporciona para la siguiente prueba."
+          ],
+          "atasque_en": null,
+          "pidio_pista": false,
+          "nivel_pista": 1,
+          "frustracion": 2,
+          "diversion": 7,
+          "tiempo_estimado_minutos": 6,
+          "comentario": "Un clásico de reconstrucción, bien diseñado para el trabajo en equipo. La claridad de las instrucciones y el texto guían perfectamente.",
           "_perfil": "Experimentado",
           "_emoji": "🏆"
         },
         {
           "entiende": true,
           "confusiones": [
-            "Al principio, con tantos estímulos en el desván, me costó concentrarme en las tarjetas.",
-            "No sabíamos muy bien cómo describir las tarjetas sin mostrarlas, lo que generó un poco de caos inicial.",
-            "No nos dimos cuenta de las guías visuales en los bordes de las tarjetas al inicio."
+            "Al principio, no sabíamos si los bordes eran lo más importante o el texto. Y me distraje un poco con los objetos del desván antes de concentrarme."
           ],
           "pasos_seguidos": [
-            "Primero, me distraje un poco mirando los objetos curiosos del desván y los decorados.",
-            "Una vez que el GM nos explicó la tarea, leí mis tarjetas en voz alta al resto del equipo (mi mitad) y luego al otro equipo.",
-            "Mis amigos también leyeron sus fragmentos, al principio de forma desordenada y un poco caótica.",
-            "Intentamos encajar palabras sueltas, como 'El cofre del' con 'legado está', pero no estábamos seguros del orden o si faltaban cosas.",
-            "Después de un par de minutos de confusión y de no avanzar, pedimos una pista para saber cómo describir mejor.",
-            "Con la pista de describir exactamente lo que veíamos, alguien de mi equipo mencionó los patrones en los bordes de las tarjetas. ¡Eureka! Nos dimos cuenta de que eran guías visuales.",
-            "Empezamos a describir no solo las palabras, sino también los patrones de los bordes para guiar al otro equipo y así unimos los fragmentos.",
-            "Anotamos el mensaje completo en la pizarra a medida que lo íbamos reconstruyendo.",
-            "Una vez tuvimos el mensaje, buscamos el 'gran espejo ovalado' en el desván y encontramos el cofre detrás."
+            "Entrar y maravillarse con la decoración del desván.",
+            "Leer la tarjeta de instrucciones en la mesa.",
+            "Extender los fragmentos de papel sobre la mesa, un poco caóticamente al principio.",
+            "Empezar a buscar bordes que encajen, probando uno con otro al azar.",
+            "Darnos cuenta de que leer el texto ayuda mucho a unir las piezas de forma lógica.",
+            "Colaborar para reconstruir frases y la carta completa.",
+            "Leer la carta final que describe la ubicación.",
+            "Buscar la 'tercera tabla' con la marca de cera roja en el suelo.",
+            "Encontrar el sobre lacrado."
           ],
-          "atasque_en": "Coordinar la comunicación verbal efectiva y no darnos cuenta de las guías visuales en los bordes de las tarjetas al inicio.",
+          "atasque_en": "Organizar los 12 fragmentos al principio y encontrar las primeras uniones sin un sistema claro, además de la distracción con el entorno.",
           "pidio_pista": true,
           "nivel_pista": 1,
-          "frustracion": 4,
+          "frustracion": 6,
           "diversion": 8,
-          "tiempo_estimado_minutos": 8,
-          "comentario": "¡Qué lío al principio con tanta cosa chula en el desván y el caos al hablar, pero luego la comunicación fluyó, las pistas visuales ayudaron y fue muy divertido encontrar el mensaje!",
+          "tiempo_estimado_minutos": 10,
+          "comentario": "Al principio fue un poco caótico, pero cuando le pillamos el truco y la carta cobró sentido, fue genial. ¡Qué ganas de ver qué hay en el sobre!",
           "_perfil": "Novato",
           "_emoji": "🐣"
         }
@@ -417,22 +450,29 @@
       "resultados": [
         {
           "entiende": true,
-          "confusiones": [],
+          "confusiones": [
+            "Al principio, lo de que las letras tenían números romanos 'desordenados' me hizo pensar que iba a ser más difícil, pero luego vi que el número romano de la letra era justo el de la frase, así que no fue tan lío.",
+            "Quizás al final nos habríamos parado un segundo a ver en qué orden poner los números, pero si probábamos con el que los habíamos encontrado (por cómo salen en la palabra LEGADO), funcionaba."
+          ],
           "pasos_seguidos": [
-            "Ver el cofre con el candado de 6 letras y darnos cuenta de que es la prueba final.",
-            "Recordar que ya tenemos las 5 letras principales (L, E, G, A, D).",
-            "Alguien del grupo diría: '¡Ah, y la sexta letra era la O! Lo del mensaje dividido, ¿os acordáis? La O de Orgullo.'",
-            "Nos damos cuenta de que la palabra es 'LEGADO' porque lo dice la descripción y el nombre del juego.",
-            "Cada uno cogería la ficha de su letra (si las tenemos repartidas) y la pondríamos en el candado en el orden que venía en cada ficha (L=1, E=2, G=3, A=4, D=5, O=6).",
-            "Girar el candado para formar la palabra LEGADO y abrir el cofre."
+            "Primero, leemos la tarjeta con las instrucciones finales. Nos dice que las estrellas son importantes, que las letras apuntan a frases y que el principio de las frases tiene números.",
+            "Cogemos las letras que tenemos (L, E, G, A, D, O) y vemos qué número romano tiene cada una. Nos damos cuenta de que no van en orden I, II, III... pero cada letra tiene el suyo.",
+            "Miramos el cartel de valores y vemos cuáles tienen la estrella: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Los otros dos no tienen estrella, así que los ignoramos.",
+            "Abrimos las 'Confesiones de Elena' con las frases numeradas del I al VI.",
+            "Empezamos a cruzar la información, siguiendo el orden de las letras de LEGADO que tienen estrella:",
+            "Para 'Lealtad' (la L): La L tiene el III. Buscamos la Frase III en las confesiones: 'Un solo secreto...' Vemos que empieza con 'Un', que es 1. Apuntamos 1.",
+            "Para 'Generosidad' (la G): La G tiene el II. Buscamos la Frase II: 'Nueve puertas...' Empieza con 'Nueve', que es 9. Apuntamos 9.",
+            "Para 'Amor' (la A): La A tiene el V. Buscamos la Frase V: 'Ocho décadas...' Empieza con 'Ocho', que es 8. Apuntamos 8.",
+            "Para 'Orgullo' (la O): La O tiene el IV. Buscamos la Frase IV: 'Tres fueron...' Empieza con 'Tres', que es 3. Apuntamos 3.",
+            "Tenemos los números 1, 9, 8, 3. La instrucción decía 'Los cuatro números, en orden, abren el cofre'. Como los hemos sacado en el orden en que aparecen los valores con estrella en la palabra LEGADO, probamos con 1983 en el candado del cofre."
           ],
           "atasque_en": null,
           "pidio_pista": false,
-          "nivel_pista": null,
+          "nivel_pista": 0,
           "frustracion": 2,
-          "diversion": 9,
-          "tiempo_estimado_minutos": 5,
-          "comentario": "¡Qué pasada! ¡Se ha abierto! Y la carta... ¡qué historia más fuerte!",
+          "diversion": 8,
+          "tiempo_estimado_minutos": 7,
+          "comentario": "¡Mola mucho cuando todas las pistas encajan al final y abres el cofre! Lo de la carta es un puntazo.",
           "_perfil": "Estudiante",
           "_emoji": "🧑‍🎓"
         },
@@ -440,50 +480,55 @@
           "entiende": true,
           "confusiones": [],
           "pasos_seguidos": [
-            "Reunir todas las fichas de letras que hemos ido obteniendo durante el juego (L, E, G, A, D).",
-            "Confirmar la sexta letra 'O' que se nos reveló en la prueba 5. Si la prueba anterior fue clara, sabremos que es 'O' y probablemente por qué (e.g., 'Orgullo').",
-            "Cada miembro del grupo, con su ficha de letra, comunicará su letra y la posición numérica que trae asociada (L(1), E(2), G(3), A(4), D(5), O(6)).",
-            "Ordenar mentalmente o físicamente las letras según sus posiciones numéricas para formar la palabra: L-E-G-A-D-O.",
-            "Reconocer que la palabra formada, 'LEGADO', es el nombre del juego, lo que refuerza que es la solución correcta para el candado.",
-            "Proceder a introducir el código 'LEGADO' en el candado de 6 letras del cofre. Nos aseguraríamos de que cada jugador participe en la colocación de su letra o en la confirmación del orden, siguiendo la regla de colaboración."
+            "Reunir todos los elementos: 6 letras, cofre con candado, 'Confesiones de Elena', 'Cartel de Valores', 'Instrucción Final'.",
+            "Leer en voz alta la 'Instrucción Final' para entender el objetivo y los pasos.",
+            "Identificar los 4 valores con ★ del 'Cartel de Valores': Lealtad, Generosidad, Amor, Orgullo.",
+            "Relacionar cada valor con su letra en la palabra 'LEGADO' y su posición (Lealtad -> L (1º), Generosidad -> G (3º), Amor -> A (4º), Orgullo -> O (6º)).",
+            "Para cada letra identificada, encontrar el número romano grabado en ella (L=III, G=II, A=V, O=IV).",
+            "Usar el número romano para identificar la frase correspondiente en las 'Confesiones de Elena' (III, II, V, IV).",
+            "Leer el inicio de cada una de esas frases para encontrar el número escrito como palabra (Un=1, Nueve=9, Ocho=8, Tres=3).",
+            "Ordenar los 4 números obtenidos (1, 9, 8, 3) según la posición de sus valores en la palabra 'LEGADO'.",
+            "Introducir el código 1983 en el candado.",
+            "Abrir el cofre, leer la carta de Elena, colocar la foto de Miguel y cortar el último hilo."
           ],
           "atasque_en": null,
           "pidio_pista": false,
-          "nivel_pista": 0,
-          "frustracion": 1,
-          "diversion": 7,
-          "tiempo_estimado_minutos": 4,
-          "comentario": "Un cierre muy claro y satisfactorio, más centrado en la revelación de la historia que en la dificultad del puzzle. Perfecto para el final.",
+          "nivel_pista": null,
+          "frustracion": 3,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 7,
+          "comentario": "Un clásico de cifrado de varios pasos. Bien hilado con la narrativa al final. ¡Me encantó el desenlace!",
           "_perfil": "Experimentado",
           "_emoji": "🏆"
         },
         {
           "entiende": true,
           "confusiones": [
-            "Me distraería con los detalles del desván y el cofre al principio.",
-            "Podría dudar sobre la procedencia exacta de la sexta letra 'O' si no la teníamos escrita.",
-            "Nos costaría un poco coordinar a los 4 amigos para colocar las letras en el candado."
+            "La frase 'Los cuatro números, en orden, abren el cofre' es ambigua. No especifica qué orden seguir (alfabético de letras, aparición en cartel, orden LEGADO, etc.)."
           ],
           "pasos_seguidos": [
-            "¡Guau, qué cofre más chulo! ¿Qué habrá dentro?",
-            "Nos acercamos al cofre y vemos el candado de letras, emocionados porque es la prueba final.",
-            "Confirmamos que tenemos las 5 letras (L, E, G, A, D) que obtuvimos en pruebas anteriores y las ponemos sobre la mesa.",
-            "Uno de nosotros pregunta: '¿Y cuál era la sexta letra? ¿Alguien se acuerda de la prueba del mensaje dividido?'",
-            "Después de un breve momento de duda y revisar nuestras notas, recordamos que era la 'O', por 'Orgullo'.",
-            "Empezamos a mirar las fichas de las letras y vemos que cada una tiene un número. '¡Mira, la mía tiene un '1'!', '¡La mía un '3'!'",
-            "Ordenamos las letras según los números: L(1), E(2), G(3), A(4), D(5).",
-            "Colocamos la 'O' como la 6ª letra, formando la palabra LEGADO.",
-            "¡LEGADO! ¡Es el nombre del juego! Nos damos cuenta de la conexión.",
-            "Nos coordinamos para que cada uno ponga su letra en el candado en el orden correcto.",
-            "Introducimos LEGADO en el candado y lo giramos."
+            "Entrar en la sala y distraerme con la decoración del desván, la marioneta y el cofre.",
+            "Un amigo encuentra las 6 letras (L, E, G, A, D, O) con números romanos y comento que están 'desordenados' respecto al LEGADO.",
+            "Otro amigo encuentra el cartel de valores y la 'Instrucción Final'. Alguien lee esta instrucción en voz alta.",
+            "Identificamos los 4 valores con estrellas ★: Lealtad, Generosidad, Amor, Orgullo.",
+            "Asociamos cada valor con su letra de LEGADO: L (Lealtad), G (Generosidad), A (Amor), O (Orgullo).",
+            "Encontramos los números romanos grabados en esas letras: L=III, G=II, A=V, O=IV.",
+            "Localizamos el documento 'Confesiones de Elena' con 6 frases numeradas con romanos.",
+            "Cruzamos las letras y sus romanos con las frases correspondientes: L (III) → Frase III, G (II) → Frase II, A (V) → Frase V, O (IV) → Frase IV.",
+            "Leemos atentamente el inicio de cada una de esas 4 frases para encontrar los números escritos como palabras: 'Un' (1) de Frase III, 'Nueve' (9) de Frase II, 'Ocho' (8) de Frase V, 'Tres' (3) de Frase IV.",
+            "Tenemos los números 1, 9, 8, 3, pero no sabemos el orden. Nos quedamos atascados discutiendo qué 'orden' usar (¿alfabético de las letras? ¿orden de aparición en el cartel? ¿orden de los romanos?).",
+            "Después de probar un par de combinaciones sin éxito (ej. alfabético A,G,L,O = 8913), un amigo sugiere que debe ser el orden de la palabra LEGADO, que además coincide con la aparición de los valores con ★ en el cartel. Probamos 1-9-8-3.",
+            "El candado se abre. ¡Qué emoción!",
+            "Un amigo lee la emotiva carta de Elena en voz alta.",
+            "Colocamos la foto de Miguel y cortamos el último hilo de la marioneta con las tijeras doradas."
           ],
-          "atasque_en": "Recordar la conexión exacta de la letra 'O' con la prueba anterior y la coordinación final de los cuatro jugadores para introducir el código.",
+          "atasque_en": "El orden de los cuatro números para el candado ('Los cuatro números, en orden, abren el cofre').",
           "pidio_pista": true,
-          "nivel_pista": 1,
-          "frustracion": 3,
-          "diversion": 9,
-          "tiempo_estimado_minutos": 7,
-          "comentario": "¡Qué final tan emotivo! Me costó un poco conectar todas las piezas, pero me encantó abrir el cofre y descubrir la historia.",
+          "nivel_pista": 3,
+          "frustracion": 6,
+          "diversion": 8,
+          "tiempo_estimado_minutos": 15,
+          "comentario": "La parte de ordenar los números me costó un poco, pero el final con la carta fue muy emotivo y valió la pena.",
           "_perfil": "Novato",
           "_emoji": "🐣"
         }
@@ -492,24 +537,21 @@
     }
   ],
   "problemas": [
-    "El Diario Secreto: Estudiante se atasca en 'Intentar formar una palabra con las primeras letras de *todos* los párrafos marcados con estrella de las tres páginas del diario, ya que el resultado (L-E-E-R-E-G-S-E-A) no tiene sentido y no sabemos qué letras usar.'",
-    "El Diario Secreto: Novato se atasca en 'Intentar formar una palabra de 4 letras con la secuencia L,E,E,R,E,G,S,E,A, obtenida de todas las páginas del diario, sin darnos cuenta de que solo la primera página era relevante para el acróstico principal.'",
-    "El Diario Secreto: tiempo máximo 15 min (posible cuello de botella)",
-    "Las Cartas Desordenadas: Estudiante se atasca en 'Al intentar usar la secuencia de 8 letras de los remitentes en el candado que solo tiene 3 espacios.'",
-    "Las Cartas Desordenadas: Experimentado no entiende la prueba",
-    "Las Cartas Desordenadas: Experimentado se atasca en 'La derivación del código final para el candado de 3 letras. Habiendo hecho todo el trabajo previo (emparejar y ordenar), las instrucciones sobre cómo obtener el código son contradictorias y no llevarían a la solución real.'",
-    "Las Cartas Desordenadas: Novato no entiende la prueba",
-    "Las Cartas Desordenadas: Novato se atasca en 'Me atascaría en el momento de intentar formar el código del candado, ya que la instrucción inicial 'la primera letra de cada remitente' no coincide con el candado de 3 letras ni con la solución real.'",
-    "Las Cartas Desordenadas: tiempo máximo 15 min (posible cuello de botella)",
-    "Las Fotos y los Recuerdos: Estudiante se atasca en 'Después de encontrar todas las parejas y tener las 4 fechas clave, no sabíamos cómo usarlas para obtener el código del candado.'",
-    "Las Fotos y los Recuerdos: Novato se atasca en 'En la fase de comunicación para recordar las ubicaciones de las tarjetas y, sobre todo, al llegar a las fechas, si no recordamos que hay que apuntarlas o qué hacer con ellas para el código.'",
-    "Las Fotos y los Recuerdos: tiempo máximo 12 min (posible cuello de botella)",
-    "La Linea Temporal Familiar: Estudiante se atasca en 'Los eventos sin fecha (3, 6, 7) por falta de acceso al diario y las cartas mencionadas.'",
-    "La Linea Temporal Familiar: Experimentado se atasca en 'La deducción de las fechas exactas para los eventos 3, 6 y 7 (nacimiento, adopción y descubrimiento de Rodrigo) a partir de la información dispersa en el diario y las cartas. Si la clave de la edad de Elena en 1962 no es obvia de los documentos previos, nos costaría mucho situar los eventos de los 60.'",
-    "La Linea Temporal Familiar: Novato se atasca en 'La deducción de las fechas exactas para los Eventos 3, 6 y 7 sin tener el 'diario y las cartas' a mano o sin saber cómo interpretar su información para obtener las fechas precisas.'",
-    "La Linea Temporal Familiar: tiempo máximo 15 min (posible cuello de botella)",
-    "El Mensaje Dividido: Estudiante se atasca en 'Al principio, intentando ordenar las tarjetas solo por las palabras, sin fijarnos en los patrones de los bordes. También, la segunda parte del mensaje es muy larga y cuesta encajarla bien, sobre todo la frase con la fecha y la 'O'.'",
-    "El Mensaje Dividido: Novato se atasca en 'Coordinar la comunicación verbal efectiva y no darnos cuenta de las guías visuales en los bordes de las tarjetas al inicio.'",
-    "El Cofre del Legado: Novato se atasca en 'Recordar la conexión exacta de la letra 'O' con la prueba anterior y la coordinación final de los cuatro jugadores para introducir el código.'"
+    "El Tablero de las Presencias: Estudiante se atasca en 'El orden exacto de nacimiento de los cuatro hijos (Marcos, Carmen, Luis, Miguel) a partir de los testimonios para formar el código. Es fácil saber quién es el mayor, pero lo de 'Luis, nacido entre Carmen y Miguel' puede ser un poco lioso para saber si va Carmen-Luis-Miguel o Miguel-Luis-Carmen.'",
+    "El Tablero de las Presencias: Experimentado se atasca en 'La falta de una plantilla de tabla para organizar las restricciones inicialmente. Luego, la deducción del orden de edad de los hijos y la exclusión de M.Á. para el código.'",
+    "El Tablero de las Presencias: Novato no entiende la prueba",
+    "El Tablero de las Presencias: Novato se atasca en 'Organizar las 7 restricciones lógicas sin la plantilla de tabla. Es muy difícil mantener toda la información en la cabeza y hacer deducciones cruzadas con 4 personas hablando a la vez y sin una herramienta visual de apoyo.'",
+    "El Tablero de las Presencias: tiempo máximo 18 min (posible cuello de botella)",
+    "El Retrato que Miente: Novato se atasca en 'Contar correctamente los puntos agrupados en columnas al escanear con el papel verde, especialmente el de 8 imanes.'",
+    "Las Voces que No se Muestran: Estudiante se atasca en 'Intentar emparejar una foto distractora (1968) con un recuerdo y obtener la hoja 'Sigue buscando', lo que nos hace dudar.'",
+    "Las Voces que No se Muestran: Novato se atasca en 'Me atascaría un poco al principio buscando los detalles sensoriales en las fotos, y en la primera foto distractora que raspáramos antes de entender bien el patrón.'",
+    "Las Voces que No se Muestran: tiempo máximo 12 min (posible cuello de botella)",
+    "El Árbol que Faltaba: Estudiante se atasca en 'Ordenar las letras por los números de Luna para formar la palabra final.'",
+    "El Árbol que Faltaba: Novato se atasca en 'Al principio, al intentar emparejar las tarjetas con los huecos del póster. Hay mucha información y cuesta ver las conexiones claras si no lees todo bien primero. Nos costaría un poco coordinarnos para saber qué pistas son las más importantes.'",
+    "El Árbol que Faltaba: tiempo máximo 12 min (posible cuello de botella)",
+    "El Mensaje Rasgado: Novato se atasca en 'Organizar los 12 fragmentos al principio y encontrar las primeras uniones sin un sistema claro, además de la distracción con el entorno.'",
+    "El Mensaje Rasgado: tiempo máximo 10 min (posible cuello de botella)",
+    "El Cofre del Legado: Novato se atasca en 'El orden de los cuatro números para el candado ('Los cuatro números, en orden, abren el cofre').'",
+    "El Cofre del Legado: tiempo máximo 15 min (posible cuello de botella)"
   ]
 }
