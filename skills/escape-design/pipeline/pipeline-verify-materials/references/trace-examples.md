@@ -6,7 +6,24 @@
 {
   "solvability_trace": {
     "status": "pass",
-    "details": "Todas las posiciones y el código se derivan completamente de los 6 testimonios accesibles.",
+    "details": "Todas las posiciones y el código se derivan completamente de los 7 testimonios accesibles. Los 2 no-hijos (Elena, M. Á.) tienen exclusión explícita.",
+    "candidate_exclusion": {
+      "total_candidates": 6,
+      "required": 4,
+      "exclusions": [
+        {
+          "candidate": "Elena",
+          "excluded_by": "Instrucción del tablero: 'LOS CUATRO HIJOS DE RODRIGO Y ELENA' — Elena es la madre, no hija",
+          "document_accessible": true
+        },
+        {
+          "candidate": "M. Á.",
+          "excluded_by": "Testimonio 7: 'M. Á. no lleva la sangre de Rodrigo. Llegó a la familia por otro camino.'",
+          "document_accessible": true
+        }
+      ],
+      "status": "pass — all non-candidates explicitly excluded"
+    },
     "trace": [
       {
         "step": "Carmen = casilla 1 (tormenta)",
@@ -54,7 +71,43 @@
 }
 ```
 
-## Example 2: FAIL — Circular dependency (bug original P1)
+## Example 2: FAIL — Candidate exclusion missing (M. Á. bug)
+
+```json
+{
+  "solvability_trace": {
+    "status": "fail",
+    "details": "Puzzle requires selecting 4 children from 6 names. Elena excluded by instruction. M. Á. has NO exclusion in any accessible document. Players must guess which of 5 remaining names are the 4 children.",
+    "candidate_exclusion": {
+      "total_candidates": 6,
+      "required": 4,
+      "exclusions": [
+        {
+          "candidate": "Elena",
+          "excluded_by": "Instrucción del tablero: 'hijos de Rodrigo y Elena'",
+          "document_accessible": true
+        },
+        {
+          "candidate": "M. Á.",
+          "excluded_by": "NINGÚN DOCUMENTO accesible excluye a M. Á. como hijo",
+          "document_accessible": false
+        }
+      ],
+      "status": "FAIL — M. Á. cannot be excluded by players"
+    },
+    "gaps": [
+      {
+        "missing_fact": "Exclusión explícita de M. Á. como hijo de Rodrigo y Elena",
+        "needed_for": "Reducir 5 candidatos a 4 (los 4 hijos)",
+        "current_source": "NINGUNO — Testimonio 7 dice 'cuatro hijos' pero no nombra a M. Á.",
+        "fix": "Cambiar Testimonio 7 para descartar a M. Á. directamente: 'M. Á. no lleva la sangre de Rodrigo. Llegó a la familia por otro camino.'"
+      }
+    ]
+  }
+}
+```
+
+## Example 3: FAIL — Circular dependency (bug original P1)
 
 ```json
 {

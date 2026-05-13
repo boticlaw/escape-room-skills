@@ -23,7 +23,34 @@ Trace the solution chain step by step. For each deduction step:
 2. Identify WHERE that information comes from (which specific document, which line)
 3. Verify that document is ACCESSIBLE at that point (not locked inside the box being opened)
 
-Any information gap → `fail` with the specific missing fact and where it should appear.
+**Mandatory sub-checks:**
+
+### 4a. Candidate exclusion test
+For any puzzle that requires selecting X items from a larger set of N candidates (N > X):
+1. List ALL N candidates the player encounters
+2. For EACH candidate that must be EXCLUDED, identify the specific document + text that excludes it
+3. If any candidate cannot be excluded by available information → `fail`
+
+Example: Board has 6 names. Code requires 4. The 2 non-candidates (Elena, M. Á.) must each have an explicit exclusion:
+- Elena → excluded by instruction text ("hijos de Rodrigo **y Elena**")
+- M. Á. → excluded by Testimonio 7 ("M. Á. no lleva la sangre de Rodrigo")
+If M. Á. had no exclusion → `fail` with "players cannot determine which 4 of 5 remaining names are children"
+
+### 4b. Deduction chain test
+For puzzles with multi-step logical deduction:
+1. Map every step: Input fact → Logical operation → Output fact
+2. For each input fact, verify it has a source document
+3. For each logical operation, verify the instruction/document tells players to perform it
+4. If any step has a missing input or unstated operation → `fail`
+
+### 4c. Code derivation test
+For the final code/solution:
+1. Verify the instruction tells players HOW to derive the code from the intermediate results
+2. Verify the format matches (e.g., "4 digits" instruction → code is actually 4 digits)
+3. Verify the ordering rule is stated (e.g., "del mayor al menor" → players know the order)
+4. If the derivation method is unclear or unstated → `fail`
+
+Any information gap across 4a/4b/4c → `fail` with the specific missing fact and where it should appear.
 
 ## Check 5: Self-contained — Documents outside the box have all info needed to open the box
 
