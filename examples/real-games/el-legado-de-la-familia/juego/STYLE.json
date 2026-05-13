@@ -1,0 +1,56 @@
+{
+  "nombre": "Sepia Vintage Familiar",
+  "descripcion": "Estilo de época, elegante y nostálgico. Evoca documentos antiguos, cartas familiares y recuerdos envejecidos. Los colores sepia y marrones transmiten calidez y misterio. Las secciones oscuras (carteles) contrastan con el papel envejecido de los documentos.",
+  "paleta": {
+    "primario": "#1a1a1a",
+    "secundario": "#8b7355",
+    "acento": "#8b4513",
+    "texto": "#4a3728",
+    "texto_secundario": "#8b7355",
+    "fondo_principal": "#faf0e6",
+    "fondo_secundario": "#fdf5e6",
+    "borde": "#8b7355"
+  },
+  "tipografia": {
+    "titulo": "'EB Garamond', Georgia, serif",
+    "titulo_import": "28pt",
+    "titulo_seccion": "15pt",
+    "cuerpo": "'EB Garamond', Georgia, serif",
+    "cuerpo_tamano": "10.5pt",
+    "especial": "'EB Garamond', Georgia, serif",
+    "import_url": "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+  },
+  "componentes": {
+    "cartel": {
+      "fondo": "#1a1a1a",
+      "texto": "#f5e6c8",
+      "borde": "#8b7355"
+    },
+    "carta": {
+      "fondo": "#faf0e6",
+      "texto": "#4a3728",
+      "estilo": "papel envejecido sepia, bordes sutiles, sombra interior suave"
+    },
+    "solucion": {
+      "fondo": "#1a1a1a",
+      "texto": "#f5e6c8",
+      "borde": "#8b7355"
+    },
+    "recompensa": {
+      "fondo": "#fdf5e6",
+      "borde": "#8b7355"
+    }
+  },
+  "texturas": {
+    "papel": "sepia aged",
+    "envejecimiento": true,
+    "bordes_quemados": false,
+    "sombra_interior": "inset 0 0 40px 10px rgba(139,115,85,0.1)"
+  },
+  "formato": {
+    "pagina": "A4",
+    "orientacion": "portrait",
+    "margenes": "15mm"
+  },
+  "notas": "Los carteles usan fondo oscuro (#1a1a1a) con texto dorado (#f5e6c8) para máxima legibilidad y contraste dramático. Las cartas y diarios usan papel sepia con sombra interior. Las tablas alternan #fdf5e6 y #f5e6c8 en filas pares/impares."
+}

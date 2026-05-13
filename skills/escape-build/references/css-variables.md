@@ -1,29 +1,61 @@
-# CSS Variables & Theme Presets
+# CSS Variables & Style System
 
-## CSS Variables System
+## Dynamic Theme from STYLE.json
 
-Each game theme defines 8 color variables in `:root`:
+All CSS variables are derived from `juego/STYLE.json`. The builder reads the style guide and generates `:root` variables automatically:
 
 ```css
 :root {
-  --color-primary: #1a1a2e;     /* Main background/brand */
-  --color-secondary: #16213e;   /* Secondary panels */
-  --color-accent: #e94560;      /* Highlights, CTAs */
-  --color-text: #eaeaea;        /* Body text */
-  --color-text-muted: #a0a0a0;  /* Secondary text */
-  --color-proof-bg: #0f3460;    /* Proof card background */
-  --color-proof-header: #e94560;/* Proof card header bar */
-  --color-border: #2a2a4a;      /* Borders and dividers */
+  --color-primary: STYLE.paleta.primario;
+  --color-secondary: STYLE.paleta.secundario;
+  --color-accent: STYLE.paleta.acento;
+  --color-text: STYLE.paleta.texto;
+  --color-text-muted: STYLE.paleta.texto_secundario;
+  --color-bg-main: STYLE.paleta.fondo_principal;
+  --color-bg-alt: STYLE.paleta.fondo_secundario;
+  --color-border: STYLE.paleta.borde;
 }
 ```
 
-## Theme Presets
+Additional variables from `componentes`:
+```css
+:root {
+  --cartel-bg: STYLE.componentes.cartel.fondo;
+  --cartel-text: STYLE.componentes.cartel.texto;
+  --carta-bg: STYLE.componentes.carta.fondo;
+  --carta-text: STYLE.componentes.carta.texto;
+  --solution-bg: STYLE.componentes.solucion.fondo;
+  --solution-text: STYLE.componentes.solucion.texto;
+  --reward-bg: STYLE.componentes.recompensa.fondo;
+  --reward-border: STYLE.componentes.recompensa.borde;
+}
+```
 
-| Theme | Primary | Secondary | Accent |
-|---|---|---|---|
-| Museum Heist | #1a1a2e | #16213e | #e94560 |
-| Jungle Temple | #1b4332 | #2d6a4f | #d4a373 |
-| Space Station | #0b0c10 | #1f2833 | #66fcf1 |
-| Pirate Ship | #3e1f00 | #6b3a00 | #f4d35e |
-| Haunted Manor | #1a1a1a | #2d2d2d | #6b2d5b |
-| Spy Mission | #0d1b2a | #1b263b | #e07000 |
+Typography from `tipografia`:
+```css
+:root {
+  --font-title: STYLE.tipografia.titulo;
+  --font-body: STYLE.tipografia.cuerpo;
+  --font-special: STYLE.tipografia.especial;
+  --size-title-main: STYLE.tipografia.titulo_import;
+  --size-title-section: STYLE.tipografia.titulo_seccion;
+  --size-body: STYLE.tipografia.cuerpo_tamano;
+}
+```
+
+## Theme Presets (for auto-generation)
+
+When the user has no style preference, select based on game genre:
+
+| Genre | Style Name | Primary | Background | Accent | Font |
+|---|---|---|---|---|---|
+| Mystery/Investigation | Sepia Vintage | #8b7355 | #faf0e6 | #8b4513 | EB Garamond |
+| Sci-Fi/Space | Neon Dark | #1f2833 | #0b0c10 | #66fcf1 | Space Mono |
+| Horror/Haunted | Dark Gothic | #2d2d2d | #1a1a1a | #6b2d5b | Crimson Text |
+| Adventure/Jungle | Earthy Green | #2d6a4f | #1b4332 | #d4a373 | Bitter |
+| Pirate/Historical | Warm Gold | #6b3a00 | #3e1f00 | #f4d35e | Playfair Display |
+| Spy/Espionage | Cool Blue | #1b263b | #0d1b2a | #e07000 | JetBrains Mono |
+| Family/Nostalgic | Warm Sepia | #8b7355 | #faf0e6 | #d4a373 | EB Garamond |
+| Competition/Quiz | Bold Modern | #e94560 | #1a1a2e | #f4d35e | Poppins |
+
+Full preset definitions are in `references/style-schema.md`.

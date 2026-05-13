@@ -13,8 +13,26 @@ Load when generating printable escape room documents from game JSON files. Produ
 
 1. **Zero dependencies.** All HTML uses only bundled `escape-base.css`. No external fonts, no JavaScript, no network requests. Must render correctly as local file and print to A4 from any browser or Puppeteer.
 2. **A4 format.** Margins: 12mm top/bottom, 10mm left/right. `printBackground: true`.
+3. **STYLE.json required.** All materials must read visual identity from `juego/STYLE.json`. Never hardcode colors or fonts — derive CSS from the style guide. If `STYLE.json` is missing, ask the user for style preferences before generating.
 
 ## Execution Steps
+
+### Step 0: Load Style Guide
+
+Read `juego/STYLE.json`. If missing:
+
+1. **Ask the user:** "No tengo guía de estilo para este juego. ¿Tenés un estilo definido (cartel, moodboard, colores) o querés que diseñe uno basado en la temática?"
+2. If user provides reference → generate `STYLE.json` from their description
+3. If user wants auto-design → select preset from `references/style-schema.md` based on game genre
+4. Write `STYLE.json` to `juego/STYLE.json`
+5. Continue with material generation using the new style
+
+From `STYLE.json`, derive:
+- `:root` CSS variables from `paleta.*`
+- Font stacks from `tipografia.*`
+- Component styles from `componentes.*`
+- Texture effects from `texturas.*`
+- Page layout from `formato.*`
 
 ### Build Command
 
@@ -26,7 +44,7 @@ Uses Puppeteer to render HTML→PDF.
 
 ### Step 1: Generate Game Guide (Design Document)
 
-Build `00-guia-completa-juego.html` (A4, themed CSS). Standard page structure:
+Build `00-guia-completa-juego.html` (A4, themed CSS from `STYLE.json`). Standard page structure:
 
 1. **Cover** — Title, subtitle, event, version
 2. **Ficha Técnica + Sinopsis** — Metadata grid (players, duration, difficulty, age, type) + narrative synopsis + central symbol
@@ -52,7 +70,7 @@ Build `game-tests.html` with: Test Cover, Walkthrough Test (one section per puzz
 
 ### Step 3: Generate In-Game Materials
 
-Create documents from `prueba.documentos_in_game`. Seven types: `diario`, `carta`, `tarjeta`, `etiqueta`, `tablero`, `cartel`, `fragmento`. Each generates HTML snippet + print-ready CSS + cut/fold guides.
+Create documents from `prueba.documentos_in_game`. Seven types: `diario`, `carta`, `tarjeta`, `etiqueta`, `tablero`, `cartel`, `fragmento`. Each generates HTML snippet + print-ready CSS + cut/fold guides. All materials derive their visual style from `STYLE.json`.
 
 ### Step 4: Render to PDF
 
@@ -73,7 +91,8 @@ Never break inside `.proof-card`, `.materials-table`, `.gm-sheet`. Force break b
 
 ## References
 
-- `references/css-variables.md` — 8 color variables, 6 theme presets
+- `references/css-variables.md` — Dynamic CSS variables from STYLE.json, theme presets
+- `references/style-schema.md` — STYLE.json schema, generation rules, genre presets
 - `references/component-classes.md` — All CSS component classes
 - `references/materials-templates.md` — 7 material types with templates
 - `references/document-checklists.md` — Full checklists, page break rules, game type adaptations

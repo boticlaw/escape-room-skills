@@ -32,6 +32,14 @@ RESOLVE 3m · EXPLORE 8m · REGRESSION 5m · CONCEIVE 12m · DESIGN 15m · NARRA
 | Baseline exists | Execute REGRESSION before CONCEIVE |
 | Sufficient data | `"continue"` |
 
+### Gate 0.5: Post-RESOLVE (Style)
+
+| Condition | Result |
+|-----------|--------|
+| `STYLE.json` exists in `juego/` | `"continue"` — use it |
+| User provides style reference | Generate `STYLE.json` from description → continue |
+| No style preference | Ask: "¿Querés que diseñe uno basado en la temática?" → auto-generate from preset → continue |
+
 ### Gate 2: Post-CONCEIVE
 
 | Condition | Result |
@@ -52,7 +60,7 @@ RESOLVE 3m · EXPLORE 8m · REGRESSION 5m · CONCEIVE 12m · DESIGN 15m · NARRA
 
 | # | Phase | Skill | Input → Output | Model |
 |---|-------|-------|----------------|-------|
-| 0 | RESOLVE | `pipeline-skill-resolution` | game_type+theme+difficulty → `RESOLVED_STANDARDS.json` | glm-5-turbo |
+| 0 | RESOLVE | `pipeline-skill-resolution` | game_type+theme+difficulty → `RESOLVED_STANDARDS.json` + `STYLE.json` | glm-5-turbo |
 | 1 | EXPLORE | `pipeline-explore` | Daniel's request → `BRIEF.json` | glm-5-turbo |
 | 1b | REGRESSION | `pipeline-regression` | BASELINE+game → `REGRESSION-REPORT.json` | glm-5-turbo |
 | 2 | CONCEIVE | `pipeline-conceive` | `BRIEF.json` → `concepts/A.json`+`B.json` → `CONCEPT.json` | **dual-LLM** |
@@ -84,10 +92,11 @@ After any validation phase (4a, 4c, 5, 6) produces `fail` or `pass_with_warnings
 
 1. READ PROGRESS → done/skipped? → skip
 2. Mark `in_progress` → SAVE
-3. Read `pipeline-{phase}/SKILL.md`, build prompt with input + RESOLVED_STANDARDS
-4. `delegate(agent="escape-judge-a", prompt="...")` → wait → validate output (`ls -la`)
-5. Fail → retry once → fail → `failed` + escalate
-6. OK → `done` → SAVE → next phase
+3. **RESOLVE style check:** If phase is RESOLVE, ask user: "¿Tenés estilo definido (cartel, moodboard, referencia) o querés que diseñe uno?" Generate `juego/STYLE.json` before continuing.
+4. Read `pipeline-{phase}/SKILL.md`, build prompt with input + RESOLVED_STANDARDS
+5. `delegate(agent="escape-judge-a", prompt="...")` → wait → validate output (`ls -la`)
+6. Fail → retry once → fail → `failed` + escalate
+7. OK → `done` → SAVE → next phase
 
 ### Iteration Rules
 
@@ -143,3 +152,4 @@ Follow directory structure (see `references/directory-structure.md`).
 - `references/directory-structure.md` — Directory layouts
 - `references/example-flow.md` — Complete example walkthrough
 - `references/communication-milestones.md` — Exact messages per milestone
+- `../../escape-build/references/style-schema.md` — STYLE.json schema and genre presets for visual identity
