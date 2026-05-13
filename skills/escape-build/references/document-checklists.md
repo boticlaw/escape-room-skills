@@ -1,5 +1,31 @@
 # Document Checklists & Page Break Rules
 
+## Naming Convention for Materials
+
+All generated material files follow this naming: `{NN}-{prefix}{name}.html/pdf`
+
+### Prefixes
+
+| Prefix | Meaning | When to use | Example |
+|--------|---------|-------------|---------|
+| `reco-` | **Reward** — found inside a locked box after solving | Items the player EARNS by solving (letters, navigation cards, certificates, revealed secrets) | `01-reco-fragmento-carta-elena.html` |
+| `deco-` | **Decorative** — pure narrative flavor, ZERO puzzle info | Items that add atmosphere but contain NO dates, names, codes, clues, or solving information. If a player never reads this, they can still solve every puzzle. | Would be valid for a family photo with no text |
+| *(none)* | **Solving material** — on the table, needed to solve | Items players must read/use to derive the solution. Boards, testimonies, instructions, cards with clues, letters with relevant info. | `01-tablero.html`, `01-testimonios.html` |
+
+### Classification Test
+
+Before assigning a prefix, ask: **"If a player never sees this document, can they still solve the puzzle?"**
+
+- **YES** → `deco-` (pure flavor)
+- **NO** → no prefix (solving material)
+- **It's inside a locked box** → `reco-` (reward)
+
+### Common Mistakes
+
+❌ Marking a letter as `deco-` because "it's narrative" — if it contains names, dates, birth order, or clues, it's NOT decorative.
+❌ Marking a diary as `deco-` because "it's flavor text" — if entries reference puzzle-relevant facts, it's solving material.
+✅ Only use `deco-` for documents where removing them changes NOTHING about solvability.
+
 ## Design Document Checklist (Game Guide)
 
 - [ ] Cover with game title, subtitle, event, version

@@ -20,6 +20,7 @@ Load when generating printable escape room documents from game JSON files. Produ
 3. **STYLE.json required.** Derive all colors/fonts from `juego/STYLE.json`. Never hardcode. If missing → ask user for preferences.
 4. **Print-first design.** Follow `references/print-design-guide.md`. Min body text: 10pt. Min contrast: 60% luminosity diff. No text below 8pt.
 5. **Props, not documents.** Every material must look like a physical prop. Apply treatments from `STYLE.json.tratamientos_visuales`. If it looks like an email or spreadsheet → it's not done.
+6. **Correct material classification.** Every material gets the right prefix: `reco-` (reward in locked box), `deco-` (pure flavor, zero puzzle info), or no prefix (solving material). Test: "If a player never sees this, can they still solve?" If NO → no prefix, not `deco-`. See `references/document-checklists.md` for full classification rules.
 
 ## Decision Gates
 
