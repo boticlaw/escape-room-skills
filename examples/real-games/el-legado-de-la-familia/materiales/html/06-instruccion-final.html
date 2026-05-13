@@ -18,7 +18,6 @@ body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; 
   text-align: center; position: relative;
 }
 
-/* Inner glow — slightly stronger for ceremony */
 .cartel::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -28,7 +27,6 @@ body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; 
   pointer-events: none;
 }
 
-/* ✦ ✦ ✦ top decoration — larger for ceremony */
 .cartel::after {
   content: '✦  ✦  ✦';
   position: absolute; top: -3mm; left: 50%;
@@ -37,30 +35,25 @@ body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; 
   color: #8b7355; font-size: 10pt; letter-spacing: 4mm;
 }
 
-/* Double ornamental border — outer */
 .marco-outer {
   position: absolute; top: 8mm; left: 8mm; right: 8mm; bottom: 8mm;
   border: 2px solid #8b7355; pointer-events: none;
 }
-/* Double ornamental border — inner */
 .marco-inner {
   position: absolute; top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
   border: 1px solid rgba(139,115,85,0.5); pointer-events: none;
 }
-/* Larger corner ornaments for ceremonial feel */
 .marco-outer::before { content: '✦'; position: absolute; top: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
 .marco-outer::after { content: '✦'; position: absolute; top: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
 .marco-inner::before { content: '✦'; position: absolute; bottom: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
 .marco-inner::after { content: '✦'; position: absolute; bottom: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 9pt; background: #1a1a1a; padding: 0 1mm; }
 
-/* Marionette string motif — extended for ceremony */
 .marionette-motif {
   position: absolute; top: 14mm; left: 20%; right: 20%;
   text-align: center; color: rgba(139,115,85,0.35);
   font-size: 9pt; letter-spacing: 5mm; font-family: monospace;
 }
 
-/* Extra ceremonial decorative line above main text */
 .ceremonia-line {
   width: 40mm;
   border-top: 1px solid rgba(139,115,85,0.4);
@@ -81,11 +74,13 @@ body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; 
   <div class="marionette-motif">─ ─ │ │ ─ ─</div>
   <div class="ceremonia-line"></div>
   <div class="cartel-text">
-    <strong>Colocad cada valor donde lo ganasteis.</strong>
-    Que nadie suelte su rama hasta que la raíz responda.
+    Solo los valores marcados con ★ revelan el camino.<br>
+    Cada letra apunta a una confesión.<br>
+    Leed con atención el inicio de cada frase.<br>
+    Los cuatro números, en orden, abren el cofre.
   </div>
   <div class="cartel-sub">
-    Cuando la raíz se abra, leed la carta de Elena entre todos.<br>
+    Cuando el cofre se abra, leed la carta de Elena entre todos.<br>
     Un voluntario la lee en voz alta.<br>
     Después, colocad la foto de quien faltaba y cortad el último hilo.
   </div>

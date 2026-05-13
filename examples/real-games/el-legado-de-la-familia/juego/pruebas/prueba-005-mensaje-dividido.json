@@ -85,8 +85,8 @@
       "letra": "D",
       "valor": "Dignidad",
       "carta": "La letra D, los materiales para P6 (letras LEGADO con números romanos + carta de Elena + tijeras doradas) dentro del sobre lacrado rojo.",
-      "carta_navegacion": "El sobre lacrado contiene todo lo necesario para la ceremonia final. Las 6 letras LEGADO con números romanos y las tijeras doradas. El Árbol del Reencuentro está ya en el desván, preparado.",
-      "siguiente_espacio": "Permanecen en el desván. El Árbol del Reencuentro está preparado para la ceremonia final."
+      "carta_navegacion": "El sobre lacrado contiene todo lo necesario para la ceremonia final. Las 6 letras LEGADO con números romanos y las tijeras doradas. El Cofre del Legado está ya en el desván, preparado.",
+      "siguiente_espacio": "Permanecen en el desván. El Cofre del Legado está preparado para la ceremonia final."
     }
   },
   "materiales": {
@@ -99,14 +99,14 @@
     "mobiliario": [
       "1 mesa amplia en el desván (para reconstruir la carta)",
       "Tercera tabla del suelo del desván (con espacio debajo para el sobre lacrado)",
-      "Árbol del Reencuentro (para P6, ya visible en el desván)"
+      "Cofre del Legado (para P6, ya visible en el desván)"
     ],
     "extras": [
       "Ficha con la letra D (dentro del sobre lacrado)",
       "6 letras LEGADO con números romanos grabados (dentro del sobre lacrado, para P6)",
       "1 carta de despedida de Elena (dentro del sobre lacrado, para leer en P6)",
       "1 tijeras doradas decorativas (dentro del sobre lacrado, para cortar hilo en P6)",
-      "Cinta roja fina (hilo de marioneta) de la mesa al Árbol del Reencuentro"
+      "Cinta roja fina (hilo de marioneta) de la mesa al Cofre del Legado"
     ]
   },
   "documentos_in_game": [

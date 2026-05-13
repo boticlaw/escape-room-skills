@@ -1,12 +1,12 @@
 {
-  "id": "legado_006_arbol_reencuentro",
-  "nombre": "El Árbol del Reencuentro",
-  "descripcion": "Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) y el sobre lacrado de P5 al Árbol del Reencuentro en el Desván. La letra O está en una etiqueta colgante de la raíz. Las letras llegan DESORDENADAS con números romanos que no coinciden con el orden LEGADO — Elena los numeró 'en el orden en que quiso que sus nietos descubrieran cada valor'. Usando el cartel de valores de la base, deducen el orden correcto. Al completar LEGADO y presionar durante 3 segundos, los imanes liberan la raíz: contiene la marioneta con hilos cortados y una foto de Miguel adulto. Un JUGADOR lee la carta de Elena en voz alta. La acción final: colocar la foto de Miguel en el hueco del árbol y cortar el último hilo con las tijeras doradas del sobre de P5.",
+  "id": "legado_006_cofre_legado",
+  "nombre": "El Cofre del Legado",
+  "descripcion": "Los jugadores llevan las 6 letras reunidas (L, E, G, A, D, O) al cofre del Desván. Cada letra tiene grabado un número romano DESORDENADO que no coincide con el orden LEGADO: L=III, E=VI, G=II, A=V, D=I, O=IV. Encuentran las 'Confesiones de Elena': un texto con 6 frases numeradas (I-VI). Un cartel de valores marca 4 de ellos con ★: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Solo las frases correspondientes a los valores ★ contienen un número oculto escrito como palabra. Siguiendo el orden LEGADO de los valores ★, cruzan letra→número romano→frase→número oculto. Los 4 números forman el código del candado: 1983 (año de nacimiento de Miguel). Al abrir el cofre, encuentran la carta completa de Elena, la foto de Miguel y la marioneta. Un JUGADOR lee la carta en voz alta. La acción final: colocar la foto de Miguel y cortar el último hilo con las tijeras doradas del sobre de P5.",
   "juego": "el-legado-de-la-familia",
-  "version": 14,
+  "version": 15,
   "espacio": 3,
   "sala": "El Desván",
-  "skill_primario": "prueba-mecanismo",
+  "skill_primario": "prueba-cifrado",
   "skills_secundarios": [
     "prueba-logica-secuencial"
   ],
@@ -18,65 +18,68 @@
   "cooperacion_obligatoria": true,
   "formato": "secuencial",
   "configuracion": {
-    "mecanica_principal": "Ceremonia de ordenación cooperativa. Los jugadores llevan las 6 letras LEGADO al Árbol del Reencuentro. La letra O está en una etiqueta colgante de la raíz. Cada letra tiene una forma/tamaño único que SOLO ENCAJA en su rama correcta del árbol (ranuras con silueta diferenciada). Los jugadores usan el cartel de valores de la base para saber QUÉ valor va en qué rama (rama I=Lealtad, rama II=Empatía...). Al colocar las 6 letras en las ramas correctas, la raíz se desliza y se abre.",
-    "mecanismo_barrera": "Mecanismo de madera con imanes ocultos en la raíz. Solo se abre cuando las 6 letras están colocadas en el orden correcto (LEGADO) y todos presionan simultáneamente durante 3 segundos.",
+    "mecanica_principal": "Cifrado de frases cruzadas. Los jugadores tienen 6 letras con números romanos desordenados (L=III, E=VI, G=II, A=V, D=I, O=IV). Encuentran las 'Confesiones de Elena' con 6 frases numeradas I-VI. El cartel de valores marca 4 valores con ★ (Lealtad ★, Generosidad ★, Amor ★, Orgullo ★). Cada valor ★ corresponde a una letra LEGADO; esa letra apunta a una frase por su número romano; esa frase comienza con un número escrito como palabra. Ordenando los valores ★ por su posición en LEGADO se obtiene el código: 1-9-8-3.",
+    "mecanismo_barrera": "Candado de combinación de 4 dígitos estándar montado en un cofre/caja. El código es 1983 (año de nacimiento de Miguel, mencionado en la carta de Elena). No requiere GM: se abre o no se abre.",
     "elementos_necesarios": [
-      "Árbol de madera/cartón pluma con 6 ramas numeradas I-VI y raíz abatible",
-      "6 ranuras con silueta ÚNICA por letra (cada letra solo encaja en su rama)",
-      "6 letras físicas L, E, G, A, D, O con forma/contorno ligeramente diferente",
-      "Letra O adicional en etiqueta colgante de la raíz",
-      "Cartel de valores en la base del árbol con orden de pruebas",
+      "Cofre o caja con cierre para candado de combinación de 4 dígitos",
+      "1 candado de combinación de 4 dígitos (código: 1-9-8-3)",
+      "6 letras físicas L, E, G, A, D, O con números romanos grabados: L=III, E=VI, G=II, A=V, D=I, O=IV",
+      "Cartel de valores con marcadores ★ en Lealtad, Generosidad, Amor, Orgullo",
+      "Documento 'Confesiones de Elena' con 6 frases numeradas I-VI",
       "Carta completa de Elena en papel envejecido",
       "Foto de Miguel adulto",
-      "Marioneta de madera pequeña con hilos rojos (dentro de la raíz)",
-      "Hueco en el árbol para insertar la foto de Miguel",
+      "Marioneta de madera pequeña con hilos rojos",
       "Tijeras doradas para cortar el último hilo (del sobre de P5)"
     ],
     "distribucion_roles": {
-      "portadores_valor": "Cada jugador sostiene una letra y busca la rana donde encaja por forma.",
-      "lector_raiz": "Lee el cartel e instrucción de la base del árbol.",
-      "guardian_memoria": "Recuerda el orden de las pruebas y ayuda a ordenar.",
-      "restaurador_final": "Coloca la foto de Miguel en el hueco del árbol y corta el último hilo de la marioneta con las tijeras doradas.",
-      "director_orden": "Coordina la ordenación. Idealmente quien menos haya coordinado en las pruebas anteriores."
+      "portador_valor": "Cada jugador sostiene una letra y busca el valor asociado en el cartel.",
+      "lector_cartel": "Lee el cartel de valores en voz alta y señala cuáles tienen ★.",
+      "descifrador": "Cruza la letra → número romano → frase correspondiente y busca el número oculto.",
+      "restaurador_final": "Coloca la foto de Miguel y corta el último hilo de la marioneta con las tijeras doradas.",
+      "lector_carta": "Lee la carta de Elena en voz alta al grupo."
     },
-    "rotacion_obligatoria": "SUGERENCIA impresa: 'El Director de orden debería ser quien menos haya coordinado en las pruebas anteriores.'"
+    "rotacion_obligatoria": "SUGERENCIA impresa: 'El Descifrador debería ser quien menos haya liderado la deducción en las pruebas anteriores.'"
   },
   "pistas": [
     {
       "nivel": 1,
       "tipo": "sutil",
-      "texto": "Cada letra solo encaja en una rama. Probad cada letra en las ranuras — el cartel de la base os dice qué valor va en cada rama.",
-      "timing": "Si los jugadores no se dan cuenta del desorden en 2 minutos"
+      "texto": "Las estrellas ★ en el cartel no son decorativas. Solo los valores marcados con ★ revelan el camino. Mirad las frases que os indican esos valores.",
+      "timing": "Si los jugadores no se dan cuenta del cifrado en 2 minutos"
     },
     {
       "nivel": 2,
       "tipo": "directa",
-      "texto": "El orden es el de las pruebas: Lealtad fue la primera (P1), Empatía la segunda (P2)... y así hasta Orgullo (P6).",
+      "texto": "Cada letra tiene un número romano que apunta a una frase de las Confesiones. Los valores ★ del cartel os dicen qué letras buscar. Leed con atención el inicio de cada frase.",
       "timing": "Si piden pista o tras 3 minutos"
     },
     {
       "nivel": 3,
       "tipo": "casi_solucion",
-      "texto": "Las letras encajan por forma. Rama I=Lealtad, II=Empatía, etc. Si no encaja, no es su rama.",
+      "texto": "Lealtad ★ → L tiene III → Frase III empieza con 'Un' (=1). Generosidad ★ → G tiene II → Frase II empieza con 'Nueve' (=9). Amor ★ → A tiene V → Frase V. Orgullo ★ → O tiene IV → Frase IV. Ordenad los números en orden LEGADO.",
       "timing": "Si piden pista explícita o tras 5 minutos"
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores descubren que sus letras tienen números romanos que no corresponden al orden LEGADO. Elena los numeró en el orden en que quiso que sus nietos los descubrieran. Deben usar el cartel de valores de la base del árbol (que lista los valores en orden de prueba) para colocar cada letra en la rama correcta. Al presionar simultáneamente durante 3 segundos, los imanes liberan la raíz. Un jugador lee la carta de Elena en voz alta al grupo.",
-    "verificacion": "La raíz del árbol se abre al presionar simultáneamente con LEGADO completo en las ramas correctas. Contiene los elementos de la recompensa final.",
+    "descripcion": "Los jugadores identifican los 4 valores ★ en el cartel: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Cada valor corresponde a una letra de LEGADO, y cada letra tiene grabado un número romano que apunta a una frase de las Confesiones. Las frases de los valores ★ comienzan con un número escrito como palabra. Ordenando los valores ★ por su posición en LEGADO (1.ª Lealtad, 3.ª Generosidad, 4.ª Amor, 6.ª Orgullo) obtienen: 1-9-8-3. El código 1983 es el año de nacimiento de Miguel, mencionado en la carta de Elena.",
+    "verificacion": "El candado de combinación se abre con 1-9-8-3. Dentro del cofre están los elementos de la recompensa final.",
     "pasos_detallados": [
-      "Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) al Árbol del Reencuentro.",
-      "Encuentran la letra O en una etiqueta colgante de la raíz del árbol.",
-      "Leer el cartel de la base: los valores se ganaron en orden (1.Lealtad, 2.Empatía, 3.Generosidad, 4.Amor, 5.Dignidad, 6.Orgullo).",
-      "Cada jugador coge una letra e intenta colocarla en las ramas. Cada letra SOLO ENCAJA en su rama correcta.",
-      "Colocar L→rama I, E→rama II, G→rama III, A→rama IV, D→rama V, O→rama VI.",
-      "La instrucción dice: 'Que nadie suelte su rama hasta que la raíz responda.'",
-      "Al tener las 6 letras encajadas, la raíz se desliza y se abre.",
-      "Dentro: carta completa de Elena, foto de Miguel adulto, marioneta con hilos cortados.",
-      "Un jugador lee la carta en voz alta al grupo.",
-      "Acción final: colocar la foto de Miguel en el hueco del árbol.",
+      "Los jugadores llevan las 6 letras reunidas (L, E, G, A, D, O) al cofre del Desván.",
+      "Encuentran las 'Confesiones de Elena' (6 frases numeradas I-VI) y el cartel de valores con ★.",
+      "Leen el cartel: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Los otros dos (Empatía, Dignidad) no tienen ★.",
+      "Identifican que los valores ★ corresponden a letras de LEGADO y que cada letra tiene un número romano.",
+      "Cruzan valor ★ → letra → número romano → frase de las Confesiones.",
+      "Lealtad ★ → L tiene III → Frase III: 'Un solo secreto guardé toda la vida.' → 'Un' = 1.",
+      "Generosidad ★ → G tiene II → Frase II: 'Nueve puertas cerré para proteger la verdad.' → 'Nueve' = 9.",
+      "Amor ★ → A tiene V → Frase V: 'Ocho décadas viví antes de poder deciros esto.' → 'Ocho' = 8.",
+      "Orgullo ★ → O tiene IV → Frase IV: 'Tres fueron los hijos que reconocí.' → 'Tres' = 3.",
+      "Ordenan por posición en LEGADO: Lealtad(1.ª)→1, Generosidad(3.ª)→9, Amor(4.ª)→8, Orgullo(6.ª)→3.",
+      "Introducen el código 1-9-8-3 en el candado de combinación.",
+      "El cofre se abre: carta completa de Elena, foto de Miguel adulto, marioneta con hilos cortados.",
+      "Un jugador lee la carta de Elena en voz alta al grupo.",
+      "Acción final: colocar la foto de Miguel.",
       "Acción ceremonial: cortar el último hilo rojo de la marioneta con las tijeras doradas.",
-      "Mensaje final: 'No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció.'"
+      "Mensaje final: 'No heredasteis objetos: heredasteis una verdad que os devuelve a quien siempre perteneció.'"
     ],
     "recompensa": {
       "letra": "LEGADO completo",
@@ -84,64 +87,69 @@
       "carta": "Carta completa de Elena revelando el pacto de amor.",
       "carta_navegacion": "FIN DEL JUEGO. El mensaje de recompensa final cierra la experiencia: 'No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.'",
       "siguiente_espacio": "FIN DEL JUEGO",
-      "revelacion_narrativa": "La verdad completa: Miguel fue protegido por amor y la familia puede reincorporarlo simbólicamente al árbol. Los hilos de la marioneta finalmente cortados: la familia es libre."
+      "revelacion_narrativa": "La verdad completa: Miguel fue protegido por amor y la familia puede reincorporarlo simbólicamente. Los hilos de la marioneta finalmente cortados: la familia es libre. El código 1983 es el año en que nació Miguel — la fecha que Rodrigo quiso borrar."
     }
   },
   "materiales": {
     "impresion": [
-      "1 cartel de valores para la base del árbol (con orden de pruebas)",
-      "1 instrucción final: 'Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.'",
+      "1 cartel de valores con ★ marcados en Lealtad, Generosidad, Amor, Orgullo",
+      "1 documento 'Confesiones de Elena' con 6 frases numeradas I-VI",
+      "1 instrucción final: 'Solo los valores marcados con ★ revelan el camino. Cada letra apunta a una confesión. Leed con atención el inicio de cada frase.'",
       "1 carta completa de Elena en papel envejecido (viene del sobre de P5)",
       "1 mensaje de recompensa final",
-      "6 letras físicas L, E, G, A, D, O con forma/contorno diferenciado para encaje único"
+      "6 letras físicas L, E, G, A, D, O con números romanos grabados: L=III, E=VI, G=II, A=V, D=I, O=IV"
     ],
     "mobiliario": [
-      "1 árbol de madera/cartón pluma con 6 ramas numeradas (I-VI) y raíz abatible",
-      "6 ranuras con imanes/velcro/pestañas",
-      "1 hueco en el árbol para insertar la foto"
+      "1 cofre o caja decorativa con cierre para candado de combinación",
+      "1 candado de combinación de 4 dígitos (configurado con código 1-9-8-3)"
     ],
     "extras": [
       "6 duplicados GM de las letras",
       "1 foto ficticia/ilustrada de Miguel adulto",
-      "1 marioneta de madera pequeña con hilos rojos (dentro de la raíz, hilos cortados)",
+      "1 marioneta de madera pequeña con hilos rojos (dentro del cofre, hilos cortados)",
       "1 par de tijeras doradas decorativas (viene del sobre de P5)",
-      "1 semilla, llave simbólica o medallón de legado",
-      "6 letras con forma única (plantilla de contorno para cortar)"
+      "1 semilla, llave simbólica o medallón de legado"
     ]
   },
   "documentos_in_game": [
     {
-      "titulo": "Cartel de la Raíz",
-      "texto": "Los valores se ganaron en orden:\nRama I — Lealtad\nRama II — Empatía\nRama III — Generosidad\nRama IV — Amor\nRama V — Dignidad\nRama VI — Orgullo\n\nCada letra tiene su lugar. Buscad donde encaja.",
+      "titulo": "Cartel de Valores",
+      "texto": "Los valores del legado:\n\n★ Lealtad\nEmpatía\n★ Generosidad\n★ Amor\nDignidad\n★ Orgullo\n\nSolo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión. Buscad el número oculto.",
       "cantidad": 1,
-      "gm_notas": "Grabado o impreso en la base del árbol. Visible desde el inicio. Incluye justificación narrativa de los números romanos desordenados: Elena los numeró por orden de descubrimiento, no por orden de la palabra."
+      "gm_notas": "Impreso o enmarcado junto al cofre. Visible desde el inicio. Las estrellas ★ indican qué valores participar en el cifrado. Los otros dos (Empatía, Dignidad) no tienen ★ y sus frases correspondientes (I y VI) NO contienen números."
+    },
+    {
+      "titulo": "Confesiones de Elena",
+      "texto": "I. El silencio fue mi compañía más fiel.\n\nII. Nueve puertas cerré para proteger la verdad.\n\nIII. Un solo secreto guardé toda la vida.\n\nIV. Tres fueron los hijos que reconocí.\n\nV. Ocho décadas viví antes de poder deciros esto.\n\nVI. Las estrellas brillaban sobre el jardín aquella noche.",
+      "cantidad": 1,
+      "gm_notas": "Documento en papel envejecido dentro de un sobre o marco junto al cofre. Las frases II, III, IV, V comienzan con un número escrito como palabra. Las frases I y VI NO comienzan con número. Numeración romana I-VI coincide con los números romanos grabados en las letras."
     },
     {
       "titulo": "Instrucción Final",
-      "texto": "Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.\n\nCuando la raíz se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
+      "texto": "Solo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión.\nLeed con atención el inicio de cada frase.\nLos cuatro números, en orden, abren el cofre.\n\nCuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
       "cantidad": 1,
-      "gm_notas": "En una tarjeta junto al árbol. Especifica que un JUGADOR lee la carta, no el GM."
+      "gm_notas": "En una tarjeta junto al cofre. Especifica que un JUGADOR lee la carta, no el GM."
     },
     {
       "titulo": "Carta de Despedida de la Abuela Elena",
-      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1963, cuando apenas tenía 19 años. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p><p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre supe que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p><p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastián, con tu mirada seria y tu corazón fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofía, abrazados siempre en la inocencia que yo protegí — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>",
+      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1983. Yo era una mujer hecha, con tres hijos ya crecidos, cuando él llegó. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p><p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre supe que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p><p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastián, con tu mirada seria y tu corazón fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofía, abrazados siempre en la inocencia que yo protegí — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>",
       "cantidad": 1,
-      "gm_notas": "La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de raíz o voluntario) la lee con calma."
+      "gm_notas": "La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de carta o voluntario) la lee con calma."
     },
     {
       "titulo": "Mensaje de Recompensa Final",
-      "texto": "No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.",
+      "texto": "No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.",
       "cantidad": 1,
       "gm_notas": "Impreso junto a la carta o en el reverso de la foto de Miguel."
     }
   ],
   "barrera_fisica": {
-    "tipo": "Cerrojo de raíz abatible",
-    "ubicacion": "Raíz del Árbol del Reencuentro",
-    "codigo": "LEGADO (cada letra encaja solo en su rama por forma única)",
-    "origen_codigo": "Las letras tienen siluetas diferentes que solo encajan en la rama correcta. El cartel de la base indica qué valor va en cada rama.",
-    "montaje_minutos": 15,
-    "construccion": "Cortar cada ranura del árbol con la silueta exacta de su letra. La raíz se mantiene cerrada por un cerrojo/pin que se libera cuando las 6 letras presionan sus pestillas simultáneamente. Budget: ~20€ en cartón pluma + cola + imán pequeño para cerrojo."
+    "tipo": "Candado de combinación de 4 dígitos",
+    "ubicacion": "Cofre del Legado en El Desván",
+    "codigo": "1983",
+    "origen_codigo": "Cada valor ★ del cartel apunta a una letra → su número romano apunta a una frase → el inicio de la frase contiene un número escrito como palabra. Ordenando por posición LEGADO: Lealtad(L=III→Frase III→'Un'=1), Generosidad(G=II→Frase II→'Nueve'=9), Amor(A=V→Frase V→'Ocho'=8), Orgullo(O=IV→Frase IV→'Tres'=3) = 1983.",
+    "montaje_minutos": 5,
+    "construccion": "Candado de combinación de 4 dígitos estándar montado en un cofre o caja decorativa. Configurar código 1-9-8-3. Budget: ~5-8€ por el candado + cofre decorativo o caja de madera (~10-15€). Total: ~15-23€."
   },
   "hilo_conductor": {
     "letra": "O",
@@ -149,40 +157,46 @@
     "posicion": 6
   },
   "control_movimiento": {
-    "problema_potencial": "Los jugadores podrían decir 'LEGADO' y colocar las letras sin usar el cartel. O podrían no presionar simultáneamente.",
-    "solucion_implementada": "Las letras tienen números romanos desordenados que NO coinciden con el orden LEGADO, forzando la deducción. Las ramas están numeradas I-VI y solo encajan cuando las letras están en orden correcto. La instrucción es clara: 'Que nadie suelte su rama hasta que la raíz responda.' El mecanismo puede abrirse manualmente por GM solo como backup técnico (imanes fallan), no como intervención de juego.",
+    "problema_potencial": "Los jugadores podrían intentar adivinar el código sin resolver el cifrado, o podrían no entender la conexión entre letras, frases y números.",
+    "solucion_implementada": "El código 1983 no es deducible sin cruzar letras + cartel ★ + Confesiones. Las frases I y VI (no ★) no contienen números, lo que confirma que solo los valores ★ importan. El cartel indica explícitamente 'Solo los valores marcados con ★ revelan el camino.' El orden de los dígitos requiere conocer la posición LEGADO de cada valor, forzando el cruce completo.",
     "tipo_solucion": "prevencion"
   },
   "metadata": {
     "fecha_creacion": "2026-05-10",
     "proyecto": "viernes-de-escape",
     "adaptado_de": "legado-familia/prueba-006-cofre-reencuentro.json (Sandoval v3.1)",
-    "version": "4.0",
+    "version": "5.0",
     "testado": false,
-    "notas": "v4.0: GM ya NO lee la carta — la lee un JUGADOR. Tijeras doradas dentro del sobre de P5 (no entregadas por GM). Justificación narrativa de números romanos desordenados (Elena los numeró por orden de descubrimiento). Instrucción final impresa con paso de lectura por jugador. Debriefing impreso como 'Última carta de Elena' (no mensaje GM)."
+    "notas": "v5.0: Rediseño completo. Eliminado árbol con mecanismo magnético (imposible de fabricar en casa). Nuevo mecánica: cifrado de frases cruzadas con candado de combinación de 4 dígitos. Código 1983 = año de nacimiento de Miguel. Nuevo documento: 'Confesiones de Elena' (6 frases numeradas). Cartel de valores actualizado con marcadores ★. Las frases II, III, IV, V comienzan con número-palabra; I y VI no. Coste reducido de ~20€ a ~15-23€ con materiales fáciles de encontrar. GM-free: el candado se abre o no."
   },
   "ingame_docs": [
     {
-      "titulo": "Cartel de la Raíz",
-      "texto": "Los valores se ganaron en orden:\n1.ª prueba — Lealtad\n2.ª prueba — Empatía\n3.ª prueba — Generosidad\n4.ª prueba — Amor\n5.ª prueba — Dignidad\n6.ª prueba — Orgullo\n\nElena numeró las letras en el orden en que quiso que sus nietos descubrieran cada valor, no en el orden de la palabra. Buscad el orden correcto.\n\nUNA RAMA SOLA NO ABRE UNA RAÍZ.",
+      "titulo": "Cartel de Valores",
+      "texto": "Los valores del legado:\n\n★ Lealtad\nEmpatía\n★ Generosidad\n★ Amor\nDignidad\n★ Orgullo\n\nSolo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión. Buscad el número oculto.",
       "cantidad": 1,
-      "gm_notas": "Grabado o impreso en la base del árbol. Visible desde el inicio. Incluye justificación narrativa de los números romanos desordenados: Elena los numeró por orden de descubrimiento, no por orden de la palabra."
+      "gm_notas": "Impreso o enmarcado junto al cofre. Visible desde el inicio. Las estrellas ★ indican qué valores participar en el cifrado. Los otros dos (Empatía, Dignidad) no tienen ★ y sus frases correspondientes (I y VI) NO contienen números."
+    },
+    {
+      "titulo": "Confesiones de Elena",
+      "texto": "I. El silencio fue mi compañía más fiel.\n\nII. Nueve puertas cerré para proteger la verdad.\n\nIII. Un solo secreto guardé toda la vida.\n\nIV. Tres fueron los hijos que reconocí.\n\nV. Ocho décadas viví antes de poder deciros esto.\n\nVI. Las estrellas brillaban sobre el jardín aquella noche.",
+      "cantidad": 1,
+      "gm_notas": "Documento en papel envejecido dentro de un sobre o marco junto al cofre. Las frases II, III, IV, V comienzan con un número escrito como palabra. Las frases I y VI NO comienzan con número. Numeración romana I-VI coincide con los números romanos grabados en las letras."
     },
     {
       "titulo": "Instrucción Final",
-      "texto": "Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.\n\nCuando la raíz se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
+      "texto": "Solo los valores marcados con ★ revelan el camino.\nCada letra apunta a una confesión.\nLeed con atención el inicio de cada frase.\nLos cuatro números, en orden, abren el cofre.\n\nCuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.",
       "cantidad": 1,
-      "gm_notas": "En una tarjeta junto al árbol. Especifica que un JUGADOR lee la carta, no el GM."
+      "gm_notas": "En una tarjeta junto al cofre. Especifica que un JUGADOR lee la carta, no el GM."
     },
     {
       "titulo": "Carta de Despedida de la Abuela Elena",
-      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1963, cuando apenas tenía 19 años. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p><p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre supe que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p><p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastián, con tu mirada seria y tu corazón fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofía, abrazados siempre en la inocencia que yo protegí — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>",
+      "texto": "<p><strong>Mis queridos nietos:</strong></p><p>Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.</p><p>Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1983. Yo era una mujer hecha, con tres hijos ya crecidos, cuando él llegó. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.</p><p>Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre supe que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.</p><p>Marcos, vuestro padre, heredó la firmeza de Rodrigo y también su silencio. Lucía, vuestra madre, siempre sospechó algo pero me respetaba demasiado para preguntar. Carmen nunca dejó de buscar. Y Luis... Luis fue el único que se atrevió a cortar sus propios hilos y marcharse.</p><p>A vosotros, mis queridos nietos — Sebastián, con tu mirada seria y tu corazón fuerte; Olivia, con tu dulzura que me recuerda a mi juventud; Leo y Sofía, abrazados siempre en la inocencia que yo protegí — a vosotros os dejo mi verdadero legado.</p><p>No os dejo dinero ni propiedades. Os dejo la verdad. La verdad de que las familias no son perfectas. La verdad de que a veces los hilos los mueve el miedo, no el amor. La verdad de que nunca es tarde para reunirse.</p><p>Buscad a Miguel. Mi último deseo es que los cuatro hermanos se conozcan. Que la familia que Rodrigo rompió con un gesto de su mano pueda volver a estar completa. Que los hilos rotos se vuelvan a unir.</p><p>No me arrepiento de nada. Protegí a mis hijos como pude. Pero los secretos son como las marionetas: al final, siempre se ven los hilos.</p><p>Os quiero con toda mi alma.</p><p><strong>Abuela Elena</strong></p><p>P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad, <strong>O</strong>rgullo de pertenecer a esta familia. Ese es mi verdadero <strong>LEGADO</strong>. Cortad los hilos. Sed libres.</p>",
       "cantidad": 1,
-      "gm_notas": "La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de raíz o voluntario) la lee con calma."
+      "gm_notas": "La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de carta o voluntario) la lee con calma."
     },
     {
       "titulo": "Mensaje de Recompensa Final",
-      "texto": "No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.",
+      "texto": "No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.",
       "cantidad": 1,
       "gm_notas": "Impreso junto a la carta o en el reverso de la foto de Miguel."
     }
