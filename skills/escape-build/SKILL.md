@@ -14,6 +14,7 @@ Load when generating printable escape room documents from game JSON files. Produ
 1. **Zero dependencies.** All HTML uses only bundled `escape-base.css`. No external fonts, no JavaScript, no network requests. Must render correctly as local file and print to A4 from any browser or Puppeteer.
 2. **A4 format.** Margins: 12mm top/bottom, 10mm left/right. `printBackground: true`.
 3. **STYLE.json required.** All materials must read visual identity from `juego/STYLE.json`. Never hardcode colors or fonts — derive CSS from the style guide. If `STYLE.json` is missing, ask the user for style preferences before generating.
+4. **Print-first design.** All materials follow `references/print-design-guide.md`. Minimum body text: 10pt. Minimum contrast: 60% luminosity difference. No text below 8pt. Dark backgrounds only for short signs/posters — never for long documents.
 
 ## Execution Steps
 
@@ -96,3 +97,4 @@ Never break inside `.proof-card`, `.materials-table`, `.gm-sheet`. Force break b
 - `references/component-classes.md` — All CSS component classes
 - `references/materials-templates.md` — 7 material types with templates
 - `references/document-checklists.md` — Full checklists, page break rules, game type adaptations
+- `references/print-design-guide.md` — Print design principles, typography, color, composition, textures for escape room materials
