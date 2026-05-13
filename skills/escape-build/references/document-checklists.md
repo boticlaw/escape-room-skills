@@ -1,14 +1,21 @@
 # Document Checklists & Page Break Rules
 
-## Design Document Checklist
+## Design Document Checklist (Game Guide)
 
-- [ ] Cover with complete game metadata
-- [ ] Synopsis matching game.json
-- [ ] Game structure table with all puzzles
-- [ ] Flow diagram showing puzzle sequence
-- [ ] One proof card per puzzle with complete info
-- [ ] GM sheet with setup and reset instructions
-- [ ] Materials summary table
+- [ ] Cover with game title, subtitle, event, version
+- [ ] Ficha técnica (players, duration, difficulty, age, type) + sinopsis
+- [ ] Characters grouped by generation
+- [ ] Game flow with phases, timing, room symbols
+- [ ] Hilo conductor table (letters, values, puzzles)
+- [ ] One proof page per puzzle with:
+  - [ ] Metadata (room, difficulty, duration, hilo letter)
+  - [ ] DETAILED mechanics (what players find, step-by-step solution, anti-cheat)
+  - [ ] Solution box (code highlighted)
+  - [ ] Materials file list
+- [ ] Summary table of all locks and codes
+- [ ] Complete materials inventory (all generated files by puzzle)
+- [ ] NO budget section (separate document)
+- [ ] NO debriefing section (separate document)
 
 ## Tests Document Checklist
 

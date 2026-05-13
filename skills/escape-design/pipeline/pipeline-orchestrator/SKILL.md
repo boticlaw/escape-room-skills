@@ -20,7 +20,7 @@ The orchestrator delegates phases as sub-agents — it does NOT execute phases d
 2. **PROGRESS.json is retomable.** Before any phase, read `{project_dir}/PROGRESS.json`. Resume from first non-completed phase. Update after each phase (see `references/progress-schema.md`). Required: `phases.{name}.status` (`pending`|`in_progress`|`done`|`skipped`|`failed`).
 3. **Timeouts.** Exceed → save what exists, mark `failed`.
 
-RESOLVE 3m · EXPLORE 8m · REGRESSION 5m · CONCEIVE 12m · DESIGN 15m · NARRATIVE 5m · DIFFICULTY 5m · BUILD 10m · NARRATIVE-RECHECK 5m · PLAYTEST 12m · VERIFY 8m · JUDGMENT 10m
+RESOLVE 3m · EXPLORE 8m · REGRESSION 5m · CONCEIVE 12m · DESIGN 15m · NARRATIVE 5m · DIFFICULTY 5m · BUILD 10m · MATERIALS-VERIFY 5m · NARRATIVE-RECHECK 5m · PLAYTEST 12m · VERIFY 8m · JUDGMENT 10m
 
 ## Decision Gates
 
@@ -60,12 +60,25 @@ RESOLVE 3m · EXPLORE 8m · REGRESSION 5m · CONCEIVE 12m · DESIGN 15m · NARRA
 | 3a | NARRATIVE | `pipeline-narrative-consistency` | `DESIGN.json`+`CONCEPT.json` → `NARRATIVE-CONSISTENCY-REPORT.json` | glm-5-turbo |
 | 3b | DIFFICULTY | `pipeline-difficulty-calibration` | `CONCEPT.json`+`DESIGN.json` → `DIFFICULTY-REPORT.json` | glm-5-turbo |
 | 4 | BUILD | `pipeline-build` | `DESIGN.json`+difficulty report → `juegos/{juego}/` | glm-5.1 |
-| 4a | NARRATIVE-RECHECK | `pipeline-narrative-consistency` | `juegos/`+`DESIGN.json` → `NARRATIVE-CONSISTENCY-REPORT.json` | glm-5-turbo |
-| 4b | PLAYTEST | `pipeline-playtest` | `juegos/`+`DESIGN.json`+`CONCEPT.json` → `playtests/A.json`+`B.json` → `PLAYTEST-REPORT.json` | **dual-LLM** |
+| 4a | MATERIALS-VERIFY | `pipeline-verify-materials` | `juegos/{juego}/`+`materiales/` → `MATERIALS-VERIFY-REPORT.json` | glm-5-turbo |
+| 4b | NARRATIVE-RECHECK | `pipeline-narrative-consistency` | `juegos/`+`DESIGN.json` → `NARRATIVE-CONSISTENCY-REPORT.json` | glm-5-turbo |
+| 4c | PLAYTEST | `pipeline-playtest` | `juegos/`+`DESIGN.json`+`CONCEPT.json` → `playtests/A.json`+`B.json` → `PLAYTEST-REPORT.json` | **dual-LLM** |
 | 5 | VERIFY | `pipeline-verify` | `juegos/`+`DESIGN.json`+reports → `VERIFY-REPORT.json` | glm-5-turbo |
 | 6 | JUDGMENT | `pipeline-judgment-day` | all artifacts → `JUDGMENT-REPORT.json` | **dual-LLM** |
+| 7 | FIX | `pipeline-fix` | report+JSONs → fixed JSONs+materials → `FIX-REPORT.json` | glm-5.1 |
 
 **Dual-LLM** = escape-judge-a (GLM-5.1) + escape-judge-b (GPT-5.5). Validate against design checks (see `references/design-checks.md`).
+
+### Auto-Fix Loop
+
+After any validation phase (4a, 4c, 5, 6) produces `fail` or `pass_with_warnings`:
+
+1. Launch `pipeline-fix` with the failing report + affected JSONs
+2. FIX applies changes to source JSONs, regenerates materials, produces `FIX-REPORT.json`
+3. If `FIX-REPORT.verdict = fixed` → re-run the originating validation
+4. If re-validation passes → continue pipeline
+5. If re-validation fails or FIX escalates → increment cycle counter, retry (max 2)
+6. Max cycles exceeded → `failed` + escalate to Daniel
 
 ### Per-Phase Loop
 
@@ -89,15 +102,19 @@ RESOLVE 3m · EXPLORE 8m · REGRESSION 5m · CONCEIVE 12m · DESIGN 15m · NARRA
 |----------|--------|
 | CONCEIVE fails | Adjust synthesis (max 2) → persist → escalate |
 | DESIGN fails | Adjust synthesis (max 2) → persist → escalate |
-| PLAYTEST fail | → BUILD with feedback (max 1) → escalate |
-| PLAYTEST pass_with_concerns | Pass report to Verify, continue |
+| MATERIALS-VERIFY fail | → FIX (max 2 cycles) → re-verify → escalate |
+| MATERIALS-VERIFY pass_with_warnings | FIX warnings if actionable, pass rest to PLAYTEST, continue |
+| PLAYTEST fail | → FIX (max 2 cycles) → re-playtest → escalate |
+| PLAYTEST pass_with_concerns | FIX actionable concerns, pass report to Verify, continue |
+| VERIFY fail | → FIX (max 2 cycles) → re-verify → if still fails → DESIGN → escalate |
+| JUDGMENT approved_with_suggestions | FIX non-breaking suggestions, deliver |
 | DIFFICULTY fail | → DESIGN with feedback (max 1) → escalate |
-| DIFFICULTY pass_with_adjustments | Pass to Build, apply, continue |
+| DIFFICULTY pass_with_adjustments | FIX adjustments, pass to Build, continue |
 | NARRATIVE fail | → DESIGN with feedback (max 1) → escalate |
-| NARRATIVE pass_with_warnings | Notes to Build, continue |
+| NARRATIVE pass_with_warnings | FIX warnings if actionable, continue |
 | REGRESSION fail | **Stop.** Escalate. Daniel decides. |
 | REGRESSION pass_with_concerns | Continue, run only `re_verification_needed` |
-| VERIFY fail | → DESIGN (max 2 Design→Build→Verify) → escalate |
+| FIX escalates (cannot fix) | → DESIGN or CONCEIVE depending on issue scope → escalate |
 
 ### Judgment Consensus
 

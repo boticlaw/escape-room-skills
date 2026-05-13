@@ -24,9 +24,26 @@ node scripts/build-pdf.mjs <input.html> [--output <output.pdf>]
 
 Uses Puppeteer to render HTML→PDF.
 
-### Step 1: Generate Design Document
+### Step 1: Generate Game Guide (Design Document)
 
-Build `game-design.html` with: Cover, Synopsis, Game Structure table, Flow Diagram, Proof Cards (one per puzzle), GM Sheet, Materials List.
+Build `00-guia-completa-juego.html` (A4, themed CSS). Standard page structure:
+
+1. **Cover** — Title, subtitle, event, version
+2. **Ficha Técnica + Sinopsis** — Metadata grid (players, duration, difficulty, age, type) + narrative synopsis + central symbol
+3. **Personajes** — Characters grouped by generation with role descriptions
+4. **Flujo del Juego** — Phase cards with timing, room symbols
+5. **Hilo Conductor** — Connection thread table (letters/values/puzzles)
+6. **Pruebas (1 page each)** — For each puzzle:
+   - Metadata (room badge, difficulty, duration, hilo letter)
+   - **Mecánica** (DETAILED: what players find, step-by-step solution path, anti-cheat design)
+   - Solution box (code highlighted in dark box)
+   - Materials list
+7. **Resumen de Candados y Códigos** — All locks/codes table
+8. **Inventario de Materiales** — All generated files organized by puzzle
+
+**NOT included:** Budget, debriefing, setup/reset instructions (those belong in separate documents).
+
+**Mechanics requirement:** Each puzzle's mechanics section must contain enough detail for a reader to understand HOW the puzzle works without seeing the materials — what players find, what they do step by step, how the code/solution is derived, and the anti-cheat design.
 
 ### Step 2: Generate Tests Document
 
