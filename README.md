@@ -126,10 +126,28 @@ Ver `skills/escape-build/references/style-schema.md` para el schema completo.
 
 - **8 parejas tipográficas** por género (título + cuerpo) con Google Fonts URLs
 - **6 paletas por mood** (papel antiguo, pergamino, noche, bosque, laboratorio, militar)
-- **7 layouts por tipo de documento** (cartel, carta, diario, tarjeta, tablero, fragmento, etiqueta)
-- **Recetas CSS de texturas** (papel envejecido, quemado, sellos de cera, scratch-off)
+- **9 layouts por tipo de documento** (cartel, carta, diario, tarjeta, tablero, fragmento, etiqueta, foto, certificado)
+- **10 recetas CSS avanzadas** para props realistas: marcos ornamentales, fotos Polaroid, sellos de cera, sellos raspables plateados, líneas de cuaderno, manchas de café, dobleces simulados, cinta adhesiva, firmas elegantes, textura de cartón
 - **Escala de espaciado** (xs 1.5mm → 3xl 20mm) y escala tipográfica (8pt → 28pt)
 - **Reglas priorizadas**: 6 obligatorias, 6 recomendadas, 5 opcionales
+
+### Tratamientos Visuales — Props, no documentos
+
+`STYLE.json.tratamientos_visuales` define los tratamientos decorativos obligatorios por tipo de material. El builder los aplica automáticamente:
+
+| Material | Tratamientos |
+|----------|-------------|
+| **Cartel** | Fondo oscuro + borde ornamental ✦ + motivo marioneta + brillo interior |
+| **Carta** | Papel sepia + envejecimiento + manchas café + dobleces + firma + drop-cap |
+| **Diario** | Líneas de cuaderno + margen rojo + manchas + cinta adhesiva + números de página |
+| **Tablero** | Marco ornamental ✦ + título decorativo + filas alternadas |
+| **Tarjeta** | Textura cartón + sombra interior + badge numerado + sellos raspables plateados |
+| **Fragmento** | Bordes irregulares (clip-path) + envejecimiento pesado + numeración sutil |
+| **Foto** | Marco Polaroid + sombra + rotación + fecha + sello raspable + cinta adhesiva |
+| **Certificado** | Marco ornamental formal + pergamino + sello de cera + líneas de firma + sello "REGISTRADO" |
+| **Etiqueta** | Textura cartón + borde decorativo + sello de cera opcional |
+
+Ver `references/materials-templates.md` para las plantillas completas con estructura HTML + CSS requerido + intensidad de tratamiento.
 
 ### Game Guide (Documento de Diseño Estándar)
 
