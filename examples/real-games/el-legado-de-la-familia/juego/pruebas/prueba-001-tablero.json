@@ -3,7 +3,7 @@
   "nombre": "El Tablero de las Presencias",
   "descripcion": "La carta de navegación de P1 lleva a una caja de notario con un tablero plegable de 6 casillas numeradas (eventos familiares) y 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel y M. Á. Cada jugador recibe un sobre de testimonio con una restricción lógica única (dentro de la caja). Compartiendo en voz alta sus restricciones, el grupo debe deducir la posición correcta de cada persona en cada evento. Las posiciones de los 4 hijos (Marcos=3, Carmen=1, Luis=5, Miguel=4) forman el código de un candado de 4 dígitos (3154) en orden de edad. Dentro de la caja están la plantilla, el Consejo Familiar y las cartas familiares — todo self-service.",
   "juego": "el-legado-de-la-familia",
-  "version": 14,
+  "version": 15,
   "espacio": 1,
   "sala": "El Despacho de la Abuela",
   "skill_primario": "prueba-logica-posiciones",
@@ -22,7 +22,7 @@
       "KIT DE RESOLUCIÓN (sobre la mesa, FUERA de la caja):",
       "  - Tablero plegable con 6 casillas/eventos numerados 1-6",
       "  - 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel, M. Á.",
-      "  - 6 sobres de testimonio con restricciones únicas",
+      "  - 7 sobres de testimonio con restricciones únicas",
       "  - Plantilla de tabla para restricciones",
       "  - 8 cartas familiares en sobre etiquetado 'Leer después'",
       "RECOMPENSA (DENTRO de la caja CERRADA):",
@@ -61,13 +61,13 @@
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores comparten sus 6 restricciones en voz alta y, por deducción cruzada, colocan las 6 fichas en las casillas correctas del tablero. La solución única es: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. Á.=6. Las posiciones de los 4 hijos en orden de edad forman el código: Marcos(3), Carmen(1), Luis(5), Miguel(4) → 3154.",
+    "descripcion": "Los jugadores comparten sus 7 restricciones en voz alta y, por deducción cruzada, colocan las 6 fichas en las casillas correctas del tablero. La solución única es: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. Á.=6. Las posiciones de los 4 hijos en orden de edad forman el código: Marcos(3), Carmen(1), Luis(5), Miguel(4) → 3154.",
     "verificacion": "El candado de 4 dígitos se abre con 3154. Dentro de la caja hay una foto de bebé con el dorso tachado 'Miguel A.' y la letra L.",
     "pasos_detallados": [
-      "Encontrar la zona del escritorio con: tablero plegable, fichas, 6 sobres de testimonio, plantilla de tabla, y una caja de notario CERRADA con candado.",
+      "Encontrar la zona del escritorio con: tablero plegable, fichas, 7 sobres de testimonio, plantilla de tabla, y una caja de notario CERRADA con candado.",
       "La instrucción impresa junto al tablero dice: COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.",
-      "Cada jugador coge un sobre de testimonio y lo lee en voz alta. Si son menos de 6, los sobres sobrantes se abren y se leen también.",
-      "Por deducción cruzada de las 6 restricciones, colocar las fichas en las casillas correctas del tablero:",
+      "Cada jugador coge un sobre de testimonio y lo lee en voz alta. Si son menos de 7, los sobres sobrantes se abren y se leen también.",
+      "Por deducción cruzada de las 7 restricciones, colocar las fichas en las casillas correctas del tablero:",
       "  - Carmen = 1 (La tarde de la tormenta)",
       "  - Elena = 2 (La visita al médico)",
       "  - Marcos = 3 (La firma ante el notario)",
@@ -94,7 +94,7 @@
     "impresion": [
       "1 tablero plegable con 6 casillas numeradas y nombres de eventos",
       "6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel, M. Á.",
-      "6 sobres de testimonio con las restricciones impresas",
+      "7 sobres de testimonio con las restricciones impresas",
       "1 instrucción del tablero: 'COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.'",
       "1 lista de eventos del tablero",
       "1 foto de bebé ficticia con dorso tachado 'Miguel A.'",
@@ -130,9 +130,9 @@
     },
     {
       "titulo": "Restricciones de los Testimonios",
-      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
-      "cantidad": 6,
-      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Si hay menos de 6 jugadores, algunos reciben 2 sobres (se comparten restricciones)."
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.\n\nTestimonio 7: Rodrigo y Elena tuvieron cuatro hijos. Los demás nombres del tablero no nacieron de ambos.",
+      "cantidad": 7,
+      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 es clave: resuelve la ambigüedad de qué nombres son hijos (excluye a Elena como madre y a M. Á. como no-hijo biológico)."
     },
     {
       "titulo": "Fragmento de Carta de Elena (P1)",
@@ -247,9 +247,9 @@
     },
     {
       "titulo": "Restricciones de los Testimonios",
-      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
-      "cantidad": 6,
-      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Si hay menos de 6 jugadores, algunos reciben 2 sobres (se comparten restricciones)."
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.\n\nTestimonio 7: Rodrigo y Elena tuvieron cuatro hijos. Los demás nombres del tablero no nacieron de ambos.",
+      "cantidad": 7,
+      "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 es clave: resuelve la ambigüedad de qué nombres son hijos (excluye a Elena como madre y a M. Á. como no-hijo biológico)."
     },
     {
       "titulo": "Fragmento de Carta de Elena (P1)",
