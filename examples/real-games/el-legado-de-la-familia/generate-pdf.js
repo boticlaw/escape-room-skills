@@ -2,8 +2,11 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 
 const htmlFile = process.argv[2] || 'EL-LEGADO-DE-LA-FAMILIA.html';
+const htmlDir = htmlFile.includes('/') ? path.dirname(htmlFile) : 'materiales/html';
 const htmlPath = path.resolve(__dirname, htmlFile);
-const pdfPath = htmlPath.replace('.html', '.pdf');
+const pdfDir = htmlDir.replace('/html', '/pdf').replace('html', 'pdf');
+const pdfName = path.basename(htmlFile).replace('.html', '.pdf');
+const pdfPath = path.resolve(__dirname, pdfDir, pdfName);
 
 (async () => {
   const browser = await puppeteer.launch({

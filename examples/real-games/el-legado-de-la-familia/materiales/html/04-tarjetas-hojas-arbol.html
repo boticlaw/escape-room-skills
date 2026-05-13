@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tarjetas Hoja P4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+@page { size: A4 portrait; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 186mm; background: white; }
+.page {
+  width: 186mm; min-height: 267mm; padding: 6mm;
+  display: flex; flex-direction: column; gap: 4mm;
+}
+.tarjeta {
+  background: #faf5ee; border: 1.5px solid #c4a882; border-radius: 3px;
+  padding: 4mm 6mm; font-family: 'EB Garamond', Georgia, serif;
+  font-size: 10pt; line-height: 1.5; color: #3d2b1f;
+  display: flex; align-items: flex-start; gap: 4mm;
+}
+.tarjeta-num {
+  background: #8b7355; color: white;
+  width: 7mm; height: 7mm; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 8pt; flex-shrink: 0;
+}
+.tarjeta-num.star { background: #8b4513; }
+.tarjeta-text { flex: 1; }
+.tarjeta-text .nota { font-style: italic; color: #8b7355; font-size: 9pt; margin-top: 1mm; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tarjeta">
+    <div class="tarjeta-num">1</div>
+    <div class="tarjeta-text">El mayor de los hijos. Estudió medicina. Firmó ante notario.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num">2</div>
+    <div class="tarjeta-text">La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num">3</div>
+    <div class="tarjeta-text">El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num">4</div>
+    <div class="tarjeta-text">El patriarca. Testigo de la firma y de la promesa.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num">5</div>
+    <div class="tarjeta-text">La matriarca. Firmó la promesa con temblor en la mano.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num">6</div>
+    <div class="tarjeta-text">Llegó después a la familia. Esposa del médico.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num star">★7</div>
+    <div class="tarjeta-text">Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num star">★8</div>
+    <div class="tarjeta-text">Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num star">★9</div>
+    <div class="tarjeta-text">Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.</div>
+  </div>
+
+  <div class="tarjeta">
+    <div class="tarjeta-num star">★10</div>
+    <div class="tarjeta-text">Nota de Elena: <span class="nota">"Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Rascad los sellos y ordenad las Lunas."</span></div>
+  </div>
+</div>
+
+</body>
+</html>

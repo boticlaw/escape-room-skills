@@ -1,83 +1,86 @@
 {
   "id": "legado_003_voces_no_se_muestran",
   "nombre": "Las Voces que No se Muestran",
-  "descripcion": "En el Salón Familiar, los jugadores encuentran un álbum familiar en funda de terciopelo sepia con sello de Elena. Contiene 8 tarjetas- foto boca abajo en dos filas: 4 Momentos (eventos familiares) y 4 Recuerdos (citas de Elena). TODAS las tarjetas están en el álbum — NO hay equipos ni división. Las tarjetas tienen información VISIBLE (descripción sensorial) y un SELLO con dígito bajo CAPA RASPABLE plateada. El grupo trabaja junto: leen descripciones en voz alta, buscan conexiones sensoriales entre Momentos y Recuerdos (tren, pañuelo, lluvia, maleta), y emparejan. Solo al confirmar una pareja se raspan los sellos. Las iniciales de los 4 Recuerdos forman AMOR. Ordenados cronológicamente, los dígitos dan 7391 para el candado.",
+  "descripcion": "En el Salón Familiar, los jugadores encuentran un álbum familiar en funda de terciopelo sepia con sello de Elena. El álbum tiene 6 FOTOGRAFÍAS fijas en sus páginas, cada una con su fecha visible (1962, 1965, 1968, 1970, 1973, 1975). Junto al álbum hay 4 tarjetas SUELTAS con Recuerdos de Elena. Los jugadores deben descubrir qué 4 de las 6 fotos conectan con los recuerdos por detalles sensoriales (lluvia, tren, pañuelo, maleta). Las 2 fotos sin recuerdo son distracciones. Cada foto tiene un SELLO RASPABLE: las 4 correctas revelan un DÍGITO; las 2 falsas revelan una HOJA con el texto 'Sigue buscando'. Al confirmar una pareja foto-recuerdo, se raspa el sello. Si aparece una hoja, la foto no era la correcta. Los 4 dígitos ordenados por fecha forman 7391. Las iniciales de los 4 Recuerdos forman AMOR.",
   "juego": "el-legado-de-la-familia",
-  "version": 15,
+  "version": 17,
   "espacio": 2,
   "sala": "El Salón Familiar",
   "skill_primario": "prueba-emparejamiento-texto",
   "skills_secundarios": [],
-  "dificultad": 4,
-  "duracion_estimada_minutos": 6,
+  "dificultad": 5,
+  "duracion_estimada_minutos": 8,
   "jugadores_min": 2,
   "jugadores_max": 6,
   "edad_minima": 12,
   "cooperacion_obligatoria": true,
   "formato": "grupo_unido",
   "configuracion": {
-    "mecanica_principal": "Emparejamiento cooperativo de fotos con capas ocultas raspables. TODOS los jugadores ven TODAS las tarjetas. El grupo trabaja junto en la mesa: leen descripciones, identifican conexiones sensoriales y emparejan Momentos con Recuerdos. Los SELLOS con dígitos están bajo capa raspable plateada — no se raspan hasta que el grupo CONFIRMA una pareja por consenso. No hay equipos, no hay información oculta entre jugadores.",
-    "mecanismo_barrera": "Candado de 4 dígitos configurado a 7391. Las 4 parejas con sello raspable revelan dígitos (7, 3, 9, 1). Ordenadas por orden cronológico de los eventos, forman 7391. Código no-obvio.",
+    "mecanica_principal": "Emparejamiento cooperativo con descarte. El álbum tiene 6 fotos fijas con fecha visible (1962, 1965, 1968, 1970, 1973, 1975) y 4 tarjetas de Recuerdo sueltas. Los jugadores leen recuerdos, buscan qué fotos conectan por detalles sensoriales, y descartan las 2 que no tienen pareja. Los sellos raspables dan feedback: dígito = pareja correcta, hoja 'Sigue buscando' = foto sin recuerdo. Esto elimina la necesidad de GM y da confirmación automática.",
+    "mecanismo_barrera": "Candado de 4 dígitos configurado a 7391. Las 4 fotos correctas, ordenadas por fecha (1962, 1965, 1970, 1975), revelan dígitos 7-3-9-1 al rascar. Las 2 fotos sin recuerdo (1968, 1973) revelan una hoja con 'Sigue buscando'. El feedback del sello permite auto-corrección sin GM.",
     "construccion_mecanismo": {
       "que_lo_abre": "Candado de 4 dígitos, código 7391",
-      "como_se_construye": "1) Comprar un álbum A4 vintage o carpeta con bolsillos transparentes. 2) Imprimir 8 tarjetas en papel grueso (4 Momentos + 4 Recuerdos) con descripción visible en la mitad superior y área de sello raspable plateado en la mitad inferior. 3) Para el sello raspable: pegar una etiqueta plateada de papel de raspar (scratch-off stickers, disponibles online) sobre el número impreso. 4) Colocar las 8 tarjetas en el álbum. 5) Candado de 4 dígitos configurado a 7391 cerrando el bolsillo lateral o una cajita junto al álbum.",
-      "feedback_al_jugador": "Al rascar el sello aparece un dígito. Las parejas correctas tienen el mismo dígito (confirmación). Ordenados cronológicamente: 7-3-9-1 abre el candado. Si el código es incorrecto, el candado no abre.",
-      "presupuesto_aproximado": "Álbum vintage A4: ~5€ | 8 tarjetas impresas + scratch stickers: ~3€ | Candado 4 dígitos: ~3€ | Letra G + extras: ~4€ | Total: ~15€"
+      "como_se_construye": "1) Álbum A4 vintage con 6 bolsillos. 2) Imprimir 6 fotografías con fecha visible y sello raspable. 4 fotos correctas con dígito bajo el sello (7, 3, 9, 1). 2 fotos distractoras con símbolo de hoja y texto 'Sigue buscando' bajo el sello. 3) Imprimir 4 tarjetas Recuerdo en papel envejecido. 4) Colocar las 6 fotos fijas en el álbum. Las 4 tarjetas Recuerdo van en sobre junto al álbum.",
+      "feedback_al_jugador": "Sello raspable dual: DÍGITO = pareja correcta (avanza). HOJA + 'Sigue buscando' = foto sin recuerdo (descarta, prueba otra). Los dígitos correctos ordenados por fecha = código.",
+      "presupuesto_aproximado": "Álbum vintage A4: ~5€ | 6 fotos impresas + scratch stickers: ~4€ | 4 tarjetas Recuerdo: ~2€ | Candado 4 dígitos: ~3€ | Letra G + extras: ~4€ | Total: ~18€"
     },
     "elementos_necesarios": [
-      "Álbum A4 o carpeta vintage con bolsillos (estética sepia)",
-      "4 tarjetas Momento con descripción visible + sello raspable plateado (dígito oculto)",
-      "4 tarjetas Recuerdo con cita visible + sello raspable plateado (dígito oculto)",
-      "Candado 4 dígitos configurado a 7391",
-      "Bolsillo lateral o caja pequeña cerrada con el candado",
-      "Letra física G",
-      "Tarjeta de instrucciones del álbum"
+      "KIT DE RESOLUCIÓN (sobre la mesa, junto al álbum):",
+      "  - Álbum A4 vintage con 6 fotografías fijas (una por página, fecha visible en esquina)",
+      "  - 4 tarjetas Recuerdo sueltas en sobre etiquetado 'Lo que Elena recordó'",
+      "  - Tarjeta de instrucciones en la primera página del álbum",
+      "RECOMPENSA (DENTRO del bolsillo lateral CERRADO con candado):",
+      "  - Bolsillo lateral del álbum cerrado con candado de 4 dígitos (7391)",
+      "  - Letra física G",
+      "  - Fragmento de carta de Elena + carta de navegación",
+      "Cinta roja fina (hilo de marioneta) entre páginas del álbum"
     ],
     "distribucion_roles": {
-      "lector_fotos": "Lee en voz alta la descripción de cada tarjeta al grupo.",
-      "emparejador": "Propone parejas basándose en las conexiones sensoriales que escucha.",
-      "anotador": "Anota las parejas confirmadas y sus dígitos en una hoja.",
-      "raspador": "Raspa los sellos de las parejas confirmadas por consenso."
+      "albumista": "Pasa las páginas del álbum y lee las fechas de cada foto.",
+      "lector_recuerdos": "Lee en voz alta las tarjetas de Recuerdo.",
+      "emparejador": "Propone qué recuerdo va con qué foto basándose en conexiones sensoriales.",
+      "anotador": "Anota las parejas confirmadas (las que dan dígito) y los números en orden cronológico."
     },
-    "rotacion_obligatoria": "SUGERENCIA impresa: 'Si ya fuiste Emparejador en la prueba anterior, dejad que otro lo sea hoy. Los roles son naturales, no impuestos.'"
+    "rotacion_obligatoria": "SUGERENCIA impresa: 'Si ya fuiste Emparejador en la prueba anterior, dejad que otro lo sea hoy.'"
   },
   "pistas": [
     {
       "nivel": 1,
       "tipo": "sutil",
-      "texto": "No intentéis memorizarlo todo: anotad palabras concretas que se repiten entre Momentos y Recuerdos. Los objetos son puentes.",
-      "timing": "Tras 2 minutos sin progreso"
+      "texto": "No todas las fotos tienen un recuerdo. Leed los recuerdos con atención: cada uno menciona un objeto o sensación concreta. Buscad ESE detalle en las fotos.",
+      "timing": "Tras 3 minutos sin progreso"
     },
     {
       "nivel": 2,
       "tipo": "directa",
-      "texto": "Los objetos son puentes: tren, pañuelo, lluvia, maleta. Emparejad por esos detalles. Cuando estéis seguros de una pareja, rascad los sellos.",
-      "timing": "Tras 4 minutos sin progreso o petición de pista"
+      "texto": "Los recuerdos mencionan: lluvia, tren, pañuelo y maleta. Buscad las fotos que contengan esos elementos. Las fotos que no tengan ninguno de esos detalles son las que sobran.",
+      "timing": "Tras 5 minutos sin progreso o petición de pista"
     },
     {
       "nivel": 3,
       "tipo": "casi_solucion",
-      "texto": "Ordenad las parejas por año cronológico: los 4 dígitos del candado. Las iniciales ordenadas dicen AMOR.",
-      "timing": "Tras 6 minutos o petición explícita"
+      "texto": "Las fotos correctas son: 1962 (lluvia/boda), 1965 (tren de madera), 1970 (pañuelo), 1975 (maleta/andén). Las de 1968 y 1973 no conectan con ningún recuerdo. Código por fecha: 7-3-9-1.",
+      "timing": "Tras 7 minutos o petición explícita"
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores leen las 8 tarjetas (4 Momentos + 4 Recuerdos) y buscan conexiones sensoriales. Emparejan por detalles compartidos: tren, pañuelo, lluvia, maleta. Al confirmar cada pareja por consenso, raspan los sellos que revelan los dígitos. Ordenados cronológicamente dan 7391. Las iniciales de los Recuerdos forman A-M-O-R.",
-    "verificacion": "El candado de 4 dígitos se abre con 7391. Dentro del bolsillo lateral del álbum: la letra G y la carta de navegación.",
+    "descripcion": "Los jugadores examinan las 6 fotos del álbum y las 4 tarjetas de Recuerdo. Leen los recuerdos en voz alta y buscan conexiones sensoriales con las fotos. Solo 4 de las 6 fotos conectan con un recuerdo (lluvia, tren, pañuelo, maleta). Las 2 restantes (1968: bautizo, 1973: Nochebuena) no tienen pareja. Al confirmar una pareja, raspan el sello: si aparece un dígito, es correcta; si aparece una hoja con 'Sigue buscando', esa foto no tiene recuerdo. Los 4 dígitos ordenados por fecha cronológica (1962, 1965, 1970, 1975) dan 7391.",
+    "verificacion": "El candado de 4 dígitos se abre con 7391. Dentro del bolsillo lateral: la letra G y la carta de navegación.",
     "pasos_detallados": [
-      "Encontrar el álbum en el Salón Familiar.",
-      "Abrir el álbum y encontrar 8 tarjetas: 4 Momentos y 4 Recuerdos.",
-      "Leer la tarjeta de instrucciones en la primera página.",
-      "Extender las 8 tarjetas sobre la mesa. TODOS las ven.",
-      "Cada jugador puede leer una o dos tarjetas en voz alta.",
-      "Buscar conexiones sensoriales: tren, pañuelo, lluvia, maleta.",
-      "Proponer parejas: M1(boda/lluvia)↔M(vestido/lluvia), M2(verano/tren)↔R(recordé el tren), M3(fiebre/pañuelo)↔A(acaricié el pañuelo), M4(estación/maleta)↔O(vela/esperanzas).",
-      "Cuando el grupo CONFIRMA una pareja por consenso → raspar la capa plateada de ambas tarjetas para revelar los dígitos.",
-      "Las parejas correctas tienen el mismo dígito (confirmación visual).",
-      "Ordenar cronológicamente los 4 dígitos revelados: M1=7, M2=3, M3=9, M4=1 → 7391.",
+      "Encontrar el álbum en el Salón Familiar y el sobre de Recuerdos junto a él.",
+      "Leer la instrucción en la primera página del álbum.",
+      "Pasar las páginas: 6 fotos fijas, cada una con FECHA visible (1962, 1965, 1968, 1970, 1973, 1975).",
+      "Abrir el sobre 'Lo que Elena recordó' y extender las 4 tarjetas Recuerdo.",
+      "Leer los recuerdos en voz alta. Cada uno menciona un objeto o sensación.",
+      "Buscar conexiones: hay 6 fotos pero solo 4 recuerdos. ¿Qué fotos conectan?",
+      "Conexiones correctas: Foto 1962 (boda/lluvia) ↔ M (mancha de lluvia). Foto 1965 (verano/tren) ↔ R (recordé el tren). Foto 1970 (fiebre/pañuelo) ↔ A (acaricié el pañuelo). Foto 1975 (estación/maleta) ↔ O (maleta esperando tren).",
+      "Fotos SIN conexión: Foto 1968 (bautizo) — ningún recuerdo menciona bautizo, fuente o mantón. Foto 1973 (Nochebuena) — ningún recuerdo menciona navidad, árbol o regalo.",
+      "Al confirmar una pareja por consenso → raspar el SELLO PLATEADO de la foto.",
+      "Si aparece un DÍGITO → pareja correcta. Si aparece una HOJA con 'Sigue buscando' → esa foto no tiene recuerdo, probar otra.",
+      "Anotar los 4 dígitos en orden de fecha: 1962=7, 1965=3, 1970=9, 1975=1 → código 7391.",
       "Abrir el candado del bolsillo lateral del álbum con 7391.",
-      "Las iniciales de los 4 Recuerdos forman A-M-O-R = AMOR.",
-      "Recoger la letra G y la carta de navegación."
+      "Las iniciales de los Recuerdos en orden cronológico: M-R-A-O → reordenadas forman AMOR.",
+      "Recoger la letra G, el fragmento de carta de Elena y la carta de navegación."
     ],
     "recompensa": {
       "letra": "G",
@@ -85,21 +88,21 @@
       "carta": "Fragmento de Elena sobre la generosidad como forma silenciosa de seguir amando.",
       "carta_navegacion": "Carta de Elena: 'El árbol familiar que siempre estuvo incompleto en el salón... Rodrigo hizo que le faltaran ramas. Buscad el tubo de cartón que dice Ramas Pendientes. Tenéis que completar lo que él dejó a medias.'",
       "siguiente_espacio": "Árbol genealógico en el Salón (P4)",
-      "revelacion_narrativa": "Elena dejó amor (AMOR), no reproche; la familia recibió amor aunque no entendiera el secreto. Los hilos de la marioneta estaban movidos por amor, no por maldad."
+      "revelacion_narrativa": "Elena dejó amor (AMOR), no reproche. Los hilos de la marioneta estaban movidos por amor, no por maldad."
     }
   },
   "materiales": {
     "impresion": [
-      "1 álbum A4 o carpeta con bolsillos (estética vintage sepia)",
-      "4 tarjetas Momento con descripción visible (sepia cinematográfico) + área de sello raspable plateado (dígito oculto debajo)",
-      "4 tarjetas Recuerdo con cita visible (papel envejecido) + área de sello raspable plateado (dígito oculto debajo)",
-      "1 tarjeta de instrucciones del álbum",
+      "1 álbum A4 vintage con bolsillos transparentes (estética sepia)",
+      "6 fotografías fijas en el álbum (4 correctas con dígito bajo sello, 2 distractoras con hoja bajo sello)",
+      "4 tarjetas Recuerdo en papel envejecido (sueltas, en sobre 'Lo que Elena recordó')",
+      "1 tarjeta de instrucciones del álbum (primera página)",
       "1 sobre con fragmento de carta de Elena",
       "1 carta de navegación con hoja de árbol"
     ],
     "mobiliario": [
       "1 candado de 4 dígitos configurado a 7391",
-      "1 bolsillo lateral o caja pequeña cerrada con el candado"
+      "1 bolsillo lateral del álbum cerrado con el candado"
     ],
     "extras": [
       "1 pieza física letra G",
@@ -109,49 +112,50 @@
   "documentos_in_game": [
     {
       "titulo": "Instrucción del Álbum",
-      "texto": "DESCUBRID LO QUE CONECTA CADA MOMENTO CON SU RECUERDO.\n\nHay 4 Momentos y 4 Recuerdos. Leed todos en voz alta. Buscad detalles que se repitan: objetos, lugares, sensaciones.\n\nLos sellos plateados custodian números. NO los raspéis hasta que TODOS estéis de acuerdo en una pareja.\n\nLas iniciales de los Recuerdos, en el orden correcto, revelan lo que Elena quiso dejaros.",
+      "texto": "CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.\n\nPasad las páginas del álbum. Hay más fotos que recuerdos.\n\nLeed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.\n\nLos sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.\n\nNO raspéis hasta que TODOS estéis de acuerdo.\n\nOrdenad los números por fecha, de la más antigua a la más reciente.",
       "cantidad": 1,
-      "gm_notas": "Impresa en la primera página del álbum. Refuerza mecánica cooperativa: todos leen, todos buscan, consenso antes de rascar."
+      "gm_notas": "Impresa en la primera página del álbum. Clave: informa que hay MÁS fotos que recuerdos, y que el sello da feedback automático (dígito = correcto, hoja = incorrecto)."
     },
     {
-      "titulo": "Tarjetas Momento (información visible + sello raspable)",
-      "texto": "M1 — Boda en San Pedro (1962). Lluvia, arroz pegado al abrigo, campanas tarde. [SELLO RASPABLE PLATEADO: 7]\n\nM2 — Primer verano en la casa (1965). Un tren de madera bajo la mesa. [SELLO RASPABLE PLATEADO: 3]\n\nM3 — Noche de fiebre (1970). Pañuelo blanco junto a una taza azul. [SELLO RASPABLE PLATEADO: 9]\n\nM4 — Estación del Norte (1975). Maleta marrón, andén 4, silbato largo. [SELLO RASPABLE PLATEADO: 1]",
-      "cantidad": 4,
-      "gm_notas": "Cada Momento en tarjeta individual. La descripción es VISIBLE. El número está BAJO la capa raspable plateada. Los jugadores pueden manejar y leer todas las tarjetas libremente."
+      "titulo": "Fotografías del Álbum (fijas, con fecha + sello raspable)",
+      "texto": "FOTO 1 — Boda en San Pedro, 1962. Fotografía en sepia: pareja joven saliendo de una iglesia bajo lluvia, arroz pegado al abrigo del novio, campanas al fondo. [FECHA: 1962] [SELLO RASPABLE: DÍGITO 7]\n\nFOTO 2 — Primer verano en la casa, 1965. Fotografía en color desaturado: niño jugando con un tren de madera bajo una mesa de madera, luz dorada de julio. [FECHA: 1965] [SELLO RASPABLE: DÍGITO 3]\n\nFOTO 3 — Bautizo del pequeño, 1968. Fotografía en sepia: fuente bautismal de piedra, mantón blanco bordado, la madrina con ramo de azahar. [FECHA: 1968] [SELLO RASPABLE: HOJA 'Sigue buscando']\n\nFOTO 4 — Noche de fiebre, 1970. Fotografía en sepia cálido: plano de una mesita de noche con un pañuelo blanco doblado junto a una taza azul, termómetro al lado. [FECHA: 1970] [SELLO RASPABLE: DÍGITO 9]\n\nFOTO 5 — Nochebuena en familia, 1973. Fotografía en color desaturado: árbol de navidad con luces, mesa con manteles rojos, niños abriendo regalos. [FECHA: 1973] [SELLO RASPABLE: HOJA 'Sigue buscando']\n\nFOTO 6 — Estación del Norte, 1975. Fotografía en blanco y negro: andén con una maleta marrón sola, un silbato de vapor desvaneciéndose, letrero 'Andén 4'. [FECHA: 1975] [SELLO RASPABLE: DÍGITO 1]",
+      "cantidad": 6,
+      "gm_notas": "6 fotos fijas en el álbum. 4 correctas (1962, 1965, 1970, 1975) con dígitos bajo el sello. 2 distractoras (1968: bautizo, 1973: Nochebuena) con hoja + 'Sigue buscando' bajo el sello. Las distractoras son narrativamente coherentes (eventos familiares plausibles) pero NO conectan con ningún recuerdo por detalle sensorial."
     },
     {
-      "titulo": "Tarjetas Recuerdo (información visible + sello raspable)",
-      "texto": "A — Acaricié aquel pañuelo hasta que dejó de parecer despedida. [SELLO RASPABLE PLATEADO: 9]\n\nM — Mi vestido guardó una mancha de lluvia porque aquel día prometimos no soltarnos. [SELLO RASPABLE PLATEADO: 7]\n\nO — Olvidé encender la vela del andén; la maleta quedó esperando un tren que nunca llegó. Algunas esperanzas arden por dentro. [SELLO RASPABLE PLATEADO: 1]\n\nR — Recordé el tren porque nadie debe irse sin saber volver. [SELLO RASPABLE PLATEADO: 3]",
+      "titulo": "Tarjetas Recuerdo (sueltas, en sobre)",
+      "texto": "M — Mi vestido guardó una mancha de lluvia porque aquel día prometimos no soltarnos.\n\nR — Recordé el tren porque nadie debe irse sin saber volver.\n\nA — Acaricié aquel pañuelo hasta que dejó de parecer despedida.\n\nO — Olvidé encender la vela del andén; la maleta quedó esperando un tren que nunca llegó. Algunas esperanzas arden por dentro.",
       "cantidad": 4,
-      "gm_notas": "Cada Recuerdo en tarjeta individual. Las iniciales forman A-M-O-R. Emparejamiento por conexión sensorial: A=pañuelo(M3), M=lluvia(M1), O=vela/maleta(M4), R=tren(M2). Los sellos de cada pareja dan el mismo dígito (confirmación). Cronológicamente: M1(lluvia/M)=7, M2(tren/R)=3, M3(pañuelo/A)=9, M4(estación/O)=1 → 7391."
+      "gm_notas": "4 tarjetas sueltas en sobre. Iniciales M-R-A-O (AMOR reordenado). Conexiones: M=lluvia→Foto 1962, R=tren→Foto 1965, A=pañuelo→Foto 1970, O=maleta/andén→Foto 1975. NINGÚN recuerdo conecta con Foto 1968 (bautizo/fuente/azahar) ni Foto 1973 (Nochebuena/árbol/regalos)."
     },
     {
       "titulo": "Fragmento de Carta de Elena (P3)",
-      "texto": "Generosidad fue la forma más silenciosa de seguir cuidándoos. Si alguna vez os pareció que callaba demasiado, perdonadme: estaba guardando una puerta abierta.\n\nRodrigo creía que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.",
+      "texto": "Mis queridos niños:\n\nGenerosidad fue la forma más silenciosa de seguir cuidándoos. Si alguna vez os pareció que callaba demasiado, perdonadme: estaba guardando una puerta abierta.\n\nRodrigo creía que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.",
       "cantidad": 1,
-      "gm_notas": "Dentro del bolsillo lateral del álbum. Referencia a hilos de marioneta."
+      "gm_notas": "Dentro del bolsillo lateral del álbum (cerrado con candado)."
     },
     {
       "titulo": "Carta de Navegación (P3 → P4)",
       "texto": "Entre las páginas finales aparece una hoja de árbol: 'Los recuerdos tienen raíces. Buscad el árbol que no se atrevió a escribir todos sus nombres'.",
       "cantidad": 1,
-      "gm_notas": "Insertada en las últimas páginas del álbum. La hoja en forma de árbol dirige a P4."
+      "gm_notas": "Insertada en las últimas páginas del álbum."
     }
   ],
   "barrera_fisica": {
     "tipo": "Candado de 4 dígitos",
-    "ubicacion": "Bolsillo lateral del álbum / caja pequeña",
+    "ubicacion": "Bolsillo lateral del álbum",
     "codigo": "7391",
-    "origen_codigo": "Las 4 parejas confirmadas y raspadas, ordenadas cronológicamente por evento: 7-3-9-1. Las iniciales de los Recuerdos forman AMOR. Los sellos de cada pareja coinciden (confirmación).",
+    "origen_codigo": "Las 4 fotos correctas (de 6 totales), ordenadas por fecha (1962, 1965, 1970, 1975). Los sellos raspables revelan dígitos solo en las fotos que conectan con un recuerdo. Las 2 fotos sin recuerdo revelan una hoja. El feedback automático del sello permite auto-corrección sin GM.",
     "construccion_fisica": {
-      "paso_1": "Imprimir 4 tarjetas Momento y 4 Recuerdos en papel grueso A6.",
-      "paso_2": "Pegar etiquetas scratch-off plateadas sobre los números impresos en cada tarjeta.",
-      "paso_3": "Colocar las 8 tarjetas en el álbum (4 en cada página).",
-      "paso_4": "Candado 4 dígitos configurado a 7391 cerrando bolsillo lateral.",
-      "paso_5": "Colocar letra G + sobre dentro del bolsillo cerrado.",
-      "presupuesto_total": "~15€"
+      "paso_1": "Imprimir 6 fotografías: 4 con dígito bajo sello, 2 con hoja bajo sello.",
+      "paso_2": "Pegar etiquetas scratch-off plateadas sobre todos los sellos.",
+      "paso_3": "Insertar las 6 fotos fijas en las páginas del álbum.",
+      "paso_4": "Imprimir 4 tarjetas Recuerdo en papel envejecido y colocarlas en un sobre.",
+      "paso_5": "Candado 4 dígitos configurado a 7391 cerrando bolsillo lateral.",
+      "paso_6": "Colocar letra G + sobre dentro del bolsillo cerrado.",
+      "presupuesto_total": "~18€"
     },
-    "montaje_minutos": 10
+    "montaje_minutos": 12
   },
   "hilo_conductor": {
     "letra": "G",
@@ -159,49 +163,49 @@
     "posicion": 3
   },
   "control_movimiento": {
-    "problema_potencial": "Los jugadores podrían intentar fuerza bruta con el candado o no entender cómo emparejar.",
-    "solucion_implementada": "ANTI-TRAMATA por diseño: 1) Candado 4 dígitos (10.000 combinaciones) — fuerza bruta inviable en 6 min. 2) Las tarjetas PUEDEN mostrarse libremente — la información visible es compartible y los NÚMEROS están protegidos por capa raspable. 3) Las instrucciones son claras: leed, buscad conexiones, emparejad, raspad. 4) Los años en los Momentos dan el orden cronológico.",
+    "problema_potencial": "Los jugadores podrían emparejar recuerdos con fotos incorrectas (1968 o 1973).",
+    "solucion_implementada": "1) Sellos con FEEDBACK DUAL: dígito = correcto, hoja 'Sigue buscando' = incorrecto. Los jugadores se auto-corrigen sin GM. 2) Las 2 fotos distractoras son narrativamente coherentes (bautizo, Nochebuena) pero NO contienen NINGÚN detalle sensorial que conecte con los 4 recuerdos (lluvia, tren, pañuelo, maleta). 3) Candado 4 dígitos — fuerza bruta inviable. 4) Las fechas visibles eliminan ambigüedad de orden.",
     "tipo_solucion": "prevencion"
   },
   "metadata": {
     "fecha_creacion": "2026-05-10",
-    "fecha_redesenho": "2026-05-11",
+    "fecha_redesenho": "2026-05-13",
     "proyecto": "viernes-de-escape",
-    "adaptado_de": "prueba-003-fotos-recuerdos.json v8 (emparejamiento con equipos)",
-    "version": "5.0",
+    "adaptado_de": "prueba-003-fotos-recuerdos.json v16 (4 fotos fijas)",
+    "version": "7.0",
     "testado": false,
-    "notas": "v5.0: REDISEÑO COMPLETO SIN EQUIPOS. Eliminada mecánica de dos equipos (Momentos/Recuerdos separados). Ahora TODAS las tarjetas están en el álbum, TODOS las ven. Mecánica: lectura cooperativa + búsqueda de conexiones sensoriales + emparejamiento por consenso + rascar para confirmar. Jugadores 2-6. Cero GM, zero equipos, zero información oculta entre jugadores."
+    "notas": "v7.0: Álbum con 6 fotos (4 correctas + 2 distractoras). Sellos con feedback dual: dígito = pareja correcta, hoja = foto sin recuerdo. Dificultad sube de 4 a 5. Duración sube de 7 a 8 min. Las 2 distractoras (1968 bautizo, 1973 Nochebuena) son narrativamente coherentes pero sin conexión sensorial con los recuerdos."
   },
   "ingame_docs": [
     {
       "titulo": "Instrucción del Álbum",
-      "texto": "DESCUBRID LO QUE CONECTA CADA MOMENTO CON SU RECUERDO.\n\nHay 4 Momentos y 4 Recuerdos. Leed todos en voz alta. Buscad detalles que se repitan: objetos, lugares, sensaciones.\n\nLos sellos plateados custodian números. NO los raspéis hasta que TODOS estéis de acuerdo en una pareja.\n\nLas iniciales de los Recuerdos, en el orden correcto, revelan lo que Elena quiso dejaros.",
+      "texto": "CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.\n\nPasad las páginas del álbum. Hay más fotos que recuerdos.\n\nLeed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.\n\nLos sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.\n\nNO raspéis hasta que TODOS estéis de acuerdo.\n\nOrdenad los números por fecha, de la más antigua a la más reciente.",
       "cantidad": 1,
-      "gm_notas": "Impresa en la primera página del álbum. Refuerza mecánica cooperativa: todos leen, todos buscan, consenso antes de rascar."
+      "gm_notas": "Impresa en la primera página del álbum."
     },
     {
-      "titulo": "Tarjetas Momento (información visible + sello raspable)",
-      "texto": "M1 — Boda en San Pedro (1962). Lluvia, arroz pegado al abrigo, campanas tarde. [SELLO RASPABLE PLATEADO: 7]\n\nM2 — Primer verano en la casa (1965). Un tren de madera bajo la mesa. [SELLO RASPABLE PLATEADO: 3]\n\nM3 — Noche de fiebre (1970). Pañuelo blanco junto a una taza azul. [SELLO RASPABLE PLATEADO: 9]\n\nM4 — Estación del Norte (1975). Maleta marrón, andén 4, silbato largo. [SELLO RASPABLE PLATEADO: 1]",
-      "cantidad": 4,
-      "gm_notas": "Cada Momento en tarjeta individual. La descripción es VISIBLE. El número está BAJO la capa raspable plateada. Los jugadores pueden manejar y leer todas las tarjetas libremente."
+      "titulo": "Fotografías del Álbum (fijas, con fecha + sello raspable)",
+      "texto": "FOTO 1 — Boda en San Pedro, 1962. Fotografía en sepia: pareja joven saliendo de una iglesia bajo lluvia, arroz pegado al abrigo del novio, campanas al fondo. [FECHA: 1962] [SELLO RASPABLE: DÍGITO 7]\n\nFOTO 2 — Primer verano en la casa, 1965. Fotografía en color desaturado: niño jugando con un tren de madera bajo una mesa de madera, luz dorada de julio. [FECHA: 1965] [SELLO RASPABLE: DÍGITO 3]\n\nFOTO 3 — Bautizo del pequeño, 1968. Fotografía en sepia: fuente bautismal de piedra, mantón blanco bordado, la madrina con ramo de azahar. [FECHA: 1968] [SELLO RASPABLE: HOJA 'Sigue buscando']\n\nFOTO 4 — Noche de fiebre, 1970. Fotografía en sepia cálido: plano de una mesita de noche con un pañuelo blanco doblado junto a una taza azul, termómetro al lado. [FECHA: 1970] [SELLO RASPABLE: DÍGITO 9]\n\nFOTO 5 — Nochebuena en familia, 1973. Fotografía en color desaturado: árbol de navidad con luces, mesa con manteles rojos, niños abriendo regalos. [FECHA: 1973] [SELLO RASPABLE: HOJA 'Sigue buscando']\n\nFOTO 6 — Estación del Norte, 1975. Fotografía en blanco y negro: andén con una maleta marrón sola, un silbato de vapor desvaneciéndose, letrero 'Andén 4'. [FECHA: 1975] [SELLO RASPABLE: DÍGITO 1]",
+      "cantidad": 6,
+      "gm_notas": "6 fotos. 4 correctas con dígito. 2 distractoras con hoja."
     },
     {
-      "titulo": "Tarjetas Recuerdo (información visible + sello raspable)",
-      "texto": "A — Acaricié aquel pañuelo hasta que dejó de parecer despedida. [SELLO RASPABLE PLATEADO: 9]\n\nM — Mi vestido guardó una mancha de lluvia porque aquel día prometimos no soltarnos. [SELLO RASPABLE PLATEADO: 7]\n\nO — Olvidé la vela del andén; la maleta quedó esperando un tren que nunca llegó. [SELLO RASPABLE PLATEADO: 1]\n\nR — Recordé el tren porque nadie debe irse sin saber volver. [SELLO RASPABLE PLATEADO: 3]",
+      "titulo": "Tarjetas Recuerdo (sueltas, en sobre)",
+      "texto": "M — Mi vestido guardó una mancha de lluvia porque aquel día prometimos no soltarnos.\n\nR — Recordé el tren porque nadie debe irse sin saber volver.\n\nA — Acaricié aquel pañuelo hasta que dejó de parecer despedida.\n\nO — Olvidé encender la vela del andén; la maleta quedó esperando un tren que nunca llegó. Algunas esperanzas arden por dentro.",
       "cantidad": 4,
-      "gm_notas": "Cada Recuerdo en tarjeta individual. Las iniciales forman A-M-O-R. Emparejamiento por conexión sensorial: A=pañuelo(M3), M=lluvia(M1), O=vela/maleta(M4), R=tren(M2). Los sellos de cada pareja dan el mismo dígito (confirmación). Cronológicamente: M1(lluvia/M)=7, M2(tren/R)=3, M3(pañuelo/A)=9, M4(estación/O)=1 → 7391."
+      "gm_notas": "4 tarjetas sueltas. Iniciales M-R-A-O (AMOR)."
     },
     {
       "titulo": "Fragmento de Carta de Elena (P3)",
-      "texto": "Generosidad fue la forma más silenciosa de seguir cuidándoos. Si alguna vez os pareció que callaba demasiado, perdonadme: estaba guardando una puerta abierta.\n\nRodrigo creía que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.",
+      "texto": "Mis queridos niños:\n\nGenerosidad fue la forma más silenciosa de seguir cuidándoos. Si alguna vez os pareció que callaba demasiado, perdonadme: estaba guardando una puerta abierta.\n\nRodrigo creía que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.",
       "cantidad": 1,
-      "gm_notas": "Dentro del bolsillo lateral del álbum. Referencia a hilos de marioneta."
+      "gm_notas": "Dentro del bolsillo lateral del álbum (cerrado con candado)."
     },
     {
       "titulo": "Carta de Navegación (P3 → P4)",
       "texto": "Entre las páginas finales aparece una hoja de árbol: 'Los recuerdos tienen raíces. Buscad el árbol que no se atrevió a escribir todos sus nombres'.",
       "cantidad": 1,
-      "gm_notas": "Insertada en las últimas páginas del álbum. La hoja en forma de árbol dirige a P4."
+      "gm_notas": "Insertada en las últimas páginas del álbum."
     }
   ]
 }

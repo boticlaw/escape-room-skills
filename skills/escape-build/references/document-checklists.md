@@ -10,6 +10,7 @@
 - [ ] One proof page per puzzle with:
   - [ ] Metadata (room, difficulty, duration, hilo letter)
   - [ ] DETAILED mechanics (what players find, step-by-step solution, anti-cheat)
+  - [ ] Reward section (hilo letter, documents, navigation cards, physical items obtained)
   - [ ] Solution box (code highlighted)
   - [ ] Materials file list
 - [ ] Summary table of all locks and codes

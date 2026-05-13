@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Testimonios P1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 186mm;
+  height: 267mm;
+  background: white;
+}
+
+.page {
+  width: 186mm;
+  height: 267mm;
+  padding: 6mm;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+}
+
+.testimonio {
+  background: #faf5ee;
+  border: 1.5px solid #c4a882;
+  border-radius: 3px;
+  padding: 5mm 7mm;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #3d2b1f;
+  display: flex;
+  align-items: flex-start;
+  gap: 5mm;
+}
+
+.testimonio-num {
+  background: #8b7355;
+  color: white;
+  width: 8mm;
+  height: 8mm;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 9pt;
+  flex-shrink: 0;
+}
+
+.testimonio-text {
+  flex: 1;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="testimonio">
+    <div class="testimonio-num">1</div>
+    <div class="testimonio-text">El hijo mayor firmó ante el notario.</div>
+  </div>
+
+  <div class="testimonio">
+    <div class="testimonio-num">2</div>
+    <div class="testimonio-text">Elena aparece antes que Miguel, pero después de Carmen.</div>
+  </div>
+
+  <div class="testimonio">
+    <div class="testimonio-num">3</div>
+    <div class="testimonio-text">M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.</div>
+  </div>
+
+  <div class="testimonio">
+    <div class="testimonio-num">4</div>
+    <div class="testimonio-text">Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.</div>
+  </div>
+
+  <div class="testimonio">
+    <div class="testimonio-num">5</div>
+    <div class="testimonio-text">Carmen fue testigo de la tormenta, no de la foto sin rostro.</div>
+  </div>
+
+  <div class="testimonio">
+    <div class="testimonio-num">6</div>
+    <div class="testimonio-text">Marcos estuvo inmediatamente después de Elena.</div>
+  </div>
+</div>
+
+</body>
+</html>

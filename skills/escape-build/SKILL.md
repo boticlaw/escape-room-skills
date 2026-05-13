@@ -36,6 +36,7 @@ Build `00-guia-completa-juego.html` (A4, themed CSS). Standard page structure:
 6. **Pruebas (1 page each)** — For each puzzle:
    - Metadata (room badge, difficulty, duration, hilo letter)
    - **Mecánica** (DETAILED: what players find, step-by-step solution path, anti-cheat design)
+   - **Recompensa** (what players obtain: hilo letter, documents, navigation cards, physical items)
    - Solution box (code highlighted in dark box)
    - Materials list
 7. **Resumen de Candados y Códigos** — All locks/codes table

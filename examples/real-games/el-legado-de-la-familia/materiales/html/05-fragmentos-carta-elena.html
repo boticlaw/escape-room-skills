@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Fragmentos de Carta P5</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@page { size: A4 portrait; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 186mm; background: #faf0e6; }
+
+.fragment-page {
+  width: 186mm; min-height: 267mm;
+  padding: 12mm 15mm;
+  font-family: 'EB Garamond', serif; color: #4a3728;
+  page-break-after: always;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6mm;
+}
+
+.fragment-page::before {
+  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.1);
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  content: ''; pointer-events: none;
+}
+
+.page-title {
+  width: 100%; text-align: center;
+  font-size: 13pt; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #8b7355;
+  border-bottom: 2px solid #8b7355; padding-bottom: 3mm;
+  margin-bottom: 4mm;
+}
+
+.fragment {
+  background: #fdf5e6;
+  border: 1px solid #c4a882;
+  padding: 4mm 5mm;
+  font-size: 11pt;
+  line-height: 1.5;
+  position: relative;
+  width: calc(50% - 3mm);
+  min-height: 20mm;
+  /* Irregular border effect */
+  clip-path: polygon(
+    2% 0%, 98% 2%, 100% 98%, 97% 100%,
+    3% 98%, 0% 3%
+  );
+}
+
+.fragment::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px dashed #c4a882;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.fragment .num {
+  font-weight: 700; color: #8b4513; font-size: 9pt;
+  display: block; margin-bottom: 2mm;
+}
+</style>
+</head>
+<body>
+
+<div class="fragment-page">
+  <div class="page-title">Carta Rasgada de Elena — 12 Fragmentos</div>
+
+  <div class="fragment"><span class="num">Fragmento 1</span> 'Buscad'</div>
+  <div class="fragment"><span class="num">Fragmento 2</span> 'bajo la'</div>
+  <div class="fragment"><span class="num">Fragmento 3</span> 'tercera tabla'</div>
+  <div class="fragment"><span class="num">Fragmento 4</span> 'del suelo del'</div>
+  <div class="fragment"><span class="num">Fragmento 5</span> 'desván, la'</div>
+  <div class="fragment"><span class="num">Fragmento 6</span> 'que tiene una marca'</div>
+  <div class="fragment"><span class="num">Fragmento 7</span> 'de cera roja'</div>
+  <div class="fragment"><span class="num">Fragmento 8</span> 'en la esquina.'</div>
+  <div class="fragment"><span class="num">Fragmento 9</span> 'Allí dejé'</div>
+  <div class="fragment"><span class="num">Fragmento 10</span> 'lo que Rodrigo quiso'</div>
+  <div class="fragment"><span class="num">Fragmento 11</span> 'destruir pero yo'</div>
+  <div class="fragment"><span class="num">Fragmento 12</span> 'lo guardé para vosotros.'</div>
+</div>
+
+</body>
+</html>

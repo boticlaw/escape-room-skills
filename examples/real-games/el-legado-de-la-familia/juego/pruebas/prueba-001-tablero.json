@@ -17,7 +17,7 @@
   "formato": "paralelo",
   "configuracion": {
     "mecanica_principal": "Tablero lógico tipo Zebra simplificado con información distribuida. Cada jugador tiene una restricción única que debe compartir en voz alta. Deducción cruzada entre todos los miembros para colocar las 6 fichas en las 6 casillas correctamente.",
-    "mecanismo_barrera": "Candado de 4 dígitos. Las posiciones correctas de los 4 hijos en orden de edad (Marcos=3, Carmen=1, Luis=5, Miguel=4) forman el código 3154. No es un año obvio ni relacionado con fechas familiares.",
+    "mecanismo_barrera": "Candado de 4 dígitos. Las posiciones correctas de los 4 hijos en orden de edad (Marcos=3, Carmen=1, Luis=5, Miguel=4) forman el código 3154. El orden de nacimiento (Marcos mayor, luego Carmen, luego Luis, luego Miguel) se infiere del Testimonio 1 ('el hijo mayor') y el Testimonio 4 ('Luis, nacido entre Carmen y Miguel').",
     "elementos_necesarios": [
       "KIT DE RESOLUCIÓN (sobre la mesa, FUERA de la caja):",
       "  - Tablero plegable con 6 casillas/eventos numerados 1-6",
@@ -28,7 +28,7 @@
       "RECOMPENSA (DENTRO de la caja CERRADA):",
       "  - Caja de notario con candado de 4 dígitos (3154)",
       "  - Fotografía de bebé con dorso parcialmente tachado 'Miguel A.'",
-      "  - Letra física E",
+      "  - Letra física L",
       "  - Fragmento de carta de Elena + carta de navegación",
       "Cinta roja fina (hilo de marioneta) del tablero a la caja"
     ],
@@ -62,7 +62,7 @@
   ],
   "solucion": {
     "descripcion": "Los jugadores comparten sus 6 restricciones en voz alta y, por deducción cruzada, colocan las 6 fichas en las casillas correctas del tablero. La solución única es: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. Á.=6. Las posiciones de los 4 hijos en orden de edad forman el código: Marcos(3), Carmen(1), Luis(5), Miguel(4) → 3154.",
-    "verificacion": "El candado de 4 dígitos se abre con 3154. Dentro de la caja hay una foto de bebé con el dorso tachado 'Miguel A.' y la letra E.",
+    "verificacion": "El candado de 4 dígitos se abre con 3154. Dentro de la caja hay una foto de bebé con el dorso tachado 'Miguel A.' y la letra L.",
     "pasos_detallados": [
       "Encontrar la zona del escritorio con: tablero plegable, fichas, 6 sobres de testimonio, plantilla de tabla, y una caja de notario CERRADA con candado.",
       "La instrucción impresa junto al tablero dice: COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.",
@@ -77,9 +77,9 @@
       "La tarjeta Consejo Familiar recuerda: del mayor al menor de los cuatro hijos de Rodrigo y Elena.",
       "Extraer código de posiciones de los 4 hijos en orden de edad (mayor a menor): Marcos=3, Carmen=1, Luis=5, Miguel=4 → 3154.",
       "Introducir 3154 en el candado de la caja de notario.",
-      "Dentro de la caja encontrar: fotografía de bebé con dorso parcialmente tachado \"Miguel A.\", la letra E y el fragmento de carta de Elena.",
+      "Dentro de la caja encontrar: fotografía de bebé con dorso parcialmente tachado \"Miguel A.\", la letra L y el fragmento de carta de Elena.",
       "Miguel y M. Á. son la misma persona — el cuarto hijo oculto.",
-      "Recoger la letra E y el fragmento de carta de Elena."
+      "Recoger la letra L y el fragmento de carta de Elena."
     ],
     "recompensa": {
       "letra": "L",
@@ -109,7 +109,7 @@
       "1 candado de 4 dígitos configurado a 3154"
     ],
     "extras": [
-      "1 pieza física letra E",
+      "1 pieza física letra L",
       "1 hoja GM con solución completa y restricciones de backup",
       "1 llave maestra GM para el candado",
       "Cinta roja fina (hilo de marioneta) del tablero a las cartas"
@@ -118,7 +118,7 @@
   "documentos_in_game": [
     {
       "titulo": "Instrucción del Tablero",
-      "texto": "COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.\n\nLAS POSICIONES DE LOS CUATRO HIJOS DE RODRIGO Y ELENA, DEL MAYOR AL MENOR, ABREN EL CAMINO.\n\nCONSEJO DE LA FAMILIA:\nNadie coloca hasta que todas las voces hayan hablado.\nCada testimonio lo lee su dueño, no otro.",
+      "texto": "COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.\n\nLAS POSICIONES DE LOS CUATRO HIJOS DE RODRIGO Y ELENA, DEL MAYOR AL MENOR, ABREN EL CAMINO.\n\nEl orden de nacimiento se revela en los testimonios. Leed con atención quién nació antes y quién después.\n\nCONSEJO DE LA FAMILIA:\nNadie coloca hasta que todas las voces hayan hablado.\nCada testimonio lo lee su dueño, no otro.",
       "cantidad": 1,
       "gm_notas": "Impresa en GRANDE en el tablero plegable. Incluye dirección del código (mayor a menor) y anti-monopolio. Todo lo que necesitan está fuera de la caja."
     },
@@ -130,7 +130,7 @@
     },
     {
       "titulo": "Restricciones de los Testimonios",
-      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis no estuvo antes que Miguel.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
       "cantidad": 6,
       "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Si hay menos de 6 jugadores, algunos reciben 2 sobres (se comparten restricciones)."
     },
@@ -235,9 +235,9 @@
   "ingame_docs": [
     {
       "titulo": "Instrucción del Tablero",
-      "texto": "COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.\n\nEl código del candado: las posiciones de los cuatro hijos, en orden de edad.",
+      "texto": "COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.\n\nEl código del candado: las posiciones de los cuatro hijos, en orden de nacimiento (del mayor al menor). Los testimonios revelan quién nació antes y quién después — leed con atención.",
       "cantidad": 1,
-      "gm_notas": "Impresa en la tapa interior de la caja de notario. Visible al abrirla. La segunda frase es la clave para saber cómo formar el código."
+      "gm_notas": "Impresa en la tapa interior de la caja de notario. Visible al abrirla. Ahora indica explícitamente que el orden de nacimiento está en los testimonios."
     },
     {
       "titulo": "Eventos del Tablero",
@@ -247,7 +247,7 @@
     },
     {
       "titulo": "Restricciones de los Testimonios",
-      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis no estuvo antes que Miguel.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
+      "texto": "Testimonio 1: El hijo mayor firmó ante el notario.\n\nTestimonio 2: Elena aparece antes que Miguel, pero después de Carmen.\n\nTestimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.\n\nTestimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.\n\nTestimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.\n\nTestimonio 6: Marcos estuvo inmediatamente después de Elena.",
       "cantidad": 6,
       "gm_notas": "Cada restricción en un sobre individual. Repartir una por jugador. Si hay menos de 6 jugadores, algunos reciben 2 sobres (se comparten restricciones)."
     },

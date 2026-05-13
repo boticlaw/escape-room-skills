@@ -1,7 +1,7 @@
 {
   "id": "legado_002_retrato_magnetico",
   "nombre": "El Retrato que Miente",
-  "descripcion": "Los jugadores descubren un retrato familiar enmarcado en el despacho de Elena. El retrato muestra a la familia completa, pero algo falta: un niño fue borrado de la imagen. En un cajón del escritorio hay una carpeta de restauración que contiene una hoja de papel ferromagnético verde (detector de magnetismo) y una nota de Elena. Al descolgar el retrato para examinarlo, encuentran en su reverso una inscripción manuscrita de Elena. Detrás del panel trasero del marco, imanes neodimio ocultos forman un CÓDIGO NUMÉRICO de 3 dígitos (5-2-8). Al pasar el papel verde por la parte trasera del marco, los imanes se revelan como puntos agrupados en 3 columnas: 5 puntos | 2 puntos | 8 puntos. Con ese código abren un candado de combinación de 3 dígitos que cierra una caja de madera vintage en el escritorio. Dentro de la caja encuentran la letra L física y un sobre sellado con el fragmento de carta de Elena y la carta de navegación. Un hilo rojo de marioneta conecta el marco con el diario del escritorio.",
+  "descripcion": "Los jugadores descubren un retrato familiar enmarcado en el despacho de Elena. El retrato muestra a la familia completa, pero algo falta: un niño fue borrado de la imagen. En un cajón del escritorio hay una carpeta de restauración que contiene una hoja de papel ferromagnético verde (detector de magnetismo) y una nota de Elena. Al descolgar el retrato para examinarlo, encuentran en su reverso una inscripción manuscrita de Elena. Detrás del panel trasero del marco, imanes neodimio ocultos forman un CÓDIGO NUMÉRICO de 3 dígitos (5-2-8). Al pasar el papel verde por la parte trasera del marco, los imanes se revelan como puntos agrupados en 3 columnas: 5 puntos | 2 puntos | 8 puntos. Con ese código abren un candado de combinación de 3 dígitos que cierra una caja de madera vintage en el escritorio. Dentro de la caja encuentran la letra E física y un sobre sellado con el fragmento de carta de Elena y la carta de navegación. Un hilo rojo de marioneta conecta el marco con el diario del escritorio.",
   "juego": "el-legado-de-la-familia",
   "version": 16,
   "espacio": 2,
@@ -22,7 +22,7 @@
     "mecanismo_barrera": "CANDADO REAL de combinación de 3 dígitos (código 5-2-8) que cierra una caja de madera vintage. El código solo se obtiene escaneando el reverso del marco con el papel verde y contando los imanes de cada columna. Sin papel verde = sin código = sin apertura. El candado es tangible, metálico, con ruedas numéricas. Feedback inmediato: se abre o no se abre.",
     "construccion_mecanismo": {
       "que_lo_abre": "Candado de combinación de 3 dígitos, código 5-2-8",
-      "como_se_construye": "1) Comprar un marco de fotos A3 de madera con panel trasero desmontable (pestañas metálicas). 2) Pegar 15 imanes neodimio pequeños (5mm) en la cara interna del panel trasero del marco, organizados en 3 columnas: columna izquierda = 5 imanes en línea vertical, columna central = 2 imanes, columna derecha = 8 imanes. Usar pegamento epoxi para fijación permanente. 3) Separar las columnas con al menos 3cm de distancia entre ellas para que los puntos no se solapen. 4) Recolocar el panel trasero. 5) El retrato va en la parte frontal. 6) Comprar un candado de combinación de 3 dígitos y una caja de madera vintage con cierre para candado (~20x15cm). 7) Poner la letra L + sobre dentro de la caja, cerrar con el candado en combinación 5-2-8.",
+      "como_se_construye": "1) Comprar un marco de fotos A3 de madera con panel trasero desmontable (pestañas metálicas). 2) Pegar 15 imanes neodimio pequeños (5mm) en la cara interna del panel trasero del marco, organizados en 3 columnas: columna izquierda = 5 imanes en línea vertical, columna central = 2 imanes, columna derecha = 8 imanes. Usar pegamento epoxi para fijación permanente. 3) Separar las columnas con al menos 3cm de distancia entre ellas para que los puntos no se solapen. 4) Recolocar el panel trasero. 5) El retrato va en la parte frontal. 6) Comprar un candado de combinación de 3 dígitos y una caja de madera vintage con cierre para candado (~20x15cm). 7) Poner la letra E + sobre dentro de la caja, cerrar con el candado en combinación 5-2-8.",
       "feedback_al_jugador": "El papel verde muestra puntos oscuros donde hay imanes. Al contar por columnas obtienen 5-2-8. Al poner 5-2-8 en el candado y tirar, se abre con un clic satisfactorio. Si el código es incorrecto, el candado no abre — feedback negativo inmediato.",
       "presupuesto_aproximado": "Marco A3 madera: ~8€ | 15 imanes neodimio 5mm: ~3€ | Papel ferromagnético verde (ya existente): 0€ | Candado combinación 3 dígitos: ~3€ | Caja madera vintage: ~5€ | Total: ~19€"
     },
@@ -70,7 +70,7 @@
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores encuentran la carpeta de restauración con el papel ferromagnético verde. Descuelgan el retrato y encuentran la inscripción de Elena en el reverso. Escanean la parte trasera del marco con el papel verde, detectando imanes agrupados en 3 columnas (5, 2 y 8 imanes). Con el código 5-2-8 abren el candado de la caja de madera vintage. Dentro encuentran la letra L física y un sobre sellado.",
+    "descripcion": "Los jugadores encuentran la carpeta de restauración con el papel ferromagnético verde. Descuelgan el retrato y encuentran la inscripción de Elena en el reverso. Escanean la parte trasera del marco con el papel verde, detectando imanes agrupados en 3 columnas (5, 2 y 8 imanes). Con el código 5-2-8 abren el candado de la caja de madera vintage. Dentro encuentran la letra E física y un sobre sellado.",
     "verificacion": "El candado se abre con el código 5-2-8. Auto-validación física: el candado se abre o no.",
     "pasos_detallados": [
       "Encontrar la carpeta de restauración en el cajón abierto del escritorio.",
@@ -83,7 +83,7 @@
       "Otros jugadores marcan cada punto de reacción.",
       "Un jugador (Contador) cuenta los imanes de cada columna: 5, 2, 8.",
       "Probar el código 5-2-8 en el candado de la caja de madera vintage del escritorio.",
-      "El candado se abre. Dentro: la letra L física + sobre sellado.",
+      "El candado se abre. Dentro: la letra E física + sobre sellado.",
       "Leer el fragmento de carta de Elena (E = Empatía) y la carta de navegación hacia P3.",
       "Opcional: mirar el retrato desde ángulo oblicuo para notar la silueta borrada de un niño.",
       "El diario de Elena proporciona contexto narrativo sobre la lealtad y los hilos de la marioneta."
@@ -114,8 +114,8 @@
       "1 escritorio con cajón (donde encontrar la carpeta de restauración y el diario)"
     ],
     "extras": [
-      "1 pieza física letra L en madera/cartón grueso",
-      "1 duplicado GM de letra L",
+      "1 pieza física letra E en madera/cartón grueso",
+      "1 duplicado GM de letra E",
       "1 copia GM reducida del retrato completo (con el niño visible)",
       "Cinta roja fina (hilo de marioneta) del marco al diario",
       "Notas adhesivas pequeñas o lápiz para que los jugadores marquen puntos"
@@ -175,7 +175,7 @@
       "paso_2": "Pegar 15 imanes neodimio 5mm con epoxi en cara interna del panel trasero en 3 columnas (separación >=3cm): col1=5 imanes vertical, col2=2 imanes, col3=8 imanes. ~3€",
       "paso_3": "Imprimir retrato sepia A3, colocar en marco (cara frontal). Imprimir inscripción Elena en reverso.",
       "paso_4": "Candado combinación 3 dígitos + caja madera vintage con cierre. Poner código 5-2-8. ~8€ total",
-      "paso_5": "Colocar letra L + sobre sellado dentro de la caja. Cerrar con candado.",
+      "paso_5": "Colocar letra E + sobre sellado dentro de la caja. Cerrar con candado.",
       "paso_6": "Colgar retrato en pared. Dejar caja en escritorio. Carpeta con papel verde en cajón.",
       "presupuesto_total": "~19€"
     },

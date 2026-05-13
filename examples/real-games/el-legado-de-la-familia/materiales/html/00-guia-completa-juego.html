@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@page { size: A4 portrait; margin: 15mm; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background: #faf0e6;
+  color: #4a3728;
+  font-size: 10.5pt;
+  line-height: 1.55;
+}
+
+.page {
+  page-break-before: always;
+  padding: 2mm 0;
+  position: relative;
+}
+
+.page:first-child { page-break-before: avoid; }
+
+/* ─── Cover ─── */
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 257mm;
+  text-align: center;
+  position: relative;
+}
+
+.cover-border {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 2px solid #8b7355;
+  pointer-events: none;
+}
+.cover-border::before {
+  content: '';
+  position: absolute;
+  top: 4mm; left: 4mm; right: 4mm; bottom: 4mm;
+  border: 1px solid #8b7355;
+  opacity: 0.5;
+}
+/* Marionette strings — top */
+.cover-border::after {
+  content: '── ── ── ── ── ── ──';
+  position: absolute;
+  top: 8mm;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8pt;
+  color: #8b7355;
+  letter-spacing: 8px;
+  opacity: 0.4;
+}
+
+.cover-motif-top, .cover-motif-bottom {
+  font-size: 10pt;
+  color: #8b7355;
+  letter-spacing: 6px;
+  opacity: 0.35;
+  margin: 4mm 0;
+}
+
+.cover-title {
+  font-size: 28pt;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #3d2b1f;
+  margin: 10mm 0 4mm 0;
+  line-height: 1.15;
+}
+
+.cover-subtitle {
+  font-size: 14pt;
+  font-weight: 500;
+  color: #8b7355;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+}
+
+.cover-event {
+  font-size: 11pt;
+  font-style: italic;
+  color: #8b7355;
+  margin-bottom: 6mm;
+}
+
+.cover-puppet {
+  margin: 6mm 0;
+  font-size: 36pt;
+  opacity: 0.12;
+  color: #4a3728;
+  line-height: 1;
+}
+
+.cover-string-art {
+  margin: 3mm 0;
+  color: #8b7355;
+  font-size: 7.5pt;
+  letter-spacing: 3px;
+  opacity: 0.3;
+  line-height: 1.8;
+}
+
+.cover-version {
+  font-size: 8.5pt;
+  color: #8b7355;
+  margin-top: 8mm;
+  letter-spacing: 1px;
+}
+
+/* ─── Section Headers ─── */
+.section-header {
+  background: #1a1a1a;
+  color: #f5e6c8;
+  padding: 5mm 6mm;
+  margin-bottom: 6mm;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 15pt;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.section-header .section-sub {
+  font-size: 9pt;
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: 1mm;
+}
+
+/* ─── Content Blocks ─── */
+.block {
+  margin-bottom: 5mm;
+}
+
+.block-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #3d2b1f;
+  border-bottom: 1px solid #8b7355;
+  padding-bottom: 1.5mm;
+  margin-bottom: 3mm;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.block-title-sm {
+  font-size: 10pt;
+  font-weight: 600;
+  color: #8b7355;
+  margin-bottom: 2mm;
+}
+
+p { margin-bottom: 2.5mm; }
+
+ul, ol {
+  margin-left: 5mm;
+  margin-bottom: 3mm;
+}
+
+li {
+  margin-bottom: 1.5mm;
+}
+
+/* ─── Tables ─── */
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  margin-bottom: 5mm;
+}
+
+table.data th, table.data td {
+  border: 1px solid #8b7355;
+  padding: 2mm 3mm;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.data th {
+  background: #8b7355;
+  color: #faf0e6;
+  font-weight: 600;
+  font-size: 9pt;
+  letter-spacing: 0.5px;
+}
+
+table.data td {
+  background: #fdf5e6;
+}
+
+table.data tr:nth-child(even) td {
+  background: #f5e6c8;
+}
+
+/* ─── Ficha Técnica ─── */
+.ficha-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm 5mm;
+  font-size: 10pt;
+  margin-bottom: 4mm;
+}
+
+.ficha-item {
+  padding: 1.5mm 0;
+  border-bottom: 1px dotted #c4a97d;
+}
+
+.ficha-label {
+  font-weight: 700;
+  color: #8b7355;
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ficha-value {
+  font-size: 10.5pt;
+}
+
+/* ─── Character cards ─── */
+.char-gen {
+  margin-bottom: 4mm;
+}
+
+.char-gen-title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #faf0e6;
+  background: #1a1a1a;
+  padding: 2mm 4mm;
+  margin-bottom: 2mm;
+  letter-spacing: 1px;
+}
+
+.char-card {
+  display: flex;
+  gap: 3mm;
+  padding: 2mm 3mm;
+  margin-bottom: 1.5mm;
+  background: #fdf5e6;
+  border-left: 3px solid #8b7355;
+}
+
+.char-card .char-name {
+  font-weight: 700;
+  min-width: 28mm;
+  color: #3d2b1f;
+  font-size: 9.5pt;
+}
+
+.char-card .char-desc {
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+
+/* ─── Puzzle page ─── */
+.puzzle-badge {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #f5e6c8;
+  padding: 1mm 3mm;
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-right: 2mm;
+}
+
+.puzzle-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3mm 5mm;
+  margin: 3mm 0;
+  font-size: 9pt;
+  color: #8b7355;
+}
+
+.puzzle-meta span {
+  padding: 1mm 0;
+}
+
+.solution-box {
+  background: #1a1a1a;
+  color: #f5e6c8;
+  padding: 3mm 5mm;
+  text-align: center;
+  margin: 3mm 0;
+  border: 2px solid #8b7355;
+}
+
+.solution-box .sol-label {
+  font-size: 8pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.solution-box .sol-code {
+  font-size: 18pt;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin: 1mm 0;
+}
+
+.materials-list {
+  font-size: 9pt;
+  columns: 2;
+  column-gap: 5mm;
+}
+
+.materials-list li {
+  break-inside: avoid;
+}
+
+/* ─── Flow phases ─── */
+.phase-card {
+  background: #fdf5e6;
+  border-left: 4px solid #8b7355;
+  padding: 3mm 4mm;
+  margin-bottom: 3mm;
+}
+
+.phase-card .phase-title {
+  font-weight: 700;
+  font-size: 10pt;
+  color: #3d2b1f;
+  margin-bottom: 1.5mm;
+}
+
+.phase-card .phase-time {
+  font-size: 8.5pt;
+  color: #8b7355;
+  font-style: italic;
+}
+
+.phase-card p {
+  font-size: 9.5pt;
+}
+
+.door-symbols {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4mm;
+  font-size: 10pt;
+}
+
+.door-symbols .door-item {
+  text-align: center;
+  background: #fdf5e6;
+  border: 1px solid #8b7355;
+  padding: 3mm 5mm;
+}
+
+.door-symbols .door-icon {
+  font-size: 16pt;
+  display: block;
+  margin-bottom: 1mm;
+}
+
+/* ─── Highlight ─── */
+.hl { color: #8b4513; font-weight: 600; }
+.italic { font-style: italic; }
+.sm { font-size: 9pt; }
+.dark-box {
+  background: #1a1a1a;
+  color: #f5e6c8;
+  padding: 3mm 5mm;
+  margin: 3mm 0;
+}
+
+.reward-box {
+  background: #fdf5e6;
+  border: 2px solid #8b7355;
+  padding: 3mm 5mm;
+  margin: 3mm 0;
+}
+.reward-box .reward-label {
+  font-size: 8pt;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8b7355;
+  font-weight: 700;
+  margin-bottom: 1.5mm;
+}
+.reward-box .reward-content {
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.reward-box .reward-content strong {
+  color: #8b4513;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 1: COVER
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-border"></div>
+
+  <div class="cover-motif-top">─ ─ │ │ ─ ─ │ │ ─ ─ │ │ ─ ─</div>
+
+  <div class="cover-puppet">☂</div>
+
+  <div class="cover-title">El Legado<br>de la Familia</div>
+
+  <div class="cover-subtitle">Guía Completa del Juego</div>
+
+  <div class="cover-event">Viernes de Escape — Mayo 2026</div>
+
+  <div class="cover-string-art">
+    │&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│<br>
+    ┊&nbsp;&nbsp;&nbsp;┊&nbsp;&nbsp;&nbsp;┊&nbsp;&nbsp;&nbsp;┊&nbsp;&nbsp;&nbsp;┊&nbsp;&nbsp;&nbsp;┊<br>
+    ╰─╯╰─╯╰─╯╰─╯╰─╯╰─╯
+  </div>
+
+  <div class="cover-version">Versión 5.1</div>
+
+  <div class="cover-motif-bottom">─ ─ │ │ ─ ─ │ │ ─ ─ │ │ ─ ─</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 2: FICHA TÉCNICA + SINOPSIS
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Ficha Técnica &amp; Sinopsis</h2>
+  </div>
+
+  <div class="block">
+    <div class="block-title">Datos del Juego</div>
+    <div class="ficha-grid">
+      <div class="ficha-item"><span class="ficha-label">Jugadores</span><br><span class="ficha-value">2–6 (óptimo: 4)</span></div>
+      <div class="ficha-item"><span class="ficha-label">Duración</span><br><span class="ficha-value">~50 minutos</span></div>
+      <div class="ficha-item"><span class="ficha-label">Dificultad</span><br><span class="ficha-value">4 / 10</span></div>
+      <div class="ficha-item"><span class="ficha-label">Edad mínima</span><br><span class="ficha-value">12 años</span></div>
+      <div class="ficha-item"><span class="ficha-label">Tipo</span><br><span class="ficha-value">Investigación / Thriller familiar cinematográfico cooperativo</span></div>
+      <div class="ficha-item"><span class="ficha-label">Presupuesto</span><br><span class="ficha-value">~121 €</span></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-title">Sinopsis</div>
+    <p>La Abuela Elena ha fallecido. En su testamento ha dejado un legado oculto que solo los nietos pueden descubrir. A través de 6 pruebas repartidas por su casa —Despacho, Salón, Desván—, los jugadores reconstruyen la historia familiar y descubren un secreto guardado durante generaciones: <span class="hl">la existencia de un cuarto hijo dado en adopción</span>.</p>
+    <p>El hilo conductor es la palabra <strong>LEGADO</strong>, formada por las letras obtenidas en cada prueba, cada una representando un valor familiar: <strong>L</strong>ealtad, <strong>E</strong>mpatía, <strong>G</strong>enerosidad, <strong>A</strong>mor, <strong>D</strong>ignidad y <strong>O</strong>rgullo.</p>
+  </div>
+
+  <div class="dark-box">
+    <div style="font-size:10pt; font-weight:700; letter-spacing:1px; margin-bottom:2mm;">SÍMBOLO CENTRAL: LAS MARIONETAS</div>
+    <p style="font-size:9.5pt; margin:0;">Una mano invisible ha movido los hilos de esta familia durante décadas. El abuelo Rodrigo, como patriarca fundador, tomó decisiones que alteraron el destino de todos. Sus hilos conectan generaciones, secretos y verdades ocultas.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 3: PERSONAJES
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Personajes</h2>
+    <div class="section-sub">Tres generaciones, un secreto compartido</div>
+  </div>
+
+  <div class="char-gen">
+    <div class="char-gen-title">Generación 1 — Los Fundadores</div>
+    <div class="char-card">
+      <div class="char-name">Abuelo Rodrigo</div>
+      <div class="char-desc">Patriarca fundador. El que movía los hilos. Tomó la decisión de dar al cuarto hijo en adopción.</div>
+    </div>
+    <div class="char-card">
+      <div class="char-name">Abuela Elena</div>
+      <div class="char-desc">Matriarca fallecida. Ocultó la existencia de un cuarto hijo durante décadas para protegerlo.</div>
+    </div>
+  </div>
+
+  <div class="char-gen">
+    <div class="char-gen-title">Generación 2 — Los Herederos</div>
+    <div class="char-card">
+      <div class="char-name">Padre Marcos</div>
+      <div class="char-desc">Hijo mayor. Médico en Madrid. Heredero del legado y de los secretos.</div>
+    </div>
+    <div class="char-card">
+      <div class="char-name">Madre Lucía</div>
+      <div class="char-desc">Esposa de Marcos. Sofisticada, tranquila. Protege a sus hijos y conoce más de lo que dice.</div>
+    </div>
+    <div class="char-card">
+      <div class="char-name">Tía Carmen</div>
+      <div class="char-desc">Hija mediana, profesora en Sevilla. Siempre quiso descubrir la verdad.</div>
+    </div>
+    <div class="char-card">
+      <div class="char-name">Tío Luis</div>
+      <div class="char-desc">Hijo menor. Arquitecto en Barcelona. El que se marchó y nunca quiso hablar del pasado.</div>
+    </div>
+  </div>
+
+  <div class="char-gen">
+    <div class="char-gen-title">Generación 3 — Los Nietos (JUGADORES)</div>
+    <div class="char-card">
+      <div class="char-name">Sebastián, Olivia, Leo, Sofía</div>
+      <div class="char-desc">Los nietos de Elena. Protagonistas de la historia y jugadores del escape room.</div>
+    </div>
+    <div class="char-card" style="border-left-color:#8b4513; background:#f5e6c8;">
+      <div class="char-name" style="color:#8b4513;">Miguel</div>
+      <div class="char-desc">El cuarto hijo, dado en adopción en 1963. El secreto que Elena protegió toda su vida. Criado por Álvaro, hermano de Elena.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 4: FLUJO DEL JUEGO
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Flujo del Juego</h2>
+    <div class="section-sub">50 minutos · 4 fases · 3 estancias</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-title">Fase 1: Briefing Self-Service <span class="phase-time">(3 min)</span></div>
+    <p>Los jugadores encuentran un sobre lacrado en la puerta del despacho con el testamento de Elena impreso, una llave y una nota: <em>«Alguien ha estado moviendo los hilos de esta familia durante décadas. Hoy vosotros, los nietos, tenéis la oportunidad de cortarlos.»</em> El GM solo abre la puerta del espacio al inicio y ya no interviene.</p>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-title">Fase 2: El Despacho — Pruebas 1 &amp; 2 <span class="phase-time">(17 min)</span></div>
+    <p>Los jugadores descubren el tablero lógico de presencias con testimonios cruzados y un candado de 4 dígitos. Luego encuentran el retrato familiar con capas ferromagnéticas que revelan un niño borrado.</p>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-title">Fase 3: El Salón — Pruebas 3 &amp; 4 <span class="phase-time">(16 min)</span></div>
+    <p>Emparejamiento cooperativo de fotos del álbum y luego el árbol genealógico con cryptex. Aparece la figura de Miguel con identidad protegida.</p>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-title">Fase 4: El Desván — Pruebas 5 &amp; 6 <span class="phase-time">(14 min)</span></div>
+    <p>Reconstrucción de carta rasgada de Elena para encontrar la ubicación del sobre oculto. Luego ceremonia final: colocan LEGADO en las ramas del Árbol del Reencuentro.</p>
+  </div>
+
+  <div class="block" style="margin-top:5mm;">
+    <div class="block-title-sm">Símbolos de Puertas</div>
+    <div class="door-symbols">
+      <div class="door-item"><span class="door-icon">🧵</span><strong>HILO ROJO</strong><br><span class="sm">Despacho</span></div>
+      <div class="door-item"><span class="door-icon">🎭</span><strong>MARIONETA</strong><br><span class="sm">Salón</span></div>
+      <div class="door-item"><span class="door-icon">✂️</span><strong>TIJERAS</strong><br><span class="sm">Desván</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 5: HILO CONDUCTOR
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Hilo Conductor</h2>
+    <div class="section-sub">LEGADO — Seis valores, seis hilos</div>
+  </div>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Letra</th>
+        <th>Valor</th>
+        <th>Prueba</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="text-align:center;font-size:14pt;font-weight:700;">L</td><td>Lealtad</td><td>P1</td><td>El Tablero de las Presencias</td></tr>
+      <tr><td style="text-align:center;font-size:14pt;font-weight:700;">E</td><td>Empatía</td><td>P2</td><td>El Retrato que Miente</td></tr>
+      <tr><td style="text-align:center;font-size:14pt;font-weight:700;">G</td><td>Generosidad</td><td>P3</td><td>Las Voces que No se Muestran</td></tr>
+      <tr><td style="text-align:center;font-size:14pt;font-weight:700;">A</td><td>Amor</td><td>P4</td><td>El Árbol que Faltaba</td></tr>
+      <tr><td style="text-align:center;font-size:14pt;font-weight:700;">D</td><td>Dignidad</td><td>P5</td><td>El Mensaje Rasgado</td></tr>
+      <tr><td style="text-align:center;font-size:14pt;font-weight:700;">O</td><td>Orgullo</td><td>P6</td><td>El Árbol del Reencuentro</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dark-box">
+    <p style="font-size:9.5pt; margin:0;">Los hilos representan cómo el Abuelo Rodrigo manipuló el destino de la familia. Al completar cada prueba, los jugadores <strong>«cortan»</strong> un hilo de la marioneta. Al final, todos los hilos están rotos y la verdad queda al descubierto.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 6: PRUEBA 1
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Prueba 1 — El Tablero de las Presencias</h2>
+  </div>
+
+  <div class="puzzle-meta">
+    <span><span class="puzzle-badge">DESPACHO</span></span>
+    <span>Dificultad: <strong>4/10</strong></span>
+    <span>Duración: <strong>9 min</strong></span>
+    <span>Hilo: <strong>L = Lealtad</strong></span>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Mecánica — Deducción Lógica Distribuida</div>
+    <p><strong>Qué encuentran los jugadores:</strong> Una caja notarial con un tablero plegable de 6 casillas numeradas (eventos familiares) y 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel y M. Á. Cada jugador recibe un sobre sellado con un testimonio que contiene una restricción lógica única sobre quién estuvo presente en qué evento. La restricción de cada jugador es NECESARIA — ningún testimonio resuelve el puzzle por sí solo. Los jugadores deben compartir sus restricciones en voz alta (la carta del «Consejo Familiar» lo impone: nadie coloca una ficha hasta que todas las voces hayan hablado).</p>
+    <p><strong>Camino a la solución:</strong> Cruzando los 6 testimonios, el grupo deduce: Carmen=evento 1, Elena=evento 2, Marcos=evento 3, Miguel=evento 4, Luis=evento 5, M. Á.=evento 6. El código se forma con las posiciones de los 4 HIJOS (no padres) en orden de nacimiento: Marcos(3) → Carmen(1) → Luis(5) → Miguel(4) = <strong>3154</strong>.</p>
+    <div class="dark-box">
+      <p style="font-size:9pt; margin:0;"><strong>Anti-cheat:</strong> Ningún testimonio revela el código directamente. La instrucción del tablero dice explícitamente «posiciones de los cuatro hijos en orden de nacimiento» — pero los jugadores primero deben determinar el orden de nacimiento a partir de los testimonios, y luego mapear cada hijo a su número de evento. La carta del Consejo Familiar impide que un jugador dominante resuelva solo.</p>
+    </div>
+  </div>
+
+  <div class="reward-box">
+    <div class="reward-label">Recompensa</div>
+    <div class="reward-content">
+      <strong>Letra L (Lealtad)</strong> — Pieza física con la letra L.<br>
+      <strong>Fragmento de carta de Elena I</strong> — Primera parte de la carta donde Elena habla sobre la Lealtad y revela que "Rodrigo movía los hilos de esta familia con mano firme."<br>
+      <strong>Carta de navegación</strong> — Dirige a P2: "No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared."<br>
+      <strong>Foto de bebé</strong> — Foto ficticia de bebé con el dorso parcialmente tachado "Miguel A."
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <div class="sol-label">Solución — Candado 4 dígitos</div>
+    <div class="sol-code">3 1 5 4</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Materiales (6 archivos)</div>
+    <ul class="materials-list">
+      <li>01-tablero.html — Tablero de restricciones con eventos</li>
+      <li>01-testimonios.html — 6 testimonios cruzados</li>
+      <li>01-cartel-instruccion.html — Cartel de instrucciones</li>
+      <li>01-reco-fragmento-carta-elena.html — Fragmento de carta de Elena</li>
+      <li>01-deco-cartas-familiares.html — Cartas familiares (decorado)</li>
+      <li>01-reco-carta-navegacion.html — Carta de navegación a P2</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 7: PRUEBA 2
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Prueba 2 — El Retrato que Miente</h2>
+  </div>
+
+  <div class="puzzle-meta">
+    <span><span class="puzzle-badge">DESPACHO</span></span>
+    <span>Dificultad: <strong>3/10</strong></span>
+    <span>Duración: <strong>8 min</strong></span>
+    <span>Hilo: <strong>E = Empatía</strong></span>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Mecánica — Detección Magnética Cooperativa</div>
+    <p><strong>Qué encuentran los jugadores:</strong> Un retrato familiar colgado en el despacho. Algo falta: un niño fue borrado de la imagen. En el reverso del marco, la inscripción manuscrita de Elena reza: <em>«Este retrato miente. Hubo uno más entre nosotros. Mirad detrás. Usad el papel verde.»</em> En un cajón del escritorio, una carpeta de restauración contiene una hoja de papel ferromagnético verde y la nota de Elena.</p>
+    <p><strong>Camino a la solución:</strong> Los jugadores retiran el retrato de la pared y colocan el papel verde contra el DORSO del marco. El papel reacciona a 15 imanes de neodimio ocultos tras el panel trasero, dispuestos en 3 columnas verticales. Contando los puntos oscuros por columna: 5 | 2 | 8. Esto abre un candado de combinación de 3 dígitos en una caja de madera.</p>
+    <div class="dark-box">
+      <p style="font-size:9pt; margin:0;"><strong>Anti-cheat:</strong> Los imanes están sellados dentro del marco — los jugadores no pueden verlos ni contarlos sin el papel verde. La inscripción sugiere el método pero no el código. El candado de 3 dígitos no tiene indicadores de dirección, así que el orden de las columnas importa (izquierda a derecha = código).</p>
+    </div>
+  </div>
+
+  <div class="reward-box">
+    <div class="reward-label">Recompensa</div>
+    <div class="reward-content">
+      <strong>Letra E (Empatía)</strong> — Pieza física con la letra E.<br>
+      <strong>Fragmento de carta de Elena II</strong> — Segunda parte donde Elena habla sobre la Empatía y la decisión de "escribir dos nombres para un mismo niño."<br>
+      <strong>Carta de navegación</strong> — Dirige a P3: "No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan. Id al salón."
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <div class="sol-label">Solución — Candado combinación 3 dígitos</div>
+    <div class="sol-code">5 2 8</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Materiales (5 archivos)</div>
+    <ul class="materials-list">
+      <li>02-deco-diario-elena.html — Diario de Elena (decorado/contexto)</li>
+      <li>02-deco-inscripcion-reverso.html — Inscripción en el reverso del retrato</li>
+      <li>02-reco-carta-navegacion.html — Carta de navegación a P3</li>
+      <li>02-reco-fragmento-carta-elena.html — Fragmento de carta de Elena</li>
+      <li>02-cartel-instruccion.html — Cartel de instrucciones</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 8: PRUEBA 3
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Prueba 3 — Las Voces que No se Muestran</h2>
+  </div>
+
+  <div class="puzzle-meta">
+    <span><span class="puzzle-badge">SALÓN</span></span>
+    <span>Dificultad: <strong>5/10</strong></span>
+    <span>Duración: <strong>8 min</strong></span>
+    <span>Hilo: <strong>G = Generosidad</strong></span>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Mecánica — Emparejamiento Cooperativo con Descarte</div>
+    <p><strong>Qué encuentran los jugadores:</strong> Un álbum de fotos vintage con 6 fotografías fijas, cada una con una fecha visible y un sello raspable. En un sobre separado, hay 4 cartas de Recuerdo (sueltas). La instrucción del álbum indica a los jugadores que emparejen cada Recuerdo con una foto usando detalles sensoriales (objetos, lugares, sensaciones), y advierte que NO todas las fotos tienen un Recuerdo.</p>
+    <p><strong>Camino a la solución:</strong> Los jugadores leen los 4 Recuerdos y buscan coincidencias: «Mi vestido guardó una mancha de lluvia» → Boda 1962 (arroz, lluvia). «Recordé el tren» → Primer verano 1965 (tren de juguete). «Acaricié aquel pañuelo» → Noche de fiebre 1970 (pañuelo blanco). «Olvidé encender la vela del andén» → Estación 1975 (maleta, andén). Las fotos 3 (Bautizo) y 5 (Nochebuena) NO tienen Recuerdo correspondiente — son distractores. Solo TRAS confirmar una coincidencia, los jugadores rascan el sello: las fotos correctas revelan un DÍGITO, los distractores revelan una HOJA («Sigue buscando»). Los 4 dígitos ordenados por fecha (1962→1965→1970→1975) dan <strong>7391</strong>.</p>
+    <div class="dark-box">
+      <p style="font-size:9pt; margin:0;"><strong>Anti-cheat:</strong> Los sellos raspables impiden adivinar — los jugadores no pueden ver los dígitos sin rascar, y la instrucción dice «no rasques hasta que todos estén de acuerdo». Los 2 distractores impiden emparejamiento por fuerza bruta. Las iniciales de los Recuerdos (M-R-A-O) forman AMOR — un señuelo que no ayuda con el código.</p>
+    </div>
+  </div>
+
+  <div class="reward-box">
+    <div class="reward-label">Recompensa</div>
+    <div class="reward-content">
+      <strong>Letra G (Generosidad)</strong> — Pieza física con la letra G.<br>
+      <strong>Fragmento de carta de Elena III</strong> — Tercera parte donde Elena habla sobre la Generosidad como "la forma más silenciosa de seguir cuidándoos."<br>
+      <strong>Carta de navegación</strong> — Dirige a P4: "Los recuerdos tienen raíces. Buscad el árbol que no se atrevió a escribir todos sus nombres."
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <div class="sol-label">Solución — Candado 4 dígitos</div>
+    <div class="sol-code">7 3 9 1</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Materiales (5 archivos)</div>
+    <ul class="materials-list">
+      <li>03-fotos-album.html — 6 fotos del álbum + 2 distractores</li>
+      <li>03-tarjetas-recuerdo.html — Tarjetas con sellos raspables</li>
+      <li>03-cartel-instruccion.html — Cartel de instrucciones</li>
+      <li>03-reco-carta-navegacion.html — Carta de navegación a P4</li>
+      <li>03-reco-fragmento-carta-elena.html — Fragmento de carta de Elena</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 9: PRUEBA 4
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Prueba 4 — El Árbol que Faltaba</h2>
+  </div>
+
+  <div class="puzzle-meta">
+    <span><span class="puzzle-badge">SALÓN</span></span>
+    <span>Dificultad: <strong>6/10</strong></span>
+    <span>Duración: <strong>10 min</strong></span>
+    <span>Hilo: <strong>A = Amor</strong></span>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Mecánica — Emparejamiento Descripción-Hueco con Revelación Progresiva</div>
+    <p><strong>Qué encuentran los jugadores:</strong> Un póster grande A2 de un árbol genealógico con 10 huecos numerados, más un tubo de cartón con 10 Tarjetas del Árbol. Las tarjetas NO TIENEN NOMBRES — solo descripciones de relaciones familiares y roles (ej.: «El hijo mayor. Estudió medicina. Firmó ante notario.»). Los jugadores deben emparejar cada descripción con su hueco correcto en el árbol usando pistas contextuales de pruebas anteriores y las propias descripciones.</p>
+    <p><strong>Camino a la solución:</strong> Una vez colocadas las 10 tarjetas, los jugadores rascan los sellos de cada hueco. 4 huecos revelan una HOJA (esa persona no contribuye al nombre). 6 huecos revelan una LETRA con un número Luna ①-⑥. Las 6 letras en orden Luna forman <strong>ALVARO</strong> — el nombre del hermano de Elena que crió a Miguel como propio. Esto abre un cryptex de 6 letras.</p>
+    <div class="dark-box">
+      <p style="font-size:9pt; margin:0;"><strong>Anti-cheat (diseño crítico):</strong> El código ALVARO es un nombre propio que NO APARECE en ningún documento accesible del juego. Solo se puede descubrir rascando los 6 sellos correctos. Las tarjetas no tienen nombres (solo descripciones), así que los jugadores no pueden adivinar el código leyendo los materiales. El árbol revela un giro narrativo: 4 huecos (marcados ★) exponen al secreto del cuarto hijo, la adopción y el papel de Álvaro. Dentro del cryptex, un certificado ficticio de adopción confirma la historia.</p>
+    </div>
+  </div>
+
+  <div class="reward-box">
+    <div class="reward-label">Recompensa</div>
+    <div class="reward-content">
+      <strong>Letra A (Amor)</strong> — Pieza física con la letra A.<br>
+      <strong>Fragmento de carta de Elena IV</strong> — Cuarta parte donde Elena habla sobre el Amor como "elegir que mi hijo creciera lejos antes que verlo crecer perseguido por una deuda que no era suya."<br>
+      <strong>Certificado de adopción</strong> — Documento ficticio que confirma que Miguel fue dado en tutela a don Álvaro, hermano de Elena. Incluye nota manuscrita: "Rodrigo cortó el hilo. Yo lo guardé para volver a atarlo algún día."<br>
+      <strong>Carta de navegación</strong> — Dirige a P5: "Ahora sabéis lo que Rodrigo ocultó. Pero Miguel tiene su propio camino. Subid al desván."
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <div class="sol-label">Solución — Cryptex 6 letras</div>
+    <div class="sol-code">A L V A R O</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Materiales (6 archivos)</div>
+    <ul class="materials-list">
+      <li>04-tablero.html — Tablero del árbol genealógico</li>
+      <li>04-tarjetas-hojas-arbol.html — Tarjetas de hojas para el árbol</li>
+      <li>04-cartel-instruccion.html — Cartel de instrucciones</li>
+      <li>04-reco-certificado-adopcion.html — Certificado de adopción (revelación)</li>
+      <li>04-reco-carta-navegacion.html — Carta de navegación a P5</li>
+      <li>04-reco-fragmento-carta-elena.html — Fragmento de carta de Elena</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 10: PRUEBA 5
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Prueba 5 — El Mensaje Rasgado</h2>
+  </div>
+
+  <div class="puzzle-meta">
+    <span><span class="puzzle-badge">DESVÁN</span></span>
+    <span>Dificultad: <strong>5/10</strong></span>
+    <span>Duración: <strong>8 min</strong></span>
+    <span>Hilo: <strong>D = Dignidad</strong></span>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Mecánica — Reconstrucción Física de Puzzle de Bordes</div>
+    <p><strong>Qué encuentran los jugadores:</strong> 12 fragmentos irregulares de papel sobre una mesa en el desván. Cada fragmento es un trozo rasgado de papel sepia con bordes dentados únicos — como un puzzle donde cada pieza solo encaja con su vecino correcto. La carta de instrucciones reza: <em>«Elena rasgó esta carta para protegerla. Los fragmentos solo dicen la verdad cuando se reúnen.»</em></p>
+    <p><strong>Camino a la solución:</strong> El grupo trabaja junto en la mesa, emparejando los bordes de los fragmentos. Las 12 piezas se unen para formar un mensaje completo: <em>«Buscad bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.»</em> No hay código numérico — la reconstrucción física ES el puzzle. Bajo la tabla marcada, los jugadores encuentran un sobre sellado con lacre rojo que contiene: la letra D, las 6 letras de LEGADO con numerales romanos, la carta de despedida de Elena y unas tijeras doradas.</p>
+    <div class="dark-box">
+      <p style="font-size:9pt; margin:0;"><strong>Anti-cheat:</strong> Los bordes irregulares hacen cada pieza única — las uniones incorrectas son físicamente evidentes. El mensaje no se puede leer sin reconstrucción (los fragmentos son frases incompletas). No hay código que probar por fuerza bruta.</p>
+    </div>
+  </div>
+
+  <div class="reward-box">
+    <div class="reward-label">Recompensa</div>
+    <div class="reward-content">
+      <strong>Letra D (Dignidad)</strong> — Pieza física con la letra D.<br>
+      <strong>Sobre lacrado rojo</strong> — Encontrado bajo la tercera tabla. Contiene: las 6 letras LEGADO con números romanos, la carta de despedida completa de Elena, y un par de tijeras doradas decorativas. Todo lo necesario para la ceremonia final (P6).
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <div class="sol-label">Solución — Ubicación física</div>
+    <div class="sol-code" style="font-size:14pt;">BAJO LA TERCERA TABLA</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Materiales (2 archivos)</div>
+    <ul class="materials-list">
+      <li>05-fragmentos-carta-elena.html — 12 fragmentos de carta rasgada</li>
+      <li>05-cartel-instruccion.html — Cartel de instrucciones</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 11: PRUEBA 6
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Prueba 6 — El Árbol del Reencuentro</h2>
+  </div>
+
+  <div class="puzzle-meta">
+    <span><span class="puzzle-badge">DESVÁN</span></span>
+    <span>Dificultad: <strong>3/10</strong></span>
+    <span>Duración: <strong>7 min</strong></span>
+    <span>Hilo: <strong>O = Orgullo</strong></span>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Mecánica — Ceremonia de Ordenación Cooperativa</div>
+    <p><strong>Qué encuentran los jugadores:</strong> La prueba final. Los jugadores llevan las 6 letras de LEGADO al Árbol del Reencuentro — un expositor de madera con 6 ramas y un compartimento deslizante en la raíz. La letra O cuelga de una etiqueta en la propia raíz. Cada letra tiene una forma y tamaño único que SOLO encaja en su rama correcta. Un cartel en la base lista los 6 valores en orden: Lealtad, Empatía, Generosidad, Amor, Dignidad, Orgullo — cada valor corresponde a la prueba donde se ganó.</p>
+    <p><strong>Camino a la solución:</strong> Los jugadores deben colocar cada letra en la rama correspondiente a su valor (no en orden alfabético). El cartel indica: <em>«Elena numeró las letras en el orden en que quería que sus nietos descubrieran cada valor, no en el orden de la palabra.»</em> Una vez colocadas las 6 letras y pulsando simultáneamente durante 3 segundos, la raíz se desliza abriendo. Dentro: una pequeña marioneta de madera con los hilos cortados, la foto adulta de Miguel y la carta de despedida de Elena.</p>
+    <p><strong>Ceremonia:</strong> Un voluntario lee la carta de despedida de Elena en voz alta. Luego colocan la foto de Miguel en el hueco del árbol y cortan el último hilo de la marioneta con las tijeras doradas. El mensaje final reza: <em>«No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.»</em></p>
+    <div class="dark-box">
+      <p style="font-size:9pt; margin:0;"><strong>Anti-cheat:</strong> El encaje único de forma impide colocar letras en ramas equivocadas. El requisito de pulsación simultánea asegura la cooperación. La ceremonia es autoguiada mediante instrucciones impresas — no necesita GM.</p>
+    </div>
+  </div>
+
+  <div class="reward-box">
+    <div class="reward-label">Recompensa</div>
+    <div class="reward-content">
+      <strong>Letra O (Orgullo)</strong> — Etiqueta colgante en la raíz del Árbol del Reencuentro.<br>
+      <strong>CARTA DE DESPEDIDA DE ELENA</strong> — Leída en voz alta por un voluntario. La revelación final: Miguel fue protegido por amor, la familia que Rodrigo rompió puede volver a estar completa.<br>
+      <strong>Mensaje final</strong> — "No heredisteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia."<br>
+      <strong>Foto de Miguel adulto</strong> — Se coloca en el hueco del árbol.<br>
+      <strong>Marioneta con hilos cortados</strong> — Dentro de la raíz, simbolizando el ciclo de control finalmente roto.
+    </div>
+  </div>
+
+  <div class="solution-box">
+    <div class="sol-label">Solución — Magnético cooperativo</div>
+    <div class="sol-code">L E G A D O</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Materiales (4 archivos)</div>
+    <ul class="materials-list">
+      <li>06-carta-despedida.html — Carta de despedida de Elena (revelación final)</li>
+      <li>06-cartel-instruccion.html — Cartel de instrucciones</li>
+      <li>06-instruccion-final.html — Instrucción de la ceremonia final</li>
+      <li>06-reco-mensaje-final.html — Mensaje final para los jugadores</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 12: RESUMEN DE CANDADOS Y CÓDIGOS
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Resumen de Candados y Códigos</h2>
+  </div>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Prueba</th>
+        <th>Tipo de Candado</th>
+        <th>Código</th>
+        <th>Origen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>P1</strong></td>
+        <td>Candado 4 dígitos</td>
+        <td style="text-align:center;font-weight:700;font-size:12pt;">3154</td>
+        <td>Posiciones de 4 hijos en orden de nacimiento</td>
+      </tr>
+      <tr>
+        <td><strong>P2</strong></td>
+        <td>Candado combinación 3 dígitos</td>
+        <td style="text-align:center;font-weight:700;font-size:12pt;">528</td>
+        <td>15 imanes detectados en 3 columnas</td>
+      </tr>
+      <tr>
+        <td><strong>P3</strong></td>
+        <td>Candado 4 dígitos</td>
+        <td style="text-align:center;font-weight:700;font-size:12pt;">7391</td>
+        <td>4 dígitos raspados ordenados por fecha</td>
+      </tr>
+      <tr>
+        <td><strong>P4</strong></td>
+        <td>Cryptex 6 letras</td>
+        <td style="text-align:center;font-weight:700;font-size:12pt;">ALVARO</td>
+        <td>6 letras de sellos ordenadas por Lunas ①-⑥</td>
+      </tr>
+      <tr>
+        <td><strong>P5</strong></td>
+        <td>Ubicación física</td>
+        <td style="text-align:center;font-weight:700;font-size:10pt;">N/A</td>
+        <td>Reconstruir carta → bajo 3.ª tabla</td>
+      </tr>
+      <tr>
+        <td><strong>P6</strong></td>
+        <td>Magnético cooperativo</td>
+        <td style="text-align:center;font-weight:700;font-size:12pt;">LEGADO</td>
+        <td>6 letras en ramas correctas</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="dark-box">
+    <p style="font-size:9.5pt; margin:0;"><strong>Nota para el GM:</strong> Los códigos están impresos en los materiales de cada prueba, pero nunca de forma directa. Siempre requieren un paso de deducción (ordenar, contar, mapear). Los jugadores nunca necesitan conocimiento externo — toda la información está en los materiales del juego.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 13: INVENTARIO DE MATERIALES
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <h2>Inventario de Materiales</h2>
+    <div class="section-sub">28 archivos generados + componentes físicos</div>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Prueba 1 — El Tablero de las Presencias (6 materiales)</div>
+    <ul class="materials-list">
+      <li><strong>01-tablero.html</strong> — Tablero de restricciones con eventos</li>
+      <li><strong>01-testimonios.html</strong> — 6 testimonios cruzados</li>
+      <li><strong>01-cartel-instruccion.html</strong> — Cartel de instrucciones</li>
+      <li><strong>01-reco-fragmento-carta-elena.html</strong> — Fragmento de carta de Elena</li>
+      <li><strong>01-deco-cartas-familiares.html</strong> — Cartas familiares (decorado)</li>
+      <li><strong>01-reco-carta-navegacion.html</strong> — Carta de navegación a P2</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Prueba 2 — El Retrato que Miente (5 materiales)</div>
+    <ul class="materials-list">
+      <li><strong>02-deco-diario-elena.html</strong> — Diario de Elena</li>
+      <li><strong>02-deco-inscripcion-reverso.html</strong> — Inscripción reverso retrato</li>
+      <li><strong>02-reco-carta-navegacion.html</strong> — Carta de navegación a P3</li>
+      <li><strong>02-reco-fragmento-carta-elena.html</strong> — Fragmento de carta</li>
+      <li><strong>02-cartel-instruccion.html</strong> — Cartel de instrucciones</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Prueba 3 — Las Voces que No se Muestran (5 materiales)</div>
+    <ul class="materials-list">
+      <li><strong>03-fotos-album.html</strong> — Fotos del álbum</li>
+      <li><strong>03-tarjetas-recuerdo.html</strong> — Tarjetas con sellos raspables</li>
+      <li><strong>03-cartel-instruccion.html</strong> — Cartel de instrucciones</li>
+      <li><strong>03-reco-carta-navegacion.html</strong> — Carta de navegación a P4</li>
+      <li><strong>03-reco-fragmento-carta-elena.html</strong> — Fragmento de carta</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Prueba 4 — El Árbol que Faltaba (6 materiales)</div>
+    <ul class="materials-list">
+      <li><strong>04-tablero.html</strong> — Tablero árbol genealógico</li>
+      <li><strong>04-tarjetas-hojas-arbol.html</strong> — Tarjetas de hojas</li>
+      <li><strong>04-cartel-instruccion.html</strong> — Cartel de instrucciones</li>
+      <li><strong>04-reco-certificado-adopcion.html</strong> — Certificado de adopción</li>
+      <li><strong>04-reco-carta-navegacion.html</strong> — Carta de navegación a P5</li>
+      <li><strong>04-reco-fragmento-carta-elena.html</strong> — Fragmento de carta</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Prueba 5 — El Mensaje Rasgado (2 materiales)</div>
+    <ul class="materials-list">
+      <li><strong>05-fragmentos-carta-elena.html</strong> — 12 fragmentos de carta</li>
+      <li><strong>05-cartel-instruccion.html</strong> — Cartel de instrucciones</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-title-sm">Prueba 6 — El Árbol del Reencuentro (4 materiales)</div>
+    <ul class="materials-list">
+      <li><strong>06-carta-despedida.html</strong> — Carta de despedida de Elena</li>
+      <li><strong>06-cartel-instruccion.html</strong> — Cartel de instrucciones</li>
+      <li><strong>06-instruccion-final.html</strong> — Instrucción ceremonia final</li>
+      <li><strong>06-reco-mensaje-final.html</strong> — Mensaje final</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+</body>
+</html>
