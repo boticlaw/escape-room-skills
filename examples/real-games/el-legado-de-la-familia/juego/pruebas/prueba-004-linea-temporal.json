@@ -1,9 +1,9 @@
 {
   "id": "legado_004_arbol_que_faltaba",
   "nombre": "El Árbol que Faltaba",
-  "descripcion": "La hoja de P3 lleva a un tubo de arquitecto familiar con un plano enrollado del árbol genealógico y 10 tarjetas-hoja para injertar. Las tarjetas NO tienen nombres — solo descripciones. Los jugadores emparejan descripciones con los 10 huecos del póster. Cada hueco tiene un SELLO RASPABLE: 6 de ellos revelan una LETRA (con número de luna), 4 revelan una HOJA 'No es parte del código'. Los jugadores descubren el GIRO NARRATIVO: un cuarto hijo secreto dado en adopción. El nombre del salvador NUNCA aparece escrito — se revela letra a letra a través de los sellos. Las 6 letras, ordenadas por los números de luna (①②③④⑤⑥), forman ALVARO. El cryptex de 6 letras se abre con ALVARO.",
+  "descripcion": "La hoja de P3 lleva a un tubo de arquitecto familiar con un plano enrollado del árbol genealógico y 10 tarjetas-hoja para injertar. Las tarjetas NO tienen nombres — solo descripciones. Los jugadores emparejan descripciones con los 10 huecos del póster. Cada hueco muestra directamente una LETRA marcada con una Luna (①-⑥) o una HOJA: 6 huecos tienen LETRA+Luna, 4 tienen HOJA. Los jugadores descubren el GIRO NARRATIVO: un cuarto hijo secreto dado en adopción. El nombre del salvador NUNCA aparece escrito en las tarjetas — se revela letra a letra en el póster. Las 6 letras, ordenadas por los números de luna (①②③④⑤⑥), forman ALVARO. El cryptex de 6 letras se abre con ALVARO.",
   "juego": "el-legado-de-la-familia",
-  "version": 15,
+  "version": 16,
   "espacio": 2,
   "sala": "El Salón Familiar",
   "skill_primario": "prueba-logica-secuencial",
@@ -16,18 +16,18 @@
   "cooperacion_obligatoria": true,
   "formato": "grupo_unido",
   "configuracion": {
-    "mecanica_principal": "Árbol genealógico con emparejamiento descripción-hueco + sellos raspables con feedback dual. 10 tarjetas SIN NOMBRES (solo descripciones) se emparejan con 10 huecos del póster por pistas contextuales. Cada hueco tiene un sello raspable: 6 revelan LETRA + número de luna, 4 revelan HOJA. Las 6 letras ordenadas por luna forman ALVARO. El nombre del salvador nunca aparece escrito en ninguna tarjeta ni documento accesible — solo se descubre al rascar los sellos correctos.",
-    "mecanismo_barrera": "Cryptex de 6 letras configurado a ALVARO. Anti-trampa por diseño: el código es un nombre propio que NO aparece en ningún documento accesible. Solo se descubre combinando 6 sellos raspados en el orden correcto. Imposible adivinar sin completar el emparejamiento.",
+    "mecanica_principal": "Árbol genealógico con emparejamiento descripción-hueco + letras/Lunas visibles directamente. 10 tarjetas SIN NOMBRES (solo descripciones) se emparejan con 10 huecos del póster por pistas contextuales. Cada hueco muestra directamente: 6 tienen LETRA + número de luna, 4 tienen HOJA. Las 6 letras ordenadas por luna forman ALVARO. El nombre del salvador nunca aparece escrito en ninguna tarjeta ni documento accesible — solo se descubre al leer las letras en los huecos del póster.",
+    "mecanismo_barrera": "Cryptex de 6 letras configurado a ALVARO. Anti-trampa por diseño: el código es un nombre propio que NO aparece en ningún documento accesible. Solo se descubre leyendo las letras en los huecos del póster tras emparejar correctamente las tarjetas. Imposible adivinar sin completar el emparejamiento.",
     "construccion_mecanismo": {
       "que_lo_abre": "Cryptex de 6 letras, código ALVARO",
-      "como_se_construye": "1) Póster A2 con 10 huecos, cada uno con sello raspable plateado. 6 huecos tienen letra+ Luna bajo el sello, 4 tienen hoja. 2) 10 tarjetas-hoja con descripciones (SIN nombres). 3) Cryptex de 6 letras configurado a ALVARO. 4) Sellos raspables tipo scratch-off sobre las áreas marcadas con ☽ en el póster.",
-      "feedback_al_jugador": "Sello raspable dual: LETRA + número de luna (①-⑥) = parte del código. HOJA + 'No es parte del código' = esta persona no aporta letras. Los 6 números de luna ordenados dan las 6 letras del código.",
-      "presupuesto_aproximado": "Póster A2 impreso: ~4€ | 10 tarjetas + scratch stickers: ~4€ | Cryptex 6 letras: ~8€ | Letra A + extras: ~4€ | Total: ~20€"
+      "como_se_construye": "1) Póster A2 con 10 huecos, cada uno muestra directamente letra+Luna o HOJA. 6 huecos tienen letra+Luna, 4 tienen hoja. 2) 10 tarjetas-hoja con descripciones (SIN nombres). 3) Cryptex de 6 letras configurado a ALVARO.",
+      "feedback_al_jugador": "Cada hueco muestra directamente su contenido: LETRA + número de luna (①-⑥) = parte del código. HOJA = esta persona no aporta letras. Los 6 números de luna ordenados dan las 6 letras del código.",
+      "presupuesto_aproximado": "Póster A2 impreso: ~4€ | 10 tarjetas: ~3€ | Cryptex 6 letras: ~8€ | Letra A + extras: ~4€ | Total: ~19€"
     },
     "elementos_necesarios": [
       "KIT DE RESOLUCIÓN (sobre la mesa):",
       "  - Tubo de cartón con etiqueta 'Ramas pendientes'",
-      "  - Póster A2 de árbol genealógico con 10 huecos, pistas impresas y sellos raspables",
+      "  - Póster A2 de árbol genealógico con 10 huecos, pistas impresas y letras/Lunas visibles",
       "  - 10 tarjetas-hoja con descripciones (SIN nombres)",
       "  - Cryptex de 6 letras junto al póster",
       "RECOMPENSA (DENTRO del cryptex):",
@@ -40,7 +40,7 @@
     "distribucion_roles": {
       "lectores": "Cada jugador lee 1-2 tarjetas en voz alta (solo descripciones, sin nombres).",
       "emparejadores": "Proponen qué descripción va en qué hueco basándose en las pistas.",
-      "raspador": "Raspa el sello del hueco cuando el grupo confirma una colocación.",
+      "lector_huecos": "Lee las letras/Lunas del hueco cuando el grupo confirma una colocación.",
       "anotador": "Anota las letras descubiertas con su número de luna en orden."
     },
     "rotacion_obligatoria": "SUGERENCIA impresa: 'Si fuisteis Emparejadores en pruebas anteriores, dejad que otro lo sea hoy.'"
@@ -49,7 +49,7 @@
     {
       "nivel": 1,
       "tipo": "sutil",
-      "texto": "Leed todos los huecos del póster antes de colocar nada. Las pistas más concretas (firmó, mayor, mediana) van primero. Rascad solo cuando estéis seguros de una colocación.",
+      "texto": "Leed todos los huecos del póster antes de colocar nada. Las pistas más concretas (firmó, mayor, mediana) van primero. Confirmad cada colocación leyendo la letra o hoja del hueco.",
       "timing": "Tras 3 minutos sin progreso"
     },
     {
@@ -66,17 +66,17 @@
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores emparejan las 10 tarjetas (descripciones sin nombres) con los 10 huecos del póster (pistas contextuales). Al confirmar cada colocación, raspan el sello del hueco: 6 revelan LETRA + Luna (①-⑥), 4 revelan HOJA. Las 6 letras ordenadas por Luna forman ALVARO. El GIRO NARRATIVO: los huecos ★ revelan que hubo un cuarto hijo secreto (Miguel) dado en adopción al hermano de Elena.",
+    "descripcion": "Los jugadores emparejan las 10 tarjetas (descripciones sin nombres) con los 10 huecos del póster (pistas contextuales). Cada hueco muestra directamente una LETRA con Luna (①-⑥) o una HOJA. Las 6 letras ordenadas por Luna forman ALVARO. El GIRO NARRATIVO: los huecos ★ revelan que hubo un cuarto hijo secreto (Miguel) dado en adopción al hermano de Elena.",
     "verificacion": "El cryptex de 6 letras se abre con ALVARO. Dentro: certificado de adopción, fragmento de Elena, letra A y carta de navegación.",
     "pasos_detallados": [
       "Encontrar el tubo de cartón 'Ramas pendientes' en el Salón.",
-      "Desenrollar el póster A2 del árbol genealógico con 10 huecos y sellos raspables.",
+      "Desenrollar el póster A2 del árbol genealógico con 10 huecos y letras/Lunas visibles.",
       "Repartir las 10 tarjetas-hoja entre los jugadores. NOTAR: no tienen nombres, solo descripciones.",
-      "Leer la instrucción: EMPAREJAR DESCRIPCIONES CON HUECOS. RASCAR SOLO AL CONFIRMAR.",
+      "Leer la instrucción: EMPAREJAR DESCRIPCIONES CON HUECOS. LEER LAS LETRAS DE CADA HUECO.",
       "Cada jugador lee sus tarjetas en voz alta (descripciones).",
       "Emparejar por pistas contextuales: firmó→patriarca/médico, pañuelo→mediana, marchó→menor.",
       "★ GIRO NARRATIVO: las tarjetas ★ describen un hijo secreto dado en adopción y un hermano que lo crió.",
-      "Al confirmar cada pareja → rascar el sello del hueco.",
+      "Al confirmar cada pareja → leer la letra/Luna o HOJA del hueco.",
       "Si aparece LETRA + Luna (ej: ①A): anotar la letra con su número. Si aparece HOJA: esa persona no aporta al código.",
       "Las 6 letras en orden de Luna: ①A ②L ③V ④A ⑤R ⑥O = ALVARO.",
       "Introducir ALVARO en el cryptex.",
@@ -88,12 +88,12 @@
       "carta": "Fragmento de Elena sobre el amor como razón del sacrificio.",
       "carta_navegacion": "Nota urgente: 'Ahora sabéis lo que Rodrigo ocultó. Hay un mensaje que dejé dividido en dos mitades — nadie puede leerlo entero solo. Subid al desván.'",
       "siguiente_espacio": "El Desván (P5)",
-      "revelacion_narrativa": "GIRO: Rodrigo tuvo un cuarto hijo secreto — Miguel, dado en adopción a su tío materno. Elena protegió a Miguel toda su vida. El salvador se llama Álvaro (revelado por los sellos, no por las tarjetas)."
+      "revelacion_narrativa": "GIRO: Rodrigo tuvo un cuarto hijo secreto — Miguel, dado en adopción a su tío materno. Elena protegió a Miguel toda su vida. El salvador se llama Álvaro (visible en las letras del póster, no en las tarjetas)."
     }
   },
   "materiales": {
     "impresion": [
-      "1 póster A2 de árbol genealógico con 10 huecos, pistas impresas y sellos raspables (6 con letra+Luna, 4 con hoja)",
+      "1 póster A2 de árbol genealógico con 10 huecos, pistas impresas y letras/Lunas visibles directamente (6 con letra+Luna, 4 con hoja)",
       "10 tarjetas-hoja con descripciones SIN nombres",
       "1 tarjeta de instrucciones del póster",
       "1 certificado ficticio de adopción",
@@ -114,19 +114,19 @@
   "documentos_in_game": [
     {
       "titulo": "Instrucción del Póster",
-      "texto": "CADA HUECO GUARDA UN NOMBRE. CADA NOMBRE, UNA LETRA.\n\nEmparejad las descripciones con los huecos del árbol. Las tarjetas NO tienen nombres — solo descripciones.\n\nLos sellos plateados ocultan letras… o algo distinto.\n\nSi aparece una LETRA con una Luna (①-⑥): anotadla. Es parte del código.\nSi aparece una HOJA: esa persona no aporta al nombre.\n\nOrdenad las letras por número de Luna, de ① a ⑥.\n\nNO raspéis hasta que TODOS estéis de acuerdo.",
+      "texto": "CADA HUECO GUARDA UN NOMBRE. CADA NOMBRE, UNA LETRA O UNA HOJA.\n\nEmparejad las descripciones con los huecos del árbol. Las tarjetas NO tienen nombres — solo descripciones.\n\nCada hueco muestra una LETRA marcada con una Luna (①-⑥) o una HOJA. Las letras forman el código. Ordenad las letras por número de Luna, de ① a ⑥.",
       "cantidad": 1,
-      "gm_notas": "Impresa en el póster, visible al desenrollar. Informa mecánica: emparejar sin nombres, sellos con feedback dual, orden por Lunas."
+      "gm_notas": "Impresa en el póster, visible al desenrollar. Informa mecánica: emparejar sin nombres, letras/Lunas visibles directamente, orden por Lunas."
     },
     {
       "titulo": "Pistas de los Huecos del Árbol (impresas en el póster)",
-      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar. [SELLO: HOJA]\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano. [SELLO: HOJA]\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario. [SELLO: ①A]\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre. [SELLO: HOJA]\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba. [SELLO: ②L]\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia. [SELLO: HOJA]\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1963 y fue dado en adopción. [SELLO: ③V]\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo. [SELLO: ④A]\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto. [SELLO: ⑤R]\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida. [SELLO: ⑥O]",
+      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar. [HOJA]\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano. [HOJA]\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario. [①A]\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre. [HOJA]\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba. [②L]\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia. [HOJA]\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1963 y fue dado en adopción. [③V]\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo. [④A]\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto. [⑤R]\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida. [⑥O]",
       "cantidad": 1,
-      "gm_notas": "Impresas junto a cada hueco del póster A2. Los huecos 7-10 tienen ★. Las Lunas ①-⑥ están en huecos 3, 5, 7, 8, 9, 10. Las letras bajo sello: ①A ②L ③V ④A ⑤R ⑥O = ALVARO. Los huecos 1, 2, 4, 6 tienen HOJA."
+      "gm_notas": "Impresas junto a cada hueco del póster A2. Los huecos 7-10 tienen ★. Las Lunas ①-⑥ están en huecos 3, 5, 7, 8, 9, 10. Las letras visibles: ①A ②L ③V ④A ⑤R ⑥O = ALVARO. Los huecos 1, 2, 4, 6 tienen HOJA."
     },
     {
       "titulo": "Tarjetas-Hoja del Árbol (SIN nombres)",
-      "texto": "Tarjeta 1: El mayor de los hijos. Estudió medicina. Firmó ante notario.\n\nTarjeta 2: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\n\nTarjeta 3: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\n\nTarjeta 4: El patriarca. Testigo de la firma y de la promesa.\n\nTarjeta 5: La matriarca. Firmó la promesa con temblor en la mano.\n\nTarjeta 6: Llegó después a la familia. Esposa del médico.\n\nTarjeta 7 (★): Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.\n\nTarjeta 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\n\nTarjeta 9 (★): Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\n\nTarjeta 10 (★): Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Rascad los sellos y ordenad las Lunas.'",
+      "texto": "Tarjeta 1: El mayor de los hijos. Estudió medicina. Firmó ante notario.\n\nTarjeta 2: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\n\nTarjeta 3: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\n\nTarjeta 4: El patriarca. Testigo de la firma y de la promesa.\n\nTarjeta 5: La matriarca. Firmó la promesa con temblor en la mano.\n\nTarjeta 6: Llegó después a la familia. Esposa del médico.\n\nTarjeta 7 (★): Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.\n\nTarjeta 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\n\nTarjeta 9 (★): Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\n\nTarjeta 10 (★): Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Ordenad las Lunas.'",
       "cantidad": 10,
       "gm_notas": "Cada tarjeta SIN NOMBRES. Solo descripciones. Emparejamiento por pistas contextuales unívocas: T1→H3 (médico/firmó), T2→H4 (maestra/pañuelo), T3→H5 (menor/edificios), T4→H1 (patriarca/testigo), T5→H2 (matriarca/temblor), T6→H6 (esposa del médico), T7→H7 (hijo secreto/1963), T8→H8 (hermano/crió), T9→H9 (nombre legal), T10→H10 (registro/nota). NINGUNA tarjeta menciona el nombre Álvaro."
     },
@@ -153,14 +153,13 @@
     "tipo": "Cryptex de 6 letras",
     "ubicacion": "Junto al póster del árbol genealógico (accesible desde el inicio)",
     "codigo": "ALVARO",
-    "origen_codigo": "Los jugadores emparejan 10 tarjetas sin nombres con 10 huecos. Al rascar los sellos de los huecos correctos, obtienen 6 letras con Lunas numeradas: ①A ②L ③V ④A ⑤R ⑥O. Ordenadas por Luna forman ALVARO. El nombre NUNCA aparece en tarjetas ni documentos accesibles — solo se descubre al rascar los sellos.",
+    "origen_codigo": "Los jugadores emparejan 10 tarjetas sin nombres con 10 huecos. Cada hueco muestra directamente una letra con Luna numerada o una HOJA. Las 6 letras: ①A ②L ③V ④A ⑤R ⑥O. Ordenadas por Luna forman ALVARO. El nombre NUNCA aparece en tarjetas ni documentos accesibles — solo se descubre leyendo las letras en los huecos del póster.",
     "construccion_fisica": {
-      "paso_1": "Imprimir póster A2 con 10 huecos, cada uno con sello raspable plateado sobre letra/hoja.",
-      "paso_2": "Pegar scratch-off stickers sobre las áreas marcadas ☽.",
-      "paso_3": "Imprimir 10 tarjetas con descripciones (SIN nombres).",
-      "paso_4": "Cryptex 6 letras configurado a ALVARO.",
-      "paso_5": "Colocar certificado + carta Elena + letra A + navegación dentro del cryptex.",
-      "presupuesto_total": "~20€"
+      "paso_1": "Imprimir póster A2 con 10 huecos, cada uno muestra directamente letra+Luna o HOJA.",
+      "paso_2": "Imprimir 10 tarjetas con descripciones (SIN nombres).",
+      "paso_3": "Cryptex 6 letras configurado a ALVARO.",
+      "paso_4": "Colocar certificado + carta Elena + letra A + navegación dentro del cryptex.",
+      "presupuesto_total": "~19€"
     },
     "montaje_minutos": 12
   },
@@ -171,7 +170,7 @@
   },
   "control_movimiento": {
     "problema_potencial": "Jugadores podrían intentar fuerza bruta en el cryptex o emparejar tarjetas al azar.",
-    "solucion_implementada": "ANTI-TRAMPA POR DISEÑO: 1) ALVARO es un nombre propio que NO aparece en NINGÚN documento accesible — imposible adivinar sin rascar sellos. 2) Los sellos solo se raspan al confirmar colocaciones, y dan feedback dual (letra = correcto, hoja = no aporta). 3) Cryptex de 6 letras tiene 26^6 = 308 millones de combinaciones — fuerza bruta inviable. 4) Las tarjetas usan velcro para corregir sin romper. 5) El código se descubre letra a letra, no de golpe.",
+    "solucion_implementada": "ANTI-TRAMPA POR DISEÑO: 1) ALVARO es un nombre propio que NO aparece en NINGÚN documento accesible — imposible adivinar sin emparejar correctamente. 2) Las letras/Lunas están visibles en el póster pero solo tienen sentido tras el emparejamiento correcto. 3) Cryptex de 6 letras tiene 26^6 = 308 millones de combinaciones — fuerza bruta inviable. 4) Las tarjetas usan velcro para corregir sin romper. 5) El código se descubre letra a letra, no de golpe.",
     "tipo_solucion": "prevencion"
   },
   "metadata": {
@@ -181,24 +180,24 @@
     "adaptado_de": "prueba-004-linea-temporal.json v14 (tarjetas con nombres, código ALVAR)",
     "version": "5.0",
     "testado": false,
-    "notas": "v5.0: REDISEÑO COMPLETO. 1) Tarjetas SIN nombres (solo descripciones). 2) Nombres bajo sellos raspables en el póster, no en tarjetas. 3) Código ALVARO (6 letras, cryptex estándar). 4) Sellos con feedback dual (letra+Luna vs hoja). 5) Anti-trampa: nombre nunca aparece en accesibles. 6) Huecos sin ambigüedad (eliminada referencia a P3, eliminado doble-match Carmen). 7) Zero GM — sellos dan feedback automático."
+    "notas": "v5.1: Eliminados sellos raspables. Letras/Lunas y HOJAs visibles directamente en el póster. Razón: los sellos en P4 no tenían propósito de gameplay — los jugadores ya resolvieron el puzzle al emparejar tarjetas con huecos. Rascar era solo papeleo mecánico sin decisión ni consecuencia. v5.0: REDISEÑO COMPLETO. 1) Tarjetas SIN nombres (solo descripciones). 2) Nombres visibles directamente en el póster. 3) Código ALVARO (6 letras, cryptex estándar). 4) Letras+Lunas vs HOJAs como feedback visual. 5) Anti-trampa: nombre nunca aparece en accesibles. 6) Huecos sin ambigüedad. 7) Zero GM."
   },
   "ingame_docs": [
     {
       "titulo": "Instrucción del Póster",
-      "texto": "CADA HUECO GUARDA UN NOMBRE. CADA NOMBRE, UNA LETRA.\n\nEmparejad las descripciones con los huecos del árbol. Las tarjetas NO tienen nombres — solo descripciones.\n\nLos sellos plateados ocultan letras… o algo distinto.\n\nSi aparece una LETRA con una Luna (①-⑥): anotadla. Es parte del código.\nSi aparece una HOJA: esa persona no aporta al nombre.\n\nOrdenad las letras por número de Luna, de ① a ⑥.\n\nNO raspéis hasta que TODOS estéis de acuerdo.",
+      "texto": "CADA HUECO GUARDA UN NOMBRE. CADA NOMBRE, UNA LETRA O UNA HOJA.\n\nEmparejad las descripciones con los huecos del árbol. Las tarjetas NO tienen nombres — solo descripciones.\n\nCada hueco muestra una LETRA marcada con una Luna (①-⑥) o una HOJA. Las letras forman el código. Ordenad las letras por número de Luna, de ① a ⑥.",
       "cantidad": 1,
       "gm_notas": "Impresa en el póster."
     },
     {
       "titulo": "Pistas de los Huecos del Árbol (impresas en el póster)",
-      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar. [SELLO: HOJA]\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano. [SELLO: HOJA]\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario. [SELLO: ①A]\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre. [SELLO: HOJA]\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba. [SELLO: ②L]\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia. [SELLO: HOJA]\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1963 y fue dado en adopción. [SELLO: ③V]\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo. [SELLO: ④A]\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto. [SELLO: ⑤R]\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida. [SELLO: ⑥O]",
+      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar. [HOJA]\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano. [HOJA]\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario. [①A]\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre. [HOJA]\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba. [②L]\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia. [HOJA]\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1963 y fue dado en adopción. [③V]\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo. [④A]\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto. [⑤R]\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida. [⑥O]",
       "cantidad": 1,
       "gm_notas": "Impresas en el póster junto a cada hueco."
     },
     {
       "titulo": "Tarjetas-Hoja del Árbol (SIN nombres)",
-      "texto": "Tarjeta 1: El mayor de los hijos. Estudió medicina. Firmó ante notario.\n\nTarjeta 2: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\n\nTarjeta 3: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\n\nTarjeta 4: El patriarca. Testigo de la firma y de la promesa.\n\nTarjeta 5: La matriarca. Firmó la promesa con temblor en la mano.\n\nTarjeta 6: Llegó después a la familia. Esposa del médico.\n\nTarjeta 7 (★): Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.\n\nTarjeta 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\n\nTarjeta 9 (★): Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\n\nTarjeta 10 (★): Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Rascad los sellos y ordenad las Lunas.'",
+      "texto": "Tarjeta 1: El mayor de los hijos. Estudió medicina. Firmó ante notario.\n\nTarjeta 2: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\n\nTarjeta 3: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\n\nTarjeta 4: El patriarca. Testigo de la firma y de la promesa.\n\nTarjeta 5: La matriarca. Firmó la promesa con temblor en la mano.\n\nTarjeta 6: Llegó después a la familia. Esposa del médico.\n\nTarjeta 7 (★): Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.\n\nTarjeta 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\n\nTarjeta 9 (★): Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\n\nTarjeta 10 (★): Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Ordenad las Lunas.'",
       "cantidad": 10,
       "gm_notas": "Tarjetas SIN nombres. Emparejamiento unívoco."
     },

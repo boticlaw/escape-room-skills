@@ -60,33 +60,6 @@ body { width: 186mm; background: white; }
   pointer-events: none;
   z-index: 3;
 }
-
-/* Scratch-off silver seal */
-.raspad {
-  position: absolute;
-  bottom: 2mm; right: 4mm;
-  width: 22mm; height: 5mm;
-  background: linear-gradient(45deg,
-    #d4d4d4 0%, #a8a8a8 20%, #c8c8c8 40%,
-    #b0b0b0 60%, #d8d8d8 80%, #c0c0c0 100%);
-  border-radius: 2px;
-  z-index: 2;
-  box-shadow: 0 0.5px 1px rgba(0,0,0,0.15);
-  pointer-events: none;
-}
-/* Stripe overlay */
-.raspad::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 1.5px,
-    rgba(0,0,0,0.04) 1.5px,
-    rgba(0,0,0,0.04) 3px
-  );
-  border-radius: inherit;
-}
 </style>
 </head>
 <body>
@@ -124,27 +97,23 @@ body { width: 186mm; background: white; }
   </div>
 
   <div class="tarjeta">
-    <div class="raspad"></div>
     <div class="tarjeta-num star">★7</div>
     <div class="tarjeta-text">Nació en marzo de 1963. Hijo de los fundadores, dado en adopción al hermano de la madre.</div>
   </div>
 
   <div class="tarjeta">
-    <div class="raspad"></div>
     <div class="tarjeta-num star">★8</div>
     <div class="tarjeta-text">Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.</div>
   </div>
 
   <div class="tarjeta">
-    <div class="raspad"></div>
     <div class="tarjeta-num star">★9</div>
     <div class="tarjeta-text">Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.</div>
   </div>
 
   <div class="tarjeta">
-    <div class="raspad"></div>
     <div class="tarjeta-num star">★10</div>
-    <div class="tarjeta-text">Nota de Elena: <span class="nota">"Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Rascad los sellos y ordenad las Lunas."</span></div>
+    <div class="tarjeta-text">Nota de Elena: <span class="nota">"Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Ordenad las Lunas."</span></div>
   </div>
 </div>
 
