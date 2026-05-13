@@ -45,6 +45,22 @@ Cada documento tiene UN propósito. Un cartel instruye. Una carta narra. Un tabl
 | Familiar/Nostálgico | EB Garamond, Lora | Cálida, humana, cercana |
 | Concurso/Quiz | Poppins, Nunito | Moderna, divertida, redondeada |
 
+### Parejas tipográficas (font pairings)
+Usar DOS fuentes por juego: una para títulos y otra para cuerpo. Esto crea contraste visual sin caer en la monotonía.
+
+| Pareja | Título | Cuerpo | Género ideal | Import URL |
+|--------|--------|--------|--------------|------------|
+| Clásica elegante | EB Garamond (700) | EB Garamond (400) | Misterio, Familiar | `family=EB+Garamond:wght@400;600;700` |
+| Vintage cálida | Playfair Display (700) | Lora (400) | Histórico, Nostálgico | `family=Playfair+Display:wght@700&family=Lora` |
+| Gótica dramática | Crimson Text (700) | Cormorant Garamond (400) | Terror, Misterio oscuro | `family=Crimson+Text:wght@700&family=Cormorant+Garamond` |
+| Técnica limpia | Space Mono (700) | IBM Plex Sans (400) | Sci-Fi, Laboratorio | `family=Space+Mono:wght@700&family=IBM+Plex+Sans` |
+| Aventurera | Bitter (700) | Merriweather (400) | Jungla, Exploración | `family=Bitter:wght@700&family=Merriweather` |
+| Codificada fría | JetBrains Mono (700) | Source Sans 3 (400) | Espionaje, Militar | `family=JetBrains+Mono:wght@700&family=Source+Sans+3` |
+| Editorial moderna | Spectral (700) | Crimson Pro (400) | Concurso, Elegant | `family=Spectral:wght@700&family=Crimson+Pro` |
+| Divertida redondeada | Nunito (700) | Quicksand (400) | Familiar, Niños | `family=Nunito:wght@700&family=Quicksand` |
+
+**Regla:** Si el `STYLE.json` solo define una fuente, usar la misma con pesos distintos (400 para cuerpo, 700 para títulos).
+
 ### Google Fonts para imprenta
 Siempre usar Google Fonts con `@import` — funciona offline si se carga antes de imprimir:
 ```css
@@ -76,6 +92,32 @@ Siempre verificar contraste con esta regla práctica:
 - Texto cuerpo sobre fondo: diferencia de luminosidad ≥ 60%
 - Texto grande (títulos): diferencia ≥ 40%
 - Cuando dudes, imprimir y leer con luz tenue
+
+## Escala de Espaciado para Impresión
+
+Usar siempre múltiplos de esta escala para mantener consistencia entre todos los materiales de un juego:
+
+| Token | Valor | Uso |
+|-------|-------|-----|
+| `xs` | 1.5mm | Separación entre línea de texto y su borde |
+| `sm` | 3mm | Padding interno de tarjetas, gap entre elementos pequeños |
+| `md` | 5mm | Margen entre bloques, padding de cajas de solución |
+| `lg` | 8mm | Separación entre secciones, padding de cartas |
+| `xl` | 12mm | Márgenes de página, separación entre pruebas |
+| `2xl` | 15mm | Márgenes de @page, espaciado de portada |
+| `3xl` | 20mm | Márgenes laterales de cartas, padding de portada |
+
+### Tipografía — escala de tamaños
+| Token | Tamaño | Uso |
+|-------|--------|-----|
+| `text-xs` | 8pt | Notas al pie, pies de foto, contexto no esencial |
+| `text-sm` | 9pt | Subtítulos secundarios, etiquetas, metadata |
+| `text-base` | 10.5pt | Texto cuerpo estándar |
+| `text-md` | 12pt | Subtítulos, texto destacado |
+| `text-lg` | 14pt | Títulos de sección |
+| `text-xl` | 18pt | Títulos de documento |
+| `text-2xl` | 24pt | Portada, título principal |
+| `text-3xl` | 28pt | Cover del juego, código de solución |
 
 ## Composición de Página
 
@@ -187,6 +229,33 @@ box-shadow: inset 0 0 100px 20px rgba(0,0,0,0.05);
 }
 /* En impresión, el sello es plateado. El contenido real va en letra pequeña bajo él. */
 ```
+
+## Reglas Priorizadas
+
+Las reglas de esta guía se clasifican en tres niveles de prioridad:
+
+### 🔴 OBLIGATORIAS — Violación = material rechazado
+1. **Texto mínimo 10pt para cuerpo** — Nunca menor a 8pt ni en notas
+2. **Contraste mínimo 60%** — Texto oscuro sobre fondo claro (o viceversa)
+3. **Un documento = una función** — Sin mezclar instrucciones con narrativa
+4. **Google Fonts con fallback** — `'EB Garamond', Georgia, serif`
+5. **`break-inside: avoid`** en bloques completos — Nada cortado por salto de página
+6. **Verificar B/N** — Los colores deben funcionar sin color (muchas impresoras)
+
+### 🟡 RECOMENDADAS — Violación = justificar con motivo
+1. **Dos fuentes por juego** (título + cuerpo) usando la tabla de parejas tipográficas
+2. **Escala de espaciado consistente** (xs/sm/md/lg/xl/2xl/3xl)
+3. **Efectos de textura** en documentos narrativos (cartas, diarios, fragmentos)
+4. **Fondo oscuro solo para carteles cortos** (< 200 palabras)
+5. **Márgenes ≥ 15mm** — 25mm laterales en cartas (se sostienen por los bordes)
+6. **No más de 3 colores** por documento
+
+### 🟢 OPCIONALES — Aportan calidad pero no son bloqueantes
+1. Font pairing con dos fuentes distintas (título vs cuerpo)
+2. Sellos decorativos (cera, scratch-off)
+3. Bordes quemados en documentos narrativos especiales
+4. Celdas alternadas en tableros con muchas filas
+5. Numeración sutil en fragmentos múltiples
 
 ## Errores Comunes a Evitar
 
