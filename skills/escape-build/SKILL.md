@@ -15,6 +15,7 @@ Load when generating printable escape room documents from game JSON files. Produ
 2. **A4 format.** Margins: 12mm top/bottom, 10mm left/right. `printBackground: true`.
 3. **STYLE.json required.** All materials must read visual identity from `juego/STYLE.json`. Never hardcode colors or fonts — derive CSS from the style guide. If `STYLE.json` is missing, ask the user for style preferences before generating.
 4. **Print-first design.** All materials follow `references/print-design-guide.md`. Minimum body text: 10pt. Minimum contrast: 60% luminosity difference. No text below 8pt. Dark backgrounds only for short signs/posters — never for long documents.
+5. **Props, not documents.** Every material must look like a physical prop when printed. Tables get ornamental borders. Photos get Polaroid frames. Letters get signature lines and wax seals. Diaries get notebook lines. Cards get textured backgrounds. Scratch-off seals get silver gradients. Apply treatments from `STYLE.json.tratamientos_visuales` and `references/print-design-guide.md` recipes. If a material looks like it could be an email or spreadsheet, it's not done.
 
 ## Execution Steps
 

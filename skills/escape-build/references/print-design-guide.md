@@ -293,3 +293,302 @@ Las reglas de esta guía se clasifican en tres niveles de prioridad:
 - Verificar que no hay texto cortado por saltos de página
 - Verificar que los colores se ven bien en B/N (muchas impresoras)
 - Verificar que las texturas no oscurecen el texto al imprimir
+
+## Recetas CSS Avanzadas para Props
+
+These complete CSS recipes make printed materials look like real physical props. All recipes are pure CSS — no images, no JavaScript. Copy-paste into any material template.
+
+### Marco ornamental para tableros y documentos formales
+
+A decorative double-border with corner flourishes using CSS only (no images):
+
+```css
+.marco-ornamental {
+  border: 2px solid #8b7355;
+  padding: 8mm;
+  position: relative;
+}
+.marco-ornamental::before {
+  content: '';
+  position: absolute;
+  top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
+  border: 1px solid #8b7355;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.marco-ornamental::after {
+  content: '✦  ✦  ✦';
+  position: absolute;
+  top: -3mm; left: 50%;
+  transform: translateX(-50%);
+  background: #faf0e6;
+  padding: 0 5mm;
+  color: #8b7355;
+  font-size: 8pt;
+  letter-spacing: 3mm;
+}
+```
+
+### Foto estilo Polaroid vintage
+
+```css
+.foto-polaroid {
+  background: white;
+  padding: 4mm 4mm 15mm 4mm; /* extra bottom for Polaroid caption area */
+  box-shadow: 2px 3px 8px rgba(0,0,0,0.2), 0 0 3px rgba(0,0,0,0.1);
+  transform: rotate(-1.5deg); /* slight tilt for realism */
+  max-width: 130mm;
+}
+.foto-polaroid img, .foto-polaroid .foto-contenido {
+  width: 100%;
+  background: #e8dcc8;
+  min-height: 120mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #8b7355;
+  font-size: 10pt;
+  text-align: center;
+  padding: 10mm;
+  line-height: 1.8;
+}
+.foto-polaroid .foto-caption {
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 9pt;
+  color: #4a3728;
+  margin-top: 3mm;
+  font-style: italic;
+}
+```
+
+### Sello de cera realista
+
+```css
+.sello-cera {
+  width: 18mm;
+  height: 18mm;
+  background: radial-gradient(circle at 35% 35%, #b22222 0%, #8b0000 40%, #5c0000 75%, #3a0000 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(212,163,115,0.9);
+  font-size: 11pt;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3), inset 0 0 5px rgba(0,0,0,0.2);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transform: rotate(-8deg);
+  position: relative;
+}
+.sello-cera::after {
+  content: '';
+  position: absolute;
+  top: 2mm; left: 2mm; right: 2mm; bottom: 2mm;
+  border: 0.5px solid rgba(212,163,115,0.3);
+  border-radius: 50%;
+}
+```
+
+### Sello raspable con gradación plateada realista
+
+```css
+.sello-raspable {
+  background: linear-gradient(135deg, #d4d4d4 0%, #a8a8a8 25%, #c8c8c8 50%, #b0b0b0 75%, #d8d8d8 100%);
+  padding: 4mm 8mm;
+  border: 1px solid #888;
+  text-align: center;
+  position: relative;
+  min-width: 25mm;
+}
+.sello-raspable::before {
+  content: 'RASCAR';
+  font-size: 7pt;
+  letter-spacing: 2px;
+  color: #666;
+  text-transform: uppercase;
+}
+.sello-raspable .contenido-oculto {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #8b4513;
+  margin-top: 1mm;
+}
+.sello-raspable::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1px,
+    rgba(255,255,255,0.1) 1px,
+    rgba(255,255,255,0.1) 2px
+  );
+  pointer-events: none;
+}
+```
+
+### Líneas de cuaderno para diarios
+
+```css
+.diario-cuaderno {
+  background-image: 
+    linear-gradient(#b8cfe5 0.5px, transparent 0.5px);
+  background-size: 100% 8mm;
+  background-position: 0 5mm;
+  line-height: 8mm;
+  padding-left: 15mm; /* space for red margin */
+  position: relative;
+}
+.diario-cuaderno::before {
+  content: '';
+  position: absolute;
+  left: 12mm;
+  top: 0; bottom: 0;
+  width: 0.5px;
+  background: #e8a0a0; /* red margin line */
+}
+```
+
+### Manchas de café
+
+```css
+.mancha-cafe {
+  position: relative;
+}
+.mancha-cafe::before {
+  content: '';
+  position: absolute;
+  top: 20mm; right: 15mm;
+  width: 15mm; height: 12mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.08) 0%, rgba(139,90,43,0.03) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+.mancha-cafe::after {
+  content: '';
+  position: absolute;
+  bottom: 30mm; left: 25mm;
+  width: 10mm; height: 8mm;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+```
+
+### Dobleces simulados
+
+```css
+.dobleces {
+  position: relative;
+}
+.dobleces::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none;
+  z-index: 2;
+}
+.dobleces::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 5%, rgba(139,115,85,0.12) 20%, rgba(139,115,85,0.15) 50%, rgba(139,115,85,0.12) 80%, transparent 95%);
+  pointer-events: none;
+  z-index: 2;
+}
+```
+
+### Cinta adhesiva (tape marks)
+
+```css
+.cinta-adhesiva {
+  position: relative;
+}
+.cinta-adhesiva::before {
+  content: '';
+  position: absolute;
+  top: -2mm; left: 30%;
+  width: 40mm; height: 8mm;
+  background: rgba(255,248,220,0.35);
+  border: 0.5px solid rgba(200,190,160,0.3);
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 2;
+}
+```
+
+### Línea de firma elegante
+
+```css
+.firma-bloque {
+  margin-top: 12mm;
+  text-align: right;
+  padding-right: 15mm;
+}
+.firma-linea {
+  border-bottom: 1px solid #8b7355;
+  width: 60mm;
+  display: inline-block;
+  margin-bottom: 2mm;
+}
+.firma-nombre {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 12pt;
+  color: #3d2b1f;
+}
+.firma-fecha {
+  font-size: 8pt;
+  color: #8b7355;
+  font-style: italic;
+  margin-top: 1mm;
+}
+```
+
+### Tarjeta con textura de cartón/papel envejecido
+
+```css
+.tarjeta-prop {
+  background: linear-gradient(135deg, #faf5ee 0%, #f0e8d8 100%);
+  border: 1.5px solid #c4a882;
+  border-radius: 2px;
+  padding: 5mm 6mm;
+  position: relative;
+  box-shadow: 
+    1px 1px 3px rgba(0,0,0,0.08),
+    inset 0 0 15px rgba(139,115,85,0.06);
+}
+.tarjeta-prop::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='4' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='rgba(139,115,85,0.03)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+```
+
+### Uso de las recetas con tratamientos_visuales
+
+Each recipe maps to a treatment in `STYLE.json.tratamientos_visuales`:
+
+| Treatment | CSS Recipe Class | Materials |
+|-----------|-----------------|-----------|
+| `marco_ornamental` | `.marco-ornamental` | Tableros, certificados, portadas |
+| `foto_estilo` | `.foto-polaroid` | Álbum de fotos |
+| `sello_cera` | `.sello-cera` | Cartas de despedida, certificados |
+| `sello_raspable` | `.sello-raspable` | Tarjetas de recuerdo, tarjetas de hojas |
+| `envejecimiento` | `.mancha-cafe` + `.dobleces` + `.cinta-adhesiva` | Cartas, diarios, fragmentos, fotos |
+| `lineas_cuaderno` | `.diario-cuaderno` | Diarios |
+| `firma_estilo` | `.firma-bloque` + `.firma-linea` | Cartas, certificados |
+| (base card) | `.tarjeta-prop` | Tarjetas, etiquetas |
+
+**Combination rule:** Effects compose by stacking classes. A diary entry uses `.diario-cuaderno.mancha-cafe.dobleces`. A letter uses `.mancha-cafe.dobleces` with a `.sello-cera` element and a `.firma-bloque` at the bottom. Never apply more than 3 visual effects to a single material — subtlety beats noise.

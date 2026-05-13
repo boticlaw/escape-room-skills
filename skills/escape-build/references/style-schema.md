@@ -63,6 +63,57 @@ During the RESOLVE phase of the pipeline. The orchestrator asks the user:
     "bordes_quemados": "boolean — burnt edges effect on special documents",
     "sombra_interior": "string — inner shadow CSS for document aging (or null)"
   },
+  "tratamientos_visuales": {
+    "marco_ornamental": {
+      "descripcion": "Decorative border pattern for boards, certificates, and formal documents",
+      "patron": "css — the border pattern to use",
+      "esquinas": "css — corner decorations",
+      "aplica_a": ["tablero", "certificado", "portada"]
+    },
+    "foto_estilo": {
+      "tipo": "polaroid | marco_vintage | sin_marco | instantanea",
+      "borde_blanco": "mm — white border width (e.g. 5mm for Polaroid)",
+      "sombra": "css — drop shadow for the photo",
+      "esquinas_redondeadas": "mm or 0",
+      "texto_reverso": "boolean — show description on back",
+      "aplica_a": ["fotos_album"]
+    },
+    "sello_raspable": {
+      "gradacion": "css — silver/gold gradient for scratch-off area",
+      "texto_bajo": "css — hidden text style revealed after scratching",
+      "tamano": "mm — scratch area size",
+      "forma": "rectangular | circular | rombo",
+      "aplica_a": ["tarjetas_recuerdo", "tarjetas_hojas"]
+    },
+    "sello_cera": {
+      "color": "hex — wax color",
+      "tamano": "mm — seal diameter",
+      "icono": "character or null — letter/symbol in the seal",
+      "posicion": "bottom-right | bottom-center | inline",
+      "aplica_a": ["carta_despedida", "certificado_adopcion", "carta_navegacion"]
+    },
+    "envejecimiento": {
+      "manchas_cafe": "boolean — add coffee stain effects",
+      "dobleces": "boolean — simulate fold creases",
+      "bordes_desgastados": "boolean — worn/irregular edges",
+      "cinta_adhesiva": "boolean — tape marks on photos/documents",
+      "sombra_interior": "css — inner shadow intensity",
+      "aplica_a": ["carta", "diario", "fragmento", "fotos_album"]
+    },
+    "lineas_cuaderno": {
+      "color": "hex — line color (e.g. #b8cfe5 for blue)",
+      "espaciado": "mm — line spacing (e.g. 8mm)",
+      "margen_izquierdo": "mm — red margin line distance",
+      "aplica_a": ["diario"]
+    },
+    "firma_estilo": {
+      "tipo": "manuscrita | formal | con_sello",
+      "posicion": "right-aligned | centered",
+      "linea_firma": "boolean — show signature line",
+      "fecha_debajo": "boolean — date under signature",
+      "aplica_a": ["carta", "certificado"]
+    }
+  },
   "formato": {
     "pagina": "string — page size (default: 'A4')",
     "orientacion": "string — 'portrait' or 'landscape'",
