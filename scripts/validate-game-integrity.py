@@ -114,12 +114,19 @@ def detect_game_type(game_data):
     tipo = game_data.get("tipo", "").lower().replace("game-type-", "")
     type_map = {
         "hall-escape": "hall-escape",
+        "hall_escape": "hall-escape",
         "street-escape": "street-escape",
+        "street_escape": "street-escape",
         "investigation": "investigation",
+        "investigacion": "investigation",
         "concurso": "concurso",
         "violeta": "investigation",
     }
-    return type_map.get(tipo, "hall-escape")
+    result = type_map.get(tipo)
+    if result is None:
+        print(f"  ⚠️  Tipo desconocido '{tipo}' — usando hall-escape como fallback")
+        return "hall-escape"
+    return result
 
 
 def _load_concurso_questions(juego_dir):

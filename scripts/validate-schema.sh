@@ -86,9 +86,9 @@ if '$field' == 'jugadores':
         if k not in data['jugadores']:
             sys.exit(1)
 " 2>/dev/null; then
-    check "game.json has field: $field" 0
+    check "juego.json has field: $field" 0
 else
-    check "game.json has field: $field" 1
+    check "juego.json has field: $field" 1
 fi
 done
 
@@ -107,7 +107,7 @@ for p in data.get('pruebas', []):
 " 2>/dev/null || echo "")
 
 if [ -z "$PRUEBA_FILES" ]; then
-  echo -e "  ${YELLOW}⚠${NC} No prueba files referenced in game.json"
+  echo -e "  ${YELLOW}⚠${NC} No prueba files referenced in juego.json"
 else
   while IFS= read -r prueba; do
     [ -z "$prueba" ] && continue
