@@ -1,7 +1,7 @@
 {
   "id": "legado_005_mensaje_rasgado",
   "nombre": "El Mensaje Rasgado",
-  "descripcion": "En el desván, entre la penumbra y la luz cálida de una lámpara antigua, los jugadores encuentran una mesa con dos montones de fragmentos de papel sepia. Son los restos de una carta que Elena rasgó en 12 fragmentos irregulares para proteger su contenido. Los fragmentos tienen bordes irregulares que encastan como un puzzle físico: cada fragmento solo se une correctamente con su vecino. El grupo trabaja JUNTO: buscan bordes que encajan, leen el texto parcial de cada fragmento, y reconstruyen la carta completa. La carta reconstruida describe un lugar concreto: 'bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada'. La tercera tabla tiene una marca de cera roja PERMANENTE. Allí encuentran un sobre lacrado rojo con materiales para P6.",
+  "descripcion": "En el desván, entre la penumbra y la luz cálida de una lámpara antigua, los jugadores encuentran una mesa con dos montones de fragmentos de papel sepia. Son los restos de una carta que Elena rasgó en 12 fragmentos irregulares para proteger su contenido. Los fragmentos tienen bordes irregulares que encastan como un puzzle físico: cada fragmento solo se une correctamente con su vecino. El grupo trabaja JUNTO: buscan bordes que encajan, leen el texto parcial de cada fragmento, y reconstruyen la carta completa. La carta reconstruida describe un lugar concreto: 'bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada'. La tercera tabla del suelo del desván, contando desde la puerta de entrada tiene una marca de cera roja PERMANENTE. Allí encuentran un sobre lacrado rojo con materiales para P6.",
   "juego": "el-legado-de-la-familia",
   "version": 15,
   "espacio": 3,
@@ -19,10 +19,10 @@
   "formato": "grupo_unido",
   "configuracion": {
     "mecanica_principal": "Reconstrucción física de carta rasgada. Los jugadores encuentran 12 fragmentos irregulares de una carta de Elena (papel sepia envejecido, previamente rasgada). Los fragmentos tienen bordes dentados únicos que solo encajan con su vecino correcto — como un puzzle de encaje de bordes. El grupo trabaja junto: busca bordes compatibles, lee el texto parcial de cada fragmento, y va reconstruyendo la carta sobre la mesa. No hay equipos, no hay división. Todos ven y manejan todos los fragmentos.",
-    "mecanismo_barrera": "La carta reconstruida describe una ubicación concreta del desván: 'bajo la tercera tabla del suelo del desván, la que tiene una marca de cera roja en la esquina'. Al llegar, encuentran un sobre lacrado rojo con el símbolo de una marioneta. Contiene la letra D, las 6 letras LEGADO con números romanos, la carta de despedida de Elena, y las tijeras doradas para P6.",
+    "mecanismo_barrera": "La carta reconstruida describe una ubicación concreta del desván: 'bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada, la que tiene una marca de cera roja en la esquina'. Al llegar, encuentran un sobre lacrado rojo con el símbolo de una marioneta. Contiene la letra D, las 6 letras LEGADO con números romanos, la carta de despedida de Elena, y las tijeras doradas para P6.",
     "construccion_mecanismo": {
       "que_lo_abre": "Ubicación física descrita en la carta reconstruida + sobre lacrado rojo",
-      "como_se_construye": "1) Imprimir la carta completa de Elena en papel sepia A4. 2) Rasgarla en 12 fragmentos irregulares (a mano, siguiendo un patrón que garantice bordes únicos). 3) Marcar el reverso de cada fragmento con un número discreto (para reset GM). 4) Colocar los fragmentos en dos montones sobre la mesa del desván. 5) Marcar la tercera tabla del suelo con cera roja permanente. 6) Colocar el sobre lacrado rojo bajo la tercera tabla.",
+      "como_se_construye": "1) Imprimir la carta completa de Elena en papel sepia A4. 2) Rasgarla en 12 fragmentos irregulares (a mano, siguiendo un patrón que garantice bordes únicos). 3) Marcar el reverso de cada fragmento con un número discreto (para reset GM). 4) Colocar los fragmentos en dos montones sobre la mesa del desván. 5) Marcar la tercera tabla del suelo del desván, contando desde la puerta de entrada con cera roja permanente. 6) Colocar el sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada.",
       "feedback_al_jugador": "Los bordes irregulares encajan solo con el vecino correcto (confirmación física). El texto reconstruido tiene sentido gramatical (confirmación lógica). El sobre lacrado rojo confirma que encontraron el lugar correcto.",
       "presupuesto_aproximado": "Papel sepia A4 + impresión: ~1€ | Cera roja para marca: ~1€ | Sobre lacrado rojo: ~2€ | 6 letras LEGADO + números romanos: ~3€ | Tijeras doradas: ~3€ | Letra D: ~2€ | Total: ~12€"
     },
@@ -66,7 +66,7 @@
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores reconstruyen la carta rasgada de Elena encajando los 12 fragmentos por sus bordes irregulares y el contenido textual. La carta reconstruida indica la ubicación de un sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada.
+    "descripcion": "Los jugadores reconstruyen la carta rasgada de Elena encajando los 12 fragmentos por sus bordes irregulares y el contenido textual. La carta reconstruida indica la ubicación de un sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada.",
     "verificacion": "La carta reconstruida correctamente dice: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.' Al llegar, encuentran un sobre lacrado rojo con símbolo de marioneta.",
     "pasos_detallados": [
       "Entrar al desván y encontrar los fragmentos en la mesa.",
@@ -76,7 +76,7 @@
       "Leer el texto parcial de cada fragmento para orientar la reconstrucción.",
       "Unir fragmentos por bordes + contenido textual.",
       "Reconstruir la carta completa: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'",
-      "Identificar la tercera tabla del suelo (marcada PERMANENTEMENTE con cera roja).",
+      "Identificar la tercera tabla del suelo del desván, contando desde la puerta de entrada (marcada PERMANENTEMENTE con cera roja).",
       "Bajo la tabla encuentran un sobre lacrado rojo con el símbolo de una marioneta.",
       "Rompen el lacre: dentro hay la letra D, las 6 letras LEGADO con números romanos, la carta de despedida de Elena, y las tijeras doradas.",
       "La letra D se añade a las anteriores (L, E, G, A, D)."
@@ -94,7 +94,7 @@
       "1 carta completa de Elena impresa en papel sepia A4, RASGADA en 12 fragmentos irregulares",
       "1 tarjeta de instrucciones junto a los fragmentos",
       "1 sobre lacrado rojo con símbolo de marioneta grabado (contiene letra D, 6 letras LEGADO con números romanos, carta de Elena, tijeras doradas)",
-      "1 marca de cera roja PERMANENTE en la esquina de la tercera tabla del suelo"
+      "1 marca de cera roja PERMANENTE en la esquina de la tercera tabla del suelo del desván, contando desde la puerta de entrada"
     ],
     "mobiliario": [
       "1 mesa amplia en el desván (para reconstruir la carta)",
@@ -125,21 +125,21 @@
   ],
   "barrera_fisica": {
     "tipo": "Reconstrucción de carta rasgada (puzzle físico)",
-    "ubicacion": "Sobre lacrado rojo bajo la tercera tabla del suelo del desván (marca de cera roja PERMANENTE en la esquina)",
+    "ubicacion": "Sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada (marca de cera roja PERMANENTE en la esquina)",
     "codigo": "Reconstrucción del mensaje físico",
     "origen_codigo": "Los 12 fragmentos con bordes irregulares solo encajan de una forma. El texto reconstruido describe la ubicación exacta. El sobre lacrado con símbolo de marioneta confirma que encontraron el lugar correcto.",
     "construccion_fisica": {
       "paso_1": "Imprimir carta completa en papel sepia A4.",
       "paso_2": "Rasgar en 12 fragmentos irregulares (a mano, garantizar bordes únicos).",
       "paso_3": "Numerar reverso discretamente para reset GM.",
-      "paso_4": "Marcar tercera tabla con cera roja permanente.",
+      "paso_4": "Marcar tercera tabla del suelo del desván, contando desde la puerta de entrada con cera roja permanente.",
       "paso_5": "Colocar sobre lacrado con contenido bajo la tabla.",
       "paso_6": "Colocar fragmentos en dos montones sobre la mesa.",
       "presupuesto_total": "~12€"
     },
     "montaje_minutos": 10,
     "configuracion": {
-      "ubicacion_fisica": "Bajo la tercera tabla del suelo del desván, marcada con cera roja VISIBLE SOLO DESDE EL SUELO (no desde la mesa de trabajo). La marca queda cubierta por una solapa de tela/falsa tabla hasta que el mensaje reconstruido indique buscarla."
+      "ubicacion_fisica": "Bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada, marcada con cera roja VISIBLE SOLO DESDE EL SUELO (no desde la mesa de trabajo). La marca queda cubierta por una solapa de tela/falsa tabla hasta que el mensaje reconstruido indique buscarla."
     }
   },
   "hilo_conductor": {
@@ -173,6 +173,12 @@
       "texto": "Fragmento 1: 'Buscad'\nFragmento 2: 'bajo la'\nFragmento 3: 'tercera tabla'\nFragmento 4: 'del suelo del'\nFragmento 5: 'desván, contando'\nFragmento 6: 'desde la puerta'\nFragmento 7: 'de entrada. La que'\nFragmento 8: 'tiene una marca de'\nFragmento 9: 'cera roja'\nFragmento 10: 'en la esquina.'\nFragmento 11: 'Allí dejé lo que Rodrigo quiso'\nFragmento 12: 'destruir pero yo lo guardé para vosotros.'",
       "cantidad": 12,
       "gm_notas": "Cada fragmento es un trozo irregular de papel sepia con texto parcial. Los bordes son únicos y solo encajan con sus vecinos correctos. El reverso tiene un número discreto para reset GM. Reconstruido: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'"
+    },
+    {
+      "titulo": "Carta de Navegación (P5 → P6)",
+      "texto": "El sobre lacrado contiene todo lo necesario para la ceremonia final. Las 6 letras LEGADO con números romanos y las tijeras doradas. El Cofre del Legado está ya en el desván, preparado.",
+      "cantidad": 1,
+      "gm_notas": "Dentro del sobre lacrado rojo. Guía hacia la ceremonia final P6."
     }
   ]
 }

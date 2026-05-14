@@ -50,7 +50,7 @@
     "curva": [
       4,
       3,
-      4,
+      5,
       6,
       5,
       3
@@ -62,8 +62,8 @@
   "materiales": {
     "coste_total_estimado": "121€",
     "desglose": {
-      "P1_Retrato": "~25€ (marco con doble fondo + imanes ocultos, papel ferromagnético verde, retrato base, diario)",
-      "P2_Tablero": "~20€ (tablero plegable, fichas, candado 4dígitos, sobres, cartas vintage)",
+      "P1_Tablero": "~20€ (tablero plegable, fichas, candado 4dígitos, sobres, cartas vintage)",
+      "P2_Retrato": "~25€ (marco con doble fondo + imanes ocultos, papel ferromagnético verde, retrato base, diario)",
       "P3_Album": "~15€ (álbum vintage, 8 tarjetas foto con capa oculta raspable, candado 4dígitos)",
       "P4_Arbol": "~30€ (póster A2, 10 tarjetas, cryptex 5 letras, tubo cartón, certificado)",
       "P5_Mensaje": "~12€ (12 fragmentos carta rasgada, sobre lacrado, cera roja)",
@@ -110,7 +110,7 @@
       "id": "prueba-001",
       "archivo": "prueba-001-tablero.json",
       "nombre": "El Tablero de las Presencias",
-      "mecanica": "Deducción lógica tipo Zebra con candado de 3 dígitos (315)"
+      "mecanica": "Deducción lógica tipo Zebra con candado de 4 dígitos (3154)"
     },
     {
       "id": "prueba-002",
@@ -238,6 +238,12 @@
       "descripcion": "Reorden P1↔P2: El Tablero de las Presencias pasa a ser P1 (abre el juego con deducción cooperativa), El Retrato que Miente pasa a P2 (detección magnética como segundo impacto). LEGADO se mantiene. Letras intercambiadas: P1=L(Tablero), P2=E(Retrato)."
     }
   ],
+  "documento_inicio": {
+    "titulo": "Testamento de Elena — Sobre Lacrado de Inicio",
+    "tipo": "carta",
+    "descripcion_gm": "Sobre lacrado rojo colgado en la puerta del Despacho. Los jugadores lo encuentran al llegar. Dentro: el testamento de Elena + una nota inicial. El GM NO interviene — todo es self-service.",
+    "contenido": "<p><strong>ÚLTIMO TESTAMENTO DE ELENA ÁLVAREZ</strong></p><p>Yo, Elena Álvarez, en pleno uso de mis facultades mentales, dejo a mis nietos — Sebastián, Olivia, Leo y Sofía — la siguiente herencia:</p><p>No poseo joyas ni propiedades que valgan la pena legar. Lo que os dejo es algo que pertenece a esta familia desde antes de que nacierais: <strong>una verdad que fue escondida por amor y que hoy necesita salir a la luz.</strong></p><p>Mi casa guarda seis pruebas. Cada una os entregará una letra. Juntas forman una palabra que es el corazón de esta familia. Seguid los hilos rojos — son los hilos de una marioneta que alguien ha estado moviendo durante décadas.</p><p>Empezad por el escritorio de mi despacho. Allí encontraréis lo que necesitéis para la primera prueba.</p><p>No tengáis miedo de la verdad. Tened miedo de que permanezca oculta.</p><p><em>Elena Álvarez</em></p><hr style='border: none; border-top: 1px solid #8b7355; margin: 15mm 20mm;'><p style='text-align: center; font-style: italic;'>Alguien ha estado moviendo los hilos de esta familia durante décadas.<br>Hoy vosotros, los nietos, tenéis la oportunidad de cortarlos.</p>"
+  },
   "secciones_final": [
     {
       "titulo": "Debriefing",

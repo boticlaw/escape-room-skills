@@ -1,123 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<title>Pistas Huecos P4</title>
+<meta charset="UTF-8">
+<title>Prueba 4 — Árbol Genealógico</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;700&display=swap');
 
-h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .cover-subtitle, .block-title, .cert-title, .page-title, .foto-title, .sol-code, .section-header, .char-gen-title, .puzzle-badge {
-  font-family: 'Playfair Display', Georgia, serif;
-}
+
 @page { size: A4 portrait; margin: 0; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { width: 186mm; height: 267mm; background: #faf0e6; }
 
-.page {
-  width: 186mm; min-height: 267mm; padding: 10mm 13mm;
-  font-family: 'EB Garamond', serif; color: #3d2b1f;
-  display: flex; flex-direction: column; gap: 2.5mm;
-  position: relative;
-  border: 3px double #8b7355;
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.06);
+
+h1, h2, h3, h4, .title, .titulo, .header-text, .section-title,
+.block-title, .cert-title, .page-title, .foto-title, .sol-code,
+.section-header, .char-gen-title, .puzzle-badge, .cover-title, .cover-subtitle {
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
-/* Inner ornamental border */
-.page::before {
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #faf0e6;
+  width: 186mm;
+  margin: 0; padding: 0;
+}
+.tablero-page {
+  width: 186mm; min-height: 267mm;
+  background: linear-gradient(160deg, #faf5ee 0%, #f5eadb 40%, #f0e2cc 70%, #ece0c8 100%);
+  padding: 15mm 15mm 15mm 15mm;
+  font-size: 10.5pt; line-height: 1.5;
+  color: #4a3728; position: relative;
+}
+.tablero-page::before {
   content: '';
-  position: absolute;
-  top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
-  border: 1px solid rgba(139,115,85,0.5);
-  pointer-events: none;
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 60px 15px rgba(139,115,85,0.12);
+  pointer-events: none; z-index: 2;
 }
-
-/* ✦ ✦ ✦ top decoration */
-.page::after {
-  content: '✦  ✦  ✦';
-  position: absolute;
-  top: -2.5mm; left: 50%;
-  transform: translateX(-50%);
-  background: #faf0e6; padding: 0 5mm;
-  color: #8b7355; font-size: 7pt; letter-spacing: 3mm;
-  z-index: 3;
+.tablero-page h1 {
+  font-size: 15pt; font-weight: 700;
+  color: #3d2b1f; margin-bottom: 5mm;
+  text-align: center;
 }
-
-.esquina-tl, .esquina-tr, .esquina-bl, .esquina-br {
-  position: absolute; color: #8b7355; font-size: 7pt; z-index: 2;
+.tablero-page h2 {
+  font-size: 12pt; font-weight: 600;
+  color: #3d2b1f; margin-bottom: 3mm; margin-top: 5mm;
 }
-.esquina-tl { top: 5mm; left: 5mm; }
-.esquina-tr { top: 5mm; right: 5mm; }
-.esquina-bl { bottom: 5mm; left: 5mm; }
-.esquina-br { bottom: 5mm; right: 5mm; }
-
-.hueco {
-  border: 1.5px solid #c4a882; border-radius: 3px;
-  padding: 3mm 5mm; font-size: 9.5pt; line-height: 1.4;
-  display: flex; align-items: flex-start; gap: 4mm;
-  position: relative; z-index: 1;
+.tablero-page p {
+  margin-bottom: 2mm; position: relative; z-index: 3;
 }
-
-/* Alternating rows */
-.hueco:nth-of-type(odd) { background: #fdf5e6; }
-.hueco:nth-of-type(even) { background: #f5e6c8; }
-
-.hueco-num {
-  background: #8b7355; color: white;
-  width: 7mm; height: 7mm; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 8pt; flex-shrink: 0;
+table.data {
+  width: 100%; border-collapse: collapse;
+  font-size: 10pt; margin: 5mm 0;
+  position: relative; z-index: 3;
 }
-.hueco-num.star { background: #8b4513; }
-.hueco-text { flex: 1; }
+table.data th, table.data td {
+  border: 1px solid #8b7355;
+  padding: 2.5mm 3mm; text-align: left; vertical-align: top;
+}
+table.data th {
+  background: #8b7355; color: #faf0e6;
+  font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px;
+}
+table.data td { background: #fdf5e6; }
+table.data tr:nth-child(even) td { background: #f5e6c8; }
+.tablero-page .destacado {
+  color: #8b4513; font-weight: 600;
+}
+.star-row td { background: #f5e6c8 !important; }
+
 </style>
 </head>
 <body>
 
-<div class="page">
-  <span class="esquina-tl">✦</span>
-  <span class="esquina-tr">✦</span>
-  <span class="esquina-bl">✦</span>
-  <span class="esquina-br">✦</span>
-  <div class="hueco">
-    <div class="hueco-num">1</div>
-    <div class="hueco-text">Patriarca. Testigo de la firma ante notario y de la promesa familiar.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num">2</div>
-    <div class="hueco-text">Matriarca. Firmó la promesa con temblor en la mano.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num">3</div>
-    <div class="hueco-text">Hijo mayor. Médico. Firmó ante el notario.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num">4</div>
-    <div class="hueco-text">Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num">5</div>
-    <div class="hueco-text">Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num">6</div>
-    <div class="hueco-text">Esposa del hijo mayor. Llegó después a la familia.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num star">★7</div>
-    <div class="hueco-text">Hijo secreto de los fundadores. Nació en marzo de 1983 y fue dado en adopción.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num star">★8</div>
-    <div class="hueco-text">Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num star">★9</div>
-    <div class="hueco-text">Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto.</div>
-  </div>
-  <div class="hueco">
-    <div class="hueco-num star">★10</div>
-    <div class="hueco-text">Registro del hijo que se duplicó para proteger una vida.</div>
-  </div>
+<div class="tablero-page">
+  <h1>Árbol Genealógico — Huecos</h1>
+  <p>Cada hueco tiene una pista para colocar la tarjeta correcta. Emparejad las descripciones de las tarjetas con los huecos del póster.</p>
+  <table class="data">
+    <thead><tr><th>Hueco</th><th>Pista</th></tr></thead>
+    <tbody>
+      <tr>
+          <td style="text-align:center;font-weight:700;">1</td>
+          <td>Patriarca. Testigo de la firma ante notario y de la promesa familiar.</td>
+        </tr>
+      <tr>
+          <td style="text-align:center;font-weight:700;">2</td>
+          <td>Matriarca. Firmó la promesa con temblor en la mano.</td>
+        </tr>
+      <tr>
+          <td style="text-align:center;font-weight:700;">3</td>
+          <td>Hijo mayor. Médico. Firmó ante el notario.</td>
+        </tr>
+      <tr>
+          <td style="text-align:center;font-weight:700;">4</td>
+          <td>Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre.</td>
+        </tr>
+      <tr>
+          <td style="text-align:center;font-weight:700;">5</td>
+          <td>Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba.</td>
+        </tr>
+      <tr>
+          <td style="text-align:center;font-weight:700;">6</td>
+          <td>Esposa del hijo mayor. Llegó después a la familia.</td>
+        </tr>
+      <tr class="star-row">
+          <td style="text-align:center;font-weight:700;">7 ★</td>
+          <td>Hijo secreto de los fundadores. Nació en marzo de 1983 y fue dado en adopción.</td>
+        </tr>
+      <tr class="star-row">
+          <td style="text-align:center;font-weight:700;">8 ★</td>
+          <td>Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo.</td>
+        </tr>
+      <tr class="star-row">
+          <td style="text-align:center;font-weight:700;">9 ★</td>
+          <td>Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto.</td>
+        </tr>
+      <tr class="star-row">
+          <td style="text-align:center;font-weight:700;">10 ★</td>
+          <td>Registro del hijo que se duplicó para proteger una vida.</td>
+        </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:5mm;font-style:italic;color:#8b7355;">Una vez colocados todos los personajes, usad la Hoja de Coordenadas para extraer palabras de las frases.</p>
 </div>
 
 </body>

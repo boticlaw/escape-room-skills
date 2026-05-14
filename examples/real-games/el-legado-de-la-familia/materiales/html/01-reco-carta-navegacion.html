@@ -2,85 +2,118 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Carta de Navegación P1→P2</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;700&display=swap');
 
-h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .cover-subtitle, .block-title, .cert-title, .page-title, .foto-title, .sol-code, .section-header, .char-gen-title, .puzzle-badge {
-  font-family: 'Playfair Display', Georgia, serif;
-}
+
 @page { size: A4 portrait; margin: 0; }
-body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+h1, h2, h3, h4, .title, .titulo, .header-text, .section-title,
+.block-title, .cert-title, .page-title, .foto-title, .sol-code,
+.section-header, .char-gen-title, .puzzle-badge, .cover-title, .cover-subtitle {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #faf0e6;
+  width: 186mm;
+  margin: 0; padding: 0;
+}
 .carta-page {
   width: 186mm; min-height: 267mm;
-  background: linear-gradient(135deg, #faf5ee 0%, #f0e8d8 100%);
-  padding: 20mm 22mm 20mm 28mm;
-  font-family: 'EB Garamond', Georgia, serif; font-size: 10.5pt; line-height: 1.6;
-  color: #4a3728; page-break-inside: auto; page-break-after: always;
-  position: relative; box-sizing: border-box;
-  display: flex; flex-direction: column; justify-content: center;
-  box-shadow: inset 0 0 30px 8px rgba(139,115,85,0.08);
+  background: linear-gradient(160deg, #faf5ee 0%, #f5eadb 40%, #f0e2cc 70%, #ece0c8 100%);
+  padding: 20mm 25mm 20mm 28mm;
+  font-size: 10.5pt; line-height: 1.6;
+  color: #4a3728; position: relative;
 }
-
-/* Aging inner shadow */
 .carta-page::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  box-shadow: inset 0 0 50px 15px rgba(139,115,85,0.12);
-  pointer-events: none;
-  z-index: 2;
+  box-shadow: inset 0 0 80px 25px rgba(139,115,85,0.18);
+  pointer-events: none; z-index: 2;
 }
-
-/* Coffee stain top-right */
 .carta-page::after {
   content: '';
-  position: absolute;
-  top: 20mm; right: 15mm;
-  width: 15mm; height: 12mm;
-  background: radial-gradient(ellipse, rgba(139,90,43,0.08) 0%, rgba(139,90,43,0.03) 50%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(180deg, rgba(245,230,210,0.15) 0%, transparent 30%),
+    linear-gradient(0deg, rgba(230,215,195,0.10) 0%, transparent 25%);
+  pointer-events: none; z-index: 1;
 }
-
-/* Wax seal with E initial */
-.sello-cera {
-  position: absolute;
-  bottom: 18mm; right: 18mm;
+.carta-page h1 {
+  font-size: 14pt; font-weight: 700;
+  color: #3d2b1f; margin-bottom: 5mm;
+  border-bottom: 1px solid #8b7355;
+  padding-bottom: 2mm;
+}
+.carta-page h2 {
+  font-size: 12pt; font-weight: 600;
+  color: #3d2b1f; margin-bottom: 3mm; margin-top: 4mm;
+}
+.carta-page p {
+  margin-bottom: 3mm; position: relative; z-index: 3;
+}
+.carta-page .fecha-lugar {
+  font-style: italic; color: #8b7355;
+  margin-bottom: 5mm; font-size: 9.5pt;
+}
+.carta-page .remitente {
+  text-align: right; margin-top: 8mm;
+  font-style: italic;
+}
+.carta-page .firma-bloque {
+  margin-top: 12mm; text-align: right;
+  padding-right: 5mm; position: relative; z-index: 3;
+}
+.carta-page .firma-linea {
+  border-bottom: 1px solid #8b7355;
+  width: 60mm; display: inline-block; margin-bottom: 2mm;
+}
+.carta-page .firma-nombre {
+  font-style: italic; font-size: 12pt; color: #3d2b1f;
+  display: block; margin-top: 2mm;
+}
+.carta-page .firma-fecha {
+  font-size: 8pt; color: #8b7355; font-style: italic; margin-top: 1mm;
+}
+.carta-page .sello-cera {
   width: 18mm; height: 18mm;
-  background: radial-gradient(circle at 35% 35%, #b22222 0%, #8b0000 40%, #5c0000 75%, #3a0000 100%);
+  background: radial-gradient(circle at 35% 35%, #c62828 0%, #b22222 20%, #8b0000 50%, #5c0000 80%, #3a0000 100%);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: rgba(212,163,115,0.9); font-size: 11pt; font-weight: 700;
-  font-family: 'Playfair Display', Georgia, serif;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.3), inset 0 0 5px rgba(0,0,0,0.2);
+  color: rgba(212,163,115,0.9);
+  font-size: 11pt; font-weight: 700;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.35), inset 0 0 8px rgba(0,0,0,0.25);
   transform: rotate(-8deg);
-  z-index: 3;
+  position: absolute; bottom: 22mm; right: 22mm; z-index: 4;
+}
+.carta-page .drop-cap::first-letter {
+  float: left; font-size: 24pt; line-height: 1;
+  padding-right: 2mm; padding-top: 1mm; color: #8b4513;
+}
+.carta-page .destacado {
+  color: #8b4513; font-weight: 600;
+}
+.carta-page .italica {
+  font-style: italic;
 }
 
-/* Navigation text with arrow */
-.nav-text {
-  position: relative; z-index: 3;
-  font-size: 10.5pt; line-height: 1.7;
-}
-.nav-text::after {
-  content: '→';
-  display: block;
-  text-align: right;
-  font-size: 14pt;
-  color: #8b7355;
-  margin-top: 5mm;
-  letter-spacing: 2mm;
-}
-
-p { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
 
 <div class="carta-page">
+  <h1>Carta de Navegación</h1>
+  <p class="fecha-lugar">Prueba 1 → Prueba 2</p>
+  <p style="font-style:italic;font-size:11pt;line-height:1.7;">Carta de Elena: "Buscad el retrato familiar que cuelga en la pared del despacho. Hay quien fue borrado de la imagen, pero no de la memoria. Elena dejó un papel verde para ver lo que los ojos no pueden."</p>
+  <div class="firma-bloque">
+    <span class="firma-linea"></span>
+    <span class="firma-nombre">Abuela Elena</span>
+  </div>
   <div class="sello-cera">E</div>
-  <p class="nav-text">No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.</p>
 </div>
 
 </body>

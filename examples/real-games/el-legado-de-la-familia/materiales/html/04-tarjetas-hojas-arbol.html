@@ -1,121 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<title>Tarjetas Hoja P4</title>
+<meta charset="UTF-8">
+<title>Tarjetas de Personaje — P4</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;700&display=swap');
-
-h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .cover-subtitle, .block-title, .cert-title, .page-title, .foto-title, .sol-code, .section-header, .char-gen-title, .puzzle-badge {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-@page { size: A4 portrait; margin: 0; }
+@page { size: A4; margin: 12mm 10mm; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { width: 186mm; background: white; }
-
-.page {
-  width: 186mm; min-height: 267mm; padding: 6mm;
-  display: flex; flex-direction: column; gap: 4mm;
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #faf0e6;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #4a3728;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+  padding: 8mm;
+}
+.card {
+  background: #fdf5e6;
+  border: 2px solid #8b7355;
+  border-radius: 3px;
+  padding: 5mm;
+  page-break-inside: avoid;
   position: relative;
 }
-
-.tarjeta {
-  background: linear-gradient(135deg, #faf5ee 0%, #f0e8d8 100%);
-  border: 1.5px solid #c4a882; border-radius: 3px;
-  padding: 4mm 6mm; font-family: 'EB Garamond', Georgia, serif;
-  font-size: 10pt; line-height: 1.5; color: #3d2b1f;
-  display: flex; align-items: flex-start; gap: 4mm;
-  position: relative;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.08), inset 0 0 15px rgba(139,115,85,0.08);
+.card-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 3mm;
+  text-align: center;
+  border-bottom: 1px solid #8b7355;
+  padding-bottom: 2mm;
 }
-
-/* Card texture — subtle noise via SVG */
-.tarjeta::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='4' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='rgba(139,115,85,0.03)'/%3E%3C/svg%3E");
-  pointer-events: none;
-  border-radius: inherit;
+.card-label {
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b7355;
+  margin-top: 2mm;
+  margin-bottom: 1mm;
 }
-
-.tarjeta-num {
-  background: #8b7355; color: white;
-  width: 7mm; height: 7mm; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 8pt; flex-shrink: 0;
-  position: relative; z-index: 1;
+.card-desc {
+  font-size: 9.5pt;
+  margin-bottom: 2mm;
 }
-.tarjeta-num.star { background: #8b4513; }
-.tarjeta-text { flex: 1; position: relative; z-index: 1; }
-.tarjeta-text .nota { font-style: italic; color: #8b7355; font-size: 9pt; margin-top: 1mm; }
-
-/* Tape mark — card 1 */
-.cinta-adhesiva {
-  position: absolute;
-  top: -2mm; left: 35%;
-  width: 30mm; height: 7mm;
-  background: rgba(255,248,220,0.35);
-  border: 0.5px solid rgba(200,190,160,0.3);
-  transform: rotate(-3deg);
-  pointer-events: none;
-  z-index: 3;
+.card-frase {
+  font-size: 9.5pt;
+  font-style: italic;
+  color: #6b5a48;
+  line-height: 1.6;
+}
+@media print {
+  body { padding: 0; }
+  .grid { padding: 0; }
 }
 </style>
 </head>
 <body>
-
-<div class="page">
-  <div class="tarjeta">
-    <div class="cinta-adhesiva"></div>
-    <div class="tarjeta-num">1</div>
-    <div class="tarjeta-text">Al mayor de los hijos le llamaban doctor. Estudió medicina y firmó ante notario.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num">2</div>
-    <div class="tarjeta-text">La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num">3</div>
-    <div class="tarjeta-text">Ladrillos y edificios fueron su mundo. El menor de los tres oficiales. El que siempre se marchaba.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num">4</div>
-    <div class="tarjeta-text">El patriarca. Testigo de la firma ante notario y de la promesa familiar.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num">5</div>
-    <div class="tarjeta-text">La matriarca. Firmó la promesa con temblor en la mano.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num">6</div>
-    <div class="tarjeta-text">Llegó después a la familia. Esposa del médico.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num star">★7</div>
-    <div class="tarjeta-text">Vino al mundo en marzo de 1983. Hijo de los fundadores, dado en adopción al hermano de la madre.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num star">★8</div>
-    <div class="tarjeta-text">Acogió al hijo que nadie nombra como si fuera propio. Hermano de la matriarca. Le dio su apellido.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num star">★9</div>
-    <div class="tarjeta-text">Registrado como hijo de quien lo acogió. Nombre legal tras la adopción. Mismo niño, distinto apellido.</div>
-  </div>
-
-  <div class="tarjeta">
-    <div class="tarjeta-num star">★10</div>
-    <div class="tarjeta-text">Ocultó Rodrigo este secreto hasta su último día. El hijo duplicó su existencia para salvar una vida. El árbol guarda lo que él nunca pronunció.</div>
-  </div>
+<div class="grid">
+<div class="card">
+  <div class="card-name">RODRIGO</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">El patriarca. Testigo de la firma y de la promesa.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Puse orden en esta casa aunque el silencio fue el precio de mantener a salvo nuestro nombre para siempre."</div>
 </div>
-
+<div class="card">
+  <div class="card-name">ELENA</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">La matriarca. Firmó la promesa con temblor en la mano.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Guardé la verdad oculta donde nadie pudiera encontrarla sabiendo que algún día la luz la revelaría entera."</div>
+</div>
+<div class="card">
+  <div class="card-name">MARCOS</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">El mayor de los hijos. Estudió medicina. Firmó ante notario.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Curé cuerpos ajenos mientras el alma de mi propia familia sangraba en silencio bajo palabras nunca dichas."</div>
+</div>
+<div class="card">
+  <div class="card-name">CARMEN</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Enseñé a leer entre líneas porque las verdades importantes nunca se escriben en la primera página."</div>
+</div>
+<div class="card">
+  <div class="card-name">LUIS</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Me marché para construir edificios lejos del hogar que me apresaba entre recuerdos que no eran míos."</div>
+</div>
+<div class="card">
+  <div class="card-name">LUCÍA</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">Llegó después a la familia. Esposa del médico.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Entré en esta familia viendo lo que nadie quería ver y callé por amor durante todos estos años."</div>
+</div>
+<div class="card">
+  <div class="card-name">MIGUEL</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">Nació en marzo de 1983. Hijo de los fundadores, dado en adopción al hermano de la madre.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Un niño sin rostro creció lejos de quienes lo amaban y la vida le regaló otro nombre por rescate."</div>
+</div>
+<div class="card">
+  <div class="card-name">ÁLVARO</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Recibí al niño que la familia rechazó y le regalé mi apellido para que tuviera raíces verdaderas."</div>
+</div>
+<div class="card">
+  <div class="card-name">MIGUEL ÁLVAREZ</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Llevo un nombre que no nació conmigo pero me dio identidad refugio y una vida lejos del secreto."</div>
+</div>
+<div class="card">
+  <div class="card-name">REGISTRO DE ADOPCIÓN</div>
+  <div class="card-label">Descripción</div>
+  <div class="card-desc">Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día.'</div>
+  <div class="card-label">Frase</div>
+  <div class="card-frase">"Este documento duplicó una vida para ocultarla porque la verdad siempre opera desde la sombra protectora."</div>
+</div>
+</div>
 </body>
 </html>

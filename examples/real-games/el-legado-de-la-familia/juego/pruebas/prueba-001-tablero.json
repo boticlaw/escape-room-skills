@@ -99,7 +99,7 @@
       "1 lista de eventos del tablero",
       "1 foto de bebé ficticia con dorso tachado 'Miguel A.'",
       "1 sobre con fragmento de carta de Elena",
-      "1 carta de navegación: \"No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.\"",
+      "1 carta de navegación: \"Buscad el retrato familiar que cuelga en la pared del despacho. Hay quien fue borrado de la imagen, pero no de la memoria. Elena dejó un papel verde para ver lo que los ojos no pueden.\"",
       "1 plantilla de tabla para restricciones (DENTRO de la caja)",
       "1 tarjeta Consejo Familiar (DENTRO de la caja)",
       "8 cartas familiares en papel vintage DIN-A5 sepia (documentos in-game complementarios, DENTRO de la caja)"
@@ -142,7 +142,7 @@
     },
     {
       "titulo": "Carta de Navegación (P1 → P2)",
-      "texto": "La caja deja al fondo una tarjeta: \"No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.\"",
+      "texto": "Carta de Elena: \"Buscad el retrato familiar que cuelga en la pared del despacho. Hay quien fue borrado de la imagen, pero no de la memoria. Elena dejó un papel verde para ver lo que los ojos no pueden.\"",
       "cantidad": 1,
       "gm_notas": "En el fondo de la caja de notario. Guía al retrato para P2."
     },
@@ -209,7 +209,7 @@
   ],
   "barrera_fisica": {
     "tipo": "Candado de 4 dígitos",
-    "ubicacion": "Caja de notario CERRADA (recompensa: foto, letra E, carta). Los materiales para resolver (tablero, fichas, testimonios) están FUERA de la caja.",
+    "ubicacion": "Caja de notario CERRADA (recompensa: foto, letra L, carta). Los materiales para resolver (tablero, fichas, testimonios) están FUERA de la caja.",
     "codigo": "3154",
     "origen_codigo": "Posiciones correctas de los 4 hijos en orden de edad: Marcos(3), Carmen(1), Luis(5), Miguel(4). El código es no-obvio (no es un año, no es una fecha familiar).",
     "montaje_minutos": 5
@@ -259,7 +259,7 @@
     },
     {
       "titulo": "Carta de Navegación (P1 → P2)",
-      "texto": "La caja deja al fondo una tarjeta: \"No todas las presencias se ven en los rostros. A veces se esconden detrás de lo que alguien quiso borrar. Buscad el retrato que cuelga de la pared.\"",
+      "texto": "Carta de Elena: \"Buscad el retrato familiar que cuelga en la pared del despacho. Hay quien fue borrado de la imagen, pero no de la memoria. Elena dejó un papel verde para ver lo que los ojos no pueden.\"",
       "cantidad": 1,
       "gm_notas": "En el fondo de la caja de notario. Guía al retrato para P2."
     },

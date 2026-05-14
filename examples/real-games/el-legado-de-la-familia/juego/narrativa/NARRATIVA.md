@@ -63,7 +63,7 @@ Las piezas encajan: el Abuelo Rodrigo, como quien corta un hilo de marioneta, ar
 - **Sofía** — Niña pequeña, pelo rubio ondulado, gesto cariñoso. Inocencia absoluta.
 
 ### El Secreto
-- **Miguel** — El cuarto hijo, dado en adopción en 1963. El hilo que Rodrigo cortó.
+- **Miguel** — El cuarto hijo, dado en adopción en 1983. El hilo que Rodrigo cortó.
 - **Abogado (GM)** — Ejecutor del testamento de Elena. Guía a los nietos.
 
 ## Elementos Visuales del Cartel

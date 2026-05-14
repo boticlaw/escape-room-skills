@@ -4,12 +4,12 @@
 
 Juego de investigación para el programa **Viernes de Escape** (15 de mayo de 2026).
 
-- **Tipo:** Investigación / Thriller familiar cinematográfico
-- **Jugadores:** 4-8 (óptimo: 6)
-- **Duración:** 50 minutos
-- **Dificultad:** 4/10
+- **Tipo:** Investigación / Thriller familiar cinematográfico cooperativo
+- **Jugadores:** 2-6 (óptimo: 4)
+- **Duración:** 60 minutos
+- **Dificultad:** 4/10 (media 4.2)
 - **Edad mínima:** 12 años
-- **Presupuesto:** ~95 EUR
+- **Presupuesto:** ~121 EUR
 - **Estética:** Sepia, vintage, cinematográfica, tipo "El Padrino" para público familiar
 
 ## Símbolo Central: Las Marionetas
@@ -25,9 +25,9 @@ El juego se construye sobre la metáfora de las marionetas del cartel:
 | Fase | Espacio | Pruebas | Tiempo | Dificultad |
 |------|---------|---------|--------|------------|
 | Briefing | Entrada | — | 3 min | — |
-| Despacho | Sala 1 | Prueba 1-2 | 15 min | 3 |
-| Salón | Sala 2 | Prueba 3-4 | 17 min | 4 |
-| Desván | Sala 3 | Prueba 5-6 | 15 min | 5 |
+| Despacho | Sala 1 | P1 Tablero, P2 Retrato | 17 min | 4, 3 |
+| Salón | Sala 2 | P3 Fotos, P4 Árbol | 18 min | 5, 6 |
+| Desván | Sala 3 | P5 Mensaje, P6 Ceremonia | 15 min | 5, 3 |
 
 ## Hilo Conductor
 
@@ -54,18 +54,24 @@ La palabra **LEGADO** se forma con las 6 letras obtenidas, conectadas por hilos 
 
 ## Narrativa
 
-El Abuelo Rodrigo fue el patriarca que controlaba todo. Cuando Elena tuvo un cuarto hijo (Miguel) en 1963, Rodrigo decidió que debía desaparecer — cortó ese hilo de la marioneta familiar. Elena protegió el secreto durante décadas. Ahora los nietos deben seguir los hilos que Elena dejó para descubrir la verdad y cortar los que Rodrigo impuso.
+El Abuelo Rodrigo fue el patriarca que controlaba todo. Cuando Elena tuvo un cuarto hijo (Miguel) en 1983, Rodrigo decidió que debía desaparecer — cortó ese hilo de la marioneta familiar. Elena protegió el secreto durante décadas. Ahora los nietos deben seguir los hilos que Elena dejó para descubrir la verdad y cortar los que Rodrigo impuso.
 
 ## Materiales Clave
 
-- 3 candados de letras (códigos: LEER, SOL, LEGADO)
-- 1 candado numérico (código: 3855)
-- Diario impreso sepia (3 páginas, bordes quemados)
-- 8 cartas familiares (papel vintage sepia)
-- 24 tarjetas de fotos (sepia cinematográfico, reverso con logo marioneta)
-- 10 tarjetas de eventos
-- 12 tarjetas de mensaje dividido (bordes con hilos de marioneta)
-- Cofre de madera oscura con medallón, carta final y marioneta con hilos cortados
+- 1 candado de 4 dígitos, código 3154 (P1 Tablero)
+- 1 candado de 3 dígitos, código 5-2-8 (P2 Retrato)
+- 1 candado de 4 dígitos, código 7391 (P3 Fotos)
+- 1 cryptex de 6 letras, código ALVARO (P4 Árbol)
+- 1 candado de 4 dígitos, código 1983 (P6 Ceremonia)
+- Papel ferromagnético verde + 15 imanes neodimio (P2)
+- Tablero plegable con 6 casillas + 7 sobres de testimonio (P1)
+- Álbum A4 vintage con 6 fotos + sellos raspables (P3)
+- Póster A2 árbol genealógico + 10 tarjetas-hoja (P4)
+- 12 fragmentos de carta rasgada + sobre lacrado rojo (P5)
+- Diario impreso sepia (3 páginas, bordes quemados) (P2)
+- 8 cartas familiares (papel vintage sepia) (P1)
+- Cofre del Legado con marioneta + carta final de Elena (P6)
+- 6 letras físicas LEGADO con números romanos (P5/P6)
 - **Cinta roja fina** (hilos de marioneta) conectando pruebas
 - **Marioneta de madera pequeña** (dentro del cofre final)
 

@@ -2,72 +2,61 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Prueba 2 — Etiqueta Carpeta de Restauración</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;700&display=swap');
 
-h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .cover-subtitle, .block-title, .cert-title, .page-title, .foto-title, .sol-code, .section-header, .char-gen-title, .puzzle-badge {
-  font-family: 'Playfair Display', Georgia, serif;
-}
+
 @page { size: A4 portrait; margin: 0; }
-body { width: 186mm; height: 267mm; background: #1a1a1a; margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-.cartel {
-  width: 186mm; height: 267mm; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; color: #f5e6c8;
-  font-family: 'EB Garamond', serif; padding: 20mm; box-sizing: border-box;
-  text-align: center; position: relative;
+
+h1, h2, h3, h4, .title, .titulo, .header-text, .section-title,
+.block-title, .cert-title, .page-title, .foto-title, .sol-code,
+.section-header, .char-gen-title, .puzzle-badge, .cover-title, .cover-subtitle {
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
-.cartel::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.15) 100%),
-              radial-gradient(ellipse at center, rgba(139,115,85,0.04) 0%, transparent 60%);
-  pointer-events: none;
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #faf0e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 186mm;
+  margin: 0; padding: 0;
+}
+.etiqueta-page {
+  width: 130mm; min-height: 80mm;
+  background: #fdf5e6;
+  border: 2px dashed #8b7355;
+  padding: 8mm 10mm;
+  font-size: 10pt; line-height: 1.5;
+  color: #4a3728;
+  position: relative;
+  margin: auto;
+  margin-top: 50mm;
+}
+.etiqueta-page h1 {
+  font-size: 12pt; font-weight: 700;
+  color: #3d2b1f; margin-bottom: 3mm;
+  text-align: center;
+}
+.etiqueta-page p {
+  margin-bottom: 2mm;
+}
+.etiqueta-page .destacado {
+  color: #8b4513; font-weight: 600;
 }
 
-.cartel::after {
-  content: '✦  ✦  ✦';
-  position: absolute; top: -3mm; left: 50%;
-  transform: translateX(-50%);
-  background: #1a1a1a; padding: 0 5mm;
-  color: #8b7355; font-size: 8pt; letter-spacing: 3mm;
-}
-
-.marco-outer {
-  position: absolute; top: 8mm; left: 8mm; right: 8mm; bottom: 8mm;
-  border: 2px solid #8b7355; pointer-events: none;
-}
-.marco-inner {
-  position: absolute; top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
-  border: 1px solid rgba(139,115,85,0.5); pointer-events: none;
-}
-.marco-outer::before { content: '✦'; position: absolute; top: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
-.marco-outer::after { content: '✦'; position: absolute; top: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
-.marco-inner::before { content: '✦'; position: absolute; bottom: -2.5mm; left: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
-.marco-inner::after { content: '✦'; position: absolute; bottom: -2.5mm; right: -2.5mm; color: #8b7355; font-size: 7pt; background: #1a1a1a; padding: 0 1mm; }
-
-.marionette-motif {
-  position: absolute; top: 14mm; left: 25%; right: 25%;
-  text-align: center; color: rgba(139,115,85,0.35);
-  font-size: 8pt; letter-spacing: 4mm; font-family: monospace;
-}
-
-.cartel-text { font-size: 15pt; line-height: 2; position: relative; z-index: 1; }
-.cartel-text strong { font-size: 18pt; display: block; margin-bottom: 5mm; font-family: 'Playfair Display', Georgia, serif; }
-.cartel-sub { font-size: 11pt; line-height: 1.7; margin-top: 8mm; color: #d4c5a9; font-style: italic; position: relative; z-index: 1; }
 </style>
 </head>
 <body>
 
-<div class="cartel">
-  <div class="marco-outer"></div>
-  <div class="marco-inner"></div>
-  <div class="marionette-motif">─ ─ │ │ ─ ─</div>
-  <div class="cartel-text">
-    <strong>Restauración del retrato familiar.</strong>
-    Dentro encontraréis una hoja verde de detección magnética. Elena escribió: 'El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'
-  </div>
+<div class="etiqueta-page">
+  <h1>Carpeta de Restauración</h1>
+  <p>Restauración del retrato familiar.</p>
+<p>Dentro encontraréis una hoja verde de detección magnética. Elena escribió: 'El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'</p>
 </div>
 
 </body>

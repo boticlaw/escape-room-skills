@@ -1,9 +1,9 @@
 {
   "id": "legado_004_arbol_que_faltaba",
   "nombre": "El Árbol que Faltaba",
-  "descripcion": "La hoja de P3 lleva a un tubo de arquitecto familiar con un plano enrollado del árbol genealógico y 10 tarjetas-hoja para injertar. Las tarjetas NO tienen nombres — solo descripciones. Los jugadores emparejan descripciones con los 10 huecos del póster. Cada hueco muestra directamente una LETRA marcada con una Luna (①-⑥) o una HOJA: 6 huecos tienen LETRA+Luna, 4 tienen HOJA. Los jugadores descubren el GIRO NARRATIVO: un cuarto hijo secreto dado en adopción. El nombre del salvador NUNCA aparece escrito en las tarjetas — se revela letra a letra en el póster. Las 6 letras, ordenadas por los números de luna (①②③④⑤⑥), forman ALVARO. El cryptex de 6 letras se abre con ALVARO.",
+  "descripcion": "La carta de navegación de P3 lleva a un tubo de arquitecto familiar con un plano del árbol genealógico y 10 tarjetas de personaje (nombre + descripción + frase). Los jugadores colocan cada personaje en su hueco del póster usando nombre y descripción. Una vez colocados, usan la Hoja de Coordenadas para extraer palabras específicas de las frases. La primera letra de cada palabra extraída forma ALVARO para el cryptex de 6 letras.",
   "juego": "el-legado-de-la-familia",
-  "version": 16,
+  "version": 17,
   "espacio": 2,
   "sala": "El Salón Familiar",
   "skill_primario": "prueba-logica-secuencial",
@@ -16,19 +16,20 @@
   "cooperacion_obligatoria": true,
   "formato": "grupo_unido",
   "configuracion": {
-    "mecanica_principal": "Árbol genealógico con emparejamiento descripción-hueco + letras/Lunas visibles directamente. 10 tarjetas SIN NOMBRES (solo descripciones) se emparejan con 10 huecos del póster por pistas contextuales. Cada hueco muestra directamente: 6 tienen LETRA + número de luna, 4 tienen HOJA. Las 6 letras ordenadas por luna forman ALVARO. El nombre del salvador nunca aparece escrito en ninguna tarjeta ni documento accesible — solo se descubre al leer las letras en los huecos del póster.",
-    "mecanismo_barrera": "Cryptex de 6 letras configurado a ALVARO. Anti-trampa por diseño: el código es un nombre propio que NO aparece en ningún documento accesible. Solo se descubre leyendo las letras en los huecos del póster tras emparejar correctamente las tarjetas. Imposible adivinar sin completar el emparejamiento.",
+    "mecanica_principal": "Árbol genealógico con colocación directa por nombre + extracción por coordenadas. 10 tarjetas con nombre de personaje, descripción y frase narrativa. Los jugadores colocan cada personaje en su hueco del póster usando el nombre y la descripción. Una Hoja de Coordenadas indica qué palabra extraer de qué hueco. La primera letra de cada palabra extraída forma ALVARO. Las frases NO sirven para colocar — solo para extraer el código tras la colocación correcta.",
+    "mecanismo_barrera": "Cryptex de 6 letras configurado a ALVARO. El código se obtiene extrayendo palabras de frases tras la colocación correcta. Si un personaje está mal colocado, la coordenada extrae la palabra de la frase equivocada y el código no funciona. ALVARO aparece en el certificado de adopción (dentro del cryptex), no en las tarjetas ni la hoja de coordenadas.",
     "construccion_mecanismo": {
       "que_lo_abre": "Cryptex de 6 letras, código ALVARO",
-      "como_se_construye": "1) Póster A2 con 10 huecos, cada uno muestra directamente letra+Luna o HOJA. 6 huecos tienen letra+Luna, 4 tienen hoja. 2) 10 tarjetas-hoja con descripciones (SIN nombres). 3) Cryptex de 6 letras configurado a ALVARO.",
-      "feedback_al_jugador": "Cada hueco muestra directamente su contenido: LETRA + número de luna (①-⑥) = parte del código. HOJA = esta persona no aporta letras. Los 6 números de luna ordenados dan las 6 letras del código.",
-      "presupuesto_aproximado": "Póster A2 impreso: ~4€ | 10 tarjetas: ~3€ | Cryptex 6 letras: ~8€ | Letra A + extras: ~4€ | Total: ~19€"
+      "como_se_construye": "1) Póster A2 con 10 huecos y pistas de colocación (sin letras visibles). 2) 10 tarjetas con nombre de personaje, descripción (lado A) y frases narrativas (lado B). 3) Hoja de Coordenadas (documento separado). 4) Cryptex de 6 letras configurado a ALVARO.",
+      "feedback_al_jugador": "Tras emparejar todas las tarjetas con los huecos, la Hoja de Coordenadas indica qué palabra extraer de cada frase. La primera letra de cada palabra extraída forma el código.",
+      "presupuesto_aproximado": "Póster A2 impreso: ~4€ | 10 tarjetas: ~3€ | Hoja de Coordenadas: ~1€ | Cryptex 6 letras: ~8€ | Letra A + extras: ~4€ | Total: ~20€"
     },
     "elementos_necesarios": [
       "KIT DE RESOLUCIÓN (sobre la mesa):",
       "  - Tubo de cartón con etiqueta 'Ramas pendientes'",
-      "  - Póster A2 de árbol genealógico con 10 huecos, pistas impresas y letras/Lunas visibles",
-      "  - 10 tarjetas-hoja con descripciones (SIN nombres)",
+      "  - Póster A2 de árbol genealógico con 10 huecos y pistas impresas",
+      "  - 10 tarjetas con nombre de personaje, descripción y frase narrativa",
+      "  - Hoja de Coordenadas (documento separado)",
       "  - Cryptex de 6 letras junto al póster",
       "RECOMPENSA (DENTRO del cryptex):",
       "  - Certificado ficticio de adopción",
@@ -38,10 +39,10 @@
       "Cinta roja fina (hilo de marioneta) enrollada en el tubo"
     ],
     "distribucion_roles": {
-      "lectores": "Cada jugador lee 1-2 tarjetas en voz alta (solo descripciones, sin nombres).",
-      "emparejadores": "Proponen qué descripción va en qué hueco basándose en las pistas.",
-      "lector_huecos": "Lee las letras/Lunas del hueco cuando el grupo confirma una colocación.",
-      "anotador": "Anota las letras descubiertas con su número de luna en orden."
+      "lectores": "Cada jugador lee 1-2 tarjetas en voz alta (descripciones y frases).",
+      "emparejadores": "Proponen qué descripción va en qué hueco basándose en las pistas del póster.",
+      "coordinador": "Lee la Hoja de Coordenadas y anota las palabras extraídas.",
+      "anotador": "Anota las primeras letras de cada palabra extraída para formar el código."
     },
     "rotacion_obligatoria": "SUGERENCIA impresa: 'Si fuisteis Emparejadores en pruebas anteriores, dejad que otro lo sea hoy.'"
   },
@@ -49,52 +50,57 @@
     {
       "nivel": 1,
       "tipo": "sutil",
-      "texto": "Leed todos los huecos del póster antes de colocar nada. Las pistas más concretas (firmó, mayor, mediana) van primero. Confirmad cada colocación leyendo la letra o hoja del hueco.",
+      "texto": "Leed todos los huecos del póster antes de colocar nada. Las pistas más concretas (firmó, mayor, mediana) van primero. Una vez colocados, la Hoja de Coordenadas os dirá qué palabras extraer.",
       "timing": "Tras 3 minutos sin progreso"
     },
     {
       "nivel": 2,
       "tipo": "directa",
-      "texto": "Los huecos con estrella (★) revelan el secreto de la familia. Las tarjetas con ★ son las que tienen información sobre un hijo que nadie conoció. Las letras de las Lunas, ordenadas de ① a ⑥, forman el nombre del salvador.",
+      "texto": "Las frases de las tarjetas no sirven para colocar — solo para extraer el código. Emparejad primero por las descripciones y las pistas del póster. Luego usad las coordenadas.",
       "timing": "Tras 6 minutos sin progreso o petición de pista"
     },
     {
       "nivel": 3,
       "tipo": "casi_solucion",
-      "texto": "El salvador de Miguel es el hermano de Elena. Ordenad las 6 letras por número de luna: ①A ②L ③V ④A ⑤R ⑥O. El código del cryptex es ALVARO.",
+      "texto": "Las coordenadas extraen palabras de los huecos 3, 7, 4, 6, 8 y 10. Las primeras letras de esas palabras forman el nombre de quien crió a Miguel: ALVARO.",
       "timing": "Tras 8 minutos o petición explícita"
     }
   ],
   "solucion": {
-    "descripcion": "Los jugadores emparejan las 10 tarjetas (descripciones sin nombres) con los 10 huecos del póster (pistas contextuales). Cada hueco muestra directamente una LETRA con Luna (①-⑥) o una HOJA. Las 6 letras ordenadas por Luna forman ALVARO. El GIRO NARRATIVO: los huecos ★ revelan que hubo un cuarto hijo secreto (Miguel) dado en adopción al hermano de Elena.",
+    "descripcion": "Los jugadores colocan las 10 tarjetas (con nombre, descripción y frase) en los 10 huecos del póster (pistas contextuales). Cada tarjeta tiene una frase narrativa. Tras la colocación correcta, usan la Hoja de Coordenadas para extraer palabras específicas de las frases. La primera letra de cada palabra forma ALVARO. El GIRO NARRATIVO: las tarjetas ★ revelan que hubo un cuarto hijo secreto (Miguel) dado en adopción al hermano de Elena.",
     "verificacion": "El cryptex de 6 letras se abre con ALVARO. Dentro: certificado de adopción, fragmento de Elena, letra A y carta de navegación.",
     "pasos_detallados": [
       "Encontrar el tubo de cartón 'Ramas pendientes' en el Salón.",
-      "Desenrollar el póster A2 del árbol genealógico con 10 huecos y letras/Lunas visibles.",
-      "Repartir las 10 tarjetas-hoja entre los jugadores. NOTAR: no tienen nombres, solo descripciones.",
-      "Leer la instrucción: EMPAREJAR DESCRIPCIONES CON HUECOS. LEER LAS LETRAS DE CADA HUECO.",
-      "Cada jugador lee sus tarjetas en voz alta (descripciones).",
+      "Desenrollar el póster A2 del árbol genealógico con 10 huecos.",
+      "Repartir las 10 tarjetas-hoja entre los jugadores. Cada tarjeta tiene una descripción por un lado y una frase por el otro.",
+      "Leer la instrucción: COLOCAR CADA PERSONAJE EN SU HUECO. LUEGO USAR LA HOJA DE COORDENADAS.",
+      "Cada jugador lee sus tarjetas en voz alta (nombre y descripción).",
       "Emparejar por pistas contextuales: firmó→patriarca/médico, pañuelo→mediana, marchó→menor.",
       "★ GIRO NARRATIVO: las tarjetas ★ describen un hijo secreto dado en adopción y un hermano que lo crió.",
-      "Al confirmar cada pareja → leer la letra/Luna o HOJA del hueco.",
-      "Si aparece LETRA + Luna (ej: ①A): anotar la letra con su número. Si aparece HOJA: esa persona no aporta al código.",
-      "Las 6 letras en orden de Luna: ①A ②L ③V ④A ⑤R ⑥O = ALVARO.",
-      "Introducir ALVARO en el cryptex.",
+      "Una vez colocados todos, coger la Hoja de Coordenadas.",
+      "Hueco 3, palabra 6: 'Curé cuerpos ajenos mientras el alma...' → A",
+      "Hueco 7, palabra 6: 'Un niño sin rostro creció lejos...' → L",
+      "Hueco 4, palabra 8: '...porque las verdades importantes...' → V",
+      "Hueco 6, palabra 14: '...y callé por amor durante...' → A",
+      "Hueco 8, palabra 7: '...la familia rechazó y le regalé...' → R",
+      "Hueco 10, palabra 7: '...vida para ocultarla porque...' → O",
+      "Código: A-L-V-A-R-O. Introducir ALVARO en el cryptex.",
       "Abrir el cryptex: certificado de adopción + fragmento de Elena + letra A + carta de navegación."
     ],
     "recompensa": {
       "letra": "A",
       "valor": "Amor",
       "carta": "Fragmento de Elena sobre el amor como razón del sacrificio.",
-      "carta_navegacion": "Nota urgente: 'Ahora sabéis lo que Rodrigo ocultó. Hay un mensaje que dejé dividido en dos mitades — nadie puede leerlo entero solo. Subid al desván.'",
+      "carta_navegacion": "Nota urgente encontrada junto al certificado:\n\n'Ahora sabéis lo que Rodrigo ocultó. Pero Miguel tiene su propio camino, y yo lo preparé. Hay un mensaje que dejé dividido en dos mitades — nadie puede leerlo entero solo. Subid al desván. Buscad donde guardé lo que no cupo en el salón. Cada mitad os dará la pieza que os falta.'",
       "siguiente_espacio": "El Desván (P5)",
-      "revelacion_narrativa": "GIRO: Rodrigo tuvo un cuarto hijo secreto — Miguel, dado en adopción a su tío materno. Elena protegió a Miguel toda su vida. El salvador se llama Álvaro (visible en las letras del póster, no en las tarjetas)."
+      "revelacion_narrativa": "GIRO: Rodrigo tuvo un cuarto hijo secreto — Miguel, dado en adopción a su tío materno. Elena protegió a Miguel toda su vida. El salvador se llama Álvaro (se descubre extrayendo palabras de las frases tras el emparejamiento correcto)."
     }
   },
   "materiales": {
     "impresion": [
-      "1 póster A2 de árbol genealógico con 10 huecos, pistas impresas y letras/Lunas visibles directamente (6 con letra+Luna, 4 con hoja)",
-      "10 tarjetas-hoja con descripciones SIN nombres",
+      "1 póster A2 de árbol genealógico con 10 huecos y pistas de colocación (sin letras visibles)",
+      "10 tarjetas con nombre de personaje, descripciones (lado A) y frases narrativas (lado B)",
+      "1 Hoja de Coordenadas (documento separado)",
       "1 tarjeta de instrucciones del póster",
       "1 certificado ficticio de adopción",
       "1 fragmento de carta de Elena",
@@ -114,21 +120,27 @@
   "documentos_in_game": [
     {
       "titulo": "Instrucción del Póster",
-      "texto": "CADA HUECO GUARDA UN NOMBRE. CADA NOMBRE, UNA LETRA O UNA HOJA.\n\nEmparejad las descripciones con los huecos del árbol. Las tarjetas NO tienen nombres — solo descripciones.\n\nCada hueco muestra una LETRA marcada con una Luna (①-⑥) o una HOJA. Las letras forman el código. Ordenad las letras por número de Luna, de ① a ⑥.",
+      "texto": "COLOCAD CADA DESCRIPCIÓN EN SU HUECO. CADA TARJETA TIENE UNA FRASE EN SU REVERSO.\n\nCuando todos los personajes estén en su lugar, usad la Hoja de Coordenadas para extraer palabras de las frases. La primera letra de cada palabra forma el código.",
       "cantidad": 1,
-      "gm_notas": "Impresa en el póster, visible al desenrollar. Informa mecánica: emparejar sin nombres, letras/Lunas visibles directamente, orden por Lunas."
+      "gm_notas": "Impresa en el póster, visible al desenrollar. Informa mecánica: emparejar descripciones con huecos, luego usar Hoja de Coordenadas para extraer palabras de las frases."
     },
     {
       "titulo": "Pistas de los Huecos del Árbol (impresas en el póster)",
-      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar. [HOJA]\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano. [HOJA]\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario. [①A]\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre. [HOJA]\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba. [②L]\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia. [HOJA]\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1983 y fue dado en adopción. [③V]\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo. [④A]\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto. [⑤R]\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida. [⑥O]",
+      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar.\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano.\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario.\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre.\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba.\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia.\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1983 y fue dado en adopción.\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo.\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto.\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida.",
       "cantidad": 1,
-      "gm_notas": "Impresas junto a cada hueco del póster A2. Los huecos 7-10 tienen ★. Las Lunas ①-⑥ están en huecos 3, 5, 7, 8, 9, 10. Las letras visibles: ①A ②L ③V ④A ⑤R ⑥O = ALVARO. Los huecos 1, 2, 4, 6 tienen HOJA."
+      "gm_notas": "Impresas junto a cada hueco del póster A2. Los huecos 7-10 tienen ★. NO hay letras, Lunas ni HOJAs visibles — solo las pistas de colocación. Las frases están en las tarjetas, no en el póster."
     },
     {
-      "titulo": "Tarjetas-Hoja del Árbol (SIN nombres)",
-      "texto": "Tarjeta 1: El mayor de los hijos. Estudió medicina. Firmó ante notario.\n\nTarjeta 2: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\n\nTarjeta 3: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\n\nTarjeta 4: El patriarca. Testigo de la firma y de la promesa.\n\nTarjeta 5: La matriarca. Firmó la promesa con temblor en la mano.\n\nTarjeta 6: Llegó después a la familia. Esposa del médico.\n\nTarjeta 7 (★): Nació en marzo de 1983. Hijo de los fundadores, dado en adopción al hermano de la madre.\n\nTarjeta 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\n\nTarjeta 9 (★): Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\n\nTarjeta 10 (★): Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Ordenad las Lunas.'",
+      "titulo": "Tarjetas-Hoja del Árbol (descripción + frase)",
+      "texto": "RODRIGO\nDescripción: El patriarca. Testigo de la firma y de la promesa.\nFrase: \"Puse orden en esta casa aunque el silencio fue el precio de mantener a salvo nuestro nombre para siempre.\"\n\nELENA\nDescripción: La matriarca. Firmó la promesa con temblor en la mano.\nFrase: \"Guardé la verdad oculta donde nadie pudiera encontrarla sabiendo que algún día la luz la revelaría entera.\"\n\nMARCOS\nDescripción: El mayor de los hijos. Estudió medicina. Firmó ante notario.\nFrase: \"Curé cuerpos ajenos mientras el alma de mi propia familia sangraba en silencio bajo palabras nunca dichas.\"\n\nCARMEN\nDescripción: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\nFrase: \"Enseñé a leer entre líneas porque las verdades importantes nunca se escriben en la primera página.\"\n\nLUIS\nDescripción: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\nFrase: \"Me marché para construir edificios lejos del hogar que me apresaba entre recuerdos que no eran míos.\"\n\nLUCÍA\nDescripción: Llegó después a la familia. Esposa del médico.\nFrase: \"Entré en esta familia viendo lo que nadie quería ver y callé por amor durante todos estos años.\"\n\nMIGUEL\nDescripción: Nació en marzo de 1983. Hijo de los fundadores, dado en adopción al hermano de la madre.\nFrase: \"Un niño sin rostro creció lejos de quienes lo amaban y la vida le regaló otro nombre por rescate.\"\n\nÁLVARO\nDescripción: Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\nFrase: \"Recibí al niño que la familia rechazó y le regalé mi apellido para que tuviera raíces verdaderas.\"\n\nMIGUEL ÁLVAREZ\nDescripción: Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\nFrase: \"Llevo un nombre que no nació conmigo pero me dio identidad refugio y una vida lejos del secreto.\"\n\nREGISTRO DE ADOPCIÓN\nDescripción: Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día.'\nFrase: \"Este documento duplicó una vida para ocultarla porque la verdad siempre opera desde la sombra protectora.\"",
       "cantidad": 10,
-      "gm_notas": "Cada tarjeta SIN NOMBRES. Solo descripciones. Emparejamiento por pistas contextuales unívocas: T1→H3 (médico/firmó), T2→H4 (maestra/pañuelo), T3→H5 (menor/edificios), T4→H1 (patriarca/testigo), T5→H2 (matriarca/temblor), T6→H6 (esposa del médico), T7→H7 (hijo secreto/1983), T8→H8 (hermano/crió), T9→H9 (nombre legal), T10→H10 (registro/nota). NINGUNA tarjeta menciona el nombre Álvaro."
+      "gm_notas": "Cada tarjeta tiene NOMBRE + DESCRIPCIÓN (lado A, para emparejar) + FRASE (lado B, para extracción). Las frases son NARRATIVAS — no ayudan a colocar, solo a extraer el código. Emparejamiento: Rodrigo→H1, Elena→H2, Marcos→H3 (alma→A), Carmen→H4 (verdades→V), Luis→H5, Lucía→H6 (amor→A), Miguel→H7 (lejos→L), Álvaro→H8 (rechazó→R), MiguelÁlv→H9, Registro→H10 (ocultarla→O). Tras colocación correcta, las coordenadas extraen: H3 palabra 6=alma→A, H7 palabra 6=lejos→L, H4 palabra 8=verdades→V, H6 palabra 14=amor→A, H8 palabra 7=rechazó→R, H10 palabra 7=ocultarla→O = ALVARO."
+    },
+    {
+      "titulo": "Hoja de Coordenadas",
+      "texto": "EXTRACCIÓN DEL CÓDIGO\n\nUna vez colocados los personajes en el árbol, extraed la palabra indicada de cada hueco.\nLa primera letra de cada palabra forma el código del cryptex.\n\n1ª letra → Hueco 3, palabra 6\n2ª letra → Hueco 7, palabra 6\n3ª letra → Hueco 4, palabra 8\n4ª letra → Hueco 6, palabra 14\n5ª letra → Hueco 8, palabra 7\n6ª letra → Hueco 10, palabra 7\n\nLeed las frases de cada personaje con atención. Contad las palabras desde el principio.",
+      "cantidad": 1,
+      "gm_notas": "Documento SEPARADO, dentro del tubo junto a las tarjetas. Indica qué palabra extraer de qué hueco. Las coordenadas referencian NÚMEROS DE HUECO, no nombres de tarjeta — por eso el emparejamiento debe ser correcto."
     },
     {
       "titulo": "Certificado de Adopción",
@@ -153,13 +165,14 @@
     "tipo": "Cryptex de 6 letras",
     "ubicacion": "Junto al póster del árbol genealógico (accesible desde el inicio)",
     "codigo": "ALVARO",
-    "origen_codigo": "Los jugadores emparejan 10 tarjetas sin nombres con 10 huecos. Cada hueco muestra directamente una letra con Luna numerada o una HOJA. Las 6 letras: ①A ②L ③V ④A ⑤R ⑥O. Ordenadas por Luna forman ALVARO. El nombre NUNCA aparece en tarjetas ni documentos accesibles — solo se descubre leyendo las letras en los huecos del póster.",
+    "origen_codigo": "Los jugadores colocan 10 tarjetas (con nombre, descripción y frase) en 10 huecos del póster. Cada tarjeta lleva una frase narrativa. Tras la colocación correcta, la Hoja de Coordenadas indica extraer palabras específicas de huecos concretos. Las primeras letras de las palabras extraídas (alma→A, lejos→L, verdades→V, amor→A, rechazó→R, ocultarla→O) forman ALVARO. El nombre aparece en el certificado de adopción dentro del cryptex, no en las tarjetas ni la hoja de coordenadas.",
     "construccion_fisica": {
-      "paso_1": "Imprimir póster A2 con 10 huecos, cada uno muestra directamente letra+Luna o HOJA.",
-      "paso_2": "Imprimir 10 tarjetas con descripciones (SIN nombres).",
-      "paso_3": "Cryptex 6 letras configurado a ALVARO.",
-      "paso_4": "Colocar certificado + carta Elena + letra A + navegación dentro del cryptex.",
-      "presupuesto_total": "~19€"
+      "paso_1": "Imprimir póster A2 con 10 huecos y pistas de colocación (sin letras visibles).",
+      "paso_2": "Imprimir 10 tarjetas con nombre de personaje, descripciones (lado A) y frases narrativas (lado B).",
+      "paso_3": "Imprimir Hoja de Coordenadas (documento separado).",
+      "paso_4": "Cryptex 6 letras configurado a ALVARO.",
+      "paso_5": "Colocar certificado + carta Elena + letra A + navegación dentro del cryptex.",
+      "presupuesto_total": "~20€"
     },
     "montaje_minutos": 12
   },
@@ -170,36 +183,42 @@
   },
   "control_movimiento": {
     "problema_potencial": "Jugadores podrían intentar fuerza bruta en el cryptex o emparejar tarjetas al azar.",
-    "solucion_implementada": "ANTI-TRAMPA POR DISEÑO: 1) ALVARO es un nombre propio que NO aparece en NINGÚN documento accesible — imposible adivinar sin emparejar correctamente. 2) Las letras/Lunas están visibles en el póster pero solo tienen sentido tras el emparejamiento correcto. 3) Cryptex de 6 letras tiene 26^6 = 308 millones de combinaciones — fuerza bruta inviable. 4) Las tarjetas usan velcro para corregir sin romper. 5) El código se descubre letra a letra, no de golpe.",
+    "solucion_implementada": "ANTI-TRAMPA POR DISEÑO: 1) Las coordenadas referencian huecos, no tarjetas — si un personaje está mal colocado, se extrae la palabra de la frase equivocada y el código no funciona. 2) Cryptex de 6 letras tiene 26^6 = 308 millones de combinaciones — fuerza bruta inviable. 3) Las tarjetas usan velcro para corregir sin romper. 4) El código se descubre letra a letra mediante extracción coordinada.",
     "tipo_solucion": "prevencion"
   },
   "metadata": {
     "fecha_creacion": "2026-05-10",
-    "fecha_redesenho": "2026-05-13",
+    "fecha_redesenho": "2026-05-14",
     "proyecto": "viernes-de-escape",
-    "adaptado_de": "prueba-004-linea-temporal.json v14 (tarjetas con nombres, código ALVAR)",
-    "version": "5.0",
+    "adaptado_de": "prueba-004-linea-temporal.json v6.0 (tarjetas sin nombres, código ALVARO)",
+    "version": "7.0",
     "testado": false,
-    "notas": "v5.1: Eliminados sellos raspables. Letras/Lunas y HOJAs visibles directamente en el póster. Razón: los sellos en P4 no tenían propósito de gameplay — los jugadores ya resolvieron el puzzle al emparejar tarjetas con huecos. Rascar era solo papeleo mecánico sin decisión ni consecuencia. v5.0: REDISEÑO COMPLETO. 1) Tarjetas SIN nombres (solo descripciones). 2) Nombres visibles directamente en el póster. 3) Código ALVARO (6 letras, cryptex estándar). 4) Letras+Lunas vs HOJAs como feedback visual. 5) Anti-trampa: nombre nunca aparece en accesibles. 6) Huecos sin ambigüedad. 7) Zero GM."
+    "notas": "v7.0: Tarjetas con nombres de personaje. Los jugadores colocan por nombre + descripción. Hoja de Coordenadas indica qué palabra extraer de qué hueco. La primera letra de cada palabra forma ALVARO."
   },
   "ingame_docs": [
     {
       "titulo": "Instrucción del Póster",
-      "texto": "CADA HUECO GUARDA UN NOMBRE. CADA NOMBRE, UNA LETRA O UNA HOJA.\n\nEmparejad las descripciones con los huecos del árbol. Las tarjetas NO tienen nombres — solo descripciones.\n\nCada hueco muestra una LETRA marcada con una Luna (①-⑥) o una HOJA. Las letras forman el código. Ordenad las letras por número de Luna, de ① a ⑥.",
+      "texto": "COLOCAD CADA DESCRIPCIÓN EN SU HUECO. CADA TARJETA TIENE UNA FRASE EN SU REVERSO.\n\nCuando todos los personajes estén en su lugar, usad la Hoja de Coordenadas para extraer palabras de las frases. La primera letra de cada palabra forma el código.",
       "cantidad": 1,
       "gm_notas": "Impresa en el póster."
     },
     {
       "titulo": "Pistas de los Huecos del Árbol (impresas en el póster)",
-      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar. [HOJA]\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano. [HOJA]\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario. [①A]\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre. [HOJA]\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba. [②L]\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia. [HOJA]\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1983 y fue dado en adopción. [③V]\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo. [④A]\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto. [⑤R]\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida. [⑥O]",
+      "texto": "Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar.\n\nHueco 2: Matriarca. Firmó la promesa con temblor en la mano.\n\nHueco 3: Hijo mayor. Médico. Firmó ante el notario.\n\nHueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre.\n\nHueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba.\n\nHueco 6: Esposa del hijo mayor. Llegó después a la familia.\n\nHueco 7 (★): Hijo secreto de los fundadores. Nació en marzo de 1983 y fue dado en adopción.\n\nHueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo.\n\nHueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto.\n\nHueco 10 (★): Registro del hijo que se duplicó para proteger una vida.",
       "cantidad": 1,
-      "gm_notas": "Impresas en el póster junto a cada hueco."
+      "gm_notas": "Impresas en el póster junto a cada hueco. Sin letras, Lunas ni HOJAs visibles."
     },
     {
-      "titulo": "Tarjetas-Hoja del Árbol (SIN nombres)",
-      "texto": "Tarjeta 1: El mayor de los hijos. Estudió medicina. Firmó ante notario.\n\nTarjeta 2: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\n\nTarjeta 3: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\n\nTarjeta 4: El patriarca. Testigo de la firma y de la promesa.\n\nTarjeta 5: La matriarca. Firmó la promesa con temblor en la mano.\n\nTarjeta 6: Llegó después a la familia. Esposa del médico.\n\nTarjeta 7 (★): Nació en marzo de 1983. Hijo de los fundadores, dado en adopción al hermano de la madre.\n\nTarjeta 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\n\nTarjeta 9 (★): Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\n\nTarjeta 10 (★): Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día. El árbol sabe el nombre que él nunca pronunció. Ordenad las Lunas.'",
+      "titulo": "Tarjetas-Hoja del Árbol (descripción + frase)",
+      "texto": "RODRIGO\nDescripción: El patriarca. Testigo de la firma y de la promesa.\nFrase: \"Puse orden en esta casa aunque el silencio fue el precio de mantener a salvo nuestro nombre para siempre.\"\n\nELENA\nDescripción: La matriarca. Firmó la promesa con temblor en la mano.\nFrase: \"Guardé la verdad oculta donde nadie pudiera encontrarla sabiendo que algún día la luz la revelaría entera.\"\n\nMARCOS\nDescripción: El mayor de los hijos. Estudió medicina. Firmó ante notario.\nFrase: \"Curé cuerpos ajenos mientras el alma de mi propia familia sangraba en silencio bajo palabras nunca dichas.\"\n\nCARMEN\nDescripción: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.\nFrase: \"Enseñé a leer entre líneas porque las verdades importantes nunca se escriben en la primera página.\"\n\nLUIS\nDescripción: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.\nFrase: \"Me marché para construir edificios lejos del hogar que me apresaba entre recuerdos que no eran míos.\"\n\nLUCÍA\nDescripción: Llegó después a la familia. Esposa del médico.\nFrase: \"Entré en esta familia viendo lo que nadie quería ver y callé por amor durante todos estos años.\"\n\nMIGUEL\nDescripción: Nació en marzo de 1983. Hijo de los fundadores, dado en adopción al hermano de la madre.\nFrase: \"Un niño sin rostro creció lejos de quienes lo amaban y la vida le regaló otro nombre por rescate.\"\n\nÁLVARO\nDescripción: Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.\nFrase: \"Recibí al niño que la familia rechazó y le regalé mi apellido para que tuviera raíces verdaderas.\"\n\nMIGUEL ÁLVAREZ\nDescripción: Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.\nFrase: \"Llevo un nombre que no nació conmigo pero me dio identidad refugio y una vida lejos del secreto.\"\n\nREGISTRO DE ADOPCIÓN\nDescripción: Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día.'\nFrase: \"Este documento duplicó una vida para ocultarla porque la verdad siempre opera desde la sombra protectora.\"",
       "cantidad": 10,
-      "gm_notas": "Tarjetas SIN nombres. Emparejamiento unívoco."
+      "gm_notas": "Nombre + descripción para emparejar + frase para extraer. Frases no ayudan a colocar. Emparejamiento: Rodrigo→H1, Elena→H2, Marcos→H3 (alma→A), Carmen→H4 (verdades→V), Luis→H5, Lucía→H6 (amor→A), Miguel→H7 (lejos→L), Álvaro→H8 (rechazó→R), MiguelÁlv→H9, Registro→H10 (ocultarla→O)."
+    },
+    {
+      "titulo": "Hoja de Coordenadas",
+      "texto": "EXTRACCIÓN DEL CÓDIGO\n\nUna vez colocados los personajes en el árbol, extraed la palabra indicada de cada hueco.\nLa primera letra de cada palabra forma el código del cryptex.\n\n1ª letra → Hueco 3, palabra 6\n2ª letra → Hueco 7, palabra 6\n3ª letra → Hueco 4, palabra 8\n4ª letra → Hueco 6, palabra 14\n5ª letra → Hueco 8, palabra 7\n6ª letra → Hueco 10, palabra 7\n\nLeed las frases de cada personaje con atención. Contad las palabras desde el principio.",
+      "cantidad": 1,
+      "gm_notas": "Documento separado dentro del tubo."
     },
     {
       "titulo": "Certificado de Adopción",

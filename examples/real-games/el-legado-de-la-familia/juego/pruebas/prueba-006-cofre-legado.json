@@ -83,6 +83,7 @@
     ],
     "recompensa": {
       "letra": "LEGADO completo",
+      "es_final": true,
       "valor": "Reencuentro familiar",
       "carta": "Carta completa de Elena revelando el pacto de amor.",
       "carta_navegacion": "FIN DEL JUEGO. El mensaje de recompensa final cierra la experiencia: 'No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.'",

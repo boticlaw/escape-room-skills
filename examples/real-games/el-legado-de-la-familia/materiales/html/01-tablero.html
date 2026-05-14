@@ -2,160 +2,101 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Prueba 1 — Eventos del Tablero</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:wght@400;700&display=swap');
 
-h1, h2, h3, h4, .title, .titulo, .header-text, .section-title, .cover-title, .cover-subtitle, .block-title, .cert-title, .page-title, .foto-title, .sol-code, .section-header, .char-gen-title, .puzzle-badge {
-  font-family: 'Playfair Display', Georgia, serif;
-}
+
 @page { size: A4 portrait; margin: 0; }
-body { width: 186mm; background-color: #faf0e6; margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-.tablero-page {
-  width: 186mm; min-height: 267mm; padding: 15mm 18mm;
-  background: #faf0e6; font-family: 'EB Garamond', serif;
-  color: #3d2b1f; box-sizing: border-box;
-  page-break-inside: auto; page-break-after: always;
-  position: relative;
-  border: 2px solid #8b7355;
+
+h1, h2, h3, h4, .title, .titulo, .header-text, .section-title,
+.block-title, .cert-title, .page-title, .foto-title, .sol-code,
+.section-header, .char-gen-title, .puzzle-badge, .cover-title, .cover-subtitle {
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
-/* Ornamental inner border */
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #faf0e6;
+  width: 186mm;
+  margin: 0; padding: 0;
+}
+.tablero-page {
+  width: 186mm; min-height: 267mm;
+  background: linear-gradient(160deg, #faf5ee 0%, #f5eadb 40%, #f0e2cc 70%, #ece0c8 100%);
+  padding: 15mm 15mm 15mm 15mm;
+  font-size: 10.5pt; line-height: 1.5;
+  color: #4a3728; position: relative;
+}
 .tablero-page::before {
   content: '';
-  position: absolute;
-  top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
-  border: 1px solid rgba(139,115,85,0.5);
-  pointer-events: none;
-}
-
-/* Subtle aging */
-.tablero-page::after {
-  content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  box-shadow: inset 0 0 40px 10px rgba(139,115,85,0.06);
-  pointer-events: none;
+  box-shadow: inset 0 0 60px 15px rgba(139,115,85,0.12);
+  pointer-events: none; z-index: 2;
+}
+.tablero-page h1 {
+  font-size: 15pt; font-weight: 700;
+  color: #3d2b1f; margin-bottom: 5mm;
+  text-align: center;
+}
+.tablero-page h2 {
+  font-size: 12pt; font-weight: 600;
+  color: #3d2b1f; margin-bottom: 3mm; margin-top: 5mm;
+}
+.tablero-page p {
+  margin-bottom: 2mm; position: relative; z-index: 3;
+}
+table.data {
+  width: 100%; border-collapse: collapse;
+  font-size: 10pt; margin: 5mm 0;
+  position: relative; z-index: 3;
+}
+table.data th, table.data td {
+  border: 1px solid #8b7355;
+  padding: 2.5mm 3mm; text-align: left; vertical-align: top;
+}
+table.data th {
+  background: #8b7355; color: #faf0e6;
+  font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px;
+}
+table.data td { background: #fdf5e6; }
+table.data tr:nth-child(even) td { background: #f5e6c8; }
+.tablero-page .destacado {
+  color: #8b4513; font-weight: 600;
 }
 
-/* Corner stars */
-.esquina-tl, .esquina-tr, .esquina-bl, .esquina-br {
-  position: absolute; color: #8b7355; font-size: 7pt; z-index: 2;
-}
-.esquina-tl { top: 5mm; left: 5mm; }
-.esquina-tr { top: 5mm; right: 5mm; }
-.esquina-bl { bottom: 5mm; left: 5mm; }
-.esquina-br { bottom: 5mm; right: 5mm; }
-
-.section-title {
-  font-size: 14pt; font-weight: 700; text-align: center;
-  margin-bottom: 6mm; letter-spacing: 2px; text-transform: uppercase;
-  border-bottom: 2px solid #8b7355; padding-bottom: 3mm;
-  position: relative; z-index: 1;
-}
-/* Decorative underline ornaments */
-.section-title::after {
-  content: '─ ✦ ─';
-  display: block;
-  font-size: 8pt;
-  color: #8b7355;
-  margin-top: 2mm;
-  letter-spacing: 2mm;
-}
-
-.eventos-list {
-  list-style: none; padding: 0; margin: 0 0 8mm 0;
-  position: relative; z-index: 1;
-}
-.eventos-list li {
-  padding: 3mm 4mm; margin-bottom: 2mm; font-size: 11pt;
-  border-left: 3px solid #8b7355; background: #fdf5e6;
-  line-height: 1.4;
-}
-.eventos-list .num { font-weight: 700; color: #8b4513; margin-right: 2mm; }
-
-table.restricciones {
-  width: 100%; border-collapse: collapse; font-size: 8.5pt;
-  position: relative; z-index: 1;
-}
-table.restricciones th, table.restricciones td {
-  border: 1px solid #8b7355; padding: 2mm; text-align: center;
-  font-size: 8pt;
-}
-table.restricciones th {
-  background: #8b7355; color: #faf0e6; font-weight: 600;
-  border-top: 3px solid #6b5a3e;
-  position: relative;
-}
-table.restricciones th::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: repeating-linear-gradient(90deg, #a8926e 0px, #a8926e 3px, transparent 3px, transparent 6px);
-}
-table.restricciones td {
-  background: #fdf5e6;
-}
-table.restricciones tr:nth-child(even) td {
-  background: #f5e6c8;
-}
-table.restricciones .fila-nombre {
-  background: #e8dcc8; font-weight: 600; text-align: left;
-}
 </style>
 </head>
 <body>
 
 <div class="tablero-page">
-  <span class="esquina-tl">✦</span>
-  <span class="esquina-tr">✦</span>
-  <span class="esquina-bl">✦</span>
-  <span class="esquina-br">✦</span>
-  <div class="section-title">Eventos del Tablero</div>
-  <ul class="eventos-list">
-    <li><span class="num">1.</span> La tarde de la tormenta</li>
-    <li><span class="num">2.</span> La visita al médico</li>
-    <li><span class="num">3.</span> La firma ante el notario</li>
-    <li><span class="num">4.</span> La foto sin rostro</li>
-    <li><span class="num">5.</span> El cumpleaños aplazado</li>
-    <li><span class="num">6.</span> La despedida en la estación</li>
-  </ul>
-
-  <div class="section-title" style="margin-top: 5mm;">Tabla de Restricciones</div>
-  <table class="restricciones">
-    <tr>
-      <th></th>
-      <th>Tormenta</th>
-      <th>Médico</th>
-      <th>Notario</th>
-      <th>Foto</th>
-      <th>Cumpleaños</th>
-      <th>Estación</th>
-    </tr>
-    <tr>
-      <td class="fila-nombre">Elena</td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td class="fila-nombre">Marcos</td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td class="fila-nombre">Carmen</td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td class="fila-nombre">Luis</td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td class="fila-nombre">Miguel</td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td class="fila-nombre">M. Á.</td>
-      <td></td><td></td><td></td><td></td><td></td><td></td>
-    </tr>
+  <h1>Eventos del Tablero</h1>
+  <p>Cada casilla representa un evento familiar. Colocad cada personaje en su evento correcto cruzando los testimonios.</p>
+  <table class="data">
+    <thead><tr><th>Casilla</th><th>Evento</th><th>Personaje</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:center;font-weight:700;font-size:14pt;">1</td><td>La tarde de la tormenta</td><td style="color:#8b7355;">—</td></tr>
+      <tr><td style="text-align:center;font-weight:700;font-size:14pt;">2</td><td>La visita al médico</td><td style="color:#8b7355;">—</td></tr>
+      <tr><td style="text-align:center;font-weight:700;font-size:14pt;">3</td><td>La firma ante el notario</td><td style="color:#8b7355;">—</td></tr>
+      <tr><td style="text-align:center;font-weight:700;font-size:14pt;">4</td><td>La foto sin rostro</td><td style="color:#8b7355;">—</td></tr>
+      <tr><td style="text-align:center;font-weight:700;font-size:14pt;">5</td><td>El cumpleaños aplazado</td><td style="color:#8b7355;">—</td></tr>
+      <tr><td style="text-align:center;font-weight:700;font-size:14pt;">6</td><td>La despedida en la estación</td><td style="color:#8b7355;">—</td></tr>
+    </tbody>
   </table>
+  <h2>Solución</h2>
+  <table class="data">
+    <thead><tr><th>Casilla</th><th>Evento</th><th>Personaje Correcto</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:center;font-weight:700;">1</td><td>La tarde de la tormenta</td><td><span class="destacado">Carmen</span></td></tr>
+      <tr><td style="text-align:center;font-weight:700;">2</td><td>La visita al médico</td><td>Elena</td></tr>
+      <tr><td style="text-align:center;font-weight:700;">3</td><td>La firma ante el notario</td><td><span class="destacado">Marcos</span></td></tr>
+      <tr><td style="text-align:center;font-weight:700;">4</td><td>La foto sin rostro</td><td><span class="destacado">Miguel</span></td></tr>
+      <tr><td style="text-align:center;font-weight:700;">5</td><td>El cumpleaños aplazado</td><td><span class="destacado">Luis</span></td></tr>
+      <tr><td style="text-align:center;font-weight:700;">6</td><td>La despedida en la estación</td><td>M. Á.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:5mm;">Código del candado: posiciones de los <span class="destacado">4 hijos</span> en orden de edad (mayor a menor): <span class="destacado">Marcos(3), Carmen(1), Luis(5), Miguel(4) → 3154</span></p>
 </div>
 
 </body>
