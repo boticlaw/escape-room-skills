@@ -20,6 +20,6 @@ game_{id}/
 ## Configuración Mínima
 
 - 4-6 pruebas
-- 60-120 minutos de duración
+- 45-60 minutos de duración
 - 3-5 sospechosos/personajes
 - Solución lógica al misterio

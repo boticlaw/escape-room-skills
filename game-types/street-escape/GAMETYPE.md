@@ -9,8 +9,8 @@ Outdoor escape game played across streets, plazas, and parks. Players navigate r
 | Parameter | Value |
 |---|---|
 | Space | Outdoor, public streets and parks |
-| Players per team | 2–5 (optimal: 3–4) |
-| Duration | 45–90 minutes |
+| Players | Sin límite — hasta ~100 personas simultáneamente |
+| Duration | 60–90 minutos |
 | Technology | GPS, QR codes, mobile app/tablet required |
 | Staff | Zero GM (self-service via app) |
 

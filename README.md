@@ -60,8 +60,8 @@ escape-room-skills/
 │   └── html/game-design.html       # Plantilla completa de diseño
 ├── research-frameworks/            # 10 guías profesionales de diseño
 ├── game-types/
-│   ├── hall-escape/                # Interior 50+ m², equipos 5-10
-│   ├── street-escape/              # Exterior, GPS/QR, equipos 2-5
+│   ├── hall-escape/                # Interior 50+ m², 2-6 por equipo, 2-3 equipos
+│   ├── street-escape/              # Exterior, GPS/QR, hasta ~100 simultáneos
 │   ├── investigation/              # Detective/crimen, equipos 2-6
 │   └── concurso/                   # Quiz battle competitivo, equipos 2-3
 ├── services/                       # Stack de búsqueda (opcional, self-hosted)
@@ -194,7 +194,7 @@ Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta
 |------|--------|-----------|
 | **Concurso** | C1-C3 | Preguntas (respuesta única, campos), progresión dificultad, balance minijuegos |
 | **Street Escape** | S1-S2 | Coordenadas GPS válidas, distancias caminables (haversine, ≤5 min) |
-| **Hall Escape** | H1 | Separación equipos (>8 jugadores), anti-cheat entre equipos |
+| **Hall Escape** | H1 | Separación equipos (>4 jugadores por equipo), anti-cheat entre equipos |
 | **Investigation** | I1 | Cadena de evidencia, contaminación cruzada, solvabilidad |
 
 ```bash
@@ -347,10 +347,10 @@ Atajo del pipeline completo: toma un juego existente y aplica modificaciones tar
 
 | Tipo | Espacio | Equipos | Duración | GM | Enfoque | Checks específicos |
 |------|---------|---------|----------|----|---------|-------------------|
-| **Hall Escape** | Interior 50+ m² | 5-10 | 60-90 min | Invisible | Puzzles físicos + digitales | H1: Separación equipos |
-| **Street Escape** | Exterior, calles | 2-5 | 90-120 min | Invisible | GPS + exploración real | S1-S2: GPS + distancias |
+| **Hall Escape** | Interior 50+ m² | 2-6 por equipo, 2-3 equipos | 50-60 min | Invisible | Puzzles físicos + digitales | H1: Separación equipos |
+| **Street Escape** | Exterior, calles | Hasta ~100 simultáneos | 60-90 min | Invisible | GPS + exploración real | S1-S2: GPS + distancias |
 | **Investigation** | Interior o mixto | 2-6 | 45-60 min | Mínimo | Deducción + evidencia | I1: Cadena evidencia |
-| **Concurso** | Interior 30+ m² | 2-3 equipos | 20-45 min | Presentador activo | Trivia + mini-juegos | C1-C3: Preguntas + minijuegos |
+| **Concurso** | Interior 30+ m² | 2-3 equipos | 50-60 min | Presentador activo | Trivia + mini-juegos | C1-C3: Preguntas + minijuegos |
 
 ## Instalación
 

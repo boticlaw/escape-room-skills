@@ -9,8 +9,8 @@ Interior escape room in a large open space (50+ m²). Uses projector, audio syst
 | Parameter | Value |
 |---|---|
 | Space | Indoor, 50+ m² minimum |
-| Players per team | 5–10 (optimal: 6–8) |
-| Duration | 60–90 minutes |
+| Players per team | 2–6 (óptimo: 4-5) · 2-3 equipos por sesión (habitualmente 2) |
+| Duration | 50–60 minutos máximo |
 | Technology | Projector, surround audio, optional tablets |
 | Staff | Zero GM (self-service) |
 
@@ -36,7 +36,7 @@ Interior escape room in a large open space (50+ m²). Uses projector, audio syst
 - Physical stations must be clearly delineated (tape, rugs, furniture)
 - Multiple copies of shared documents needed (one per team)
 - Anti-cheat: teams must not overhear or observe other teams' solutions
-- All puzzles must work with 5+ players (no bottleneck puzzles for 1–2)
+- All puzzles must work with 2–6 players per team (no bottleneck puzzles for 1–2)
 
 ## Validation Checklist
 

@@ -9,8 +9,8 @@ Competitive quiz-style event where teams face rounds of questions, mini-games, a
 | Parameter | Value |
 |---|---|
 | Space | Indoor, 30+ m² (classroom, hall, or gym) |
-| Players | 2-3 teams, up to 8 per team (max ~24 total) |
-| Duration | 20-45 minutes |
+| Equipos | 2-3 equipos simultáneos |
+| Duration | 50-60 minutos |
 | Technology | Godot app + MQTT (offline) OR tablets with quiz app; projector for display |
 | Staff | 1 Presentador (host) + optional screen operator |
 | Internet | NOT required (offline-first) |
@@ -84,7 +84,7 @@ Ronda Curiosidades → Mini-game → Ronda Profunda → Ronda Desafío → Final
 - [ ] Each question includes a "dato" (fun fact) for educational value
 - [ ] Mini-games use accessible, cheap materials (~30€ total)
 - [ ] Duration per mini-game ≤ 60 seconds
-- [ ] Total game fits within time budget (20-45 min)
+- [ ] Total game fits within time budget (50-60 min)
 - [ ] All teams can participate simultaneously or in rapid rotation
 - [ ] Tie-breaking mechanism exists
 
@@ -104,6 +104,6 @@ Ronda Curiosidades → Mini-game → Ronda Profunda → Ronda Desafío → Final
 | GM Role | Active host | Invisible | Invisible | Minimal |
 | Competition | Team vs team | Team vs clock | Team vs clock | Team vs mystery |
 | Puzzles | Trivia + mini-games | Physical + logic | GPS + exploration | Deduction + evidence |
-| Duration | 20-45 min | 60-90 min | 90-120 min | 45-60 min |
+| Duration | 50-60 min | 50-60 min | 60-90 min | 45-60 min |
 | Narrative | Light (host personality) | Heavy | Heavy | Central |
 | Physical space | Classroom/hall | Dedicated room | Streets | Room with props |

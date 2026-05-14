@@ -20,6 +20,6 @@ game_{id}/
 ## Configuración Mínima
 
 - 5-8 pruebas
-- 120-180 minutos de duración
+- 60-90 minutos de duración
 - Ruta con 3-5 checkpoints
 - App móvil o web guide
