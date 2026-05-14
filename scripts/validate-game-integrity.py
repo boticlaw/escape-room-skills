@@ -1069,6 +1069,120 @@ def check_10_anti_brute_force(game_data, pruebas_data):
     return worst, details
 
 
+def check_11_bw_printing(game_data, pruebas_data):
+    """CHECK 11 — Impresión B&W
+    Valida que el sistema de impresión B&W-first está bien configurado.
+    """
+    issues = []
+
+    impresion = game_data.get("impresion")
+
+    if impresion is None:
+        issues.append(("WARNING",
+                        "No hay campo impresion en juego.json. "
+                        "El default es B&W — agregar `impresion.modo: 'bw'` para explicitar."))
+    elif isinstance(impresion, dict):
+        modo = impresion.get("modo", "")
+        if modo == "color":
+            issues.append(("WARNING",
+                            "impresion.modo='color' — el default recomendado es 'bw'. "
+                            "¿Estás seguro de que TODOS los materiales necesitan color?"))
+        elif modo == "bw":
+            materiales_color = impresion.get("materiales_color", [])
+            if materiales_color and isinstance(materiales_color, list):
+                known_archivos = set()
+                game_pruebas = game_data.get("pruebas", [])
+                for gp in game_pruebas:
+                    archivo = gp.get("archivo", "")
+                    if archivo:
+                        known_archivos.add(archivo)
+                    gid = gp.get("id", "")
+                    if gid:
+                        known_archivos.add(gid)
+
+                for mat_id in materiales_color:
+                    if mat_id not in known_archivos:
+                        issues.append(("WARNING",
+                                        f"material_color '{mat_id}' no corresponde "
+                                        f"a ninguna prueba conocida"))
+
+    game_pruebas = game_data.get("pruebas", [])
+    materiales_color = []
+    if isinstance(game_data.get("impresion"), dict):
+        materiales_color = game_data["impresion"].get("materiales_color", [])
+
+    color_keywords = (
+        "colores_cables", "color_luz", "tipo_ocultamiento.*color",
+        "colores_botones", "dimension_orden.*color",
+    )
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+
+        prueba_archivo = ""
+        prueba_gid = ""
+        if i < len(game_pruebas):
+            prueba_archivo = game_pruebas[i].get("archivo", "")
+            prueba_gid = game_pruebas[i].get("id", "")
+
+        prueba_imp = prueba.get("impresion")
+
+        if prueba_imp is None:
+            continue
+
+        color_flag = prueba_imp.get("color")
+
+        if color_flag is True:
+            motivo = prueba_imp.get("motivo_color", "")
+            if not motivo or not str(motivo).strip():
+                issues.append(("WARNING",
+                                f"[{pid}] tiene impresion.color=true pero falta motivo_color"))
+
+            in_materiales = (prueba_archivo in materiales_color
+                             or prueba_gid in materiales_color)
+            if not in_materiales and materiales_color is not None:
+                issues.append(("WARNING",
+                                f"[{pid}] requiere color pero no está en "
+                                f"juego.json materiales_color"))
+
+        elif color_flag is False or color_flag is None:
+            in_materiales = (prueba_archivo in materiales_color
+                             or prueba_gid in materiales_color)
+            if in_materiales:
+                issues.append(("WARNING",
+                                f"[{pid}] está en materiales_color pero su "
+                                f"impresion.color no es true (inconsistencia)"))
+
+        mecanica = prueba.get("mecanica", {})
+        if isinstance(mecanica, dict):
+            tipo = mecanica.get("tipo", "")
+            variables = mecanica.get("variables", {})
+            if isinstance(variables, dict):
+                all_var_keys = " ".join(variables.keys())
+            else:
+                all_var_keys = ""
+
+            combined = f"{tipo} {all_var_keys}".lower()
+            color_dependent = False
+            for kw in color_keywords:
+                kw_clean = kw.replace(".*", "")
+                if kw_clean in combined:
+                    color_dependent = True
+                    break
+
+            if color_dependent and prueba_imp is not None and not (isinstance(prueba_imp, dict) and prueba_imp.get("color") is True):
+                issues.append(("WARNING",
+                                f"[{pid}] usa mecánica dependiente de color "
+                                f"pero impresion.color no es true"))
+
+    if not issues:
+        return "OK", "Configuración de impresión B&W correcta"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
 def check_concurso_1_questions_unique_answers(game_data, pruebas_data):
     """CHECK C1 — Preguntas con respuesta única (concurso only)."""
     juego_dir = game_data.get("_juego_dir")
@@ -1566,6 +1680,7 @@ def get_checks_for_type(game_type):
         (8, "Sincronización personajes", "🔴", check_8_personajes_sync),
         (9, "Código adivinable", "🔴", check_9_code_guessability),
         (10, "Anti fuerza bruta", "🟡", check_10_anti_brute_force),
+        (11, "Impresión B&W", "🟡", check_11_bw_printing),
     ]
 
     type_checks = {
