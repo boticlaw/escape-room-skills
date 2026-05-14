@@ -44,11 +44,17 @@ Pass/fail from script output.
 python3 scripts/validate-game-integrity.py juegos/{juego-id}/juego/juego.json
 ```
 
-Runs 11 cross-file checks: reward letter consistency, hilo conductor completeness, navigation continuity, navigation text consistency, juego.json summary sync (lock codes, labels, difficulty curve, duration), and copy-paste error detection (wrong letter in ubicación, wrong prueba reference, wrong letter in elementos).
+Runs 15+ cross-file checks covering three categories:
+
+**Structural (1-11):** reward letter consistency, hilo conductor completeness, navigation continuity, navigation text consistency, juego.json summary sync (lock codes, labels, difficulty curve, duration), copy-paste error detection, timeline math, character sync, code guessability, anti brute-force, B&W printing.
+
+**Mechanical solvability (12-15):** coordinate extraction simulation (verifies phrases produce correct code), solution code matches actual lock code, solution-referenced documents exist in ingame docs, solution-referenced materials exist in materials list.
+
+**Game-type specific:** evidence chain for investigation games, GPS coordinates for street games, team separation for hall games, etc.
 
 Any CRITICAL from this script → overall `fail`. WARNINGs compound with manual checks.
 
-This catches errors that per-file validators miss: reordering mistakes, stale summary fields, broken navigation chains, mismatched reward letters.
+This catches errors that per-file validators miss: reordering mistakes, stale summary fields, broken navigation chains, mismatched reward letters, unsolvable puzzles, missing documents/materials.
 
 #### Check 2: Solvability (mental simulation)
 

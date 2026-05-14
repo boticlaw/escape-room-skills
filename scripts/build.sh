@@ -128,6 +128,21 @@ else
 fi
 echo ""
 
+# ─── Step 3.1: Game integrity (cross-file checks) ─────────────────────────
+echo "🔗 [3.1/5] Validando integridad del juego (cross-file)..."
+python3 "$SCRIPT_DIR/validate-game-integrity.py" "$GAME_JSON"
+INTEGRITY_EXIT=$?
+if [ $INTEGRITY_EXIT -eq 1 ]; then
+    echo "❌ Integridad FAILED — recompensas, navegación o sync con juego.json tienen errores CRITICAL"
+    exit 1
+elif [ $INTEGRITY_EXIT -gt 1 ]; then
+    echo "❌ Error ejecutando validate-game-integrity.py"
+    exit 1
+else
+    echo "✅ Integridad OK"
+fi
+echo ""
+
 # ─── Step 3.5: Playtest simulado (optional, before PDF) ───────────────────
 if [ "$PLAYTEST_MODE" = "true" ]; then
     NUM_JUGADORES="${DO_PLAYTEST:-5}"

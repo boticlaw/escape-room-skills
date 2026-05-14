@@ -67,7 +67,17 @@ python3 scripts/search-games.py --puzzles --mechanic "{skill_primario}" --pretty
 | `juego/diseño/DISEÑO-JUEGO.md` | DESIGN.json | `references/templates.md` |
 | `juego/materiales/lista-materiales.md` | DESIGN.materiales_requeridos | `references/templates.md` |
 
-### Step 6: Generate PDF
+### Step 6: Validate game integrity (cross-file)
+
+After all JSONs are written, validate the complete game for cross-file consistency:
+
+```bash
+python3 scripts/validate-game-integrity.py "{output_dir}/{juego-id}/juego/juego.json"
+```
+
+This runs 15+ checks covering: structural consistency (rewards, navigation, codes, labels, timeline), mechanical solvability (coordinate extraction, solution code match, document/material references), and game-type specific validation. Exit 1 = CRITICAL → fix before generating PDF.
+
+### Step 7: Generate PDF
 
 ```bash
 python3 scripts/generate-pdf-html.py "{output_dir}/{juego-id}/" "{output_dir}/{juego-id}/{juego-id}.pdf"

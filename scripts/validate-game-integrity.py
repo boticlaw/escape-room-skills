@@ -1189,6 +1189,593 @@ def check_11_bw_printing(game_data, pruebas_data):
     return worst, details
 
 
+def check_12_coordinate_extraction_solvability(game_data, pruebas_data):
+    """
+    CHECK 12 — Resolvibilidad extracción por coordenadas
+    Verifica que la extracción mecánica por coordenadas (Hueco X, palabra Y)
+    produce el código esperado. Detecta frases asignadas a tarjetas incorrectas.
+
+    Solo se ejecuta cuando una prueba tiene:
+    - barrera_fisica.codigo alfabético (solo letras)
+    - Un documento con "coordenada" en el título
+    - Un documento con tarjetas (contiene "tarjeta" en título o múltiples "Frase:")
+    """
+    issues = []
+    found_coordinate_prueba = False
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        bf = prueba.get("barrera_fisica", {})
+        codigo = bf.get("codigo", "")
+
+        # Only check pruebas with alphabetic codes
+        codigo_clean = str(codigo).replace(" ", "").replace("-", "")
+        if not codigo_clean or not codigo_clean.isalpha():
+            continue
+
+        expected_code = codigo_clean.upper()
+
+        # Get all documents (deduplicated by title)
+        all_docs = {}
+        for doc in prueba.get("documentos_in_game", []) + prueba.get("ingame_docs", []):
+            title = doc.get("titulo", "")
+            if title and title not in all_docs:
+                all_docs[title] = doc
+
+        # 1. Find coordinate sheet (must have "coordenada" in title)
+        coord_doc = None
+        for title, doc in all_docs.items():
+            if "coordenada" in title.lower():
+                coord_doc = doc
+                break
+
+        if not coord_doc:
+            continue
+
+        # 2. Find tarjeta/card document
+        tarjeta_doc = None
+        for title, doc in all_docs.items():
+            if "tarjeta" in title.lower():
+                tarjeta_doc = doc
+                break
+
+        if not tarjeta_doc:
+            # Fallback: look for doc with multiple Frase: entries
+            for title, doc in all_docs.items():
+                text = doc.get("texto", "")
+                if len(re.findall(r'[Ff]rase:', text)) >= 3:
+                    tarjeta_doc = doc
+                    break
+
+        if not tarjeta_doc:
+            continue
+
+        # 3. Find slot clues document (has Hueco N: patterns, not the coordinate doc)
+        slot_doc = None
+        for title, doc in all_docs.items():
+            text = doc.get("texto", "")
+            if (re.search(r'[Hh]ueco\s+\d+', text)
+                    and "coordenada" not in title.lower()):
+                slot_doc = doc
+                break
+
+        if not slot_doc:
+            issues.append(("WARNING",
+                           f"[{pid}] No se encontró documento con pistas de huecos"))
+            continue
+
+        found_coordinate_prueba = True
+
+        # --- Parse coordinates from the coordinate sheet ---
+        coord_text = coord_doc.get("texto", "")
+        coord_matches = re.findall(
+            r'[Hh]ueco\s+(\d+)\s*,\s*palabra\s+(\d+)',
+            coord_text, re.IGNORECASE
+        )
+
+        if not coord_matches:
+            issues.append(("WARNING",
+                           f"[{pid}] Hoja de Coordenadas sin pares Hueco/Palabra"))
+            continue
+
+        coordinates = [(int(h), int(p)) for h, p in coord_matches]
+
+        if len(coordinates) != len(expected_code):
+            issues.append(("WARNING",
+                           f"[{pid}] {len(coordinates)} coordenadas pero código "
+                           f"'{expected_code}' tiene {len(expected_code)} letras"))
+
+        # --- Parse slot clues ---
+        slot_text = slot_doc.get("texto", "")
+        slot_clues = {}
+        for m in re.finditer(
+            r'[Hh]ueco\s+(\d+)\s*(?:\([^)]*\))?\s*:\s*(.+?)(?=\n\n|\n(?=[Hh]ueco)|$)',
+            slot_text, re.DOTALL
+        ):
+            slot_num = int(m.group(1))
+            clue = m.group(2).strip()
+            slot_clues[slot_num] = clue
+
+        # --- Parse cards ---
+        tarjeta_text = tarjeta_doc.get("texto", "")
+        cards = []
+
+        blocks = re.split(r'\n\n+', tarjeta_text)
+        for block in blocks:
+            lines = block.strip().split('\n')
+            if len(lines) < 2:
+                continue
+
+            name = lines[0].strip()
+            if not name or len(name) > 80:
+                continue
+
+            rest = '\n'.join(lines[1:])
+
+            # Extract description
+            desc_match = re.search(
+                r'[Dd]escripci[oó]n:\s*(.+?)(?=\n[Ff]rase:|\nFRASE:|$)',
+                rest, re.DOTALL
+            )
+            desc = desc_match.group(1).strip() if desc_match else ""
+
+            # Extract phrase (may span multiple lines within the block)
+            phrase_match = re.search(r'[Ff]rase:\s*(.*)', rest, re.DOTALL)
+            if phrase_match:
+                raw_phrase = phrase_match.group(1).strip()
+                phrase = raw_phrase.strip('"\u201c\u201d\'\u2018\u2019')
+            else:
+                phrase = ""
+
+            if desc and phrase:
+                cards.append((name, desc, phrase))
+
+        if not cards:
+            issues.append(("WARNING",
+                           f"[{pid}] No se pudieron extraer tarjetas del documento"))
+            continue
+
+        # --- Match cards to slots via keyword overlap ---
+        # Include card name in matching to handle cases like
+        # "REGISTRO DE ADOPCIÓN" → Hueco 10 ("Registro del hijo...")
+        card_data = []
+        for card_name, card_desc, card_phrase in cards:
+            combined_words = text_word_set(card_desc + " " + card_name)
+            card_data.append((card_name, combined_words, card_phrase))
+
+        # Build all (overlap, slot, card_idx) triples, sort by overlap descending
+        # then greedily assign to get 1-to-1 mapping
+        assignments = []
+        for slot_num, clue in slot_clues.items():
+            clue_words = text_word_set(clue)
+            if not clue_words:
+                continue
+            for idx, (_, card_words, _) in enumerate(card_data):
+                if not card_words:
+                    continue
+                overlap = len(card_words & clue_words)
+                if overlap > 0:
+                    assignments.append((overlap, slot_num, idx))
+
+        assignments.sort(key=lambda x: -x[0])
+
+        slot_phrase_map = {}
+        used_slots = set()
+        used_cards = set()
+        for _, slot_num, card_idx in assignments:
+            if slot_num in used_slots or card_idx in used_cards:
+                continue
+            slot_phrase_map[slot_num] = card_data[card_idx][2]
+            used_slots.add(slot_num)
+            used_cards.add(card_idx)
+
+        # --- Simulate extraction ---
+        extracted_letters = []
+
+        for hueco, palabra in coordinates:
+            if hueco not in slot_phrase_map:
+                issues.append(("WARNING",
+                               f"[{pid}] Coordenada referencia Hueco {hueco} "
+                               f"sin frase asignada"))
+                extracted_letters.append("?")
+                continue
+
+            phrase = slot_phrase_map[hueco]
+            phrase_clean = phrase.strip('"\u201c\u201d\'\u2018\u2019')
+            words = phrase_clean.split()
+
+            if palabra > len(words):
+                issues.append(("CRITICAL",
+                               f"[{pid}] Coordenada (Hueco {hueco}, palabra {palabra}) "
+                               f"excede la longitud de la frase ({len(words)} palabras): "
+                               f"'{truncate(phrase_clean, 60)}'"))
+                extracted_letters.append("?")
+                continue
+
+            if palabra < 1:
+                issues.append(("CRITICAL",
+                               f"[{pid}] Coordenada (Hueco {hueco}, palabra {palabra}) "
+                               f"tiene índice inválido"))
+                extracted_letters.append("?")
+                continue
+
+            target_word = words[palabra - 1]
+            target_word_clean = re.sub(
+                r'^[^\w]+|[^\w]+$', '', target_word, flags=re.UNICODE
+            )
+
+            if not target_word_clean:
+                issues.append(("CRITICAL",
+                               f"[{pid}] Palabra {palabra} en Hueco {hueco} vacía "
+                               f"tras limpiar puntuación"))
+                extracted_letters.append("?")
+                continue
+
+            first_letter = target_word_clean[0].upper()
+            extracted_letters.append(first_letter)
+
+        extracted_code = "".join(extracted_letters)
+
+        if "?" not in extracted_code and extracted_code != expected_code:
+            issues.append(("CRITICAL",
+                           f"[{pid}] La extracción por coordenadas produce "
+                           f"'{extracted_code}' pero el código real es "
+                           f"'{expected_code}'. Las frases pueden estar asignadas "
+                           f"a las tarjetas incorrectas."))
+
+    if not found_coordinate_prueba:
+        return "SKIP", "No hay pruebas con extracción por coordenadas"
+
+    if not issues:
+        return "OK", "La extracción por coordenadas produce los códigos correctos"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = ";\n   ".join(i[1] for i in issues)
+    return worst, details
+
+
+def _extract_solution_texts(solucion):
+    """Extract all text fields from a solucion dict as a list of strings."""
+    texts = []
+    for field in ("descripcion", "verificacion"):
+        val = solucion.get(field, "")
+        if val and isinstance(val, str):
+            texts.append(val)
+    for paso in solucion.get("pasos_detallados", []):
+        if isinstance(paso, str) and paso.strip():
+            texts.append(paso)
+    return texts
+
+
+def check_13_solution_code_consistency(game_data, pruebas_data):
+    """
+    CHECK 13 — Consistencia código solución
+    Verifica que el código mencionado en solucion (descripcion, verificacion,
+    pasos_detallados) coincide con barrera_fisica.codigo.
+    Detecta descripciones de solución obsoletas tras cambios de código.
+    """
+    issues = []
+    checked = 0
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        bf = prueba.get("barrera_fisica", {})
+        sol = prueba.get("solucion", {})
+
+        codigo_raw = bf.get("codigo", "") if bf else ""
+        if not codigo_raw or not sol:
+            continue
+
+        codigo_raw = str(codigo_raw).strip()
+        # Skip descriptive codes (multi-word phrases, clearly not lock codes)
+        word_count = len(codigo_raw.split())
+        if word_count > 2:
+            continue
+
+        codigo_clean = codigo_raw.replace("-", "").replace(" ", "")
+        if not codigo_clean:
+            continue
+
+        is_numeric = codigo_clean.isdigit()
+        is_alpha = codigo_clean.isalpha()
+
+        # Skip mixed codes (e.g. "A1B2") that aren't purely numeric or alpha
+        if not is_numeric and not is_alpha:
+            continue
+
+        checked += 1
+        solution_texts = _extract_solution_texts(sol)
+        all_solution_text = " ".join(solution_texts)
+
+        if is_numeric:
+            code_found = False
+
+            # Strategy 1: exact match of the normalized code (e.g. "528")
+            if re.search(r'\b' + re.escape(codigo_clean) + r'\b', all_solution_text):
+                code_found = True
+
+            # Strategy 2: original dashed format (e.g. "5-2-8" or "5 - 2 - 8")
+            if not code_found and "-" in codigo_raw:
+                dashed_pattern = re.escape(codigo_raw).replace(r'\-', r'[-\s]+')
+                if re.search(dashed_pattern, all_solution_text):
+                    code_found = True
+
+            # Strategy 3: comma-separated format (e.g. "5, 2, 8" or "5, 2 y 8")
+            if not code_found and "-" in codigo_raw:
+                digits = codigo_raw.split("-")
+                comma_pattern = r',\s*'.join(re.escape(d) for d in digits)
+                if re.search(comma_pattern, all_solution_text):
+                    code_found = True
+
+            if code_found:
+                continue
+
+            # Code not found — check if a different code of same length is mentioned
+            code_len = len(codigo_clean)
+            pattern = r'\b(\d{' + str(code_len) + r'})\b'
+            found_sequences = set(re.findall(pattern, all_solution_text))
+
+            if found_sequences:
+                for wrong_code in sorted(found_sequences)[:3]:
+                    issues.append(("CRITICAL",
+                                   f"[{pid}] Solución menciona código '{wrong_code}' "
+                                   f"pero barrera_fisica.codigo='{codigo_raw}' "
+                                   f"(¿descripción obsoleta?)"))
+            else:
+                issues.append(("WARNING",
+                               f"[{pid}] Solución no menciona el código "
+                               f"'{codigo_raw}' (¿solución incompleta?)"))
+
+        elif is_alpha:
+            # For alphabetic codes, search case-insensitive and accent-insensitive
+            code_normalized = strip_accents(codigo_clean.lower())
+            text_normalized = strip_accents(all_solution_text.lower())
+
+            if code_normalized in text_normalized:
+                continue
+
+            # Look for other potential alphabetic codes (3+ uppercase letter sequences)
+            alpha_sequences = set()
+            for m in re.finditer(r'\b([A-ZÁÉÍÓÚÑ]{3,})\b', all_solution_text):
+                alpha_sequences.add(m.group(1))
+
+            # Also search for the code with mixed case
+            code_found_mixed = False
+            for seq in alpha_sequences:
+                if strip_accents(seq.lower()) == code_normalized:
+                    code_found_mixed = True
+                    break
+
+            if code_found_mixed:
+                continue
+
+            if alpha_sequences:
+                wrong = set()
+                for seq in alpha_sequences:
+                    seq_norm = strip_accents(seq.lower())
+                    if seq_norm != code_normalized:
+                        wrong.add(seq)
+                for wrong_code in sorted(wrong)[:3]:
+                    issues.append(("CRITICAL",
+                                   f"[{pid}] Solución menciona código '{wrong_code}' "
+                                   f"pero barrera_fisica.codigo='{codigo_raw}' "
+                                   f"(¿descripción obsoleta?)"))
+            else:
+                issues.append(("WARNING",
+                               f"[{pid}] Solución no menciona el código "
+                               f"'{codigo_raw}' (¿solución incompleta?)"))
+
+    if checked == 0:
+        return "SKIP", "No hay pruebas con código numérico o alfabético verificable"
+
+    if not issues:
+        return "OK", f"Todos los códigos en soluciones coinciden ({checked} pruebas verificadas)"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = ";\n   ".join(i[1] for i in issues)
+    return worst, details
+
+
+def _extract_content_words(text):
+    """Extract meaningful content words from text (lowercase, accent-stripped, 3+ chars)."""
+    normalized = strip_accents(text.lower())
+    words = re.findall(r'[a-z]{3,}', normalized)
+    # Filter out common stop words
+    stop = {"los", "las", "una", "uno", "con", "por", "para", "pero", "mas",
+            "del", "das", "dos", "tres", "que", "este", "esta", "esto",
+            "esta", "son", "han", "hay", "puede", "como", "donde", "cuando",
+            "cada", "todo", "toda", "todos", "todas", "otra", "otro",
+            "sobre", "entre", "desde", "hasta", "hacia", "tras",
+            "tambien", "tiene", "tienen", "debe", "debemos"}
+    return set(w for w in words if w not in stop)
+
+
+def check_14_solution_docs_exist(game_data, pruebas_data):
+    """
+    CHECK 14 — Documentos referenciados existen
+    Verifica que cuando la solución menciona un documento por nombre
+    (diario, carta, certificado, álbum, etc.), ese documento existe
+    en documentos_in_game o ingame_docs.
+    """
+    issues = []
+    checked = 0
+
+    # Document reference keywords to look for in solution steps.
+    # Only include nouns that name specific document TYPES (not generic objects).
+    # "instrucción" excluded: used as common noun ("una instrucción") alongside
+    # document titles, causing false positives on games without an Instrucción doc.
+    DOC_KEYWORDS = [
+        "diario", "certificado", "album", "álbum", "retrato",
+        "tablero", "confesiones",
+        "fragmento de carta", "carta de navegación", "carta rasgada",
+        "testamento", "registro",
+    ]
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        sol = prueba.get("solucion", {})
+
+        pasos = sol.get("pasos_detallados", [])
+        if not pasos:
+            continue
+
+        # Build set of available document names
+        all_docs = {}
+        for doc in prueba.get("documentos_in_game", []) + prueba.get("ingame_docs", []):
+            title = doc.get("titulo", "")
+            if title and title not in all_docs:
+                all_docs[title] = doc
+
+        if not all_docs:
+            continue
+
+        # Build content-word sets for each document title (for fuzzy matching)
+        doc_word_sets = {}
+        for title in all_docs:
+            doc_word_sets[title] = _extract_content_words(title)
+
+        checked += 1
+        all_steps_text = " ".join(str(s) for s in pasos)
+
+        # Scan for document references in solution steps
+        references_found = set()
+        text_lower = strip_accents(all_steps_text.lower())
+
+        for keyword in DOC_KEYWORDS:
+            kw_norm = strip_accents(keyword.lower())
+            if kw_norm in text_lower:
+                references_found.add(keyword)
+
+        # For each reference keyword, check if a matching document exists
+        for ref_kw in sorted(references_found):
+            ref_words = _extract_content_words(ref_kw)
+            found_match = False
+
+            for title, title_words in doc_word_sets.items():
+                # Fuzzy match: the reference keyword appears in the doc title
+                title_lower = strip_accents(title.lower())
+                kw_norm = strip_accents(ref_kw.lower())
+
+                if kw_norm in title_lower:
+                    found_match = True
+                    break
+
+                # Also check word overlap (for compound references)
+                overlap = ref_words & title_words
+                if overlap:
+                    found_match = True
+                    break
+
+            if not found_match:
+                issues.append(("CRITICAL",
+                               f"[{pid}] La solución referencia '{ref_kw}' "
+                               f"pero no existe un documento con ese nombre"))
+
+    if checked == 0:
+        return "SKIP", "No hay pruebas con pasos detallados y documentos"
+
+    if not issues:
+        return "OK", f"Todos los documentos referenciados existen ({checked} pruebas verificadas)"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = ";\n   ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_15_solution_materials_exist(game_data, pruebas_data):
+    """
+    CHECK 15 — Materiales referenciados existen
+    Verifica que cuando la solución menciona objetos físicos críticos
+    para resolver el puzzle, esos objetos están listados en
+    configuracion.elementos_necesarios o materiales.
+    """
+    issues = []
+    checked = 0
+
+    # Critical tool/instrument keywords that players NEED to solve.
+    # Each maps to a list of regex patterns (word-bounded where appropriate).
+    CRITICAL_ITEMS = {
+        "tijeras": [r"\btijeras?\b"],
+        "lupa": [r"\blupa\b"],
+        "luz uv": [r"\bluz\s+uv\b", r"\buv\b", r"\bultravioleta\b", r"\bluz\s+negra\b"],
+        "lampara uv": [r"\bl[aá]mpara\s+uv\b"],
+        "papel verde": [r"\bpapel\s+verde\b", r"\bpapel\s+ferromagn[eé]tic[oa]\b"],
+        "cryptex": [r"\bcryptex\b", r"\bcriptex\b"],
+        "llave": [r"\bllave\b"],
+        "imanes": [r"\bim[aá]n\b", r"\bimanes\b"],
+        "candado": [r"\bcandado\b"],
+        "fichas": [r"\bfichas?\b"],
+        "letra fisica": [r"\bletras?\s+f[ií]sicas?\b"],
+        "tablero": [r"\btablero\b"],
+    }
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        sol = prueba.get("solucion", {})
+        cfg = prueba.get("configuracion", {})
+        mat = prueba.get("materiales", {})
+
+        pasos = sol.get("pasos_detallados", [])
+        if not pasos:
+            continue
+
+        # Build set of available materials text (normalized)
+        available_texts = []
+
+        # From configuracion.elementos_necesarios
+        for elem in cfg.get("elementos_necesarios", []):
+            if isinstance(elem, str):
+                available_texts.append(elem)
+
+        # From materiales sections
+        for section in ("impresion", "mobiliario", "extras"):
+            for item in mat.get(section, []):
+                if isinstance(item, str):
+                    available_texts.append(item)
+
+        if not available_texts:
+            continue
+
+        available_lower = strip_accents(" ".join(available_texts).lower())
+
+        checked += 1
+        all_steps_text = " ".join(str(s) for s in pasos)
+
+        # Check each critical item category
+        for item_name, patterns in CRITICAL_ITEMS.items():
+            # Check if the solution references this item (regex match)
+            referenced = False
+            for pat in patterns:
+                if re.search(pat, all_steps_text, re.IGNORECASE):
+                    referenced = True
+                    break
+
+            if not referenced:
+                continue
+
+            # Check if the item exists in available materials
+            found_in_materials = False
+            for pat in patterns:
+                if re.search(pat, available_lower, re.IGNORECASE):
+                    found_in_materials = True
+                    break
+
+            if not found_in_materials:
+                issues.append(("WARNING",
+                               f"[{pid}] La solución usa '{item_name}' "
+                               f"pero no está en elementos_necesarios ni materiales"))
+
+    if checked == 0:
+        return "SKIP", "No hay pruebas con pasos detallados y materiales"
+
+    if not issues:
+        return "OK", f"Todos los materiales críticos referenciados existen ({checked} pruebas verificadas)"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = ";\n   ".join(i[1] for i in issues)
+    return worst, details
+
+
 def check_concurso_1_questions_unique_answers(game_data, pruebas_data):
     """CHECK C1 — Preguntas con respuesta única (concurso only)."""
     juego_dir = game_data.get("_juego_dir")
@@ -1687,6 +2274,10 @@ def get_checks_for_type(game_type):
         (9, "Código adivinable", "🔴", check_9_code_guessability),
         (10, "Anti fuerza bruta", "🟡", check_10_anti_brute_force),
         (11, "Impresión B&W", "🟡", check_11_bw_printing),
+        ("12", "Resolvibilidad extracción por coordenadas", "🔴", check_12_coordinate_extraction_solvability),
+        ("13", "Consistencia código solución", "🔴", check_13_solution_code_consistency),
+        ("14", "Documentos referenciados existen", "🔴", check_14_solution_docs_exist),
+        ("15", "Materiales referenciados existen", "⚠️", check_15_solution_materials_exist),
     ]
 
     type_checks = {

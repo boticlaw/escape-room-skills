@@ -4,7 +4,7 @@
 
 ## ¿Qué es esto?
 
-Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Cuatro skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, 82 pruebas reales testeadas, 6 juegos completos con playtest data, 17 fases de pipeline (incluyendo remix, validación game-type-aware con 18 checks automatizados (10 universales + tipo-específicos para 4 game types), y perfil anti-cheat en playtest), evaluación dual-LLM con detección de providers, y un stack de búsqueda self-hosted para investigación temática automática.
+Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Cuatro skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, 82 pruebas reales testeadas, 6 juegos completos con playtest data, 17 fases de pipeline (incluyendo remix, validación game-type-aware con 23 checks automatizados (15 universales + mecánicos + tipo-específicos para 4 game types), y perfil anti-cheat en playtest), evaluación dual-LLM con detección de providers, y un stack de búsqueda self-hosted para investigación temática automática.
 
 Todos los skills siguen la [Gentle-AI Skill Style Guide](https://github.com/Gentleman-Programming/gentle-ai/blob/main/docs/skill-style-guide.md): instrucciones ejecutables compactas (activación → reglas → decisiones → pasos → output), con detalle en `references/` para no inflar el contexto del LLM.
 
@@ -30,7 +30,7 @@ escape-room-skills/
 │   │       ├── pipeline-conceive/      # Concepto (dual-LLM)
 │   │       ├── pipeline-design/        # Puzzles (dual-LLM)
 │   │       ├── pipeline-build/         # Construcción del juego
-│   │       ├── pipeline-verify/        # 30 checks universales + game-type-specific + playtest calibration
+│   │       ├── pipeline-verify/        # 15 automated + 30 LLM checks + game-type-specific + playtest calibration
 │   │       ├── pipeline-verify-materials/ # ⭐ Verificación de materiales (12 checks)
 │   │       ├── pipeline-fix/           # ⭐ Auto-repair desde reports de validación
 │   │       ├── pipeline-judgment-day/  # Revisión adversarial dual-LLM
@@ -178,7 +178,7 @@ El output estándar del BUILD es `00-guia-completa-juego.html/pdf` con estructur
 
 Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta el tipo de juego desde `juego.json` y ejecuta los checks correspondientes:
 
-**10 checks universales** (todos los tipos):
+**15 checks universales** (todos los tipos):
 
 | Check | Qué valida |
 |-------|-----------|
@@ -190,7 +190,11 @@ Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta
 | 8 | **Sincronización personajes** — valida array `personajes` vs texto de pruebas |
 | 9 | **Código adivinable** — detecta códigos de candado en textos narrativos |
 | 10 | **Anti fuerza bruta** — PINs comunes, secuencias, años visibles |
-| 11 | **Impresión B&W** — valida que impresion.modo esté configurado, que cada prueba con color tenga motivo_color, y que mecánicas dependientes de color estén taggeadas |
+| 11 | **Impresión B&W** — valida que impresion.modo esté configurado |
+| 12 | **Resolvibilidad coordenadas** — simula extracción por coordenadas, verifica que produce el código correcto |
+| 13 | **Código en solución** — verifica que la solución describe el mismo código que el candado real |
+| 14 | **Documentos referenciados** — verifica que los documentos mencionados en la solución existen |
+| 15 | **Materiales referenciados** — verifica que los items críticos de la solución están en materiales |
 
 **Checks por tipo de juego:**
 
@@ -206,7 +210,7 @@ Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta
 python3 scripts/validate-game-integrity.py juego/juego.json
 ```
 
-El pipeline VERIFY tiene 31 checks LLM + los tipo-específicos. El script automatiza 19 de ellos (11 universales + tipo-específicos).
+El pipeline VERIFY tiene 31 checks LLM + los tipo-específicos. El script automatiza 24 de ellos (15 universales + tipo-específicos).
 
 ### Impresión B&W First
 
