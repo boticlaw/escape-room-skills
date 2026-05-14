@@ -36,7 +36,7 @@ El hilo conductor es la palabra **LEGADO**, formada por las letras obtenidas en 
 
 **Sofía** — Niña pequeña, pelo rubio ondulado, gesto cariñoso. Inocencia absoluta.
 
-**Miguel** — El cuarto hijo, dado en adopción en 1963. El secreto que Elena protegió toda su vida. Nunca apareció en las fotos familiares. Tuvo un nombre protegido: M. Á. (Miguel Álvarez).
+**Miguel** — El cuarto hijo, dado en adopción en 1983. El secreto que Elena protegió toda su vida. Nunca apareció en las fotos familiares. Tuvo un nombre protegido: M. Á. (Miguel Álvarez).
 
 **Abogado (GM)** — Ejecutor del testamento de Elena. Guía a los nietos en su investigación.
 

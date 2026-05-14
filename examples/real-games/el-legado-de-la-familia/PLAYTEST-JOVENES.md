@@ -84,7 +84,7 @@
 - Sara tiene memoria excelente — recuerda dónde vio cada tarjeta. Es la pieza clave.
 - Pablo se distrae y olvida lo que vio hace 10 segundos.
 - Dani: "Esto es aburrido, ¿podemos ir más rápido?"
-- **MOMENTO CLAVE:** Cuando encuentran la primera pareja con FECHA CLAVE (1963), Marta dice: "¡Para! Hay que anotar esto". Lucía toma el papel de secretaria.
+- **MOMENTO CLAVE:** Cuando encuentran la primera pareja con FECHA CLAVE (1983), Marta dice: "¡Para! Hay que anotar esto". Lucía toma el papel de secretaria.
 - Encuentran las 4 fechas clave en ~7 minutos. Las 12 parejas completas en ~9 minutos.
 - El código 3855 lo sacan rápido: ordenan las fechas, sacan últimos dígitos.
 
@@ -104,7 +104,7 @@
 - Reparten las tarjetas. Cada uno defiende su posición.
 - Las tarjetas con fecha explícita (1959, 1960, 1965, 1967, 1995, 2005, 2026) se colocan rápido.
 - El debate surge con los 3 eventos sin fecha:
-  - Evento 3 ("Elena da a luz a un cuarto hijo"): Pablo dice "1963, lo dice la foto". Correcto.
+  - Evento 3 ("Elena da a luz a un cuarto hijo"): Pablo dice "1983, lo dice la foto". Correcto.
   - Evento 6 ("Elena entrega al hijo"): Marta dice "después de nacer, antes de Carmen". Lo coloca entre evento 3 y 4.
   - Evento 7 ("Rodrigo descubre"): Alex: "Después de todos los hijos, antes del desván sellado. ¿1988?"
 - **MOMENTO CLAVE:** Dani, que llevaba callado, dice: "¿Y si el evento 3 va antes que el 2? ¿No podía Elena tener un hijo antes de Marcos?" Marta le corrige con los datos del diario. Es un buen debate.
@@ -128,7 +128,7 @@
 - **Comunicación:** Al principio hablan todos a la vez. Lucía pide silencio y establece turnos: "Equipo A, leed una tarjeta. Equipo B, ¿tenéis algo que encaje?"
 - Sara, en el equipo A, es la que mejor describe: "Mi tarjeta dice 'necesitareis las letras', punto, sin más".
 - **MOMENTO CLAVE:** Cuando empiezan a encajar los fragmentos y aparece el mensaje completo, hay un "¡ohhh!" colectivo. "Detrás del espejo ovalado" — todos miran hacia el espejo.
-- La parte de "Marzo de 1963, la letra es la O" la capta Marta inmediatamente.
+- La parte de "Marzo de 1983, la letra es la O" la capta Marta inmediatamente.
 
 **Resolución:** Resuelven en **8 minutos**. Fue la prueba que más disfrutaron — la comunicación forzada es muy divertida para jóvenes.
 
@@ -273,7 +273,7 @@
 - Una chica asume el rol de coordinadora: "Vale, nosotros leemos uno y vosotros respondéis".
 - El proceso es lento pero se divierten muchísimo. Las risas son constantes.
 - **MOMENTO CLAVE:** Cuando encajan los primeros fragmentos: "¡Ostras, 'El cofre del legado'! ¡Va todo junto!". La emoción es genuina.
-- La parte de "Marzo de 1963, la letra es la O" la captan al final.
+- La parte de "Marzo de 1983, la letra es la O" la captan al final.
 
 **Resolución:** **10 minutos**. Más lento por la comunicación caótica, pero es la prueba que más risas genera.
 
@@ -389,7 +389,7 @@
 - Hugo observa pero no participa mucho. Voltea un par de tarjetas cuando le toca.
 - Valentina quiere voltear todo. Clara: "Turnos, Valentina, turnos".
 - Las fechas clave las encuentra Nerea. Clara anota.
-- **MOMENTO CLAVE:** Cuando Adrián encuentra la pareja de la foto del bebé de 1963 y lee "Este bebé no aparece en ningún álbum familiar", se queda pensativo: "¿Por qué no?".
+- **MOMENTO CLAVE:** Cuando Adrián encuentra la pareja de la foto del bebé de 1983 y lee "Este bebé no aparece en ningún álbum familiar", se queda pensativo: "¿Por qué no?".
 - El código 3855 lo sacan entre Clara y Nerea. Los de 12 miran sin entender del todo el proceso.
 
 **Resolución:** **10 minutos**. El Memory funciona genial como igualador — los de 12 aportan tanto como los de 16.

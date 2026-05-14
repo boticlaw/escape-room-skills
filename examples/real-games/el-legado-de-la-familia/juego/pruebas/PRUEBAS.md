@@ -6,66 +6,65 @@
 
 **Sala:** El Despacho de la Abuela  
 **Dificultad:** 4/10  
-**Duración estimada:** 9 minutos  
+**Duración estimada:** 4 minutos  
 **Cooperación obligatoria:** Sí  
 **Hilo conductor:** **L** — Lealtad
 
 ### Descripción
 
-La carta de navegación de P1 lleva a una caja de notario con un tablero plegable de 6 casillas numeradas (eventos familiares) y 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel y M. Á. Cada jugador recibe un sobre de testimonio con una restricción lógica única. Compartiendo en voz alta sus restricciones, el grupo debe deducir la posición correcta de cada persona en cada evento. Las posiciones de Marcos(3), Carmen(1) y Luis(5) forman el código del candado de 3 dígitos (315). Las cartas desordenadas de la familia están disponibles en el despacho como documentos in-game que proporcionan contexto narrativo.
+La carta de navegación de P1 lleva a una caja de notario con un tablero plegable de 6 casillas numeradas (eventos familiares) y 6 fichas de personaje: Elena, Marcos, Carmen, Luis, Miguel y M. Á. Cada jugador recibe un sobre de testimonio con una restricción lógica única (dentro de la caja). Compartiendo en voz alta sus restricciones, el grupo debe deducir la posición correcta de cada persona en cada evento. Las posiciones de los 4 hijos (Marcos=3, Carmen=1, Luis=5, Miguel=4) forman el código de un candado de 4 dígitos (3154) en orden de edad. Dentro de la caja están la plantilla, el Consejo Familiar y las cartas familiares — todo self-service.
 
 ### Mecánica
 
 Tablero lógico tipo Zebra simplificado con información distribuida. Cada jugador tiene una restricción única que debe compartir en voz alta. Deducción cruzada entre todos los miembros para colocar las 6 fichas en las 6 casillas correctamente.
 
-**Barrera:** Candado de 3 dígitos configurado a 315. Las posiciones correctas de Marcos(3), Carmen(1) y Luis(5) en orden de edad forman el código.
+**Barrera:** Candado de 4 dígitos — Código: 3154 — Ubicación: Caja de notario CERRADA (recompensa: foto, letra L, carta). Los materiales para resolver (tablero, fichas, testimonios) están FUERA de la caja.
 
 **Roles:**
-- **Guardianes de testimonio:** Cada jugador guarda 1 testimonio exclusivo y lo comparte en voz alta.
-- **Colocador rotativo:** Mueve fichas solo por consenso del grupo. NO fue Custodio en P1.
-- **Abogado del diablo:** Verifica que cada colocación cumple TODAS las restricciones.
-- **Archivista:** Anota posiciones finales y extrae el código del candado.
 
-**Rotación obligatoria:** El Colocador de P2 NO fue Custodio en P1. Forzar: el jugador con menos participación asume el Colocador.
+- **Guardianes Testimonio:** Cada jugador guarda 1 testimonio exclusivo y lo comparte en voz alta.
+- **Colocador Rotativo:** Mueve fichas solo por consenso del grupo.
+- **Abogado Diablo:** Verifica que cada colocación cumple TODAS las restricciones.
+- **Archivista:** Anota posiciones finales y extrae el código del candado.
 
 ### Pistas
 
-**Pista nivel 1 (Sutil):** La caja no se resuelve mirando: se resuelve escuchando. Que cada testimonio se lea en alto. *(Tras 3 minutos)*
+**Pista nivel 1 (Sutil):** La caja no se resuelve mirando: se resuelve escuchando. Que cada testimonio se lea en alto. *(Tras 3 minutos sin progreso)*
 
-**Pista nivel 2 (Directa):** Empezad por las restricciones con "no", "antes/después" e "inmediatamente". Fijan posiciones más rápido. *(Tras 5 minutos)*
+**Pista nivel 2 (Directa):** Empezad por las restricciones con 'no', 'antes/después' e 'inmediatamente'. Fijan posiciones más rápido. El código son las posiciones de los 4 hijos en orden de edad. *(Tras 5 minutos sin progreso o petición de pista)*
 
-**Pista nivel 3 (Casi solución):** Marcos en 3, Carmen en 1, Luis en 5. El candado es 315. *(Tras 7 minutos)*
+**Pista nivel 3 (Casi_Solucion):** La solución completa: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M.Á.=6. El código del candado son las posiciones de los 4 hijos en orden de edad: Marcos=3, Carmen=1, Luis=5, Miguel=4 → 3154. *(Tras 7 minutos o petición explícita)*
 
 ### Solución
 
-Los jugadores comparten sus 6 restricciones en voz alta y, por deducción cruzada, colocan las 6 fichas en las casillas correctas del tablero.
-
-**Solución única:** Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. Á.=6
+Los jugadores comparten sus 7 restricciones en voz alta y, por deducción cruzada, colocan las 6 fichas en las casillas correctas del tablero. La solución única es: Carmen=1, Elena=2, Marcos=3, Miguel=4, Luis=5, M. Á.=6. Las posiciones de los 4 hijos en orden de edad forman el código: Marcos(3), Carmen(1), Luis(5), Miguel(4) → 3154.
 
 **Pasos:**
-1. Encontrar la caja rotulada "Acta de presencias" en el escritorio del despacho
-2. Abrir la caja y encontrar el tablero plegable, las 6 fichas y los 6 sobres de testimonio
-3. Repartir un sobre a cada jugador. La instrucción impresa dice: COMPARTID EN VOZ ALTA
-4. Cada jugador lee su restricción en voz alta
-5. Por deducción cruzada, colocar las fichas en las casillas correctas:
-   - Carmen = 1 (La tarde de la tormenta)
-   - Elena = 2 (La visita al médico)
-   - Marcos = 3 (La firma ante el notario)
-   - Miguel = 4 (La foto sin rostro)
-   - Luis = 5 (El cumpleaños aplazado)
-   - M. Á. = 6 (La despedida en la estación)
-6. Extraer código de posiciones: Marcos=3, Carmen=1, Luis=5 → 315
-7. Abrir el candado de la caja de notario
-8. Descubrir la foto de bebé con dorso tachado "Miguel A." — Miguel y M. Á. son la misma persona
-9. Recoger la letra E y el fragmento de carta de Elena
 
-**Recompensa:** Letra **L** (Lealtad). Fragmento de Elena sobre la empatía de escribir dos nombres para un mismo niño. Revelación narrativa: Miguel tuvo un nombre protegido (M. Á.); la duplicidad era protección, no borrado. Rodrigo movió los hilos para cambiarle la identidad.
+Encontrar la zona del escritorio con: tablero plegable, fichas, 7 sobres de testimonio, plantilla de tabla, y una caja de notario CERRADA con candado.
+La instrucción impresa junto al tablero dice: COMPARTID EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.
+Cada jugador coge un sobre de testimonio y lo lee en voz alta. Si son menos de 7, los sobres sobrantes se abren y se leen también.
+Por deducción cruzada de las 7 restricciones, colocar las fichas en las casillas correctas del tablero:
+  - Carmen = 1 (La tarde de la tormenta)
+  - Elena = 2 (La visita al médico)
+  - Marcos = 3 (La firma ante el notario)
+  - Miguel = 4 (La foto sin rostro)
+  - Luis = 5 (El cumpleaños aplazado)
+  - M. Á. = 6 (La despedida en la estación)
+La tarjeta Consejo Familiar recuerda: del mayor al menor de los cuatro hijos de Rodrigo y Elena.
+Extraer código de posiciones de los 4 hijos en orden de edad (mayor a menor): Marcos=3, Carmen=1, Luis=5, Miguel=4 → 3154.
+Introducir 3154 en el candado de la caja de notario.
+Dentro de la caja encontrar: fotografía de bebé con dorso parcialmente tachado "Miguel A.", la letra L y el fragmento de carta de Elena.
+Miguel y M. Á. son la misma persona — el cuarto hijo oculto.
+Recoger la letra L y el fragmento de carta de Elena.
+
+**Recompensa:** Letra **L** (Lealtad). Miguel tuvo un nombre protegido (M. Á.); la duplicidad era protección, no borrado. Rodrigo movió los hilos para cambiarle la identidad.
 
 ### Barrera Física
 
-- **Tipo:** Candado de 3 dígitos
-- **Ubicación:** Caja de notario / carpeta rígida
-- **Código:** 315
+- **Tipo:** Candado de 4 dígitos
+- **Ubicación:** Caja de notario CERRADA (recompensa: foto, letra L, carta). Los materiales para resolver (tablero, fichas, testimonios) están FUERA de la caja.
+- **Código:** 3154
 
 ### Documentos In-Game
 
@@ -73,7 +72,9 @@ Los jugadores comparten sus 6 restricciones en voz alta y, por deducción cruzad
 
 COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA HISTORIA.
 
-> **Nota GM:** Impresa en la tapa interior de la caja de notario. Visible al abrirla.
+El código del candado: las posiciones de los cuatro hijos, en orden de nacimiento (del mayor al menor). Los testimonios revelan quién nació antes y quién después — leed con atención.
+
+> **Nota GM:** Impresa en la tapa interior de la caja de notario. Visible al abrirla. Ahora indica explícitamente que el orden de nacimiento está en los testimonios.
 
 ---
 
@@ -86,221 +87,27 @@ COMPARTID VUESTRO TESTIMONIO EN VOZ ALTA. UNA PRESENCIA CALLADA CAMBIA TODA LA H
 5. El cumpleaños aplazado
 6. La despedida en la estación
 
+> **Nota GM:** Impresos en las 6 casillas del tablero.
+
 ---
 
 #### Restricciones de los Testimonios
 
-**Testimonio 1:** Quien firmó ante el notario no era el menor de los hermanos.
+Testimonio 1: El hijo mayor firmó ante el notario.
 
-**Testimonio 2:** Elena aparece antes que Miguel, pero después de Carmen.
+Testimonio 2: Elena aparece antes que Miguel, pero después de Carmen.
 
-**Testimonio 3:** M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.
+Testimonio 3: M. Á. estuvo en la estación; Miguel no figura con su nombre completo allí.
 
-**Testimonio 4:** Luis no estuvo ni en la primera ni en la última presencia.
+Testimonio 4: Luis, nacido entre Carmen y Miguel, no estuvo antes que Miguel en los eventos.
 
-**Testimonio 5:** Carmen fue testigo de la tormenta, no de la foto sin rostro.
+Testimonio 5: Carmen fue testigo de la tormenta, no de la foto sin rostro.
 
-**Testimonio 6:** Marcos estuvo inmediatamente después de Elena.
+Testimonio 6: Marcos estuvo inmediatamente después de Elena.
 
-> **Nota GM:** Cada restricción en un sobre individual. Repartir una por jugador. Si hay más de 6 jugadores, algunos comparten sobres.
+Testimonio 7: M. Á. no lleva la sangre de Rodrigo. Llegó a la familia por otro camino.
 
----
-
-#### Fragmento de Carta de Elena (P2)
-
-Empatía fue escribir dos nombres para un mismo niño y confiar en que algún día ninguno de los dos le pesaría. Si encontráis dos presencias que se parecen demasiado, no separéis lo que la vida obligó a duplicar.
-
-Rodrigo usó su poder como quien mueve hilos de marioneta: cambió un nombre, borró un registro, cortó un cordón invisible. Pero el niño siguió existiendo.
-
----
-
-#### Carta de Navegación (P1 → P2)
-
-La caja deja al fondo una tarjeta: "No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan". Id al salón.
-
----
-
-#### Consejo Familiar (anti-monopolio)
-
-CONSEJO DE LA FAMILIA:
-Nadie coloca hasta que todas las voces hayan hablado.
-Nadie anuncia un código hasta que todas las fichas estén en su sitio.
-Cada testimonio lo lee su dueño, no otro.
-
-> **Nota GM:** Tarjeta in-game que el GM entrega junto con la caja de notario. Refuerza anti-monopolio de forma diegética.
-
----
-
-#### Carta 1 — Madrid, 1990
-
-Querida mamá:
-
-Te escribo desde el hospital. Hoy he operado a un niño de apendicitis y me ha recordado cuando yo me enfermaba de niño y tú me cuidabas toda la noche. Los turnos aquí en Madrid son largos, pero cuando salgo del hospital y veo el cielo de la ciudad, pienso en ti.
-
-Un abrazo, tu hijo mayor.
-
-> **Remitente:** Marcos (médico, Madrid, hijo mayor).
-
----
-
-#### Carta 2 — Sevilla, 1992
-
-Mamá querida:
-
-Los alumnos de mi clase me han preparado una sorpresa por el día del profesor. Me han dado un dibujo donde todos aparecen juntos. Me hizo llorar de emoción. Sevilla está preciosa en primavera, los naranjos están en flor. Ojalá pudieras venir a visitarme más a menudo.
-
-Te quiere, tu hija.
-
-> **Remitente:** Carmen (profesora, Sevilla).
-
----
-
-#### Carta 3 — Madrid, 1995
-
-Mamá:
-
-Perdón por no haber ido en Navidad. El hospital no me dejó salir. Lucía y los niños te mandan muchos besos. Sebastián ya dice "abuela" y no para de repetirlo. Me preocupa que papá no esté bien de salud, pero él no quiere que hablemos de eso.
-
-Un abrazo fuerte.
-
-> **Remitente:** Marcos (hospital, esposa Lucía, hijo Sebastián).
-
----
-
-#### Carta 4 — Barcelona, 1996
-
-Querida Elena:
-
-Sé que no te escribo mucho. Barcelona me ha cambiado, supongo. El estudio de arquitectura va bien, pero echo de menos la casa familiar. Ese ruido que hacía la puerta del salón, el tercer escalón que siempre rechinaba, los atardeceres en el jardín... A veces pienso que debería volver.
-
-Perdón por ser el que siempre se marcha. Papá siempre dijo que yo era el más débil de los tres, pero quizás el débil era el que se quedaba quieto mientras otros movían los hilos.
-
-Luis.
-
-> **Remitente:** Luis (arquitecto, Barcelona). Referencia a "movían los hilos" = tema de marionetas.
-
----
-
-#### Carta 5 — Sevilla, 1998
-
-Mamá:
-
-No puedo dejar de pensar en lo que me contaste la última vez que vine. Esa historia sobre tu juventud... Necesito saber más. Prometiste que me contarías toda la verdad algún día. Los niños de mi clase me preguntan por qué tengo tantas fotos antiguas en casa, y yo les digo que las fotos guardan secretos que solo los valientes pueden leer.
-
-Espero tu respuesta.
-
-> **Remitente:** Carmen (profesora, curiosidad por el secreto).
-
----
-
-#### Carta 6 — Madrid, 2000
-
-Mamá:
-
-He visto a papá en el hospital. No quiere que te lo diga, pero su corazón está débil. Dice que ya es hora de que la familia se reúna. Yo creo que tiene miedo de que su secreto — el vuestro — salga a la luz después de tanto tiempo. Sé que ocultáis algo, pero confío en vosotros.
-
-Tu hijo, que siempre estará ahí.
-
-> **Remitente:** Marcos (médico, confirma que hay un secreto).
-
----
-
-#### Carta 7 — Barcelona, 2003
-
-Elena:
-
-He terminado la reforma del edificio que te conté. Los arquitectos decimos que las casas tienen alma, que guardan la historia de quienes las habitan. La nuestra, la de nuestra familia, debe tener mil historias que nunca nos contaron. A veces pienso en volver y reconstruirla entera, escalón a escalón. Como una marioneta a la que hay que volver a ensartar los hilos.
-
-Tu hijo ausente.
-
-> **Remitente:** Luis (arquitecto, Barcelona, tono distante). Referencia a marionetas.
-
----
-
-#### Carta 8 — Sevilla, 2005
-
-Mamá querida:
-
-He ido a visitar tu casa y he encontrado una foto que no había visto nunca. ¿Quién es esa mujer joven con un bebé en brazos? Detrás pone "1963" pero no se parece a ningún bebé de la familia que yo conozco. Mis nietos Sebastián, Olivia y Leo son el SOL de mi vida, y quiero que ellos también conozcan toda la verdad, como me prometiste.
-
-Es hora, mamá. Es hora.
-
-> **Remitente:** Carmen. Referencia a nietos del cartel (Sebastián, Olivia, Leo). Menciona la foto misteriosa.
-
----
-
-## Prueba 2: El Retrato que Miente
-
-**Sala:** El Despacho de la Abuela  
-**Dificultad:** 3/10  
-**Duración estimada:** 8 minutos  
-**Cooperación obligatoria:** Sí  
-**Hilo conductor:** **E** — Empatía
-
-### Descripción
-
-Los jugadores descubren un retrato familiar incompleto en el despacho de Elena y una carpeta de restauración con 6 láminas transparentes. Cada lámina contiene una capa parcial de la imagen con marcas de esquina únicas. Al superponer las 6 capas en la configuración correcta, el doble fondo magnético del marco libera un compartimento oculto con la primera letra del hilo conductor (L = Lealtad) y un fragmento de carta de Elena. Una estrella GRANDE y DORADA en el lateral del marco invita a mirar en oblicuo, revelando la silueta de un niño bajo la pintura: alguien que fue borrado del retrato familiar. Un hilo rojo de marioneta conecta el marco con un diario en el escritorio.
-
-### Mecánica
-
-Exploración visual cooperativa con 6 capas transparentes sobre un retrato. Cada jugador sostiene una lámina y describe lo que ve. Las marcas de esquina numeradas solo coinciden en una configuración, lo que fuerza la colaboración.
-
-**Barrera:** Compartimento oculto de doble fondo magnético en el marco. Solo se libera cuando las 6 láminas están correctamente alineadas sobre el retrato base.
-
-**Roles:**
-- **Custodio del marco:** Mantiene el retrato fijo sobre la mesa. No decide solo la colocación.
-- **Observador lateral:** Mira desde la estrella del marco y pide microajustes.
-- **Cronista:** Anota L=Lealtad y guarda el sobre.
-- **Portadores de láminas:** Cada jugador sostiene 1 lámina y describe qué ve en su capa.
-
-**Rotación obligatoria:** El Custodio de P1 NO puede ser Custodio/Colocador en P2. El Observador lateral NO puede ser Lector en P2.
-
-### Pistas
-
-**Pista nivel 1 (Sutil):** El marco insiste en "todas las manos": no busquéis una lámina ganadora, buscad una imagen común. Las estrellas del margen son vuestra guía. *(Tras 3 minutos sin progreso)*
-
-**Pista nivel 2 (Directa):** Las esquinas de las láminas tienen marcas que encajan con el retrato base. Deslizad mientras alguien observa desde la estrella del lateral. *(Tras 5 minutos)*
-
-**Pista nivel 3 (Casi solución):** Colocad las 6 láminas sobre el retrato, alinead las marcas de esquina y mirad desde la estrella: ahí está el niño que fue borrado. El compartimento se libera solo. *(Tras 7 minutos)*
-
-### Solución
-
-Los jugadores superponen las 6 láminas transparentes sobre el retrato base, alineando las marcas de esquina únicas hasta que la imagen es nítida. La configuración correcta activa el mecanismo magnético del doble fondo del marco.
-
-**Pasos:**
-1. Encontrar la carpeta de restauración en el cajón abierto del escritorio
-2. Cada jugador toma una lámina distinta y describe lo que ve en su capa
-3. Identificar las marcas de esquina numeradas en cada lámina
-4. Alinear las 6 láminas sobre el retrato base, buscando la única configuración donde todas las marcas coinciden
-5. Una vez alineadas, el doble fondo magnético libera el compartimento
-6. Recoger la letra L y el sobre sellado del interior
-7. Mirar desde la estrella del lateral en oblicuo para ver la silueta de un niño bajo la pintura: alguien que Rodrigo hizo desaparecer del retrato
-8. Leer el fragmento de carta de Elena y la carta de navegación que dirige al tablero del despacho
-9. El diario de Elena en el escritorio proporciona contexto narrativo adicional
-
-**Recompensa:** Letra **E** (Empatía). El sobre contiene un fragmento de carta de Elena sobre la lealtad de guardar un secreto por protección, y una carta de navegación que dirige al Tablero de las Presencias (P2). Revelación narrativa: un niño fue pintado encima en el retrato; existe un ausente en la familia. Rodrigo movió los hilos para borrarlo.
-
-### Barrera Física
-
-- **Tipo:** Compartimento oculto
-- **Ubicación:** Doble fondo del marco del retrato
-- **Código:** Alineación de las 6 capas
-
-### Documentos In-Game
-
-#### Instrucción del Marco
-
-SOLO CUANDO TODAS LAS MANOS SOSTIENEN LA VERDAD, LA IMAGEN SE REVELA.
-
-> **Nota GM:** Impresa o grabada en el marco del retrato. Visible desde el inicio. Las estrellas del margen son GRANDES, DORADAS y muy visibles.
-
----
-
-#### Etiqueta de la Carpeta de Restauración
-
-Restauración del retrato familiar. No retirar capas. Elena insistió: mirar juntos.
-
-> **Nota GM:** Pegada en la carpeta que contiene las 6 láminas.
+> **Nota GM:** Cada restricción en un sobre individual. Repartir una por jugador. Con 7 testimonios y hasta 6 jugadores, al menos un jugador recibe 2 sobres. Si hay menos de 6 jugadores, algunos reciben más. Testimonio 7 descarta directamente a M. Á. como hijo de Rodrigo (llegó por otro camino).
 
 ---
 
@@ -312,19 +119,245 @@ Lealtad no fue callar por miedo, sino guardar una vida hasta que pudiera ser nom
 
 Rodrigo movía los hilos de esta familia con mano firme. Pero ni él pudo cortar del todo el hilo que nos unía a quien faltaba.
 
-> **Nota GM:** Dentro del sobre sellado encontrado en el compartimento del marco. Referencia a Rodrigo y los hilos de marioneta.
+> **Nota GM:** Dentro de la caja de notario. Referencia a Rodrigo y los hilos de marioneta.
+
+---
+
+#### Carta de Navegación (P1 → P2)
+
+Carta de Elena: "Buscad el retrato familiar que cuelga en la pared del despacho. Hay quien fue borrado de la imagen, pero no de la memoria. Elena dejó un papel verde para ver lo que los ojos no pueden."
+
+> **Nota GM:** En el fondo de la caja de notario. Guía al retrato para P2.
+
+---
+
+#### Consejo Familiar (anti-monopolio)
+
+CONSEJO DE LA FAMILIA:
+Nadie coloca hasta que todas las voces hayan hablado.
+Nadie anuncia un código hasta que todas las fichas estén en su sitio.
+Cada testimonio lo lee su dueño, no otro.
+
+> **Nota GM:** DENTRO de la caja de notario, visible al abrirla. No entregada por GM. Refuerza anti-monopolio de forma diegética.
+
+---
+
+#### Plantilla de Tabla para Restricciones
+
+Tabla de 6 columnas (eventos) x 6 filas (personajes) para anotar SÍ/NO según las restricciones compartidas. Encabezado: La tarde de la tormenta | La visita al médico | La firma ante el notario | La foto sin rostro | El cumpleaños aplazado | La despedida en la estación. Filas: Elena | Marcos | Carmen | Luis | Miguel | M.Á.
+
+> **Nota GM:** Hoja impresa con tabla vacía. DENTRO de la caja de notario, junto al tablero. Ayuda a descargar cognitivamente y evita monopolio.
+
+---
+
+#### Carta 1 - Madrid, 1990 (Documento in-game complementario)
+
+Querida mamá:
+
+Te escribo desde el hospital. Hoy he operado a un niño de apendicitis y me ha recordado cuando yo me enfermaba de niño y tú me cuidabas toda la noche. Los turnos aquí en Madrid son largos, pero cuando salgo del hospital y veo el cielo de la ciudad, pienso en ti.
+
+Un abrazo, tu hijo mayor.
+
+> **Nota GM:** Remitente: Marcos (médico, Madrid, hijo mayor). Las cartas son documentos in-game que dan contexto narrativo. No son la prueba principal.
+
+---
+
+#### Carta 2 - Sevilla, 1992 (Documento in-game complementario)
+
+Mamá querida:
+
+Los alumnos de mi clase me han preparado una sorpresa por el día del profesor. Me han dado un dibujo donde todos aparecen juntos. Me hizo llorar de emoción. Sevilla está preciosa en primavera, los naranjos están en flor. Ojalá pudieras venir a visitarme más a menudo.
+
+Te quiere, tu hija.
+
+> **Nota GM:** Remitente: Carmen (profesora, Sevilla).
+
+---
+
+#### Carta 3 - Madrid, 1995 (Documento in-game complementario)
+
+Mamá:
+
+Perdón por no haber ido en Navidad. El hospital no me dejó salir. Lucía y los niños te mandan muchos besos. Sebastián ya dice 'abuela' y no para de repetirlo. Me preocupa que papá no esté bien de salud, pero él no quiere que hablemos de eso.
+
+Un abrazo fuerte.
+
+> **Nota GM:** Remitente: Marcos (hospital, esposa Lucía, hijo Sebastián).
+
+---
+
+#### Carta 4 - Barcelona, 1996 (Documento in-game complementario)
+
+Querida Elena:
+
+Sé que no te escribo mucho. Barcelona me ha cambiado, supongo. El estudio de arquitectura va bien, pero echo de menos la casa familiar. Ese ruido que hacía la puerta del salón, el tercer escalón que siempre rechinaba, los atardeceres en el jardín... A veces pienso que debería volver.
+
+Perdón por ser el que siempre se marcha. Papá siempre dijo que yo era el más débil de los tres, pero quizás el débil era el que se quedaba quieto mientras otros movían los hilos.
+
+Luis.
+
+> **Nota GM:** Remitente: Luis (arquitecto, Barcelona). Referencia a 'movían los hilos' = tema de marionetas.
+
+---
+
+#### Carta 5 - Sevilla, 1998 (Documento in-game complementario)
+
+Mamá:
+
+No puedo dejar de pensar en lo que me contaste la última vez que vine. Esa historia sobre tu juventud... Necesito saber más. Prometiste que me contarías toda la verdad algún día. Los niños de mi clase me preguntan por qué tengo tantas fotos antiguas en casa, y yo les digo que las fotos guardan secretos que solo los valientes pueden leer.
+
+Espero tu respuesta.
+
+> **Nota GM:** Remitente: Carmen (profesora, curiosidad por el secreto).
+
+---
+
+#### Carta 6 - Madrid, 2000 (Documento in-game complementario)
+
+Mamá:
+
+He visto a papá en el hospital. No quiere que te lo diga, pero su corazón está débil. Dice que ya es hora de que la familia se reúne. Yo creo que tiene miedo de que su secreto — el vuestro — salga a la luz después de tanto tiempo. Sé que ocultáis algo, pero confío en vosotros.
+
+Tu hijo, que siempre estará ahí.
+
+> **Nota GM:** Remitente: Marcos (médico, confirma que hay un secreto).
+
+---
+
+#### Carta 7 - Barcelona, 2003 (Documento in-game complementario)
+
+Elena:
+
+He terminado la reforma del edificio que te conté. Los arquitectos decimos que las casas tienen alma, que guardan la historia de quienes las habitan. La nuestra, la de nuestra familia, debe tener mil historias que nunca nos contaron. A veces pienso en volver y reconstruirla entera, escalón a escalón. Como una marioneta a la que hay que volver a ensartar los hilos.
+
+Tu hijo ausente.
+
+> **Nota GM:** Remitente: Luis (arquitecto, Barcelona, tono distante). Referencia a marionetas.
+
+---
+
+#### Carta 8 - Sevilla, 2005 (Documento in-game complementario)
+
+Mamá querida:
+
+He ido a visitar tu casa y he encontrado una foto que no había visto nunca. ¿Quién es esa mujer joven con un bebé en brazos? Detrás pone '1983' pero no se parece a ningún bebé de la familia que yo conozca. Mis sobrinos Sebastián, Olivia y Leo son el SOL de mi vida, y quiero que ellos también conozcan toda la verdad, como me prometiste.
+
+Es hora, mamá. Es hora.
+
+> **Nota GM:** Remitente: Carmen. Referencia a nietos del cartel (Sebastián, Olivia, Leo). Menciona la foto misteriosa.
+
+---
+
+---
+
+## Prueba 2: El Retrato que Miente
+
+**Sala:** El Despacho de la Abuela  
+**Dificultad:** 3/10  
+**Duración estimada:** 3 minutos  
+**Cooperación obligatoria:** Sí  
+**Hilo conductor:** **E** — Empatía
+
+### Descripción
+
+Los jugadores descubren un retrato familiar enmarcado en el despacho de Elena. El retrato muestra a la familia completa, pero algo falta: un niño fue borrado de la imagen. En un cajón del escritorio hay una carpeta de restauración que contiene una hoja de papel ferromagnético verde (detector de magnetismo) y una nota de Elena. Al descolgar el retrato para examinarlo, encuentran en su reverso una inscripción manuscrita de Elena. Detrás del panel trasero del marco, imanes neodimio ocultos forman un CÓDIGO NUMÉRICO de 3 dígitos (5-2-8). Al pasar el papel verde por la parte trasera del marco, los imanes se revelan como puntos agrupados en 3 columnas: 5 puntos | 2 puntos | 8 puntos. Con ese código abren un candado de combinación de 3 dígitos que cierra una caja de madera vintage en el escritorio. Dentro de la caja encuentran la letra E física y un sobre sellado con el fragmento de carta de Elena y la carta de navegación. Un hilo rojo de marioneta conecta el marco con el diario del escritorio.
+
+### Mecánica
+
+Detección magnética cooperativa con código numérico. Los jugadores usan una hoja de papel ferromagnético verde (detector de magnetismo) para escanear la parte trasera del marco del retrato familiar. Imanes neodimio ocultos detrás del panel trasero del marco están organizados en 3 columnas con 5, 2 y 8 imanes respectivamente. El papel verde reacciona al magnetismo, revelando puntos oscuros. Los jugadores deben contar los puntos de cada columna para obtener el código 5-2-8. Con ese código abren un candado de combinación de 3 dígitos que cierra una caja de madera vintage en el escritorio.
+
+**Barrera:** CANDADO DE COMBINACIÓN de 3 dígitos (código 5-2-8) — Código: 5-2-8 — Ubicación: Caja de madera vintage en el escritorio del despacho
+
+**Roles:**
+
+- **Explorador Magnetico:** Pasa el papel verde por la parte trasera del marco para detectar los imanes ocultos.
+- **Marcador:** Marca con lápiz o notas adhesivas las posiciones donde el papel verde reacciona.
+- **Contador:** Cuenta los imanes detectados en cada columna y anota los 3 números del código.
+- **Cronista:** Lee el diario de Elena y la inscripción del reverso del retrato.
+- **Custodio Marco:** Sostiene el marco estable sobre la mesa (lado trasero hacia arriba) mientras los otros escanean.
+
+### Pistas
+
+**Pista nivel 1 (Sutil):** La etiqueta de la carpeta dice que Elena usaba el papel verde para ver lo que los ojos no pueden. Descolgad el retrato y pasad el papel verde por la parte de atrás, despacio. *(Tras 3 minutos sin progreso)*
+
+**Pista nivel 2 (Directa):** El papel verde reacciona donde hay imanes ocultos. Escanead todo el reverso del marco y marcad cada punto. Los imanes están agrupados en columnas. Contad cuántos puntos hay en cada columna: esos son los números del código del candado. *(Tras 5 minutos sin progreso o petición de pista)*
+
+**Pista nivel 3 (Casi_Solucion):** Los imanes detrás del marco están en 3 columnas verticales. Pasad el papel verde por cada zona, contad los puntos de cada columna de izquierda a derecha. El resultado es un código de 3 cifras para el candado de la caja. *(Tras 7 minutos o petición explícita)*
+
+### Solución
+
+Los jugadores encuentran la carpeta de restauración con el papel ferromagnético verde. Descuelgan el retrato y encuentran la inscripción de Elena en el reverso. Escanean la parte trasera del marco con el papel verde, detectando imanes agrupados en 3 columnas (5, 2 y 8 imanes). Con el código 5-2-8 abren el candado de la caja de madera vintage. Dentro encuentran la letra E física y un sobre sellado.
+
+**Pasos:**
+
+Encontrar la carpeta de restauración en el cajón abierto del escritorio.
+Dentro hay una hoja de papel ferromagnético verde y una nota de Elena.
+Leer la etiqueta de la carpeta: 'El papel verde revela lo que los ojos no pueden ver.'
+Notar el retrato familiar en la pared. La cinta roja (hilo de marioneta) lo conecta con el diario.
+Descolgar el retrato. En el reverso hay una inscripción manuscrita de Elena sobre un 'ausente' y una instrucción: 'Mirad donde los ojos no llegan.'
+Un jugador (Explorador Magnético) pasa el papel verde despacio por la parte trasera del marco.
+El papel verde reacciona (se oscurece) donde hay imanes — aparecen puntos en 3 columnas verticales.
+Otros jugadores marcan cada punto de reacción.
+Un jugador (Contador) cuenta los imanes de cada columna: 5, 2, 8.
+Probar el código 5-2-8 en el candado de la caja de madera vintage del escritorio.
+El candado se abre. Dentro: la letra E física + sobre sellado.
+Leer el fragmento de carta de Elena (E = Empatía) y la carta de navegación hacia P3.
+Opcional: mirar el retrato desde ángulo oblicuo para notar la silueta borrada de un niño.
+El diario de Elena proporciona contexto narrativo sobre la lealtad y los hilos de la marioneta.
+
+**Recompensa:** Letra **E** (Empatía). Un niño fue pintado encima en el retrato: existe un ausente en la familia. Rodrigo movió los hilos para borrarlo. Elena guardó el secreto por empatía, protegiendo dos nombres para un mismo niño.
+
+### Barrera Física
+
+- **Tipo:** CANDADO DE COMBINACIÓN de 3 dígitos (código 5-2-8)
+- **Ubicación:** Caja de madera vintage en el escritorio del despacho
+- **Código:** 5-2-8
+
+### Documentos In-Game
+
+#### Inscripción en el Reverso del Retrato
+
+Este retrato miente. Hubo uno más entre nosotros.
+
+Rodrigo lo borró con la misma mano con la que movía nuestros hilos. Yo guardé su recuerdo donde los ojos no llegan.
+
+Mirad detrás. Usad el papel verde.
+
+— E.
+
+> **Nota GM:** Escrita a mano (o impresa en estilo manuscrito) en el reverso del retrato. Solo visible al descolgar el marco. Momento revelación.
+
+---
+
+#### Etiqueta de la Carpeta de Restauración
+
+Restauración del retrato familiar.
+
+Dentro encontraréis una hoja verde de detección magnética. Elena escribió: 'El papel verde revela lo que los ojos no pueden ver. Pasadlo por DETRÁS del marco, despacio.'
+
+> **Nota GM:** Pegada en la carpeta que contiene la hoja de papel ferromagnético verde. Encontrada en el cajón del escritorio.
+
+---
+
+#### Fragmento de Carta de Elena (P2)
+
+Empatía fue escribir dos nombres para un mismo niño y confiar en que algún día ninguno de los dos le pesaría. Si encontráis una ausencia en esta casa, no la acuséis todavía. Preguntad primero a los lugares donde todos estuvimos presentes.
+
+Rodrigo movía los hilos de esta familia con mano firme. Pero ni él pudo cortar del todo el hilo que nos unía a quien faltaba.
+
+> **Nota GM:** Dentro de la caja de madera. Referencia a Rodrigo y los hilos de marioneta.
 
 ---
 
 #### Carta de Navegación (P2 → P3)
 
-Bajo el retrato, Elena anotó: "Las presencias no siempre aparecen en las fotos. A veces se esconden en el orden de una mesa."
+Bajo el retrato, Elena anotó: "No todas las presencias se ven. Algunas se escuchan en cómo se recuerdan. Id al salón."
 
-> **Nota GM:** En el mismo sobre. Guía al tablero del despacho para P2.
+> **Nota GM:** En el mismo sobre. Guía al Salón Familiar para P3.
 
 ---
 
-#### Diario de la Abuela Elena — Página 1 (Entrada de 1962)
+#### Diario de la Abuela Elena - Página 1 (Entrada de 1962)
 
 **Primavera de 1962**
 
@@ -340,11 +373,11 @@ Papi me regaló un collar de perlas que perteneció a su madre. Dijo que las per
 
 ★ *Recuerdo haber leído en algún sitio que las familias son como los árboles: las raíces pueden ser invisibles, pero sostienen todo.*
 
-> **Nota GM:** El diario es DOCUMENTO COMPLEMENTARIO en el escritorio. Las estrellas (★) marcan los párrafos del acróstico (L-E-E-R) como guiño a la versión anterior, pero aquí la prueba principal es el retrato con acetatos.
+> **Nota GM:** El diario es DOCUMENTO COMPLEMENTARIO. Las estrellas marcan párrafos del acróstico (L-E-E-R) como guiño a versión anterior.
 
 ---
 
-#### Diario de la Abuela Elena — Página 2 (Entrada de 1985)
+#### Diario de la Abuela Elena - Página 2 (Entrada de 1985)
 
 **Octubre de 1985**
 
@@ -356,11 +389,11 @@ Rodrigo trabajó hasta tarde otra vez. La casa está en silencio y yo escribo pa
 
 Guardo un secreto que pesa como una montaña. Hay noches en las que me despierto sobresaltada, pensando en el día en que todo tendrá que salir a la luz. Pero no hoy. Hoy protejo.
 
-> **Nota GM:** Contexto narrativo. Referencia a Rodrigo como figura dominante que mueve los hilos.
+> **Nota GM:** Contexto narrativo. Referencia a Rodrigo como figura dominante.
 
 ---
 
-#### Diario de la Abuela Elena — Página 3 (Entrada de 2005)
+#### Diario de la Abuela Elena - Página 3 (Entrada de 2005)
 
 **Marzo de 2005**
 
@@ -370,244 +403,317 @@ Si alguno de mis nietos lee esto algún día, quiero que sepa que todo lo que hi
 
 He escondido pistas por toda la casa. Si alguien es lo suficientemente paciente y trabajador para seguirlas, encontrará la verdad que dejé preparada.
 
-El reloj del salón marca siempre la misma hora: las tres y cuarto. Ese fue el momento en que todo cambió. Nunca lo olvidé.
+El reloj del salón marca siempre la misma hora: las tres y cuarto. Ese fue el momento en que todo cambió. Nunca lo olvidó.
 
 A veces, la única forma de proteger es callar. Pero el silencio tiene fecha de caducidad.
 
-> **Nota GM:** Referencia directa a los nietos del cartel: Sebastián, Olivia, Leo y Sofía. Lucía = Madre del cartel.
+> **Nota GM:** Referencia directa a los nietos: Sebastián, Olivia, Leo y Sofía. Lucía = Madre del cartel.
+
+---
 
 ---
 
 ## Prueba 3: Las Voces que No se Muestran
 
 **Sala:** El Salón Familiar  
-**Dificultad:** 4/10  
-**Duración estimada:** 6 minutos  
+**Dificultad:** 5/10  
+**Duración estimada:** 5 minutos  
 **Cooperación obligatoria:** Sí  
 **Hilo conductor:** **G** — Generosidad
 
 ### Descripción
 
-En el Salón Familiar, los jugadores encuentran un álbum familiar sin fotos en funda de terciopelo sepia con sello de Elena. Contiene 8 tarjetas: 4 Momentos (eventos familiares) y 4 Recuerdos (citas de Elena). El grupo se divide en dos equipos que NO pueden mostrar sus tarjetas, solo describirlas. Emparejando por detalles sensoriales compartidos, descubren las 4 parejas con sello rojo cuyos años, ordenados cronológicamente, forman el código de 4 dígitos (1987). Las iniciales de los 4 Recuerdos forman AMOR, revelando que Elena dejó amor, no reproche. Un hilo rojo de marioneta conecta las páginas del álbum.
+En el Salón Familiar, los jugadores encuentran un álbum familiar en funda de terciopelo sepia con sello de Elena. El álbum tiene 6 FOTOGRAFÍAS fijas en sus páginas, cada una con su fecha visible (1962, 1965, 1968, 1970, 1973, 1975). Junto al álbum hay 4 tarjetas SUELTAS con Recuerdos de Elena. Los jugadores deben descubrir qué 4 de las 6 fotos conectan con los recuerdos por detalles sensoriales (lluvia, tren, pañuelo, maleta). Las 2 fotos sin recuerdo son distracciones. Cada foto tiene un SELLO RASPABLE: las 4 correctas revelan un DÍGITO; las 2 falsas revelan una HOJA con el texto 'Sigue buscando'. Al confirmar una pareja foto-recuerdo, se raspa el sello. Si aparece una hoja, la foto no era la correcta. Los 4 dígitos ordenados por fecha forman 7391. Las iniciales de los 4 Recuerdos forman AMOR.
 
 ### Mecánica
 
-Emparejamiento verbal: dos equipos con tarjetas distintas que NO pueden mostrarse entre sí. Solo pueden describir detalles sensoriales. El grupo debe emparejar 4 Momentos con 4 Recuerdos por descripción compartida.
+Emparejamiento cooperativo con descarte. El álbum tiene 6 fotos fijas con fecha visible (1962, 1965, 1968, 1970, 1973, 1975) y 4 tarjetas de Recuerdo sueltas. Los jugadores leen recuerdos, buscan qué fotos conectan por detalles sensoriales, y descartan las 2 que no tienen pareja. Los sellos raspables dan feedback: dígito = pareja correcta, hoja 'Sigue buscando' = foto sin recuerdo. Esto elimina la necesidad de GM y da confirmación automática.
 
-**Barrera:** Candado de 4 dígitos configurado a 1987. Las 4 parejas con sello rojo, ordenadas cronológicamente, dan los dígitos.
+**Barrera:** Candado de 4 dígitos — Código: 7391 — Ubicación: Bolsillo lateral del álbum
 
 **Roles:**
-- **Equipo Momentos** (2-4 jugadores) — Describen eventos sin mostrar tarjetas
-- **Equipo Recuerdos** (2-4 jugadores) — Describen emociones/objetos sin mostrar tarjetas
-- **Secretario** — Dibuja tabla de parejas en hoja. Es quien fue Observador en P1
-- **Ordenador** — Organiza parejas por año/sello. NO fue Colocador en P2
+
+- **Albumista:** Pasa las páginas del álbum y lee las fechas de cada foto.
+- **Lector Recuerdos:** Lee en voz alta las tarjetas de Recuerdo.
+- **Emparejador:** Propone qué recuerdo va con qué foto basándose en conexiones sensoriales.
+- **Anotador:** Anota las parejas confirmadas (las que dan dígito) y los números en orden cronológico.
 
 ### Pistas
 
-**Pista nivel 1 (Sutil):** No intentéis memorizarlo todo: anotad palabras concretas que se repiten entre Momentos y Recuerdos. *(Tras 2 minutos)*
+**Pista nivel 1 (Sutil):** No todas las fotos tienen un recuerdo. Leed los recuerdos con atención: cada uno menciona un objeto o sensación concreta. Buscad ESE detalle en las fotos. *(Tras 3 minutos sin progreso)*
 
-**Pista nivel 2 (Directa):** Los objetos son puentes: tren, pañuelo, vela, maleta. Emparejad por esos detalles. *(Tras 4 minutos)*
+**Pista nivel 2 (Directa):** Los recuerdos mencionan: lluvia, tren, pañuelo y maleta. Buscad las fotos que contengan esos elementos. Las fotos que no tengan ninguno de esos detalles son las que sobran. *(Tras 5 minutos sin progreso o petición de pista)*
 
-**Pista nivel 3 (Casi solución):** Ordenad las parejas con sello rojo: 1-9-8-7. Las iniciales ordenadas dicen AMOR. *(Tras 6 minutos)*
+**Pista nivel 3 (Casi_Solucion):** Las fotos correctas son: 1962 (lluvia/boda), 1965 (tren de madera), 1970 (pañuelo), 1975 (maleta/andén). Las de 1968 y 1973 no conectan con ningún recuerdo. Código por fecha: 7-3-9-1. *(Tras 7 minutos o petición explícita)*
 
 ### Solución
 
-Los jugadores emparejan las 4 tarjetas Momento con las 4 tarjetas Recuerdo mediante descripción verbal. Todas las parejas tienen sello rojo. Ordenadas cronológicamente dan 1987. Las iniciales forman A-M-O-R.
-
-**Emparejamiento correcto:**
-- M1 + Recuerdo M — Boda/lluvia → Sello 1
-- M2 + Recuerdo R — Verano/tren → Sello 9
-- M3 + Recuerdo A — Fiebre/pañuelo → Sello 8
-- M4 + Recuerdo O — Estación/maleta → Sello 7
+Los jugadores examinan las 6 fotos del álbum y las 4 tarjetas de Recuerdo. Leen los recuerdos en voz alta y buscan conexiones sensoriales con las fotos. Solo 4 de las 6 fotos conectan con un recuerdo (lluvia, tren, pañuelo, maleta). Las 2 restantes (1968: bautizo, 1973: Nochebuena) no tienen pareja. Al confirmar una pareja, raspan el sello: si aparece un dígito, es correcta; si aparece una hoja con 'Sigue buscando', esa foto no tiene recuerdo. Los 4 dígitos ordenados por fecha cronológica (1962, 1965, 1970, 1975) dan 7391.
 
 **Pasos:**
-1. Encontrar el álbum en el Salón Familiar
-2. Abrir el álbum y encontrar 8 tarjetas: 4 Momentos y 4 Recuerdos
-3. Leer la instrucción impresa: NO ENSEÑÉIS VUESTRAS TARJETAS. DESCRIBIDLAS
-4. Dividirse en dos equipos: Momentos y Recuerdos
-5. Cada jugador describe detalles sensoriales de sus tarjetas
-6. Emparejar por detalles compartidos: tren, pañuelo, lluvia, maleta
-7. Todas las parejas tienen sello rojo con año
-8. Ordenar cronológicamente los años: 1987
-9. Abrir el candado del bolsillo lateral del álbum
-10. Las iniciales de los 4 Recuerdos forman A-M-O-R = AMOR
-11. Recoger la letra G y la hoja que dirige al árbol genealógico
 
-**Recompensa:** Letra **G** (Generosidad). Fragmento de Elena sobre la generosidad como forma silenciosa de seguir amando. Revelación narrativa: Elena dejó amor (AMOR), no reproche; la familia recibió amor aunque no entendiera el secreto. Los hilos de la marioneta estaban movidos por amor, no por maldad.
+Encontrar el álbum en el Salón Familiar y el sobre de Recuerdos junto a él.
+Leer la instrucción en la primera página del álbum.
+Pasar las páginas: 6 fotos fijas, cada una con FECHA visible (1962, 1965, 1968, 1970, 1973, 1975).
+Abrir el sobre 'Lo que Elena recordó' y extender las 4 tarjetas Recuerdo.
+Leer los recuerdos en voz alta. Cada uno menciona un objeto o sensación.
+Buscar conexiones: hay 6 fotos pero solo 4 recuerdos. ¿Qué fotos conectan?
+Conexiones correctas: Foto 1962 (boda/lluvia) ↔ M (mancha de lluvia). Foto 1965 (verano/tren) ↔ R (recordé el tren). Foto 1970 (fiebre/pañuelo) ↔ A (acaricié el pañuelo). Foto 1975 (estación/maleta) ↔ O (maleta esperando tren).
+Fotos SIN conexión: Foto 1968 (bautizo) — ningún recuerdo menciona bautizo, fuente o mantón. Foto 1973 (Nochebuena) — ningún recuerdo menciona navidad, árbol o regalo.
+Al confirmar una pareja por consenso → raspar el SELLO PLATEADO de la foto.
+Si aparece un DÍGITO → pareja correcta. Si aparece una HOJA con 'Sigue buscando' → esa foto no tiene recuerdo, probar otra.
+Anotar los 4 dígitos en orden de fecha: 1962=7, 1965=3, 1970=9, 1975=1 → código 7391.
+Abrir el candado del bolsillo lateral del álbum con 7391.
+Las iniciales de los Recuerdos en orden cronológico: M-R-A-O → reordenadas forman AMOR.
+Recoger la letra G, el fragmento de carta de Elena y la carta de navegación.
+
+**Recompensa:** Letra **G** (Generosidad). Elena dejó amor (AMOR), no reproche. Los hilos de la marioneta estaban movidos por amor, no por maldad.
 
 ### Barrera Física
 
 - **Tipo:** Candado de 4 dígitos
-- **Ubicación:** Bolsillo lateral del álbum / caja pequeña
-- **Código:** 1987
+- **Ubicación:** Bolsillo lateral del álbum
+- **Código:** 7391
 
 ### Documentos In-Game
 
 #### Instrucción del Álbum
 
-NO ENSEÑÉIS VUESTRAS TARJETAS. DESCRIBIDLAS. UNA FAMILIA NO RECUERDA CON LOS OJOS DE UNA SOLA PERSONA. Si la enseñas, Elena deja de escuchar.
+CADA FOTO GUARDA UN RECUERDO. PERO NO TODAS.
+
+Pasad las páginas del álbum. Hay más fotos que recuerdos.
+
+Leed los recuerdos que Elena guardó. Colocad cada recuerdo junto a la foto que le corresponde. Buscad detalles que conecten: objetos, lugares, sensaciones.
+
+Los sellos plateados ocultan números… o algo distinto. Si aparece un número, esa foto tiene dueño. Si aparece una hoja, seguid buscando.
+
+⚠ NO raspéis el sello de ninguna tarjeta hasta que TODOS estéis de acuerdo en la pareja. Las capas ocultas son de un solo uso: una vez raspadas, no se pueden volver a usar. Si raspáis una foto incorrecta, perdéis una pista.
+
+Ordenad los números por fecha, de la más antigua a la más reciente.
 
 > **Nota GM:** Impresa en la primera página del álbum.
 
 ---
 
-#### Tarjetas Momento
+#### Fotografías del Álbum (fijas, con fecha + sello raspable)
 
-**M1 — Boda en San Pedro.** Lluvia, arroz pegado al abrigo, campanas tarde. Sello rojo: 1.
+FOTO 1 — Boda en San Pedro, 1962. Fotografía en sepia: pareja joven saliendo de una iglesia bajo lluvia, arroz pegado al abrigo del novio, campanas al fondo. [FECHA: 1962] [SELLO RASPABLE: DÍGITO 7]
 
-**M2 — Primer verano en la casa.** Un tren de madera bajo la mesa. Sello rojo: 9.
+FOTO 2 — Primer verano en la casa, 1965. Fotografía en color desaturado: niño jugando con un tren de madera bajo una mesa de madera, luz dorada de julio. [FECHA: 1965] [SELLO RASPABLE: DÍGITO 3]
 
-**M3 — Noche de fiebre.** Pañuelo blanco junto a una taza azul. Sello rojo: 8.
+FOTO 3 — Bautizo del pequeño, 1968. Fotografía en sepia: fuente bautismal de piedra, mantón blanco bordado, la madrina con ramo de azahar. [FECHA: 1968] [SELLO RASPABLE: HOJA 'Sigue buscando']
 
-**M4 — Estación del Norte.** Maleta marrón, andén 4, silbato largo. Sello rojo: 7.
+FOTO 4 — Noche de fiebre, 1970. Fotografía en sepia cálido: plano de una mesita de noche con un pañuelo blanco doblado junto a una taza azul, termómetro al lado. [FECHA: 1970] [SELLO RASPABLE: DÍGITO 9]
 
-> **Nota GM:** Cada Momento en tarjeta individual. Todas tienen sello rojo con dígito visible.
+FOTO 5 — Nochebuena en familia, 1973. Fotografía en color desaturado: árbol de navidad con luces, mesa con manteles rojos, niños abriendo regalos. [FECHA: 1973] [SELLO RASPABLE: HOJA 'Sigue buscando']
+
+FOTO 6 — Estación del Norte, 1975. Fotografía en blanco y negro: andén con una maleta marrón sola, un silbato de vapor desvaneciéndose, letrero 'Andén 4'. [FECHA: 1975] [SELLO RASPABLE: DÍGITO 1]
+
+> **Nota GM:** 6 fotos. 4 correctas con dígito. 2 distractoras con hoja.
 
 ---
 
-#### Tarjetas Recuerdo
+#### Tarjetas Recuerdo (sueltas, en sobre)
 
-**A** — Acaricié aquel pañuelo hasta que dejó de parecer despedida.
+M — Mi vestido guardó una mancha de lluvia porque aquel día prometimos no soltarnos.
 
-**M** — Mi vestido guardó una mancha de lluvia porque aquel día prometimos no soltarnos.
+R — Recordé el tren porque nadie debe irse sin saber volver.
 
-**O** — Olvidé encender la vela de más; algunas esperanzas arden por dentro.
+A — Acaricié aquel pañuelo hasta que dejó de parecer despedida.
 
-**R** — Recordé el tren porque nadie debe irse sin saber volver.
+O — Olvidé encender la vela del andén; la maleta quedó esperando un tren que nunca llegó. Algunas esperanzas arden por dentro.
 
-> **Nota GM:** Cada Recuerdo en tarjeta individual. Las iniciales forman A-M-O-R. Emparejamiento: A=pañuelo(M3), M=lluvia(M1), O=vela/maleta(M4), R=tren(M2).
+> **Nota GM:** 4 tarjetas sueltas. Iniciales M-R-A-O (AMOR).
 
 ---
 
 #### Fragmento de Carta de Elena (P3)
 
+Mis queridos niños:
+
 Generosidad fue la forma más silenciosa de seguir cuidándoos. Si alguna vez os pareció que callaba demasiado, perdonadme: estaba guardando una puerta abierta.
 
 Rodrigo creía que los hilos de una familia se controlan con mano firme. Yo creo que se sostienen con manos que no sueltan nunca.
+
+> **Nota GM:** Dentro del bolsillo lateral del álbum (cerrado con candado).
 
 ---
 
 #### Carta de Navegación (P3 → P4)
 
-Entre las páginas finales aparece una hoja de árbol: "Los recuerdos tienen raíces. Buscad el árbol que no se atrevió a escribir todos sus nombres".
+Carta de Elena: 'El árbol familiar que siempre estuvo incompleto en el salón... Rodrigo hizo que le faltaran ramas. Buscad el tubo de cartón que dice Ramas Pendientes. Tenéis que completar lo que él dejó a medias.'
+
+> **Nota GM:** Insertada en las últimas páginas del álbum.
+
+---
 
 ---
 
 ## Prueba 4: El Árbol que Faltaba
 
 **Sala:** El Salón Familiar  
-**Dificultad:** 5/10  
-**Duración estimada:** 10 minutos  
+**Dificultad:** 6/10  
+**Duración estimada:** 6 minutos  
 **Cooperación obligatoria:** Sí  
 **Hilo conductor:** **A** — Amor
 
 ### Descripción
 
-La hoja de P3 lleva a un tubo de arquitecto familiar con un plano enrollado del árbol genealógico y 8 tarjetas-hoja para injertar nombres. Los jugadores describen (sin mostrar) sus tarjetas y colocan cada una en el hueco correcto del árbol. Cada hueco tiene una pista contextual, y cada tarjeta es 100% autosuficiente (cero dependencia de P1-P3). Al completar el árbol correctamente, las ramas marcadas con lunas indican el orden de lectura de 5 letras grabadas en el marco: ALVAR. El cryptex se abre revelando el certificado adoptivo de Miguel y la letra A.
+La carta de navegación de P3 lleva a un tubo de arquitecto familiar con un plano del árbol genealógico y 10 tarjetas de personaje (nombre + descripción + frase). Los jugadores colocan cada personaje en su hueco del póster usando nombre y descripción. Una vez colocados, usan la Hoja de Coordenadas para extraer palabras específicas de las frases. La primera letra de cada palabra extraída forma ALVARO para el cryptex de 6 letras.
 
 ### Mecánica
 
-Árbol genealógico autosuficiente con 8 huecos y 8 tarjetas-hoja. Los jugadores describen sus tarjetas (sin mostrar) y colocan cada una en el hueco que le corresponde por pistas contextuales impresas en el póster. Al completar, las ramas con lunas revelan el código del cryptex.
+Árbol genealógico con colocación directa por nombre + extracción por coordenadas. 10 tarjetas con nombre de personaje, descripción y frase narrativa. Los jugadores colocan cada personaje en su hueco del póster usando el nombre y la descripción. Una Hoja de Coordenadas indica qué palabra extraer de qué hueco. La primera letra de cada palabra extraída forma ALVARO. Las frases NO sirven para colocar — solo para extraer el código tras la colocación correcta.
 
-**Barrera:** Cryptex de 5 letras configurado a ALVAR. Las ramas con lunas del árbol completo señalan las letras grabadas en el marco en orden.
+**Barrera:** Cryptex de 6 letras — Código: ALVARO — Ubicación: Junto al póster del árbol genealógico (accesible desde el inicio)
 
 **Roles:**
-- **Lectores de hoja:** Cada jugador custodia 1-2 tarjetas y describe sus datos. Tras la primera descripción oral de cada tarjeta, se PUEDEN MOSTRAR al Cartógrafo.
-- **Cartógrafo:** Lee los huecos del póster y señala opciones. NO fue Coordinador/Colocador en pruebas anteriores.
-- **Verificador de ramas:** Comprueba que no quedan contradicciones tras cada colocación.
-- **Guardián del cryptex:** Solo introduce el código cuando el grupo valide por consenso. NADIE toca el cryptex hasta que las 8 tarjetas estén colocadas.
+
+- **Lectores:** Cada jugador lee 1-2 tarjetas en voz alta (descripciones y frases).
+- **Emparejadores:** Proponen qué descripción va en qué hueco basándose en las pistas del póster.
+- **Coordinador:** Lee la Hoja de Coordenadas y anota las palabras extraídas.
+- **Anotador:** Anota las primeras letras de cada palabra extraída para formar el código.
 
 ### Pistas
 
-**Pista nivel 1 (Sutil):** Tres pasos: 1) Leed todos los huecos del póster antes de tocar ninguna tarjeta. 2) Colocad primero las hojas cuyos huecos sean más concretos (firmó, mayor, mediana). 3) Cuando las lunas conecten, leed las letras del marco. *(Tras 3 minutos)*
+**Pista nivel 1 (Sutil):** Leed todos los huecos del póster antes de colocar nada. Las pistas más concretas (firmó, mayor, mediana) van primero. Una vez colocados, la Hoja de Coordenadas os dirá qué palabras extraer. *(Tras 3 minutos sin progreso)*
 
-**Pista nivel 2 (Directa):** El árbol correcto tiene ramas con lunas conectadas. Si no veis lunas conectadas, hay hojas mal colocadas. *(Tras 6 minutos)*
+**Pista nivel 2 (Directa):** Las frases de las tarjetas no sirven para colocar — solo para extraer el código. Emparejad primero por las descripciones y las pistas del póster. Luego usad las coordenadas. *(Tras 6 minutos sin progreso o petición de pista)*
 
-**Pista nivel 3 (Casi solución):** Las lunas señalan: A-L-V-A-R. Código del cryptex: ALVAR. *(Tras 8 minutos)*
+**Pista nivel 3 (Casi_Solucion):** Las coordenadas extraen palabras de los huecos 3, 7, 4, 6, 8 y 10. Las primeras letras de esas palabras forman el nombre de quien crió a Miguel: ALVARO. *(Tras 8 minutos o petición explícita)*
 
 ### Solución
 
-Los jugadores colocan las 8 tarjetas-hoja en los 8 huecos del árbol genealógico. Cada hueco tiene una pista contextual que permite identificar la tarjeta correcta sin información de P1-P3. Al completar correctamente, las ramas con lunas marcan el orden de las 5 letras del marco: A-L-V-A-R, que abre el cryptex.
+Los jugadores colocan las 10 tarjetas (con nombre, descripción y frase) en los 10 huecos del póster (pistas contextuales). Cada tarjeta tiene una frase narrativa. Tras la colocación correcta, usan la Hoja de Coordenadas para extraer palabras específicas de las frases. La primera letra de cada palabra forma ALVARO. El GIRO NARRATIVO: las tarjetas ★ revelan que hubo un cuarto hijo secreto (Miguel) dado en adopción al hermano de Elena.
 
 **Pasos:**
-1. Encontrar el tubo de cartón con etiqueta "Ramas pendientes" en el Salón
-2. Desenrollar el póster A2 del árbol genealógico con 8 huecos
-3. Repartir las 8 tarjetas-hoja entre los jugadores
-4. Leer la instrucción: LEED LOS HUECOS ANTES DE PEGAR LAS HOJAS
-5. Cada jugador describe (sin mostrar) los datos de sus tarjetas
-6. El Cartógrafo lee las pistas de cada hueco y propone colocaciones
-7. Colocar las tarjetas por deducción: cada hueco tiene pista contextual autosuficiente
-8. Verificar que todas las colocaciones son consistentes
-9. Las ramas con lunas del árbol correcto señalan 5 letras grabadas en el marco: A-L-V-A-R
-10. Introducir ALVAR en el cryptex
-11. Abrir el cryptex y encontrar el certificado adoptivo
-12. Recoger la letra A y la etiqueta/llave del Desván
 
-**Recompensa:** Letra **A** (Amor). Fragmento de Elena sobre el amor como razón del sacrificio. Revelación narrativa: Miguel cambió de apellido por pacto de protección; Elena tomó una decisión de amor doloroso. Rodrigo, como un titiritero, movió los hilos para cambiar una identidad.
+Encontrar el tubo de cartón 'Ramas pendientes' en el Salón.
+Desenrollar el póster A2 del árbol genealógico con 10 huecos.
+Repartir las 10 tarjetas-hoja entre los jugadores. Cada tarjeta tiene una descripción por un lado y una frase por el otro.
+Leer la instrucción: COLOCAR CADA PERSONAJE EN SU HUECO. LUEGO USAR LA HOJA DE COORDENADAS.
+Cada jugador lee sus tarjetas en voz alta (nombre y descripción).
+Emparejar por pistas contextuales: firmó→patriarca/médico, pañuelo→mediana, marchó→menor.
+★ GIRO NARRATIVO: las tarjetas ★ describen un hijo secreto dado en adopción y un hermano que lo crió.
+Una vez colocados todos, coger la Hoja de Coordenadas.
+Hueco 3, palabra 6: 'Curé cuerpos ajenos mientras el alma...' → A
+Hueco 7, palabra 6: 'Un niño sin rostro creció lejos...' → L
+Hueco 4, palabra 8: '...porque las verdades importantes...' → V
+Hueco 6, palabra 14: '...y callé por amor durante...' → A
+Hueco 8, palabra 7: '...la familia rechazó y le regalé...' → R
+Hueco 10, palabra 7: '...vida para ocultarla porque...' → O
+Código: A-L-V-A-R-O. Introducir ALVARO en el cryptex.
+Abrir el cryptex: certificado de adopción + fragmento de Elena + letra A + carta de navegación.
+
+**Recompensa:** Letra **A** (Amor). GIRO: Rodrigo tuvo un cuarto hijo secreto — Miguel, dado en adopción a su tío materno. Elena protegió a Miguel toda su vida. El salvador se llama Álvaro (se descubre extrayendo palabras de las frases tras el emparejamiento correcto).
 
 ### Barrera Física
 
-- **Tipo:** Cryptex de 5 letras
-- **Ubicación:** Junto al póster del árbol genealógico
-- **Código:** ALVAR
+- **Tipo:** Cryptex de 6 letras
+- **Ubicación:** Junto al póster del árbol genealógico (accesible desde el inicio)
+- **Código:** ALVARO
 
 ### Documentos In-Game
 
-#### Tarjeta de Pasos (visible desde el inicio)
+#### Instrucción del Póster
 
-PASO 1: Leed todos los huecos del plano antes de tocar ninguna tarjeta.
-PASO 2: Cada jugador describe su hoja en voz alta. Tras la primera descripción, podéis MOSTRAR vuestra tarjeta al Cartógrafo.
-PASO 3: Colocad primero las hojas cuyos huecos sean más concretos (firmó, mayor, mediana).
-PASO 4: Cuando las lunas conecten, leed las letras del marco en orden.
-PASO 5: Nadie toca el cryptex hasta que las 8 tarjetas estén colocadas y validadas por consenso.
+COLOCAD CADA DESCRIPCIÓN EN SU HUECO. CADA TARJETA TIENE UNA FRASE EN SU REVERSO.
 
----
+Cuando todos los personajes estén en su lugar, usad la Hoja de Coordenadas para extraer palabras de las frases. La primera letra de cada palabra forma el código.
 
-#### Instrucción del Plano
-
-LEED LOS HUECOS ANTES DE PEGAR LAS HOJAS. UN ÁRBOL SE ROMPE SI UNA RAMA OCUPA EL LUGAR DE OTRA.
+> **Nota GM:** Impresa en el póster.
 
 ---
 
-#### Pistas de los Huecos del Árbol
+#### Pistas de los Huecos del Árbol (impresas en el póster)
 
-**Hueco 1:** Hijo/a mayor de Elena: estuvo en la firma ante notario.
+Hueco 1: Patriarca. Testigo de la firma ante notario y de la promesa familiar.
 
-**Hueco 2:** Hijo/a que conservó el pañuelo blanco.
+Hueco 2: Matriarca. Firmó la promesa con temblor en la mano.
 
-**Hueco 3:** Niño nacido antes del verano del tren.
+Hueco 3: Hijo mayor. Médico. Firmó ante el notario.
 
-**Hueco 4 (\*):** Nombre que cambia de raíz pero no de savia. (Icono: dos ramas con una flecha que apunta de una a otra)
+Hueco 4: Hija mediana. Maestra. Guardó un pañuelo blanco durante una noche de fiebre.
 
-**Hueco 5:** Padre de familia: firmó la promesa ante testigos.
+Hueco 5: Hijo menor de los tres oficiales. Arquitecto. El que siempre se marchaba.
 
-**Hueco 6:** Hija mediana: recuerda la noche de fiebre.
+Hueco 6: Esposa del hijo mayor. Llegó después a la familia.
 
-**Hueco 7:** Hijo menor de los tres visibles en Navidad.
+Hueco 7 (★): Hijo secreto de los fundadores. Fue dado en adopción al nacer.
 
-**Hueco 8 (\*):** El nombre que se duplicó para proteger una vida. (Icono: dos hojas con el mismo símbolo)
+Hueco 8 (★): Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera suyo.
 
-> **Nota GM:** Los huecos 4 y 8 tienen asterisco (*) y un icono visual que refuerza la pista poética.
+Hueco 9 (★): Nombre legal del hijo adoptado. Mismo niño, criado bajo apellido distinto.
+
+Hueco 10 (★): Registro del hijo que se duplicó para proteger una vida.
+
+> **Nota GM:** Impresas en el póster junto a cada hueco. Sin letras, Lunas ni HOJAs visibles.
 
 ---
 
-#### Tarjetas-Hoja del Árbol
+#### Tarjetas-Hoja del Árbol (descripción + frase)
 
-**Tarjeta 1:** Marcos — Mayor. Firmó ante el notario.
+RODRIGO
+Descripción: El patriarca. Testigo de la firma y de la promesa.
+Frase: "Puse orden en esta casa aunque el silencio fue el precio de mantener a salvo nuestro nombre para siempre."
 
-**Tarjeta 2:** Carmen — Guardó un pañuelo blanco en la noche de fiebre.
+ELENA
+Descripción: La matriarca. Firmó la promesa con temblor en la mano.
+Frase: "Guardé la verdad oculta donde nadie pudiera encontrarla sabiendo que algún día la luz la revelaría entera."
 
-**Tarjeta 3:** Luis — Menor de los tres visibles en Navidad.
+MARCOS
+Descripción: El mayor de los hijos. Estudió medicina. Firmó ante notario.
+Frase: "Curé cuerpos ajenos mientras el alma de mi propia familia sangraba en silencio bajo palabras nunca dichas."
 
-**Tarjeta 4:** Miguel / Miguel Álvarez — Nacido antes del verano del tren; cambiado de apellido por protección.
+CARMEN
+Descripción: La mediana. Se hizo maestra. Conservó un pañuelo blanco de una noche de fiebre.
+Frase: "Enseñé a leer entre líneas porque las verdades importantes nunca se escriben en la primera página."
 
-**Tarjeta 5:** Elena (madre) — Matriarca. Firmó la promesa.
+LUIS
+Descripción: El menor de los tres que aparecen en las fotos. Estudió edificios. Papá siempre decía que era el más débil.
+Frase: "Me marché para construir edificios lejos del hogar que me apresaba entre recuerdos que no eran míos."
 
-**Tarjeta 6:** Rodrigo (padre) — Patriarca. Testigo de la firma.
+LUCÍA
+Descripción: Llegó después a la familia. Esposa del médico.
+Frase: "Entré en esta familia viendo lo que nadie quería ver y callé por amor durante todos estos años."
 
-**Tarjeta 7:** Lucía (esposa de Marcos) — Llegó después, recuerda la boda.
+MIGUEL
+Descripción: Hijo de los fundadores, dado en adopción al hermano de la madre.
+Frase: "Un niño sin rostro creció lejos de quienes lo amaban y la vida le regaló otro nombre por rescate."
 
-**Tarjeta 8:** Miguel Álvarez (registro civil) — Nombre legal adoptivo. Nacido con otro apellido.
+ÁLVARO
+Descripción: Hermano de la matriarca. Crió al hijo que nadie nombra como si fuera propio. Le dio su apellido.
+Frase: "Recibí al niño que la familia rechazó y le regalé mi apellido para que tuviera raíces verdaderas."
+
+MIGUEL ÁLVAREZ
+Descripción: Nombre legal tras la adopción. Mismo niño, distinto apellido. Registrado como hijo de quien lo acogió.
+Frase: "Llevo un nombre que no nació conmigo pero me dio identidad refugio y una vida lejos del secreto."
+
+REGISTRO DE ADOPCIÓN
+Descripción: Nota de Elena: 'Rodrigo cortó el hilo pero yo lo guardé para volver a atarlo algún día.'
+Frase: "Este documento duplicó una vida para ocultarla porque la verdad siempre opera desde la sombra protectora."
+
+> **Nota GM:** Nombre + descripción para emparejar + frase para extraer. Frases no ayudan a colocar. Emparejamiento: Rodrigo→H1, Elena→H2, Marcos→H3 (alma→A), Carmen→H4 (verdades→V), Luis→H5, Lucía→H6 (amor→A), Miguel→H7 (lejos→L), Álvaro→H8 (rechazó→R), MiguelÁlv→H9, Registro→H10 (ocultarla→O).
+
+---
+
+#### Hoja de Coordenadas
+
+EXTRACCIÓN DEL CÓDIGO
+
+Una vez colocados los personajes en el árbol, extraed la palabra indicada de cada hueco.
+La primera letra de cada palabra forma el código del cryptex.
+
+1ª letra → Hueco 3, palabra 6
+2ª letra → Hueco 7, palabra 6
+3ª letra → Hueco 4, palabra 8
+4ª letra → Hueco 6, palabra 14
+5ª letra → Hueco 8, palabra 7
+6ª letra → Hueco 10, palabra 7
+
+Leed las frases de cada personaje con atención. Contad las palabras desde el principio.
+
+> **Nota GM:** Documento separado dentro del tubo.
 
 ---
 
@@ -615,210 +721,270 @@ LEED LOS HUECOS ANTES DE PEGAR LAS HOJAS. UN ÁRBOL SE ROMPE SI UNA RAMA OCUPA E
 
 Registro reservado.
 
-Por acuerdo familiar y recomendación legal, el menor Miguel quedará bajo tutela de la familia Álvarez.
+Por acuerdo familiar y recomendación legal, el menor Miguel quedará bajo tutela de don Álvaro, hermano de la madre, quien lo criará como propio bajo el apellido Álvarez.
 
 La filiación de origen no se destruye: se custodia.
 
 Firmado: Elena, Notario Público.
 
-En el margen, escrito a mano con tinta descolorida: "Rodrigo cortó el hilo. Yo lo guardé para volver a atarlo algún día."
+En el margen, escrito a mano con tinta descolorida: 'Rodrigo cortó el hilo. Yo lo guardé para volver a atarlo algún día. El hombre que salvó a mi hijo le dio su nombre y su amor.'
+
+> **Nota GM:** DENTRO del cryptex.
 
 ---
 
 #### Fragmento de Carta de Elena (P4)
 
+Mis queridos niños:
+
 Amor fue elegir que mi hijo creciera lejos antes que verlo crecer perseguido por una deuda que no era suya. Nadie me lo arrancó: yo firmé temblando para salvarlo.
 
-Rodrigo creía que cortando un hilo se solucionaba todo. Yo sé que los hilos cortados dejan marcas en las manos de quien tira.
+Mi hermano lo crió como suyo. Le dio su nombre, su hogar, su amor. Rodrigo nunca quiso saber de él, pero yo nunca dejé de escribirle desde el silencio.
+
+Si encontráis su nombre en el árbol, no lo borréis. Existió porque alguien lo quiso como propio. Y ambos existieron porque yo no permití que Rodrigo cortara del todo el hilo.
+
+> **Nota GM:** DENTRO del cryptex.
 
 ---
 
 #### Carta de Navegación (P4 → P5)
 
-Al dorso del certificado: "Si Miguel tuvo otro apellido, también tuvo otra habitación. Subid donde guardé lo que no cupo en el salón".
+Nota urgente encontrada junto al certificado:
+
+'Ahora sabéis lo que Rodrigo ocultó. Pero Miguel tiene su propio camino, y yo lo preparé. Hay un mensaje que dejé dividido en dos mitades — nadie puede leerlo entero solo. Subid al desván. Buscad donde guardé lo que no cupo en el salón. Cada mitad os dará la pieza que os falta.'
+
+> **Nota GM:** DENTRO del cryptex.
 
 ---
 
-## Prueba 5: El Mensaje Dividido
+---
+
+## Prueba 5: El Mensaje Rasgado
 
 **Sala:** El Desván  
 **Dificultad:** 5/10  
-**Duración estimada:** 9 minutos  
+**Duración estimada:** 5 minutos  
 **Cooperación obligatoria:** Sí  
 **Hilo conductor:** **D** — Dignidad
 
 ### Descripción
 
-En el desván, entre la penumbra y la luz cálida de una lámpara antigua, los jugadores encuentran un mensaje de la Abuela Elena dividido en dos partes. El grupo se divide en dos equipos: cada equipo recibe la mitad del mensaje. Sin poder ver las tarjetas del otro equipo, deben comunicarse verbalmente para reconstruir el mensaje completo que revela dónde está escondido el Árbol del Reencuentro. Las tarjetas tienen bordes con patrones de hilos de marioneta rojos.
+En el desván, entre la penumbra y la luz cálida de una lámpara antigua, los jugadores encuentran una mesa con dos montones de fragmentos de papel sepia. Son los restos de una carta que Elena rasgó en 12 fragmentos irregulares para proteger su contenido. Los fragmentos tienen bordes irregulares que encastan como un puzzle físico: cada fragmento solo se une correctamente con su vecino. El grupo trabaja JUNTO: buscan bordes que encajan, leen el texto parcial de cada fragmento, y reconstruyen la carta completa. La carta reconstruida describe un lugar concreto: 'bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada'. La tercera tabla del suelo del desván, contando desde la puerta de entrada tiene una marca de cera roja PERMANENTE. Allí encuentran un sobre lacrado rojo con materiales para P6.
 
 ### Mecánica
 
-Comunicación cooperativa dividida. Dos equipos tienen mitades complementarias de un mensaje. Deben describir (no mostrar) sus fragmentos al otro equipo para reconstruir el mensaje completo. No pueden mostrar las tarjetas.
+Reconstrucción física de carta rasgada. Los jugadores encuentran 12 fragmentos irregulares de una carta de Elena (papel sepia envejecido, previamente rasgada). Los fragmentos tienen bordes dentados únicos que solo encajan con su vecino correcto — como un puzzle de encaje de bordes. El grupo trabaja junto: busca bordes compatibles, lee el texto parcial de cada fragmento, y va reconstruyendo la carta sobre la mesa. No hay equipos, no hay división. Todos ven y manejan todos los fragmentos.
 
-**Barrera:** El mensaje reconstruido indica la ubicación exacta del Árbol del Reencuentro dentro del desván y contiene la letra D.
+**Barrera:** Reconstrucción de carta rasgada (puzzle físico) — Código: Reconstrucción del mensaje físico — Ubicación: Sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada (marca de cera roja PERMANENTE en la esquina)
 
-**Roles:** El GM divide al grupo en dos equipos (ideal: 3-4 jugadores cada uno). Cada equipo se sienta en lados opuestos de la mesa o en esquinas diferentes del desván. La comunicación es la mecánica central.
+**Roles:**
+
+- **Descripcion:** Roles naturales que emergen al reconstruir la carta. Sin asignación, sin GM.
+- **Buscador Bordes:** Compara fragmentos buscando bordes que encajen físicamente.
+- **Lector Fragmentos:** Lee en voz alta el texto parcial de cada fragmento para orientar la reconstrucción.
+- **Ensamblador:** Coloca los fragmentos sobre la mesa formando la carta.
+- **Verificador:** Comprueba que el texto reconstruido tiene sentido gramatical y coherencia.
 
 ### Pistas
 
-**Pista nivel 1 (Sutil):** No intentéis adivinar. Describid exactamente lo que veis en vuestras tarjetas: palabras, números, dibujos. El otro equipo tiene las piezas que os faltan.
+**Pista nivel 1 (Sutil):** Empezad por los bordes más irregulares: son más fáciles de encajar. Leed el texto de cada fragmento en voz alta — el contenido os guiará. *(Tras 2 minutos sin progreso)*
 
-**Pista nivel 2 (Directa):** Empezad por las tarjetas que tienen números o palabras completas. Son más fáciles de encajar. Después unid los fragmentos.
+**Pista nivel 2 (Directa):** La carta habla de un lugar concreto del desván donde Elena escondió algo importante. Reconstruid el texto completo para encontrar la ubicación. Fijaos en los fragmentos con números ('tercera', 'tabla'). *(Tras 4 minutos sin progreso o petición de pista)*
 
-**Pista nivel 3 (Casi solución):** El mensaje completo es: "El árbol del reencuentro está escondido detrás del gran espejo ovalado. Para completarlo, necesitaréis las letras que habéis encontrado y una más: el hijo que nunca conocisteis nació en el tercer mes del tercer año de la década de los sesenta. La letra es la O de Orgullo. Cortad el último hilo."
+**Pista nivel 3 (Casi_Solucion):** El mensaje completo dice: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.' *(Tras 6 minutos o petición explícita)*
 
 ### Solución
 
-Los dos equipos reconstruyen un mensaje dividido en 12 fragmentos (6 por equipo). El mensaje indica dónde está el Árbol del Reencuentro y cómo obtener la última letra (O).
-
-**Mensaje reconstruido:** "El árbol del reencuentro está escondido detrás del gran espejo ovalado. Para completarlo, necesitaréis las letras que habéis encontrado y una más: el hijo que nunca conocisteis nació en el tercer mes del tercer año de la década de los sesenta. La letra es la O de Orgullo. Cortad el último hilo."
+Los jugadores reconstruyen la carta rasgada de Elena encajando los 12 fragmentos por sus bordes irregulares y el contenido textual. La carta reconstruida indica la ubicación de un sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada.
 
 **Pasos:**
-1. El GM divide al grupo en dos equipos y entrega las tarjetas
-2. Equipo A tiene 6 tarjetas con fragmentos izquierdos del mensaje
-3. Equipo B tiene 6 tarjetas con fragmentos derechos del mensaje
-4. Los equipos se comunican verbalmente para encajar los fragmentos
-5. Las tarjetas tienen guías visuales (bordes con patrones de hilos rojos que coinciden)
-6. Los jugadores identifican el espejo ovalado en el desván
-7. Detrás del espejo encuentran el Árbol del Reencuentro
-8. La tarjeta D está adjunta al espejo
 
-**Recompensa:** Letra **D** (Dignidad). La letra D y la ubicación del Árbol del Reencuentro.
+Entrar al desván y encontrar los fragmentos en la mesa.
+Leer la tarjeta de instrucciones junto a los fragmentos.
+Extender los 12 fragmentos sobre la mesa.
+Buscar bordes irregulares que encajen (como un puzzle).
+Leer el texto parcial de cada fragmento para orientar la reconstrucción.
+Unir fragmentos por bordes + contenido textual.
+Reconstruir la carta completa: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'
+Identificar la tercera tabla del suelo del desván, contando desde la puerta de entrada (marcada PERMANENTEMENTE con cera roja).
+Bajo la tabla encuentran un sobre lacrado rojo con el símbolo de una marioneta.
+Rompen el lacre: dentro hay la letra D, las 6 letras LEGADO con números romanos, la carta de despedida de Elena, y las tijeras doradas.
+La letra D se añade a las anteriores (L, E, G, A, D).
+
+**Recompensa:** Letra **D** (Dignidad). 
 
 ### Barrera Física
 
-- **Tipo:** Ubicación oculta
-- **Ubicación:** Detrás del espejo ovalado en el desván
-- **Código:** N/A — el Árbol del Reencuentro está físicamente oculto
+- **Tipo:** Reconstrucción de carta rasgada (puzzle físico)
+- **Ubicación:** Sobre lacrado rojo bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada (marca de cera roja PERMANENTE en la esquina)
+- **Código:** Reconstrucción del mensaje físico
 
 ### Documentos In-Game
 
-#### Tarjetas Grupo A (fragmentos izquierdos)
+#### Tarjeta de Instrucciones (junto a los fragmentos)
 
-**Tarjeta A1:** "El árbol del"
+Elena rasgó esta carta para protegerla. Los fragmentos solo cuentan la verdad cuando se reúnen.
 
-**Tarjeta A2:** "escondido detrás"
+Encajad los bordes. Leed lo que dice cada fragmento.
 
-**Tarjeta A3:** "espejo ovalado."
+La carta os llevará a un lugar de este desván.
 
-**Tarjeta A4:** "necesitaréis las letras"
-
-**Tarjeta A5:** "una más: el hijo que"
-
-**Tarjeta A6:** "tercer mes del tercer"
+> **Nota GM:** Sobre la mesa junto a los fragmentos. Instrucción simple y diegética.
 
 ---
 
-#### Tarjetas Grupo B (fragmentos derechos)
+#### Carta Rasgada de Elena (12 fragmentos)
 
-**Tarjeta B1:** "reencuentro está"
+Fragmento 1: 'Buscad'
+Fragmento 2: 'bajo la'
+Fragmento 3: 'tercera tabla'
+Fragmento 4: 'del suelo del'
+Fragmento 5: 'desván, contando'
+Fragmento 6: 'desde la puerta'
+Fragmento 7: 'de entrada. La que'
+Fragmento 8: 'tiene una marca de'
+Fragmento 9: 'cera roja'
+Fragmento 10: 'en la esquina.'
+Fragmento 11: 'Allí dejé lo que Rodrigo quiso'
+Fragmento 12: 'destruir pero yo lo guardé para vosotros.'
 
-**Tarjeta B2:** "del gran"
-
-**Tarjeta B3:** "Para completarlo,"
-
-**Tarjeta B4:** "que habéis encontrado y"
-
-**Tarjeta B5:** "nunca conocisteis nació en el"
-
-**Tarjeta B6:** "año de la década de los sesenta. La letra es la O de Orgullo. Cortad el último hilo."
+> **Nota GM:** Cada fragmento es un trozo irregular de papel sepia con texto parcial. Los bordes son únicos y solo encajan con sus vecinos correctos. El reverso tiene un número discreto para reset GM. Reconstruido: 'Buscad bajo la tercera tabla del suelo del desván, contando desde la puerta de entrada. La que tiene una marca de cera roja en la esquina. Allí dejé lo que Rodrigo quiso destruir pero yo lo guardé para vosotros.'
 
 ---
 
-## Prueba 6: El Árbol del Reencuentro
+#### Carta de Navegación (P5 → P6)
+
+El sobre lacrado contiene todo lo necesario para la ceremonia final. Las 6 letras LEGADO con números romanos y las tijeras doradas. El Cofre del Legado está ya en el desván, preparado.
+
+> **Nota GM:** Dentro del sobre lacrado rojo. Guía hacia la ceremonia final P6.
+
+---
+
+---
+
+## Prueba 6: El Cofre del Legado
 
 **Sala:** El Desván  
-**Dificultad:** 5/10  
-**Duración estimada:** 7 minutos  
+**Dificultad:** 3/10  
+**Duración estimada:** 3 minutos  
 **Cooperación obligatoria:** Sí  
 **Hilo conductor:** **O** — Orgullo
 
 ### Descripción
 
-Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) al Árbol del Reencuentro en el Desván. La letra O está disponible en una etiqueta colgante de la raíz. Pero las letras llegan DESORDENADAS: cada letra tiene un número romano asociado visible solo al examinarla, y el cartel de la base del árbol muestra el orden correcto por valores. Los jugadores deben deducir el orden correcto (LEGADO) usando los valores familiares antes de colocar las letras en las ramas. Al completar LEGADO y presionar suavemente durante 3 segundos, los imanes liberan la raíz hueca, que contiene la carta completa de Elena, una marioneta con los hilos finalmente cortados, y una foto de Miguel adulto. La acción final: colocar la foto de Miguel en el hueco del árbol y cortar el último hilo de la marioneta.
+Los jugadores llevan las 6 letras reunidas (L, E, G, A, D, O) al cofre del Desván. Cada letra tiene grabado un número romano DESORDENADO que no coincide con el orden LEGADO: L=III, E=VI, G=II, A=V, D=I, O=IV. Encuentran las 'Confesiones de Elena': un texto con 6 frases numeradas (I-VI). Un cartel de valores marca 4 de ellos con ★: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Solo las frases correspondientes a los valores ★ contienen un número oculto escrito como palabra. Siguiendo el orden LEGADO de los valores ★, cruzan letra→número romano→frase→número oculto. Los 4 números forman el código del candado: 1983 (año de nacimiento de Miguel). Al abrir el cofre, encuentran la carta completa de Elena, la foto de Miguel y la marioneta. Un JUGADOR lee la carta en voz alta. La acción final: colocar la foto de Miguel y cortar el último hilo con las tijeras doradas del sobre de P5.
 
 ### Mecánica
 
-Mini-puzzle de ordenación + mecanismo ceremonial cooperativo. Las 6 letras LEGADO llegan con números romanos grabados (I, II, III, IV, V, VI) pero NO en el orden correcto de la palabra. Los jugadores deben usar el cartel de valores de la base del árbol para ordenar las letras según el orden en que ganaron cada valor (P1→L, P2→E, P3→G, P4→A, P5→D, P6→O). Una vez ordenadas, las colocan en las ramas numeradas del árbol.
+Cifrado de frases cruzadas. Los jugadores tienen 6 letras con números romanos desordenados (L=III, E=VI, G=II, A=V, D=I, O=IV). Encuentran las 'Confesiones de Elena' con 6 frases numeradas I-VI. El cartel de valores marca 4 valores con ★ (Lealtad ★, Generosidad ★, Amor ★, Orgullo ★). Cada valor ★ corresponde a una letra LEGADO; esa letra apunta a una frase por su número romano; esa frase comienza con un número escrito como palabra. Ordenando los valores ★ por su posición en LEGADO se obtiene el código: 1-9-8-3.
 
-**Barrera:** Mecanismo de madera con imanes ocultos en la raíz. Solo se abre cuando las 6 letras están colocadas en el orden correcto (LEGADO) y todos presionan simultáneamente durante 3 segundos.
+**Barrera:** Candado de combinación de 4 dígitos — Código: 1983 — Ubicación: Cofre del Legado en El Desván
 
 **Roles:**
-- **Portadores de valor:** Cada jugador sostiene una letra/rama. Deben compartir qué número romano tienen y en qué prueba la ganaron.
-- **Lector de raíz:** Lee el cartel e instrucción de la base del árbol.
-- **Guardián de memoria:** Recuerda el orden de las pruebas (P1=Lealtad, P2=Empatía, etc.) y ayuda a ordenar.
-- **Restaurador final:** Coloca la foto de Miguel en el hueco del árbol y corta el último hilo de la marioneta.
-- **Director de orden:** Es el jugador que menos roles de liderazgo ha tenido en las 5 pruebas anteriores.
+
+- **Portador Valor:** Cada jugador sostiene una letra y busca el valor asociado en el cartel.
+- **Lector Cartel:** Lee el cartel de valores en voz alta y señala cuáles tienen ★.
+- **Descifrador:** Cruza la letra → número romano → frase correspondiente y busca el número oculto.
+- **Restaurador Final:** Coloca la foto de Miguel y corta el último hilo de la marioneta con las tijeras doradas.
+- **Lector Carta:** Lee la carta de Elena en voz alta al grupo.
 
 ### Pistas
 
-**Pista nivel 1 (Sutil):** Cada letra tiene un número romano en el reverso. ¿En qué orden ganasteis cada valor? Revisad el cartel de la base. *(Si no se dan cuenta del desorden en 2 minutos)*
+**Pista nivel 1 (Sutil):** Las estrellas ★ en el cartel no son decorativas. Solo los valores marcados con ★ revelan el camino. Mirad las frases que os indican esos valores. *(Si los jugadores no se dan cuenta del cifrado en 2 minutos)*
 
-**Pista nivel 2 (Directa):** El orden es el de las pruebas: Lealtad fue la primera (P1), Empatía la segunda (P2)... y así hasta Orgullo (P6). Ordenad por ese orden. *(Tras 3 minutos)*
+**Pista nivel 2 (Directa):** Cada letra tiene un número romano que apunta a una frase de las Confesiones. Los valores ★ del cartel os dicen qué letras buscar. Leed con atención el inicio de cada frase. *(Si piden pista o tras 3 minutos)*
 
-**Pista nivel 3 (Casi solución):** L-E-G-A-D-O en orden de pruebas. Sostened todas las piezas a la vez durante 3 segundos. *(Tras 5 minutos)*
+**Pista nivel 3 (Casi_Solucion):** Lealtad ★ → L tiene III → Frase III empieza con 'Un' (=1). Generosidad ★ → G tiene II → Frase II empieza con 'Nueve' (=9). Amor ★ → A tiene V → Frase V. Orgullo ★ → O tiene IV → Frase IV. Ordenad los números en orden LEGADO. *(Si piden pista explícita o tras 5 minutos)*
 
 ### Solución
 
-Los jugadores descubren que sus letras tienen números romanos que no corresponden al orden LEGADO. Deben usar el cartel de valores de la base del árbol, que lista los valores en orden de prueba (1.Lealtad, 2.Empatía, 3.Generosidad, 4.Amor, 5.Dignidad, 6.Orgullo), para colocar cada letra en la rama correcta.
-
-**Números romanos grabados (DESORDENADOS):** L=III, E=V, G=I, A=VI, D=II, O=IV
+Los jugadores identifican los 4 valores ★ en el cartel: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Cada valor corresponde a una letra de LEGADO, y cada letra tiene grabado un número romano que apunta a una frase de las Confesiones. Las frases de los valores ★ comienzan con un número escrito como palabra. Ordenando los valores ★ por su posición en LEGADO (1.ª Lealtad, 3.ª Generosidad, 4.ª Amor, 6.ª Orgullo) obtienen: 1-9-8-3. El código 1983 es el año de nacimiento de Miguel, mencionado en la carta de Elena.
 
 **Pasos:**
-1. Los jugadores llevan las 5 letras reunidas (L, E, G, A, D) al Árbol del Reencuentro
-2. Encuentran la letra O en una etiqueta colgante de la raíz del árbol
-3. Al examinar las letras, descubren números romanos grabados (DESORDENADOS)
-4. Leer el cartel de la base: "Los valores se ganaron en orden. Cada prueba os dio uno. Colocad cada valor donde le corresponde."
-5. Cada jugador comparte su letra y su número romano
-6. Deducir el orden correcto: el cartel muestra el orden de valores por prueba
-7. Ordenar las letras según el orden de pruebas: L(1), E(2), G(3), A(4), D(5), O(6)
-8. Colocar las letras en las ramas numeradas I-VI en orden: L→rama I, E→rama II, G→rama III, A→rama IV, D→rama V, O→rama VI
-9. La instrucción dice: "Que nadie suelte su rama hasta que la raíz responda."
-10. Presionar suavemente todas las piezas a la vez durante 3 segundos
-11. Los imanes liberan la raíz abatible
-12. Dentro: carta completa de Elena, foto de Miguel adulto, marioneta de madera con los hilos CORTADOS, semilla/medallón simbólico
-13. El GM permite la lectura en voz alta de la carta
-14. Acción final: el Restaurador coloca la foto de Miguel en el hueco del árbol
-15. Acción ceremonial: alguien corta el último hilo rojo de la marioneta con las tijeras doradas
-16. Mensaje de recompensa: "No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres."
 
-**Recompensa:** Letra **LEGADO** completo. La verdad completa: Miguel fue protegido por amor y la familia puede reincorporarlo simbólicamente al árbol. Los hilos de la marioneta finalmente cortados: la familia es libre.
+Los jugadores llevan las 6 letras reunidas (L, E, G, A, D, O) al cofre del Desván.
+Encuentran las 'Confesiones de Elena' (6 frases numeradas I-VI) y el cartel de valores con ★.
+Leen el cartel: Lealtad ★, Generosidad ★, Amor ★, Orgullo ★. Los otros dos (Empatía, Dignidad) no tienen ★.
+Identifican que los valores ★ corresponden a letras de LEGADO y que cada letra tiene un número romano.
+Cruzan valor ★ → letra → número romano → frase de las Confesiones.
+Lealtad ★ → L tiene III → Frase III: 'Un solo secreto guardé toda la vida.' → 'Un' = 1.
+Generosidad ★ → G tiene II → Frase II: 'Nueve años esperé antes de volver a escribir su nombre.' → 'Nueve' = 9.
+Amor ★ → A tiene V → Frase V: 'Ocho décadas viví antes de poder deciros esto.' → 'Ocho' = 8.
+Orgullo ★ → O tiene IV → Frase IV: 'Tres fueron los hijos que reconocí.' → 'Tres' = 3.
+Ordenan por posición en LEGADO: Lealtad(1.ª)→1, Generosidad(3.ª)→9, Amor(4.ª)→8, Orgullo(6.ª)→3.
+Introducen el código 1-9-8-3 en el candado de combinación.
+El cofre se abre: carta completa de Elena, foto de Miguel adulto, marioneta con hilos cortados.
+Un jugador lee la carta de Elena en voz alta al grupo.
+Acción final: colocar la foto de Miguel.
+Acción ceremonial: cortar el último hilo rojo de la marioneta con las tijeras doradas.
+Mensaje final: 'No heredasteis objetos: heredasteis una verdad que os devuelve a quien siempre perteneció.'
+
+**Recompensa:** Letra **LEGADO completo** (Reencuentro familiar). La verdad completa: Miguel fue protegido por amor y la familia puede reincorporarlo simbólicamente. Los hilos de la marioneta finalmente cortados: la familia es libre. El código 1983 es el año en que nació Miguel — la fecha que Rodrigo quiso borrar.
 
 ### Barrera Física
 
-- **Tipo:** Mecanismo de madera cooperativo
-- **Ubicación:** Raíz abatible del Árbol del Reencuentro
-- **Código:** LEGADO (por orden de pruebas)
+- **Tipo:** Candado de combinación de 4 dígitos
+- **Ubicación:** Cofre del Legado en El Desván
+- **Código:** 1983
 
 ### Documentos In-Game
 
-#### Cartel de la Raíz
+#### Cartel de Valores
 
-Los valores se ganaron en orden:
-1.ª prueba — Lealtad
-2.ª prueba — Empatía
-3.ª prueba — Generosidad
-4.ª prueba — Amor
-5.ª prueba — Dignidad
-6.ª prueba — Orgullo
+Los valores del legado:
 
-UNA RAMA SOLA NO ABRE UNA RAÍZ.
+★ Lealtad
+Empatía
+★ Generosidad
+★ Amor
+Dignidad
+★ Orgullo
+
+Solo los valores marcados con ★ revelan el camino.
+Cada letra apunta a una confesión. Buscad el número oculto.
+
+> **Nota GM:** Impreso o enmarcado junto al cofre. Visible desde el inicio. Las estrellas ★ indican qué valores participar en el cifrado. Los otros dos (Empatía, Dignidad) no tienen ★ y sus frases correspondientes (I y VI) NO contienen números.
+
+---
+
+#### Confesiones de Elena
+
+I. El silencio fue mi compañía más fiel.
+
+II. Nueve años esperé antes de volver a escribir su nombre.
+
+III. Un solo secreto guardé toda la vida.
+
+IV. Tres fueron los hijos que reconocí.
+
+V. Ocho décadas viví antes de poder deciros esto.
+
+VI. Las estrellas brillaban sobre el jardín aquella noche.
+
+> **Nota GM:** Documento en papel envejecido dentro de un sobre o marco junto al cofre. Las frases II, III, IV, V comienzan con un número escrito como palabra. Las frases I y VI NO comienzan con número. Numeración romana I-VI coincide con los números romanos grabados en las letras.
 
 ---
 
 #### Instrucción Final
 
-Colocad cada valor donde lo ganasteis. Que nadie suelte su rama hasta que la raíz responda.
+Solo los valores marcados con ★ revelan el camino.
+Cada letra apunta a una confesión.
+Leed con atención el inicio de cada frase.
+Los cuatro números, en el orden en que ganasteis cada valor (de la 1.ª prueba a la última), abren el cofre.
+
+Cuando el cofre se abra, leed la carta de Elena entre todos. Un voluntario la lee en voz alta. Después, colocad la foto de quien faltaba y cortad el último hilo.
+
+> **Nota GM:** En una tarjeta junto al cofre. Especifica que un JUGADOR lee la carta, no el GM.
 
 ---
 
 #### Carta de Despedida de la Abuela Elena
 
-Mis queridos nietos:
+**Mis queridos nietos:**
 
 Si estáis leyendo esta carta, significa que habéis seguido todos los hilos que dejé para vosotros. Y eso quiere decir que estáis listos para conocer la verdad.
 
-Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1963, cuando apenas tenía 19 años. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.
+Tuve un cuarto hijo. Se llama Miguel. Nació el 14 de marzo de 1983. Yo era una mujer hecha, con tres hijos todavía pequeños, cuando él llegó. Su padre, vuestro abuelo Rodrigo — ese hombre de pelo blanco y traje oscuro que todo lo controlaba, que movía los hilos de cada uno de nosotros — no pudo aceptarlo. No era hijo de una infidelidad, era hijo del miedo: el miedo de Rodrigo a que la familia creciera demasiado, a que yo no pudiera con cuatro hijos, a que el secreto manchara el nombre que él había construido.
 
 Rodrigo decidió que Miguel debía desaparecer. Como quien corta un hilo de marioneta, lo arrancó de nuestra vida. Pero yo nunca dejé de pensar en él, nunca dejé de buscarlo, y siempre supe que algún día la verdad saldría a la luz. Porque los hilos se pueden cortar, pero el recuerdo de quien los movió permanece para siempre.
 
@@ -838,10 +1004,14 @@ Os quiero con toda mi alma.
 
 P.D.: Cada letra que encontrasteis representa un valor que quiero que conservéis: **L**ealtad, **E**mpatía, **G**enerosidad, **A**mor, **D**ignidad, **O**rgullo de pertenecer a esta familia. Ese es mi verdadero **LEGADO**. Cortad los hilos. Sed libres.
 
-> **Nota GM:** Leer esta carta en voz alta al abrir la raíz del árbol. Es el momento emocional del juego. Debe leerse con calma y sentimiento.
+> **Nota GM:** La lee un JUGADOR en voz alta, NO el GM. Viene del sobre lacrado de P5. Es el momento emocional del juego. El jugador designado (Lector de carta o voluntario) la lee con calma.
 
 ---
 
 #### Mensaje de Recompensa Final
 
 No heredasteis objetos: heredisteis una verdad que os devuelve a quien siempre perteneció. Los hilos ya están cortados. Sois libres de escribir vuestra propia historia.
+
+> **Nota GM:** Impreso junto a la carta o en el reverso de la foto de Miguel.
+
+---
