@@ -31,7 +31,7 @@ Before accepting a design, verify ALL of the following:
 
 ---
 
-## VERIFY Checks (9)
+## VERIFY Checks (12)
 
 In addition to mechanical validations, verify ALL of the following:
 
@@ -44,3 +44,6 @@ In addition to mechanical validations, verify ALL of the following:
 7. **Mapa emocional sin repeticiones consecutivas** — No 2 pruebas seguidas con la misma emoción.
 8. **Legibilidad visual** — Jerarquía clara: qué es pista, qué es ambientación.
 9. **Finalización garantizada** — El juego tiene mecanismos para que todos los grupos terminen.
+10. **Código adivinable** — Ningún código de candado aparece en textos narrativos o decorativos donde un jugador podría encontrarlo sin resolver el puzzle.
+11. **Resistencia al salto de puzzles** — Cada prueba requiere la recompensa de la anterior. Ningún puzzle es resoluble sin los rewards previos.
+12. **Anti fuerza bruta** — Los códigos no son PINs comunes, secuencias obvias, ni palabras del título del juego.

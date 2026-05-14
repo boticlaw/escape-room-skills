@@ -15,7 +15,9 @@
     "hilo_conductor",
     "pistas",
     "solucion",
-    "materiales"
+    "materiales",
+    "documentos_in_game",
+    "narrativa"
   ],
   "additionalProperties": true,
   "properties": {

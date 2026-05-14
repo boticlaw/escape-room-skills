@@ -35,6 +35,7 @@ After BUILD (Phase 4). Before VERIFY (Phase 5).
 | **B1: Novato Ansioso** | 3-4 | Nervous, pressure each other, hints at 3min | +40-60% |
 | **B2: Adolescente Impulsivo** | 4-6 | High energy, skip reading, brute force | +20% action, +40% reading |
 | **B3: Adulto Pragmático** | 3-5 | Practical, clear feedback, hate nonsense | Normal if clear, +30% if confusing |
+| **B4: El Tramposo** | 2-3 | Intentionally tries to skip puzzles, guess codes, brute-force locks, use meta-knowledge from narrative | Tests anti-cheat design |
 
 ### Same-provider divergence
 
@@ -43,6 +44,17 @@ If `scripts/verify-judges.py` → `same_provider: true`:
 - Judge A: QA engineer mode, temp 0.2 equivalent, systematic checklist
 - Judge B: Player who paid €25, temp 0.9, emotional first then analytical
 - SUSPECT weight reduced to 0.6 (vs 1.0 for CONFIRMED)
+
+### Anti-cheat simulation (B4)
+
+Profile B4 simulates a player who actively tries to break the game:
+- Skips reading and tries codes from narrative text
+- Attempts to solve puzzles out of order
+- Uses years, names, and theme words as code guesses
+- Tries to brute-force numeric locks with common PINs
+- Looks for shortcuts between rooms/phases
+
+B4's findings feed directly into Verify checks 28-30 (anti-cheat). Any successful shortcut = CRITICAL for the game.
 
 ## Execution Steps
 

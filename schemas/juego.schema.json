@@ -64,7 +64,56 @@
       "type": "array",
       "items": { "type": "string" }
     },
-    "notas": { "type": "string" }
+    "notas": { "type": "string" },
+    "personajes": {
+      "type": "array",
+      "description": "Personajes del juego con datos estructurados para validación",
+      "items": {
+        "type": "object",
+        "required": ["nombre"],
+        "additionalProperties": true,
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "minLength": 2,
+            "description": "Nombre del personaje"
+          },
+          "generacion": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Generación del personaje (1, 2, 3...)"
+          },
+          "rol": {
+            "type": "string",
+            "description": "Rol del personaje (patriarca, madre, tío, etc.)"
+          },
+          "relacion": {
+            "type": "string",
+            "description": "Relación con otros personajes"
+          },
+          "ano_nacimiento": {
+            "type": "integer",
+            "minimum": 1800,
+            "maximum": 2100,
+            "description": "Año de nacimiento"
+          },
+          "ano_fallecimiento": {
+            "type": "integer",
+            "minimum": 1800,
+            "maximum": 2100,
+            "description": "Año de fallecimiento (si aplica)"
+          },
+          "descripcion": {
+            "type": "string",
+            "description": "Descripción física/personalidad"
+          },
+          "notas": {
+            "type": "string",
+            "description": "Notas para el GM"
+          }
+        }
+      }
+    }
   },
   "additionalProperties": true
 }

@@ -1,6 +1,6 @@
 ---
 name: pipeline-verify
-description: "Trigger: verificar juego escape room, QA, validación completa, FASE 5 pipeline. 27 checks de calidad: schema, solucionabilidad, dead ends, curva, tiempos, mecánicas, narrativa, pistas, materiales, códigos."
+description: "Trigger: verificar juego escape room, QA, validación completa, FASE 5 pipeline. 30 checks de calidad: schema, solucionabilidad, dead ends, curva, tiempos, mecánicas, narrativa, pistas, materiales, códigos."
 ---
 
 # Pipeline Verify (FASE 5 — QA)
@@ -16,7 +16,7 @@ After BUILD + PLAYTEST. Game directory complete with all files.
 3. `warning` but no `fail` → `verdict` = `"pass_with_warnings"`.
 4. All `pass` → `verdict` = `"pass"`.
 5. `issues` must be **actionable**: describe what to fix and how.
-6. All 27 checks are mandatory.
+6. All 30 checks are mandatory.
 
 ## Execution Steps
 
@@ -38,12 +38,25 @@ python scripts/validate_game.py juegos/{juego-id}/
 
 Pass/fail from script output.
 
+#### Check 1b: Game Integrity — Cross-File (automated) ⚠️ CRITICAL
+
+```bash
+python3 scripts/validate-game-integrity.py juegos/{juego-id}/juego/juego.json
+```
+
+Runs 11 cross-file checks: reward letter consistency, hilo conductor completeness, navigation continuity, navigation text consistency, juego.json summary sync (lock codes, labels, difficulty curve, duration), and copy-paste error detection (wrong letter in ubicación, wrong prueba reference, wrong letter in elementos).
+
+Any CRITICAL from this script → overall `fail`. WARNINGs compound with manual checks.
+
+This catches errors that per-file validators miss: reordering mistakes, stale summary fields, broken navigation chains, mismatched reward letters.
+
 #### Check 2: Solvability (mental simulation)
 
 - Complete flow chain (no info gaps between puzzles)
 - Resolving one puzzle gives info/keys for next
 - No "magic clues" — info obtainable through normal play
 - Average team can complete without external help
+- **Prerequisite**: Check 1b must pass first (automated navigation/reward validation)
 
 #### Check 3: Dead Ends
 
@@ -169,6 +182,35 @@ Each puzzle: understandable, interesting, advances story, can't break the game. 
 #### Check 27: Guaranteed Completion
 
 All groups finish. GM can intervene at any level. Time limit ≠ game over. No-escape point → `fail`.
+
+#### Check 28: Code Guessability ⚠️ CRITICAL
+
+Verify lock codes do NOT appear in:
+- Narrative text (sinopsis, secciones, narrativa fields)
+- Decorative documents (not part of the puzzle itself)
+- Other puzzles' in-game documents
+
+Numeric codes: search for exact match in all text. Year-codes (1900-2099): verify the year doesn't appear prominently in the narrative. Any code findable without solving → `fail`.
+
+#### Check 29: Puzzle Skip Resistance ⚠️ CRITICAL
+
+Each puzzle must REQUIRE the reward from the previous puzzle:
+- Physical items needed (barrera_fisica requires item from previous)
+- No puzzle solvable independently without prior rewards
+- Hilo conductor letters delivered individually, not revealed early
+- Navigation documents only accessible after solving
+
+Any puzzle bypassable → `fail`.
+
+#### Check 30: Anti-Brute Force
+
+Lock codes must resist brute force:
+- 4-digit numeric: not in top 100 common PINs, not sequential, not repeated digits
+- Word codes: not the game title, not a theme word visible on the box/door
+- Cryptex: not an obvious word from the game description
+- Codes should require puzzle-specific knowledge to derive
+
+Common PIN or game-title code → `fail`. Sequential/repeated → `warning`.
 
 ### Design Compliance Matrix (Check 18 extended)
 
