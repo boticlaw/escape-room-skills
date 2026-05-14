@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Testamento de Elena — Sobre Lacrado de Inicio</title>
+<style>
+  @page {
+    size: A4;
+    margin: 12mm 10mm;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 11pt;
+    color: #4a3728;
+    background: #faf0e6;
+    line-height: 1.7;
+    padding: 15mm 25mm 20mm 28mm;
+  }
+  .documento {
+    background: #faf0e6;
+    box-shadow: inset 0 0 60px 15px rgba(139,115,85,0.15);
+    padding: 12mm;
+    min-height: 100%;
+    position: relative;
+  }
+  .documento::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid #8b7355;
+    pointer-events: none;
+  }
+  .documento::after {
+    content: '';
+    position: absolute;
+    top: 3mm; left: 3mm; right: 3mm; bottom: 3mm;
+    border: 1px solid #8b7355;
+    pointer-events: none;
+  }
+  .sello {
+    text-align: center;
+    margin-bottom: 8mm;
+    padding-bottom: 5mm;
+    border-bottom: 1px solid #8b7355;
+  }
+  .sello-titulo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin-bottom: 2mm;
+  }
+  .sello-subtitulo {
+    font-size: 9pt;
+    color: #8b7355;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .contenido p {
+    margin-bottom: 4mm;
+    text-align: justify;
+  }
+  .contenido strong {
+    color: #1a1a1a;
+  }
+  .contenido em {
+    font-style: italic;
+    color: #6b5a48;
+  }
+  .contenido hr {
+    border: none;
+    border-top: 1px solid #8b7355;
+    margin: 10mm 15mm;
+  }
+  .nota-final {
+    text-align: center;
+    font-style: italic;
+    color: #6b5a48;
+    margin-top: 8mm;
+    font-size: 11.5pt;
+    line-height: 1.8;
+  }
+  .firma {
+    text-align: right;
+    margin-top: 8mm;
+    font-style: italic;
+    font-size: 12pt;
+    color: #4a3728;
+  }
+  .gm-nota {
+    display: none;
+  }
+  .lacrado {
+    text-align: center;
+    margin-top: 10mm;
+    font-size: 8pt;
+    color: #8b7355;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  @media print {
+    body { padding: 0; }
+    .documento { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="documento">
+  <div class="sello">
+    <div class="sello-titulo">ÚLTIMO TESTAMENTO DE ELENA ÁLVAREZ</div>
+    <div class="sello-subtitulo">Sobre lacrado — abrir al inicio del juego</div>
+  </div>
+
+  <div class="contenido">
+    <p>Yo, Elena Álvarez, en pleno uso de mis facultades mentales, dejo a mis nietos — Sebastián, Olivia, Leo y Sofía — la siguiente herencia:</p>
+
+    <p>No poseo joyas ni propiedades que valgan la pena legar. Lo que os dejo es algo que pertenece a esta familia desde antes de que nacierais: <strong>una verdad que fue escondida por amor y que hoy necesita salir a la luz.</strong></p>
+
+    <p>Mi casa guarda seis pruebas. Cada una os entregará una letra. Juntas forman una palabra que es el corazón de esta familia. Seguid los hilos rojos — son los hilos de una marioneta que alguien ha estado moviendo durante décadas.</p>
+
+    <p><strong>Empezad por el escritorio de mi despacho.</strong> Allí encontraréis lo que necesitéis para la primera prueba.</p>
+
+    <p>No tengáis miedo de la verdad. Tened miedo de que permanezca oculta.</p>
+
+    <div class="firma">Elena Álvarez</div>
+
+    <hr>
+
+    <div class="nota-final">
+      <p>Alguien ha estado moviendo los hilos de esta familia durante décadas.<br>
+      Hoy vosotros, los nietos, tenéis la oportunidad de cortarlos.</p>
+    </div>
+  </div>
+
+  <div class="lacrado">✦ sellado con lacre rojo ✦</div>
+</div>
+
+<div class="gm-nota">
+  GM: Este documento se imprime y se mete en un sobre lacrado rojo. Se cuelga en la puerta del Despacho. Los jugadores lo abren al llegar. Después de leerlo, entran al Despacho y van directamente al escritorio donde está P1 (Tablero de las Presencias). No hay intervención del GM.
+</div>
+</body>
+</html>
