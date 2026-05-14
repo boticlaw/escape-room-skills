@@ -6,8 +6,8 @@
 #   bash scripts/validate-schema.sh <game-directory>
 #
 # Validates:
-#   1. game.json exists and is valid JSON
-#   2. Each prueba file referenced in game.json exists and is valid JSON
+#   1. juego.json exists and is valid JSON
+#   2. Each prueba file referenced in juego.json exists and is valid JSON
 #   3. All JSON files parse with python3 json.tool
 #
 # Requirements: python3
@@ -53,27 +53,27 @@ echo "=== Escape Room Schema Validation ==="
 echo "Game directory: $GAME_DIR"
 echo ""
 
-# --- Check game.json ---
-echo "Validating game.json..."
+# --- Check juego.json ---
+echo "Validating juego.json..."
 
-GAME_FILE="$GAME_DIR/game.json"
+GAME_FILE="$GAME_DIR/juego.json"
 if [ ! -f "$GAME_FILE" ]; then
-  # Try finding any game*.json
-  GAME_FILE=$(find "$GAME_DIR" -maxdepth 1 -name 'game*.json' -type f | head -1)
+  # Try finding any juego*.json
+  GAME_FILE=$(find "$GAME_DIR" -maxdepth 1 -name 'juego*.json' -type f | head -1)
 fi
 
 if [ -z "$GAME_FILE" ] || [ ! -f "$GAME_FILE" ]; then
-  echo -e "  ${RED}✗${NC} No game.json found in $GAME_DIR"
+  echo -e "  ${RED}✗${NC} No juego.json found in $GAME_DIR"
   ((fail++))
   exit 1
 fi
 
 # Validate JSON syntax
 python3 -m json.tool "$GAME_FILE" > /dev/null 2>&1
-check "game.json is valid JSON" $?
+check "juego.json is valid JSON" $?
 
 # Check required fields
-for field in id nombre tipo version jugadores duracion_minutos dificultad_objetivo tematica flujo objetivo_principal pruebas; do
+for field in nombre tipo jugadores_min jugadores_max duracion_minutos dificultad; do
   if python3 -c "
 import json, sys
 with open('$GAME_FILE') as f:

@@ -1,6 +1,6 @@
 ---
 name: pipeline-verify
-description: "Trigger: verificar juego escape room, QA, validación completa, FASE 5 pipeline. 31 checks de calidad: schema, solucionabilidad, dead ends, curva, tiempos, mecánicas, narrativa, pistas, materiales, códigos, B&W compatibility."
+description: "Trigger: verificar juego escape room, QA, validación completa, FASE 5 pipeline. 31 universal checks + game-type-specific checks: schema, solucionabilidad, dead ends, curva, tiempos, mecánicas, narrativa, pistas, materiales, códigos, B&W compatibility."
 ---
 
 # Pipeline Verify (FASE 5 — QA)
@@ -16,7 +16,7 @@ After BUILD + PLAYTEST. Game directory complete with all files.
 3. `warning` but no `fail` → `verdict` = `"pass_with_warnings"`.
 4. All `pass` → `verdict` = `"pass"`.
 5. `issues` must be **actionable**: describe what to fix and how.
-6. All 31 checks are mandatory.
+6. All 31 universal checks are mandatory, plus applicable game-type-specific checks.
 
 ## Execution Steps
 

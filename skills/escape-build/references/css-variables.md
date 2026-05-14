@@ -84,3 +84,5 @@ When `STYLE.impresion.modo = "bw"`, these overrides apply to ALL color variables
 - Red margin: `#888888` dashed line (dashed to distinguish from notebook lines)
 
 Materials listed in `STYLE.impresion.materiales_color` keep their original color variables.
+
+**Enforcement:** The pipeline-build agent MUST inject `class="bw-mode"` on the `<body>` element when `STYLE.impresion.modo = "bw"`. For materials in `STYLE.impresion.materiales_color`, add `class="color-required"` to that material's wrapper element. This is a build-time responsibility, not runtime.

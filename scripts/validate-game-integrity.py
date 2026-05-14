@@ -645,22 +645,21 @@ def check_6b_wrong_prueba_reference(game_data, pruebas_data):
             sobre_matches = re.findall(r'Sobre\s+P(\d+)', elem, re.IGNORECASE)
             for ref_pos_str in sobre_matches:
                 ref_pos = int(ref_pos_str)
-                # "Sobre P1" in P2+ is a copy-paste artifact
-                if ref_pos < pos:
+                if ref_pos > pos:
                     issues.append(("WARNING",
                                    f"[{pid}] elementos_necesarios menciona "
                                    f"'Sobre P{ref_pos}' pero esta es "
-                                   f"P{pos} (¿copy-paste de P{ref_pos}?)"))
+                                   f"P{pos} (referencia hacia adelante)"))
 
             # Check for "Prueba N" references
             prueba_matches = re.findall(r'Prueba\s+(\d+)', elem, re.IGNORECASE)
             for ref_pos_str in prueba_matches:
                 ref_pos = int(ref_pos_str)
-                if ref_pos != pos:
+                if ref_pos > pos:
                     issues.append(("WARNING",
                                    f"[{pid}] elementos_necesarios menciona "
                                    f"'Prueba {ref_pos}' pero esta es "
-                                   f"P{pos} (¿copy-paste?)"))
+                                   f"P{pos} (referencia hacia adelante)"))
 
     if not issues:
         return "OK", "Referencias a pruebas correctas"

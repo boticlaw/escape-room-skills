@@ -14,7 +14,7 @@
     "tipo": {
       "type": "string",
       "description": "Tipo de juego",
-      "enum": ["hall_escape", "street_escape", "investigacion", "game-type-hall-escape", "game-type-street-escape", "game-type-investigation"]
+      "enum": ["hall_escape", "street_escape", "investigacion", "concurso", "game-type-hall-escape", "game-type-street-escape", "game-type-investigation", "game-type-concurso"]
     },
     "jugadores_min": {
       "type": "integer",
@@ -111,6 +111,25 @@
             "type": "string",
             "description": "Notas para el GM"
           }
+        }
+      }
+    },
+    "impresion": {
+      "type": "object",
+      "description": "Configuración de impresión — B&W por defecto, color como excepción",
+      "properties": {
+        "modo": {
+          "type": "string",
+          "enum": ["bw", "color"],
+          "default": "bw",
+          "description": "Modo de impresión: bw (láser B&W) o color"
+        },
+        "materiales_color": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Lista de IDs de materiales que requieren impresión en color"
         }
       }
     }

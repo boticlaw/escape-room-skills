@@ -80,7 +80,7 @@ Combine all files into `playtests/game-data.json`.
 ```
 delegate(agent="escape-judge-a", prompt="Simulate 3 analytical profiles (A1-A3). Read game files in {game_dir}/. Complete playthrough step by step. BRUTALLY HONEST. Reference specific elements. Output PLAYTEST-A.json → {output_dir}/playtests/PLAYTEST-A.json")
 
-delegate(agent="escape-judge-b", prompt="Simulate 3 experiential profiles (B1-B3). Read game files in {game_dir}/. Complete playthrough step by step. BRUTALLY HONEST but constructive. Output PLAYTEST-B.json → {output_dir}/playtests/PLAYTEST-B.json")
+delegate(agent="escape-judge-b", prompt="Simulate 4 experiential profiles (B1-B4). Read game files in {game_dir}/. Complete playthrough step by step. BRUTALLY HONEST but constructive. Output PLAYTEST-B.json → {output_dir}/playtests/PLAYTEST-B.json")
 ```
 
 ### Step 3: Synthesize
