@@ -212,6 +212,91 @@ Lock codes must resist brute force:
 
 Common PIN or game-title code → `fail`. Sequential/repeated → `warning`.
 
+### Game-Type-Specific Checks
+
+The following checks activate based on `tipo` in juego.json. Only checks for the matching game type run; others are skipped.
+
+#### Concurso Checks
+
+##### Check C1: Question Integrity ⚠️ CRITICAL
+
+For quiz/concurso games with `preguntas.json` or `preguntas-*.json`:
+
+- Every question has ≥2 options in `opciones` array
+- `correcta` field exists and is a valid index (A/B/C/D) within opciones
+- Exactly 1 correct answer per question
+- `dificultad` field present
+- `dato` or `explicacion` field present (educational value)
+- No duplicate questions (same `pregunta` text)
+
+Missing correcta or invalid index → `fail`. Missing dificultad/dato → `warning`.
+
+##### Check C2: Difficulty Progression
+
+- Questions grouped by `ronda` or `pct` show consistent difficulty
+- `pct` values progress from high (easy, 90%) to low (hard, 1%)
+- No single question with dificultad > 8
+- Rounds increase in difficulty or stay level
+
+Reversed difficulty → `warning`.
+
+##### Check C3: Mini-game Balance
+
+For `minijuegos.json`:
+
+- Each minijuego has `material`, `tiempo` (≤120s), `dificultad`, `participantes`
+- ≥3 different categories represented
+- No single material item > 50€
+- Total material feasible for venue setup
+
+Missing fields → `warning`. No category variety → `warning`.
+
+#### Street Escape Checks
+
+##### Check S1: GPS Coordinates ⚠️ CRITICAL
+
+For each puzzle with `latitud_objetivo`/`longitud_objetivo`:
+
+- Coordinates are valid numbers (not "TODO" or placeholders)
+- Latitude -90 to 90, longitude -180 to 180
+- `radio_verificacion` exists and > 0
+- Backup navigation exists (url_maps_backup or instrucciones_sin_gps)
+
+"TODO" coordinates → `fail`. Missing radio → `warning`.
+
+##### Check S2: Walking Distances
+
+- Calculate walking distance between consecutive GPS points
+- Each leg ≤ 5 minutes walking (≤ 400m)
+- Maximum ≤ 10 minutes between any two points
+- Total route ≤ 3km walking
+
+> 5 min between points → `warning`. > 10 min → `fail`.
+
+#### Hall Escape Checks
+
+##### Check H1: Team Separation
+
+For games with max players > 8 (multi-team):
+
+- Physical separation between teams documented
+- Anti-cheat: teams cannot overhear or observe other teams' solutions
+- Multiple copies of shared documents (one per team)
+- Solution verification is self-service
+
+Missing separation → `warning`.
+
+#### Investigation Checks
+
+##### Check I1: Evidence Chain
+
+- Each puzzle's solution is derivable from its own in-game documents
+- No document contains the solution to another puzzle (cross-contamination)
+- Evidence accumulates across the game (later puzzles build on earlier discoveries)
+- Red herrings are resolvable with available information
+
+Solvable without in-game docs → `warning`. Cross-contamination → `fail`.
+
 ### Design Compliance Matrix (Check 18 extended)
 
 Per puzzle: Objetivo, Input, Mecanismo, Output, Conexión, Pista GM, Solución verificable. Empty cell for active puzzle → `fail`.

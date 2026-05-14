@@ -15,7 +15,9 @@ Salida:
     - Código 1: al menos un CRITICAL
 """
 
+import glob as glob_mod
 import json
+import math
 import os
 import re
 import sys
@@ -105,6 +107,51 @@ def truncate(text, max_len=80):
 def get_prueba_display_id(prueba, idx):
     """Get a display-friendly ID for a prueba (prefers id, falls back to index)."""
     return prueba.get("id", f"P{idx + 1}")
+
+
+def detect_game_type(game_data):
+    """Detect game type from juego.json tipo field."""
+    tipo = game_data.get("tipo", "").lower().replace("game-type-", "")
+    type_map = {
+        "hall-escape": "hall-escape",
+        "street-escape": "street-escape",
+        "investigation": "investigation",
+        "concurso": "concurso",
+        "violeta": "investigation",
+    }
+    return type_map.get(tipo, "hall-escape")
+
+
+def _load_concurso_questions(juego_dir):
+    """Load all question files for concurso games. Returns list of (filename, questions_list) or None."""
+    patterns = [
+        str(juego_dir / "preguntas.json"),
+        str(juego_dir / "preguntas-*.json"),
+    ]
+    files = []
+    for pat in patterns:
+        files.extend(glob_mod.glob(pat))
+    files = sorted(set(files))
+    if not files:
+        return None
+    all_questions = []
+    for fpath in files:
+        data, err = load_json(fpath)
+        if err or not isinstance(data, list):
+            continue
+        all_questions.extend(data)
+    return all_questions if all_questions else None
+
+
+def _load_concurso_minijuegos(juego_dir):
+    """Load minijuegos.json for concurso games. Returns list or None."""
+    path = juego_dir / "minijuegos.json"
+    if not path.is_file():
+        return None
+    data, err = load_json(path)
+    if err or not isinstance(data, list):
+        return None
+    return data
 
 
 # ── CHECKS ────────────────────────────────────────────────────────────────────
@@ -493,6 +540,8 @@ def check_5c_difficulty_curve_mismatch(game_data, pruebas_data):
         return "SKIP", "No hay dificultad.curva en juego.json"
 
     game_pruebas = game_data.get("pruebas", [])
+    if not game_pruebas:
+        return "SKIP", "No hay pruebas en juego.json"
     issues = []
 
     for i, expected_diff in enumerate(curva):
@@ -1020,25 +1069,524 @@ def check_10_anti_brute_force(game_data, pruebas_data):
     return worst, details
 
 
+def check_concurso_1_questions_unique_answers(game_data, pruebas_data):
+    """CHECK C1 — Preguntas con respuesta única (concurso only)."""
+    juego_dir = game_data.get("_juego_dir")
+    if not juego_dir:
+        return "SKIP", "No se puede determinar el directorio del juego"
+
+    questions = _load_concurso_questions(juego_dir)
+    if questions is None:
+        return "SKIP", "No se encontraron archivos de preguntas (preguntas.json)"
+
+    issues = []
+    INDEX_MAP = {"a": 0, "b": 1, "c": 2, "d": 3}
+
+    for i, q in enumerate(enumerate(questions), 1):
+        q_idx, q_data = q
+        qid = q_data.get("id", f"Q{i}")
+        pregunta_text = q_data.get("pregunta", "")
+
+        opciones = q_data.get("opciones", [])
+        if not opciones or len(opciones) < 2:
+            issues.append(("WARNING",
+                           f"[{qid}] Sin opciones (necesita ≥2)"))
+
+        correcta = q_data.get("correcta", "")
+        if not correcta:
+            issues.append(("CRITICAL",
+                           f"[{qid}] Sin campo 'correcta'"))
+        elif opciones:
+            idx = INDEX_MAP.get(correcta.lower())
+            if idx is None or idx >= len(opciones):
+                issues.append(("CRITICAL",
+                               f"[{qid}] correcta='{correcta}' fuera de rango de opciones"))
+            correct_count = sum(
+                1 for j, _ in enumerate(opciones) if j == idx
+            )
+            if correct_count > 1:
+                issues.append(("CRITICAL",
+                               f"[{qid}] Múltiples opciones marcadas como correctas"))
+
+        if not q_data.get("dificultad"):
+            issues.append(("WARNING",
+                           f"[{qid}] Sin campo 'dificultad'"))
+
+        if not q_data.get("dato") and not q_data.get("explicacion"):
+            issues.append(("WARNING",
+                           f"[{qid}] Sin 'dato' ni 'explicacion' (valor educativo)"))
+
+    seen = {}
+    for q_data in questions:
+        text = normalize_text_for_compare(q_data.get("pregunta", ""))
+        if text in seen:
+            issues.append(("WARNING",
+                           f"Pregunta duplicada: '{truncate(q_data.get('pregunta', ''), 60)}' "
+                           f"(también en {seen[text]})"))
+        else:
+            seen[text] = q_data.get("id", "?")
+
+    if not issues:
+        return "OK", f"{len(questions)} preguntas válidas con respuesta única"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_concurso_2_difficulty_progression(game_data, pruebas_data):
+    """CHECK C2 — Progresión de dificultad en preguntas (concurso only)."""
+    juego_dir = game_data.get("_juego_dir")
+    if not juego_dir:
+        return "SKIP", "No se puede determinar el directorio del juego"
+
+    questions = _load_concurso_questions(juego_dir)
+    if questions is None:
+        return "SKIP", "No se encontraron archivos de preguntas"
+
+    issues = []
+
+    for q_data in questions:
+        diff = q_data.get("dificultad")
+        if diff is not None and isinstance(diff, (int, float)) and diff > 8:
+            qid = q_data.get("id", "?")
+            issues.append(("WARNING",
+                           f"[{qid}] dificultad={diff} > 8 (demasiado difícil para quiz)"))
+
+    by_pct = {}
+    by_ronda = {}
+    for q_data in questions:
+        pct = q_data.get("pct")
+        ronda = q_data.get("ronda")
+        diff = q_data.get("dificultad")
+        if diff is None:
+            continue
+        if pct is not None:
+            by_pct.setdefault(pct, []).append(diff)
+        if ronda is not None:
+            by_ronda.setdefault(ronda, []).append(diff)
+
+    if by_pct:
+        sorted_pcts = sorted(by_pct.keys(), reverse=True)
+        for i in range(len(sorted_pcts) - 1):
+            avg_curr = sum(by_pct[sorted_pcts[i]]) / len(by_pct[sorted_pcts[i]])
+            avg_next = sum(by_pct[sorted_pcts[i + 1]]) / len(by_pct[sorted_pcts[i + 1]])
+            if avg_curr > avg_next:
+                issues.append(("WARNING",
+                               f"pct={sorted_pcts[i]} (diff media {avg_curr:.1f}) es más difícil "
+                               f"que pct={sorted_pcts[i + 1]} (diff media {avg_next:.1f}) "
+                               f"— debería ir de fácil a difícil"))
+
+    if by_ronda:
+        sorted_rondas = sorted(by_ronda.keys())
+        for i in range(len(sorted_rondas) - 1):
+            avg_curr = sum(by_ronda[sorted_rondas[i]]) / len(by_ronda[sorted_rondas[i]])
+            avg_next = sum(by_ronda[sorted_rondas[i + 1]]) / len(by_ronda[sorted_rondas[i + 1]])
+            if avg_curr > avg_next:
+                issues.append(("WARNING",
+                               f"Ronda {sorted_rondas[i]} (diff media {avg_curr:.1f}) más difícil "
+                               f"que Ronda {sorted_rondas[i + 1]} (diff media {avg_next:.1f}) "
+                               f"— la dificultad debería crecer o mantenerse"))
+
+    if not issues:
+        return "OK", f"Progresión de dificultad correcta en {len(questions)} preguntas"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_concurso_3_minijuegos_balance(game_data, pruebas_data):
+    """CHECK C3 — Balance de minijuegos (concurso only)."""
+    juego_dir = game_data.get("_juego_dir")
+    if not juego_dir:
+        return "SKIP", "No se puede determinar el directorio del juego"
+
+    minijuegos = _load_concurso_minijuegos(juego_dir)
+    if minijuegos is None:
+        return "SKIP", "No se encontró minijuegos.json"
+
+    issues = []
+    categories = set()
+
+    for i, mj in enumerate(minijuegos):
+        mid = mj.get("id", f"MJ{i + 1}")
+
+        if not mj.get("material"):
+            issues.append(("WARNING",
+                           f"[{mid}] Sin lista 'material'"))
+
+        tiempo = mj.get("tiempo")
+        if tiempo is not None:
+            try:
+                t = float(tiempo)
+                if t > 120:
+                    issues.append(("WARNING",
+                                   f"[{mid}] tiempo={tiempo}s > 120s (demasiado largo)"))
+            except (ValueError, TypeError):
+                pass
+
+        if not mj.get("dificultad"):
+            issues.append(("WARNING",
+                           f"[{mid}] Sin campo 'dificultad'"))
+
+        if not mj.get("participantes"):
+            issues.append(("WARNING",
+                           f"[{mid}] Sin campo 'participantes'"))
+
+        cat = mj.get("categoria", mj.get("tipo", ""))
+        if cat:
+            categories.add(cat)
+
+        material = mj.get("material", [])
+        if isinstance(material, list):
+            for item in material:
+                if isinstance(item, dict):
+                    precio = item.get("precio", item.get("coste", 0))
+                    try:
+                        if float(precio) > 50:
+                            issues.append(("WARNING",
+                                           f"[{mid}] Material '{item.get('nombre', '?')}' "
+                                           f"cuesta {precio}€ (>50€)"))
+                    except (ValueError, TypeError):
+                        pass
+                elif isinstance(item, str):
+                    price_match = re.search(r'(\d+(?:\.\d+)?)\s*€', item)
+                    if price_match:
+                        try:
+                            if float(price_match.group(1)) > 50:
+                                issues.append(("WARNING",
+                                               f"[{mid}] Material con precio >50€: '{truncate(item, 50)}'"))
+                        except ValueError:
+                            pass
+
+    if len(categories) < 3:
+        issues.append(("WARNING",
+                       f"Solo {len(categories)} categorías de minijuegos "
+                       f"(recomendado ≥3 para variedad)"))
+
+    if not issues:
+        return "OK", f"{len(minijuegos)} minijuegos equilibrados, {len(categories)} categorías"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_street_1_gps_coordinates(game_data, pruebas_data):
+    """CHECK S1 — Coordenadas GPS válidas (street-escape only)."""
+    issues = []
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        cfg = prueba.get("configuracion", {})
+
+        lat = cfg.get("latitud_objetivo")
+        lon = cfg.get("longitud_objetivo")
+
+        if lat is None and lon is None:
+            continue
+
+        if lat is None or lon is None:
+            issues.append(("CRITICAL",
+                           f"[{pid}] GPS incompleto: lat={lat}, lon={lon}"))
+            continue
+
+        if isinstance(lat, str) and ("todo" in lat.lower() or lat.strip() == ""):
+            issues.append(("CRITICAL",
+                           f"[{pid}] latitud_objetivo='TODO' o vacío"))
+            continue
+
+        if isinstance(lon, str) and ("todo" in lon.lower() or lon.strip() == ""):
+            issues.append(("CRITICAL",
+                           f"[{pid}] longitud_objetivo='TODO' o vacío"))
+            continue
+
+        try:
+            lat_f = float(lat)
+            lon_f = float(lon)
+        except (ValueError, TypeError):
+            issues.append(("CRITICAL",
+                           f"[{pid}] Coordenadas no numéricas: lat={lat}, lon={lon}"))
+            continue
+
+        if not (-90 <= lat_f <= 90):
+            issues.append(("CRITICAL",
+                           f"[{pid}] latitud={lat_f} fuera de rango [-90, 90]"))
+
+        if not (-180 <= lon_f <= 180):
+            issues.append(("CRITICAL",
+                           f"[{pid}] longitud={lon_f} fuera de rango [-180, 180]"))
+
+        radio = cfg.get("radio_verificacion")
+        if radio is None:
+            issues.append(("WARNING",
+                           f"[{pid}] Sin radio_verificacion"))
+        else:
+            try:
+                if float(radio) <= 0:
+                    issues.append(("WARNING",
+                                   f"[{pid}] radio_verificacion={radio} ≤ 0"))
+            except (ValueError, TypeError):
+                issues.append(("WARNING",
+                               f"[{pid}] radio_verificacion no numérico: {radio}"))
+
+    if not issues:
+        gps_pruebas = sum(
+            1 for p in pruebas_data
+            if p.get("configuracion", {}).get("latitud_objetivo") is not None
+        )
+        if gps_pruebas == 0:
+            return "SKIP", "No hay pruebas con coordenadas GPS"
+        return "OK", f"{gps_pruebas} coordenadas GPS válidas"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_street_2_walking_distances(game_data, pruebas_data):
+    """CHECK S2 — Distancias caminables entre pruebas GPS (street-escape only)."""
+    gps_points = []
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        cfg = prueba.get("configuracion", {})
+        lat = cfg.get("latitud_objetivo")
+        lon = cfg.get("longitud_objetivo")
+        if lat is not None and lon is not None:
+            try:
+                gps_points.append((pid, float(lat), float(lon)))
+            except (ValueError, TypeError):
+                continue
+
+    if len(gps_points) <= 1:
+        return "SKIP", f"Solo {len(gps_points)} punto(s) GPS — no se puede calcular distancias"
+
+    issues = []
+    R = 6371
+
+    for j in range(len(gps_points) - 1):
+        pid1, lat1, lon1 = gps_points[j]
+        pid2, lat2, lon2 = gps_points[j + 1]
+
+        dlat = math.radians(lat2 - lat1)
+        dlon = math.radians(lon2 - lon1)
+        a = (math.sin(dlat / 2) ** 2
+             + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2))
+             * math.sin(dlon / 2) ** 2)
+        c = 2 * math.asin(math.sqrt(a))
+        distance_km = R * c
+        walk_min = distance_km / 5 * 60
+
+        if walk_min > 10:
+            issues.append(("CRITICAL",
+                           f"[{pid1}→{pid2}] {walk_min:.0f} min caminando "
+                           f"({distance_km:.2f} km) — demasiado lejos"))
+        elif walk_min > 5:
+            issues.append(("WARNING",
+                           f"[{pid1}→{pid2}] {walk_min:.0f} min caminando "
+                           f"({distance_km:.2f} km) — lejos"))
+
+    if not issues:
+        max_walk = 0
+        for j in range(len(gps_points) - 1):
+            _, lat1, lon1 = gps_points[j]
+            _, lat2, lon2 = gps_points[j + 1]
+            dlat = math.radians(lat2 - lat1)
+            dlon = math.radians(lon2 - lon1)
+            a = (math.sin(dlat / 2) ** 2
+                 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2))
+                 * math.sin(dlon / 2) ** 2)
+            c = 2 * math.asin(math.sqrt(a))
+            max_walk = max(max_walk, R * c / 5 * 60)
+        return "OK", f"Distancias caminables OK (máx {max_walk:.0f} min)"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_hall_1_team_separation(game_data, pruebas_data):
+    """CHECK H1 — Separación de equipos (hall-escape only)."""
+    max_players = None
+    jugadores = game_data.get("jugadores")
+    if jugadores is not None:
+        try:
+            max_players = int(jugadores)
+        except (ValueError, TypeError):
+            pass
+
+    if max_players is None:
+        jmin = game_data.get("jugadores_min")
+        jmax = game_data.get("jugadores_max")
+        if jmax is not None:
+            try:
+                max_players = int(jmax)
+            except (ValueError, TypeError):
+                pass
+
+    if max_players is None or max_players <= 8:
+        return "SKIP", f"Equipo único ({max_players or '?'} jugadores ≤8)"
+
+    issues = []
+    found_separation = False
+    found_anticheat = False
+
+    cfg = game_data.get("configuracion", {})
+    elementos = cfg.get("elementos_necesarios", [])
+    separation_kw = ("separación", "separacion", "divisor", "pantalla", "barandilla",
+                     "boundari", "separat", "mampara", "biombo")
+    anticheat_kw = ("anti-cheat", "anticheat", "soplar", "escuchar", "oír",
+                    "oir", "overhear", "confidencial")
+
+    for elem in elementos:
+        elem_l = elem.lower() if isinstance(elem, str) else ""
+        if any(kw in elem_l for kw in separation_kw):
+            found_separation = True
+        if any(kw in elem_l for kw in anticheat_kw):
+            found_anticheat = True
+
+    for sec in game_data.get("secciones", []):
+        html = sec.get("contenido_html", "").lower()
+        if any(kw in html for kw in separation_kw):
+            found_separation = True
+        if any(kw in html for kw in anticheat_kw):
+            found_anticheat = True
+
+    if not found_separation:
+        issues.append(("WARNING",
+                       f"{max_players} jugadores (multi-equipo) sin elementos de separación "
+                       f"entre equipos"))
+
+    if not found_anticheat:
+        issues.append(("WARNING",
+                       f"Sin medidas anti-cheat entre equipos "
+                       f"(jugadores pueden escuchar respuestas ajenas)"))
+
+    if not issues:
+        return "OK", f"Separación de equipos cubierta para {max_players} jugadores"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
+def check_investigation_1_evidence_chain(game_data, pruebas_data):
+    """CHECK I1 — Cadena de evidencia coherente (investigation only)."""
+    if not pruebas_data:
+        return "SKIP", "No hay pruebas para validar cadena de evidencia"
+
+    issues = []
+    all_docs_text = []
+    prueba_docs = []
+
+    for i, prueba in enumerate(pruebas_data):
+        pid = get_prueba_display_id(prueba, i)
+        docs = prueba.get("documentos_in_game", []) + prueba.get("ingame_docs", [])
+        doc_texts = []
+        for doc in docs:
+            text = doc.get("texto", "")
+            if text:
+                clean = re.sub(r'<[^>]+>', ' ', text)
+                doc_texts.append((doc.get("titulo", f"doc_{pid}"), clean))
+                all_docs_text.append((pid, doc.get("titulo", ""), clean))
+        prueba_docs.append((pid, doc_texts, prueba))
+
+    if not all_docs_text:
+        return "SKIP", "No hay documentos in-game para validar evidencia"
+
+    for i, (pid, doc_texts, prueba) in enumerate(prueba_docs):
+        sol = prueba.get("solucion", {})
+        solucion_text = ""
+        for field in ("respuesta", "codigo", "solucion"):
+            val = sol.get(field, "")
+            if val:
+                solucion_text += " " + str(val)
+        solucion_text += " " + str(sol.get("explicacion", ""))
+
+        if not solucion_text.strip():
+            continue
+
+        own_doc_words = set()
+        for _, doc_text in doc_texts:
+            own_doc_words |= text_word_set(doc_text)
+
+        sol_words = text_word_set(solucion_text)
+        key_sol_words = sol_words - text_word_set(prueba.get("descripcion", ""))
+        key_sol_words = {w for w in key_sol_words if len(w) > 3}
+
+        if own_doc_words and key_sol_words:
+            overlap = key_sol_words & own_doc_words
+            if len(overlap) < len(key_sol_words) * 0.2:
+                issues.append(("WARNING",
+                               f"[{pid}] Solución puede resolverse sin documentos propios "
+                               f"(solapamiento {len(overlap)}/{len(key_sol_words)} "
+                               f"palabras clave)"))
+
+        if i > 0:
+            prev_docs_text = " ".join(
+                t for prev_pid, _, t in all_docs_text
+                if prev_pid in [p[0] for p in prueba_docs[:i]]
+            )
+            prev_words = text_word_set(prev_docs_text)
+            desc_words = text_word_set(prueba.get("descripcion", ""))
+            if desc_words and prev_words:
+                ref_overlap = desc_words & prev_words
+                if len(ref_overlap) < 3 and i > 1:
+                    issues.append(("WARNING",
+                                   f"[{pid}] Prueba tardía sin referencias a "
+                                   f"evidencia descubierta anteriormente"))
+
+    if not issues:
+        return "OK", f"Cadena de evidencia coherente en {len(pruebas_data)} pruebas"
+
+    worst = "CRITICAL" if any(i[0] == "CRITICAL" for i in issues) else "WARNING"
+    details = "; ".join(i[1] for i in issues)
+    return worst, details
+
+
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 
-CHECKS = [
-    (1, "Consistencia letra recompensa", "🔴", check_1_reward_letter_consistency),
-    (2, "Completitud hilo conductor", "🔴", check_2_hilo_conductor_completeness),
-    (3, "Continuidad navegación", "🔴", check_3_navigation_continuity),
-    (4, "Consistencia textos navegación", "🟡", check_4_navigation_text_consistency),
-    ("5a", "Código candado en juego.json", "🔴", check_5a_lock_code_mismatch),
-    ("5b", "Etiquetas materiales", "🟡", check_5b_label_mismatch),
-    ("5c", "Curva dificultad", "🟡", check_5c_difficulty_curve_mismatch),
-    ("5d", "Duración total", "🟡", check_5d_duration_mismatch),
-    ("6a", "Letra en ubicación", "🟡", check_6a_wrong_letter_ubicacion),
-    ("6b", "Referencia prueba", "🟡", check_6b_wrong_prueba_reference),
-    ("6c", "Letra en elementos", "🟡", check_6c_wrong_letter_elementos),
-    (7, "Timeline matemático", "🔴", check_7_timeline_math),
-    (8, "Sincronización personajes", "🔴", check_8_personajes_sync),
-    (9, "Código adivinable", "🔴", check_9_code_guessability),
-    (10, "Anti fuerza bruta", "🟡", check_10_anti_brute_force),
-]
+def get_checks_for_type(game_type):
+    """Return the check list appropriate for the game type."""
+    base_checks = [
+        (1, "Consistencia letra recompensa", "🔴", check_1_reward_letter_consistency),
+        (2, "Completitud hilo conductor", "🔴", check_2_hilo_conductor_completeness),
+        (3, "Continuidad navegación", "🔴", check_3_navigation_continuity),
+        (4, "Consistencia textos navegación", "🟡", check_4_navigation_text_consistency),
+        ("5a", "Código candado en juego.json", "🔴", check_5a_lock_code_mismatch),
+        ("5b", "Etiquetas materiales", "🟡", check_5b_label_mismatch),
+        ("5c", "Curva dificultad", "🟡", check_5c_difficulty_curve_mismatch),
+        ("5d", "Duración total", "🟡", check_5d_duration_mismatch),
+        ("6a", "Letra en ubicación", "🟡", check_6a_wrong_letter_ubicacion),
+        ("6b", "Referencia prueba", "🟡", check_6b_wrong_prueba_reference),
+        ("6c", "Letra en elementos", "🟡", check_6c_wrong_letter_elementos),
+        (7, "Timeline matemático", "🔴", check_7_timeline_math),
+        (8, "Sincronización personajes", "🔴", check_8_personajes_sync),
+        (9, "Código adivinable", "🔴", check_9_code_guessability),
+        (10, "Anti fuerza bruta", "🟡", check_10_anti_brute_force),
+    ]
+
+    type_checks = {
+        "concurso": [
+            ("C1", "Preguntas respuesta única", "🔴", check_concurso_1_questions_unique_answers),
+            ("C2", "Progresión dificultad preguntas", "🟡", check_concurso_2_difficulty_progression),
+            ("C3", "Balance minijuegos", "🟡", check_concurso_3_minijuegos_balance),
+        ],
+        "street-escape": [
+            ("S1", "Coordenadas GPS válidas", "🔴", check_street_1_gps_coordinates),
+            ("S2", "Distancias caminables", "🟡", check_street_2_walking_distances),
+        ],
+        "hall-escape": [
+            ("H1", "Separación equipos", "🟡", check_hall_1_team_separation),
+        ],
+        "investigation": [
+            ("I1", "Cadena de evidencia", "🟡", check_investigation_1_evidence_chain),
+        ],
+    }
+
+    return base_checks + type_checks.get(game_type, [])
 
 
 def main():
@@ -1075,6 +1623,9 @@ def main():
         sys.exit(1)
 
     juego_dir = juego_path.parent
+    game_data["_juego_dir"] = juego_dir
+
+    game_type = detect_game_type(game_data)
 
     # Load all referenced prueba files (by index order)
     game_pruebas = game_data.get("pruebas", [])
@@ -1106,6 +1657,7 @@ def main():
     print("║  VALIDADOR DE INTEGRIDAD DE JUEGO — Escape Room     ║")
     print("╚══════════════════════════════════════════════════════╝")
     print(f"\nJuego: {game_data.get('nombre', '?')}")
+    print(f"Tipo: {game_type}")
     print(f"Archivo: {juego_path}")
     print(f"Pruebas en juego.json: {len(game_pruebas)}")
     print(f"Pruebas cargadas: {len(pruebas_data)}")
@@ -1129,7 +1681,8 @@ def main():
     all_results = []
     any_critical = False
 
-    for num, name, default_icon, check_fn in CHECKS:
+    checks = get_checks_for_type(game_type)
+    for num, name, default_icon, check_fn in checks:
         try:
             status, detail = check_fn(game_data, pruebas_data)
         except Exception as e:

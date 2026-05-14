@@ -56,6 +56,15 @@ Profile B4 simulates a player who actively tries to break the game:
 
 B4's findings feed directly into Verify checks 28-30 (anti-cheat). Any successful shortcut = CRITICAL for the game.
 
+### B4 by game type
+
+| Game Type | B4 Specific Behaviors |
+|-----------|----------------------|
+| **hall-escape** | Observes other teams' stations for solutions, counts projector slides for hints, tries to read other teams' materials |
+| **street-escape** | GPS spoofs to skip locations, scans all QR codes at once, walks the route backwards, uses Google Maps instead of in-game clues |
+| **investigation** | Speed-reads documents and guesses based on highlighted words, checks if final answer is solvable from intro alone, ignores red herrings to go straight for conclusion |
+| **concurso** | Searches answers on phone during rounds, signals between teams, pre-positions mini-game materials for advantage |
+
 ## Execution Steps
 
 ### Step 0: Calibrate against real playtests
