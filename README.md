@@ -149,6 +149,8 @@ Ver `skills/escape-build/references/style-schema.md` para el schema completo.
 
 Ver `references/materials-templates.md` para las plantillas completas con estructura HTML + CSS requerido + intensidad de tratamiento.
 
+Todos los tratamientos visuales funcionan en B&W por diseño — usan texturas, sombras y patrones, no color.
+
 ### Game Guide (Documento de Diseño Estándar)
 
 El output estándar del BUILD es `00-guia-completa-juego.html/pdf` con estructura fija:
@@ -169,6 +171,7 @@ El output estándar del BUILD es `00-guia-completa-juego.html/pdf` con estructur
 | **MECANISMOS REALES** | Cada mecanismo físico debe ser construible con ~120€ de presupuesto y materiales accesibles |
 | **SIN DEPENDENCIAS CRUZADAS** | Cada puzzle es autocontenido; no viaja data entre puzzles (solo llaves y herramientas) |
 | **FÍSICO > DIGITAL** | Priorizar interacción tangible; lo digital es soporte, nunca protagonista |
+| **B&W FIRST** | Default es impresión láser B&W — color solo cuando la mecánica lo requiere, siempre justificado |
 | **DOBLE DESCUBRIMIENTO** | Cada puzzle tiene 2+ capas de "¡aha!" — resolver + revelar |
 
 ### Validación Automatizada — validate-game-integrity.py
@@ -187,6 +190,7 @@ Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta
 | 8 | **Sincronización personajes** — valida array `personajes` vs texto de pruebas |
 | 9 | **Código adivinable** — detecta códigos de candado en textos narrativos |
 | 10 | **Anti fuerza bruta** — PINs comunes, secuencias, años visibles |
+| 11 | **Impresión B&W** — valida que impresion.modo esté configurado, que cada prueba con color tenga motivo_color, y que mecánicas dependientes de color estén taggeadas |
 
 **Checks por tipo de juego:**
 
@@ -202,7 +206,34 @@ Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta
 python3 scripts/validate-game-integrity.py juego/juego.json
 ```
 
-El pipeline VERIFY tiene 30 checks LLM + los tipo-específicos. El script automatiza 18 de ellos.
+El pipeline VERIFY tiene 31 checks LLM + los tipo-específicos. El script automatiza 19 de ellos (11 universales + tipo-específicos).
+
+### Impresión B&W First
+
+El sistema asume **impresión láser B&W por default**. Color solo cuando la mecánica lo requiere.
+
+```json
+// STYLE.json
+{
+  "impresion": {
+    "modo": "bw",           // "bw" (default) | "color"
+    "materiales_color": []  // pruebas que necesitan color
+  }
+}
+
+// En cada prueba
+{
+  "impresion": {
+    "color": false,           // true = requiere impresión en color
+    "motivo_color": ""        // obligatorio si color=true
+  }
+}
+```
+
+**Funciona en B&W:** texturas, envejecimiento, manchas de café, dobleces, sellos de cera, bordes ornamentales, sombras, patrones (puntos, rayas, tramado)
+**Necesita color exemption:** cables de colores, fotografías, puzzles de emparejamiento por color, elementos UV fluorescentes
+
+El builder genera CSS grayscale automático en modo B&W. Los materiales con `color: true` reciben badge "IMPRIMIR EN COLOR".
 
 ### 21 Mecánicas de Puzzle
 
