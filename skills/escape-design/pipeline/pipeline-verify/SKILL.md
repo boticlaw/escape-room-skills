@@ -1,6 +1,6 @@
 ---
 name: pipeline-verify
-description: "Trigger: verificar juego escape room, QA, validación completa, FASE 5 pipeline. 30 checks de calidad: schema, solucionabilidad, dead ends, curva, tiempos, mecánicas, narrativa, pistas, materiales, códigos."
+description: "Trigger: verificar juego escape room, QA, validación completa, FASE 5 pipeline. 31 checks de calidad: schema, solucionabilidad, dead ends, curva, tiempos, mecánicas, narrativa, pistas, materiales, códigos, B&W compatibility."
 ---
 
 # Pipeline Verify (FASE 5 — QA)
@@ -16,7 +16,7 @@ After BUILD + PLAYTEST. Game directory complete with all files.
 3. `warning` but no `fail` → `verdict` = `"pass_with_warnings"`.
 4. All `pass` → `verdict` = `"pass"`.
 5. `issues` must be **actionable**: describe what to fix and how.
-6. All 30 checks are mandatory.
+6. All 31 checks are mandatory.
 
 ## Execution Steps
 
@@ -211,6 +211,18 @@ Lock codes must resist brute force:
 - Codes should require puzzle-specific knowledge to derive
 
 Common PIN or game-title code → `fail`. Sequential/repeated → `warning`.
+
+#### Check 31: B&W Compatibility ⚠️ CRITICAL
+
+Verify all puzzles work in B&W laser printing (default mode):
+- No puzzle relies on color distinction WITHOUT `impresion.color: true`
+- If `impresion.color: true`, `motivo_color` is present and justified
+- Decorative elements use patterns/textures, not color-only differentiation
+- Maps, diagrams, and charts use patterns (stripes, dots, crosshatch) or labels instead of color fills
+- Photos that need color are tagged with `impresion.color: true`
+- Red/green feedback pairs use shape/icon distinction (not color alone)
+
+Color used without `impresion.color: true` → `fail`. Missing `motivo_color` → `warning`.
 
 ### Game-Type-Specific Checks
 

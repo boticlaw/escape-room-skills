@@ -295,6 +295,21 @@
         }
       }
     },
+    "impresion": {
+      "type": "object",
+      "description": "Configuración de impresión para esta prueba",
+      "properties": {
+        "color": {
+          "type": "boolean",
+          "default": false,
+          "description": "Si true, los materiales de esta prueba requieren impresión en color"
+        },
+        "motivo_color": {
+          "type": "string",
+          "description": "Justificación de por qué necesita color (requerido si color=true)"
+        }
+      }
+    },
     "metadata": {
       "type": "object",
       "additionalProperties": true,

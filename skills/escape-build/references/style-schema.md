@@ -146,3 +146,36 @@ When the user has no style preference, use these presets based on game genre:
 | Spy/Espionage | Cool Blue | #0d1b2a, #1b263b, #e07000 | JetBrains Mono |
 
 These presets are suggestions — the builder should adapt based on the game's specific narrative and mood.
+
+### impresion (Printing Mode)
+
+Controls how materials are generated for printing.
+
+```json
+{
+  "impresion": {
+    "modo": "bw",
+    "materiales_color": []
+  }
+}
+```
+
+| Field | Type | Values | Default | Description |
+|-------|------|--------|---------|-------------|
+| `modo` | string | `"bw"` \| `"color"` | `"bw"` | Default printing mode for ALL materials |
+| `materiales_color` | array | `["prueba-003-fotos"]` | `[]` | List of material IDs that require color printing (override) |
+
+**Rules:**
+- `modo: "bw"` → CSS generates grayscale-safe palette, no background colors, pattern-based differentiation
+- `materiales_color` → specific materials exempted from B&W (e.g., photos, colored cables)
+- When `modo: "color"`, all materials use full color palette (legacy behavior)
+- Materials in `materiales_color` get a "IMPRIMIR EN COLOR" badge on the PDF
+
+**B&W palette mapping:**
+When `modo: "bw"`, the CSS generator maps the color palette to grayscale using luminance:
+- Dark colors (#1a1a1a, #2d2d2d) → stay dark
+- Light colors (#faf0e6, #f5e6c8) → stay light
+- Accent colors (#c0392b, #3498db) → map to contrasting grays (light vs dark)
+- Ensure minimum 60% luminance contrast between adjacent elements
+- Text always #1a1a1a on #ffffff background
+- Borders and decorative elements use 3 gray levels: #333 (dark), #888 (mid), #ccc (light)

@@ -240,7 +240,20 @@ Las reglas de esta guía se clasifican en tres niveles de prioridad:
 3. **Un documento = una función** — Sin mezclar instrucciones con narrativa
 4. **Google Fonts con fallback** — `'EB Garamond', Georgia, serif`
 5. **`break-inside: avoid`** en bloques completos — Nada cortado por salto de página
-6. **Verificar B/N** — Los colores deben funcionar sin color (muchas impresoras)
+6. **MANDATORY: B&W-First Design**
+
+All materials are designed for B&W laser printing by default. Color is only used when the puzzle mechanic genuinely requires it.
+
+Rules:
+1. Every material must be legible and functional when printed in grayscale
+2. Never use color as the ONLY distinguishing factor between elements — always pair with shape, pattern, label, or position
+3. If color is required, tag the material with `impresion.color: true` and document why
+4. Decorative effects (aging, stains, folds, textures) work great in B&W — use them freely
+5. Maps and diagrams: use patterns (stripes, dots, crosshatch, diagonal lines) instead of color fills
+6. Feedback indicators: use icons (✓ ✗) or shapes (circle/cross), not just red/green
+
+**Works great in B&W:** aging effects, coffee stains, fold marks, wax seals, burned edges, paper textures, borders, shadows, line patterns, hatching
+**Needs color exemption:** colored cables, color photographs, color-matching puzzles, UV-fluorescent elements
 
 ### 🟡 RECOMENDADAS — Violación = justificar con motivo
 1. **Dos fuentes por juego** (título + cuerpo) usando la tabla de parejas tipográficas
@@ -291,7 +304,7 @@ Las reglas de esta guía se clasifican en tres niveles de prioridad:
 ### Verificación antes de imprimir
 - Siempre generar PDF y abrirlo antes de imprimir
 - Verificar que no hay texto cortado por saltos de página
-- Verificar que los colores se ven bien en B/N (muchas impresoras)
+- Verificar que todos los materiales funcionan en B/W (default) y que los que necesitan color están marcados con `impresion.color: true`
 - Verificar que las texturas no oscurecen el texto al imprimir
 
 ## Recetas CSS Avanzadas para Props

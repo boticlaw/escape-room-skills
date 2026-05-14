@@ -345,7 +345,7 @@ pre {
   h2 {
     break-before: always;
     page-break-before: always;
-    color: #c0392b;
+    color: #333;
   }
 
   h2:first-of-type {
@@ -379,13 +379,14 @@ pre {
   .proof-header {
     background: #333;
     color: #fff;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    /* Color printing only — B&W mode uses borders instead of backgrounds */
+    /* -webkit-print-color-adjust: exact; */
+    /* print-color-adjust: exact; */
   }
 
   .synopsis {
     background: #f0f0f0;
-    border-left-color: #c0392b;
+    border-left: 4px solid #333;
   }
 
   .flow-diagram {
@@ -395,7 +396,30 @@ pre {
 
   .materials-table th {
     background: #e0e0e0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    /* Color printing only — B&W mode uses borders instead of backgrounds */
+    /* -webkit-print-color-adjust: exact; */
+    /* print-color-adjust: exact; */
+  }
+
+  /* B&W mode — applied when STYLE.impresion.modo = "bw" */
+  .bw-mode .card { border: 2px solid #333; }
+  .bw-mode .solution-box { background: #333 !important; color: #fff !important; }
+  .bw-mode .reward-box { background: #555 !important; color: #fff !important; }
+  .bw-mode .narrative-block { border-left: 3px solid #333; }
+  
+  /* Color exception badge — shown on materials that need color printing */
+  .color-required-badge {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #333;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 8pt;
+    font-weight: bold;
+  }
+  .color-required .color-required-badge {
+    display: block;
   }
 }

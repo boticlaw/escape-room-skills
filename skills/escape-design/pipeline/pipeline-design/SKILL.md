@@ -23,6 +23,7 @@ After CONCEIVE. CONCEPT.json + BRIEF.json + `skill-registry.json` available.
 6. Curva de dificultad **estrictamente progresiva**.
 7. La **última prueba** integra elementos de anteriores.
 8. Judges NO comparten output. Síntesis balanceada (contribuciones de ambos).
+9. **B&W FIRST**: El default es impresión láser B&W. Solo se usa color cuando la mecánica lo requiere explícitamente (ej: distinguir cables por color, fotos que pierden sentido en B&W). Justificar cada excepción en `impresion.motivo_color`.
 
 ## Game Style Rules (from 09-estilo-juegos.md)
 
@@ -86,6 +87,7 @@ Balance: ~60% logical (A), ~40% experiential (B). Synthesis prompt in `reference
 - [ ] ≥50% EXISTENTES
 - [ ] Variedad de cierres (máx 3 mismo tipo)
 - [ ] Misterio secundario coherente
+- [ ] **Impresión B&W**: Todas las mecánicas funcionan en B&W. Si una prueba necesita color (ej: cables de colores, fotos), está marcada con `impresion.color: true` y tiene `motivo_color` justificado. Los materiales decorativos usan patrones/texturas, no color.
 
 Fails → adjust synthesis, re-validate (max 2). Then escalate.
 

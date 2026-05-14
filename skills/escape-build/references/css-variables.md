@@ -59,3 +59,28 @@ When the user has no style preference, select based on game genre:
 | Competition/Quiz | Bold Modern | #e94560 | #1a1a2e | #f4d35e | Poppins |
 
 Full preset definitions are in `references/style-schema.md`.
+
+### B&W Mode Override
+
+When `STYLE.impresion.modo = "bw"`, these overrides apply to ALL color variables:
+
+| Variable | Color Value | B&W Override |
+|----------|------------|--------------|
+| `--color-primario` | (theme) | `#333333` |
+| `--color-secundario` | (theme) | `#666666` |
+| `--color-acento` | (theme) | `#1a1a1a` |
+| `--color-texto` | (theme) | `#1a1a1a` |
+| `--color-texto-secundario` | (theme) | `#555555` |
+| `--color-fondo-principal` | (theme) | `#ffffff` |
+| `--color-fondo-secundario` | (theme) | `#f5f5f5` |
+| `--color-borde` | (theme) | `#cccccc` |
+
+**Component overrides:**
+- Cartel background: `#1a1a1a`, text: `#ffffff`
+- Solution highlight: `#333333` bg, `#ffffff` text (thick border)
+- Reward highlight: `#555555` bg, `#ffffff` text
+- All decorative effects (aging, stains, folds) preserved — they're inherently grayscale
+- Notebook lines: `#cccccc` (light gray)
+- Red margin: `#888888` dashed line (dashed to distinguish from notebook lines)
+
+Materials listed in `STYLE.impresion.materiales_color` keep their original color variables.
