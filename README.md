@@ -4,7 +4,7 @@
 
 ## ¿Qué es esto?
 
-Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Cuatro skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, 82 pruebas reales testeadas, 6 juegos completos con playtest data, 17 fases de pipeline (incluyendo remix), evaluación dual-LLM con detección de providers, y un stack de búsqueda self-hosted para investigación temática automática.
+Un toolkit completo que le da a cualquier agente de IA el conocimiento y las plantillas para diseñar, construir y testear juegos de escape room profesionales. Cuatro skills componibles cubren todo el pipeline, respaldados por 10 frameworks de investigación, 21 mecánicas de puzzle, 82 pruebas reales testeadas, 6 juegos completos con playtest data, 17 fases de pipeline (incluyendo remix, validación game-type-aware con 18 checks automatizados (10 universales + tipo-específicos para 4 game types), y perfil anti-cheat en playtest), evaluación dual-LLM con detección de providers, y un stack de búsqueda self-hosted para investigación temática automática.
 
 Todos los skills siguen la [Gentle-AI Skill Style Guide](https://github.com/Gentleman-Programming/gentle-ai/blob/main/docs/skill-style-guide.md): instrucciones ejecutables compactas (activación → reglas → decisiones → pasos → output), con detalle en `references/` para no inflar el contexto del LLM.
 
@@ -30,7 +30,7 @@ escape-room-skills/
 │   │       ├── pipeline-conceive/      # Concepto (dual-LLM)
 │   │       ├── pipeline-design/        # Puzzles (dual-LLM)
 │   │       ├── pipeline-build/         # Construcción del juego
-│   │       ├── pipeline-verify/        # 18 checks + playtest calibration
+│   │       ├── pipeline-verify/        # 30 checks universales + game-type-specific + playtest calibration
 │   │       ├── pipeline-verify-materials/ # ⭐ Verificación de materiales (12 checks)
 │   │       ├── pipeline-fix/           # ⭐ Auto-repair desde reports de validación
 │   │       ├── pipeline-judgment-day/  # Revisión adversarial dual-LLM
@@ -86,7 +86,7 @@ escape-room-skills/
 ### Pipeline de Diseño (escape-design)
 
 ```
-RESOLVE → EXPLORE → REGRESSION* → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → MATERIALS-VERIFY → NARRATIVE-RECHECK → PLAYTEST → VERIFY → JUDGMENT
+RESOLVE → EXPLORE → REGRESSION* → CONCEIVE → DESIGN → NARRATIVE → DIFFICULTY → BUILD → MATERIALS-VERIFY → NARRATIVE-RECHECK → PLAYTEST → VERIFY (30 checks + tipo) → JUDGMENT
                                       *solo si existe baseline
 ```
 
@@ -171,6 +171,39 @@ El output estándar del BUILD es `00-guia-completa-juego.html/pdf` con estructur
 | **FÍSICO > DIGITAL** | Priorizar interacción tangible; lo digital es soporte, nunca protagonista |
 | **DOBLE DESCUBRIMIENTO** | Cada puzzle tiene 2+ capas de "¡aha!" — resolver + revelar |
 
+### Validación Automatizada — validate-game-integrity.py
+
+Script de validación que se ejecuta automáticamente en la fase VERIFY. Detecta el tipo de juego desde `juego.json` y ejecuta los checks correspondientes:
+
+**10 checks universales** (todos los tipos):
+
+| Check | Qué valida |
+|-------|-----------|
+| 1-2 | Consistencia letras LEGADO / hilo conductor |
+| 3-4 | Continuidad y coherencia de cartas de navegación |
+| 5a-5d | Códigos candado, etiquetas, curva dificultad, duración |
+| 6a-6c | Letras en ubicaciones, referencias, elementos |
+| 7 | **Timeline matemático** — detecta contradicciones de fechas/edades entre archivos |
+| 8 | **Sincronización personajes** — valida array `personajes` vs texto de pruebas |
+| 9 | **Código adivinable** — detecta códigos de candado en textos narrativos |
+| 10 | **Anti fuerza bruta** — PINs comunes, secuencias, años visibles |
+
+**Checks por tipo de juego:**
+
+| Tipo | Checks | Qué valida |
+|------|--------|-----------|
+| **Concurso** | C1-C3 | Preguntas (respuesta única, campos), progresión dificultad, balance minijuegos |
+| **Street Escape** | S1-S2 | Coordenadas GPS válidas, distancias caminables (haversine, ≤5 min) |
+| **Hall Escape** | H1 | Separación equipos (>8 jugadores), anti-cheat entre equipos |
+| **Investigation** | I1 | Cadena de evidencia, contaminación cruzada, solvabilidad |
+
+```bash
+# Ejecutar validación
+python3 scripts/validate-game-integrity.py juego/juego.json
+```
+
+El pipeline VERIFY tiene 30 checks LLM + los tipo-específicos. El script automatiza 18 de ellos.
+
 ### 21 Mecánicas de Puzzle
 
 | Categoría | Mecánicas |
@@ -228,7 +261,7 @@ Síntesis ajustada: hallazgos CONFIRMED peso 1.0, hallazgos SUSPECT peso 0.6 (re
 |------|--------|--------|
 | **CONCEIVE** | Narrativa clásica, 3 actos, progresión lógica | Giros narrativos, atmósferas originales, gancho emocional |
 | **DESIGN** | Puzzles lógicos, cadena deductiva, mecánicas probadas | Momentos "wow", interacción física, sorpresa emocional |
-| **PLAYTEST** | Novato Lento, Experimentado Metódico, Experto Crítico | Novato Ansioso, Adolescente Impulsivo, Adulto Pragmático |
+| **PLAYTEST** | Novato Lento, Experimentado Metódico, Experto Crítico | Novato Ansioso, Adolescente Impulsivo, Adulto Pragmático, **El Tramposo** (anti-cheat) |
 | **JUDGMENT** | Coherencia, estructura, solvabilidad, consistencia | Inmersión, arco emocional, originalidad, experiencia jugador |
 
 **Configuración en opencode** — Dos agentes en `opencode.json`:
@@ -312,12 +345,12 @@ Atajo del pipeline completo: toma un juego existente y aplica modificaciones tar
 
 ## 4 Game Types
 
-| Tipo | Espacio | Equipos | Duración | GM | Enfoque |
-|------|---------|---------|----------|----|---------|
-| **Hall Escape** | Interior 50+ m² | 5-10 | 60-90 min | Invisible | Puzzles físicos + digitales |
-| **Street Escape** | Exterior, calles | 2-5 | 90-120 min | Invisible | GPS + exploración real |
-| **Investigation** | Interior o mixto | 2-6 | 45-60 min | Mínimo | Deducción + evidencia |
-| **Concurso** | Interior 30+ m² | 2-3 equipos | 20-45 min | Presentador activo | Trivia + mini-juegos físicos |
+| Tipo | Espacio | Equipos | Duración | GM | Enfoque | Checks específicos |
+|------|---------|---------|----------|----|---------|-------------------|
+| **Hall Escape** | Interior 50+ m² | 5-10 | 60-90 min | Invisible | Puzzles físicos + digitales | H1: Separación equipos |
+| **Street Escape** | Exterior, calles | 2-5 | 90-120 min | Invisible | GPS + exploración real | S1-S2: GPS + distancias |
+| **Investigation** | Interior o mixto | 2-6 | 45-60 min | Mínimo | Deducción + evidencia | I1: Cadena evidencia |
+| **Concurso** | Interior 30+ m² | 2-3 equipos | 20-45 min | Presentador activo | Trivia + mini-juegos | C1-C3: Preguntas + minijuegos |
 
 ## Instalación
 
@@ -409,6 +442,7 @@ Funciona sin el stack también — el pipeline hace fallback a `webfetch` o inve
 | `escape-pdf-generator.mjs` | Node.js | PDF avanzado con categorías visuales |
 | `init-juego.py` | Python | Inicializa estructura de nuevo juego |
 | `validate-design.py` | Python | Valida diseño contra reglas |
+| `validate-game-integrity.py` | Python | ⭐ Validación cruzada de integridad: 10 checks universales + tipo-específicos (concurso, street, hall, investigation) |
 | `review-design.py` | Python | Revisa y puntúa calidad del diseño |
 | `playtest-simulado.py` | Python | Simula 3 perfiles de jugador |
 | `playtest-llm.py` | Python | Playtest simulado con LLM |
